@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>BluetoothDelegate</name>
     <message>
+        <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
@@ -11,3436 +10,4276 @@
 <context>
     <name>BluetoothListModel</name>
     <message>
+        <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
         <translation>点击图标开启蓝牙</translation>
     </message>
     <message>
+        <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
         <translation>连接其他设备</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::MainWindow</name>
+    <name>dccV20::MainWindow</name>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="150"/>
         <source>Touchpad</source>
-        <translation type="unfinished">触控板</translation>
+        <translation>触控板</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="151"/>
         <source>TrackPoint</source>
-        <translation type="unfinished">指点杆</translation>
+        <translation>指点杆</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="180"/>
         <source>Account</source>
-        <translation type="unfinished">账户</translation>
+        <translation>账户</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="182"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="593"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="595"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished">云同步</translation>
+        <translation>云同步</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="183"/>
         <source>Display</source>
-        <translation type="unfinished">显示</translation>
+        <translation>显示</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="184"/>
         <source>Default Applications</source>
-        <translation type="unfinished">默认程序</translation>
+        <translation>默认程序</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="185"/>
         <source>Personalization</source>
-        <translation type="unfinished">个性化</translation>
+        <translation>个性化</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="186"/>
         <source>Network</source>
-        <translation type="unfinished">网络</translation>
+        <translation>网络</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="187"/>
         <source>Sound</source>
-        <translation type="unfinished">声音</translation>
+        <translation>声音</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="188"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="569"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="571"/>
         <source>Bluetooth</source>
-        <translation type="unfinished">蓝牙</translation>
+        <translation>蓝牙</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="189"/>
         <source>Date and Time</source>
-        <translation type="unfinished">日期和时间</translation>
+        <translation>日期和时间</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="190"/>
         <source>Power</source>
-        <translation type="unfinished">电源管理</translation>
+        <translation>电源管理</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="191"/>
         <source>Mouse</source>
-        <translation type="unfinished">鼠标</translation>
+        <translation>鼠标</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="192"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="581"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="583"/>
         <source>Drawing Tablet</source>
-        <translation type="unfinished">数位板</translation>
+        <translation>数位板</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="193"/>
         <source>Keyboard and Language</source>
-        <translation type="unfinished">键盘和语言</translation>
+        <translation>键盘和语言</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="194"/>
         <source>Update</source>
-        <translation type="unfinished">更新</translation>
+        <translation>更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="195"/>
         <source>System Info</source>
-        <translation type="unfinished">系统信息</translation>
+        <translation>系统信息</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="196"/>
         <source>General Settings</source>
-        <translation type="unfinished">通用</translation>
+        <translation>通用</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::AccountsDetailWidget</name>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="152"/>
         <source>Full Name</source>
-        <translation type="unfinished">设置全名</translation>
+        <translation>设置全名</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
         <source>Change Password</source>
-        <translation type="unfinished">修改密码</translation>
-        <extra-contents_path>/accounts/Change Password</extra-contents_path>
+        <translation>修改密码</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="288"/>
         <source>Delete Account</source>
-        <translation type="unfinished">删除账户</translation>
-        <extra-contents_path>/accounts/Delete Account</extra-contents_path>
+        <translation>删除账户</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="291"/>
         <source>Auto Login</source>
-        <translation type="unfinished">自动登录</translation>
-        <extra-contents_path>/accounts/Auto Login</extra-contents_path>
+        <translation>自动登录</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="295"/>
         <source>Login Without Password</source>
-        <translation type="unfinished">无密码登录</translation>
-        <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
+        <translation>无密码登录</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::AddFingeDialog</name>
+    <name>dccV20::accounts::AddFingeDialog</name>
     <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished">添加指纹</translation>
+        <translation>添加指纹</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
         <source>Scan again</source>
-        <translation type="unfinished">重新录入</translation>
+        <translation>重新录入</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
         <source>Done</source>
-        <translation type="unfinished">完成</translation>
+        <translation>完成</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"> 正在识别指纹</translation>
+        <translation> 正在识别指纹</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="unfinished">请将手指按在指纹录入器上，或上下移动，然后松开来录入您的指纹</translation>
+        <translation>请将手指按在指纹录入器上，或上下移动，然后松开来录入您的指纹</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished">成功添加指纹</translation>
+        <translation>成功添加指纹</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::CreateAccountPage</name>
+    <name>dccV20::accounts::CreateAccountPage</name>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="61"/>
         <source>New Account</source>
-        <translation type="unfinished">新账户</translation>
+        <translation>新账户</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="67"/>
         <source>Username</source>
-        <translation type="unfinished">用户名</translation>
+        <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="71"/>
         <source>Full Name</source>
-        <translation type="unfinished">设置全名</translation>
+        <translation>设置全名</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="75"/>
         <source>Password</source>
-        <translation type="unfinished">密码</translation>
+        <translation>密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="79"/>
         <source>Repeat Password</source>
-        <translation type="unfinished">重复密码</translation>
+        <translation>重复密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="84"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="85"/>
         <source>Create</source>
-        <translation type="unfinished">创建</translation>
+        <translation>创建</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
         <source>Required</source>
-        <translation type="unfinished">必填</translation>
+        <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="125"/>
         <source>optional</source>
-        <translation type="unfinished">选填</translation>
+        <translation>选填</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="216"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished">密码不能为空</translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="221"/>
         <source>The password should be different from the username</source>
-        <translation type="unfinished">用户密码不能与用户名相同</translation>
+        <translation>用户密码不能与用户名相同</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="227"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="unfinished">密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
+        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="233"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished">密码不一致</translation>
+        <translation>密码不一致</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="250"/>
         <source>Username cannot be empty</source>
-        <translation type="unfinished">用户名不能为空</translation>
+        <translation>用户名不能为空</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished">用户名长度必须介于3到32个字符之间</translation>
+        <translation>用户名长度必须介于3到32个字符之间</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
         <source>The first character must be in lower case</source>
-        <translation type="unfinished">首字符必须为小写字母</translation>
+        <translation>首字符必须为小写字母</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
-        <translation type="unfinished">用户名只能由a~z,0~9,-,_组成</translation>
+        <translation>用户名只能由a~z,0~9,-,_组成</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::FingerWidget</name>
+    <name>dccV20::accounts::FingerWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished">清除指纹</translation>
+        <translation>清除指纹</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished">指纹密码</translation>
+        <translation>指纹密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="107"/>
         <source>Fingerprint</source>
-        <translation type="unfinished">指纹</translation>
+        <translation>指纹</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="134"/>
         <source>Add fingerprint</source>
-        <translation type="unfinished">添加指纹</translation>
+        <translation>添加指纹</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::ModifyPasswdPage</name>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="58"/>
         <source>Change Password</source>
-        <translation type="unfinished">修改密码</translation>
+        <translation>修改密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="62"/>
         <source>Current Password</source>
-        <translation type="unfinished">当前密码</translation>
+        <translation>当前密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="66"/>
         <source>New Password</source>
-        <translation type="unfinished">新密码</translation>
+        <translation>新密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="70"/>
         <source>Repeat Password</source>
-        <translation type="unfinished">重复密码</translation>
+        <translation>重复密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
         <source>Save</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
         <source>Required</source>
-        <translation type="unfinished">必填</translation>
+        <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
         <source>Wrong password</source>
-        <translation type="unfinished">密码错误</translation>
+        <translation>密码错误</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished">密码不能为空</translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="187"/>
         <source>The password should be different from the username</source>
-        <translation type="unfinished">用户密码不能与用户名相同</translation>
+        <translation>用户密码不能与用户名相同</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="192"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="unfinished">密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
+        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="199"/>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished">新密码和旧密码不能相同</translation>
+        <translation>新密码和旧密码不能相同</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="207"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished">密码不一致</translation>
+        <translation>密码不一致</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::bluetooth::AdapterWidget</name>
+    <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="55"/>
         <source>My devices</source>
-        <translation type="unfinished">我的设备</translation>
+        <translation>我的设备</translation>
+        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="58"/>
         <source>Other devices</source>
-        <translation type="unfinished">其它设备</translation>
+        <translation>其它设备</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation type="unfinished">启用蓝牙寻找附近设备（扬声器、键盘、鼠标）</translation>
-        <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
+        <translation>启用蓝牙寻找附近设备（扬声器、键盘、鼠标）</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::bluetooth::DetailPage</name>
+    <name>dccV20::bluetooth::DetailPage</name>
     <message>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Ignore this device</source>
-        <translation type="unfinished">忽略此设备</translation>
-        <extra-contents_path>/bluetooth/Ignore this device</extra-contents_path>
+        <translation>忽略此设备</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="45"/>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/bluetooth/Disconnect</extra-contents_path>
+        <translation>断开连接</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="51"/>
         <source>Change Name</source>
-        <translation type="unfinished">备注</translation>
-        <extra-contents_path>/bluetooth/Change Name</extra-contents_path>
+        <translation>备注</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::bluetooth::DeviceSettingsItem</name>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="148"/>
         <source>Connected</source>
-        <translation type="unfinished">已连接</translation>
+        <translation>已连接</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="153"/>
         <source>Not connected</source>
-        <translation type="unfinished">未连接</translation>
+        <translation>未连接</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::BootWidget</name>
+    <name>dccV20::commoninfo::BootWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="72"/>
         <source>Updating...</source>
-        <translation type="unfinished">正在更新...</translation>
+        <translation>正在更新...</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="84"/>
         <source>Startup Delay</source>
-        <translation type="unfinished">启动延时</translation>
+        <translation>启动延时</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
         <source>Theme</source>
-        <translation type="unfinished">主题</translation>
+        <translation>主题</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="90"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="unfinished">您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片</translation>
+        <translation>您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="95"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished">开启主题后您可以在开机时看到主题背景</translation>
+        <translation>开启主题后您可以在开机时看到主题背景</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="116"/>
         <source>Boot Menu</source>
-        <translation type="unfinished">启动菜单</translation>
+        <translation>启动菜单</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::CommonInfoWidget</name>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="71"/>
         <source>Boot Menu</source>
-        <translation type="unfinished">启动菜单</translation>
+        <translation>启动菜单</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
-        <translation type="unfinished">用户体验计划</translation>
+        <translation>用户体验计划</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::CommonInfoWork</name>
+    <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="169"/>
         <source>User Experience Program</source>
-        <translation type="unfinished">用户体验计划</translation>
+        <translation>用户体验计划</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="170"/>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished">同意并加入用户体验计划</translation>
+        <translation>同意并加入用户体验计划</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::UserExperienceProgramWidget</name>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="45"/>
         <source>Join User Experience Program</source>
-        <translation type="unfinished">加入用户体验计划</translation>
+        <translation>加入用户体验计划</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="47"/>
         <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
-        <translation type="unfinished">用户体验计划相关条款请参见《最终用户许可协议》的第10~13条</translation>
+        <translation>用户体验计划相关条款请参见《最终用户许可协议》的第10~13条</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::ClockItem</name>
+    <name>dccV20::datetime::ClockItem</name>
     <message>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="181"/>
         <source>AM</source>
-        <translation type="unfinished">上午</translation>
+        <translation>上午</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="181"/>
         <source>PM</source>
-        <translation type="unfinished">下午</translation>
+        <translation>下午</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::DateSettings</name>
+    <name>dccV20::datetime::DateSettings</name>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="81"/>
         <source>Auto Sync</source>
-        <translation type="unfinished">自动同步配置</translation>
+        <translation>自动同步配置</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="88"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="89"/>
         <source>Confirm</source>
-        <translation type="unfinished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="136"/>
         <source>Server</source>
-        <translation type="unfinished">服务器</translation>
+        <translation>服务器</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="143"/>
         <source>Address</source>
-        <translation type="unfinished">地址</translation>
+        <translation>地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="145"/>
         <source>Required</source>
-        <translation type="unfinished">必填</translation>
+        <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="392"/>
         <source>Customize</source>
-        <translation type="unfinished">自定义</translation>
+        <translation>自定义</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::DateWidget</name>
+    <name>dccV20::datetime::DateWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="59"/>
         <source>Year</source>
-        <translation type="unfinished">年</translation>
+        <translation>年</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="62"/>
         <source>Month</source>
-        <translation type="unfinished">月</translation>
+        <translation>月</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="65"/>
         <source>Day</source>
-        <translation type="unfinished">日</translation>
+        <translation>日</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::DatetimeWidget</name>
+    <name>dccV20::datetime::DatetimeWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="61"/>
         <source>Timezone List</source>
-        <translation type="unfinished">时区列表</translation>
+        <translation>时区列表</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Time Settings</source>
-        <translation type="unfinished">时间设置</translation>
+        <translation>时间设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="80"/>
         <source>24-hour Time</source>
-        <translation type="unfinished">24小时制</translation>
+        <translation>24小时制</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::SystemTimezone</name>
+    <name>dccV20::datetime::SystemTimezone</name>
     <message>
+        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="41"/>
         <source>Change System Timezone</source>
-        <translation type="unfinished">修改系统时区</translation>
+        <translation>修改系统时区</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="45"/>
         <source>System Timezone</source>
-        <translation type="unfinished">系统时区</translation>
+        <translation>系统时区</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::TimezoneList</name>
+    <name>dccV20::datetime::TimezoneList</name>
     <message>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="48"/>
         <source>Timezone List</source>
-        <translation type="unfinished">时区列表</translation>
+        <translation>时区列表</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::defapp::DefappDetailWidget</name>
+    <name>dccV20::defapp::DefappDetailWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="237"/>
         <source>Open Desktop file</source>
-        <translation type="unfinished"></translation>
+        <translation>打开Desktop文件</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="289"/>
         <source>Invalid</source>
-        <translation type="unfinished">无效</translation>
+        <translation>无效</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::defapp::DefaultAppsWidget</name>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="49"/>
         <source>Webpage</source>
-        <translation type="unfinished">网页</translation>
+        <translation>网页</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="51"/>
         <source>Mail</source>
-        <translation type="unfinished">邮件</translation>
+        <translation>邮件</translation>
         <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
         <source>Text</source>
-        <translation type="unfinished">文本</translation>
+        <translation>文本</translation>
         <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="55"/>
         <source>Music</source>
-        <translation type="unfinished">音乐</translation>
+        <translation>音乐</translation>
         <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="57"/>
         <source>Video</source>
-        <translation type="unfinished">视频</translation>
+        <translation>视频</translation>
         <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="59"/>
         <source>Picture</source>
-        <translation type="unfinished">图片</translation>
+        <translation>图片</translation>
         <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="61"/>
         <source>Terminal</source>
-        <translation type="unfinished">终端</translation>
+        <translation>终端</translation>
         <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="91"/>
         <source>Default Applications</source>
-        <translation type="unfinished">默认程序</translation>
+        <translation>默认程序</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::BrightnessPage</name>
+    <name>dccV20::display::BrightnessPage</name>
     <message>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="60"/>
         <source>Night Shift</source>
-        <translation type="unfinished">自动调节色温</translation>
+        <translation>自动调节色温</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="64"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished">通过获取地理位置来辅助系统实现自动调节屏幕颜色色调</translation>
+        <translation>通过获取地理位置来辅助系统实现自动调节屏幕颜色色调</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="74"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished">自动调节亮度</translation>
+        <translation>自动调节亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::CustomSettingDialog</name>
+    <name>dccV20::display::CustomSettingDialog</name>
     <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Main Screen</source>
-        <translation type="unfinished">主屏幕</translation>
+        <translation>主屏幕</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
         <source>Resolution</source>
-        <translation type="unfinished">分辨率</translation>
+        <translation>分辨率</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="105"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished">刷新率</translation>
+        <translation>刷新率</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="134"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="138"/>
         <source>Save</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="266"/>
         <source>Hz</source>
-        <translation type="unfinished">赫兹</translation>
+        <translation>赫兹</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="325"/>
         <source>Recommended</source>
-        <translation type="unfinished">推荐</translation>
+        <translation>推荐</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="355"/>
         <source>inch</source>
-        <translation type="unfinished">英寸</translation>
+        <translation>英寸</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="356"/>
         <source>Resolution %1x%2</source>
-        <translation type="unfinished">分辨率  %1x%2</translation>
+        <translation>分辨率  %1x%2</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::DisplayWidget</name>
+    <name>dccV20::display::DisplayWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="121"/>
         <source>Multiple Displays</source>
-        <translation type="unfinished">多屏显示模式</translation>
+        <translation>多屏显示模式</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="131"/>
         <source>Brightness</source>
-        <translation type="unfinished">亮度</translation>
+        <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="133"/>
         <source>Display Scaling</source>
-        <translation type="unfinished">屏幕缩放</translation>
+        <translation>屏幕缩放</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="130"/>
         <source>Resolution</source>
-        <translation type="unfinished">分辨率</translation>
+        <translation>分辨率</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="135"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished">刷新率</translation>
+        <translation>刷新率</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::MultiScreenSettingPage</name>
+    <name>dccV20::display::MultiScreenSettingPage</name>
     <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="51"/>
         <source>Custom Settings</source>
-        <translation type="unfinished">自定义设置</translation>
+        <translation>自定义设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="128"/>
         <source>Duplicate</source>
-        <translation type="unfinished">复制</translation>
+        <translation>复制</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="128"/>
         <source>Extend</source>
-        <translation type="unfinished">扩展</translation>
+        <translation>扩展</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="131"/>
         <source>Show the same image on other screens</source>
-        <translation type="unfinished">将屏幕内容复制到一个或者多个屏幕</translation>
+        <translation>将屏幕内容复制到一个或者多个屏幕</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="132"/>
         <source>Expand the desktop across the screens</source>
-        <translation type="unfinished">扩展屏幕并在不同屏幕显示不同内容</translation>
+        <translation>扩展屏幕并在不同屏幕显示不同内容</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
         <source>%1 only</source>
-        <translation type="unfinished">只在%1显示</translation>
+        <translation>只在%1显示</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
         <source>Show the screen content only on %1</source>
-        <translation type="unfinished">仅在%1上显示屏幕内容</translation>
+        <translation>仅在%1上显示屏幕内容</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
         <source>Customize</source>
-        <translation type="unfinished">自定义</translation>
+        <translation>自定义</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
         <source>Configure the display according to your needs</source>
-        <translation type="unfinished">根据您需要的方式进行自定义配置</translation>
+        <translation>根据您需要的方式进行自定义配置</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::RefreshRatePage</name>
+    <name>dccV20::display::RefreshRatePage</name>
     <message>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="74"/>
         <source>Hz</source>
-        <translation type="unfinished">赫兹</translation>
+        <translation>赫兹</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="76"/>
         <source>Recommended</source>
-        <translation type="unfinished">推荐</translation>
+        <translation>推荐</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::ResolutionDetailPage</name>
+    <name>dccV20::display::ResolutionDetailPage</name>
     <message>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="116"/>
         <source>Recommended</source>
-        <translation type="unfinished">推荐</translation>
+        <translation>推荐</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::RotateDialog</name>
+    <name>dccV20::display::RotateDialog</name>
     <message>
+        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="unfinished">鼠标左键逆时针旋转，右键还原并退出，按Ctrl+S键保存。</translation>
+        <translation>鼠标左键逆时针旋转，右键还原并退出，按Ctrl+S键保存。</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="166"/>
         <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="unfinished">鼠标右键顺时针旋转， 左键还原并退出，按Ctrl+S键保存。</translation>
+        <translation>鼠标右键顺时针旋转， 左键还原并退出，按Ctrl+S键保存。</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="169"/>
         <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation type="unfinished">是否要保存显示设置？如无任何操作将在%1秒后还原。</translation>
+        <translation>是否要保存显示设置？如无任何操作将在%1秒后还原。</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::ScalingPage</name>
+    <name>dccV20::display::ScalingPage</name>
     <message>
+        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="55"/>
         <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation type="unfinished">多屏情况下屏幕缩放对某些应用可能无效</translation>
+        <translation>多屏情况下屏幕缩放对某些应用可能无效</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::CustomContent</name>
+    <name>dccV20::keyboard::CustomContent</name>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="61"/>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished">添加自定义快捷键</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+        <translation>添加自定义快捷键</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="66"/>
         <source>Name</source>
-        <translation type="unfinished">名称</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+        <translation>名称</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="83"/>
         <source>Required</source>
-        <translation type="unfinished">必填</translation>
+        <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="79"/>
         <source>Command</source>
-        <translation type="unfinished">命令</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+        <translation>命令</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="98"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="100"/>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+        <translation>添加</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="131"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished">此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
+        <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::GeneralKBSettingWidget</name>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="46"/>
         <source>Repeat Delay</source>
-        <translation type="unfinished">重复延迟</translation>
+        <translation>重复延迟</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="55"/>
         <source>Short</source>
-        <translation type="unfinished">短</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
+        <translation>短</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="56"/>
         <source>Long</source>
-        <translation type="unfinished">长</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
+        <translation>长</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="60"/>
         <source>Repeat Rate</source>
-        <translation type="unfinished">重复速度</translation>
+        <translation>重复速度</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="69"/>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
+        <translation>慢</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="70"/>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
+        <translation>快</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="76"/>
         <source>Test here</source>
-        <translation type="unfinished">请在此测试</translation>
+        <translation>请在此测试</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="92"/>
         <source>Numeric Keypad</source>
-        <translation type="unfinished">启用数字键盘</translation>
+        <translation>启用数字键盘</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished">大写锁定提示</translation>
+        <translation>大写锁定提示</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::KBLayoutSettingWidget</name>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="58"/>
         <source>Keyboard Layout</source>
-        <translation type="unfinished">键盘布局</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+        <translation>键盘布局</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="68"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished">切换键盘布局(可多选)</translation>
+        <translation>切换键盘布局(可多选)</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="93"/>
         <source>Applies to</source>
-        <translation type="unfinished">切换方式</translation>
+        <translation>切换方式</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="95"/>
         <source>System</source>
-        <translation type="unfinished">系统</translation>
+        <translation>系统</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="95"/>
         <source>Application</source>
-        <translation type="unfinished">应用</translation>
+        <translation>应用</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::KeyboardModule</name>
+    <name>dccV20::keyboard::KeyboardModule</name>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="233"/>
         <source>Custom Shortcut</source>
-        <translation type="unfinished">自定义快捷键</translation>
+        <translation>自定义快捷键</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::KeyboardWidget</name>
+    <name>dccV20::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="51"/>
         <source>General</source>
-        <translation type="unfinished">通用</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
+        <translation>通用</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="53"/>
         <source>Keyboard Layout</source>
-        <translation type="unfinished">键盘布局</translation>
+        <translation>键盘布局</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="55"/>
         <source>System Language</source>
-        <translation type="unfinished">系统语言</translation>
+        <translation>系统语言</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="57"/>
         <source>Shortcuts</source>
-        <translation type="unfinished">快捷键</translation>
+        <translation>快捷键</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::ShortCutSettingWidget</name>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="51"/>
         <source>System</source>
-        <translation type="unfinished">系统</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+        <translation>系统</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="56"/>
         <source>Window</source>
-        <translation type="unfinished">窗口</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+        <translation>窗口</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="61"/>
         <source>Workspace</source>
-        <translation type="unfinished">工作区</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+        <translation>工作区</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
+        <source>Speech</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="77"/>
         <source>Custom Shortcut</source>
-        <translation type="unfinished">自定义快捷键</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+        <translation>自定义快捷键</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="104"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished">恢复默认</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+        <translation>恢复默认</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="129"/>
         <source>Shortcut</source>
-        <translation type="unfinished">快捷键</translation>
+        <translation>快捷键</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::SystemLanguageSettingWidget</name>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
         <source>Add System Language</source>
-        <translation type="unfinished">添加系统语言</translation>
+        <translation>添加系统语言</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::SystemLanguageWidget</name>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
         <source>Language List</source>
-        <translation type="unfinished">语言列表</translation>
-        <extra-contents_path>/keyboard/Language List</extra-contents_path>
+        <translation>语言列表</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::GeneralSettingWidget</name>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="46"/>
         <source>Left Hand</source>
-        <translation type="unfinished">左手模式</translation>
+        <translation>左手模式</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="48"/>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished">输入时禁用触控板</translation>
+        <translation>输入时禁用触控板</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="50"/>
         <source>Scrolling Speed</source>
-        <translation type="unfinished">滚动速度</translation>
+        <translation>滚动速度</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="52"/>
         <source>Double-click Speed</source>
-        <translation type="unfinished">双击速度</translation>
+        <translation>双击速度</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="68"/>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
-        <extra-child_page>General</extra-child_page>
-        <extra-contents_path>/mouse/General</extra-contents_path>
+        <translation>慢</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="69"/>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
-        <extra-child_page>General</extra-child_page>
-        <extra-contents_path>/mouse/General</extra-contents_path>
+        <translation>快</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::MouseModule</name>
+    <name>dccV20::mouse::MouseModule</name>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="57"/>
         <source>Touchpad</source>
-        <translation type="unfinished">触控板</translation>
+        <translation>触控板</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="61"/>
         <source>TrackPoint</source>
-        <translation type="unfinished">指点杆</translation>
+        <translation>指点杆</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::MouseSettingWidget</name>
+    <name>dccV20::mouse::MouseSettingWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="44"/>
         <source>Pointer Speed</source>
-        <translation type="unfinished">指针速度</translation>
+        <translation>指针速度</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="46"/>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished">鼠标加速</translation>
+        <translation>鼠标加速</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished">插入鼠标时禁用触控板</translation>
+        <translation>插入鼠标时禁用触控板</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="51"/>
         <source>Natural Scrolling</source>
-        <translation type="unfinished">自然滚动</translation>
+        <translation>自然滚动</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="54"/>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
-        <extra-child_page>Mouse</extra-child_page>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+        <translation>慢</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="55"/>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
-        <extra-child_page>Mouse</extra-child_page>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+        <translation>快</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::MouseWidget</name>
+    <name>dccV20::mouse::MouseWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="56"/>
         <source>General</source>
-        <translation type="unfinished">通用</translation>
-        <extra-contents_path>/mouse/General</extra-contents_path>
+        <translation>通用</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="58"/>
         <source>Mouse</source>
-        <translation type="unfinished">鼠标</translation>
+        <translation>鼠标</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="60"/>
         <source>Touchpad</source>
-        <translation type="unfinished">触控板</translation>
+        <translation>触控板</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="62"/>
         <source>TrackPoint</source>
-        <translation type="unfinished">指点杆</translation>
+        <translation>指点杆</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::TouchPadSettingWidget</name>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="45"/>
         <source>Pointer Speed</source>
-        <translation type="unfinished">指针速度</translation>
+        <translation>指针速度</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="47"/>
         <source>Tap to Click</source>
-        <translation type="unfinished">轻触以点击</translation>
+        <translation>轻触以点击</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="50"/>
         <source>Natural Scrolling</source>
-        <translation type="unfinished">自然滚动</translation>
+        <translation>自然滚动</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="54"/>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+        <translation>慢</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="55"/>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+        <translation>快</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::TrackPointSettingWidget</name>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="39"/>
         <source>Pointer Speed</source>
-        <translation type="unfinished">指针速度</translation>
+        <translation>指针速度</translation>
         <extra-child_page>TrackPoint</extra-child_page>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="41"/>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
-        <extra-child_page>TrackPoint</extra-child_page>
-        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+        <translation>慢</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="42"/>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
-        <extra-child_page>TrackPoint</extra-child_page>
-        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+        <translation>快</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ChainsProxyPage</name>
+    <name>dccV20::network::ChainsProxyPage</name>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="49"/>
         <source>Application Proxy</source>
-        <translation type="unfinished">应用代理</translation>
+        <translation>应用代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="52"/>
         <source>Proxy Type</source>
-        <translation type="unfinished">代理类型</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+        <translation>代理类型</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
         <source>IP Address</source>
-        <translation type="unfinished">IP 地址</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+        <translation>IP 地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="65"/>
         <source>Required</source>
-        <translation type="unfinished">必填</translation>
+        <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
         <source>Port</source>
-        <translation type="unfinished">端口</translation>
-        <extra-child_page>Application Proxy</extra-child_page>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+        <translation>端口</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="68"/>
         <source>Username</source>
-        <translation type="unfinished">用户名</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+        <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="73"/>
         <source>Optional</source>
-        <translation type="unfinished">选填</translation>
+        <translation>选填</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="72"/>
         <source>Password</source>
-        <translation type="unfinished">密码</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+        <translation>密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="92"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished">配置好代理后，可在启动器的应用右键菜单查看“使用代理”选项，勾选后即可使用代理</translation>
+        <translation>配置好代理后，可在启动器的应用右键菜单查看“使用代理”选项，勾选后即可使用代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="98"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="99"/>
         <source>Save</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ChainsTypePage</name>
+    <name>dccV20::network::ChainsTypePage</name>
     <message>
+        <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation type="unfinished">代理类型</translation>
+        <translation>代理类型</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ConnectionEditPage</name>
+    <name>dccV20::network::ConnectionEditPage</name>
     <message>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>断开连接</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="208"/>
         <source>Delete</source>
-        <translation type="unfinished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
         <source>Save</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="205"/>
         <source>Are you sure you want to delete this configuration?</source>
-        <translation type="unfinished">您确定要删除当前配置吗？</translation>
+        <translation>您确定要删除当前配置吗？</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="381"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished">有线连接 %1</translation>
+        <translation>有线连接 %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="386"/>
         <source>hotspot</source>
-        <translation type="unfinished">热点</translation>
+        <translation>热点</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="388"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished">无线连接 %1</translation>
+        <translation>无线连接 %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished">PPPoE连接 %1</translation>
+        <translation>PPPoE连接 %1</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ConnectionVpnEditPage</name>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="103"/>
         <source>New VPN</source>
-        <translation type="unfinished">新建VPN</translation>
+        <translation>新建VPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="107"/>
         <source>VPN Type</source>
-        <translation type="unfinished">VPN类型</translation>
+        <translation>VPN类型</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="109"/>
         <source>L2TP</source>
-        <translation type="unfinished">L2TP</translation>
+        <translation>L2TP</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="110"/>
         <source>PPTP</source>
-        <translation type="unfinished">PPTP</translation>
+        <translation>PPTP</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="111"/>
         <source>VPNC</source>
-        <translation type="unfinished">VPNC</translation>
+        <translation>VPNC</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="112"/>
         <source>OpenVPN</source>
-        <translation type="unfinished">OpenVPN</translation>
+        <translation>OpenVPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="113"/>
         <source>StrongSwan</source>
-        <translation type="unfinished">StrongSwan</translation>
+        <translation>StrongSwan</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="114"/>
         <source>OpenConnect</source>
-        <translation type="unfinished">OpenConnect</translation>
+        <translation>OpenConnect</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="183"/>
         <source>Export</source>
-        <translation type="unfinished">导出</translation>
+        <translation>导出</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="194"/>
         <source>VPN L2TP %1</source>
-        <translation type="unfinished">VPN L2TP %1</translation>
+        <translation>VPN L2TP %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="198"/>
         <source>VPN PPTP %1</source>
-        <translation type="unfinished">VPN PPTP %1</translation>
+        <translation>VPN PPTP %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="202"/>
         <source>VPN VPNC %1</source>
-        <translation type="unfinished">VPN VPNC %1</translation>
+        <translation>VPN VPNC %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="206"/>
         <source>VPN OpenVPN %1</source>
-        <translation type="unfinished">VPN OpenVPN %1</translation>
+        <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="210"/>
         <source>VPN StrongSwan %1</source>
-        <translation type="unfinished">VPN StrongSwan %1</translation>
+        <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="214"/>
         <source>VPN OpenConnect %1</source>
-        <translation type="unfinished">VPN OpenConnect %1</translation>
+        <translation>VPN OpenConnect %1</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::EthernetSection</name>
+    <name>dccV20::network::EthernetSection</name>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="37"/>
         <source>Ethernet</source>
-        <translation type="unfinished">以太网</translation>
+        <translation>以太网</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
-        <translation type="unfinished">不指定设备</translation>
+        <translation>不指定设备</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="96"/>
         <source>Device MAC Addr</source>
-        <translation type="unfinished">设备MAC地址</translation>
+        <translation>设备MAC地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="112"/>
         <source>Cloned MAC Addr</source>
-        <translation type="unfinished">克隆MAC地址</translation>
+        <translation>克隆MAC地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="125"/>
         <source>Customize MTU</source>
-        <translation type="unfinished">自定义MTU</translation>
+        <translation>自定义MTU</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="128"/>
         <source>MTU</source>
-        <translation type="unfinished">MTU</translation>
+        <translation>MTU</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::GenericHotspotSection</name>
+    <name>dccV20::network::GenericHotspotSection</name>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="31"/>
         <source>General</source>
-        <translation type="unfinished">通用</translation>
+        <translation>通用</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="63"/>
         <source>Name</source>
-        <translation type="unfinished">名称</translation>
+        <translation>名称</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::GenericSection</name>
+    <name>dccV20::network::GenericSection</name>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="33"/>
         <source>General</source>
-        <translation type="unfinished">通用</translation>
+        <translation>通用</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="70"/>
         <source>The name already exists</source>
-        <translation type="unfinished">名称已被占用</translation>
+        <translation>名称已被占用</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="100"/>
         <source>Name</source>
-        <translation type="unfinished">名称</translation>
+        <translation>名称</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
-        <translation type="unfinished">自动连接</translation>
+        <translation>自动连接</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::HotspotDeviceWidget</name>
+    <name>dccV20::network::HotspotDeviceWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="67"/>
         <source>Hotspot</source>
-        <translation type="unfinished">热点</translation>
-    </message>
-    <message>
-        <source>Add Settings</source>
-        <translation type="unfinished">添加设置</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::IpvxSection</name>
-    <message>
-        <source>IPv4</source>
-        <translation type="unfinished">IPv4</translation>
-    </message>
-    <message>
-        <source>IPv6</source>
-        <translation type="unfinished">IPv6</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="unfinished">自动</translation>
-    </message>
-    <message>
-        <source>Manual</source>
-        <translation type="unfinished">手动</translation>
-    </message>
-    <message>
-        <source>Ignore</source>
-        <translation type="unfinished">忽略</translation>
-    </message>
-    <message>
-        <source>IP Address</source>
-        <translation type="unfinished">IP 地址</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished">必填</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="unfinished">网关</translation>
-    </message>
-    <message>
-        <source>Primary DNS</source>
-        <translation type="unfinished">首选DNS</translation>
-    </message>
-    <message>
-        <source>Secondary DNS</source>
-        <translation type="unfinished">备用DNS</translation>
-    </message>
-    <message>
-        <source>Only applied in corresponding resources</source>
-        <translation type="unfinished">仅用于相对应的网络上的资源</translation>
-    </message>
-    <message>
-        <source>Method</source>
-        <translation type="unfinished">方法</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation type="unfinished">子网掩码</translation>
-    </message>
-    <message>
-        <source>Prefix</source>
-        <translation type="unfinished">前缀</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::NetworkDetailPage</name>
-    <message>
-        <source>Network Details</source>
-        <translation type="unfinished">网络详情</translation>
-    </message>
-    <message>
-        <source>Hotspot</source>
-        <translation type="unfinished">热点</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation type="unfinished">SSID</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="unfinished">安全</translation>
-    </message>
-    <message>
-        <source>Interface</source>
-        <translation type="unfinished">接口</translation>
-    </message>
-    <message>
-        <source>MAC</source>
-        <translation type="unfinished">MAC</translation>
-    </message>
-    <message>
-        <source>Band</source>
-        <translation type="unfinished">频段</translation>
-    </message>
-    <message>
-        <source>IPv4</source>
-        <translation type="unfinished">IPv4</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="unfinished">网关</translation>
-    </message>
-    <message>
-        <source>Primary DNS</source>
-        <translation type="unfinished">首选DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation type="unfinished">子网掩码</translation>
-    </message>
-    <message>
-        <source>IPv6</source>
-        <translation type="unfinished">IPv6</translation>
-    </message>
-    <message>
-        <source>Prefix</source>
-        <translation type="unfinished">前缀</translation>
-    </message>
-    <message>
-        <source>Speed</source>
-        <translation type="unfinished">速率</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::NetworkModuleWidget</name>
-    <message>
-        <source>DSL</source>
-        <translation type="unfinished">DSL</translation>
-        <extra-contents_path>/network/DSL</extra-contents_path>
-    </message>
-    <message>
-        <source>VPN</source>
-        <translation type="unfinished">VPN</translation>
-        <extra-contents_path>/network/VPN</extra-contents_path>
-    </message>
-    <message>
-        <source>System Proxy</source>
-        <translation type="unfinished">系统代理</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Application Proxy</source>
-        <translation type="unfinished">应用代理</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Network Details</source>
-        <translation type="unfinished">网络详情</translation>
-        <extra-contents_path>/network/Network Details</extra-contents_path>
-    </message>
-    <message>
-        <source>Personal Hotspot</source>
-        <translation type="unfinished">个人热点</translation>
+        <translation>热点</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <source>Wired Network %1</source>
-        <translation type="unfinished">有线网络 %1</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Wired Network</source>
-        <translation type="unfinished">有线网络</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Wireless Network %1</source>
-        <translation type="unfinished">无线网络%1</translation>
-        <extra-contents_path>/network/Wireless Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Wireless Network</source>
-        <translation type="unfinished">无线网络</translation>
-        <extra-contents_path>/network/Wireless Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation type="unfinished">已断开</translation>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="68"/>
+        <source>Add Settings</source>
+        <translation>添加设置</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::PPPOESection</name>
+    <name>dccV20::network::IpvxSection</name>
     <message>
-        <source>PPPoE</source>
-        <translation type="unfinished">拨号</translation>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="33"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
     </message>
     <message>
-        <source>Invalid password</source>
-        <translation type="unfinished">密码无效</translation>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="53"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
     </message>
     <message>
-        <source>Username</source>
-        <translation type="unfinished">用户名</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished">必填</translation>
-    </message>
-    <message>
-        <source>Service</source>
-        <translation type="unfinished">服务</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">密码</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::PPPSection</name>
-    <message>
-        <source>PPP</source>
-        <translation type="unfinished">PPP</translation>
-    </message>
-    <message>
-        <source>Refuse EAP Authentication</source>
-        <translation type="unfinished">拒绝EAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse PAP Authentication</source>
-        <translation type="unfinished">拒绝PAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse CHAP Authentication</source>
-        <translation type="unfinished">拒绝CHAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation type="unfinished">拒绝MSCHAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="unfinished">拒绝MSCHAPv2认证</translation>
-    </message>
-    <message>
-        <source>No BSD Data Compression</source>
-        <translation type="unfinished">无BSD数据压缩</translation>
-    </message>
-    <message>
-        <source>No Deflate Data Compression</source>
-        <translation type="unfinished">无Deflate数据压缩</translation>
-    </message>
-    <message>
-        <source>No TCP Header Compression</source>
-        <translation type="unfinished">无TCP头压缩</translation>
-    </message>
-    <message>
-        <source>No Protocol Field Compression</source>
-        <translation type="unfinished">无协议字段压缩</translation>
-    </message>
-    <message>
-        <source>No Address/Control Compression</source>
-        <translation type="unfinished">无地址/控制压缩</translation>
-    </message>
-    <message>
-        <source>Send PPP Echo Packets</source>
-        <translation type="unfinished">发送PPP回响包</translation>
-    </message>
-    <message>
-        <source>Use MPPE</source>
-        <translation type="unfinished">使用MPPE点到点加密</translation>
-    </message>
-    <message>
-        <source>128-bit MPPE</source>
-        <translation type="unfinished">使用128位MPPE</translation>
-    </message>
-    <message>
-        <source>Stateful MPPE</source>
-        <translation type="unfinished">使用带状态的MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::PppoePage</name>
-    <message>
-        <source>PPP</source>
-        <translation type="unfinished">PPP</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::ProxyPage</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished">保存</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="unfinished">无</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Manual</source>
-        <translation type="unfinished">手动</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="235"/>
         <source>Auto</source>
-        <translation type="unfinished">自动</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
+        <translation>自动</translation>
     </message>
     <message>
-        <source>Optional</source>
-        <translation type="unfinished">选填</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="236"/>
+        <source>Manual</source>
+        <translation>手动</translation>
     </message>
     <message>
-        <source>HTTP Proxy</source>
-        <translation type="unfinished">HTTP代理</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="237"/>
+        <source>Ignore</source>
+        <translation>忽略</translation>
     </message>
     <message>
-        <source>Port</source>
-        <translation type="unfinished">端口</translation>
-        <extra-child_page>System Proxy</extra-child_page>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
+        <source>IP Address</source>
+        <translation>IP 地址</translation>
     </message>
     <message>
-        <source>HTTPS Proxy</source>
-        <translation type="unfinished">HTTPS代理</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>FTP Proxy</source>
-        <translation type="unfinished">FTP代理</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>SOCKS Proxy</source>
-        <translation type="unfinished">SOCKS代理</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished">忽略以上主机和域的代理配置</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Configuration URL</source>
-        <translation type="unfinished">配置URL</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>System Proxy</source>
-        <translation type="unfinished">系统代理</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::Secret8021xSection</name>
-    <message>
-        <source>Security</source>
-        <translation type="unfinished">安全</translation>
-    </message>
-    <message>
-        <source>TLS</source>
-        <translation type="unfinished">TLS</translation>
-    </message>
-    <message>
-        <source>MD5</source>
-        <translation type="unfinished">MD5</translation>
-    </message>
-    <message>
-        <source>LEAP</source>
-        <translation type="unfinished">LEAP</translation>
-    </message>
-    <message>
-        <source>FAST</source>
-        <translation type="unfinished">FAST</translation>
-    </message>
-    <message>
-        <source>Tunneled TLS</source>
-        <translation type="unfinished">隧道TLS</translation>
-    </message>
-    <message>
-        <source>Protected EAP</source>
-        <translation type="unfinished">受保护的EAP</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="unfinished">已保存的</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="unfinished">总是询问</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="unfinished">不要求</translation>
-    </message>
-    <message>
-        <source>Disabled</source>
-        <translation type="unfinished">已禁用</translation>
-    </message>
-    <message>
-        <source>Anonymous</source>
-        <translation type="unfinished">匿名</translation>
-    </message>
-    <message>
-        <source>Authenticated</source>
-        <translation type="unfinished">已认证</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="unfinished">兼有</translation>
-    </message>
-    <message>
-        <source>Automatic</source>
-        <translation type="unfinished">自动</translation>
-    </message>
-    <message>
-        <source>Version 0</source>
-        <translation type="unfinished">版本0</translation>
-    </message>
-    <message>
-        <source>Version 1</source>
-        <translation type="unfinished">版本1</translation>
-    </message>
-    <message>
-        <source>EAP Auth</source>
-        <translation type="unfinished">EAP认证</translation>
-    </message>
-    <message>
-        <source>Identity</source>
-        <translation type="unfinished">身份</translation>
-    </message>
-    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="311"/>
         <source>Required</source>
-        <translation type="unfinished">必填</translation>
+        <translation>必填</translation>
     </message>
     <message>
-        <source>Pwd Options</source>
-        <translation type="unfinished">密码选项</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="unfinished">私钥</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="unfinished">CA证书</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="unfinished">用户证书</translation>
-    </message>
-    <message>
-        <source>Anonymous ID</source>
-        <translation type="unfinished">匿名身份</translation>
-    </message>
-    <message>
-        <source>Provisioning</source>
-        <translation type="unfinished">自动PAC配置</translation>
-    </message>
-    <message>
-        <source>PAC file</source>
-        <translation type="unfinished">PAC文件</translation>
-    </message>
-    <message>
-        <source>Inner Auth</source>
-        <translation type="unfinished">内部认证</translation>
-    </message>
-    <message>
-        <source>PEAP Version</source>
-        <translation type="unfinished">PEAP版本</translation>
-    </message>
-    <message>
-        <source>Private Pwd</source>
-        <translation type="unfinished">私钥密码</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">密码</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="unfinished">密码无效</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::SecretHotspotSection</name>
-    <message>
-        <source>Invalid password</source>
-        <translation type="unfinished">密码无效</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="unfinished">无</translation>
-    </message>
-    <message>
-        <source>WEP 40/128-bit</source>
-        <translation type="unfinished">WEP40/128位密钥</translation>
-    </message>
-    <message>
-        <source>WPA/WPA2 Personal</source>
-        <translation type="unfinished">WPA/WPA2个人版</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="unfinished">安全</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished">必填</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="unfinished">密钥</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">密码</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::SecretWiredSection</name>
-    <message>
-        <source>Security Required</source>
-        <translation type="unfinished">安全</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::SecretWirelessSection</name>
-    <message>
-        <source>Invalid password</source>
-        <translation type="unfinished">密码无效</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="unfinished">无</translation>
-    </message>
-    <message>
-        <source>WEP 40/128-bit</source>
-        <translation type="unfinished">WEP40/128位密钥</translation>
-    </message>
-    <message>
-        <source>WPA/WPA2 Personal</source>
-        <translation type="unfinished">WPA/WPA2个人版</translation>
-    </message>
-    <message>
-        <source>WPA/WPA2 Enterprise</source>
-        <translation type="unfinished">WPA/WPA2企业版</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="unfinished">安全</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished">必填</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="unfinished">密钥</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">密码</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnAdvOpenVPNSection</name>
-    <message>
-        <source>VPN Advanced</source>
-        <translation type="unfinished">VPN高级选项</translation>
-    </message>
-    <message>
-        <source>Customize Gateway Port</source>
-        <translation type="unfinished">自定义网关端口</translation>
-    </message>
-    <message>
-        <source>Gateway Port</source>
-        <translation type="unfinished">网关端口</translation>
-    </message>
-    <message>
-        <source>Customize Renegotiation Interval</source>
-        <translation type="unfinished">自定义重新协商间隔</translation>
-    </message>
-    <message>
-        <source>Renegotiation Interval</source>
-        <translation type="unfinished">重新协商间隔</translation>
-    </message>
-    <message>
-        <source>Use LZO Data Compression</source>
-        <translation type="unfinished">使用LZO压缩</translation>
-    </message>
-    <message>
-        <source>Use TCP Connection</source>
-        <translation type="unfinished">使用TCP连接</translation>
-    </message>
-    <message>
-        <source>Use TAP Device</source>
-        <translation type="unfinished">使用TAP设备</translation>
-    </message>
-    <message>
-        <source>Customize Tunnel MTU</source>
-        <translation type="unfinished">自定义最大传输单元(MTU)</translation>
-    </message>
-    <message>
-        <source>MTU</source>
-        <translation type="unfinished">MTU</translation>
-    </message>
-    <message>
-        <source>Customize UDP Fragment Size</source>
-        <translation type="unfinished">自定义UDP数据报段长度</translation>
-    </message>
-    <message>
-        <source>UDP Fragment Size</source>
-        <translation type="unfinished">UDP数据报段长度</translation>
-    </message>
-    <message>
-        <source>Restrict Tunnel TCP MSS</source>
-        <translation type="unfinished">限制隧道TCP最大段长度(MSS)</translation>
-    </message>
-    <message>
-        <source>Randomize Remote Hosts</source>
-        <translation type="unfinished">随机远程主机</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnAdvVPNCSection</name>
-    <message>
-        <source>VPN Advanced</source>
-        <translation type="unfinished">VPN高级选项</translation>
-    </message>
-    <message>
-        <source>Cisco (default)</source>
-        <translation type="unfinished">思科（默认）</translation>
-    </message>
-    <message>
-        <source>Netscreen</source>
-        <translation type="unfinished">网屏</translation>
-    </message>
-    <message>
-        <source>Secure (default)</source>
-        <translation type="unfinished">安全（默认）</translation>
-    </message>
-    <message>
-        <source>Weak</source>
-        <translation type="unfinished">弱</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="unfinished">无</translation>
-    </message>
-    <message>
-        <source>NAT-T When Available (default)</source>
-        <translation type="unfinished">NAT-T若可用（默认）</translation>
-    </message>
-    <message>
-        <source>NAT-T Always</source>
-        <translation type="unfinished">总是NAT-T</translation>
-    </message>
-    <message>
-        <source>Cisco UDP</source>
-        <translation type="unfinished">思科UDP</translation>
-    </message>
-    <message>
-        <source>Disabled</source>
-        <translation type="unfinished">已禁用</translation>
-    </message>
-    <message>
-        <source>DH Group 1</source>
-        <translation type="unfinished">DH Group 1</translation>
-    </message>
-    <message>
-        <source>DH Group 2 (default)</source>
-        <translation type="unfinished">DH Group 2（默认）</translation>
-    </message>
-    <message>
-        <source>DH Group 5</source>
-        <translation type="unfinished">DH Group 5</translation>
-    </message>
-    <message>
-        <source>Server (default)</source>
-        <translation type="unfinished">服务器（默认）</translation>
-    </message>
-    <message>
-        <source>DH Group 2</source>
-        <translation type="unfinished">DH Group 2</translation>
-    </message>
-    <message>
-        <source>Domain</source>
-        <translation type="unfinished">域</translation>
-    </message>
-    <message>
-        <source>Vendor</source>
-        <translation type="unfinished">供应商</translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation type="unfinished">版本</translation>
-    </message>
-    <message>
-        <source>Encryption</source>
-        <translation type="unfinished">加密</translation>
-    </message>
-    <message>
-        <source>NAT Traversal Mode</source>
-        <translation type="unfinished">NAT遍历</translation>
-    </message>
-    <message>
-        <source>IKE DH Group</source>
-        <translation type="unfinished">IKE DH 组</translation>
-    </message>
-    <message>
-        <source>Forward Secrecy</source>
-        <translation type="unfinished">前向保密</translation>
-    </message>
-    <message>
-        <source>Local Port</source>
-        <translation type="unfinished">本地端口</translation>
-    </message>
-    <message>
-        <source>Disable Dead Peer Detection</source>
-        <translation type="unfinished">禁用死端检测</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnIpsecSection</name>
-    <message>
-        <source>VPN IPsec</source>
-        <translation type="unfinished">VPN IPsec</translation>
-    </message>
-    <message>
-        <source>Enable IPsec</source>
-        <translation type="unfinished">启用IPsec</translation>
-    </message>
-    <message>
-        <source>Group Name</source>
-        <translation type="unfinished">组名</translation>
-    </message>
-    <message>
-        <source>Group ID</source>
-        <translation type="unfinished">组ID</translation>
-    </message>
-    <message>
-        <source>Pre-Shared Key</source>
-        <translation type="unfinished">预共享密钥</translation>
-    </message>
-    <message>
-        <source>Phase1 Algorithms</source>
-        <translation type="unfinished">密钥交换协议</translation>
-    </message>
-    <message>
-        <source>Phase2 Algorithms</source>
-        <translation type="unfinished">安全封装协议</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnOpenConnectSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="unfinished">VPN</translation>
-    </message>
-    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
         <source>Gateway</source>
-        <translation type="unfinished">网关</translation>
+        <translation>网关</translation>
     </message>
     <message>
-        <source>Required</source>
-        <translation type="unfinished">必填</translation>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="246"/>
+        <source>Primary DNS</source>
+        <translation>首选DNS</translation>
     </message>
     <message>
-        <source>CA Cert</source>
-        <translation type="unfinished">CA证书</translation>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="247"/>
+        <source>Secondary DNS</source>
+        <translation>备用DNS</translation>
     </message>
     <message>
-        <source>Proxy</source>
-        <translation type="unfinished">代理</translation>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="248"/>
+        <source>Only applied in corresponding resources</source>
+        <translation>仅用于相对应的网络上的资源</translation>
     </message>
     <message>
-        <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation type="unfinished">允许思科安全桌面木马</translation>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="252"/>
+        <source>Method</source>
+        <translation>方法</translation>
     </message>
     <message>
-        <source>CSD Script</source>
-        <translation type="unfinished">CSD 脚本</translation>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="310"/>
+        <source>Netmask</source>
+        <translation>子网掩码</translation>
     </message>
     <message>
-        <source>User Cert</source>
-        <translation type="unfinished">用户证书</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="unfinished">私钥</translation>
-    </message>
-    <message>
-        <source>Use FSID for Key Passphrase</source>
-        <translation type="unfinished">为密钥口令句使用FSID</translation>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="321"/>
+        <source>Prefix</source>
+        <translation>前缀</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnOpenVPNSection</name>
+    <name>dccV20::network::NetworkDetailPage</name>
     <message>
-        <source>VPN</source>
-        <translation type="unfinished">VPN</translation>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="91"/>
+        <source>Network Details</source>
+        <translation>网络详情</translation>
     </message>
     <message>
-        <source>Certificates (TLS)</source>
-        <translation type="unfinished">证书（TLS）</translation>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="131"/>
+        <source>Hotspot</source>
+        <translation>热点</translation>
     </message>
     <message>
-        <source>Password</source>
-        <translation type="unfinished">密码</translation>
-    </message>
-    <message>
-        <source>Certificates with Password (TLS)</source>
-        <translation type="unfinished">证书和密码（TLS）</translation>
-    </message>
-    <message>
-        <source>Static Key</source>
-        <translation type="unfinished">静态密钥</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="unfinished">已保存的</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="unfinished">总是询问</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="unfinished">不要求</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="unfinished">网关</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished">必填</translation>
-    </message>
-    <message>
-        <source>Auth Type</source>
-        <translation type="unfinished">认证类型</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="unfinished">CA证书</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="unfinished">用户证书</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="unfinished">私钥</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="unfinished">密码选项</translation>
-    </message>
-    <message>
-        <source>Private Pwd</source>
-        <translation type="unfinished">私钥密码</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished">用户名</translation>
-    </message>
-    <message>
-        <source>Customize Key Direction</source>
-        <translation type="unfinished">自定义密钥方向</translation>
-    </message>
-    <message>
-        <source>Key Direction</source>
-        <translation type="unfinished">密钥方向</translation>
-    </message>
-    <message>
-        <source>Remote IP</source>
-        <translation type="unfinished">远程IP</translation>
-    </message>
-    <message>
-        <source>Local IP</source>
-        <translation type="unfinished">本地IP</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="unfinished">密码无效</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnPPPSection</name>
-    <message>
-        <source>VPN PPP</source>
-        <translation type="unfinished">VPN PPP</translation>
-    </message>
-    <message>
-        <source>All Available (default)</source>
-        <translation type="unfinished">都可用（默认）</translation>
-    </message>
-    <message>
-        <source>40-bit (less secure)</source>
-        <translation type="unfinished">40位（较安全）</translation>
-    </message>
-    <message>
-        <source>128-bit (most secure)</source>
-        <translation type="unfinished">128位（最安全）</translation>
-    </message>
-    <message>
-        <source>Refuse EAP Authentication</source>
-        <translation type="unfinished">拒绝EAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse PAP Authentication</source>
-        <translation type="unfinished">拒绝PAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse CHAP Authentication</source>
-        <translation type="unfinished">拒绝CHAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation type="unfinished">拒绝MSCHAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="unfinished">拒绝MSCHAPv2认证</translation>
-    </message>
-    <message>
-        <source>No BSD Data Compression</source>
-        <translation type="unfinished">无BSD数据压缩</translation>
-    </message>
-    <message>
-        <source>No Deflate Data Compression</source>
-        <translation type="unfinished">无Deflate数据压缩</translation>
-    </message>
-    <message>
-        <source>No TCP Header Compression</source>
-        <translation type="unfinished">无TCP头压缩</translation>
-    </message>
-    <message>
-        <source>No Protocol Field Compression</source>
-        <translation type="unfinished">无协议字段压缩</translation>
-    </message>
-    <message>
-        <source>No Address/Control Compression</source>
-        <translation type="unfinished">无地址/控制压缩</translation>
-    </message>
-    <message>
-        <source>Send PPP Echo Packets</source>
-        <translation type="unfinished">发送PPP回响包</translation>
-    </message>
-    <message>
-        <source>Use MPPE</source>
-        <translation type="unfinished">使用MPPE点到点加密</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="unfinished">安全</translation>
-    </message>
-    <message>
-        <source>Stateful MPPE</source>
-        <translation type="unfinished">使用带状态的MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnPage</name>
-    <message>
-        <source>VPN Status</source>
-        <translation type="unfinished">VPN状态</translation>
-    </message>
-    <message>
-        <source>Import Error</source>
-        <translation type="unfinished">导入错误</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="unfinished">确定</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnProxySection</name>
-    <message>
-        <source>VPN Proxy</source>
-        <translation type="unfinished">VPN代理</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="unfinished">密码无效</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="unfinished">不要求</translation>
-    </message>
-    <message>
-        <source>HTTP</source>
-        <translation type="unfinished">HTTP</translation>
-    </message>
-    <message>
-        <source>SOCKS</source>
-        <translation type="unfinished">SOCKS</translation>
-    </message>
-    <message>
-        <source>Proxy Type</source>
-        <translation type="unfinished">代理类型</translation>
-    </message>
-    <message>
-        <source>Server IP</source>
-        <translation type="unfinished">服务器地址</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished">必填</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="unfinished">端口</translation>
-    </message>
-    <message>
-        <source>Retry Indefinitely When Failed</source>
-        <translation type="unfinished">失败时重试</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished">用户名</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">密码</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnSSTPSection</name>
-    <message>
-        <source>CA File</source>
-        <translation type="unfinished">CA文件</translation>
-    </message>
-    <message>
-        <source>Ignore Certificate Warnings</source>
-        <translation type="unfinished">忽略证书警告</translation>
-    </message>
-    <message>
-        <source>Use TLS Hostname Extensions</source>
-        <translation type="unfinished">使用TLS主机名扩展</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnSecOpenVPNSection</name>
-    <message>
-        <source>VPN Security</source>
-        <translation type="unfinished">VPN安全</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="unfinished">默认</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="unfinished">无</translation>
-    </message>
-    <message>
-        <source>Cipher</source>
-        <translation type="unfinished">加密</translation>
-    </message>
-    <message>
-        <source>HMAC Auth</source>
-        <translation type="unfinished">HMAC认证</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="unfinished">VPN</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="unfinished">密码无效</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="unfinished">已保存的</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="unfinished">总是询问</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="unfinished">不要求</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="unfinished">网关</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished">必填</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished">用户名</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="unfinished">密码选项</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">密码</translation>
-    </message>
-    <message>
-        <source>NT Domain</source>
-        <translation type="unfinished">NT域</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnSstpProxySection</name>
-    <message>
-        <source>VPN Proxy</source>
-        <translation type="unfinished">VPN代理</translation>
-    </message>
-    <message>
-        <source>Server IP</source>
-        <translation type="unfinished">服务器地址</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="unfinished">端口</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished">用户名</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">密码</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnStrongSwanSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="unfinished">VPN</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="unfinished">私钥</translation>
-    </message>
-    <message>
-        <source>SSH Agent</source>
-        <translation type="unfinished">SSH代理</translation>
-    </message>
-    <message>
-        <source>Smart Card</source>
-        <translation type="unfinished">智能卡</translation>
-    </message>
-    <message>
-        <source>EAP</source>
-        <translation type="unfinished">EAP</translation>
-    </message>
-    <message>
-        <source>Pre-Shared Key</source>
-        <translation type="unfinished">预共享密钥</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="unfinished">网关</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished">必填</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="unfinished">CA证书</translation>
-    </message>
-    <message>
-        <source>Auth Type</source>
-        <translation type="unfinished">认证类型</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="unfinished">用户证书</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished">用户名</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">密码</translation>
-    </message>
-    <message>
-        <source>Request an Inner IP Address</source>
-        <translation type="unfinished">请求内部IP地址</translation>
-    </message>
-    <message>
-        <source>Enforce UDP Encapsulation</source>
-        <translation type="unfinished">强制使用UDP封装</translation>
-    </message>
-    <message>
-        <source>Use IP Compression</source>
-        <translation type="unfinished">使用IP压缩 </translation>
-    </message>
-    <message>
-        <source>Enable Custom Cipher Proposals</source>
-        <translation type="unfinished">启用自定义加密方案</translation>
-    </message>
-    <message>
-        <source>IKE</source>
-        <translation type="unfinished">IKE</translation>
-    </message>
-    <message>
-        <source>ESP</source>
-        <translation type="unfinished">ESP</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnTLSSection</name>
-    <message>
-        <source>VPN TLS Authentication</source>
-        <translation type="unfinished">VPN TLS 认证</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="unfinished">默认</translation>
-    </message>
-    <message>
-        <source>Client</source>
-        <translation type="unfinished">客户端</translation>
-    </message>
-    <message>
-        <source>Server</source>
-        <translation type="unfinished">服务器</translation>
-    </message>
-    <message>
-        <source>Subject Match</source>
-        <translation type="unfinished">主题匹配</translation>
-    </message>
-    <message>
-        <source>Remote Cert Type</source>
-        <translation type="unfinished">远程证书类型</translation>
-    </message>
-    <message>
-        <source>Key File</source>
-        <translation type="unfinished">密钥文件</translation>
-    </message>
-    <message>
-        <source>Customize Key Direction</source>
-        <translation type="unfinished">自定义密钥方向</translation>
-    </message>
-    <message>
-        <source>Key Direction</source>
-        <translation type="unfinished">密钥方向</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::VpnVPNCSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="unfinished">VPN</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="unfinished">密码无效</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="unfinished">已保存的</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="unfinished">总是询问</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="unfinished">不要求</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="unfinished">网关</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="unfinished">必填</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished">用户名</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="unfinished">密码选项</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">密码</translation>
-    </message>
-    <message>
-        <source>Group Name</source>
-        <translation type="unfinished">组名</translation>
-    </message>
-    <message>
-        <source>Group Pwd</source>
-        <translation type="unfinished">组密码</translation>
-    </message>
-    <message>
-        <source>Use Hybrid Authentication</source>
-        <translation type="unfinished">使用混合认证</translation>
-    </message>
-    <message>
-        <source>CA File</source>
-        <translation type="unfinished">CA文件</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::WiredPage</name>
-    <message>
-        <source>Plug in the network cable first</source>
-        <translation type="unfinished">请您先插入网线！</translation>
-    </message>
-    <message>
-        <source>Wired Network Adapter</source>
-        <translation type="unfinished">有线网卡</translation>
-    </message>
-    <message>
-        <source>Select Settings</source>
-        <translation type="unfinished">选择设置</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::WirelessPage</name>
-    <message>
-        <source>Connect to hidden network</source>
-        <translation type="unfinished">连接到隐藏网络</translation>
-    </message>
-    <message>
-        <source>Wireless Network Adapter</source>
-        <translation type="unfinished">无线网卡</translation>
-    </message>
-    <message>
-        <source>Close Hotspot</source>
-        <translation type="unfinished">关闭热点</translation>
-    </message>
-    <message>
-        <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation type="unfinished">若要连接并使用无线网络功能，请先关闭热点分享</translation>
-    </message>
-    <message>
-        <source>WLAN</source>
-        <translation type="unfinished">WLAN</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::network::WirelessSection</name>
-    <message>
-        <source>Not Bind</source>
-        <translation type="unfinished">不指定设备</translation>
-    </message>
-    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="137"/>
         <source>SSID</source>
-        <translation type="unfinished">SSID</translation>
+        <translation>SSID</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="149"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="154"/>
+        <source>Interface</source>
+        <translation>接口</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="158"/>
+        <source>MAC</source>
+        <translation>MAC</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="162"/>
+        <source>Band</source>
+        <translation>频段</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="170"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="194"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="198"/>
+        <source>Primary DNS</source>
+        <translation>首选DNS</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="182"/>
+        <source>Netmask</source>
+        <translation>子网掩码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="190"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="202"/>
+        <source>Prefix</source>
+        <translation>前缀</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="207"/>
+        <source>Speed</source>
+        <translation>速率</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="158"/>
+        <source>Personal Hotspot</source>
+        <translation>个人热点</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModuleWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="63"/>
+        <source>DSL</source>
+        <translation>DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="71"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="79"/>
+        <source>System Proxy</source>
+        <translation>系统代理</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="85"/>
+        <source>Application Proxy</source>
+        <translation>应用代理</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="93"/>
+        <source>Network Details</source>
+        <translation>网络详情</translation>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="253"/>
+        <source>Personal Hotspot</source>
+        <translation>个人热点</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="268"/>
+        <source>Wired Network %1</source>
+        <translation>有线网络 %1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="271"/>
+        <source>Wired Network</source>
+        <translation>有线网络</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="275"/>
+        <source>Wireless Network %1</source>
+        <translation>无线网络%1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="278"/>
+        <source>Wireless Network</source>
+        <translation>无线网络</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="319"/>
+        <source>Disconnected</source>
+        <translation>已断开</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPOESection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="31"/>
+        <source>PPPoE</source>
+        <translation>拨号</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="61"/>
+        <source>Invalid password</source>
+        <translation>密码无效</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="81"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="89"/>
         <source>Required</source>
-        <translation type="unfinished">必填</translation>
+        <translation>必填</translation>
     </message>
     <message>
-        <source>Device MAC Addr</source>
-        <translation type="unfinished">设备MAC地址</translation>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="85"/>
+        <source>Service</source>
+        <translation>服务</translation>
     </message>
     <message>
-        <source>Customize MTU</source>
-        <translation type="unfinished">自定义MTU</translation>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="88"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="31"/>
+        <source>PPP</source>
+        <translation>PPP</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="86"/>
+        <source>Refuse EAP Authentication</source>
+        <translation>拒绝EAP认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="87"/>
+        <source>Refuse PAP Authentication</source>
+        <translation>拒绝PAP认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="88"/>
+        <source>Refuse CHAP Authentication</source>
+        <translation>拒绝CHAP认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="89"/>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation>拒绝MSCHAP认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="90"/>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation>拒绝MSCHAPv2认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="91"/>
+        <source>No BSD Data Compression</source>
+        <translation>无BSD数据压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="92"/>
+        <source>No Deflate Data Compression</source>
+        <translation>无Deflate数据压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="93"/>
+        <source>No TCP Header Compression</source>
+        <translation>无TCP头压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="94"/>
+        <source>No Protocol Field Compression</source>
+        <translation>无协议字段压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="95"/>
+        <source>No Address/Control Compression</source>
+        <translation>无地址/控制压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="96"/>
+        <source>Send PPP Echo Packets</source>
+        <translation>发送PPP回响包</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="104"/>
+        <source>Use MPPE</source>
+        <translation>使用MPPE点到点加密</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="107"/>
+        <source>128-bit MPPE</source>
+        <translation>使用128位MPPE</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="110"/>
+        <source>Stateful MPPE</source>
+        <translation>使用带状态的MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PppoePage</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="73"/>
+        <source>PPP</source>
+        <translation>PPP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="75"/>
+        <source>Create PPPOE Connection</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ProxyPage</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
+        <source>Save</source>
+        <translation>保存</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="63"/>
+        <source>Manual</source>
+        <translation>手动</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="64"/>
+        <source>Auto</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="104"/>
+        <source>Optional</source>
+        <translation>选填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="70"/>
+        <source>HTTP Proxy</source>
+        <translation>HTTP代理</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="94"/>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
+        <source>HTTPS Proxy</source>
+        <translation>HTTPS代理</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
+        <source>FTP Proxy</source>
+        <translation>FTP代理</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
+        <source>SOCKS Proxy</source>
+        <translation>SOCKS代理</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="101"/>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation>忽略以上主机和域的代理配置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
+        <source>Configuration URL</source>
+        <translation>配置URL</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="161"/>
+        <source>System Proxy</source>
+        <translation>系统代理</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::Secret8021xSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="34"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="156"/>
+        <source>TLS</source>
+        <translation>TLS</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="157"/>
+        <source>MD5</source>
+        <translation>MD5</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="158"/>
+        <source>LEAP</source>
+        <translation>LEAP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="159"/>
+        <source>FAST</source>
+        <translation>FAST</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="160"/>
+        <source>Tunneled TLS</source>
+        <translation>隧道TLS</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
+        <source>Protected EAP</source>
+        <translation>受保护的EAP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
+        <source>Saved</source>
+        <translation>已保存的</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
+        <source>Ask</source>
+        <translation>总是询问</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
+        <source>Not Required</source>
+        <translation>不要求</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
+        <source>Disabled</source>
+        <translation>已禁用</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
+        <source>Anonymous</source>
+        <translation>匿名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="174"/>
+        <source>Authenticated</source>
+        <translation>已认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="175"/>
+        <source>Both</source>
+        <translation>兼有</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="191"/>
+        <source>Automatic</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="192"/>
+        <source>Version 0</source>
+        <translation>版本0</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="193"/>
+        <source>Version 1</source>
+        <translation>版本1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="205"/>
+        <source>EAP Auth</source>
+        <translation>EAP认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="229"/>
+        <source>Identity</source>
+        <translation>身份</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="245"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
+        <source>Pwd Options</source>
+        <translation>密码选项</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="340"/>
+        <source>Private Key</source>
+        <translation>私钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="452"/>
+        <source>CA Cert</source>
+        <translation>CA证书</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="348"/>
+        <source>User Cert</source>
+        <translation>用户证书</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="370"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="448"/>
+        <source>Anonymous ID</source>
+        <translation>匿名身份</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="374"/>
+        <source>Provisioning</source>
+        <translation>自动PAC配置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="386"/>
+        <source>PAC file</source>
+        <translation>PAC文件</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="467"/>
+        <source>Inner Auth</source>
+        <translation>内部认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="456"/>
+        <source>PEAP Version</source>
+        <translation>PEAP版本</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="546"/>
+        <source>Private Pwd</source>
+        <translation>私钥密码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="548"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="587"/>
+        <source>Invalid password</source>
+        <translation>密码无效</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretHotspotSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
+        <source>Invalid password</source>
+        <translation>密码无效</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="113"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
+        <source>WEP 40/128-bit</source>
+        <translation>WEP40/128位密钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>WPA/WPA2个人版</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="122"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="128"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="157"/>
+        <source>Key</source>
+        <translation>密钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="163"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWiredSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="34"/>
+        <source>Security Required</source>
+        <translation>安全</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWirelessSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="76"/>
+        <source>Invalid password</source>
+        <translation>密码无效</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
+        <source>WEP 40/128-bit</source>
+        <translation>WEP40/128位密钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>WPA/WPA2个人版</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="110"/>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation>WPA/WPA2企业版</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="116"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
+        <source>Key</source>
+        <translation>密钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="179"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
+        <source>VPN Advanced</source>
+        <translation>VPN高级选项</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
+        <source>Customize Gateway Port</source>
+        <translation>自定义网关端口</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
+        <source>Gateway Port</source>
+        <translation>网关端口</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
+        <source>Customize Renegotiation Interval</source>
+        <translation>自定义重新协商间隔</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
+        <source>Renegotiation Interval</source>
+        <translation>重新协商间隔</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
+        <source>Use LZO Data Compression</source>
+        <translation>使用LZO压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
+        <source>Use TCP Connection</source>
+        <translation>使用TCP连接</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
+        <source>Use TAP Device</source>
+        <translation>使用TAP设备</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
+        <source>Customize Tunnel MTU</source>
+        <translation>自定义最大传输单元(MTU)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
         <source>MTU</source>
-        <translation type="unfinished">MTU</translation>
+        <translation>MTU</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
+        <source>Customize UDP Fragment Size</source>
+        <translation>自定义UDP数据报段长度</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
+        <source>UDP Fragment Size</source>
+        <translation>UDP数据报段长度</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation>限制隧道TCP最大段长度(MSS)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
+        <source>Randomize Remote Hosts</source>
+        <translation>随机远程主机</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PersonalizationFontsWidget</name>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
+        <source>VPN Advanced</source>
+        <translation>VPN高级选项</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
+        <source>Cisco (default)</source>
+        <translation>思科（默认）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="143"/>
+        <source>Netscreen</source>
+        <translation>网屏</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
+        <source>Secure (default)</source>
+        <translation>安全（默认）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="147"/>
+        <source>Weak</source>
+        <translation>弱</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
+        <source>NAT-T When Available (default)</source>
+        <translation>NAT-T若可用（默认）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
+        <source>NAT-T Always</source>
+        <translation>总是NAT-T</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="153"/>
+        <source>Cisco UDP</source>
+        <translation>思科UDP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="154"/>
+        <source>Disabled</source>
+        <translation>已禁用</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
+        <source>DH Group 1</source>
+        <translation>DH Group 1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="158"/>
+        <source>DH Group 2 (default)</source>
+        <translation>DH Group 2（默认）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="166"/>
+        <source>DH Group 5</source>
+        <translation>DH Group 5</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
+        <source>Server (default)</source>
+        <translation>服务器（默认）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
+        <source>DH Group 2</source>
+        <translation>DH Group 2</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="172"/>
+        <source>Domain</source>
+        <translation>域</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="175"/>
+        <source>Vendor</source>
+        <translation>供应商</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="185"/>
+        <source>Version</source>
+        <translation>版本</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
+        <source>Encryption</source>
+        <translation>加密</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="198"/>
+        <source>NAT Traversal Mode</source>
+        <translation>NAT遍历</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="208"/>
+        <source>IKE DH Group</source>
+        <translation>IKE DH 组</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="218"/>
+        <source>Forward Secrecy</source>
+        <translation>前向保密</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="228"/>
+        <source>Local Port</source>
+        <translation>本地端口</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="233"/>
+        <source>Disable Dead Peer Detection</source>
+        <translation>禁用死端检测</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnIpsecSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
+        <source>VPN IPsec</source>
+        <translation>VPN IPsec</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
+        <source>Enable IPsec</source>
+        <translation>启用IPsec</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
+        <source>Group Name</source>
+        <translation>组名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
+        <source>Group ID</source>
+        <translation>组ID</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
+        <source>Pre-Shared Key</source>
+        <translation>预共享密钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
+        <source>Phase1 Algorithms</source>
+        <translation>密钥交换协议</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
+        <source>Phase2 Algorithms</source>
+        <translation>安全封装协议</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenConnectSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
+        <source>CA Cert</source>
+        <translation>CA证书</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
+        <source>Proxy</source>
+        <translation>代理</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation>允许思科安全桌面木马</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
+        <source>CSD Script</source>
+        <translation>CSD 脚本</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
+        <source>User Cert</source>
+        <translation>用户证书</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
+        <source>Private Key</source>
+        <translation>私钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
+        <source>Use FSID for Key Passphrase</source>
+        <translation>为密钥口令句使用FSID</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenVPNSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
+        <source>Certificates (TLS)</source>
+        <translation>证书（TLS）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="246"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
+        <source>Certificates with Password (TLS)</source>
+        <translation>证书和密码（TLS）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
+        <source>Static Key</source>
+        <translation>静态密钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
+        <source>Saved</source>
+        <translation>已保存的</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
+        <source>Ask</source>
+        <translation>总是询问</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
+        <source>Not Required</source>
+        <translation>不要求</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
+        <source>Auth Type</source>
+        <translation>认证类型</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="148"/>
+        <source>CA Cert</source>
+        <translation>CA证书</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="180"/>
+        <source>User Cert</source>
+        <translation>用户证书</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="184"/>
+        <source>Private Key</source>
+        <translation>私钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="233"/>
+        <source>Pwd Options</source>
+        <translation>密码选项</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="201"/>
+        <source>Private Pwd</source>
+        <translation>私钥密码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="228"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
+        <source>Customize Key Direction</source>
+        <translation>自定义密钥方向</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
+        <source>Key Direction</source>
+        <translation>密钥方向</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
+        <source>Remote IP</source>
+        <translation>远程IP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
+        <source>Local IP</source>
+        <translation>本地IP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="431"/>
+        <source>Invalid password</source>
+        <translation>密码无效</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPPPSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
+        <source>VPN PPP</source>
+        <translation>VPN PPP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
+        <source>All Available (default)</source>
+        <translation>都可用（默认）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
+        <source>40-bit (less secure)</source>
+        <translation>40位（较安全）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
+        <source>128-bit (most secure)</source>
+        <translation>128位（最安全）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
+        <source>Refuse EAP Authentication</source>
+        <translation>拒绝EAP认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
+        <source>Refuse PAP Authentication</source>
+        <translation>拒绝PAP认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
+        <source>Refuse CHAP Authentication</source>
+        <translation>拒绝CHAP认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation>拒绝MSCHAP认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation>拒绝MSCHAPv2认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
+        <source>No BSD Data Compression</source>
+        <translation>无BSD数据压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
+        <source>No Deflate Data Compression</source>
+        <translation>无Deflate数据压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
+        <source>No TCP Header Compression</source>
+        <translation>无TCP头压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
+        <source>No Protocol Field Compression</source>
+        <translation>无协议字段压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
+        <source>No Address/Control Compression</source>
+        <translation>无地址/控制压缩</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
+        <source>Send PPP Echo Packets</source>
+        <translation>发送PPP回响包</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
+        <source>Use MPPE</source>
+        <translation>使用MPPE点到点加密</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="163"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="176"/>
+        <source>Stateful MPPE</source>
+        <translation>使用带状态的MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPage</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="90"/>
+        <source>VPN Status</source>
+        <translation>VPN状态</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="117"/>
+        <source>Create VPN</source>
+        <translation>创建</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="123"/>
+        <source>Import VPN</source>
+        <translation>导入VPN</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="319"/>
+        <source>Import Error</source>
+        <translation>导入错误</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="321"/>
+        <source>OK</source>
+        <translation>确定</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnProxySection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="38"/>
+        <source>VPN Proxy</source>
+        <translation>VPN代理</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="87"/>
+        <source>Invalid password</source>
+        <translation>密码无效</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
+        <source>Not Required</source>
+        <translation>不要求</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="144"/>
+        <source>HTTP</source>
+        <translation>HTTP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="145"/>
+        <source>SOCKS</source>
+        <translation>SOCKS</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="151"/>
+        <source>Proxy Type</source>
+        <translation>代理类型</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="163"/>
+        <source>Server IP</source>
+        <translation>服务器地址</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="180"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="167"/>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="172"/>
+        <source>Retry Indefinitely When Failed</source>
+        <translation>失败时重试</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="175"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="179"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSSTPSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="79"/>
+        <source>CA File</source>
+        <translation>CA文件</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
+        <source>Ignore Certificate Warnings</source>
+        <translation>忽略证书警告</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
+        <source>Use TLS Hostname Extensions</source>
+        <translation>使用TLS主机名扩展</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="31"/>
+        <source>VPN Security</source>
+        <translation>VPN安全</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="98"/>
+        <source>Default</source>
+        <translation>默认</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="99"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="113"/>
+        <source>Cipher</source>
+        <translation>加密</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="125"/>
+        <source>HMAC Auth</source>
+        <translation>HMAC认证</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="72"/>
+        <source>Invalid password</source>
+        <translation>密码无效</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
+        <source>Saved</source>
+        <translation>已保存的</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
+        <source>Ask</source>
+        <translation>总是询问</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
+        <source>Not Required</source>
+        <translation>不要求</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="136"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
+        <source>Pwd Options</source>
+        <translation>密码选项</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="135"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="139"/>
+        <source>NT Domain</source>
+        <translation>NT域</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSstpProxySection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
+        <source>VPN Proxy</source>
+        <translation>VPN代理</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
+        <source>Server IP</source>
+        <translation>服务器地址</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnStrongSwanSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="174"/>
+        <source>Private Key</source>
+        <translation>私钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
+        <source>SSH Agent</source>
+        <translation>SSH代理</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
+        <source>Smart Card</source>
+        <translation>智能卡</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
+        <source>EAP</source>
+        <translation>EAP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="146"/>
+        <source>Pre-Shared Key</source>
+        <translation>预共享密钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
+        <source>CA Cert</source>
+        <translation>CA证书</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
+        <source>Auth Type</source>
+        <translation>认证类型</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
+        <source>User Cert</source>
+        <translation>用户证书</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="177"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="180"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="183"/>
+        <source>Request an Inner IP Address</source>
+        <translation>请求内部IP地址</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="186"/>
+        <source>Enforce UDP Encapsulation</source>
+        <translation>强制使用UDP封装</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="189"/>
+        <source>Use IP Compression</source>
+        <translation>使用IP压缩 </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="192"/>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation>启用自定义加密方案</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="195"/>
+        <source>IKE</source>
+        <translation>IKE</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="198"/>
+        <source>ESP</source>
+        <translation>ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnTLSSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
+        <source>VPN TLS Authentication</source>
+        <translation>VPN TLS 认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
+        <source>Default</source>
+        <translation>默认</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="82"/>
+        <source>Client</source>
+        <translation>客户端</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
+        <source>Server</source>
+        <translation>服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="89"/>
+        <source>Subject Match</source>
+        <translation>主题匹配</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="92"/>
+        <source>Remote Cert Type</source>
+        <translation>远程证书类型</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="104"/>
+        <source>Key File</source>
+        <translation>密钥文件</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="107"/>
+        <source>Customize Key Direction</source>
+        <translation>自定义密钥方向</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="110"/>
+        <source>Key Direction</source>
+        <translation>密钥方向</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnVPNCSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="98"/>
+        <source>Invalid password</source>
+        <translation>密码无效</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
+        <source>Saved</source>
+        <translation>已保存的</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="164"/>
+        <source>Ask</source>
+        <translation>总是询问</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="165"/>
+        <source>Not Required</source>
+        <translation>不要求</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="209"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="197"/>
+        <source>Pwd Options</source>
+        <translation>密码选项</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="193"/>
+        <source>Group Name</source>
+        <translation>组名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="208"/>
+        <source>Group Pwd</source>
+        <translation>组密码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="212"/>
+        <source>Use Hybrid Authentication</source>
+        <translation>使用混合认证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="215"/>
+        <source>CA File</source>
+        <translation>CA文件</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WiredPage</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="68"/>
+        <source>Plug in the network cable first</source>
+        <translation>请您先插入网线！</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="74"/>
+        <source>Wired Network Adapter</source>
+        <translation>有线网卡</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="97"/>
+        <source>Select Settings</source>
+        <translation>选择设置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="105"/>
+        <source>Add Network Connection</source>
+        <translation>添加网络连接</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessPage</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="211"/>
+        <source>Connect to hidden network</source>
+        <translation>连接到隐藏网络</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="221"/>
+        <source>Wireless Network Adapter</source>
+        <translation>无线网卡</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="230"/>
+        <source>Close Hotspot</source>
+        <translation>关闭热点</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="233"/>
+        <source>Disable hotspot first if you want to connect to a wireless network</source>
+        <translation>若要连接并使用无线网络功能，请先关闭热点分享</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="256"/>
+        <source>WLAN</source>
+        <translation>WLAN</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
+        <source>Not Bind</source>
+        <translation>不指定设备</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="123"/>
+        <source>SSID</source>
+        <translation>SSID</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="124"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="127"/>
+        <source>Device MAC Addr</source>
+        <translation>设备MAC地址</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="156"/>
+        <source>Customize MTU</source>
+        <translation>自定义MTU</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="159"/>
+        <source>MTU</source>
+        <translation>MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="47"/>
         <source>Size</source>
-        <translation type="unfinished">字号</translation>
+        <translation>字号</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="79"/>
         <source>Standard Font</source>
-        <translation type="unfinished">标准字体</translation>
+        <translation>标准字体</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="92"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished">等宽字体</translation>
+        <translation>等宽字体</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="198"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished">(不支持的字体)</translation>
+        <translation>(不支持的字体)</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PersonalizationGeneral</name>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="58"/>
         <source>Transparency</source>
-        <translation type="unfinished">透明度调节</translation>
+        <translation>透明度调节</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="65"/>
         <source>Theme</source>
-        <translation type="unfinished">主题</translation>
+        <translation>主题</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="72"/>
         <source>Accent Color</source>
-        <translation type="unfinished">活动用色</translation>
+        <translation>活动用色</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
         <source>Window Effect</source>
-        <translation type="unfinished">窗口特效</translation>
+        <translation>窗口特效</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PersonalizationList</name>
+    <name>dccV20::personalization::PersonalizationList</name>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="47"/>
         <source>General</source>
-        <translation type="unfinished">通用</translation>
+        <translation>通用</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="49"/>
         <source>Icon Theme</source>
-        <translation type="unfinished">图标主题</translation>
+        <translation>图标主题</translation>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="51"/>
         <source>Cursor Theme</source>
-        <translation type="unfinished">光标主题</translation>
+        <translation>光标主题</translation>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="53"/>
         <source>Font</source>
-        <translation type="unfinished">字体</translation>
+        <translation>字体</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PerssonalizationThemeList</name>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="83"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>轻</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
         <source>Dark</source>
-        <translation type="unfinished">深色</translation>
+        <translation>深色</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
         <source>Auto</source>
-        <translation type="unfinished">自动</translation>
+        <translation>自动</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="92"/>
         <source>Default</source>
-        <translation type="unfinished">默认</translation>
+        <translation>默认</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PerssonalizationThemeWidget</name>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="77"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>浅色</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="80"/>
         <source>Dark</source>
-        <translation type="unfinished">深色</translation>
+        <translation>深色</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="83"/>
         <source>Auto</source>
-        <translation type="unfinished">自动</translation>
+        <translation>自动</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="88"/>
         <source>Default</source>
-        <translation type="unfinished">默认</translation>
+        <translation>默认</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::GeneralWidget</name>
+    <name>dccV20::power::GeneralWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="52"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished">节能模式</translation>
+        <translation>节能模式</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="42"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished">自动切换节能模式</translation>
+        <translation>自动切换节能模式</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="56"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished">待机恢复时需要密码</translation>
+        <translation>待机恢复时需要密码</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished">唤醒显示器时需要密码</translation>
+        <translation>唤醒显示器时需要密码</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::PowerModule</name>
+    <name>dccV20::power::PowerModule</name>
     <message>
-        <source>Battery low, please plug in</source>
-        <translation type="unfinished">电池电量低，请连接电源</translation>
-    </message>
-    <message>
-        <source>Battery critically low</source>
-        <translation type="unfinished">电池电量耗尽</translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::power::PowerWidget</name>
-    <message>
-        <source>General</source>
-        <translation type="unfinished">通用</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation type="unfinished">使用电源</translation>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="62"/>
         <source>On Battery</source>
-        <translation type="unfinished">使用电池</translation>
+        <translation>使用电池</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="218"/>
+        <source>Battery low, please plug in</source>
+        <translation>电池电量低，请连接电源</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="220"/>
+        <source>Battery critically low</source>
+        <translation>电池电量耗尽</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="58"/>
+        <source>General</source>
+        <translation>通用</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="60"/>
+        <source>Plugged In</source>
+        <translation>使用电源</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="62"/>
+        <source>On Battery</source>
+        <translation>使用电池</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::UseBatteryWidget</name>
+    <name>dccV20::power::UseBatteryWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="42"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
         <source>Monitor will suspend after</source>
-        <translation type="unfinished">关闭显示器于</translation>
+        <translation>关闭显示器于</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished">电脑进入待机模式</translation>
+        <translation>电脑进入待机模式</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="57"/>
         <source>Lock screen after</source>
-        <translation type="unfinished">自动锁屏</translation>
+        <translation>自动锁屏</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="60"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished">合上笔记本时待机</translation>
+        <translation>合上笔记本时待机</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="179"/>
         <source>Never</source>
-        <translation type="unfinished">从不</translation>
+        <translation>从不</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="161"/>
         <source>1 Minute</source>
-        <translation type="unfinished">1 分钟</translation>
+        <translation>1 分钟</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="182"/>
         <source>%1 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 分钟</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="176"/>
         <source>1 Hour</source>
-        <translation type="unfinished">1 小时</translation>
+        <translation>1 小时</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::UseElectricWidget</name>
+    <name>dccV20::power::UseElectricWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="52"/>
         <source>Monitor will suspend after</source>
-        <translation type="unfinished">关闭显示器于</translation>
+        <translation>关闭显示器于</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="55"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished">电脑进入待机模式</translation>
+        <translation>电脑进入待机模式</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="58"/>
         <source>Lock screen after</source>
-        <translation type="unfinished">自动锁屏</translation>
+        <translation>自动锁屏</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="61"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished">合上笔记本时待机</translation>
+        <translation>合上笔记本时待机</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="185"/>
         <source>Never</source>
-        <translation type="unfinished">从不</translation>
+        <translation>从不</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="167"/>
         <source>1 Minute</source>
-        <translation type="unfinished">1 分钟</translation>
+        <translation>1 分钟</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="188"/>
         <source>%1 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 分钟</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="182"/>
         <source>1 Hour</source>
-        <translation type="unfinished">1 小时</translation>
+        <translation>1 小时</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::search::SearchWidget</name>
+    <name>dccV20::search::SearchWidget</name>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="290"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="600"/>
         <source>Touchpad</source>
-        <translation type="unfinished">触控板</translation>
+        <translation>触控板</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="295"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="605"/>
         <source>TrackPoint</source>
-        <translation type="unfinished">指点杆</translation>
+        <translation>指点杆</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="300"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="610"/>
+        <source>Personal Hotspot</source>
+        <translation>个人热点</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="305"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="615"/>
+        <source>On Battery</source>
+        <translation>使用电池</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::AdvancedPage</name>
+    <name>dccV20::sound::AdvancedPage</name>
     <message>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="63"/>
         <source>Output</source>
-        <translation type="unfinished">输出</translation>
+        <translation>输出</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="85"/>
         <source>Input</source>
-        <translation type="unfinished">输入</translation>
+        <translation>输入</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="137"/>
         <source>Sound Card:</source>
-        <translation type="unfinished">声卡：</translation>
+        <translation>声卡：</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::MicrophonePage</name>
+    <name>dccV20::sound::MicrophonePage</name>
     <message>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="61"/>
         <source>Microphone</source>
-        <translation type="unfinished">麦克风</translation>
+        <translation>麦克风</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="100"/>
         <source>Input Volume</source>
-        <translation type="unfinished">输入音量</translation>
+        <translation>输入音量</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="135"/>
         <source>Input Level</source>
-        <translation type="unfinished">反馈音量</translation>
+        <translation>反馈音量</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::SoundEffectsPage</name>
+    <name>dccV20::sound::SoundEffectsPage</name>
     <message>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="48"/>
         <source>Sound Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>系统音效</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::SoundWidget</name>
+    <name>dccV20::sound::SoundWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="73"/>
         <source>Speaker</source>
-        <translation type="unfinished">扬声器</translation>
+        <translation>扬声器</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
         <source>Microphone</source>
-        <translation type="unfinished">麦克风</translation>
+        <translation>麦克风</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="77"/>
         <source>Advanced</source>
-        <translation type="unfinished">高级设置</translation>
+        <translation>高级设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="79"/>
         <source>Sound Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>系统音效</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::SpeakerPage</name>
+    <name>dccV20::sound::SpeakerPage</name>
     <message>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="48"/>
         <source>Speaker</source>
-        <translation type="unfinished">扬声器</translation>
+        <translation>扬声器</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="75"/>
         <source>Output Volume</source>
-        <translation type="unfinished">输出音量</translation>
+        <translation>输出音量</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="110"/>
         <source>Left/Right Balance</source>
-        <translation type="unfinished">左/右平衡</translation>
+        <translation>左/右平衡</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="115"/>
         <source>Left</source>
-        <translation type="unfinished">左</translation>
+        <translation>左</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="116"/>
         <source>Right</source>
-        <translation type="unfinished">右</translation>
+        <translation>右</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sync::IndexPage</name>
+    <name>dccV20::sync::IndexPage</name>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="43"/>
         <source>Auto Sync</source>
-        <translation type="unfinished">自动同步配置</translation>
+        <translation>自动同步配置</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="47"/>
         <source>Syncing...</source>
-        <translation type="unfinished">正在同步...</translation>
+        <translation>正在同步...</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="89"/>
         <source>Sign Out</source>
-        <translation type="unfinished">登出</translation>
+        <translation>登出</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="111"/>
         <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
-        <translation type="unfinished">开启网络同步会同步您的WiFi密码</translation>
+        <translation>开启网络同步会同步您的WiFi密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="141"/>
         <source>Network Settings</source>
-        <translation type="unfinished">网络</translation>
+        <translation>网络</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="142"/>
         <source>Sound Settings</source>
-        <translation type="unfinished">声音</translation>
+        <translation>声音</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="143"/>
         <source>Mouse Settings</source>
-        <translation type="unfinished">鼠标</translation>
+        <translation>鼠标</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="144"/>
         <source>Update Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="145"/>
         <source>Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>驻留</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="146"/>
         <source>Launcher</source>
-        <translation type="unfinished">启动器</translation>
+        <translation>启动器</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="147"/>
         <source>Wallpaper</source>
-        <translation type="unfinished">壁纸</translation>
+        <translation>壁纸</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="148"/>
         <source>Theme</source>
-        <translation type="unfinished">主题</translation>
+        <translation>主题</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
         <source>Power Settings</source>
-        <translation type="unfinished">电源</translation>
+        <translation>电源</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
         <source>Corner Settings</source>
-        <translation type="unfinished">热区</translation>
+        <translation>热区</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="247"/>
         <source>Last Sync: %1</source>
-        <translation type="unfinished">上次同步时间：%1</translation>
+        <translation>上次同步时间：%1</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="249"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation type="unfinished">yyyy-MM-dd hh:mm</translation>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sync::LoginPage</name>
+    <name>dccV20::sync::LoginPage</name>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="19"/>
         <source>Sign In</source>
-        <translation type="unfinished">登录</translation>
+        <translation>登录</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="25"/>
         <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
-        <translation type="unfinished">使用Deepin ID登录并开启云同步服务，可以帮助你同步一些系统设置。</translation>
+        <translation>使用Deepin ID登录并开启云同步服务，可以帮助你同步一些系统设置。</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>Deepin ID Sign In</source>
-        <translation type="unfinished">Deepin ID登录</translation>
+        <translation>Deepin ID登录</translation>
         <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="46"/>
         <source>Only supported in Mainland China at present</source>
-        <translation type="unfinished">目前仅支持中国大陆地区</translation>
+        <translation>目前仅支持中国大陆地区</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sync::LogoutPage</name>
+    <name>dccV20::sync::LogoutPage</name>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="43"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation type="unfinished">非常抱歉，您所在的地区暂未开通此项服务，我们在努力开发中，敬请期待！</translation>
+        <translation>非常抱歉，您所在的地区暂未开通此项服务，我们在努力开发中，敬请期待！</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="54"/>
         <source>Sign Out</source>
-        <translation type="unfinished">登出</translation>
+        <translation>登出</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::systeminfo::NativeInfoWidget</name>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="59"/>
         <source>Edition:</source>
-        <translation type="unfinished">版本：</translation>
-        <extra-contents_path>/systeminfo/Edition</extra-contents_path>
+        <translation>版本：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="63"/>
         <source>Type:</source>
-        <translation type="unfinished">类型：</translation>
+        <translation>类型：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="67"/>
         <source>Kernel:</source>
-        <translation type="unfinished">内核版本：</translation>
-        <extra-contents_path>/systeminfo/Kernel</extra-contents_path>
+        <translation>内核版本：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="72"/>
         <source>Processor:</source>
-        <translation type="unfinished">处理器：</translation>
-        <extra-contents_path>/systeminfo/Processor</extra-contents_path>
+        <translation>处理器：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="77"/>
         <source>Memory:</source>
-        <translation type="unfinished">内存：</translation>
-        <extra-contents_path>/systeminfo/Memory</extra-contents_path>
+        <translation>内存：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="82"/>
         <source>Disk:</source>
-        <translation type="unfinished">磁盘：</translation>
-        <extra-contents_path>/systeminfo/Disk</extra-contents_path>
+        <translation>磁盘：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="114"/>
         <source>%1-bit</source>
-        <translation type="unfinished">%1位</translation>
+        <translation>%1位</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::systeminfo::SystemInfoWidget</name>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
         <source>About This PC</source>
-        <translation type="unfinished">关于本机</translation>
+        <translation>关于本机</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::MirrorSourceItem</name>
+    <name>dccV20::update::MirrorSourceItem</name>
     <message>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="10"/>
         <source>Untested</source>
-        <translation type="unfinished">未检测</translation>
+        <translation>未检测</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="79"/>
         <source>Timeout</source>
-        <translation type="unfinished">超时</translation>
+        <translation>超时</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="81"/>
         <source>Slow</source>
-        <translation type="unfinished">慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="83"/>
         <source>Medium</source>
-        <translation type="unfinished">中</translation>
+        <translation>中</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="85"/>
         <source>Fast</source>
-        <translation type="unfinished">快</translation>
+        <translation>快</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::MirrorsWidget</name>
+    <name>dccV20::update::MirrorsWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="62"/>
         <source>Mirror List</source>
-        <translation type="unfinished">镜像源列表</translation>
+        <translation>镜像源列表</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="51"/>
         <source>Test Speed</source>
-        <translation type="unfinished">测速</translation>
+        <translation>测速</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="142"/>
         <source>Untested</source>
-        <translation type="unfinished">未检测</translation>
+        <translation>未检测</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="171"/>
         <source>Retest</source>
-        <translation type="unfinished">重新测速</translation>
+        <translation>重新测速</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateCtrlWidget</name>
+    <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="69"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished">为了您能够正常的使用系统和应用，更新后请重新启动</translation>
+        <translation>为了您能够正常的使用系统和应用，更新后请重新启动</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished">网络断开，请联网后重试</translation>
+        <translation>网络断开，请联网后重试</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="90"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished">本次更新可能会用时较长，更新完成前请不要关机或重启</translation>
+        <translation>本次更新可能会用时较长，更新完成前请不要关机或重启</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="198"/>
         <source>Checking for updates, please wait...</source>
-        <translation type="unfinished">检查更新中，请稍候...</translation>
+        <translation>检查更新中，请稍候...</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="206"/>
         <source>Download and install updates</source>
-        <translation type="unfinished">下载并安装更新</translation>
+        <translation>下载并安装更新</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished">已下载%1%（点击暂停）</translation>
+        <translation>已下载%1%（点击暂停）</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished">已下载%1%（点击继续）</translation>
+        <translation>已下载%1%（点击继续）</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="228"/>
         <source>Install updates</source>
-        <translation type="unfinished">安装更新</translation>
+        <translation>安装更新</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="235"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished">您的系统已经是最新的</translation>
+        <translation>您的系统已经是最新的</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="243"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished">正在更新，请稍候......</translation>
+        <translation>正在更新，请稍候......</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished">您已安装最新版本，重启生效！</translation>
+        <translation>您已安装最新版本，重启生效！</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="266"/>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished">当前硬盘空间不足，无法进行系统更新</translation>
+        <translation>当前硬盘空间不足，无法进行系统更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished">依赖错误，检测更新失败</translation>
+        <translation>依赖错误，检测更新失败</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Backing up, please wait...</source>
-        <translation type="unfinished">正在备份，请稍候...</translation>
+        <translation>正在备份，请稍候...</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="283"/>
         <source>System backup failed</source>
-        <translation type="unfinished">系统备份失败</translation>
+        <translation>系统备份失败</translation>
     </message>
     <message numerus="yes">
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="306"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished">
-            <numerusform>检测到%n个应用更新</numerusform>
-        </translation>
+        <translation><numerusform>检测到%n个应用更新</numerusform></translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="311"/>
         <source>New system edition available</source>
-        <translation type="unfinished">检测到有新系统版本</translation>
+        <translation>检测到有新系统版本</translation>
     </message>
     <message numerus="yes">
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished">
-            <numerusform>检测到新系统版本和%n个应用更新</numerusform>
-        </translation>
+        <translation><numerusform>检测到新系统版本和%n个应用更新</numerusform></translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="320"/>
         <source>Downloaded</source>
-        <translation type="unfinished">已下载</translation>
+        <translation>已下载</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
         <source>Size: %1</source>
-        <translation type="unfinished">下载大小：%1</translation>
+        <translation>下载大小：%1</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="unfinished">您的电池电量少于50%，请插入电源后继续</translation>
+        <translation>您的电池电量少于50%，请插入电源后继续</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished">请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
+        <translation>请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateHistoryButton</name>
+    <name>dccV20::update::UpdateHistoryButton</name>
     <message>
+        <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="48"/>
         <source>Update History</source>
-        <translation type="unfinished">历史更新</translation>
+        <translation>历史更新</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateSettings</name>
+    <name>dccV20::update::UpdateSettings</name>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="49"/>
         <source>Update Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>更新设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation type="unfinished">自动清除软件包缓存</translation>
+        <translation>自动清除软件包缓存</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="66"/>
         <source>Updates Notification</source>
-        <translation type="unfinished">更新提醒</translation>
+        <translation>更新提醒</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
         <source>Auto Download Updates</source>
-        <translation type="unfinished">自动下载更新</translation>
+        <translation>自动下载更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished">开启“自动下载更新”，会在有无线网络和有线网络的情况下自动下载</translation>
+        <translation>开启“自动下载更新”，会在有无线网络和有线网络的情况下自动下载</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="79"/>
         <source>System Repository Detection</source>
-        <translation type="unfinished">系统源检测</translation>
+        <translation>系统源检测</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="83"/>
         <source>Show a notification if system update repository has been modified</source>
-        <translation type="unfinished">系统更新源被修改后会弹出通知</translation>
+        <translation>系统更新源被修改后会弹出通知</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="109"/>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished">智能镜像源</translation>
+        <translation>智能镜像源</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="116"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished">开启智能镜像源会自动匹配响应最快的镜像源</translation>
+        <translation>开启智能镜像源会自动匹配响应最快的镜像源</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="130"/>
         <source>Mirror List</source>
-        <translation type="unfinished">镜像源列表</translation>
+        <translation>镜像源列表</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateWidget</name>
+    <name>dccV20::update::UpdateWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
         <source>Update</source>
-        <translation type="unfinished">更新</translation>
+        <translation>更新</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
         <source>Update Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>更新设置</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="71"/>
         <source>Last Update</source>
-        <translation type="unfinished">最近更新</translation>
+        <translation>最近更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="118"/>
         <source>Return</source>
-        <translation type="unfinished">返回</translation>
+        <translation>返回</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="174"/>
         <source>Current Edition</source>
-        <translation type="unfinished">当前版本：</translation>
+        <translation>当前版本：</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="182"/>
         <source>Update History</source>
-        <translation type="unfinished">历史更新</translation>
+        <translation>历史更新</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::wacom::PressureSettings</name>
+    <name>dccV20::wacom::PressureSettings</name>
     <message>
+        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished">压感</translation>
+        <translation>压感</translation>
         <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="52"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>轻</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="52"/>
         <source>Heavy</source>
-        <translation type="unfinished">重</translation>
+        <translation>重</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::wacom::WacomWidget</name>
+    <name>dccV20::wacom::WacomWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="65"/>
         <source>Pen</source>
-        <translation type="unfinished">笔</translation>
+        <translation>笔</translation>
         <extra-contents_path>/wacom/Pen</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="68"/>
         <source>Mouse</source>
-        <translation type="unfinished">鼠标</translation>
+        <translation>鼠标</translation>
         <extra-contents_path>/wacom/Mouse</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="77"/>
         <source>Mode</source>
-        <translation type="unfinished">模式</translation>
+        <translation>模式</translation>
     </message>
 </context>
 <context>
     <name>DisplayControlModel</name>
     <message>
+        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="87"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="89"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
         <translation>扩展</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="91"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
         <translation>只在%1显示</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="99"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>将屏幕内容复制到一个或者多个屏幕</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="101"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation>扩展屏幕并在不同屏幕显示不同内容</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="103"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
         <translation>仅在%1上显示屏幕内容</translation>
     </message>
     <message>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
         <translation>新建自定义设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
         <translation>若要修改自定义显示设置，请进显示模块详细设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
         <translation>点击跳转到显示模块</translation>
     </message>
@@ -3448,6 +4287,8 @@
 <context>
     <name>KeyLabel</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="44"/>
+        <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="92"/>
         <source>None</source>
         <translation>无</translation>
     </message>
@@ -3455,6 +4296,7 @@
 <context>
     <name>NavModel</name>
     <message>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="187"/>
         <source>Navigation</source>
         <translation>导航</translation>
     </message>
@@ -3462,6 +4304,7 @@
 <context>
     <name>NavigationBar</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="242"/>
         <source>Navigation</source>
         <translation>导航</translation>
     </message>
@@ -3469,27 +4312,30 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
+        <location filename="../src/frame/notify/notifydelegate.cpp" line="197"/>
         <source>Yesterday</source>
         <translation>昨天</translation>
     </message>
     <message>
+        <location filename="../src/frame/notify/notifydelegate.cpp" line="199"/>
         <source>The day before yesterday</source>
         <translation>前天</translation>
     </message>
     <message numerus="yes">
+        <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation>
-            <numerusform>%n天前</numerusform>
-        </translation>
+        <translation><numerusform>%n天前</numerusform></translation>
     </message>
 </context>
 <context>
     <name>NotifyWidget</name>
     <message>
+        <location filename="../src/frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
         <translation>无系统通知</translation>
     </message>
     <message>
+        <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
         <translation>全部清除</translation>
     </message>
@@ -3497,42 +4343,53 @@
 <context>
     <name>QObject</name>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="168"/>
         <source>On Battery</source>
         <translation>使用电池</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="169"/>
         <source>Plugged In</source>
         <translation>使用电源</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="170"/>
         <source>General</source>
         <translation>通用</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="171"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="172"/>
         <source>Touchpad</source>
         <translation>触控板</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="173"/>
         <source>TrackPoint</source>
         <translation>指点杆</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="174"/>
         <source>Application Proxy</source>
         <translation>应用代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="175"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="178"/>
         <source>System Proxy</source>
         <translation>系统代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="176"/>
         <source>Time Settings</source>
         <translation>时间设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="177"/>
         <source>Change System Timezone</source>
         <translation>修改系统时区</translation>
     </message>
@@ -3540,22 +4397,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Updates installed! A restart is required, restart now?</source>
         <translation>更新安装完毕， 需要重启， 是否立即重启？</translation>
     </message>
     <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
         <translation>请您先确认已保存所有数据</translation>
     </message>
     <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
         <translation>关机</translation>
     </message>
     <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
         <translation>重启</translation>
     </message>
@@ -3563,6 +4425,7 @@
 <context>
     <name>RotateDialog</name>
     <message>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="137"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
 If no operation, the display will be restored after %1s.</source>
         <translation>鼠标左键旋转，右键还原并退出，按Ctrl+S键保存。
@@ -3572,6 +4435,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>SearchInput</name>
     <message>
+        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -3579,10 +4443,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>SetLocationPage</name>
     <message>
+        <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
         <translation>无搜索结果</translation>
     </message>
     <message>
+        <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="142"/>
         <source>Current City: %1</source>
         <translation>当前城市：%1</translation>
     </message>
@@ -3590,10 +4456,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>SettingsHead</name>
     <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="52"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -3601,10 +4469,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>SettingsWidget</name>
     <message>
+        <location filename="../src/frame/settingswidget.cpp" line="80"/>
         <source>Reset all settings</source>
         <translation>重置所有设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/settingswidget.cpp" line="90"/>
         <source>All Settings</source>
         <translation>所有设置</translation>
     </message>
@@ -3612,58 +4482,72 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>SoundEffectPage</name>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
         <translation>开机</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
         <source>Shut down</source>
         <translation>关机</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
         <source>Log out</source>
         <translation>注销</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
         <translation>唤醒</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
         <translation>音量调节</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
         <translation>电量不足</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>从启动器发送图标到桌面</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
         <translation>清空回收站</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
         <translation>电源接入</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
         <translation>电源拔出</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
         <translation>移动设备接入</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
         <translation>移动设备拔出</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
         <translation>错误提示</translation>
     </message>
@@ -3671,18 +4555,22 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>TimeoutDialog</name>
     <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
         <source>Do you want to save the display settings?</source>
         <translation>是否要保存显示设置？</translation>
     </message>
     <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
         <source>If no operation, the display will be restored after %1s.</source>
         <translation>如无任何操作将在%1秒后还原。</translation>
     </message>
     <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
         <source>Restore</source>
         <translation>还原</translation>
     </message>
     <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
@@ -3690,18 +4578,22 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>UpdateNotifier</name>
     <message>
+        <location filename="../src/frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
         <translation>系统更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>依赖错误，检测更新失败</translation>
     </message>
     <message>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>检测更新失败</translation>
     </message>
     <message>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>检测到系统有更新，点击查看</translation>
     </message>
@@ -3709,6 +4601,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>VpnListModel</name>
     <message>
+        <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
         <translation>点击图标开启VPN</translation>
     </message>
@@ -3716,14 +4609,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>WeatherWidget</name>
     <message>
+        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
         <translation>抱歉，获取天气失败！</translation>
     </message>
     <message>
+        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
         <source>Loading weather...</source>
         <translation>天气加载中.....</translation>
     </message>
     <message>
+        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
         <source>Just updated</source>
         <translation>刚刚更新</translation>
     </message>
@@ -3731,14 +4627,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>WifiListModel</name>
     <message>
+        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
         <translation>点击图标开启WIFI </translation>
     </message>
     <message>
+        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
         <source>Connect to hidden network</source>
         <translation>连接到隐藏网络</translation>
     </message>
     <message>
+        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
         <source>Wireless Card %1</source>
         <translation>无线网卡 %1</translation>
     </message>
@@ -3746,26 +4645,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
         <source>Leave domain</source>
         <translation>离开域</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
         <source>Join domain</source>
         <translation>加入域</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="61"/>
         <source>Domain Server</source>
         <translation>域服务器</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Admin account</source>
         <translation>管理员账户</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="72"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -3773,34 +4678,42 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsDetailWidget</name>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
         <translation>修改头像</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
         <translation>修改全名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
         <translation>修改密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
         <translation>无密码登录</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
         <translation>删除账户</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
         <translation>当前用户已登录，无法删除</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
         <translation>指纹密码</translation>
     </message>
@@ -3808,18 +4721,24 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
+        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
         <translation>创建账户</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="149"/>
+        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Accounts</source>
         <translation>账户</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
         <translation>离开域</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
         <translation>加入域</translation>
     </message>
@@ -3827,30 +4746,37 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="127"/>
         <source>Images</source>
         <translation>图片</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>您的主机成功退出了域服务器</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="349"/>
         <source>Your host joins the domain server successfully</source>
         <translation>您的主机成功加入了域服务器</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="371"/>
         <source>Your host failed to leave the domain server</source>
         <translation>您的主机退出域服务器失败</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="372"/>
         <source>Your host failed to join the domain server</source>
         <translation>您的主机加入域服务器失败</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="375"/>
         <source>AD domain settings</source>
         <translation>AD域设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="444"/>
         <source>Password not match</source>
         <translation>密码不一致</translation>
     </message>
@@ -3858,30 +4784,37 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AddFingerPage</name>
     <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
         <translation>添加指纹</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
         <translation>重新录入</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="56"/>
         <source>Done</source>
         <translation>完成</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
         <translation> 正在识别指纹</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
         <translation>识别指纹失败，将手指放在指纹录入器上，并从下往上移动手指再松开</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Added successfully</source>
         <translation>成功添加指纹</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
         <translation>将手指放在指纹录入器上，并从下往上移动手指再松开，重复此步骤</translation>
     </message>
@@ -3889,46 +4822,60 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::CreatePage</name>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="53"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="54"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="56"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="59"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="55"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="58"/>
         <source>Repeat password</source>
         <translation>重复密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="67"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="68"/>
         <source>Create</source>
         <translation>创建</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="88"/>
         <source>New Account</source>
         <translation>新账户</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
         <source>Username can&apos;t be empty</source>
         <translation>用户名不能为空</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="163"/>
         <source>Password can&apos;t be empty</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
         <source>The password should be different from the username</source>
         <translation>用户密码不能与用户名相同</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="271"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="274"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>密码必须包含英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）</translation>
     </message>
@@ -3936,26 +4883,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::FingerPage</name>
     <message>
+        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
         <translation>指纹列表</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
         <translation>指纹密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
         <translation>添加指纹</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
         <translation>清除指纹</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
         <translation>指纹密码可用于系统登录、应用授权等地方，在需要输入密码的时候扫描指纹即可</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
         <translation>指纹</translation>
     </message>
@@ -3963,14 +4916,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::ModifyFullNamePage</name>
     <message>
+        <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
         <translation>全名：</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="48"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
         <translation>全名设置</translation>
     </message>
@@ -3978,42 +4934,54 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::ModifyPasswordPage</name>
     <message>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
         <translation>重复密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="56"/>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="57"/>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="58"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="62"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="64"/>
         <source>Accept</source>
         <translation>接受</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="117"/>
         <source>New password should differ from the current one</source>
         <translation>新密码和旧密码不能相同</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="156"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="215"/>
         <source>The password should be different from the username</source>
         <translation>用户密码不能与用户名相同</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="223"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>密码必须包含英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）</translation>
     </message>
@@ -4021,18 +4989,22 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::RemoveUserDialog</name>
     <message>
+        <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Are you sure you want to delete this account?</source>
         <translation>您确定要删除此账户吗？</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
         <translation>删除账户目录</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -4040,14 +5012,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::bluetooth::AdapterWidget</name>
     <message>
+        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="47"/>
         <source>My devices</source>
         <translation>我的设备</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="48"/>
         <source>Other devices</source>
         <translation>其它设备</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
         <translation>启用蓝牙寻找附近设备(扬声器、键盘、鼠标)</translation>
     </message>
@@ -4055,6 +5030,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
+        <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="155"/>
+        <location filename="../src/frame/navigationbar.cpp" line="208"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -4062,10 +5040,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::bluetooth::DetailPage</name>
     <message>
+        <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Ignore</source>
         <translation>忽略</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Disconnect</source>
         <translation>断开</translation>
     </message>
@@ -4073,10 +5053,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::bluetooth::DeviceSettingsItem</name>
     <message>
+        <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
         <translation>未连接</translation>
     </message>
@@ -4084,14 +5066,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::bluetooth::PinCodeDialog</name>
     <message>
+        <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
         <translation>连接蓝牙设备的PIN码为：</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
@@ -4099,70 +5084,87 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::cloudsync::SyncStateWidget</name>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
         <source>Syncing</source>
         <translation>正在同步...</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
         <source>Logout</source>
         <translation>登出</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
         <translation>非常抱歉，您所在的地区暂未开通此项服务，我们在努力开发中，敬请期待！</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
         <source>Auto Sync</source>
         <translation>自动同步配置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
         <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
         <translation>开启后会自动同步控制中心、启动器和任务栏的部分设置项。</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
         <source>Network Settings</source>
         <translation>网络</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
         <source>Sound Settings</source>
         <translation>声音</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
         <source>Mouse Settings</source>
         <translation>鼠标</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
         <source>Update Settings</source>
         <translation>更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
         <source>Dock</source>
         <translation>任务栏</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
         <source>Launcher</source>
         <translation>启动器</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
         <source>Wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
         <source>Power Settings</source>
         <translation>电源</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
         <source>Corner Settings</source>
         <translation>热区</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="214"/>
         <source>Last Sync: %1</source>
         <translation>上次同步时间：%1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="216"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
@@ -4170,14 +5172,18 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::cloudsync::SyncWidget</name>
     <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
         <source>Login</source>
         <translation>登录</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
         <source>Cloud Sync</source>
         <translation>云同步</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
         <source>Only supported in Mainland China at present</source>
         <translation>目前仅支持中国大陆地区</translation>
     </message>
@@ -4185,14 +5191,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::datetime::DateSettings</name>
     <message>
+        <location filename="../src/frame/modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
         <translation>修改时间设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
@@ -4200,14 +5209,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::datetime::DateWidget</name>
     <message>
+        <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="56"/>
         <source>Year</source>
         <translation>年</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="59"/>
         <source>Month</source>
         <translation>月</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Day</source>
         <translation>日</translation>
     </message>
@@ -4215,26 +5227,34 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
+        <location filename="../src/frame/modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
         <translation>自动同步</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Time and Date</source>
         <translation>时间日期</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/datetime.cpp" line="61"/>
         <source>Change System Timezone</source>
         <translation>修改系统时区</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/datetime.cpp" line="69"/>
         <source>Time Settings</source>
         <translation>时间设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/datetime.cpp" line="74"/>
         <source>Timezone List</source>
         <translation>时区列表</translation>
     </message>
@@ -4242,23 +5262,29 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::datetime::TimeZoneChooser</name>
     <message>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="61"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="194"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="189"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="190"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
         <source>Change Timezone</source>
         <translation>修改系统时区</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
@@ -4267,22 +5293,27 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::datetime::TimezoneItem</name>
     <message>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="107"/>
         <source>Tomorrow</source>
         <translation>明天</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="109"/>
         <source>Yesterday</source>
         <translation>昨天</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="111"/>
         <source>Today</source>
         <translation>今天</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="130"/>
         <source>%1 hours earlier than local</source>
         <translation>比本地早了%1个小时</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="132"/>
         <source>%1 hours later than local</source>
         <translation>比本地晚了%1个小时</translation>
     </message>
@@ -4290,34 +5321,44 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="152"/>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
         <translation>网页</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
         <source>Mail</source>
         <translation>邮件</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="57"/>
         <source>Text</source>
         <translation>文本</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="58"/>
         <source>Music</source>
         <translation>音乐</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="59"/>
         <source>Video</source>
         <translation>视频</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
         <translation>图片</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="61"/>
         <source>Terminal</source>
         <translation>终端</translation>
     </message>
@@ -4325,10 +5366,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::defapp::DefCategoryAddWidget</name>
     <message>
+        <location filename="../src/frame/modules/defapp/widgets/defcategoryaddwidget.cpp" line="44"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
         <translation>打开desktop文件</translation>
     </message>
@@ -4336,6 +5379,8 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::defapp::DefaultAppsWidget</name>
     <message>
+        <location filename="../src/frame/modules/defapp/defappwidget.cpp" line="46"/>
+        <location filename="../src/frame/modules/defapp/defappwidget.cpp" line="50"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
@@ -4343,18 +5388,22 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
+        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="58"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="81"/>
         <source>Night Shift</source>
         <translation>自动调节色温</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="86"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation>将通过获取地理位置来辅助系统实现自动调节屏幕颜色色调，让您轻松使用的同时还能帮您舒缓眼睛的压力</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
         <translation>自动调节亮度</translation>
     </message>
@@ -4362,18 +5411,22 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::CustomConfigPage</name>
     <message>
+        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
         <translation>修改</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="45"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
         <translation>如果要修改配置，请先切换到当前模式</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
         <translation>如果要删除配置，请先切换到其它模式</translation>
     </message>
@@ -4381,6 +5434,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
         <translation>无线投屏</translation>
     </message>
@@ -4388,34 +5442,44 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
         <translation>屏幕缩放</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
         <translation>旋转</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>自定义设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
         <source>Scaling Settings</source>
         <translation>缩放设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Display</source>
         <translation>显示</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>无线投屏</translation>
     </message>
@@ -4423,14 +5487,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::MiracastNoDeviceWidget</name>
     <message>
+        <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
         <translation>正在扫描设备，请稍候......</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
         <translation>没有发现可用设备</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="47"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
@@ -4438,14 +5505,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::MiracastPage</name>
     <message>
+        <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when screen projection is enabled</source>
         <translation>开启无线投屏会断开WIFI连接</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
         <translation>设备列表</translation>
     </message>
@@ -4453,14 +5523,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::MonitorControlWidget</name>
     <message>
+        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="47"/>
         <source>Recognize</source>
         <translation>识别</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="54"/>
         <source>Split</source>
         <translation>拆分</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="61"/>
         <source>Merge</source>
         <translation>合并</translation>
     </message>
@@ -4468,22 +5541,27 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="107"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="170"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="172"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="179"/>
         <source>Primary</source>
         <translation>主屏幕</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="346"/>
         <source> (Recommended)</source>
         <translation>（推荐）</translation>
     </message>
@@ -4491,10 +5569,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::ResolutionDetailPage</name>
     <message>
+        <location filename="../src/frame/modules/display/resolutiondetailpage.cpp" line="41"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
         <translation>（推荐）</translation>
     </message>
@@ -4502,18 +5582,22 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::ScalingPage</name>
     <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
         <source>Some applications in multi-screens may not scale as the settings.</source>
         <translation>屏幕缩放在多屏情况下可能会使某些应用无法正常显示。</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
         <source>Display Scaling</source>
         <translation>屏幕缩放</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
         <source>Display scaling for %1</source>
         <translation>%1的屏幕缩放值</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
         <source>Display scaling for all monitors</source>
         <translation>所有显示器的屏幕缩放值</translation>
     </message>
@@ -4521,30 +5605,38 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::CustomContent</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="51"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="60"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="61"/>
+        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="64"/>
         <source>Command</source>
         <translation>命令</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="83"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="85"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Save to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击保存使这个快捷键立即生效</translation>
     </message>
@@ -4552,34 +5644,42 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="50"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="60"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="71"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="72"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="100"/>
         <source>Shortcut</source>
         <translation>快捷键</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="103"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="104"/>
         <source>Command</source>
         <translation>命令</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="121"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
@@ -4587,10 +5687,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::CustomItem</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="50"/>
         <source>Shortcut</source>
         <translation>快捷键</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="112"/>
         <source>Please enter a shortcut</source>
         <translation>请输入快捷键</translation>
     </message>
@@ -4598,14 +5700,18 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::KeyboardDetails</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="49"/>
+        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="51"/>
         <source>Keyboard Layout</source>
         <translation>键盘布局</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
         <translation>切换键盘布局(可多选)</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
         <translation>添加键盘布局</translation>
     </message>
@@ -4613,61 +5719,78 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardlayoutwidget.cpp" line="51"/>
         <source>Add Keyboard Layout</source>
         <translation>添加键盘布局</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="160"/>
+        <location filename="../src/frame/navigationbar.cpp" line="213"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="52"/>
         <source>Repeat Delay</source>
         <translation>重复延迟</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Short</source>
         <translation>短</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Long</source>
         <translation>长</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Repeat Rate</source>
         <translation>重复速度</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="79"/>
         <source>Please Test Here</source>
         <translation>请在此测试</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
         <translation>启用数字键盘</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
         <translation>大写锁定提示</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="103"/>
         <source>Keyboard Layout</source>
         <translation>键盘布局</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="111"/>
         <source>System Language</source>
         <translation>系统语言</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
@@ -4675,6 +5798,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::LangWidget</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/langwidget.cpp" line="48"/>
         <source>System Language</source>
         <translation>系统语言</translation>
     </message>
@@ -4682,22 +5806,27 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="49"/>
         <source>Please Reset Shortcut</source>
         <translation>请重新设置快捷键</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="56"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="57"/>
         <source>Replace</source>
         <translation>替换</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="59"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="92"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击替换使这个快捷键立即生效</translation>
     </message>
@@ -4705,6 +5834,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="82"/>
         <source>Enter a new shortcut</source>
         <translation>请输入新的快捷键</translation>
     </message>
@@ -4712,30 +5842,37 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::ShortcutWidget</name>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>System</source>
         <translation>系统</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="56"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="57"/>
         <source>WorkSpace</source>
         <translation>工作区</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
         <translation>自定义快捷键</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
         <translation>添加自定义快捷键</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
         <source>Restore Defaults</source>
         <translation>恢复默认</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
@@ -4743,69 +5880,91 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::mouse::DouTestWidget</name>
     <message>
+        <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
         <source>Double-click Test</source>
         <translation>双击测试</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
         <translation>鼠标和触控板</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="159"/>
+        <location filename="../src/frame/navigationbar.cpp" line="212"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation>触控板</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
         <translation>指点杆</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="53"/>
         <source>Left Hand</source>
         <translation>左手模式</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
         <translation>输入时禁用触控板</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="55"/>
         <source>Double-click Speed</source>
         <translation>双击速度</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="64"/>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="70"/>
         <source>Pointer Speed</source>
         <translation>指针速度</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
         <translation>鼠标加速</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
         <translation>滚动速度</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="61"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>插入鼠标时禁用触控板</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
         <translation>自然滚动</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="65"/>
         <source>Tap to Click</source>
         <translation>轻触以点击</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="73"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="73"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
@@ -4813,18 +5972,31 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::mouse::PalmDetectSetting</name>
     <message>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
         <source>Palm Detection</source>
         <translation>掌压检测</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="42"/>
         <source>Minimum Contact Surface</source>
         <translation>最小接触面</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="45"/>
         <source>Minimum Pressure Value</source>
         <translation>最小压力值</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="82"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>开启后若导致触控板不可用，请关闭此选项即可</translation>
     </message>
@@ -4832,46 +6004,59 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::ChainsProxyPage</name>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application Proxy</source>
         <translation>应用代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
         <source>Proxy Type</source>
         <translation>代理类型</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="52"/>
         <source>IP address</source>
         <translation>IP 地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="53"/>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="57"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="56"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="60"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="61"/>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="65"/>
         <source>Optional</source>
         <translation>选填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="64"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
         <translation>配置好代理后，可在启动器的应用右键菜单查看“使用代理”选项，勾选后即可使用代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="89"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
@@ -4879,6 +6064,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::ChainsTypePage</name>
     <message>
+        <location filename="../src/frame/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
         <translation>代理类型</translation>
     </message>
@@ -4886,30 +6072,37 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
         <translation>断开</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="344"/>
         <source>Wired Connection %1</source>
         <translation>有线连接 %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="348"/>
         <source>Wireless Connection %1</source>
         <translation>无线连接 %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="352"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE连接 %1</translation>
     </message>
@@ -4917,6 +6110,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::ConnectionHotspotEditPage</name>
     <message>
+        <location filename="../src/frame/modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
         <translation>热点</translation>
     </message>
@@ -4924,34 +6118,42 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::ConnectionVpnEditPage</name>
     <message>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="155"/>
         <source>Export</source>
         <translation>导出</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="166"/>
         <source>VPN L2TP %1</source>
         <translation>VPN L2TP %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="170"/>
         <source>VPN PPTP %1</source>
         <translation>VPN PPTP %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="174"/>
         <source>VPN VPNC %1</source>
         <translation>VPN VPNC %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="178"/>
         <source>VPN OpenVPN %1</source>
         <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="182"/>
         <source>VPN StrongSwan %1</source>
         <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="186"/>
         <source>VPN OpenConnect %1</source>
         <translation>VPN OpenConnect %1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="190"/>
         <source>VPN SSTP %1</source>
         <translation>VPN SSTP %1</translation>
     </message>
@@ -4959,26 +6161,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::EthernetSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="37"/>
         <source>Ethernet</source>
         <translation>以太网</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
         <translation>不指定设备</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="96"/>
         <source>Device MAC Addr</source>
         <translation>设备MAC地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="111"/>
         <source>Cloned MAC Addr</source>
         <translation>克隆MAC地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="124"/>
         <source>Customize MTU</source>
         <translation>自定义MTU</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="127"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -4986,10 +6194,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::GenericHotspotSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="31"/>
         <source>General</source>
         <translation>通用</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="63"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
@@ -4997,14 +6207,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::GenericSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="31"/>
         <source>General</source>
         <translation>通用</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="62"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
         <translation>自动连接</translation>
     </message>
@@ -5012,10 +6225,13 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::HotspotPage</name>
     <message>
+        <location filename="../src/frame/modules/network/hotspotpage.cpp" line="61"/>
+        <location filename="../src/frame/modules/network/hotspotpage.cpp" line="83"/>
         <source>Hotspot</source>
         <translation>热点</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/hotspotpage.cpp" line="62"/>
         <source>Add Settings</source>
         <translation>添加设置</translation>
     </message>
@@ -5023,58 +6239,75 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::IpvxSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="32"/>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="52"/>
         <source>IPv6</source>
         <translation>IPv6</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Auto</source>
         <translation>自动</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="216"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
         <source>Manual</source>
         <translation>手动</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="222"/>
         <source>Ignore</source>
         <translation>忽略</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>Method</source>
         <translation>方法</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
         <source>IP Address</source>
         <translation>IP 地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="295"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Primary DNS</source>
         <translation>首选DNS</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Secondary DNS</source>
         <translation>备用DNS</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
         <source>Only applied in corresponding resources</source>
         <translation>仅用于相对应的网络上的资源</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
         <source>Netmask</source>
         <translation>子网掩码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Prefix</source>
         <translation>前缀</translation>
     </message>
@@ -5082,58 +6315,74 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::NetworkDetailPage</name>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="94"/>
         <source>Network Details</source>
         <translation>网络详情</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="139"/>
         <source>Hotspot</source>
         <translation>热点</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="144"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="154"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="160"/>
         <source>Interface</source>
         <translation>接口</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="165"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="171"/>
         <source>Band</source>
         <translation>频段</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="180"/>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="210"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="190"/>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="215"/>
         <source>Primary DNS</source>
         <translation>首选DNS</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="195"/>
         <source>Netmask</source>
         <translation>子网掩码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="205"/>
         <source>IPv6</source>
         <translation>IPv6</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="220"/>
         <source>Prefix</source>
         <translation>前缀</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="226"/>
         <source>Speed</source>
         <translation>速率</translation>
     </message>
@@ -5141,66 +6390,84 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="61"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="65"/>
         <source>System Proxy</source>
         <translation>系统代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application Proxy</source>
         <translation>应用代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
         <source>Network Details</source>
         <translation>网络详情</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="154"/>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Network</source>
         <translation>网络</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network Card%1</source>
         <translation>有线网卡%1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wired Network%1</source>
         <translation>有线网络%1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wired Network Card</source>
         <translation>有线网卡</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
         <translation>有线网络</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="252"/>
         <source>Hotspot</source>
         <translation>热点</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="257"/>
         <source>Shared</source>
         <translation>已共享</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network Card%1</source>
         <translation>无线网卡%1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="267"/>
         <source>Wireless Network%1</source>
         <translation>无线网络%1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
         <translation>无线网卡</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="272"/>
         <source>Wireless Network</source>
         <translation>无线网络</translation>
     </message>
@@ -5208,22 +6475,28 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::PPPOESection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="31"/>
         <source>PPPoE</source>
         <translation>拨号</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="78"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="79"/>
+        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="82"/>
         <source>Service</source>
         <translation>服务</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="85"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -5231,62 +6504,77 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::PPPSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="31"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
         <translation>拒绝EAP认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
         <translation>拒绝PAP认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
         <translation>拒绝CHAP认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>拒绝MSCHAP认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>拒绝MSCHAPv2认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
         <translation>无BSD数据压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
         <translation>无Deflate数据压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
         <translation>无TCP头压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
         <translation>无协议字段压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
         <translation>无地址/控制压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
         <translation>发送PPP回响包</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
         <translation>使用MPPE点到点加密</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="107"/>
         <source>128-bit MPPE</source>
         <translation>使用128位MPPE</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
         <translation>使用带状态的MPPE</translation>
     </message>
@@ -5294,10 +6582,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
+        <location filename="../src/frame/modules/network/pppoepage.cpp" line="52"/>
         <source>Create PPPoE Connection</source>
         <translation>创建PPPoE连接</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/pppoepage.cpp" line="66"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -5305,54 +6595,70 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::ProxyPage</name>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="58"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="59"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="61"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="62"/>
         <source>Manual</source>
         <translation>手动</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="63"/>
         <source>Auto</source>
         <translation>自动</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="68"/>
         <source>HTTP Proxy</source>
         <translation>HTTP代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="70"/>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="75"/>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="80"/>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="73"/>
         <source>HTTPS Proxy</source>
         <translation>HTTPS代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="78"/>
         <source>FTP Proxy</source>
         <translation>FTP代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="83"/>
         <source>SOCKS Proxy</source>
         <translation>SOCKS代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>忽略以上主机和域的代理配置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="95"/>
         <source>Configuration URL</source>
         <translation>配置URL</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="152"/>
         <source>System Proxy</source>
         <translation>系统代理</translation>
     </message>
@@ -5360,126 +6666,164 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::Secret8021xSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="31"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="153"/>
         <source>TLS</source>
         <translation>TLS</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="154"/>
         <source>MD5</source>
         <translation>MD5</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="155"/>
         <source>LEAP</source>
         <translation>LEAP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="156"/>
         <source>FAST</source>
         <translation>FAST</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="157"/>
         <source>Tunneled TLS</source>
         <translation>隧道TLS</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="158"/>
         <source>Protected EAP</source>
         <translation>受保护的EAP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="163"/>
         <source>Saved</source>
         <translation>已保存的</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="164"/>
         <source>Ask</source>
         <translation>总是询问</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="165"/>
         <source>Not Required</source>
         <translation>不要求</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="169"/>
         <source>Disabled</source>
         <translation>已禁用</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="170"/>
         <source>Anonymous</source>
         <translation>匿名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="171"/>
         <source>Authenticated</source>
         <translation>已认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Both</source>
         <translation>兼有</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="188"/>
         <source>Automatic</source>
         <translation>自动</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="189"/>
         <source>Version 0</source>
         <translation>版本0</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="190"/>
         <source>Version 1</source>
         <translation>版本1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="202"/>
         <source>EAP Auth</source>
         <translation>EAP认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="214"/>
         <source>Identity</source>
         <translation>身份</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="216"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="224"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
         <translation>密码选项</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="302"/>
         <source>Private Key</source>
         <translation>私钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="306"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="387"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="423"/>
         <source>CA Cert</source>
         <translation>CA证书</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="310"/>
         <source>User Cert</source>
         <translation>用户证书</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="332"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="383"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="419"/>
         <source>Anonymous ID</source>
         <translation>匿名身份</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="336"/>
         <source>Provisioning</source>
         <translation>自动PAC配置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="348"/>
         <source>PAC file</source>
         <translation>PAC文件</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="352"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="391"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="438"/>
         <source>Inner Auth</source>
         <translation>内部认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="427"/>
         <source>PEAP Version</source>
         <translation>PEAP版本</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="523"/>
         <source>Private Pwd</source>
         <translation>私钥密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="525"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -5487,30 +6831,37 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::SecretHotspotSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="104"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="105"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP40/128位密钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2个人版</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="112"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="118"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="148"/>
         <source>Key</source>
         <translation>密钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="154"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -5518,6 +6869,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::SecretWiredSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/secretwiredsection.cpp" line="32"/>
         <source>Security Required</source>
         <translation>安全</translation>
     </message>
@@ -5525,34 +6877,42 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::SecretWirelessSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="106"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP40/128位密钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2个人版</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2企业版</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="163"/>
         <source>Key</source>
         <translation>密钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="170"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -5560,58 +6920,72 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnAdvOpenVPNSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
         <translation>VPN高级选项</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
         <source>Customize Gateway Port</source>
         <translation>自定义网关端口</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
         <source>Gateway Port</source>
         <translation>网关端口</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
         <translation>自定义重新协商间隔</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
         <translation>重新协商间隔</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
         <translation>使用LZO压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
         <translation>使用TCP连接</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
         <translation>使用TAP设备</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
         <source>Customize Tunnel MTU</source>
         <translation>自定义最大传输单元(MTU)</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
         <source>Customize UDP Fragment Size</source>
         <translation>自定义UDP数据报段长度</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
         <source>UDP Fragment Size</source>
         <translation>UDP数据报段长度</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
         <source>Restrict Tunnel TCP MSS</source>
         <translation>限制隧道TCP最大段长度(MSS)</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
         <source>Randomize Remote Hosts</source>
         <translation>随机远程主机</translation>
     </message>
@@ -5619,98 +6993,125 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnAdvVPNCSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
         <source>VPN Advanced</source>
         <translation>VPN高级选项</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="140"/>
         <source>Cisco (default)</source>
         <translation>思科（默认）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
         <source>Netscreen</source>
         <translation>网屏</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="144"/>
         <source>Secure (default)</source>
         <translation>安全（默认）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
         <source>Weak</source>
         <translation>弱</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="161"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="149"/>
         <source>NAT-T When Available (default)</source>
         <translation>NAT-T若可用（默认）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
         <source>NAT-T Always</source>
         <translation>总是NAT-T</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
         <source>Cisco UDP</source>
         <translation>思科UDP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
         <source>Disabled</source>
         <translation>已禁用</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="155"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
         <source>DH Group 1</source>
         <translation>DH Group 1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
         <source>DH Group 2 (default)</source>
         <translation>DH Group 2（默认）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
         <source>DH Group 5</source>
         <translation>DH Group 5</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="160"/>
         <source>Server (default)</source>
         <translation>服务器（默认）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
         <source>DH Group 2</source>
         <translation>DH Group 2</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="170"/>
         <source>Domain</source>
         <translation>域</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="173"/>
         <source>Vendor</source>
         <translation>供应商</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="179"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="182"/>
         <source>Encryption</source>
         <translation>加密</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>NAT Traversal Mode</source>
         <translation>NAT遍历</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
         <source>IKE DH Group</source>
         <translation>IKE DH 组</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="200"/>
         <source>Forward Secrecy</source>
         <translation>前向保密</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
         <source>Local Port</source>
         <translation>本地端口</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
         <source>Disable Dead Peer Detection</source>
         <translation>禁用死端检测</translation>
     </message>
@@ -5718,30 +7119,37 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnIpsecSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
         <source>VPN IPsec</source>
         <translation>VPN IPsec</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
         <source>Enable IPsec</source>
         <translation>启用IPsec</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
         <source>Group Name</source>
         <translation>组名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
         <source>Group ID</source>
         <translation>组ID</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
         <source>Pre-Shared Key</source>
         <translation>预共享密钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
         <source>Phase1 Algorithms</source>
         <translation>密钥交换协议</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
         <source>Phase2 Algorithms</source>
         <translation>安全封装协议</translation>
     </message>
@@ -5749,42 +7157,52 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnOpenConnectSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
         <source>CA Cert</source>
         <translation>CA证书</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
         <source>Proxy</source>
         <translation>代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>允许思科安全桌面木马</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
         <source>CSD Script</source>
         <translation>CSD 脚本</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
         <source>User Cert</source>
         <translation>用户证书</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
         <source>Private Key</source>
         <translation>私钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>为密钥口令句使用FSID</translation>
     </message>
@@ -5792,86 +7210,114 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnOpenVPNSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="115"/>
         <source>Certificates (TLS)</source>
         <translation>证书（TLS）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="243"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
         <source>Certificates with Password (TLS)</source>
         <translation>证书和密码（TLS）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
         <source>Static Key</source>
         <translation>静态密钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="123"/>
         <source>Saved</source>
         <translation>已保存的</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
         <source>Ask</source>
         <translation>总是询问</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
         <source>Not Required</source>
         <translation>不要求</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="131"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="229"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="245"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
         <source>Auth Type</source>
         <translation>认证类型</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
         <source>CA Cert</source>
         <translation>CA证书</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
         <source>User Cert</source>
         <translation>用户证书</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
         <source>Private Key</source>
         <translation>私钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
         <source>Pwd Options</source>
         <translation>密码选项</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
         <source>Private Pwd</source>
         <translation>私钥密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="227"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
         <source>Customize Key Direction</source>
         <translation>自定义密钥方向</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
         <source>Key Direction</source>
         <translation>密钥方向</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
         <source>Remote IP</source>
         <translation>远程IP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
         <source>Local IP</source>
         <translation>本地IP</translation>
     </message>
@@ -5879,74 +7325,92 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnPPPSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
         <source>VPN PPP</source>
         <translation>VPN PPP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
         <translation>都可用（默认）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
         <translation>40位（较安全）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
         <translation>128位（最安全）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
         <translation>拒绝EAP认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
         <translation>拒绝PAP认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
         <translation>拒绝CHAP认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>拒绝MSCHAP认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>拒绝MSCHAPv2认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
         <translation>无BSD数据压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
         <translation>无Deflate数据压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
         <translation>无TCP头压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
         <translation>无协议字段压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
         <translation>无地址/控制压缩</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
         <translation>发送PPP回响包</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
         <translation>使用MPPE点到点加密</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
         <source>Stateful MPPE</source>
         <translation>使用带状态的MPPE</translation>
     </message>
@@ -5954,58 +7418,72 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnPage</name>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="76"/>
         <source>VPN Status</source>
         <translation>VPN状态</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="79"/>
         <source>Create VPN</source>
         <translation>创建</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="82"/>
         <source>Import VPN</source>
         <translation>导入VPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="101"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="242"/>
         <source>Import Error</source>
         <translation>导入错误</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="244"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="266"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="269"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="272"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="275"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="278"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="281"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="284"/>
         <source>SSTP</source>
         <translation>SSTP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="311"/>
         <source>New VPN</source>
         <translation>新建VPN</translation>
     </message>
@@ -6013,46 +7491,59 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnProxySection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
         <translation>VPN代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="135"/>
         <source>Not Required</source>
         <translation>不要求</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="136"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="137"/>
         <source>SOCKS</source>
         <translation>SOCKS</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
         <source>Proxy Type</source>
         <translation>代理类型</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
         <source>Server IP</source>
         <translation>服务器地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="154"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="157"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <source>Retry Indefinitely When Failed</source>
         <translation>失败时重试</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="169"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -6060,14 +7551,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnSSTPSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="79"/>
         <source>CA File</source>
         <translation>CA文件</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
         <translation>忽略证书警告</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
         <translation>使用TLS主机名扩展</translation>
     </message>
@@ -6075,22 +7569,29 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnSecOpenVPNSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
         <source>VPN Security</source>
         <translation>VPN安全</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="75"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="96"/>
         <source>Default</source>
         <translation>默认</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="76"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="97"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
         <source>Cipher</source>
         <translation>加密</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
         <source>HMAC Auth</source>
         <translation>HMAC认证</translation>
     </message>
@@ -6098,42 +7599,54 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
         <source>Saved</source>
         <translation>已保存的</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Ask</source>
         <translation>总是询问</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
         <source>Not Required</source>
         <translation>不要求</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="115"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="129"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
         <translation>密码选项</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="132"/>
         <source>NT Domain</source>
         <translation>NT域</translation>
     </message>
@@ -6141,22 +7654,27 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnSstpProxySection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
         <translation>VPN代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
         <source>Server IP</source>
         <translation>服务器地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -6164,78 +7682,98 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnStrongSwanSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="172"/>
         <source>Private Key</source>
         <translation>私钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>SSH Agent</source>
         <translation>SSH代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smartcard</source>
         <translation>智能卡</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
         <source>EAP</source>
         <translation>EAP</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="146"/>
         <source>Pre-Shared Key</source>
         <translation>预共享密钥</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
         <source>CA Cert</source>
         <translation>CA证书</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
         <source>Auth Type</source>
         <translation>认证类型</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
         <source>User Cert</source>
         <translation>用户证书</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="175"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="178"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="181"/>
         <source>Request an Inner IP Address</source>
         <translation>请求内部IP地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
         <source>Enforce UDP Encapsulation</source>
         <translation>强制使用UDP封装</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
         <source>Use IP Compression</source>
         <translation>使用IP压缩 </translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable Custom Cipher Proposals</source>
         <translation>启用自定义加密方案</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
         <source>IKE</source>
         <translation>IKE</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="196"/>
         <source>ESP</source>
         <translation>ESP</translation>
     </message>
@@ -6243,38 +7781,47 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnTLSSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
         <source>VPN TLS Authentication</source>
         <translation>VPN TLS 认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="79"/>
         <source>Default</source>
         <translation>默认</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="80"/>
         <source>Client</source>
         <translation>客户端</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
         <source>Server</source>
         <translation>服务器</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
         <source>Subject Match</source>
         <translation>主题匹配</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
         <source>Remote Cert Type</source>
         <translation>远程证书类型</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
         <source>Key File</source>
         <translation>密钥文件</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="103"/>
         <source>Customize Key Direction</source>
         <translation>自定义密钥方向</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="106"/>
         <source>Key Direction</source>
         <translation>密钥方向</translation>
     </message>
@@ -6282,54 +7829,72 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnVPNCSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="29"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="159"/>
         <source>Saved</source>
         <translation>已保存的</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="160"/>
         <source>Ask</source>
         <translation>总是询问</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
         <source>Not Required</source>
         <translation>不要求</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="168"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="172"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="182"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="186"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="196"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
         <translation>密码选项</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="185"/>
         <source>Group Name</source>
         <translation>组名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
         <source>Group Pwd</source>
         <translation>组密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
         <source>Use Hybrid Authentication</source>
         <translation>使用混合认证</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
         <source>CA File</source>
         <translation>CA文件</translation>
     </message>
@@ -6337,18 +7902,22 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
+        <location filename="../src/frame/modules/network/wiredpage.cpp" line="59"/>
         <source>Setting List</source>
         <translation>设置列表</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
         <source>Plug in the network cable first</source>
         <translation>请您先插入网线！</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
         <translation>添加设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>
         <source>Select Settings</source>
         <translation>选择设置</translation>
     </message>
@@ -6356,18 +7925,22 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
+        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="64"/>
         <source>Connect to hidden network</source>
         <translation>连接到隐藏网络</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
         <translation>关闭热点</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
         <translation>若要连接并使用无线网络功能，请先关闭热点分享</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -6375,26 +7948,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::WirelessSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
         <translation>不指定设备</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="113"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Device MAC Addr</source>
         <translation>设备MAC地址</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="144"/>
         <source>Customize MTU</source>
         <translation>自定义MTU</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="147"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -6402,6 +7981,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::FontListWidget</name>
     <message>
+        <location filename="../src/frame/modules/personalization/module/fontswidget/fontlistwidget.cpp" line="89"/>
         <source> (Unsupported font)</source>
         <translation>(不支持的字体)</translation>
     </message>
@@ -6409,14 +7989,18 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::FontSettingsWidget</name>
     <message>
+        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="45"/>
         <source>Standard Font</source>
         <translation>标准字体</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
         <translation>等宽字体</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
+        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
         <translation>(不支持的字体)</translation>
     </message>
@@ -6424,6 +8008,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::FontSizeWidget</name>
     <message>
+        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsizewidget.cpp" line="41"/>
         <source>Size</source>
         <translation>字号</translation>
     </message>
@@ -6431,6 +8016,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::FontsWidget</name>
     <message>
+        <location filename="../src/frame/modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
@@ -6438,10 +8024,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
+        <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="118"/>
         <source>Standard Font</source>
         <translation>标准字体</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="127"/>
         <source>Monospaced Font</source>
         <translation>等宽字体</translation>
     </message>
@@ -6449,22 +8037,29 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="48"/>
         <source>Transparency</source>
         <translation>透明度调节</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Window Effect</source>
         <translation>窗口特效</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="72"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="79"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
@@ -6472,6 +8067,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::Theme</name>
     <message>
+        <location filename="../src/frame/modules/personalization/module/themewidget/theme.cpp" line="84"/>
         <source>Default</source>
         <translation>默认</translation>
     </message>
@@ -6479,18 +8075,22 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::ThemeWidget</name>
     <message>
+        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="40"/>
         <source>Window Theme</source>
         <translation>窗口主题</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
         <source>Icon Theme</source>
         <translation>图标主题</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
         <source>Cursor Theme</source>
         <translation>光标主题</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
@@ -6498,58 +8098,82 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="46"/>
         <source>Plugged in</source>
         <translation>使用电源</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="47"/>
         <source>On battery</source>
         <translation>使用电池</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="48"/>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="50"/>
         <source>Monitor will suspend after</source>
         <translation>关闭显示器于</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="49"/>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
         <translation>电脑进入待机模式</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="62"/>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="202"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password required to wake up the monitor</source>
         <translation>唤醒显示器时需要密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
         <source>Password required to wake up the computer</source>
         <translation>待机恢复时需要密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="107"/>
         <source>Suspend on lid close</source>
         <translation>合上笔记本时待机</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="110"/>
         <source>Power Saving Mode</source>
         <translation>节能模式</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="111"/>
         <source>Auto Mode Switch</source>
         <translation>自动切换节能模式</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="122"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>Power Management</source>
         <translation>电源管理</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="190"/>
         <source>1 Minute</source>
         <translation>1 分钟</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="192"/>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="194"/>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="196"/>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="198"/>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="204"/>
         <source>%1 Minutes</source>
         <translation>%1分钟</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="200"/>
         <source>1 Hour</source>
         <translation>1 小时</translation>
     </message>
@@ -6557,14 +8181,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sound::AdvancedPage</name>
     <message>
+        <location filename="../src/frame/modules/sound/advancedpage.cpp" line="37"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/advancedpage.cpp" line="38"/>
         <source>Input</source>
         <translation>输入</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/advancedpage.cpp" line="40"/>
         <source>Advanced</source>
         <translation>高级设置</translation>
     </message>
@@ -6572,10 +8199,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="43"/>
         <source>Sound Effects</source>
         <translation>音效</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
         <source>System Sound Effect</source>
         <translation>系统音效</translation>
     </message>
@@ -6583,58 +8212,83 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sound::SoundModel</name>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="63"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="80"/>
         <source>Boot up</source>
         <translation>开机</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="64"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="81"/>
         <source>Shut down</source>
         <translation>关机</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="65"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="82"/>
         <source>Log out</source>
         <translation>注销</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="66"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="83"/>
         <source>Wake up</source>
         <translation>唤醒</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="67"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="84"/>
         <source>Volume +/-</source>
         <translation>音量调节</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="68"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="85"/>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="69"/>
         <source>Low battery</source>
         <translation>电量不足</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="70"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="86"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>从启动器发送图标到桌面</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="71"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="87"/>
         <source>Empty Trash</source>
         <translation>清空回收站</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="72"/>
         <source>Plug in</source>
         <translation>电源接入</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="73"/>
         <source>Plug out</source>
         <translation>电源拔出</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="74"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="88"/>
         <source>Removable device connected</source>
         <translation>移动设备接入</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="75"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="89"/>
         <source>Removable device removed</source>
         <translation>移动设备拔出</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="76"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="90"/>
         <source>Error</source>
         <translation>错误提示</translation>
     </message>
@@ -6642,38 +8296,49 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
+        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
         <translation>输出音量</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="44"/>
         <source>Left/Right Balance</source>
         <translation>左/右平衡</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="47"/>
         <source>Input Volume</source>
         <translation>输入音量</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
         <translation>反馈音量</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="156"/>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="60"/>
         <source>Speaker</source>
         <translation>扬声器</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="83"/>
         <source>Microphone</source>
         <translation>麦克风</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="106"/>
         <source>Advanced</source>
         <translation>高级设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
         <translation>音效</translation>
     </message>
@@ -6681,6 +8346,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sync::SyncWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Cloud Sync</source>
         <translation>云同步</translation>
     </message>
@@ -6688,26 +8354,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::BootWidget</name>
     <message>
+        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="62"/>
         <source>Updating...</source>
         <translation>正在更新...</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
         <source>Startup Delay</source>
         <translation>启动延时</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="76"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="78"/>
         <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
         <translation>您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片。</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>开启主题后您可以在开机时看到主题背景</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
         <source>Boot Menu</source>
         <translation>启动菜单</translation>
     </message>
@@ -6715,6 +8387,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
+        <location filename="../src/frame/modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>Edition License</source>
         <translation>版本协议</translation>
     </message>
@@ -6722,6 +8395,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="175"/>
         <source>available</source>
         <translation>可用</translation>
     </message>
@@ -6729,54 +8403,70 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="138"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Copyright © 2011-%1 武汉深之度科技有限公司</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
+        <location filename="../src/frame/navigationbar.cpp" line="217"/>
         <source>System Information</source>
         <translation>系统信息</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Distribution:</source>
         <translation>发行版：</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="86"/>
         <source>Distribution Release:</source>
         <translation>发行版版本：</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="91"/>
         <source>Edition:</source>
         <translation>版本：</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="95"/>
         <source>Type:</source>
         <translation>类型：</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Processor:</source>
         <translation>处理器：</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="102"/>
         <source>Memory:</source>
         <translation>内存：</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="106"/>
         <source>Disk:</source>
         <translation>磁盘：</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="119"/>
         <source>Edition License</source>
         <translation>版本协议</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="122"/>
         <source>End User License Agreement</source>
         <translation>最终用户许可协议</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="126"/>
         <source>Boot Menu</source>
         <translation>启动菜单</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
         <source>%1Bit</source>
         <translation>%1位</translation>
     </message>
@@ -6784,6 +8474,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::UserLicense</name>
     <message>
+        <location filename="../src/frame/modules/systeminfo/userlicense.cpp" line="15"/>
         <source>End User License Agreement</source>
         <translation>最终用户许可协议</translation>
     </message>
@@ -6791,22 +8482,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::MirrorItem</name>
     <message>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="45"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="129"/>
         <source>Untested</source>
         <translation>未检测</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="125"/>
         <source>Timeout</source>
         <translation>超时</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="93"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="126"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="95"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="127"/>
         <source>Medium</source>
         <translation>中</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="97"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
@@ -6814,14 +8515,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::MirrorsWidget</name>
     <message>
+        <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
         <translation>测速</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="46"/>
         <source>Switch Mirror</source>
         <translation>切换镜像源</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
         <translation>重新测速</translation>
     </message>
@@ -6829,10 +8533,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::ResultItem</name>
     <message>
+        <location filename="../src/frame/modules/update/resultitem.cpp" line="66"/>
         <source>Update successful</source>
         <translation>升级成功</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
         <source>Failed to update</source>
         <translation>更新失败</translation>
     </message>
@@ -6840,90 +8546,110 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation>为了您能够正常的使用系统和应用，更新后请重新启动</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>网络断开，请联网后重试</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
+        <location filename="../src/frame/navigationbar.cpp" line="216"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>本次更新可能会用时较长，更新完成前请不要关机或重启</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
         <source>Checking for updates, please wait...</source>
         <translation>检查更新中，请稍候...</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Download and install updates</source>
         <translation>下载并安装更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="294"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>已下载%1%（点击暂停）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="195"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>已下载%1%（点击继续）</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Install updates</source>
         <translation>安装更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="208"/>
         <source>Your system is up to date</source>
         <translation>您的系统已经是最新的</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="213"/>
         <source>Updating, please wait...</source>
         <translation>正在更新，请稍候......</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="227"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>您已安装最新版本，重启生效！</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Insufficient disk space, unable to update system.</source>
         <translation>当前硬盘空间不足，无法进行系统更新。</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>依赖错误，检测更新失败</translation>
     </message>
     <message numerus="yes">
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation>
-            <numerusform>检测到%n个应用更新</numerusform>
-        </translation>
+        <translation><numerusform>检测到%n个应用更新</numerusform></translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
         <source>New system edition detected</source>
         <translation>检测到有新系统版本</translation>
     </message>
     <message numerus="yes">
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation>
-            <numerusform>检测到新系统版本和%n个应用更新</numerusform>
-        </translation>
+        <translation><numerusform>检测到新系统版本和%n个应用更新</numerusform></translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Downloaded</source>
         <translation>已下载</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="280"/>
         <source>Download size: %1</source>
         <translation>下载大小：%1</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="302"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>您的电池电量少于50%，请插入电源后继续</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="304"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
     </message>
@@ -6931,6 +8657,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="124"/>
         <source>Details</source>
         <translation>详情</translation>
     </message>
@@ -6938,42 +8665,52 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateSettings</name>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
         <translation>更新设置</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
         <translation>自动清除软件包缓存</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
         <translation>更新提醒</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
         <translation>自动下载更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
         <translation>开启“自动下载更新”，会在有无线网络和有线网络的情况下自动下载</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
         <source>System Source Detection</source>
         <translation>系统源检测</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
         <translation>系统更新源被修改后会弹出通知</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
         <translation>智能镜像源</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation>开启智能镜像源会自动匹配响应最快的镜像源</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="114"/>
         <source>Switch Mirror</source>
         <translation>切换镜像源</translation>
     </message>
@@ -6981,10 +8718,13 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateView</name>
     <message>
+        <location filename="../src/frame/modules/update/updateview.cpp" line="40"/>
+        <location filename="../src/frame/modules/update/updateview.cpp" line="52"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
         <translation>更新设置</translation>
     </message>
@@ -6992,10 +8732,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="318"/>
         <source>Patches</source>
         <translation>补丁</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="319"/>
         <source>System patches</source>
         <translation>系统补丁</translation>
     </message>
@@ -7003,10 +8745,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::wacom::WacomModePage</name>
     <message>
+        <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
         <translation>笔</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="38"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
@@ -7014,14 +8758,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::wacom::WacomSettings</name>
     <message>
+        <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
         <translation>压感</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Light</source>
         <translation>轻</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Heavy</source>
         <translation>重</translation>
     </message>
@@ -7029,18 +8776,24 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="50"/>
         <source>Mode</source>
         <translation>模式</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="161"/>
+        <location filename="../src/frame/navigationbar.cpp" line="215"/>
         <source>Wacom</source>
         <translation>Wacom 数位板</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
         <translation>笔</translation>
     </message>
@@ -7048,3425 +8801,15 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::widgets::ConnectWidget</name>
     <message>
+        <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::MainWindow</name>
-    <message>
-        <source>Account</source>
-        <translation type="vanished">账户</translation>
-    </message>
-    <message>
-        <source>Cloud Sync</source>
-        <translation type="vanished">云同步</translation>
-    </message>
-    <message>
-        <source>Display</source>
-        <translation type="vanished">显示</translation>
-    </message>
-    <message>
-        <source>Default Applications</source>
-        <translation type="vanished">默认程序</translation>
-    </message>
-    <message>
-        <source>Personalization</source>
-        <translation type="vanished">个性化</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="vanished">网络</translation>
-    </message>
-    <message>
-        <source>Sound</source>
-        <translation type="vanished">声音</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation type="vanished">蓝牙</translation>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation type="vanished">日期和时间</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation type="vanished">电源管理</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation type="vanished">鼠标</translation>
-    </message>
-    <message>
-        <source>Drawing Tablet</source>
-        <translation type="vanished">数位板</translation>
-    </message>
-    <message>
-        <source>Keyboard and Language</source>
-        <translation type="vanished">键盘和语言</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation type="vanished">更新</translation>
-    </message>
-    <message>
-        <source>System Info</source>
-        <translation type="vanished">系统信息</translation>
-    </message>
-    <message>
-        <source>General Settings</source>
-        <translation type="vanished">通用</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::AccountsDetailWidget</name>
-    <message>
-        <source>Full Name</source>
-        <translation type="vanished">设置全名</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation type="vanished">修改密码</translation>
-        <extra-contents_path>/accounts/Change Password</extra-contents_path>
-    </message>
-    <message>
-        <source>Delete Account</source>
-        <translation type="vanished">删除账户</translation>
-        <extra-contents_path>/accounts/Delete Account</extra-contents_path>
-    </message>
-    <message>
-        <source>Auto Login</source>
-        <translation type="vanished">自动登录</translation>
-        <extra-contents_path>/accounts/Auto Login</extra-contents_path>
-    </message>
-    <message>
-        <source>Login Without Password</source>
-        <translation type="vanished">无密码登录</translation>
-        <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::AddFingeDialog</name>
-    <message>
-        <source>Add Fingerprint</source>
-        <translation type="vanished">添加指纹</translation>
-    </message>
-    <message>
-        <source>Scan again</source>
-        <translation type="vanished">重新录入</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">完成</translation>
-    </message>
-    <message>
-        <source>Identifying fingerprint</source>
-        <translation type="vanished"> 正在识别指纹</translation>
-    </message>
-    <message>
-        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="vanished">请将手指按在指纹录入器上，或上下移动，然后松开来录入您的指纹</translation>
-    </message>
-    <message>
-        <source>Fingerprint added</source>
-        <translation type="vanished">成功添加指纹</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::CreateAccountPage</name>
-    <message>
-        <source>New Account</source>
-        <translation type="vanished">新账户</translation>
-        <extra-contents_path>/accounts/New Account</extra-contents_path>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-    </message>
-    <message>
-        <source>Full Name</source>
-        <translation type="vanished">设置全名</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-    <message>
-        <source>Repeat Password</source>
-        <translation type="vanished">重复密码</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-    </message>
-    <message>
-        <source>Create</source>
-        <translation type="vanished">创建</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>optional</source>
-        <translation type="vanished">选填</translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation type="vanished">密码不能为空</translation>
-    </message>
-    <message>
-        <source>The password should be different from the username</source>
-        <translation type="vanished">用户密码不能与用户名相同</translation>
-    </message>
-    <message>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="vanished">密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
-    </message>
-    <message>
-        <source>Passwords do not match</source>
-        <translation type="vanished">密码不一致</translation>
-    </message>
-    <message>
-        <source>Username cannot be empty</source>
-        <translation type="vanished">用户名不能为空</translation>
-    </message>
-    <message>
-        <source>Username must be between 3 and 32 characters</source>
-        <translation type="vanished">用户名长度必须介于3到32个字符之间</translation>
-    </message>
-    <message>
-        <source>The first character must be in lower case</source>
-        <translation type="vanished">首字符必须为小写字母</translation>
-    </message>
-    <message>
-        <source>Username must only contain a~z, 0~9, - or _</source>
-        <translation type="vanished">用户名只能由a~z,0~9,-,_组成</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::FingerWidget</name>
-    <message>
-        <source>Delete fingerprint</source>
-        <translation type="vanished">清除指纹</translation>
-    </message>
-    <message>
-        <source>Fingerprint Password</source>
-        <translation type="vanished">指纹密码</translation>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation type="vanished">指纹</translation>
-    </message>
-    <message>
-        <source>Add fingerprint</source>
-        <translation type="vanished">添加指纹</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::ModifyPasswdPage</name>
-    <message>
-        <source>Change Password</source>
-        <translation type="vanished">修改密码</translation>
-    </message>
-    <message>
-        <source>Current Password</source>
-        <translation type="vanished">当前密码</translation>
-    </message>
-    <message>
-        <source>New Password</source>
-        <translation type="vanished">新密码</translation>
-    </message>
-    <message>
-        <source>Repeat Password</source>
-        <translation type="vanished">重复密码</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">保存</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Wrong password</source>
-        <translation type="vanished">密码错误</translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation type="vanished">密码不能为空</translation>
-    </message>
-    <message>
-        <source>The password should be different from the username</source>
-        <translation type="vanished">用户密码不能与用户名相同</translation>
-    </message>
-    <message>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="vanished">密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
-    </message>
-    <message>
-        <source>New password should differ from the current one</source>
-        <translation type="vanished">新密码和旧密码不能相同</translation>
-    </message>
-    <message>
-        <source>Passwords do not match</source>
-        <translation type="vanished">密码不一致</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::bluetooth::AdapterWidget</name>
-    <message>
-        <source>My devices</source>
-        <translation type="vanished">我的设备</translation>
-    </message>
-    <message>
-        <source>Other devices</source>
-        <translation type="vanished">其它设备</translation>
-        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
-    </message>
-    <message>
-        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation type="vanished">启用蓝牙寻找附近设备（扬声器、键盘、鼠标）</translation>
-        <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::bluetooth::DetailPage</name>
-    <message>
-        <source>Ignore this device</source>
-        <translation type="vanished">忽略此设备</translation>
-        <extra-contents_path>/bluetooth/Ignore this device</extra-contents_path>
-    </message>
-    <message>
-        <source>Disconnect</source>
-        <translation type="vanished">断开连接</translation>
-        <extra-contents_path>/bluetooth/Disconnect</extra-contents_path>
-    </message>
-    <message>
-        <source>Change Name</source>
-        <translation type="vanished">备注</translation>
-        <extra-contents_path>/bluetooth/Change Name</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::bluetooth::DeviceSettingsItem</name>
-    <message>
-        <source>Connected</source>
-        <translation type="vanished">已连接</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation type="vanished">未连接</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::BootWidget</name>
-    <message>
-        <source>Updating...</source>
-        <translation type="vanished">正在更新...</translation>
-    </message>
-    <message>
-        <source>Startup Delay</source>
-        <translation type="vanished">启动延时</translation>
-        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="vanished">主题</translation>
-        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
-    </message>
-    <message>
-        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="vanished">您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片</translation>
-    </message>
-    <message>
-        <source>Switch theme on to view it in boot menu</source>
-        <translation type="vanished">开启主题后您可以在开机时看到主题背景</translation>
-    </message>
-    <message>
-        <source>Boot Menu</source>
-        <translation type="vanished">启动菜单</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::CommonInfoWidget</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation type="vanished">启动菜单</translation>
-        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation type="vanished">用户体验计划</translation>
-        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::CommonInfoWork</name>
-    <message>
-        <source>User Experience Program</source>
-        <translation type="vanished">用户体验计划</translation>
-    </message>
-    <message>
-        <source>Agree and Join User Experience Program</source>
-        <translation type="vanished">同意并加入用户体验计划</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
-    <message>
-        <source>Join User Experience Program</source>
-        <translation type="vanished">加入用户体验计划</translation>
-        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
-    </message>
-    <message>
-        <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
-        <translation type="vanished">用户体验计划相关条款请参见《最终用户许可协议》的第10~13条</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::ClockItem</name>
-    <message>
-        <source>AM</source>
-        <translation type="vanished">上午</translation>
-    </message>
-    <message>
-        <source>PM</source>
-        <translation type="vanished">下午</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::DateSettings</name>
-    <message>
-        <source>Auto Sync</source>
-        <translation type="vanished">自动同步配置</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="vanished">确定</translation>
-        <extra-child_page>Time Settings</extra-child_page>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Server</source>
-        <translation type="vanished">服务器</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Address</source>
-        <translation type="vanished">地址</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Customize</source>
-        <translation type="vanished">自定义</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::DateWidget</name>
-    <message>
-        <source>Year</source>
-        <translation type="vanished">年</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Month</source>
-        <translation type="vanished">月</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation type="vanished">日</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::DatetimeWidget</name>
-    <message>
-        <source>Timezone List</source>
-        <translation type="vanished">时区列表</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
-    </message>
-    <message>
-        <source>Time Settings</source>
-        <translation type="vanished">时间设置</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation type="vanished">24小时制</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::SystemTimezone</name>
-    <message>
-        <source>Change System Timezone</source>
-        <translation type="vanished">修改系统时区</translation>
-        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
-    </message>
-    <message>
-        <source>System Timezone</source>
-        <translation type="vanished">系统时区</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::TimezoneList</name>
-    <message>
-        <source>Timezone List</source>
-        <translation type="vanished">时区列表</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::defapp::DefappDetailWidget</name>
-    <message>
-        <source>Open Desktop file</source>
-        <translation type="vanished">打开Desktop文件</translation>
-    </message>
-    <message>
-        <source>Invalid</source>
-        <translation type="vanished">无效</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::defapp::DefaultAppsWidget</name>
-    <message>
-        <source>Webpage</source>
-        <translation type="vanished">网页</translation>
-        <extra-contents_path>/defapp/Webpage</extra-contents_path>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation type="vanished">邮件</translation>
-        <extra-contents_path>/defapp/Mail</extra-contents_path>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="vanished">文本</translation>
-        <extra-contents_path>/defapp/Text</extra-contents_path>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation type="vanished">音乐</translation>
-        <extra-contents_path>/defapp/Music</extra-contents_path>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="vanished">视频</translation>
-        <extra-contents_path>/defapp/Video</extra-contents_path>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation type="vanished">图片</translation>
-        <extra-contents_path>/defapp/Picture</extra-contents_path>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation type="vanished">终端</translation>
-        <extra-contents_path>/defapp/Terminal</extra-contents_path>
-    </message>
-    <message>
-        <source>Default Applications</source>
-        <translation type="vanished">默认程序</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::BrightnessPage</name>
-    <message>
-        <source>Night Shift</source>
-        <translation type="vanished">自动调节色温</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-    <message>
-        <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="vanished">通过获取地理位置来辅助系统实现自动调节屏幕颜色色调</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-    <message>
-        <source>Auto Brightness</source>
-        <translation type="vanished">自动调节亮度</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::CustomSettingDialog</name>
-    <message>
-        <source>Main Screen</source>
-        <translation type="vanished">主屏幕</translation>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation type="vanished">分辨率</translation>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation type="vanished">刷新率</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">保存</translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation type="vanished">赫兹</translation>
-    </message>
-    <message>
-        <source>Recommended</source>
-        <translation type="vanished">推荐</translation>
-    </message>
-    <message>
-        <source>inch</source>
-        <translation type="vanished">英寸</translation>
-        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
-    </message>
-    <message>
-        <source>Resolution %1x%2</source>
-        <translation type="vanished">分辨率  %1x%2</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::DisplayWidget</name>
-    <message>
-        <source>Multiple Displays</source>
-        <translation type="vanished">多屏显示模式</translation>
-        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation type="vanished">亮度</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-    <message>
-        <source>Display Scaling</source>
-        <translation type="vanished">屏幕缩放</translation>
-        <extra-contents_path>/display/Display Scaling</extra-contents_path>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation type="vanished">分辨率</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation type="vanished">刷新率</translation>
-        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::MultiScreenSettingPage</name>
-    <message>
-        <source>Custom Settings</source>
-        <translation type="vanished">自定义设置</translation>
-        <extra-contents_path>/display/Customize</extra-contents_path>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation type="vanished">复制</translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation type="vanished">扩展</translation>
-    </message>
-    <message>
-        <source>Show the same image on other screens</source>
-        <translation type="vanished">将屏幕内容复制到一个或者多个屏幕</translation>
-    </message>
-    <message>
-        <source>Expand the desktop across the screens</source>
-        <translation type="vanished">扩展屏幕并在不同屏幕显示不同内容</translation>
-    </message>
-    <message>
-        <source>%1 only</source>
-        <translation type="vanished">只在%1显示</translation>
-    </message>
-    <message>
-        <source>Show the screen content only on %1</source>
-        <translation type="vanished">仅在%1上显示屏幕内容</translation>
-    </message>
-    <message>
-        <source>Customize</source>
-        <translation type="vanished">自定义</translation>
-    </message>
-    <message>
-        <source>Configure the display according to your needs</source>
-        <translation type="vanished">根据您需要的方式进行自定义配置</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::RefreshRatePage</name>
-    <message>
-        <source>Hz</source>
-        <translation type="vanished">赫兹</translation>
-    </message>
-    <message>
-        <source>Recommended</source>
-        <translation type="vanished">推荐</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::ResolutionDetailPage</name>
-    <message>
-        <source>Recommended</source>
-        <translation type="vanished">推荐</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::RotateDialog</name>
-    <message>
-        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="vanished">鼠标左键逆时针旋转，右键还原并退出，按Ctrl+S键保存。</translation>
-    </message>
-    <message>
-        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="vanished">鼠标右键顺时针旋转， 左键还原并退出，按Ctrl+S键保存。</translation>
-    </message>
-    <message>
-        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation type="vanished">是否要保存显示设置？如无任何操作将在%1秒后还原。</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::ScalingPage</name>
-    <message>
-        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation type="vanished">多屏情况下屏幕缩放对某些应用可能无效</translation>
-        <extra-contents_path>/display/Display Scaling</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::CustomContent</name>
-    <message>
-        <source>Add Custom Shortcut</source>
-        <translation type="vanished">添加自定义快捷键</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">名称</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Command</source>
-        <translation type="vanished">命令</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="vanished">添加</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
-    </message>
-    <message>
-        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="vanished">此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
-    <message>
-        <source>Repeat Delay</source>
-        <translation type="vanished">重复延迟</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Short</source>
-        <translation type="vanished">短</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Long</source>
-        <translation type="vanished">长</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Repeat Rate</source>
-        <translation type="vanished">重复速度</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">慢</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">快</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Test here</source>
-        <translation type="vanished">请在此测试</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Numeric Keypad</source>
-        <translation type="vanished">启用数字键盘</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Caps Lock Prompt</source>
-        <translation type="vanished">大写锁定提示</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
-    <message>
-        <source>Keyboard Layout</source>
-        <translation type="vanished">键盘布局</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
-    </message>
-    <message>
-        <source>Switch Layouts (Multiple)</source>
-        <translation type="vanished">切换键盘布局(可多选)</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
-    </message>
-    <message>
-        <source>Applies to</source>
-        <translation type="vanished">切换方式</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="vanished">系统</translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation type="vanished">应用</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::KeyboardModule</name>
-    <message>
-        <source>Custom Shortcut</source>
-        <translation type="vanished">自定义快捷键</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::KeyboardWidget</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">通用</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Keyboard Layout</source>
-        <translation type="vanished">键盘布局</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
-    </message>
-    <message>
-        <source>System Language</source>
-        <translation type="vanished">系统语言</translation>
-        <extra-contents_path>/keyboard/System Language</extra-contents_path>
-    </message>
-    <message>
-        <source>Shortcuts</source>
-        <translation type="vanished">快捷键</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::ShortCutSettingWidget</name>
-    <message>
-        <source>System</source>
-        <translation type="vanished">系统</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
-    </message>
-    <message>
-        <source>Window</source>
-        <translation type="vanished">窗口</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
-    </message>
-    <message>
-        <source>Workspace</source>
-        <translation type="vanished">工作区</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
-    </message>
-    <message>
-        <source>Custom Shortcut</source>
-        <translation type="vanished">自定义快捷键</translation>
-        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
-    </message>
-    <message>
-        <source>Restore Defaults</source>
-        <translation type="vanished">恢复默认</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
-    </message>
-    <message>
-        <source>Shortcut</source>
-        <translation type="vanished">快捷键</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
-    <message>
-        <source>Add System Language</source>
-        <translation type="vanished">添加系统语言</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::SystemLanguageWidget</name>
-    <message>
-        <source>Language List</source>
-        <translation type="vanished">语言列表</translation>
-        <extra-contents_path>/keyboard/Language List</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::GeneralSettingWidget</name>
-    <message>
-        <source>Left Hand</source>
-        <translation type="vanished">左手模式</translation>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Disable touchpad while typing</source>
-        <translation type="vanished">输入时禁用触控板</translation>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Scrolling Speed</source>
-        <translation type="vanished">滚动速度</translation>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Double-click Speed</source>
-        <translation type="vanished">双击速度</translation>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">慢</translation>
-        <extra-child_page>General</extra-child_page>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">快</translation>
-        <extra-child_page>General</extra-child_page>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::MouseSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation type="vanished">指针速度</translation>
-        <extra-child_page>Mouse</extra-child_page>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Mouse Acceleration</source>
-        <translation type="vanished">鼠标加速</translation>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Disable touchpad when a mouse is connected</source>
-        <translation type="vanished">插入鼠标时禁用触控板</translation>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation type="vanished">自然滚动</translation>
-        <extra-child_page>Mouse</extra-child_page>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">慢</translation>
-        <extra-child_page>Mouse</extra-child_page>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">快</translation>
-        <extra-child_page>Mouse</extra-child_page>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::MouseWidget</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">通用</translation>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation type="vanished">鼠标</translation>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation type="vanished">触控板</translation>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
-    </message>
-    <message>
-        <source>TrackPoint</source>
-        <translation type="vanished">指点杆</translation>
-        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation type="vanished">指针速度</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation type="vanished">轻触以点击</translation>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation type="vanished">自然滚动</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">慢</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">快</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::TrackPointSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation type="vanished">指针速度</translation>
-        <extra-child_page>TrackPoint</extra-child_page>
-        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">慢</translation>
-        <extra-child_page>TrackPoint</extra-child_page>
-        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">快</translation>
-        <extra-child_page>TrackPoint</extra-child_page>
-        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ChainsProxyPage</name>
-    <message>
-        <source>Application Proxy</source>
-        <translation type="vanished">应用代理</translation>
-    </message>
-    <message>
-        <source>Proxy Type</source>
-        <translation type="vanished">代理类型</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>IP Address</source>
-        <translation type="vanished">IP 地址</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="vanished">端口</translation>
-        <extra-child_page>Application Proxy</extra-child_page>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation type="vanished">选填</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="vanished">配置好代理后，可在启动器的应用右键菜单查看“使用代理”选项，勾选后即可使用代理</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">保存</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ChainsTypePage</name>
-    <message>
-        <source>Proxy Type</source>
-        <translation type="vanished">代理类型</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ConnectionEditPage</name>
-    <message>
-        <source>Disconnect</source>
-        <translation type="vanished">断开连接</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="vanished">删除</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">保存</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to delete this configuration?</source>
-        <translation type="vanished">您确定要删除当前配置吗？</translation>
-    </message>
-    <message>
-        <source>Wired Connection %1</source>
-        <translation type="vanished">有线连接 %1</translation>
-    </message>
-    <message>
-        <source>hotspot</source>
-        <translation type="vanished">热点</translation>
-    </message>
-    <message>
-        <source>Wireless Connection %1</source>
-        <translation type="vanished">无线连接 %1</translation>
-    </message>
-    <message>
-        <source>PPPoE Connection %1</source>
-        <translation type="vanished">PPPoE连接 %1</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ConnectionVpnEditPage</name>
-    <message>
-        <source>New VPN</source>
-        <translation type="vanished">新建VPN</translation>
-    </message>
-    <message>
-        <source>VPN Type</source>
-        <translation type="vanished">VPN类型</translation>
-    </message>
-    <message>
-        <source>L2TP</source>
-        <translation type="vanished">L2TP</translation>
-    </message>
-    <message>
-        <source>PPTP</source>
-        <translation type="vanished">PPTP</translation>
-    </message>
-    <message>
-        <source>VPNC</source>
-        <translation type="vanished">VPNC</translation>
-    </message>
-    <message>
-        <source>OpenVPN</source>
-        <translation type="vanished">OpenVPN</translation>
-    </message>
-    <message>
-        <source>StrongSwan</source>
-        <translation type="vanished">StrongSwan</translation>
-    </message>
-    <message>
-        <source>OpenConnect</source>
-        <translation type="vanished">OpenConnect</translation>
-    </message>
-    <message>
-        <source>Export</source>
-        <translation type="vanished">导出</translation>
-    </message>
-    <message>
-        <source>VPN L2TP %1</source>
-        <translation type="vanished">VPN L2TP %1</translation>
-    </message>
-    <message>
-        <source>VPN PPTP %1</source>
-        <translation type="vanished">VPN PPTP %1</translation>
-    </message>
-    <message>
-        <source>VPN VPNC %1</source>
-        <translation type="vanished">VPN VPNC %1</translation>
-    </message>
-    <message>
-        <source>VPN OpenVPN %1</source>
-        <translation type="vanished">VPN OpenVPN %1</translation>
-    </message>
-    <message>
-        <source>VPN StrongSwan %1</source>
-        <translation type="vanished">VPN StrongSwan %1</translation>
-    </message>
-    <message>
-        <source>VPN OpenConnect %1</source>
-        <translation type="vanished">VPN OpenConnect %1</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::EthernetSection</name>
-    <message>
-        <source>Ethernet</source>
-        <translation type="vanished">以太网</translation>
-    </message>
-    <message>
-        <source>Not Bind</source>
-        <translation type="vanished">不指定设备</translation>
-    </message>
-    <message>
-        <source>Device MAC Addr</source>
-        <translation type="vanished">设备MAC地址</translation>
-    </message>
-    <message>
-        <source>Cloned MAC Addr</source>
-        <translation type="vanished">克隆MAC地址</translation>
-    </message>
-    <message>
-        <source>Customize MTU</source>
-        <translation type="vanished">自定义MTU</translation>
-    </message>
-    <message>
-        <source>MTU</source>
-        <translation type="vanished">MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::GenericHotspotSection</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">通用</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">名称</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::GenericSection</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">通用</translation>
-    </message>
-    <message>
-        <source>The name already exists</source>
-        <translation type="vanished">名称已被占用</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">名称</translation>
-    </message>
-    <message>
-        <source>Auto Connect</source>
-        <translation type="vanished">自动连接</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::HotspotDeviceWidget</name>
-    <message>
-        <source>Hotspot</source>
-        <translation type="vanished">热点</translation>
-    </message>
-    <message>
-        <source>Add Settings</source>
-        <translation type="vanished">添加设置</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::IpvxSection</name>
-    <message>
-        <source>IPv4</source>
-        <translation type="vanished">IPv4</translation>
-    </message>
-    <message>
-        <source>IPv6</source>
-        <translation type="vanished">IPv6</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="vanished">自动</translation>
-    </message>
-    <message>
-        <source>Manual</source>
-        <translation type="vanished">手动</translation>
-    </message>
-    <message>
-        <source>Ignore</source>
-        <translation type="vanished">忽略</translation>
-    </message>
-    <message>
-        <source>IP Address</source>
-        <translation type="vanished">IP 地址</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">网关</translation>
-    </message>
-    <message>
-        <source>Primary DNS</source>
-        <translation type="vanished">首选DNS</translation>
-    </message>
-    <message>
-        <source>Secondary DNS</source>
-        <translation type="vanished">备用DNS</translation>
-    </message>
-    <message>
-        <source>Only applied in corresponding resources</source>
-        <translation type="vanished">仅用于相对应的网络上的资源</translation>
-    </message>
-    <message>
-        <source>Method</source>
-        <translation type="vanished">方法</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation type="vanished">子网掩码</translation>
-    </message>
-    <message>
-        <source>Prefix</source>
-        <translation type="vanished">前缀</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkDetailPage</name>
-    <message>
-        <source>Network Details</source>
-        <translation type="vanished">网络详情</translation>
-    </message>
-    <message>
-        <source>Hotspot</source>
-        <translation type="vanished">热点</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation type="vanished">SSID</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">安全</translation>
-    </message>
-    <message>
-        <source>Interface</source>
-        <translation type="vanished">接口</translation>
-    </message>
-    <message>
-        <source>MAC</source>
-        <translation type="vanished">MAC</translation>
-    </message>
-    <message>
-        <source>Band</source>
-        <translation type="vanished">频段</translation>
-    </message>
-    <message>
-        <source>IPv4</source>
-        <translation type="vanished">IPv4</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">网关</translation>
-    </message>
-    <message>
-        <source>Primary DNS</source>
-        <translation type="vanished">首选DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation type="vanished">子网掩码</translation>
-    </message>
-    <message>
-        <source>IPv6</source>
-        <translation type="vanished">IPv6</translation>
-    </message>
-    <message>
-        <source>Prefix</source>
-        <translation type="vanished">前缀</translation>
-    </message>
-    <message>
-        <source>Speed</source>
-        <translation type="vanished">速率</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkModuleWidget</name>
-    <message>
-        <source>DSL</source>
-        <translation type="vanished">DSL</translation>
-        <extra-contents_path>/network/DSL</extra-contents_path>
-    </message>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-        <extra-contents_path>/network/VPN</extra-contents_path>
-    </message>
-    <message>
-        <source>System Proxy</source>
-        <translation type="vanished">系统代理</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Application Proxy</source>
-        <translation type="vanished">应用代理</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Network Details</source>
-        <translation type="vanished">网络详情</translation>
-        <extra-contents_path>/network/Network Details</extra-contents_path>
-    </message>
-    <message>
-        <source>Personal Hotspot</source>
-        <translation type="vanished">个人热点</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-    <message>
-        <source>Wired Network %1</source>
-        <translation type="vanished">有线网络 %1</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Wired Network</source>
-        <translation type="vanished">有线网络</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Wireless Network %1</source>
-        <translation type="vanished">无线网络%1</translation>
-        <extra-contents_path>/network/Wireless Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Wireless Network</source>
-        <translation type="vanished">无线网络</translation>
-        <extra-contents_path>/network/Wireless Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation type="vanished">已断开</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PPPOESection</name>
-    <message>
-        <source>PPPoE</source>
-        <translation type="vanished">拨号</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="vanished">密码无效</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Service</source>
-        <translation type="vanished">服务</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PPPSection</name>
-    <message>
-        <source>PPP</source>
-        <translation type="vanished">PPP</translation>
-    </message>
-    <message>
-        <source>Refuse EAP Authentication</source>
-        <translation type="vanished">拒绝EAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse PAP Authentication</source>
-        <translation type="vanished">拒绝PAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse CHAP Authentication</source>
-        <translation type="vanished">拒绝CHAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation type="vanished">拒绝MSCHAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="vanished">拒绝MSCHAPv2认证</translation>
-    </message>
-    <message>
-        <source>No BSD Data Compression</source>
-        <translation type="vanished">无BSD数据压缩</translation>
-    </message>
-    <message>
-        <source>No Deflate Data Compression</source>
-        <translation type="vanished">无Deflate数据压缩</translation>
-    </message>
-    <message>
-        <source>No TCP Header Compression</source>
-        <translation type="vanished">无TCP头压缩</translation>
-    </message>
-    <message>
-        <source>No Protocol Field Compression</source>
-        <translation type="vanished">无协议字段压缩</translation>
-    </message>
-    <message>
-        <source>No Address/Control Compression</source>
-        <translation type="vanished">无地址/控制压缩</translation>
-    </message>
-    <message>
-        <source>Send PPP Echo Packets</source>
-        <translation type="vanished">发送PPP回响包</translation>
-    </message>
-    <message>
-        <source>Use MPPE</source>
-        <translation type="vanished">使用MPPE点到点加密</translation>
-    </message>
-    <message>
-        <source>128-bit MPPE</source>
-        <translation type="vanished">使用128位MPPE</translation>
-    </message>
-    <message>
-        <source>Stateful MPPE</source>
-        <translation type="vanished">使用带状态的MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PppoePage</name>
-    <message>
-        <source>PPP</source>
-        <translation type="vanished">PPP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ProxyPage</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">保存</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">无</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Manual</source>
-        <translation type="vanished">手动</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="vanished">自动</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation type="vanished">选填</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>HTTP Proxy</source>
-        <translation type="vanished">HTTP代理</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="vanished">端口</translation>
-        <extra-child_page>System Proxy</extra-child_page>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>HTTPS Proxy</source>
-        <translation type="vanished">HTTPS代理</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>FTP Proxy</source>
-        <translation type="vanished">FTP代理</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>SOCKS Proxy</source>
-        <translation type="vanished">SOCKS代理</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="vanished">忽略以上主机和域的代理配置</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Configuration URL</source>
-        <translation type="vanished">配置URL</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>System Proxy</source>
-        <translation type="vanished">系统代理</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::Secret8021xSection</name>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">安全</translation>
-    </message>
-    <message>
-        <source>TLS</source>
-        <translation type="vanished">TLS</translation>
-    </message>
-    <message>
-        <source>MD5</source>
-        <translation type="vanished">MD5</translation>
-    </message>
-    <message>
-        <source>LEAP</source>
-        <translation type="vanished">LEAP</translation>
-    </message>
-    <message>
-        <source>FAST</source>
-        <translation type="vanished">FAST</translation>
-    </message>
-    <message>
-        <source>Tunneled TLS</source>
-        <translation type="vanished">隧道TLS</translation>
-    </message>
-    <message>
-        <source>Protected EAP</source>
-        <translation type="vanished">受保护的EAP</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="vanished">已保存的</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="vanished">总是询问</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="vanished">不要求</translation>
-    </message>
-    <message>
-        <source>Disabled</source>
-        <translation type="vanished">已禁用</translation>
-    </message>
-    <message>
-        <source>Anonymous</source>
-        <translation type="vanished">匿名</translation>
-    </message>
-    <message>
-        <source>Authenticated</source>
-        <translation type="vanished">已认证</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">兼有</translation>
-    </message>
-    <message>
-        <source>Automatic</source>
-        <translation type="vanished">自动</translation>
-    </message>
-    <message>
-        <source>Version 0</source>
-        <translation type="vanished">版本0</translation>
-    </message>
-    <message>
-        <source>Version 1</source>
-        <translation type="vanished">版本1</translation>
-    </message>
-    <message>
-        <source>EAP Auth</source>
-        <translation type="vanished">EAP认证</translation>
-    </message>
-    <message>
-        <source>Identity</source>
-        <translation type="vanished">身份</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="vanished">密码选项</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="vanished">私钥</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="vanished">CA证书</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="vanished">用户证书</translation>
-    </message>
-    <message>
-        <source>Anonymous ID</source>
-        <translation type="vanished">匿名身份</translation>
-    </message>
-    <message>
-        <source>Provisioning</source>
-        <translation type="vanished">自动PAC配置</translation>
-    </message>
-    <message>
-        <source>PAC file</source>
-        <translation type="vanished">PAC文件</translation>
-    </message>
-    <message>
-        <source>Inner Auth</source>
-        <translation type="vanished">内部认证</translation>
-    </message>
-    <message>
-        <source>PEAP Version</source>
-        <translation type="vanished">PEAP版本</translation>
-    </message>
-    <message>
-        <source>Private Pwd</source>
-        <translation type="vanished">私钥密码</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="vanished">密码无效</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretHotspotSection</name>
-    <message>
-        <source>Invalid password</source>
-        <translation type="vanished">密码无效</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">无</translation>
-    </message>
-    <message>
-        <source>WEP 40/128-bit</source>
-        <translation type="vanished">WEP40/128位密钥</translation>
-    </message>
-    <message>
-        <source>WPA/WPA2 Personal</source>
-        <translation type="vanished">WPA/WPA2个人版</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">安全</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="vanished">密钥</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretWiredSection</name>
-    <message>
-        <source>Security Required</source>
-        <translation type="vanished">安全</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretWirelessSection</name>
-    <message>
-        <source>Invalid password</source>
-        <translation type="vanished">密码无效</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">无</translation>
-    </message>
-    <message>
-        <source>WEP 40/128-bit</source>
-        <translation type="vanished">WEP40/128位密钥</translation>
-    </message>
-    <message>
-        <source>WPA/WPA2 Personal</source>
-        <translation type="vanished">WPA/WPA2个人版</translation>
-    </message>
-    <message>
-        <source>WPA/WPA2 Enterprise</source>
-        <translation type="vanished">WPA/WPA2企业版</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">安全</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="vanished">密钥</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnAdvOpenVPNSection</name>
-    <message>
-        <source>VPN Advanced</source>
-        <translation type="vanished">VPN高级选项</translation>
-    </message>
-    <message>
-        <source>Customize Gateway Port</source>
-        <translation type="vanished">自定义网关端口</translation>
-    </message>
-    <message>
-        <source>Gateway Port</source>
-        <translation type="vanished">网关端口</translation>
-    </message>
-    <message>
-        <source>Customize Renegotiation Interval</source>
-        <translation type="vanished">自定义重新协商间隔</translation>
-    </message>
-    <message>
-        <source>Renegotiation Interval</source>
-        <translation type="vanished">重新协商间隔</translation>
-    </message>
-    <message>
-        <source>Use LZO Data Compression</source>
-        <translation type="vanished">使用LZO压缩</translation>
-    </message>
-    <message>
-        <source>Use TCP Connection</source>
-        <translation type="vanished">使用TCP连接</translation>
-    </message>
-    <message>
-        <source>Use TAP Device</source>
-        <translation type="vanished">使用TAP设备</translation>
-    </message>
-    <message>
-        <source>Customize Tunnel MTU</source>
-        <translation type="vanished">自定义最大传输单元(MTU)</translation>
-    </message>
-    <message>
-        <source>MTU</source>
-        <translation type="vanished">MTU</translation>
-    </message>
-    <message>
-        <source>Customize UDP Fragment Size</source>
-        <translation type="vanished">自定义UDP数据报段长度</translation>
-    </message>
-    <message>
-        <source>UDP Fragment Size</source>
-        <translation type="vanished">UDP数据报段长度</translation>
-    </message>
-    <message>
-        <source>Restrict Tunnel TCP MSS</source>
-        <translation type="vanished">限制隧道TCP最大段长度(MSS)</translation>
-    </message>
-    <message>
-        <source>Randomize Remote Hosts</source>
-        <translation type="vanished">随机远程主机</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnAdvVPNCSection</name>
-    <message>
-        <source>VPN Advanced</source>
-        <translation type="vanished">VPN高级选项</translation>
-    </message>
-    <message>
-        <source>Cisco (default)</source>
-        <translation type="vanished">思科（默认）</translation>
-    </message>
-    <message>
-        <source>Netscreen</source>
-        <translation type="vanished">网屏</translation>
-    </message>
-    <message>
-        <source>Secure (default)</source>
-        <translation type="vanished">安全（默认）</translation>
-    </message>
-    <message>
-        <source>Weak</source>
-        <translation type="vanished">弱</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">无</translation>
-    </message>
-    <message>
-        <source>NAT-T When Available (default)</source>
-        <translation type="vanished">NAT-T若可用（默认）</translation>
-    </message>
-    <message>
-        <source>NAT-T Always</source>
-        <translation type="vanished">总是NAT-T</translation>
-    </message>
-    <message>
-        <source>Cisco UDP</source>
-        <translation type="vanished">思科UDP</translation>
-    </message>
-    <message>
-        <source>Disabled</source>
-        <translation type="vanished">已禁用</translation>
-    </message>
-    <message>
-        <source>DH Group 1</source>
-        <translation type="vanished">DH Group 1</translation>
-    </message>
-    <message>
-        <source>DH Group 2 (default)</source>
-        <translation type="vanished">DH Group 2（默认）</translation>
-    </message>
-    <message>
-        <source>DH Group 5</source>
-        <translation type="vanished">DH Group 5</translation>
-    </message>
-    <message>
-        <source>Server (default)</source>
-        <translation type="vanished">服务器（默认）</translation>
-    </message>
-    <message>
-        <source>DH Group 2</source>
-        <translation type="vanished">DH Group 2</translation>
-    </message>
-    <message>
-        <source>Domain</source>
-        <translation type="vanished">域</translation>
-    </message>
-    <message>
-        <source>Vendor</source>
-        <translation type="vanished">供应商</translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation type="vanished">版本</translation>
-    </message>
-    <message>
-        <source>Encryption</source>
-        <translation type="vanished">加密</translation>
-    </message>
-    <message>
-        <source>NAT Traversal Mode</source>
-        <translation type="vanished">NAT遍历</translation>
-    </message>
-    <message>
-        <source>IKE DH Group</source>
-        <translation type="vanished">IKE DH 组</translation>
-    </message>
-    <message>
-        <source>Forward Secrecy</source>
-        <translation type="vanished">前向保密</translation>
-    </message>
-    <message>
-        <source>Local Port</source>
-        <translation type="vanished">本地端口</translation>
-    </message>
-    <message>
-        <source>Disable Dead Peer Detection</source>
-        <translation type="vanished">禁用死端检测</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnIpsecSection</name>
-    <message>
-        <source>VPN IPsec</source>
-        <translation type="vanished">VPN IPsec</translation>
-    </message>
-    <message>
-        <source>Enable IPsec</source>
-        <translation type="vanished">启用IPsec</translation>
-    </message>
-    <message>
-        <source>Group Name</source>
-        <translation type="vanished">组名</translation>
-    </message>
-    <message>
-        <source>Group ID</source>
-        <translation type="vanished">组ID</translation>
-    </message>
-    <message>
-        <source>Pre-Shared Key</source>
-        <translation type="vanished">预共享密钥</translation>
-    </message>
-    <message>
-        <source>Phase1 Algorithms</source>
-        <translation type="vanished">密钥交换协议</translation>
-    </message>
-    <message>
-        <source>Phase2 Algorithms</source>
-        <translation type="vanished">安全封装协议</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnOpenConnectSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">网关</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="vanished">CA证书</translation>
-    </message>
-    <message>
-        <source>Proxy</source>
-        <translation type="vanished">代理</translation>
-    </message>
-    <message>
-        <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation type="vanished">允许思科安全桌面木马</translation>
-    </message>
-    <message>
-        <source>CSD Script</source>
-        <translation type="vanished">CSD 脚本</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="vanished">用户证书</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="vanished">私钥</translation>
-    </message>
-    <message>
-        <source>Use FSID for Key Passphrase</source>
-        <translation type="vanished">为密钥口令句使用FSID</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnOpenVPNSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Certificates (TLS)</source>
-        <translation type="vanished">证书（TLS）</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-    <message>
-        <source>Certificates with Password (TLS)</source>
-        <translation type="vanished">证书和密码（TLS）</translation>
-    </message>
-    <message>
-        <source>Static Key</source>
-        <translation type="vanished">静态密钥</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="vanished">已保存的</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="vanished">总是询问</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="vanished">不要求</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">网关</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Auth Type</source>
-        <translation type="vanished">认证类型</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="vanished">CA证书</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="vanished">用户证书</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="vanished">私钥</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="vanished">密码选项</translation>
-    </message>
-    <message>
-        <source>Private Pwd</source>
-        <translation type="vanished">私钥密码</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-    </message>
-    <message>
-        <source>Customize Key Direction</source>
-        <translation type="vanished">自定义密钥方向</translation>
-    </message>
-    <message>
-        <source>Key Direction</source>
-        <translation type="vanished">密钥方向</translation>
-    </message>
-    <message>
-        <source>Remote IP</source>
-        <translation type="vanished">远程IP</translation>
-    </message>
-    <message>
-        <source>Local IP</source>
-        <translation type="vanished">本地IP</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="vanished">密码无效</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnPPPSection</name>
-    <message>
-        <source>VPN PPP</source>
-        <translation type="vanished">VPN PPP</translation>
-    </message>
-    <message>
-        <source>All Available (default)</source>
-        <translation type="vanished">都可用（默认）</translation>
-    </message>
-    <message>
-        <source>40-bit (less secure)</source>
-        <translation type="vanished">40位（较安全）</translation>
-    </message>
-    <message>
-        <source>128-bit (most secure)</source>
-        <translation type="vanished">128位（最安全）</translation>
-    </message>
-    <message>
-        <source>Refuse EAP Authentication</source>
-        <translation type="vanished">拒绝EAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse PAP Authentication</source>
-        <translation type="vanished">拒绝PAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse CHAP Authentication</source>
-        <translation type="vanished">拒绝CHAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation type="vanished">拒绝MSCHAP认证</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="vanished">拒绝MSCHAPv2认证</translation>
-    </message>
-    <message>
-        <source>No BSD Data Compression</source>
-        <translation type="vanished">无BSD数据压缩</translation>
-    </message>
-    <message>
-        <source>No Deflate Data Compression</source>
-        <translation type="vanished">无Deflate数据压缩</translation>
-    </message>
-    <message>
-        <source>No TCP Header Compression</source>
-        <translation type="vanished">无TCP头压缩</translation>
-    </message>
-    <message>
-        <source>No Protocol Field Compression</source>
-        <translation type="vanished">无协议字段压缩</translation>
-    </message>
-    <message>
-        <source>No Address/Control Compression</source>
-        <translation type="vanished">无地址/控制压缩</translation>
-    </message>
-    <message>
-        <source>Send PPP Echo Packets</source>
-        <translation type="vanished">发送PPP回响包</translation>
-    </message>
-    <message>
-        <source>Use MPPE</source>
-        <translation type="vanished">使用MPPE点到点加密</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">安全</translation>
-    </message>
-    <message>
-        <source>Stateful MPPE</source>
-        <translation type="vanished">使用带状态的MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnPage</name>
-    <message>
-        <source>VPN Status</source>
-        <translation type="vanished">VPN状态</translation>
-    </message>
-    <message>
-        <source>Import Error</source>
-        <translation type="vanished">导入错误</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">确定</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnProxySection</name>
-    <message>
-        <source>VPN Proxy</source>
-        <translation type="vanished">VPN代理</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="vanished">密码无效</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="vanished">不要求</translation>
-    </message>
-    <message>
-        <source>HTTP</source>
-        <translation type="vanished">HTTP</translation>
-    </message>
-    <message>
-        <source>SOCKS</source>
-        <translation type="vanished">SOCKS</translation>
-    </message>
-    <message>
-        <source>Proxy Type</source>
-        <translation type="vanished">代理类型</translation>
-    </message>
-    <message>
-        <source>Server IP</source>
-        <translation type="vanished">服务器地址</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="vanished">端口</translation>
-    </message>
-    <message>
-        <source>Retry Indefinitely When Failed</source>
-        <translation type="vanished">失败时重试</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSSTPSection</name>
-    <message>
-        <source>CA File</source>
-        <translation type="vanished">CA文件</translation>
-    </message>
-    <message>
-        <source>Ignore Certificate Warnings</source>
-        <translation type="vanished">忽略证书警告</translation>
-    </message>
-    <message>
-        <source>Use TLS Hostname Extensions</source>
-        <translation type="vanished">使用TLS主机名扩展</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSecOpenVPNSection</name>
-    <message>
-        <source>VPN Security</source>
-        <translation type="vanished">VPN安全</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="vanished">默认</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">无</translation>
-    </message>
-    <message>
-        <source>Cipher</source>
-        <translation type="vanished">加密</translation>
-    </message>
-    <message>
-        <source>HMAC Auth</source>
-        <translation type="vanished">HMAC认证</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="vanished">密码无效</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="vanished">已保存的</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="vanished">总是询问</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="vanished">不要求</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">网关</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="vanished">密码选项</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-    <message>
-        <source>NT Domain</source>
-        <translation type="vanished">NT域</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSstpProxySection</name>
-    <message>
-        <source>VPN Proxy</source>
-        <translation type="vanished">VPN代理</translation>
-    </message>
-    <message>
-        <source>Server IP</source>
-        <translation type="vanished">服务器地址</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="vanished">端口</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnStrongSwanSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="vanished">私钥</translation>
-    </message>
-    <message>
-        <source>SSH Agent</source>
-        <translation type="vanished">SSH代理</translation>
-    </message>
-    <message>
-        <source>Smart Card</source>
-        <translation type="vanished">智能卡</translation>
-    </message>
-    <message>
-        <source>EAP</source>
-        <translation type="vanished">EAP</translation>
-    </message>
-    <message>
-        <source>Pre-Shared Key</source>
-        <translation type="vanished">预共享密钥</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">网关</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="vanished">CA证书</translation>
-    </message>
-    <message>
-        <source>Auth Type</source>
-        <translation type="vanished">认证类型</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="vanished">用户证书</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-    <message>
-        <source>Request an Inner IP Address</source>
-        <translation type="vanished">请求内部IP地址</translation>
-    </message>
-    <message>
-        <source>Enforce UDP Encapsulation</source>
-        <translation type="vanished">强制使用UDP封装</translation>
-    </message>
-    <message>
-        <source>Use IP Compression</source>
-        <translation type="vanished">使用IP压缩 </translation>
-    </message>
-    <message>
-        <source>Enable Custom Cipher Proposals</source>
-        <translation type="vanished">启用自定义加密方案</translation>
-    </message>
-    <message>
-        <source>IKE</source>
-        <translation type="vanished">IKE</translation>
-    </message>
-    <message>
-        <source>ESP</source>
-        <translation type="vanished">ESP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnTLSSection</name>
-    <message>
-        <source>VPN TLS Authentication</source>
-        <translation type="vanished">VPN TLS 认证</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="vanished">默认</translation>
-    </message>
-    <message>
-        <source>Client</source>
-        <translation type="vanished">客户端</translation>
-    </message>
-    <message>
-        <source>Server</source>
-        <translation type="vanished">服务器</translation>
-    </message>
-    <message>
-        <source>Subject Match</source>
-        <translation type="vanished">主题匹配</translation>
-    </message>
-    <message>
-        <source>Remote Cert Type</source>
-        <translation type="vanished">远程证书类型</translation>
-    </message>
-    <message>
-        <source>Key File</source>
-        <translation type="vanished">密钥文件</translation>
-    </message>
-    <message>
-        <source>Customize Key Direction</source>
-        <translation type="vanished">自定义密钥方向</translation>
-    </message>
-    <message>
-        <source>Key Direction</source>
-        <translation type="vanished">密钥方向</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnVPNCSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Invalid password</source>
-        <translation type="vanished">密码无效</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="vanished">已保存的</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="vanished">总是询问</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="vanished">不要求</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">网关</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="vanished">密码选项</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-    <message>
-        <source>Group Name</source>
-        <translation type="vanished">组名</translation>
-    </message>
-    <message>
-        <source>Group Pwd</source>
-        <translation type="vanished">组密码</translation>
-    </message>
-    <message>
-        <source>Use Hybrid Authentication</source>
-        <translation type="vanished">使用混合认证</translation>
-    </message>
-    <message>
-        <source>CA File</source>
-        <translation type="vanished">CA文件</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WiredPage</name>
-    <message>
-        <source>Plug in the network cable first</source>
-        <translation type="vanished">请您先插入网线！</translation>
-    </message>
-    <message>
-        <source>Wired Network Adapter</source>
-        <translation type="vanished">有线网卡</translation>
-    </message>
-    <message>
-        <source>Select Settings</source>
-        <translation type="vanished">选择设置</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WirelessPage</name>
-    <message>
-        <source>Connect to hidden network</source>
-        <translation type="vanished">连接到隐藏网络</translation>
-    </message>
-    <message>
-        <source>Wireless Network Adapter</source>
-        <translation type="vanished">无线网卡</translation>
-    </message>
-    <message>
-        <source>Close Hotspot</source>
-        <translation type="vanished">关闭热点</translation>
-    </message>
-    <message>
-        <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation type="vanished">若要连接并使用无线网络功能，请先关闭热点分享</translation>
-    </message>
-    <message>
-        <source>WLAN</source>
-        <translation type="vanished">WLAN</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WirelessSection</name>
-    <message>
-        <source>Not Bind</source>
-        <translation type="vanished">不指定设备</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation type="vanished">SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">必填</translation>
-    </message>
-    <message>
-        <source>Device MAC Addr</source>
-        <translation type="vanished">设备MAC地址</translation>
-    </message>
-    <message>
-        <source>Customize MTU</source>
-        <translation type="vanished">自定义MTU</translation>
-    </message>
-    <message>
-        <source>MTU</source>
-        <translation type="vanished">MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PersonalizationFontsWidget</name>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">字号</translation>
-    </message>
-    <message>
-        <source>Standard Font</source>
-        <translation type="vanished">标准字体</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
-    </message>
-    <message>
-        <source>Monospaced Font</source>
-        <translation type="vanished">等宽字体</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
-    </message>
-    <message>
-        <source> (Unsupported font)</source>
-        <translation type="vanished">(不支持的字体)</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PersonalizationGeneral</name>
-    <message>
-        <source>Transparency</source>
-        <translation type="vanished">透明度调节</translation>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="vanished">主题</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Accent Color</source>
-        <translation type="vanished">活动用色</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Window Effect</source>
-        <translation type="vanished">窗口特效</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PersonalizationList</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">通用</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Icon Theme</source>
-        <translation type="vanished">图标主题</translation>
-        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
-    </message>
-    <message>
-        <source>Cursor Theme</source>
-        <translation type="vanished">光标主题</translation>
-        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
-    </message>
-    <message>
-        <source>Font</source>
-        <translation type="vanished">字体</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PerssonalizationThemeList</name>
-    <message>
-        <source>Light</source>
-        <translation type="vanished">轻</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation type="vanished">深色</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="vanished">自动</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="vanished">默认</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
-    <message>
-        <source>Light</source>
-        <translation type="vanished">浅色</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation type="vanished">深色</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="vanished">自动</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="vanished">默认</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::power::GeneralWidget</name>
-    <message>
-        <source>Power Saving Mode</source>
-        <translation type="vanished">节能模式</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Auto Mode Switch</source>
-        <translation type="vanished">自动切换节能模式</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Password is required to wake up the computer</source>
-        <translation type="vanished">待机恢复时需要密码</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation type="vanished">唤醒显示器时需要密码</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::power::PowerModule</name>
-    <message>
-        <source>Battery low, please plug in</source>
-        <translation type="vanished">电池电量低，请连接电源</translation>
-    </message>
-    <message>
-        <source>Battery critically low</source>
-        <translation type="vanished">电池电量耗尽</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::power::PowerWidget</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">通用</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation type="vanished">使用电源</translation>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation type="vanished">使用电池</translation>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::power::UseBatteryWidget</name>
-    <message>
-        <source>Monitor will suspend after</source>
-        <translation type="vanished">关闭显示器于</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-    <message>
-        <source>Computer will suspend after</source>
-        <translation type="vanished">电脑进入待机模式</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-    <message>
-        <source>Lock screen after</source>
-        <translation type="vanished">自动锁屏</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-    <message>
-        <source>Suspend on lid close</source>
-        <translation type="vanished">合上笔记本时待机</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation type="vanished">从不</translation>
-    </message>
-    <message>
-        <source>1 Minute</source>
-        <translation type="vanished">1 分钟</translation>
-    </message>
-    <message>
-        <source>%1 Minutes</source>
-        <translation type="vanished">%1 分钟</translation>
-    </message>
-    <message>
-        <source>1 Hour</source>
-        <translation type="vanished">1 小时</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::power::UseElectricWidget</name>
-    <message>
-        <source>Monitor will suspend after</source>
-        <translation type="vanished">关闭显示器于</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
-        <source>Computer will suspend after</source>
-        <translation type="vanished">电脑进入待机模式</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
-        <source>Lock screen after</source>
-        <translation type="vanished">自动锁屏</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
-        <source>Suspend on lid close</source>
-        <translation type="vanished">合上笔记本时待机</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation type="vanished">从不</translation>
-    </message>
-    <message>
-        <source>1 Minute</source>
-        <translation type="vanished">1 分钟</translation>
-    </message>
-    <message>
-        <source>%1 Minutes</source>
-        <translation type="vanished">%1 分钟</translation>
-    </message>
-    <message>
-        <source>1 Hour</source>
-        <translation type="vanished">1 小时</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::AdvancedPage</name>
-    <message>
-        <source>Output</source>
-        <translation type="vanished">输出</translation>
-        <extra-contents_path>/sound/Advanced</extra-contents_path>
-    </message>
-    <message>
-        <source>Input</source>
-        <translation type="vanished">输入</translation>
-        <extra-contents_path>/sound/Advanced</extra-contents_path>
-    </message>
-    <message>
-        <source>Sound Card:</source>
-        <translation type="vanished">声卡：</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::MicrophonePage</name>
-    <message>
-        <source>Microphone</source>
-        <translation type="vanished">麦克风</translation>
-    </message>
-    <message>
-        <source>Input Volume</source>
-        <translation type="vanished">输入音量</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
-    </message>
-    <message>
-        <source>Input Level</source>
-        <translation type="vanished">反馈音量</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::SoundEffectsPage</name>
-    <message>
-        <source>Sound Effects</source>
-        <translation type="vanished">系统音效</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::SoundWidget</name>
-    <message>
-        <source>Speaker</source>
-        <translation type="vanished">扬声器</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
-    </message>
-    <message>
-        <source>Microphone</source>
-        <translation type="vanished">麦克风</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation type="vanished">高级设置</translation>
-        <extra-contents_path>/sound/Advanced</extra-contents_path>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation type="vanished">系统音效</translation>
-        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::SpeakerPage</name>
-    <message>
-        <source>Speaker</source>
-        <translation type="vanished">扬声器</translation>
-    </message>
-    <message>
-        <source>Output Volume</source>
-        <translation type="vanished">输出音量</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
-    </message>
-    <message>
-        <source>Left/Right Balance</source>
-        <translation type="vanished">左/右平衡</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">左</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">右</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sync::IndexPage</name>
-    <message>
-        <source>Auto Sync</source>
-        <translation type="vanished">自动同步配置</translation>
-        <extra-contents_path>/cloudsync/Auto Sync</extra-contents_path>
-    </message>
-    <message>
-        <source>Syncing...</source>
-        <translation type="vanished">正在同步...</translation>
-        <extra-contents_path>/cloudsync/Syncing...</extra-contents_path>
-    </message>
-    <message>
-        <source>Sign Out</source>
-        <translation type="vanished">登出</translation>
-        <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
-    </message>
-    <message>
-        <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
-        <translation type="vanished">开启网络同步会同步您的WiFi密码</translation>
-        <extra-contents_path>/cloudsync/Your Wi-Fi password will be synced if Network Settings is turned on</extra-contents_path>
-    </message>
-    <message>
-        <source>Network Settings</source>
-        <translation type="vanished">网络</translation>
-        <extra-contents_path>/cloudsync/Network Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Sound Settings</source>
-        <translation type="vanished">声音</translation>
-        <extra-contents_path>/cloudsync/Sound Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Mouse Settings</source>
-        <translation type="vanished">鼠标</translation>
-        <extra-contents_path>/cloudsync/Mouse Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation type="vanished">更新</translation>
-        <extra-contents_path>/cloudsync/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Dock</source>
-        <translation type="vanished">驻留</translation>
-        <extra-contents_path>/cloudsync/Dock</extra-contents_path>
-    </message>
-    <message>
-        <source>Launcher</source>
-        <translation type="vanished">启动器</translation>
-        <extra-contents_path>/cloudsync/Launcher</extra-contents_path>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation type="vanished">壁纸</translation>
-        <extra-contents_path>/cloudsync/Wallpaper</extra-contents_path>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="vanished">主题</translation>
-        <extra-contents_path>/cloudsync/Theme</extra-contents_path>
-    </message>
-    <message>
-        <source>Power Settings</source>
-        <translation type="vanished">电源</translation>
-        <extra-contents_path>/cloudsync/Power Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Corner Settings</source>
-        <translation type="vanished">热区</translation>
-        <extra-contents_path>/cloudsync/Corner Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Last Sync: %1</source>
-        <translation type="vanished">上次同步时间：%1</translation>
-        <extra-contents_path>/cloudsync/Last Sync:</extra-contents_path>
-    </message>
-    <message>
-        <source>yyyy-MM-dd hh:mm</source>
-        <translation type="vanished">yyyy-MM-dd hh:mm</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sync::LoginPage</name>
-    <message>
-        <source>Sign In</source>
-        <translation type="vanished">登录</translation>
-        <extra-contents_path>/cloudsync/Sign In</extra-contents_path>
-    </message>
-    <message>
-        <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
-        <translation type="vanished">使用Deepin ID登录并开启云同步服务，可以帮助你同步一些系统设置。</translation>
-        <extra-contents_path>/cloudsync/Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</extra-contents_path>
-    </message>
-    <message>
-        <source>Deepin ID Sign In</source>
-        <translation type="vanished">Deepin ID登录</translation>
-        <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
-    </message>
-    <message>
-        <source>Only supported in Mainland China at present</source>
-        <translation type="vanished">目前仅支持中国大陆地区</translation>
-        <extra-contents_path>/cloudsync/Only supported in Mainland China at present</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::sync::LogoutPage</name>
-    <message>
-        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation type="vanished">非常抱歉，您所在的地区暂未开通此项服务，我们在努力开发中，敬请期待！</translation>
-        <extra-contents_path>/cloudsync/Sorry, it is not supported in your region at present, and will be coming soon</extra-contents_path>
-    </message>
-    <message>
-        <source>Sign Out</source>
-        <translation type="vanished">登出</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::systeminfo::NativeInfoWidget</name>
-    <message>
-        <source>Edition:</source>
-        <translation type="vanished">版本：</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation type="vanished">类型：</translation>
-    </message>
-    <message>
-        <source>Kernel:</source>
-        <translation type="vanished">内核版本：</translation>
-    </message>
-    <message>
-        <source>Processor:</source>
-        <translation type="vanished">处理器：</translation>
-    </message>
-    <message>
-        <source>Memory:</source>
-        <translation type="vanished">内存：</translation>
-    </message>
-    <message>
-        <source>Disk:</source>
-        <translation type="vanished">磁盘：</translation>
-    </message>
-    <message>
-        <source>%1-bit</source>
-        <translation type="vanished">%1位</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::systeminfo::SystemInfoWidget</name>
-    <message>
-        <source>About This PC</source>
-        <translation type="vanished">关于本机</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::MirrorSourceItem</name>
-    <message>
-        <source>Untested</source>
-        <translation type="vanished">未检测</translation>
-    </message>
-    <message>
-        <source>Timeout</source>
-        <translation type="vanished">超时</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">慢</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation type="vanished">中</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">快</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::MirrorsWidget</name>
-    <message>
-        <source>Mirror List</source>
-        <translation type="vanished">镜像源列表</translation>
-        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
-    </message>
-    <message>
-        <source>Test Speed</source>
-        <translation type="vanished">测速</translation>
-        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
-    </message>
-    <message>
-        <source>Untested</source>
-        <translation type="vanished">未检测</translation>
-    </message>
-    <message>
-        <source>Retest</source>
-        <translation type="vanished">重新测速</translation>
-        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::UpdateCtrlWidget</name>
-    <message>
-        <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="vanished">为了您能够正常的使用系统和应用，更新后请重新启动</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Network disconnected, please retry after connected</source>
-        <translation type="vanished">网络断开，请联网后重试</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="vanished">本次更新可能会用时较长，更新完成前请不要关机或重启</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Checking for updates, please wait...</source>
-        <translation type="vanished">检查更新中，请稍候...</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Download and install updates</source>
-        <translation type="vanished">下载并安装更新</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>%1% downloaded (Click to pause)</source>
-        <translation type="vanished">已下载%1%（点击暂停）</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>%1% downloaded (Click to continue)</source>
-        <translation type="vanished">已下载%1%（点击继续）</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Install updates</source>
-        <translation type="vanished">安装更新</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation type="vanished">您的系统已经是最新的</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Updating, please wait...</source>
-        <translation type="vanished">正在更新，请稍候......</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>The newest system installed, restart to take effect</source>
-        <translation type="vanished">您已安装最新版本，重启生效！</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation type="vanished">当前硬盘空间不足，无法进行系统更新</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Dependency error, failed to detect the updates</source>
-        <translation type="vanished">依赖错误，检测更新失败</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Backing up, please wait...</source>
-        <translation type="vanished">正在备份，请稍候...</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>System backup failed</source>
-        <translation type="vanished">系统备份失败</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message numerus="yes">
-        <source>%n application update(s) available</source>
-        <translation type="vanished">
-            <numerusform>检测到%n个应用更新</numerusform>
-        </translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>New system edition available</source>
-        <translation type="vanished">检测到有新系统版本</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message numerus="yes">
-        <source>New system edition and %n application update(s) available</source>
-        <translation type="vanished">
-            <numerusform>检测到新系统版本和%n个应用更新</numerusform>
-        </translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation type="vanished">已下载</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Size: %1</source>
-        <translation type="vanished">下载大小：%1</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="vanished">您的电池电量少于50%，请插入电源后继续</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="vanished">请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::UpdateHistoryButton</name>
-    <message>
-        <source>Update History</source>
-        <translation type="vanished">历史更新</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::UpdateSettings</name>
-    <message>
-        <source>Update Settings</source>
-        <translation type="vanished">更新设置</translation>
-    </message>
-    <message>
-        <source>Auto Clear Package Cache</source>
-        <translation type="vanished">自动清除软件包缓存</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Updates Notification</source>
-        <translation type="vanished">更新提醒</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Auto Download Updates</source>
-        <translation type="vanished">自动下载更新</translation>
-    </message>
-    <message>
-        <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="vanished">开启“自动下载更新”，会在有无线网络和有线网络的情况下自动下载</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>System Repository Detection</source>
-        <translation type="vanished">系统源检测</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Show a notification if system update repository has been modified</source>
-        <translation type="vanished">系统更新源被修改后会弹出通知</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation type="vanished">智能镜像源</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="vanished">开启智能镜像源会自动匹配响应最快的镜像源</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Mirror List</source>
-        <translation type="vanished">镜像源列表</translation>
-        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::UpdateWidget</name>
-    <message>
-        <source>Update</source>
-        <translation type="vanished">更新</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation type="vanished">更新设置</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Last Update</source>
-        <translation type="vanished">最近更新</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Return</source>
-        <translation type="vanished">返回</translation>
-    </message>
-    <message>
-        <source>Current Edition</source>
-        <translation type="vanished">当前版本：</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Update History</source>
-        <translation type="vanished">历史更新</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::wacom::PressureSettings</name>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation type="vanished">压感</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation type="vanished">轻</translation>
-    </message>
-    <message>
-        <source>Heavy</source>
-        <translation type="vanished">重</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::wacom::WacomWidget</name>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">笔</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation type="vanished">鼠标</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation type="vanished">模式</translation>
-    </message>
-</context>
-<context>
     <name>main</name>
     <message>
+        <location filename="../src/frame/main.cpp" line="62"/>
         <source>Control Center provides all system settings for deepin users.</source>
         <translation>控制中心提供深度操作系统所有设置选项。</translation>
     </message>

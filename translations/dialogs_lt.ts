@@ -7,9 +7,13 @@
         <translation>Atnaujinimai įdiegti! Reikia paleisti kompiuterį iš naujo, padaryti tai dabar?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Prieš tęsiant, įsitikinkite, kad visi duomenys buvo įrašyti</translation>
+        <translation type="vanished">Prieš tęsdami, įsitikinkite, kad visi duomenys buvo įrašyti</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

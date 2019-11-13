@@ -7,9 +7,13 @@
         <translation>Aktualizace nainstalovány. Je potřeba provést opětovné spuštění. Restartovat nyní?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Před pokračováním se ujistěte, že byla všechna data uložena</translation>
+        <translation type="vanished">Před pokračováním se ujistěte, že byla všechna data uložena</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

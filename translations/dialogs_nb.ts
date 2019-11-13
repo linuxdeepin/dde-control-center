@@ -7,9 +7,13 @@
         <translation>Oppdateringer installert! En omstart er nødvendig, vil du gjøre dette nå?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Forsikre deg om at alle data er lagret før du går videre</translation>
+        <translation type="vanished">Forsikre deg om at alle data er lagret før du går videre</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

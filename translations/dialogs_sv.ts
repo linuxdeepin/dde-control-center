@@ -7,9 +7,13 @@
         <translation>Uppdateringar installerade! En omstart krävs, starta om nu?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Kontrollera att all data har sparats innan du fortsätter</translation>
+        <translation type="vanished">Kontrollera att all data har sparats innan du fortsätter</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

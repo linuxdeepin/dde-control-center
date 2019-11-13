@@ -7,9 +7,13 @@
         <translation>Atualizações instaladas! Um reinício é necessário, reiniciar agora?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Primeiro certifique-se que todos os dados foram guardados</translation>
+        <translation type="vanished">Primeiro certifique-se que todos os dados foram guardados</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

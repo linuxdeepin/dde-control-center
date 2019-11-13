@@ -7,9 +7,13 @@
         <translation>Kemaskini telah dipasang! Perlu dimulakan semula, mahu mulakan semula sekarang?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Pastikan semua data telah disimpan sebelum diteruskan</translation>
+        <translation type="vanished">Pastikan semua data telah disimpan sebelum diteruskan</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

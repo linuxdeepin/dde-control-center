@@ -7,9 +7,13 @@
         <translation>Frissítések települtek! Újraindítás szükséges, szeretnéd újraindítani most a számítógépet?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>A folytatás előtt ments el mindent</translation>
+        <translation type="vanished">A folytatás előtt ments el mindent</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

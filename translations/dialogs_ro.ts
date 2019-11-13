@@ -7,9 +7,13 @@
         <translation>Actualizări instalate! Este necesară repornirea sistemului, reporniţi acum?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Asigurați-vă că toate datele au fost salvate înainte de a continua</translation>
+        <translation type="vanished">Asigurați-vă că toate datele au fost salvate înainte de a continua</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

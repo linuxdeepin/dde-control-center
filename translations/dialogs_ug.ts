@@ -7,9 +7,13 @@
         <translation>يېڭىلاشنى ئورنىتىش! قايتىدىن قوزغىتىش كېرەك ، ھازىر قايتا قوزغىتامسىز ؟ </translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>داۋاملاشتۇرۇشتىن بۇرۇن ، بارلىق سانلىق مەلۇمات ساقلاش كاپالەتلىك قىلىڭ </translation>
+        <translation type="vanished">داۋاملاشتۇرۇشتىن بۇرۇن ، بارلىق سانلىق مەلۇمات ساقلاش كاپالەتلىك قىلىڭ </translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

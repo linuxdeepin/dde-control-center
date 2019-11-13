@@ -7,9 +7,13 @@
         <translation>Aggiornamenti installati! E&apos; necessario riavviare, desideri farlo ora?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Assicurati di aver salvato tutto prima di procedere</translation>
+        <translation type="vanished">Assicurati di aver salvato tutto prima di procedere</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

@@ -4,17 +4,21 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Updates installed! A restart is required, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>به روزرسانی های نصب شده! راه اندازی مجدد مورد نیاز است ، اکنون دوباره راه اندازی شود؟</translation>
+    </message>
+    <message>
+        <source>Make sure all data has been saved before proceeding</source>
+        <translation type="vanished">اطمینان حاصل کنید که تمام داده ها قبل از ادامه کار ذخیره شده اند</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
-        <source>Make sure all data has been saved before proceeding</source>
+        <source>Make sure all data had been saved first</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
-        <translation>انصراف</translation>
+        <translation>لغو</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

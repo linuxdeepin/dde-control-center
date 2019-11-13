@@ -7,9 +7,13 @@
         <translation>Актуализациите са инсталирани! Изисква се рестартиране, рестартиране сега?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Уверете се, че всички данни са запазени, преди да продължите</translation>
+        <translation type="vanished">Уверете се, че всички данни са запазени, преди да продължите</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

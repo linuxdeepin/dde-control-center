@@ -7,9 +7,13 @@
         <translation>Päivitykset asennettu! Tarvitaan uudelleenkäynnistys, käynnistä uudelleen nyt?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Varmista, että kaikki tiedot on tallennettu ennen kuin jatkat</translation>
+        <translation type="vanished">Varmista, että kaikki tiedot on tallennettu ennen kuin jatkat</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

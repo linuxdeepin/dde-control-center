@@ -7,9 +7,13 @@
         <translation>Ажурирања су инсталирана! Потребно је поново покренути рачунар. Поново покрени сада?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Прво се уверите да су сви подаци сачувани</translation>
+        <translation type="vanished">Прво се уверите да су сви подаци сачувани</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

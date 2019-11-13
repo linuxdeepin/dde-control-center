@@ -7,9 +7,13 @@
         <translation>Mises à jour installées ! Un redémarrage est nécessaire, redémarrer maintenant ?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Assurez-vous que toutes vos données ont été sauvegardées avant de procéder</translation>
+        <translation type="vanished">Assurez-vous que toutes vos données ont été sauvegardées avant de procéder</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

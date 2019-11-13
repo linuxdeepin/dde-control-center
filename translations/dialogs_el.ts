@@ -7,9 +7,13 @@
         <translation>Οι ενημερώσεις εγκαταστάθηκαν με επιτυχία! Απαιτείται επανεκκίνηση, να γίνει επανεκκίνηση τώρα;</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Βεβαιωθείτε ότι έχουν αποθηκευτεί όλα τα δεδομένα πριν προχωρήσετε</translation>
+        <translation type="vanished">Βεβαιωθείτε ότι έχουν αποθηκευτεί όλα τα δεδομένα πριν προχωρήσετε</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

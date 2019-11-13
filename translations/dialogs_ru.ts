@@ -7,9 +7,13 @@
         <translation>Обновления установлены, требуется перезагрузка, перезагрузить сейчас?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Убедитесь, что все данные были сохранены, прежде чем продолжить</translation>
+        <translation type="vanished">Убедитесь, что все данные были сохранены, прежде чем продолжить</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

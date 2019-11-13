@@ -7,9 +7,13 @@
         <translation>已安裝更新！需要重開機，現在重開？</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>請在確認前確保所有資料皆已儲存</translation>
+        <translation type="vanished">請在確認前確保所有資料皆已儲存</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

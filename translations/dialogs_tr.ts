@@ -7,9 +7,13 @@
         <translation>Güncellemeler kuruldu! Yeniden başlatma gerekiyor. Şimdi yeniden başlatılsın mı?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>İlerlemeden önce tüm verilerin kaydedildiğinden emin olun</translation>
+        <translation type="vanished">İlerlemeden önce tüm verilerin kaydedildiğinden emin olun</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

@@ -7,9 +7,13 @@
         <translation>업데이트 설치됨! 다시 시작해야 합니다. 지금 다시 시작 하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>계속하기 전에 모든 데이터가 저장되었는지 확인합니다</translation>
+        <translation type="vanished">계속하기 전에 모든 데이터가 저장되었는지 확인합니다</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

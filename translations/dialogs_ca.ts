@@ -7,9 +7,13 @@
         <translation>Actualitzacions instal·lades! Cal reiniciar. Reinicio ara?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Assegureu-vos que primer s&apos;hagin desat totes les dades abans de continuar.</translation>
+        <translation type="vanished">Assegureu-vos que primer s&apos;hagin desat totes les dades abans de continuar.</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

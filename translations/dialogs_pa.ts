@@ -7,9 +7,13 @@
         <translation>ਅੱਪਡੇਟ ਇੰਸਟਾਲ ਕੀਤੇ! ਮੁੜ-ਚਾਲੂ ਕਰਨ ਦੀ ਲੋੜ ਹੈ, ਹੁਣੇ ਮੁੜ-ਚਾਲੂ ਕਰਨਾ ਹੈ?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਪੱਕਾ ਕਰੋ ਕਿ ਸਾਰਾ ਡਾਟਾ ਸੰਭਾਲਿਆ ਜਾ ਚੁੱਕਾ ਹੈ</translation>
+        <translation type="vanished">ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਪੱਕਾ ਕਰੋ ਕਿ ਸਾਰਾ ਡਾਟਾ ਸੰਭਾਲਿਆ ਜਾ ਚੁੱਕਾ ਹੈ</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

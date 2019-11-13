@@ -7,9 +7,13 @@
         <translation>Aktualisierungen wurden installiert. Ein Neustart ist erforderlich. Möchten Sie jetzt neu starten?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Bitte stellen Sie sicher, dass all Ihre Daten gespeichert wurden, bevor Sie fortfahren</translation>
+        <translation type="vanished">Bitte stellen Sie sicher, dass all Ihre Daten gespeichert wurden, bevor Sie fortfahren</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

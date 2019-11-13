@@ -9,7 +9,7 @@
     <message>
         <location filename="../../abrecovery/recoverydialog.cpp" line="146"/>
         <source>Cancel and Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Hủy bỏ và Khởi động lại</translation>
     </message>
     <message>
         <location filename="../../abrecovery/recoverydialog.cpp" line="147"/>

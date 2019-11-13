@@ -7,9 +7,13 @@
         <translation>Updates zijn geïnstalleerd, herstarten noodzakelijk, nu herstarten?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>Verzeker u ervan dat alle gegevens opgeslagen zijn</translation>
+        <translation type="vanished">Verzeker u ervan dat alle gegevens opgeslagen zijn</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

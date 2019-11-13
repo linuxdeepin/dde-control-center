@@ -7,9 +7,13 @@
         <translation>تم تثبيت التحديثات ، تحتاج إلى إعادةالتشغيل ، إعادة التشغيل اﻵن ؟</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>يرجى التأكد من حفظ جميع البيانات قبل الإستمرار</translation>
+        <translation type="vanished">يرجى التأكد من حفظ جميع البيانات قبل الإستمرار</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
