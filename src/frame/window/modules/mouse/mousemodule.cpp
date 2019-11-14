@@ -165,7 +165,13 @@ int MouseModule::load(QString path)
 QStringList MouseModule::availPage() const
 {
     QStringList sl;
-    sl << "General" << "Mouse" << "Touchpad" << "TrackPoint";
+    sl << "General" << "Mouse";
+    if (m_model->tpadExist()) {
+        sl << "Touchpad";
+    }
+    if (m_model->redPointExist()) {
+        sl << "TrackPoint";
+    }
     return sl;
 }
 

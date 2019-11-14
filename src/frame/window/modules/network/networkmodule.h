@@ -71,7 +71,7 @@ private Q_SLOTS:
     void showHotspotPage();
     void showDeviceDetailPage(dde::network::NetworkDevice *dev);
     void onSetFrameAutoHide(const bool autoHide);
-
+    void onDeviceListChanged(const QList<dde::network::NetworkDevice *> devices);
     void showWiredEditPage(dde::network::NetworkDevice *dev, const QString &connUuid = QString());
     void showWirelessEditPage(dde::network::NetworkDevice *dev, const QString &connUuid = QString(), const QString &apPath = QString());
     void removeConnEditPageByDevice(dde::network::NetworkDevice *dev);
@@ -82,6 +82,10 @@ private:
     NetworkModuleWidget *m_networkWidget;
     ConnectionEditPage *m_connEditPage;
     QTimer *m_initSettingTimer;
+
+    bool m_hasAp = false;
+    bool m_hasWired = false;
+    bool m_hasWireless = false;
 };
 } // namespace network
 } // namespace dcc

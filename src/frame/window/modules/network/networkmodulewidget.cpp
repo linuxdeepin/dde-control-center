@@ -154,7 +154,6 @@ void NetworkModuleWidget::setIndexFromPath(const QString &path)
             return;
         }
     }
-
 }
 
 int NetworkModuleWidget::gotoSetting(const QString &path)

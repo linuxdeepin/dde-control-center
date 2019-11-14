@@ -64,6 +64,9 @@ NetworkModule::NetworkModule(DCC_NAMESPACE::FrameProxyInterface *frame, QObject 
     , m_initSettingTimer(new QTimer(this))
 {
     ConnectionEditPage::setFrameProxy(frame);
+    m_hasAp = false;
+    m_hasWired = false;
+    m_hasWireless = false;
 }
 
 NetworkModule::~NetworkModule()
@@ -134,6 +137,29 @@ void NetworkModule::showPage(const QString &jsonData)
     showDeviceDetailPage(wireless);
 }
 
+void NetworkModule::onDeviceListChanged(const QList<dde::network::NetworkDevice *> devices)
+{
+    // add wireless device list
+    m_hasAp = false;
+    m_hasWired = false;
+    m_hasWireless = false;
+    for (auto const dev : devices) {
+        if (dev->type() == NetworkDevice::Wired) {
+            m_hasWired = true;
+        }
+        if (dev->type() != NetworkDevice::Wireless)
+            continue;
+        m_hasWireless = true;
+        if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
+            m_hasAp = true;
+        }
+    }
+    qDebug() << "[Network] device state : " << m_hasWired << "," << m_hasWireless << "," << m_hasAp;
+    m_frameProxy->setRemoveableDeviceStatus(tr("Wired Network"), m_hasWired);
+    m_frameProxy->setRemoveableDeviceStatus(tr("Wireless Network"), m_hasWireless);
+    m_frameProxy->setRemoveableDeviceStatus(tr("Personal Hotspot"), m_hasAp);
+}
+
 void NetworkModule::preInitialize()
 {
     m_networkModel = new NetworkModel;
@@ -142,21 +168,8 @@ void NetworkModule::preInitialize()
     m_networkModel->moveToThread(qApp->thread());
     m_networkWorker->moveToThread(qApp->thread());
 
-    connect(m_networkModel, &NetworkModel::deviceListChanged, this, [this](const QList<NetworkDevice *> devices) {
-        // add wireless device list
-        bool have_ap = false;
-        for (auto const dev : devices) {
-            if (dev->type() != NetworkDevice::Wireless)
-                continue;
-
-            if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
-                have_ap = true;
-            }
-        }
-
-        qDebug() << "[Network] Personal Hotspot , connect state : " << have_ap;
-        m_frameProxy->setRemoveableDeviceStatus(tr("Personal Hotspot"), have_ap);
-    });
+    connect(m_networkModel, &NetworkModel::deviceListChanged, this, &NetworkModule::onDeviceListChanged);
+    onDeviceListChanged(m_networkModel->devices());
 }
 
 void NetworkModule::initialize()
@@ -206,9 +219,18 @@ int NetworkModule::load(QString path)
 QStringList NetworkModule::availPage() const
 {
     QStringList list;
-    list << "Wired Network" <<"Wired Network/Add Network Connection"<< "Wireless Network"
-         << "DSL" <<"DSL/Create PPPOE Connection"<< "VPN"<<"VPN/Create VPN"<<"VPN/Import VPN"
+    list << "DSL" <<"DSL/Create PPPOE Connection"<< "VPN"<<"VPN/Create VPN"<<"VPN/Import VPN"
          <<"System Proxy"<< "Application Proxy"<<"Network Details";
+    if (m_hasWired) {
+        list << "Wired Network" << "Wired Network/Add Network Connection";
+    }
+    if (m_hasWireless) {
+        list << "Wireless Network";
+    }
+    if (m_hasAp) {
+        list << "Personal Hotspot";
+    }
+
     return list;
 }
 
