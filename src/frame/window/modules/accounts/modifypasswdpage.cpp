@@ -98,16 +98,19 @@ void ModifyPasswdPage::initWidget()
     connect(m_oldPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
         if (m_oldPasswordEdit->isAlert()) {
             m_oldPasswordEdit->hideAlertMessage();
+            m_oldPasswordEdit->setAlert(false);
         }
     });
     connect(m_newPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
         if (m_newPasswordEdit->isAlert()) {
             m_newPasswordEdit->hideAlertMessage();
+            m_newPasswordEdit->setAlert(false);
         }
     });
     connect(m_repeatPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
         if (m_repeatPasswordEdit->isAlert()) {
             m_repeatPasswordEdit->hideAlertMessage();
+            m_repeatPasswordEdit->setAlert(false);
         }
     });
 
@@ -144,7 +147,8 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
         Q_EMIT requestBack(AccountsWidget::ModifyPwdSuccess);
         return;
     } if (exitCode == ModifyPasswdPage::InputOldPwdError) {
-        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
+        m_oldPasswordEdit->setAlert(true);
+        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"), -1);
         return;
     } else {
         qWarning() << Q_FUNC_INFO << "exit =" << exitCode;
@@ -176,27 +180,32 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
 
     if (password.isEmpty()) {
         if (edit == m_oldPasswordEdit && m_curUser->passwordStatus() != NO_PASSWORD) {
-            edit->showAlertMessage(tr("Wrong password"));
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Wrong password"), -1);
         } else {
-            edit->showAlertMessage(tr("Password cannot be empty"));
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Password cannot be empty"), -1);
         }
         return false;
     }
 
     if (m_curUser->name().toLower() == password.toLower()) {
-        edit->showAlertMessage(tr("The password should be different from the username"));
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("The password should be different from the username"), -1);
         return false;
     }
 
     if (!validatePassword(password)) {
-        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"), -1);
         return false;
     }
 
     //新密码
     if (edit == m_newPasswordEdit) {
         if (m_oldPasswordEdit->lineEdit()->text() == password) {
-            edit->showAlertMessage(tr("New password should differ from the current one"));
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("New password should differ from the current one"), -1);
             return false;
         }
     }
@@ -204,7 +213,8 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
     //重复密码
     if (edit == m_repeatPasswordEdit) {
         if (m_newPasswordEdit->lineEdit()->text() != password) {
-            edit->showAlertMessage(tr("Passwords do not match"));
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Passwords do not match"), -1);
             return false;
         }
     }

@@ -105,19 +105,29 @@ void CreateAccountPage::initWidgets()
     connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString & str) {
         if (m_nameEdit->isAlert()) {
             m_nameEdit->hideAlertMessage();
+            m_nameEdit->setAlert(false);
         }
         m_nameEdit->lineEdit()->setText(str.toLower());
+    });
+
+    connect(m_fullnameEdit, &DLineEdit::textEdited, this, [ = ] {
+        if (m_fullnameEdit->isAlert()) {
+            m_fullnameEdit->hideAlertMessage();
+            m_fullnameEdit->setAlert(false);
+        }
     });
 
     connect(m_passwdEdit, &DPasswordEdit::textEdited, this, [ = ] {
         if (m_passwdEdit->isAlert()) {
             m_passwdEdit->hideAlertMessage();
+            m_passwdEdit->setAlert(false);
         }
     });
 
     connect(m_repeatpasswdEdit, &DPasswordEdit::textEdited, this, [ = ] {
         if (m_repeatpasswdEdit->isAlert()) {
             m_repeatpasswdEdit->hideAlertMessage();
+            m_repeatpasswdEdit->setAlert(false);
         }
     });
 
@@ -193,13 +203,16 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
         Q_EMIT requestBack(AccountsWidget::CreateUserSuccess);
         break;
     case CreationResult::UserNameError:
-        m_nameEdit->showAlertMessage(result->message());
+        m_nameEdit->setAlert(true);
+        m_nameEdit->showAlertMessage(result->message(), -1);
         break;
     case CreationResult::PasswordError:
-        m_passwdEdit->showAlertMessage(result->message());
+        m_passwdEdit->setAlert(true);
+        m_passwdEdit->showAlertMessage(result->message(), -1);
         break;
     case CreationResult::PasswordMatchError:
-        m_repeatpasswdEdit->showAlertMessage(result->message());
+        m_repeatpasswdEdit->setAlert(true);
+        m_repeatpasswdEdit->showAlertMessage(result->message(), -1);
         break; // reserved for future server edition feature.
     case CreationResult::UnknownError:
         qWarning() << "error encountered creating user: " << result->message();
@@ -213,24 +226,28 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
 {
     const QString &userpassword = edit->lineEdit()->text();
     if (userpassword.isEmpty()) {
-        edit->showAlertMessage(tr("Password cannot be empty"));
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password cannot be empty"), -1);
         return false;
     }
 
     if (m_nameEdit->text().toLower() == userpassword.toLower()) {
-        edit->showAlertMessage(tr("The password should be different from the username"));
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("The password should be different from the username"), -1);
         return false;
     }
 
     bool result = validatePassword(userpassword);
     if (!result) {
-        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"), -1);
         return false;
     }
 
     if (edit == m_repeatpasswdEdit) {
         if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
-            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"));
+            m_repeatpasswdEdit->setAlert(true);
+            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), -1);
             return false;
         }
     }
@@ -247,23 +264,27 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
 {
     const QString &username = edit->lineEdit()->text();
     if (username.isEmpty()) {
-        edit->showAlertMessage(tr("Username cannot be empty"));
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Username cannot be empty"), -1);
         return false;
     }
 
     if (username.size() < 3 || username.size() > 32) {
-        edit->showAlertMessage(tr("Username must be between 3 and 32 characters"));
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Username must be between 3 and 32 characters"), -1);
         return false;
     }
 
     const QString compStr = "abcdefghijklmnopqrstuvwxyz";
     if (!compStr.contains(username.at(0))) {
-        edit->showAlertMessage(tr("The first character must be in lower case"));
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("The first character must be in lower case"), -1);
         return false;
     }
 
     if (!validateUsername(username)) {
-        edit->showAlertMessage(tr("Username must only contain a~z, 0~9, - or _"));
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Username must only contain a~z, 0~9, - or _"), -1);
         return false;
     }
     return true;
