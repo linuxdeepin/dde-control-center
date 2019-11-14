@@ -58,9 +58,9 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
 
     DCCSlider *slider = m_fontSizeSlider->slider();
     QStringList annotions;
-    annotions << "11" << "12" << "13" << "15" << "16" << "18" << "20";
+    annotions << "11" << "12" << "13" << "14" << "15" << "16" << "18" << "20";
     m_fontSizeSlider->setAnnotations(annotions);
-    slider->setRange(0, 6);
+    slider->setRange(0, annotions.size() - 1);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);

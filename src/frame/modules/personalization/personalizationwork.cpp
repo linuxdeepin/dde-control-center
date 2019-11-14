@@ -28,6 +28,10 @@
 #include "model/fontmodel.h"
 #include "model/fontsizemodel.h"
 
+#include <QGuiApplication>
+#include <QScreen>
+#include <QDebug>
+
 using namespace dcc;
 using namespace dcc::personalization;
 
@@ -45,7 +49,7 @@ static const std::vector<int> OPACITY_SLIDER {
 };
 
 #ifdef WINDOW_MODE
-const QList<int> FontSizeList {11, 12, 13, 15, 16, 18, 20};
+const QList<int> FontSizeList {11, 12, 13, 14, 15, 16, 18, 20};
 #endif
 
 PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *parent)
@@ -345,22 +349,37 @@ void PersonalizationWork::refreshOpacity(double opacity)
 }
 
 #ifdef WINDOW_MODE
-//字体大小通过点击刻度调整字体大小，可选刻度为：11px、12px、13px、15px、16px、18px、20px;
-//社区版默认值为12px；专业版默认值为12px；
-int PersonalizationWork::sizeToSliderValue(const int value) const
-{
-    if (FontSizeList.contains(value))
-        return FontSizeList.indexOf(value);
+const int RENDER_DPI = 72;
+const double DPI = 96;
 
-    return 1;
+double ptToPx(double pt) {
+    double px = pt / RENDER_DPI * DPI + 0.5;
+    return px;
 }
 
-float PersonalizationWork::sliderValueToSize(const int value) const
-{
-    if (value >= 0 && value < FontSizeList.length())
-        return FontSizeList.at(value);
+double pxToPt(double px) {
+    double pt = px * RENDER_DPI / DPI;
+    return pt;
+}
 
-    return FontSizeList[1];
+//字体大小通过点击刻度调整字体大小，可选刻度为：11px、12px、13px、14px、15px、16px、18px、20px;
+//社区版默认值为12px；专业版默认值为12px；
+int PersonalizationWork::sizeToSliderValue(const double value) const
+{
+    int px = static_cast<int>(ptToPx(value));
+
+    if (px < FontSizeList.first()) {
+        return 0;
+    } else if (px > FontSizeList.last()){
+        return (FontSizeList.size() - 1);
+    }
+
+    return FontSizeList.indexOf(px);
+}
+
+double PersonalizationWork::sliderValueToSize(const int value) const
+{
+    return pxToPt(FontSizeList.at(value));
 }
 #else
 int PersonalizationWork::sizeToSliderValue(const double value) const
@@ -384,7 +403,7 @@ int PersonalizationWork::sizeToSliderValue(const double value) const
     }
 }
 
-float PersonalizationWork::sliderValueToSize(const int value) const
+double PersonalizationWork::sliderValueToSize(const int value) const
 {
     switch (value) {
     case 0:
