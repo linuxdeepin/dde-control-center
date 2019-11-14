@@ -74,8 +74,9 @@ public:
     void setFingerModel(dcc::accounts::FingerModel *model);
     bool checkStrIsAllEmpty(const QString &str);
 
-public:
+protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
@@ -98,7 +99,7 @@ private Q_SLOTS:
 private:
     dcc::accounts::User *m_curUser;
     QLabel *m_fullName;//账户全名
-    DTK_WIDGET_NAMESPACE::DIconButton *m_fullnameBtn;//账户全名编辑按钮
+    DTK_WIDGET_NAMESPACE::DIconButton *m_fullNameBtn;//账户全名编辑按钮
     QLineEdit *m_inputLineEdit;//账户全名编辑框
     QStackedWidget *m_mainStackedWidget;
     QStackedWidget *m_fingerStackedWidget;

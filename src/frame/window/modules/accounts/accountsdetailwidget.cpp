@@ -45,7 +45,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
     , m_fullName(new QLabel)
-    , m_fullnameBtn(new DIconButton(this))
+    , m_fullNameBtn(new DIconButton(this))
     , m_inputLineEdit(new QLineEdit)
     , m_mainStackedWidget(new QStackedWidget)
     , m_fingerStackedWidget(new QStackedWidget)
@@ -94,16 +94,17 @@ void AccountsDetailWidget::initHeadPart(QVBoxLayout *headLayout)
             m_fullName->setText(fullname);
         }
     }
-    m_fullnameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
-    m_fullnameBtn->setIconSize(QSize(12, 12));
+    m_fullNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    m_fullNameBtn->setIconSize(QSize(12, 12));
+    m_fullNameBtn->setFlat(true);//设置背景透明
 
     QHBoxLayout *shortnameLayout = new QHBoxLayout;
     shortnameLayout->setContentsMargins(0, 0, 0, 0);
     shortnameLayout->setSpacing(3);
     shortnameLayout->setMargin(0);
     shortnameLayout->addStretch();
-    shortnameLayout->addWidget(shortnameBtn, 0, Qt::AlignCenter);
-    shortnameLayout->addWidget(shortName, 0, Qt::AlignCenter);
+    shortnameLayout->addWidget(shortnameBtn, 0, Qt::AlignRight|Qt::AlignVCenter);
+    shortnameLayout->addWidget(shortName, 0, Qt::AlignLeft|Qt::AlignVCenter);
     shortnameLayout->addStretch();
 
     QHBoxLayout *fullnameLayout = new QHBoxLayout;
@@ -112,7 +113,6 @@ void AccountsDetailWidget::initHeadPart(QVBoxLayout *headLayout)
     fullnameLayout->setMargin(0);
     fullnameLayout->addStretch();
     fullnameLayout->addWidget(m_fullName, 0, Qt::AlignCenter);
-    fullnameLayout->addWidget(m_fullnameBtn, 0, Qt::AlignCenter);
     fullnameLayout->addStretch();
 
     headLayout->setContentsMargins(0, 0, 0, 0);
@@ -161,7 +161,7 @@ void AccountsDetailWidget::initHeadPart(QVBoxLayout *headLayout)
         }
     });
     //点击用户全名编辑按钮
-    connect(m_fullnameBtn, &DIconButton::clicked, this, [ = ]() {
+    connect(m_fullNameBtn, &DIconButton::clicked, this, [ = ]() {
         updateLineEditDisplayStyle();
         m_inputLineEdit->setFocus();
     });
@@ -174,6 +174,7 @@ void AccountsDetailWidget::initHeadPart(QVBoxLayout *headLayout)
     });
 
     m_fullName->setDisabled(true);//将设置全名变浅灰色
+    m_fullName->installEventFilter(this);
 }
 
 void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
@@ -304,7 +305,7 @@ void AccountsDetailWidget::updateLineEditDisplayStyle()
     const bool visible = m_inputLineEdit->isVisible();
     const int distance = 15;
     m_fullName->setVisible(visible);
-    m_fullnameBtn->setVisible(visible);
+    m_fullNameBtn->setVisible(visible);
     m_inputLineEdit->setVisible(!visible);
 
     if (!visible) {
@@ -357,7 +358,25 @@ bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)
             }
          }
     }
+
+    if (obj == m_fullName) {
+        if (event->type() == QEvent::Resize) {
+            int fullNameWidth = m_fullName->fontMetrics().width(m_fullName->text());
+            m_fullNameBtn->move(width() / 2 + fullNameWidth / 2 + 5, m_fullName->y() + 5);
+            return true;
+        }
+    }
+
     return QWidget::eventFilter(obj, event);
+}
+
+void AccountsDetailWidget::resizeEvent(QResizeEvent *event)
+{
+    int width = event->size().width();
+    int fullNameWidth = m_fullName->fontMetrics().width(m_fullName->text());
+    m_fullNameBtn->move(width / 2 + fullNameWidth / 2 + 5, m_fullName->y() + 5);
+
+    QWidget::resizeEvent(event);
 }
 
 bool AccountsDetailWidget::checkStrIsAllEmpty(const QString &str)
