@@ -98,7 +98,8 @@ SearchWidget::SearchWidget(QWidget *parent)
         //外部调用setText的时候，需要先对setText的内容进行解析，解析获取对应的存在数据
         if (m_bIstextEdited) {
             m_bIstextEdited = false;
-            this->setText(transPinyinToChinese(retValue));
+            //解决无法在已经输入数据前面输入数据,但是目前不清楚外部调用会出现什么问题,暂时注释代码
+//            this->setText(transPinyinToChinese(retValue));
             return ;
         }
 
