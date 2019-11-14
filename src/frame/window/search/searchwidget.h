@@ -108,10 +108,9 @@ private:
     QList<UnexsitStruct> m_unexsitList;
     QString m_searchValue;
     bool m_bIstextEdited;
-    bool m_bIsTouchpadExist;
-    bool m_bIsTrackPointExist;
-    bool m_bIsPersonalHotspotExist;
-    bool m_bIsUseBattery;
+    QStringList m_defaultRemoveableList;//存储已知全部模块是否存在
+    QList<QPair<QString, QString>> m_removedefaultWidgetList;//用于存储可以出设备名称，和该名称对应的页面
+    QList<QPair<QString, QString>> m_removeableActualExistList;//存储实际模块是否存在
 };
 
 }// namespace search

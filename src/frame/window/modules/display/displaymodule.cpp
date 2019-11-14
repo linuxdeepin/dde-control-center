@@ -108,6 +108,12 @@ void DisplayModule::preInitialize()
     m_displayWorker->moveToThread(qApp->thread());
 
     m_displayWorker->active();
+
+    m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
+
+    connect(m_displayModel, &DisplayModel::monitorListChanged, this, [this]() {
+        m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
+    });
 }
 
 QStringList DisplayModule::availPage() const

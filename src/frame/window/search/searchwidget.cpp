@@ -52,10 +52,6 @@ SearchWidget::SearchWidget(QWidget *parent)
     , m_bIsChinese(false)
     , m_searchValue("")
     , m_bIstextEdited(false)
-    , m_bIsTouchpadExist(false)
-    , m_bIsTrackPointExist(false)
-    , m_bIsPersonalHotspotExist(false)
-    , m_bIsUseBattery(false)
 {
     m_model = new QStandardItemModel(this);
     m_completer = new ddeCompleter(m_model, this);
@@ -65,6 +61,24 @@ SearchWidget::SearchWidget(QWidget *parent)
     lineEdit()->setCompleter(m_completer);
     m_completer->setWrapAround(false);
     m_completer->installEventFilter(this);
+
+    //first : 可移除设备名称
+    //second : 可以除设备具体的页面名称(该页面必须与搜索的页面对应)
+    //通过在 loadXml() 301行，使用 “qDebug() << m_searchBoxStruct.fullPagePath.section('/', 2, -1);”解析
+    m_removedefaultWidgetList = {
+        {tr("Touchpad"), "Touchpad"},
+        {tr("TrackPoint"), "TrackPoint"},
+        {tr("Personal Hotspot"), "Personal Hotspot"},
+        {tr("On Battery"), "On Battery"},
+        {tr("Wired Network"), "Wired Network"},
+        {tr("Wireless Network"), "WirelessPage"},
+        {tr("Multiple Displays"), "Multiple Displays"},
+    };
+
+    //用于区分可移除设备数据，和常驻设备数据（记录页面信息）
+    for (auto data : m_removedefaultWidgetList) {
+        m_defaultRemoveableList << data.second;
+    }
 
     //直接调用setText不会发送该信号，故用该信号区分①输入框输入②外部使用setText输入
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textEdited, this, [ = ] {
@@ -285,25 +299,23 @@ void SearchWidget::loadxml()
                             if (bIsLeapfrog)
                                 continue;
 
-                            //指点杆，触控板 为“鼠标”模块可移除设备
+                            //“鼠标”可移除设备 : 指点杆，触控板
+                            //“网络”模块可移除设备 : 个人热点，有线网，无线网
+                            //“电源”模块可移除设备 : 使用电池
                             //不存在时，不加载数据
-                            if (m_searchBoxStruct.translateContent == tr("Touchpad") || m_searchBoxStruct.childPageName == tr("Touchpad")) {
-                                if (!m_bIsTouchpadExist) {
-                                    clearSearchData();
-                                    continue;
+                            //是以上模块才会有此判断，其他模块不用此判断(包含在m_defaultRemoveableList的页面才需要“添加/移除”xml信息)
+                            if (m_defaultRemoveableList.contains(m_searchBoxStruct.fullPagePath.section('/', 2, -1))) {
+                                bool bRet = false;
+                                for (auto data : m_removeableActualExistList) {
+                                    //变量list，存在就需要继续加载数据
+                                    if (data.second == m_searchBoxStruct.fullPagePath.section('/', 2, -1)) {
+                                        bRet = true;
+                                        break;
+                                    }
                                 }
-                            } else if (m_searchBoxStruct.translateContent == tr("TrackPoint") || m_searchBoxStruct.childPageName == tr("TrackPoint")) {
-                                if (!m_bIsTrackPointExist) {
-                                    clearSearchData();
-                                    continue;
-                                }
-                            } else if (m_searchBoxStruct.translateContent == tr("Personal Hotspot") || m_searchBoxStruct.childPageName == tr("Personal Hotspot")) {
-                                if (!m_bIsPersonalHotspotExist) {
-                                    clearSearchData();
-                                    continue;
-                                }
-                            } else if (m_searchBoxStruct.translateContent == tr("On Battery") || m_searchBoxStruct.childPageName == tr("On Battery")) {
-                                if (!m_bIsUseBattery) {
+
+                                //设备不存在，不加载xml数据
+                                if (!bRet) {
                                     clearSearchData();
                                     continue;
                                 }
@@ -597,26 +609,30 @@ void SearchWidget::removeUnExsitData(QString module, QString datail)
 
 void SearchWidget::setRemoveableDeviceStatus(QString name, bool isExist)
 {
-    if (name == tr("Touchpad")) {
-        if (isExist != m_bIsTouchpadExist) {
-            m_bIsTouchpadExist = isExist;
-            loadxml();
+    QPair<QString, QString> value("", "");
+
+    //判断可移除设备是否在默认list中有记录，有记录才需要继续走后面流程
+    //根据name(模块/小模块名称)从默认list，取出对应的模块和page
+    for (auto data : m_removedefaultWidgetList) {
+        if (data.first == name) {
+            value = data;
+            break;
         }
-    } else if (name == tr("TrackPoint")) {
-        if (isExist != m_bIsTrackPointExist) {
-            m_bIsTrackPointExist = isExist;
-            loadxml();
+    }
+
+    if ("" != value.first && "" != value.second) {
+        //值存在，移除设备，list移除该值
+        if (!isExist && m_removeableActualExistList.contains(value)) {
+            m_removeableActualExistList.removeOne(value);
+        } else if (isExist && !m_removeableActualExistList.contains(value)) {
+            //值不存在，现在插入设备，list添加该值
+            m_removeableActualExistList.append(value);
         }
-    } else if (name == tr("Personal Hotspot")) {
-        if (isExist != m_bIsPersonalHotspotExist) {
-            m_bIsPersonalHotspotExist = isExist;
-            loadxml();
-        }
-    } else if (name == tr("On Battery")) {
-        if (isExist != m_bIsUseBattery) {
-            m_bIsUseBattery = isExist;
-            loadxml();
-        }
+
+        qDebug() << "[setRemoveableDeviceStatus] loadWidget : " << name << " , isExist : " << isExist;
+        loadxml();
+    } else {
+        qWarning() << " Not remember the data , name : " << name;
     }
 }
 
