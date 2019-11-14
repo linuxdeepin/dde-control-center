@@ -61,7 +61,7 @@ public:
     explicit WiredPage(dde::network::WiredDevice *dev, QWidget *parent = nullptr);
 
     void setModel(dde::network::NetworkModel *model);
-
+    void jumpPath(const QString &searchPath);
 Q_SIGNALS:
     void requestConnectionsList(const QString &devPath);
     void requestActiveConnection(const QString &devPath, const QString &uuid) const;

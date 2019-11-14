@@ -119,7 +119,7 @@ NetworkModuleWidget::NetworkModuleWidget()
             break;
         case WiredPage:
         case WirelessPage:
-            Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice *>());
+            Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice *>(), idx.data(SearchPath).toString());
             break;
         default:
             break;
@@ -139,8 +139,12 @@ void NetworkModuleWidget::setModel(NetworkModel *model)
     onDeviceListChanged(model->devices());
 }
 
-void NetworkModuleWidget::initSetting(const int settingIndex)
+void NetworkModuleWidget::initSetting(const int settingIndex, const QString &searchPath)
 {
+    //Model = m_modelpages->index(settingIndex, 0);
+    if (!searchPath.isEmpty()) {
+        m_modelpages->itemFromIndex(m_modelpages->index(settingIndex, 0))->setData(searchPath, SearchPath);
+    }
     m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
     m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
 }

@@ -73,7 +73,7 @@ public:
 
     explicit NetworkModuleWidget();
     void setModel(dde::network::NetworkModel *model);
-    void initSetting(const int settingIndex);
+    void initSetting(const int settingIndex, const QString &searchPath);
     int gotoSetting(const QString &path);
     void setIndexFromPath(const QString &path);
 Q_SIGNALS:
@@ -83,7 +83,7 @@ Q_SIGNALS:
     void requestShowInfomation() const;
     void requestShowChainsPage() const;
     void requestHotspotPage() const;
-    void requestShowDeviceDetail(dde::network::NetworkDevice *device) const;
+    void requestShowDeviceDetail(dde::network::NetworkDevice *device, const QString &path = "") const;
     void requestDeviceEnable(const QString &devPath, const bool enable) const;
 
 private Q_SLOTS:
@@ -97,7 +97,8 @@ private:
     QStandardItemModel *m_modelpages;
     enum {
         SectionRole = Dtk::UserRole + 1,
-        DeviceRole
+        DeviceRole,
+        SearchPath
     };
 };
 }   // namespace network

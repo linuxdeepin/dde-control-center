@@ -102,7 +102,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
         this->activateConnection(idx.data(PathRole).toString());
     });
 
-    //~ contents_path /network/Wired Network
+    //~ contents_path /network/Wired Network/addWiredConnection
     tr("Add Network Connection");
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
     connect(m_device, &WiredDevice::connectionsChanged, this, &WiredPage::refreshConnectionList);
@@ -120,6 +120,13 @@ void WiredPage::setModel(NetworkModel *model)
     m_model = model;
 
     QTimer::singleShot(1, this, &WiredPage::initUI);
+}
+
+void WiredPage::jumpPath(const QString &searchPath)
+{
+    if (searchPath == "addWiredConnection") {
+        QTimer::singleShot(20, this, &WiredPage::createNewConnection);
+    }
 }
 
 void WiredPage::initUI()

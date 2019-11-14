@@ -69,7 +69,7 @@ private Q_SLOTS:
     void showProxyPage();
     void showDetailPage();
     void showHotspotPage();
-    void showDeviceDetailPage(dde::network::NetworkDevice *dev);
+    void showDeviceDetailPage(dde::network::NetworkDevice *dev, const QString &searchPath = "");
     void onSetFrameAutoHide(const bool autoHide);
     void onDeviceListChanged(const QList<dde::network::NetworkDevice *> devices);
     void showWiredEditPage(dde::network::NetworkDevice *dev, const QString &connUuid = QString());

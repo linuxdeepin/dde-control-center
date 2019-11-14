@@ -190,7 +190,7 @@ void NetworkModule::active()
     connect(m_networkWidget, &NetworkModuleWidget::requestShowInfomation, this, &NetworkModule::showDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestDeviceEnable, m_networkWorker, &NetworkWorker::setDeviceEnable);
     m_frameProxy->pushWidget(this, m_networkWidget);
-    m_networkWidget->initSetting(0);
+    m_networkWidget->initSetting(0, "");
 }
 
 int NetworkModule::load(QString path)
@@ -209,9 +209,14 @@ int NetworkModule::load(QString path)
             return 0;
         }
     }
-    int index = m_networkWidget->gotoSetting(path);
+    QStringList pathList = path.split("/");
+    int index = m_networkWidget->gotoSetting(pathList.at(0));
     QTimer::singleShot(120, this, [ = ] {
-        m_networkWidget->initSetting(index == -1 ? 0 : index);
+        if (pathList.count() > 1) {
+            m_networkWidget->initSetting(index == -1 ? 0 : index, pathList.at(1));
+        } else {
+            m_networkWidget->initSetting(index == -1 ? 0 : index, "");
+        }
     });
     return index == -1 ? -1 : 0;
 }
@@ -219,8 +224,8 @@ int NetworkModule::load(QString path)
 QStringList NetworkModule::availPage() const
 {
     QStringList list;
-    list << "DSL" <<"DSL/Create PPPOE Connection"<< "VPN"<<"VPN/Create VPN"<<"VPN/Import VPN"
-         <<"System Proxy"<< "Application Proxy"<<"Network Details";
+    list << "DSL" << "DSL/Create PPPOE Connection" << "VPN" << "VPN/Create VPN" << "VPN/Import VPN"
+         << "System Proxy" << "Application Proxy" << "Network Details";
     if (m_hasWired) {
         list << "Wired Network" << "Wired Network/Add Network Connection";
     }
@@ -244,7 +249,7 @@ void NetworkModule::popPage()
     m_frameProxy->popWidget(this);
 }
 
-void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
+void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &searchPath)
 {
     ContentWidget *p = nullptr;
 
@@ -280,6 +285,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         connect(wiredPage, &WiredPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
 
         wiredPage->setModel(m_networkModel);
+        wiredPage->jumpPath(searchPath);
     }
 
     if (!p) {
