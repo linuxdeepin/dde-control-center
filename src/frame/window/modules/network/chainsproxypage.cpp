@@ -166,12 +166,6 @@ void ChainsProxyPage::onCheckValue()
     const QString &username = m_username->text();
     const QString &password = m_password->text();
 
-    if (!((username.isEmpty() && password.isEmpty()) || (!username.isEmpty() && !password.isEmpty()))) {
-        m_username->setIsErr();
-        m_password->setIsErr();
-        return;
-    }
-
     ProxyConfig config;
     config.type = m_proxyType->comboBox()->currentText();
     config.url = addr;

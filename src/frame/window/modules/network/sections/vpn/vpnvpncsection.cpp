@@ -81,7 +81,6 @@ bool VpnVPNCSection::allInputValid()
             && m_password->text().isEmpty()) {
         valid = false;
         m_password->setIsErr(true);
-        m_password->showAlertMessage(tr("Invalid password"));
     } else {
         m_password->setIsErr(false);
     }
@@ -95,7 +94,6 @@ bool VpnVPNCSection::allInputValid()
             && m_groupPassword->text().isEmpty()) {
         valid = false;
         m_groupPassword->setIsErr(true);
-        m_groupPassword->showAlertMessage(tr("Invalid password"));
     } else {
         m_groupPassword->setIsErr(false);
     }

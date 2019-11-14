@@ -584,7 +584,6 @@ bool Secret8021xSection::commonItemsInpuValid()
             valid = false;
             m_password->setIsErr(true);
             m_password->dTextEdit()->setAlert(true);
-            m_password->showAlertMessage(tr("Invalid password"));
         } else {
             m_password->setIsErr(false);
         }
