@@ -66,6 +66,8 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     setLayout(m_centralLayout);
 
     connect(m_addBtn, &Dtk::Widget::DFloatingButton::clicked, this, &DefappDetailWidget::onAddBtnClicked);
+    //~ contents_path /defapp/Webpage
+    m_addBtn->setToolTip(tr("Add Application"));
 }
 
 void DefappDetailWidget::setModel(dcc::defapp::DefAppModel *const model)

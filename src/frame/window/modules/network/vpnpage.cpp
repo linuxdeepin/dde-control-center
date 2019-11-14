@@ -117,12 +117,14 @@ VpnPage::VpnPage(QWidget *parent)
     tr("Create VPN");
     DFloatingButton *createVpnBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement);
     createVpnBtn->setMinimumSize(QSize(47, 47));
+    createVpnBtn->setToolTip(tr("Create VPN"));
     buttonsLayout->addWidget(createVpnBtn);
 
     //~ contents_path /network/VPN
     tr("Import VPN");
     DFloatingButton *importVpnBtn = new DFloatingButton("\342\206\223");
     importVpnBtn->setMinimumSize(QSize(47, 47));
+    importVpnBtn->setToolTip(tr("Import VPN"));
     buttonsLayout->addWidget(importVpnBtn);
     buttonsLayout->addStretch();
     mainLayout->addLayout(buttonsLayout);

@@ -53,6 +53,7 @@ PppoePage::PppoePage(QWidget *parent)
     , m_modelSettings(new QStandardItemModel)
 {
     m_createBtn->setMinimumSize(QSize(47, 47));
+    m_createBtn->setToolTip(tr("Create PPPOE Connection"));
 
     m_lvsettings->setModel(m_modelSettings);
     m_lvsettings->setEditTriggers(QAbstractItemView::NoEditTriggers);

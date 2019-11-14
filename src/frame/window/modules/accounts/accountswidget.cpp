@@ -51,6 +51,8 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     setObjectName("Accounts");
 
     m_createBtn->setFixedSize(50, 50);
+    //~ contents_path /accounts/New Account
+    m_createBtn->setToolTip(tr("Create Account"));
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout();
     mainContentLayout->setMargin(0);

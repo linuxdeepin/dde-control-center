@@ -81,6 +81,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     m_createBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement);
     m_createBtn->setMinimumSize(QSize(47, 47));
+    m_createBtn->setToolTip(tr("Add Network Connection"));
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addWidget(m_switch, 0, Qt::AlignTop);

@@ -157,6 +157,8 @@ void DisplayWidget::initMenuUI()
 
     m_centralLayout->addStretch(1);
     m_rotate->setIcon(QIcon::fromTheme("dcc_rotate"));
+    //~ contents_path /display/Resolution
+    m_rotate->setToolTip(tr("Rotate Screen"));
 
     m_centralLayout->addWidget(m_rotate, 0, Qt::AlignCenter);
     connect(m_rotate, &DFloatingButton::clicked, this, &DisplayWidget::requestRotate);

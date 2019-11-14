@@ -257,6 +257,9 @@ HotspotPage::HotspotPage(QWidget *parent)
     m_mainLayout->addWidget(m_newprofile, 0, Qt::AlignHCenter);
     setLayout(m_mainLayout);
 
+    //~ contents_path /network/Personal Hotspot
+    m_newprofile->setToolTip(tr("Create Hotspot"));
+
     connect(m_newprofile, &QAbstractButton::clicked, [this] {
         if (this->m_listdevw.empty()) {
             return;
