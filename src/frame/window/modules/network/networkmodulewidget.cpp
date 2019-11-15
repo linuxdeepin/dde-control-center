@@ -37,6 +37,8 @@
 #include <QDebug>
 #include <QPointer>
 #include <QVBoxLayout>
+#include <QPushButton>
+#include <QProcess>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
@@ -95,7 +97,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     infoit->setIcon(QIcon::fromTheme("dcc_network"));
     m_modelpages->appendRow(infoit);
     m_centralLayout->addWidget(m_lvnmpages);
-
+    handleNMEditor();
     connect(m_lvnmpages, &QListView::clicked, this, [this](const QModelIndex &idx) {
         PageType type = idx.data(SectionRole).value<PageType>();
         switch (type) {
@@ -125,6 +127,28 @@ NetworkModuleWidget::NetworkModuleWidget()
             break;
         }
     });
+}
+
+bool NetworkModuleWidget::handleNMEditor()
+{
+    m_strNetworkManageOutput = "";
+    QProcess *process = new QProcess(this);
+    process->start("which nm-connection-editor");
+    connect(process, &QProcess::readyReadStandardOutput, this, [=] {
+        m_strNetworkManageOutput = process->readAll();
+    });
+    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int exitcode) {
+        qDebug() << "output is " << m_strNetworkManageOutput;
+        if (!m_strNetworkManageOutput.isEmpty()) {
+            QPushButton *nmConnEditBtn = new QPushButton(tr("Configure by Network Manager"));
+            m_centralLayout->addWidget(nmConnEditBtn);
+            connect(nmConnEditBtn, &QPushButton::clicked, this, [] {
+                QProcess::startDetached("nm-connection-editor");
+            });
+        }
+        process->deleteLater();
+    });
+    return true;
 }
 
 void NetworkModuleWidget::setModel(NetworkModel *model)

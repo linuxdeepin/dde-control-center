@@ -88,13 +88,15 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
+
 private:
     QStandardItem *createDeviceGroup(dde::network::NetworkDevice *dev, const int number, const bool multiple);
-
+    bool handleNMEditor();
 private:
     QVBoxLayout *m_centralLayout;
     DTK_WIDGET_NAMESPACE::DListView *m_lvnmpages;
     QStandardItemModel *m_modelpages;
+    QString m_strNetworkManageOutput;
     enum {
         SectionRole = Dtk::UserRole + 1,
         DeviceRole,
