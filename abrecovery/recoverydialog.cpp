@@ -188,7 +188,6 @@ RecoveryDialog::RecoveryDialog(DDialog *parent)
     setCloseButtonVisible(false);
 
     this->setWindowFlag(Qt::WindowStaysOnTopHint);
-    this->setMinimumSize(400, 180);
     this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
@@ -213,10 +212,7 @@ void RecoveryDialog::backupInfomation(QString version, QString time)
 void RecoveryDialog::initUI()
 {
     DLabel *txt = new DLabel(tr("Are you sure you want to roll back to deepin %1 backed up on %2?").arg(m_backupVersion).arg(m_backupTime));
-    txt->setMinimumHeight(120);
     txt->setWordWrap(true);
-    DFontSizeManager::instance()->bind(txt, DFontSizeManager::T3);
-
     addContent(txt);
     addButton(tr("Cancel and Reboot"), true, DDialog::ButtonRecommend);
     addButton(tr("Confirm"), true, DDialog::ButtonRecommend);
