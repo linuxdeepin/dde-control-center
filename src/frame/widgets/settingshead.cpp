@@ -43,6 +43,9 @@ SettingsHead::SettingsHead(QFrame *parent)
     , m_state(Cancel)
 {
     m_title->setObjectName("SettingsHeadTitle");
+    QFont font;
+    font.setBold(true);
+    m_title->setFont(font);
 
     // can not translate correctly just using tr()
     m_edit->setText(qApp->translate("SettingsHead", "Edit"));
@@ -69,9 +72,6 @@ SettingsHead::SettingsHead(QFrame *parent)
 
 void SettingsHead::setTitle(const QString &title)
 {
-    QFont font;
-    font.setBold(true);
-    m_title->setFont(font);
     m_title->setText(title);
     m_edit->setAccessibleName(title);
 }
