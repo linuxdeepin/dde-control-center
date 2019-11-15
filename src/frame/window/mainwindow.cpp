@@ -95,6 +95,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_rightContentLayout = new QHBoxLayout();
 
     m_rightView = new DBackgroundGroup(m_rightContentLayout);
+    m_rightView->setItemSpacing(2);
     m_rightView->setItemMargins(QMargins(10, 10, 10, 10));
     m_rightView->setContentsMargins(10, 10, 10, 10);
 
