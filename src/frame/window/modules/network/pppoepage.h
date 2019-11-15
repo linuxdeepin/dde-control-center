@@ -59,6 +59,7 @@ public:
     ~PppoePage();
 
     void setModel(dde::network::NetworkModel *model);
+    void jumpPath(const QString &searchPath);
 
 Q_SIGNALS:
     void requestNextPage(ContentWidget *const w) const;

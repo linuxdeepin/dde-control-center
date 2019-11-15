@@ -113,14 +113,14 @@ VpnPage::VpnPage(QWidget *parent)
     buttonsLayout->setSpacing(30);
     buttonsLayout->addStretch();
 
-    //~ contents_path /network/VPN
+    //~ contents_path /network/VPN/Create VPN
     tr("Create VPN");
     DFloatingButton *createVpnBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement);
     createVpnBtn->setMinimumSize(QSize(47, 47));
     createVpnBtn->setToolTip(tr("Create VPN"));
     buttonsLayout->addWidget(createVpnBtn);
 
-    //~ contents_path /network/VPN
+    //~ contents_path /network/VPN/Import VPN
     tr("Import VPN");
     DFloatingButton *importVpnBtn = new DFloatingButton("\342\206\223");
     importVpnBtn->setMinimumSize(QSize(47, 47));
@@ -346,4 +346,14 @@ void VpnPage::createVPN()
     connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
+}
+
+void VpnPage::jumpPath(const QString &searchPath)
+{
+    if (searchPath == "Create VPN") {
+        createVPN();
+    }
+    if (searchPath == "Import VPN") {
+        importVPN();
+    }
 }

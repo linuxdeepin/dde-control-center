@@ -77,8 +77,8 @@ public:
     int gotoSetting(const QString &path);
     void setIndexFromPath(const QString &path);
 Q_SIGNALS:
-    void requestShowVpnPage() const;
-    void requestShowPppPage() const;
+    void requestShowVpnPage(const QString &path = "") const;
+    void requestShowPppPage(const QString &path = "") const;
     void requestShowProxyPage() const;
     void requestShowInfomation() const;
     void requestShowChainsPage() const;

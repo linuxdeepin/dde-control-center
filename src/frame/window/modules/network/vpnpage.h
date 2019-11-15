@@ -58,6 +58,7 @@ class VpnPage : public QWidget
 public:
     explicit VpnPage(QWidget *parent = nullptr);
     ~VpnPage();
+    void jumpPath(const QString &searchPath);
 
 Q_SIGNALS:
     void requestNextPage(dcc::ContentWidget *const w) const;

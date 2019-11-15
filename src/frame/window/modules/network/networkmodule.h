@@ -63,8 +63,8 @@ public:
 
 private Q_SLOTS:
     void popPage();
-    void showVpnPage();
-    void showPppPage();
+    void showVpnPage(const QString &searchPath = "");
+    void showPppPage(const QString &searchPath = "");
     void showChainsProxyPage();
     void showProxyPage();
     void showDetailPage();

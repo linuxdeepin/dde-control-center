@@ -72,7 +72,7 @@ PppoePage::PppoePage(QWidget *parent)
 
     setContent(mainWidget);
     setTitle(tr("PPP"));
-    //~ contents_path /network/DSL
+    //~ contents_path /network/DSL/Create PPPOE Connection
     tr("Create PPPOE Connection");
     connect(m_createBtn, &QPushButton::clicked, this, &PppoePage::createPPPoEConnection);
     connect(m_lvsettings, &QListView::clicked, this, [this](const QModelIndex &idx) {
@@ -172,5 +172,12 @@ void PppoePage::onActiveConnectionChanged(const QList<QJsonObject> &conns)
         } else {
             //w->setLoading(false);
         }
+    }
+}
+
+void PppoePage::jumpPath(const QString &searchPath)
+{
+    if (searchPath == "Create PPPOE Connection") {
+        createPPPoEConnection();
     }
 }

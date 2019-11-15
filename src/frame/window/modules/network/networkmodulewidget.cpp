@@ -102,10 +102,10 @@ NetworkModuleWidget::NetworkModuleWidget()
         PageType type = idx.data(SectionRole).value<PageType>();
         switch (type) {
         case DSLPage:
-            Q_EMIT requestShowPppPage();
+            Q_EMIT requestShowPppPage(idx.data(SearchPath).toString());
             break;
         case VPNPage:
-            Q_EMIT requestShowVpnPage();
+            Q_EMIT requestShowVpnPage(idx.data(SearchPath).toString());
             break;
         case SysProxyPage:
             Q_EMIT requestShowProxyPage();

@@ -296,7 +296,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &sear
     m_frameProxy->pushWidget(this, p);
 }
 
-void NetworkModule::showVpnPage()
+void NetworkModule::showVpnPage(const QString &searchPath)
 {
     VpnPage *p = new VpnPage;
 
@@ -310,9 +310,10 @@ void NetworkModule::showVpnPage()
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
+    p->jumpPath(searchPath);
 }
 
-void NetworkModule::showPppPage()
+void NetworkModule::showPppPage(const QString &searchPath)
 {
     PppoePage *p = new PppoePage;
 
@@ -324,6 +325,7 @@ void NetworkModule::showPppPage()
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
+    p->jumpPath(searchPath);
 }
 
 void NetworkModule::showChainsProxyPage()
