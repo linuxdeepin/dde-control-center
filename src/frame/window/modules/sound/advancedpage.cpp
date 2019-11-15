@@ -132,7 +132,7 @@ void AdvancedPage::addPort(const Port *port)
 
     DViewItemActionList actionList;
     auto cardAction = new DViewItemAction(Qt::AlignVCenter);
-    cardAction->setFontSize(DFontSizeManager::T6);
+    cardAction->setFontSize(DFontSizeManager::T8);
     cardAction->setTextColorRole(DPalette::TextTips);
     cardAction->setText(tr("Sound Card:") + port->cardName());
     actionList << cardAction;
