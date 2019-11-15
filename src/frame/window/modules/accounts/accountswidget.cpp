@@ -36,10 +36,16 @@
 #include <QDebug>
 #include <QIcon>
 #include <QSize>
+#include <QPainter>
+#include <QPixmap>
+#include <QBitmap>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
+
+//用户列表图标半径
+const int UserImageRadius = 16;
 
 AccountsWidget::AccountsWidget(QWidget *parent)
     : QWidget(parent)
@@ -76,7 +82,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
 
 void AccountsWidget::setModel(UserModel *model)
 {
-    m_model = model;
+    m_userModel = model;
 
     m_userList << nullptr;
     m_userItemModel->appendRow(new DStandardItem);
@@ -142,11 +148,14 @@ void AccountsWidget::addUser(User *user, bool t1)
         return;
     }
 
+    QPixmap pixmap;
     if (user->currentAvatar().startsWith("file://")) {
-        item->setIcon(QIcon(QUrl(user->currentAvatar()).toLocalFile()));
+        pixmap = PixmapToRound(ZoomImage(QUrl(user->currentAvatar()).toLocalFile()), UserImageRadius);
+
     } else {
-        item->setIcon(QIcon(user->currentAvatar()));
+        pixmap = PixmapToRound(ZoomImage(user->currentAvatar()), UserImageRadius);
     }
+    item->setIcon(QIcon(pixmap));
 
     //对用户全名做限制，如果长度超过32，就在后面显示...
     QString fullname = user->displayName();
@@ -239,11 +248,13 @@ void AccountsWidget::connectUserWithItem(User *user)
             path.replace("icons/", "icons/bigger/");
         }
 
+        QPixmap pixmap;
         if (path.startsWith("file://")) {
-            titem->setIcon(QIcon(QUrl(path).toLocalFile()));
+            pixmap = PixmapToRound(ZoomImage(QUrl(path).toLocalFile()), UserImageRadius);
         } else {
-            titem->setIcon(QIcon(path));
+            pixmap = PixmapToRound(ZoomImage(path), UserImageRadius);
         }
+        titem->setIcon(QIcon(pixmap));
     });
     connect(user, &User::createdTimeChanged, this, [ = ](const quint64 & createdtime) {
         if (user->isCurrentUser()) {
@@ -270,6 +281,32 @@ void AccountsWidget::connectUserWithItem(User *user)
             }
         }
     });
+}
+
+QPixmap AccountsWidget::ZoomImage(const QString &src)
+{
+    QPixmap srcPixmap(src);
+    QPixmap iconPixmap = srcPixmap.scaled(2 * UserImageRadius, 2 * UserImageRadius, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    return iconPixmap;
+}
+
+QPixmap AccountsWidget::PixmapToRound(const QPixmap &src, const int radius)
+{
+    if (src.isNull()) {
+        return QPixmap();
+    }
+
+    QSize size(2 * radius, 2 * radius);
+    QBitmap mask(size);
+    QPainter painter(&mask);
+    painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    painter.fillRect(0, 0, size.width(), size.height(), Qt::white);
+    painter.setBrush(QColor(0, 0, 0));
+    painter.drawRoundedRect(0, 0, size.width(), size.height(), 99, 99);
+
+    QPixmap image = src.scaled(size);
+    image.setMask(mask);
+    return image;
 }
 
 void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)

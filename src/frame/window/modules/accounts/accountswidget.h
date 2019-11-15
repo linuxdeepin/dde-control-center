@@ -69,6 +69,8 @@ public:
         ModifyPwdSuccess
     };
 
+    QPixmap ZoomImage(const QString &src);
+    QPixmap PixmapToRound(const QPixmap &src, const int radius);
     void handleRequestBack(AccountsWidget::ActionOption option = AccountsWidget::ClickCancel);
 
 public Q_SLOTS:
@@ -85,7 +87,7 @@ private:
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
     DTK_WIDGET_NAMESPACE::DListView *m_userlistView;
     QStandardItemModel *m_userItemModel;
-    dcc::accounts::UserModel *m_model;
+    dcc::accounts::UserModel *m_userModel;
     QList<dcc::accounts::User *> m_userList;
     bool m_isShowFirstUserInfo = false;
     int m_saveClickedRow;
