@@ -54,7 +54,8 @@ static const QStringList systemFilter = { "terminal",
                                           "logout",
                                           "wm-switcher",
                                           "system-monitor",
-                                          "color-picker"
+                                          "color-picker",
+                                          "clipboard"
                                        };
 
 QStringList windowFilter = { "maximize", "unmaximize", "minimize",
