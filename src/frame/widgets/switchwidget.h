@@ -52,6 +52,9 @@ public:
 
     QWidget *leftWidget() const { return m_leftWidget; }
 
+public:
+    inline DTK_WIDGET_NAMESPACE::DSwitchButton *switchButton() const { return m_switchBtn; }
+
 Q_SIGNALS:
     void checkedChanged(const bool checked) const;
     void clicked();

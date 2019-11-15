@@ -87,7 +87,7 @@ void BrightnessPage::setMode(DisplayModel *model)
     connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_nightTips, &QLabel::setVisible);
 
     connect(m_nightShift, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestSetNightMode);
-    connect(m_displayModel, &DisplayModel::redshiftSettingChanged, m_nightShift, &SwitchWidget::setDisabled);
+    connect(m_displayModel, &DisplayModel::redshiftSettingChanged, m_nightShift->switchButton(), &DSwitchButton::setDisabled);
     connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, m_autoLightMode, &SwitchWidget::setVisible);
     connect(m_displayModel, &DisplayModel::autoLightAdjustSettingChanged, m_autoLightMode, &SwitchWidget::setChecked);
 
