@@ -107,7 +107,11 @@ void CreateAccountPage::initWidgets()
             m_nameEdit->hideAlertMessage();
             m_nameEdit->setAlert(false);
         }
+        m_nameEdit->lineEdit()->blockSignals(true);
+        auto idx = m_nameEdit->lineEdit()->cursorPosition();
         m_nameEdit->lineEdit()->setText(str.toLower());
+        m_nameEdit->lineEdit()->setCursorPosition(idx);
+        m_nameEdit->lineEdit()->blockSignals(false);
     });
 
     connect(m_fullnameEdit, &DLineEdit::textEdited, this, [ = ] {
