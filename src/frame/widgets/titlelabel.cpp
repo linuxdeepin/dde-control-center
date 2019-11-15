@@ -21,8 +21,12 @@
 
 #include "titlelabel.h"
 
+#include <DFontSizeManager>
+
 #include <QFont>
 #include <QEvent>
+
+DWIDGET_USE_NAMESPACE
 
 TitleLabel::TitleLabel(QWidget *parent, Qt::WindowFlags f)
     : QLabel(parent, f)
@@ -30,14 +34,14 @@ TitleLabel::TitleLabel(QWidget *parent, Qt::WindowFlags f)
     auto tf = this->font();
     tf.setBold(true);
     setFont(tf);
+
+    DFontSizeManager::instance()->bind(this,DFontSizeManager::T5);
 }
 
 TitleLabel::TitleLabel(const QString &text, QWidget *parent, Qt::WindowFlags f)
-    : QLabel(text, parent, f)
+    : TitleLabel(parent, f)
 {
-    auto tf = this->font();
-    tf.setBold(true);
-    setFont(tf);
+    setText(text);
 }
 
 bool TitleLabel::event(QEvent *e)
