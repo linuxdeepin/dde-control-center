@@ -153,7 +153,16 @@ void AccountsWorker::setAvatar(User *user, const QString &iconPath)
     AccountsUser *ui = m_userInters[user];
     Q_ASSERT(ui);
 
-    ui->SetIconFile(iconPath);
+    QDBusPendingCall call = ui->SetIconFile(iconPath);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError()) {
+            Q_EMIT m_userModel->setAvatarSuccess(false);
+        } else {
+            Q_EMIT m_userModel->setAvatarSuccess(true);
+        }
+        watcher->deleteLater();
+    });
 }
 
 void AccountsWorker::setFullname(User *user, const QString &fullname)

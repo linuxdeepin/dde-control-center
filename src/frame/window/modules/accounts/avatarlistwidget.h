@@ -73,6 +73,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void onItemClicked(const QModelIndex &index);
     void onAddNewAvatarSuccess(bool added);
+    void onSetAvatarSuccess(bool modified);
 
 private:
     dcc::accounts::User *m_curUser;

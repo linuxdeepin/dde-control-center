@@ -64,6 +64,7 @@ Q_SIGNALS:
 #endif
     void deleteUserSuccess();
     void addNewAvatarSuccess(bool added);
+    void setAvatarSuccess(bool modified);
 
 private:
     QMap<QString, User *> m_userList;

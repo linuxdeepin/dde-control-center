@@ -139,14 +139,13 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
             m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
         }
 
-        m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
-        Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
+        //针对创建用户的情况
         if (!m_displayLastItem) {
+            m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
             m_prevSelectIndex = m_currentSelectIndex;
+        } else {
+            Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
         }
-
-        m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
-        Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
     }
 }
 
@@ -174,6 +173,15 @@ void AvatarListWidget::onAddNewAvatarSuccess(bool added)
         if (m_prevSelectIndex != -1) {
             m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Checked);
         }
+    }
+}
+
+void AvatarListWidget::onSetAvatarSuccess(bool modified)
+{
+    if (modified) {
+        m_avatarItemModel->item(m_currentSelectIndex)->setCheckState(Qt::Checked);
+    } else {
+        m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Checked);
     }
 }
 

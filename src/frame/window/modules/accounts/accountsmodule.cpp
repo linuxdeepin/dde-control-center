@@ -145,6 +145,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     if (m_fingerModel->isVaild()) {
         initFingerData();
     }
+    connect(m_userModel, &UserModel::setAvatarSuccess, w, &AccountsDetailWidget::requestSetAvatarSuccess);
     connect(m_userModel, &UserModel::addNewAvatarSuccess, w, &AccountsDetailWidget::requestAddNewAvatarSuccess);
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);

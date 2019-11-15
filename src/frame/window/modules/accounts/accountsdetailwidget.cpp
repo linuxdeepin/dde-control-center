@@ -262,6 +262,7 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
     });
     //添加图像最终结果处理
     connect(this, &AccountsDetailWidget::requestAddNewAvatarSuccess , m_avatarListWidget, &AvatarListWidget::onAddNewAvatarSuccess);
+    connect(this, &AccountsDetailWidget::requestSetAvatarSuccess , m_avatarListWidget, &AvatarListWidget::onSetAvatarSuccess);
 
     //图像列表选中当前用户图像
     m_avatarListWidget->setCurrentAvatarChecked(m_curUser->currentAvatar());
