@@ -61,7 +61,7 @@ TimeZoneChooser::TimeZoneChooser()
     , m_cancelBtn(new QPushButton(tr("Cancel")))
     , m_confirmBtn(new DSuggestButton(tr("Confirm")))
 {
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::Dialog | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
 
@@ -76,7 +76,7 @@ TimeZoneChooser::TimeZoneChooser()
     m_title->setFont(font);
 
     DPlatformWindowHandle handle(this);
-    handle.setWindowRadius(4);
+    handle.setWindowRadius(18);
 
     m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
     m_blurEffect->setMaskColor(Qt::black);
@@ -100,11 +100,10 @@ TimeZoneChooser::TimeZoneChooser()
     layout->setMargin(0);
     layout->setSpacing(0);
     layout->addLayout(wbLayout);
-    layout->addStretch();
-    layout->addWidget(m_title, 0, Qt::AlignHCenter);
+    layout->addWidget(m_title, 0, Qt::AlignHCenter | Qt::AlignTop);
     layout->addSpacing(40);
-    layout->addWidget(m_searchInput, 0, Qt::AlignHCenter);
-    layout->addSpacing(40);
+    layout->addWidget(m_searchInput, 0, Qt::AlignHCenter | Qt::AlignTop);
+    layout->addSpacing(120);
     layout->addWidget(m_map, 0, Qt::AlignHCenter);
     layout->addStretch();
     layout->addLayout(hLayout);
