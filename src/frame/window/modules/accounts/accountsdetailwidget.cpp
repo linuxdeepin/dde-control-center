@@ -182,7 +182,7 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
 {
     QPushButton *modifyPassword = new QPushButton;
     DWarningButton *deleteAccount = new DWarningButton;
-    SettingsGroup *loginGrp = new SettingsGroup;
+    SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     SwitchWidget *autoLogin = new SwitchWidget;
     SwitchWidget *nopasswdLogin = new SwitchWidget;
 
@@ -193,6 +193,8 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
     modifydelLayout->addWidget(modifyPassword);
     modifydelLayout->addWidget(deleteAccount);
 
+    autoLogin->setContentsMargins(12, 0, 0, 0);
+    nopasswdLogin->setContentsMargins(12, 0, 0, 0);
     loginGrp->appendItem(autoLogin);
     loginGrp->appendItem(nopasswdLogin);
     loginGrp->setSpacing(2);
@@ -205,6 +207,7 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
     normalMainLayout->setSpacing(0);
     normalMainLayout->setMargin(0);
     normalMainLayout->addLayout(modifydelLayout, 1);
+    normalMainLayout->addSpacing(20);
     normalMainLayout->addWidget(loginGrp, 2);
 
     m_fingerStackedWidget->insertWidget(0, new QWidget);//普通QWidget页面
