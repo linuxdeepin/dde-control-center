@@ -21,7 +21,6 @@
 
 #include "accountswidget.h"
 
-#include "window/utils.h"
 #include "modules/accounts/usermodel.h"
 #include "modules/accounts/user.h"
 #include "accountsdetailwidget.h"
@@ -43,7 +42,6 @@
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
-using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::accounts;
 
 //用户列表图标半径
@@ -67,7 +65,6 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     mainContentLayout->addWidget(m_userlistView);
     mainContentLayout->addWidget(m_createBtn, 0, Qt::AlignHCenter);
 
-    m_userlistView->setViewportMargins(ListViweItemMargin);
     m_userlistView->setFrameShape(QFrame::NoFrame);
     m_userlistView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_userlistView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
