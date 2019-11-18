@@ -54,16 +54,22 @@ ProxyPage::ProxyPage(QWidget *parent)
     , m_manualWidget(new ContentWidget)
     , m_autoWidget(new TranslucentFrame)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
-    , m_proxyType(new DSegmentedControl)
+    , m_proxyTabs(new DButtonBox)
 {
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
     m_buttonTuple->rightButton()->setText(tr("Save"));
 
-    m_proxyType->addSegmented(tr("None"));
-    m_proxyType->addSegmented(tr("Manual"));
-    m_proxyType->addSegmented(tr("Auto"));
-    m_proxyType->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    m_proxyType->setFixedHeight(30);
+    DButtonBoxButton *tabNoneBtn = new DButtonBoxButton(tr("None"));
+    DButtonBoxButton *tabManualBtn = new DButtonBoxButton(tr("Manual"));
+    DButtonBoxButton *tabAutoBtn = new DButtonBoxButton(tr("Auto"));
+    m_tablist.append(tabNoneBtn);
+    m_tablist.append(tabManualBtn);
+    m_tablist.append(tabAutoBtn);
+    m_proxyTabs->setButtonList(m_tablist, true);
+    m_proxyTabs->setId(tabNoneBtn, 0);
+    m_proxyTabs->setId(tabManualBtn, 1);
+    m_proxyTabs->setId(tabAutoBtn, 2);
+    tabManualBtn->setChecked(true);
 
     m_httpAddr = new LineEditWidget;
     m_httpAddr->setPlaceholderText(tr("Optional"));
@@ -149,7 +155,7 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
-    mainLayout->addWidget(m_proxyType);
+    mainLayout->addWidget(m_proxyTabs);
     mainLayout->addSpacing(10);
     mainLayout->addWidget(m_manualWidget);
     mainLayout->addWidget(m_autoWidget);
@@ -164,7 +170,9 @@ ProxyPage::ProxyPage(QWidget *parent)
 //    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ProxyPage::back);
 //    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::back, Qt::QueuedConnection);
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
-    connect(m_proxyType, &DSegmentedControl::currentChanged, this, &ProxyPage::onProxyToggled);
+    connect(m_proxyTabs, &DButtonBox::buttonClicked, this, [this](QAbstractButton *value) {
+        onProxyToggled(m_proxyTabs->id(value));
+    });
 //    connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { Q_EMIT requestSetProxyMethod(ProxyMethodList[index]); });
 //    connect(m_ignoreList->plainEdit(), &QPlainTextEdit::textChanged, [=] { Q_EMIT requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText()); });
 //    connect(m_httpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
@@ -203,10 +211,10 @@ void ProxyPage::setModel(NetworkModel *model)
 void ProxyPage::onProxyMethodChanged(const QString &proxyMethod)
 {
     const int index = ProxyMethodList.indexOf(proxyMethod);
-    if (index == -1)
+    if ((index > 2) || (index < 0))
         return;
 
-    m_proxyType->setCurrentIndex(index);
+    m_tablist[index]->setChecked(true);
     onProxyToggled(index);
 }
 
@@ -230,7 +238,7 @@ void ProxyPage::applySettings() const
 
     Q_EMIT requestSetAutoProxy(m_autoUrl->text());
 
-    Q_EMIT requestSetProxyMethod(ProxyMethodList[m_proxyType->currentIndex()]);
+    Q_EMIT requestSetProxyMethod(ProxyMethodList[m_proxyTabs->checkedId()]);
 }
 
 void ProxyPage::onIgnoreHostsChanged(const QString &hosts)

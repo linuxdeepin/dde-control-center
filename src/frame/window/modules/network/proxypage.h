@@ -29,7 +29,7 @@
 #include "widgets/contentwidget.h"
 #include "window/namespace.h"
 
-#include <dsegmentedcontrol.h>
+#include <DButtonBox>
 
 namespace dde {
 namespace network {
@@ -95,7 +95,8 @@ private:
 
     dcc::widgets::LineEditWidget *m_autoUrl;
 
-    Dtk::Widget::DSegmentedControl *m_proxyType;
+    DButtonBox *m_proxyTabs;
+    QList<DButtonBoxButton *> m_tablist;
 };
 }
 }
