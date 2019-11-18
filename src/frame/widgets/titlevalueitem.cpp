@@ -24,10 +24,12 @@
  */
 
 #include "titlevalueitem.h"
+#include "widgets/labels/tipslabel.h"
+
 #include <QHBoxLayout>
 #include <QEvent>
 
-#include "widgets/labels/tipslabel.h"
+DWIDGET_USE_NAMESPACE
 
 namespace dcc
 {
@@ -54,7 +56,7 @@ bool ResizeEventFilter::eventFilter(QObject *watched, QEvent *event)
 TitleValueItem::TitleValueItem(QFrame *parent)
     : SettingsItem(parent),
       m_title(new TipsLabel),
-      m_value(new TipsLabel)
+      m_value(new DTipLabel(""))
 {
     QHBoxLayout* layout = new QHBoxLayout;
 

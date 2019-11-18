@@ -27,7 +27,12 @@
 #define TITLEVALUEITEM_H
 
 #include "widgets/settingsitem.h"
+
+#include <DTipLabel>
+
 #include <QLabel>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc
 {
@@ -57,7 +62,7 @@ public:
 
 private:
     TipsLabel* m_title;
-    TipsLabel* m_value;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_value;
 };
 
 }
