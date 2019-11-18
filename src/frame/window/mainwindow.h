@@ -47,6 +47,10 @@ class SearchWidget;
 }
 }
 
+extern const QByteArray ControlCenterGSettings;
+extern const QString GSettinsWindowWidth;
+extern const QString GSettinsWindowHeight;
+
 namespace DCC_NAMESPACE {
 class FourthColWidget : public QWidget
 {
@@ -70,6 +74,7 @@ class MainWindow : public DMainWindow, public FrameProxyInterface, protected QDB
     Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
 
     void popWidget(ModuleInterface *const inter) override;
     void pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type = Normal) override;

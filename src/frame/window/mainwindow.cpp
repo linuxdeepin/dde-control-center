@@ -55,10 +55,18 @@
 #include <QPushButton>
 #include <QLocale>
 #include <QLinearGradient>
+#include <QGSettings>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
 DTK_USE_NAMESPACE
+
+const QByteArray ControlCenterGSettings = "com.deepin.dde.control-center";
+const QString GSettinsWindowWidth = "window-width";
+const QString GSettinsWindowHeight = "window-height";
+
+const int WidgetMinimumWidget = 820;
+const int WidgetMinimumHeight = 634;
 
 //此处为带边距的宽度
 const int first_widget_min_width = 188;
@@ -158,7 +166,15 @@ MainWindow::MainWindow(QWidget *parent)
         m_searchWidget->setLanguage(QLocale::system().name());
     });
 
+    setMinimumSize(QSize(WidgetMinimumWidget, WidgetMinimumHeight));
     updateViewBackground();
+}
+
+MainWindow::~MainWindow()
+{
+    QGSettings gs(ControlCenterGSettings, QByteArray(), this);
+    gs.set(GSettinsWindowWidth, width());
+    gs.set(GSettinsWindowHeight, height());
 }
 
 void MainWindow::initAllModule()

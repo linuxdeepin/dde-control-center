@@ -34,12 +34,10 @@
 
 #include <QScreen>
 #include <QStyle>
+#include <QGSettings>
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
-
-const int MainWidgetWidget = 820;
-const int MainWidgetHeight = 634;
 
 int main(int argc, char *argv[])
 {
@@ -80,14 +78,17 @@ int main(int argc, char *argv[])
     parser.addOption(pageOption);
     parser.process(app);
 
+    QGSettings gs(ControlCenterGSettings, QByteArray(), &app);
+    auto w = gs.get(GSettinsWindowWidth).toInt();
+    auto h = gs.get(GSettinsWindowHeight).toInt();
+    qDebug() << QString("main window size: %1 * %2").arg(w, h);
 
     auto screen = app.primaryScreen();
-    QRect mwRect(0, 0, MainWidgetWidget, MainWidgetHeight);
+    QRect mwRect(0, 0, w, h);
     mwRect.moveCenter(screen->geometry().center());
 
     DCC_NAMESPACE::MainWindow mw;
     mw.setGeometry(mwRect);
-    mw.setMinimumSize(QSize(MainWidgetWidget, MainWidgetHeight));
 
     const QString &reqModule = parser.value(moduleOption);
     const QString &reqPage = parser.value(pageOption);
