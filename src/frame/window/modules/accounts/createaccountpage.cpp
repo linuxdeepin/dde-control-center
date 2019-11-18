@@ -90,6 +90,9 @@ void CreateAccountPage::initWidgets()
     addBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
+    mainContentLayout->setContentsMargins(10, 0, 10, 10);
+    mainContentLayout->setSpacing(0);
+    mainContentLayout->addSpacing(27);
     mainContentLayout->addLayout(titleLayout);
     mainContentLayout->addWidget(m_avatarListWidget);
     mainContentLayout->addLayout(inputLayout);
