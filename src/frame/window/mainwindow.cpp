@@ -71,6 +71,9 @@ const int widget_total_min_width = 820;
 //四级页面将被平铺，否则会被置于顶层
 const int four_widget_min_widget = widget_total_min_width + third_widget_min_width + 40;
 
+const QMargins navItemMargin(5, 3, 5, 3);
+const QVariant NavItemMargin = QVariant::fromValue(navItemMargin);
+
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
     , m_contentLayout(nullptr)
@@ -214,7 +217,7 @@ void MainWindow::initAllModule()
             m_remindeSubscriptList.append(QPair<QString, DViewItemAction *>(it->first->name(), action));
             item->setData(QVariant::fromValue(VListViewRightSubscripItemMargin), Dtk::MarginsRole);
         } else {
-            item->setData(VListViewItemMargin, Dtk::MarginsRole);
+            item->setData(NavItemMargin, Dtk::MarginsRole);
         }
 
         m_navModel->appendRow(item);
@@ -472,7 +475,7 @@ void MainWindow::resetNavList(bool isIconMode)
         for (auto data : m_remindeSubscriptList) {
             for (int i = 0; i < m_navModel->rowCount(); i++) {
                 if(m_modules.at(i).first->name() == data.first) {
-                    m_navModel->item(i, 0)->setData(QVariant::fromValue(VListViewItemMargin), Dtk::MarginsRole);
+                    m_navModel->item(i, 0)->setData(NavItemMargin, Dtk::MarginsRole);
                     break;
                 }
             }
