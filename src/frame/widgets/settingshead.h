@@ -27,6 +27,7 @@
 #define SETTINGSHEAD_H
 
 #include "widgets/settingsitem.h"
+#include "titlelabel.h"
 #include <QPushButton>
 
 DWIDGET_BEGIN_NAMESPACE
@@ -64,7 +65,7 @@ private Q_SLOTS:
     void refershButton();
 
 private:
-    NormalLabel *m_title;
+    TitleLabel *m_title;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_edit;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_cancel;
 

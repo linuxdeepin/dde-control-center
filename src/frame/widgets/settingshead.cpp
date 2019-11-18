@@ -37,15 +37,12 @@ DWIDGET_USE_NAMESPACE
 
 SettingsHead::SettingsHead(QFrame *parent)
     : SettingsItem(parent)
-    , m_title(new NormalLabel)
+    , m_title(new TitleLabel)
     , m_edit(new DCommandLinkButton(""))
     , m_cancel(new DCommandLinkButton(""))
     , m_state(Cancel)
 {
     m_title->setObjectName("SettingsHeadTitle");
-    QFont font;
-    font.setBold(true);
-    m_title->setFont(font);
 
     // can not translate correctly just using tr()
     m_edit->setText(qApp->translate("SettingsHead", "Edit"));
