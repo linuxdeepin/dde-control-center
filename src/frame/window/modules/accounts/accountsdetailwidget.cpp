@@ -123,6 +123,7 @@ void AccountsDetailWidget::initHeadPart(QVBoxLayout *headLayout)
     headLayout->addLayout(fullnameLayout);
     headLayout->addWidget(m_inputLineEdit, 0, Qt::AlignHCenter);
 
+    m_inputLineEdit->setMinimumWidth(220);
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_inputLineEdit->setVisible(false);
     m_inputLineEdit->installEventFilter(this);
