@@ -74,6 +74,7 @@ void DatetimeWidget::init()
     m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_listview->setCurrentIndex(model->index(0, 0));
+    m_listview->setItemSpacing(10);
 
     //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
     //~ contents_path /datetime/Timezone List
@@ -83,10 +84,9 @@ void DatetimeWidget::init()
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
+    layout->setSpacing(10);
     layout->addWidget(m_clockItem);
-    layout->addSpacing(10);
     layout->addWidget(m_hourTypeSwitch);
-    layout->addSpacing(10);
     layout->addWidget(m_listview);
     setLayout(layout);
 
