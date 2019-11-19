@@ -65,6 +65,9 @@ TimeZoneChooser::TimeZoneChooser()
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
 
+    //设置成设计给出的宽高
+    setFixedSize(1000, 760);
+
     m_searchInput->setMinimumSize(350, 36);
 
     DPalette pa = DApplicationHelper::instance()->palette(m_title);
@@ -101,13 +104,13 @@ TimeZoneChooser::TimeZoneChooser()
     layout->setSpacing(0);
     layout->addLayout(wbLayout);
     layout->addWidget(m_title, 0, Qt::AlignHCenter | Qt::AlignTop);
-    layout->addSpacing(40);
+    layout->addSpacing(10);
     layout->addWidget(m_searchInput, 0, Qt::AlignHCenter | Qt::AlignTop);
-    layout->addSpacing(120);
+    layout->addSpacing(10);
     layout->addWidget(m_map, 0, Qt::AlignHCenter);
     layout->addStretch();
     layout->addLayout(hLayout);
-    layout->addSpacing(40);
+    layout->addSpacing(10);
     setLayout(layout);
 
     connect(m_confirmBtn, &DSuggestButton::clicked, [this] {

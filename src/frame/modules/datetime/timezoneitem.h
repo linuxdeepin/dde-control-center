@@ -30,7 +30,7 @@
 #include "clock.h"
 
 #include <types/zoneinfo.h>
-#include <DFloatingButton>
+#include <DIconButton>
 
 #include <QLabel>
 #include <QString>
@@ -66,7 +66,7 @@ private:
     QLabel *m_city;
     QLabel *m_details;
     Clock *m_clock;
-    DFloatingButton *m_removeBtn;
+    DIconButton *m_removeBtn;
 };
 }
 }
