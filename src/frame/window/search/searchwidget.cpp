@@ -62,6 +62,11 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer->setWrapAround(false);
     m_completer->installEventFilter(this);
 
+    //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
+    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
+    setting.beginGroup("Release");
+    m_bIsServerType = (setting.value("Type").toString() == "Server");
+
     //first : 可移除设备名称
     //second : 可以除设备具体的页面名称(该页面必须与搜索的页面对应)
     //通过在 loadXml() 301行，使用 “qDebug() << m_searchBoxStruct.fullPagePath.section('/', 2, -1);”解析
@@ -323,6 +328,12 @@ void SearchWidget::loadxml()
                             }
 
                             if ("" == m_searchBoxStruct.actualModuleName || "" == m_searchBoxStruct.translateContent) {
+                                clearSearchData();
+                                continue;
+                            }
+
+                            //判断是否为服务器,是服务器时,若当前不是服务器就不添加"Server"
+                            if (tr("Server") == m_searchBoxStruct.translateContent && !m_bIsServerType) {
                                 clearSearchData();
                                 continue;
                             }
