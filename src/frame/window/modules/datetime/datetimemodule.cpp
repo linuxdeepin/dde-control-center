@@ -198,7 +198,6 @@ void DatetimeModule::showTimezoneList()
         m_timezonelist = new TimezoneList;
 
         //first into this page, update timezonelist data
-        m_timezonelist->getTimezoneContentListPtr()->addTimezones(m_model->userTimeZones());
         updateSystemTimezone(m_model->systemTimeZoneId());
 
         connect(m_model, &DatetimeModel::userTimeZoneAdded,
