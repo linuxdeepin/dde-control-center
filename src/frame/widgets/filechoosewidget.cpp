@@ -59,6 +59,7 @@ void FileChooseWidget::setTitle(const QString &title)
 {
     m_title->setText(title);
     setAccessibleName(title);
+    m_title->setWordWrap(true);
 }
 }
 }

@@ -67,4 +67,5 @@ void SpinBoxWidget::setDefaultVal(int defaultVal)
 void SpinBoxWidget::setTitle(const QString &title)
 {
     m_title->setText(title);
+    m_title->setWordWrap(true);
 }

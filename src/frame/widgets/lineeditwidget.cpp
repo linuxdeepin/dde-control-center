@@ -143,6 +143,7 @@ void LineEditWidget::hideAlertMessage()
 void LineEditWidget::setTitle(const QString &title)
 {
     m_title->setText(title);
+    m_title->setWordWrap(true);
 
     setAccessibleName(title);
     m_edit->setAccessibleName(title);

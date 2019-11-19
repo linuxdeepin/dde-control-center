@@ -78,6 +78,7 @@ void SwitchWidget::setTitle(const QString &title)
     if (label) {
         label->setWordWrap(true);
         label->setText(title);
+        label->setWordWrap(true);
     }
 
     setAccessibleName(title);
