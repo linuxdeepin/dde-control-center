@@ -171,7 +171,7 @@ void WiredPage::refreshConnectionList()
         DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
         QStyleOption opt;
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-        editaction->setClickAreaMargins(QMargins(10, 10, 10, 10));
+        editaction->setClickAreaMargins(QMargins(18, 18, 18, 18));
 
         connect(editaction, &QAction::triggered, [this, path] {
             this->editConnection(path);
