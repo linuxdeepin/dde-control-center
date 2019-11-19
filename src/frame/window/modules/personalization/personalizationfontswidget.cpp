@@ -50,7 +50,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     , m_isAppend(false)
 {
     m_centralLayout->setMargin(0);
-    m_centralLayout->setSpacing(20);
+    m_centralLayout->setSpacing(10);
     //font size
     m_fontSizeSlider->addBackground();
     m_fontSizeSlider->setObjectName("fontsizeslider");
@@ -67,34 +67,41 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     slider->setPageStep(1);
 
     m_centralLayout->addWidget(m_fontSizeSlider);
+    m_centralLayout->addSpacing(10);
 
-    QVBoxLayout *fontsLayout  = new QVBoxLayout;
-    fontsLayout->setSpacing(10);
     //standard font
     QHBoxLayout *sfontLayout = new QHBoxLayout();
+    sfontLayout->setContentsMargins(20, 6, 10, 6);
     SettingsItem *sfontitem = new SettingsItem;
     sfontitem->addBackground();
     sfontitem->setLayout(sfontLayout);
     //~ contents_path /personalization/Font
-    sfontLayout->addWidget(new QLabel(tr("Standard Font"), this));
+    QString sf = tr("Standard Font");
+    QLabel *sfLabel = new QLabel(sf);
+    sfLabel->setWordWrap(true);
+    sfLabel->setFixedWidth(140);
+    sfontLayout->addWidget(sfLabel);
     sfontLayout->addWidget(m_standardFontsCbBox);
 
     m_standardFontsCbBox->setModel(new QStandardItemModel(this));
     m_standardFontsCbBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    fontsLayout->addWidget(sfontitem);
+    m_centralLayout->addWidget(sfontitem);
 
     //mono font
     QHBoxLayout *mfontLayout = new QHBoxLayout();
+    mfontLayout->setContentsMargins(20, 6, 10, 6);
     SettingsItem *mfontitem = new SettingsItem;
     mfontitem->addBackground();
     mfontitem->setLayout(mfontLayout);
     //~ contents_path /personalization/Font
-    mfontLayout->addWidget(new QLabel(tr("Monospaced Font"), this));
+    QString mf = tr("Monospaced Font");
+    QLabel *mfLabel = new QLabel(mf);
+    mfLabel->setWordWrap(true);
+    mfLabel->setFixedWidth(140);
+    mfontLayout->addWidget(mfLabel);
     mfontLayout->addWidget(m_monoFontsCbBox);
     m_monoFontsCbBox->setModel(new QStandardItemModel(this));
-    m_monoFontsCbBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    fontsLayout->addWidget(mfontitem);
-    m_centralLayout->addLayout(fontsLayout);
+    m_centralLayout->addWidget(mfontitem);
     m_centralLayout->addStretch();
     setLayout(m_centralLayout);
 
