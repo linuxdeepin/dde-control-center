@@ -63,6 +63,14 @@ void Clock::paintEvent(QPaintEvent *)
     const bool nightMode = !(6 < time.hour() && time.hour() < 18);
     painter.setPen(Qt::transparent);
     painter.setBrush(nightMode && autoNightMode() ? Qt::black : Qt::white);
+
+    QPen pen(painter.pen());
+    if (!(nightMode && autoNightMode())) {
+        pen.setColor(QColor("#E6E6E6"));
+        pen.setWidth(1);
+        painter.setPen(pen);
+    }
+
     painter.drawRoundedRect(rct, rct.width() / 2.0, rct.height() / 2.0);
 
     // draw ticks
@@ -83,8 +91,6 @@ void Clock::paintEvent(QPaintEvent *)
             painter.drawText(r, Qt::AlignCenter, ticks.at(i - 1));
         }
     }
-
-    QPen pen( painter.pen() );
 
     // draw hour hand
     const qreal hourAngle = qreal(time.hour()) * 30 + time.minute() * 30 / 60;
