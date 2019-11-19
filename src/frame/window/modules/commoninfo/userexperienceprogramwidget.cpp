@@ -41,12 +41,14 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
     m_joinUeProgram = new SwitchWidget();
+    m_joinUeProgram->addBackground();
     //~ contents_path /commoninfo/User Experience Program
     m_joinUeProgram->setTitle(tr("Join User Experience Program"));
 
     DTipLabel *tipLabel = new DTipLabel(tr("Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program."));
     tipLabel->setWordWrap(true);
-    tipLabel->setContentsMargins(16, 0, 10, 0);
+    tipLabel->setContentsMargins(5, 0, 10, 0);
+    tipLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
     vBoxLayout->setMargin(0);
     vBoxLayout->setSpacing(0);

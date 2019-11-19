@@ -89,12 +89,12 @@ BootWidget::BootWidget(QWidget *parent)
 
     DTipLabel *backgroundLabel = new DTipLabel(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background"));
     backgroundLabel->setWordWrap(true);
-    backgroundLabel->setContentsMargins(16, 0, 10, 0);
+    backgroundLabel->setContentsMargins(5, 0, 10, 0);
     backgroundLabel->setAlignment(Qt::AlignLeft);
 
     DTipLabel *themeLbl = new DTipLabel(tr("Switch theme on to view it in boot menu"));
     themeLbl->setWordWrap(true);
-    themeLbl->setContentsMargins(16, 0, 10, 0);
+    themeLbl->setContentsMargins(5, 0, 10, 0);
     themeLbl->setAlignment(Qt::AlignLeft);
 
     groupOther->appendItem(m_bootDelay);
