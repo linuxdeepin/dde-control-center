@@ -53,7 +53,7 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     m_defApps->setIconSize(QSize(32, 32));
     m_defApps->setResizeMode(QListView::Adjust);
     m_defApps->setMovement(QListView::Static);
-    m_defApps->setSelectionMode(QListView::SingleSelection);
+    m_defApps->setSelectionMode(QListView::NoSelection);
     m_defApps->setFrameShape(QFrame::NoFrame);
     m_defApps->setModel(m_model);
     m_defApps->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
