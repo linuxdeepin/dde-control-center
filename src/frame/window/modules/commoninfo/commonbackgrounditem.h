@@ -47,9 +47,11 @@ protected:
     void dragLeaveEvent(QDragLeaveEvent *e) override;
     void dropEvent(QDropEvent *e) override;
     void dragMoveEvent(QDragMoveEvent *event) override;
+    void resizeEvent(QResizeEvent *e) override;
 
 private:
     QPixmap m_background;
+    QPixmap m_basePixmap;
     bool m_isDrop;
     bool m_themeEnable;
 };

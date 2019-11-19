@@ -229,8 +229,11 @@ void CommonInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
 {
     if (!w->isError()) {
         QDBusPendingReply<QString> reply = w->reply();
+#if 1
+        QPixmap pix = QPixmap(reply.value());
+        m_commomModel->setBackground(pix);
+#else
         const qreal ratio = qApp->devicePixelRatio();
-
         QPixmap pix = QPixmap(reply.value()).scaled(QSize(ItemWidth * ratio, ItemHeight * ratio),
                                                     Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
 
@@ -241,8 +244,8 @@ void CommonInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
             pix = pix.copy(QRect(pix.rect().center() - r.center(), size));
 
         pix.setDevicePixelRatio(ratio);
-
         m_commomModel->setBackground(pix);
+#endif
     } else {
         qWarning() << w->error().message();
     }

@@ -33,6 +33,7 @@
 #include <QRect>
 #include <QMimeData>
 #include <QLayout>
+#include <QDebug>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
@@ -67,28 +68,30 @@ void CommonBackgroundItem::paintEvent(QPaintEvent *e)
         return;
 
     QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setRenderHints(QPainter::Antialiasing);
 
     QPalette pa = DApplicationHelper::instance()->palette(this);
     painter.setPen(Qt::NoPen);
     painter.setBrush(QBrush(pa.color(QPalette::Window)));
 
-    qreal radiusX = Radius / rect().width() * 100;
-    qreal radiusY = Radius / rect().height() * 100;
-    painter.drawRoundedRect(this->rect(), radiusX, radiusY);
+    painter.drawRoundedRect(this->rect(), Radius, Radius);
 
     QRect pixRect(this->rect().x() + 10, this->rect().y() + 10,
                   this->rect().width() - 20, this->rect().height() - 20);
     pixRect.moveCenter(this->rect().center());
 
+    QPainterPath path;
+    path.addRoundedRect(pixRect, Radius, Radius);
+    painter.setClipPath(path);
+
     if (m_themeEnable) {
-        QPixmap curPix = m_background.scaled(this->rect().size());
-        painter.setBrush(QBrush(curPix));
+        painter.drawPixmap(m_background.rect(), m_background);
     } else {
         painter.setBrush(QBrush(Qt::black));
+        painter.drawRect(pixRect);
     }
+
     painter.setPen(Qt::NoPen);
-    painter.drawRoundRect(pixRect, radiusX, radiusY);
     painter.restore();
     painter.end();
     if (m_isDrop) {
@@ -148,8 +151,22 @@ void CommonBackgroundItem::dragMoveEvent(QDragMoveEvent *event)
     event->accept();
 }
 
+void CommonBackgroundItem::resizeEvent(QResizeEvent *e)
+{
+    Q_UNUSED(e);
+
+    updateBackground(m_basePixmap);
+}
+
 void CommonBackgroundItem::updateBackground(const QPixmap &pixmap)
 {
-    m_background = pixmap;
+    qDebug() << pixmap;
+    m_basePixmap = pixmap;
+
+    auto ratio = devicePixelRatioF();
+    m_background = m_basePixmap.scaled(size() * ratio,
+                                       Qt::IgnoreAspectRatio,
+                                       Qt::SmoothTransformation);
+    m_background.setDevicePixelRatio(ratio);
     update();
 }
