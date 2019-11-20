@@ -41,8 +41,7 @@ IndexPage::IndexPage(QWidget *parent)
     , m_listModel(new QStandardItemModel)
 {
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
-    m_autoSyncSwitch->setContentsMargins(10, 0, 10, 0);
-    m_autoSyncSwitch->setFixedHeight(36);
+    m_autoSyncSwitch->layout()->setContentsMargins(10, 6, 11, 6);
 
     m_stateLbl = new QLabel(tr("Syncing..."));
 
@@ -59,7 +58,6 @@ IndexPage::IndexPage(QWidget *parent)
     m_listView->setContentsMargins(0, 0, 0, 0);
 
     SettingsGroup *autoSyncGrp = new SettingsGroup;
-    autoSyncGrp->setContentsMargins(6, 0, 6, 0);
     autoSyncGrp->appendItem(m_autoSyncSwitch);
 
     m_mainLayout->setMargin(0);
@@ -110,7 +108,7 @@ IndexPage::IndexPage(QWidget *parent)
     tipLayout->addSpacing(12);
     m_networkTip = new DTipLabel(tr("Your Wi-Fi password will be synced if Network Settings is turned on"));
     m_networkTip->setWordWrap(true);
-    tipLayout->addWidget(m_networkTip, 0, Qt::AlignLeft);
+    tipLayout->addWidget(m_networkTip);
     backgroundLayout->addLayout(tipLayout);
 
     m_mainLayout->addWidget(scrollArea, 9, Qt::AlignHCenter);
@@ -171,6 +169,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
 
     onUserInfoChanged(model->userinfo());
     m_autoSyncSwitch->setChecked(model->enableSync());
+    m_networkTip->setVisible(model->enableSync());
     m_listView->setVisible(model->enableSync());
     onStateChanged(model->syncState());
     onLastSyncTimeChanged(model->lastSyncTime());

@@ -1,6 +1,8 @@
 #include "login.h"
 
 #include <DSuggestButton>
+#include <DFontSizeManager>
+#include <DTipLabel>
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -18,11 +20,7 @@ LoginPage::LoginPage(QWidget *parent)
 
     DSuggestButton *loginBtn = new DSuggestButton(tr("Sign In"));
     loginBtn->setMinimumWidth(302);
-    QLabel *tip = new QLabel;
-    QFont ft = tip->font();
-    ft.setPointSize(12);
-    tip->setFont(ft);
-    tip->setText(tr("Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings."));
+    DTipLabel *tip = new DTipLabel(tr("Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings."));
     tip->setWordWrap(true);
     tip->setAlignment(Qt::AlignCenter);
 
@@ -35,15 +33,18 @@ LoginPage::LoginPage(QWidget *parent)
     QLabel *signintip = new QLabel(tr("Deepin ID Sign In"));
     QFont font = signintip->font();
     font.setBold(true);
-    font.setPointSize(20);
     signintip->setFont(font);
+    DFontSizeManager::instance()->bind(signintip, DFontSizeManager::T3);
+
     m_mainLayout->addWidget(signintip, 0, Qt::AlignHCenter);
-    m_mainLayout->addSpacing(2);
+    m_mainLayout->addSpacing(6);
     m_mainLayout->addWidget(tip);
     m_mainLayout->addSpacing(35);
     m_mainLayout->addWidget(loginBtn, 0, Qt::AlignHCenter);
     m_mainLayout->addSpacing(20);
-    m_mainLayout->addWidget(new QLabel(tr("Only supported in Mainland China at present")), 0, Qt::AlignHCenter);
+    DTipLabel *sps = new DTipLabel(tr("Only supported in Mainland China at present"));
+    sps->setWordWrap(true);
+    m_mainLayout->addWidget(sps, 0, Qt::AlignHCenter);
     m_mainLayout->addStretch(5);
 
     setLayout(m_mainLayout);
