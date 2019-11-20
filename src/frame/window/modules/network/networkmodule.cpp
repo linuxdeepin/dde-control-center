@@ -224,7 +224,7 @@ int NetworkModule::load(QString path)
 QStringList NetworkModule::availPage() const
 {
     QStringList list;
-    list << "DSL" << "DSL/Create PPPOE Connection" << "VPN" << "VPN/Create VPN" << "VPN/Import VPN"
+    list << "DSL" << "DSL/Create PPPoE Connection" << "VPN" << "VPN/Create VPN" << "VPN/Import VPN"
          << "System Proxy" << "Application Proxy" << "Network Details";
     if (m_hasWired) {
         list << "Wired Network" << "Wired Network/Add Network Connection";

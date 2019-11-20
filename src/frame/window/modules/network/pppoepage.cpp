@@ -53,7 +53,7 @@ PppoePage::PppoePage(QWidget *parent)
     , m_modelSettings(new QStandardItemModel)
 {
     m_createBtn->setMinimumSize(QSize(47, 47));
-    m_createBtn->setToolTip(tr("Create PPPOE Connection"));
+    m_createBtn->setToolTip(tr("Create PPPoE Connection"));
 
     m_lvsettings->setModel(m_modelSettings);
     m_lvsettings->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -72,8 +72,8 @@ PppoePage::PppoePage(QWidget *parent)
 
     setContent(mainWidget);
     setTitle(tr("PPP"));
-    //~ contents_path /network/DSL/Create PPPOE Connection
-    tr("Create PPPOE Connection");
+    //~ contents_path /network/DSL/Create PPPoE Connection
+    tr("Create PPPoE Connection");
     connect(m_createBtn, &QPushButton::clicked, this, &PppoePage::createPPPoEConnection);
     connect(m_lvsettings, &QListView::clicked, this, [this](const QModelIndex &idx) {
         this->onPPPoESelected(idx.data(UuidRole).toString());
@@ -177,7 +177,7 @@ void PppoePage::onActiveConnectionChanged(const QList<QJsonObject> &conns)
 
 void PppoePage::jumpPath(const QString &searchPath)
 {
-    if (searchPath == "Create PPPOE Connection") {
+    if (searchPath == "Create PPPoE Connection") {
         createPPPoEConnection();
     }
 }
