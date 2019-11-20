@@ -63,13 +63,13 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     layout->addWidget(m_group);
 
     m_switchKBLayout = new SettingsGroup;
-    SettingsHead *head = new SettingsHead;
+    m_switchLayoutHead = new SettingsHead;
     //~ contents_path /keyboard/Keyboard Layout
-    head->setTitle(tr("Switch Layouts (Multiple)"));
-    head->setEditEnable(false);
+    m_switchLayoutHead->setTitle(tr("Switch Layouts (Multiple)"));
+    m_switchLayoutHead->setEditEnable(false);
 
     layout->addSpacing(10);
-    layout->addWidget(head);
+    layout->addWidget(m_switchLayoutHead);
     layout->addWidget(m_switchKBLayout);
     layout->addStretch();
     QMap<int, QStringList> shortCutMap;
@@ -127,6 +127,7 @@ void KBLayoutSettingWidget::setModel(KeyboardModel *model)
     }
 
     m_switchKBLayout->setVisible(m_maps.count() > 1);
+    m_switchLayoutHead->setVisible(m_maps.count() > 1);
     onSwitchKB(model->kbSwitch());
     onLayoutScope(model->layoutScope());
 }
@@ -151,6 +152,7 @@ void KBLayoutSettingWidget::onAddKeyboard(const QString &id, const QString &valu
 
     onDefault(m_model->curLayout());
     m_switchKBLayout->setVisible(m_maps.count() > 1);
+    m_switchLayoutHead->setVisible(m_maps.count() > 1);
 }
 
 void KBLayoutSettingWidget::onEdit(bool value)
@@ -172,6 +174,7 @@ void KBLayoutSettingWidget::onRemoveLayout(CheckItem *item)
     }
 
     m_switchKBLayout->setVisible(m_maps.count() > 1);
+    m_switchLayoutHead->setVisible(m_maps.count() > 1);
 }
 
 void KBLayoutSettingWidget::onDefault(const QString &value)

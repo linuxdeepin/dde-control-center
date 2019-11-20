@@ -71,6 +71,7 @@ private:
     bool m_bEdit;
     dcc::widgets::SettingsGroup *m_group;
     dcc::widgets::SettingsHead *m_head;
+    dcc::widgets::SettingsHead *m_switchLayoutHead;
     QList<dcc::keyboard::MetaData> m_datas;
     QMap<QString, CheckItem *> m_maps;
     dcc::keyboard::KeyboardModel *m_model;
