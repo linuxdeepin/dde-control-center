@@ -70,13 +70,8 @@ public:
     explicit AccountsDetailWidget(dcc::accounts::User *user, QWidget *parent = nullptr);
     void initHeadPart(QVBoxLayout *headLayout);
     void initBodyPart(QVBoxLayout *bodyLayout);
-    void updateLineEditDisplayStyle();
+    void updateLineEditDisplayStyle(bool edit = false);
     void setFingerModel(dcc::accounts::FingerModel *model);
-    bool checkStrIsAllEmpty(const QString &str);
-
-protected:
-    bool eventFilter(QObject *obj, QEvent *event) override;
-    void resizeEvent(QResizeEvent *event) override;
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
@@ -94,6 +89,10 @@ Q_SIGNALS:
     void requestAddNewAvatarSuccess(bool added);
     void requestSetAvatarSuccess(bool modified);
 
+protected:
+    void initUserInfo(QVBoxLayout *layout);
+    void initSetting(QVBoxLayout *layout);
+
 private Q_SLOTS:
     void deleteUserClicked();
 
@@ -102,8 +101,6 @@ private:
     QLabel *m_fullName;//账户全名
     DTK_WIDGET_NAMESPACE::DIconButton *m_fullNameBtn;//账户全名编辑按钮
     QLineEdit *m_inputLineEdit;//账户全名编辑框
-    QStackedWidget *m_mainStackedWidget;
-    QStackedWidget *m_fingerStackedWidget;
     dcc::accounts::FingerModel *m_model;
     FingerWidget *m_fingerWidget;//指纹界面
     AvatarListWidget *m_avatarListWidget;//图像列表

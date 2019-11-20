@@ -44,33 +44,27 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     DCommandLinkButton *clearBtn = new DCommandLinkButton(tr("Delete fingerprint"));
     TitleLabel *fingetitleLabel = new TitleLabel(tr("Fingerprint Password"));
 
-    m_listGrp->setSpacing(2);
-    QScrollArea *scrollArea = new QScrollArea;
-    scrollArea->setWidget(m_listGrp);
-    scrollArea->setFrameShape(QFrame::NoFrame);//无边框
-    scrollArea->setWidgetResizable(true);//自动调整大小
-    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_listGrp->setSpacing(1);
+    m_listGrp->setContentsMargins(0, 0, 0, 0);
+    m_listGrp->layout()->setMargin(0);
     m_listGrp->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     QHBoxLayout *headLayout = new QHBoxLayout;
-    headLayout->setContentsMargins(0, 0, 0, 0);
     headLayout->setSpacing(0);
-    headLayout->setMargin(0);
+    headLayout->setContentsMargins(10, 0, 10, 0);
     headLayout->addWidget(fingetitleLabel, 0, Qt::AlignLeft);
     headLayout->addWidget(clearBtn, 0, Qt::AlignRight);
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
-    mainContentLayout->setContentsMargins(0, 0, 0, 0);
-    mainContentLayout->setSpacing(2);
+    mainContentLayout->setSpacing(1);
     mainContentLayout->setMargin(0);
     mainContentLayout->addLayout(headLayout);
-    mainContentLayout->addWidget(scrollArea);
+    mainContentLayout->addSpacing(10);
+    mainContentLayout->addWidget(m_listGrp);
     setLayout(mainContentLayout);
 
     //设置字体大小
-    DFontSizeManager::instance()->bind(fingetitleLabel, DFontSizeManager::T5);
-    DFontSizeManager::instance()->bind(clearBtn, DFontSizeManager::T7);
+    DFontSizeManager::instance()->bind(clearBtn, DFontSizeManager::T8);
 
     connect(clearBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestCleanThumbs(m_curUser);

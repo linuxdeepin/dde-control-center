@@ -42,7 +42,7 @@ QT_END_NAMESPACE
 namespace DCC_NAMESPACE {
 namespace accounts {
 class AvatarItemDelegate;
-class AvatarListWidget : public QWidget
+class AvatarListWidget : public DTK_WIDGET_NAMESPACE::DListView
 {
     Q_OBJECT
 public:
@@ -78,7 +78,6 @@ public Q_SLOTS:
 private:
     dcc::accounts::User *m_curUser;
     QVBoxLayout *m_mainContentLayout;
-    DTK_WIDGET_NAMESPACE::DListView *m_avatarListView;
     QStandardItemModel *m_avatarItemModel;
     AvatarItemDelegate *m_avatarItemDelegate;
     QList<QString> m_iconpathList;

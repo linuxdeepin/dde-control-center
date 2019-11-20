@@ -51,7 +51,7 @@ public:
     void setAvatarPath(const QString &avatar);
 
     void setArrowed(const bool arrowed = true);
-
+    inline bool arrowed() const { return m_arrowed; }
 Q_SIGNALS:
     void clicked(const QString &iconPath) const;
     void requestDelete(const QString &iconPath) const;

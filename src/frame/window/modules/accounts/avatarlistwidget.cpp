@@ -42,9 +42,7 @@ using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
 AvatarListWidget::AvatarListWidget(QWidget *parent, bool displayLastItem)
-    : QWidget(parent)
-    , m_mainContentLayout(new QVBoxLayout())
-    , m_avatarListView(new DListView())
+    : DListView(parent)
     , m_avatarItemModel(new QStandardItemModel())
     , m_avatarItemDelegate(new AvatarItemDelegate())
     , m_prevSelectIndex(-1)
@@ -57,24 +55,17 @@ AvatarListWidget::AvatarListWidget(QWidget *parent, bool displayLastItem)
 
 void AvatarListWidget::initWidgets()
 {
-    m_mainContentLayout->addWidget(m_avatarListView);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setViewMode(QListView::IconMode);
+    setDragDropMode(QAbstractItemView::NoDragDrop);
+    setDragEnabled(false);
+    setSpacing(20);
+    setResizeMode(DListView::Adjust);
+    setFrameShape(QFrame::NoFrame);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    m_avatarListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_avatarListView->setViewMode(QListView::IconMode);
-    m_avatarListView->setDragDropMode(QAbstractItemView::NoDragDrop);
-    m_avatarListView->setDragEnabled(false);
-    m_avatarListView->setWordWrap(true);
-    m_avatarListView->setSpacing(15);
-    m_avatarListView->setResizeMode(QListView::Adjust);
-    m_avatarListView->setFrameShape(QFrame::NoFrame);
-    m_avatarListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_avatarListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
-    m_mainContentLayout->setContentsMargins(0, 0, 0, 0);
-    m_mainContentLayout->setMargin(0);
-    setLayout(m_mainContentLayout);
-
-    connect(m_avatarListView, &QListView::clicked, this, &AvatarListWidget::onItemClicked);
+    connect(this, &QListView::clicked, this, &AvatarListWidget::onItemClicked);
 }
 
 void AvatarListWidget::initDatas()
@@ -93,8 +84,8 @@ void AvatarListWidget::initDatas()
         addLastItem();
     }
 
-    m_avatarListView->setItemDelegate(m_avatarItemDelegate);
-    m_avatarListView->setModel(m_avatarItemModel);
+    setItemDelegate(m_avatarItemDelegate);
+    setModel(m_avatarItemModel);
 }
 
 void AvatarListWidget::setUserModel(dcc::accounts::User *user)
@@ -249,10 +240,9 @@ QString AvatarListWidget::getUserAddedCustomPicPath()
     QDir dir(dirpath);
     QFileInfoList list = dir.entryInfoList(QDir::Dirs|QDir::Files|QDir::NoDotAndDotDot);//去除.和..
     if (list.size() > 0) { //如果之前添加过新图片
-        for (int i = 0; i < list.size(); ++i) {
-            QString iconpath = list.at(i).filePath();
+        if (list.size()) {
+            QString iconpath = list.at(0).filePath();
             newiconpath = iconpath;
-            break;
         }
     } else {
         QString iconpath = "Deepin";
