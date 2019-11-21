@@ -39,6 +39,8 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     QStandardItemModel *model = new QStandardItemModel;
     m_listview->setModel(model);
     m_listview->setEditTriggers(QListView::NoEditTriggers);
+    m_listview->setSelectionMode(QAbstractItemView::NoSelection);
+    m_listview->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     layout->addWidget(m_listview);
     this->setLayout(layout);
     connect(m_listview, &DListView::clicked, this, &PerssonalizationThemeList::onClicked);
@@ -117,16 +119,12 @@ void PerssonalizationThemeList::onSetPic(const QString &id, const QString &picPa
         if (item->data(IDRole).toString() != id)
             continue;
 
-        DViewItemActionList list = item->actionList(Qt::LeftEdge);
-        if (list.isEmpty()) {
-            QPixmap pxmap = QPixmap(picPath);
-            DViewItemAction *iconAction = new DViewItemAction(Qt::AlignLeft, pxmap.size() / devicePixelRatioF());
-            iconAction->setIcon(QIcon(pxmap));
-            list << iconAction;
-            item->setActionList(Qt::BottomEdge, list);
-        } else {
-            list[0]->setIcon(QIcon(picPath));
-        }
+        DViewItemActionList list;
+        QPixmap pxmap = QPixmap(picPath);
+        DViewItemAction *iconAction = new DViewItemAction(Qt::AlignLeft, pxmap.size() / devicePixelRatioF());
+        iconAction->setIcon(QIcon(pxmap));
+        list << iconAction;
+        item->setActionList(Qt::BottomEdge, list);
 
         return;
     }

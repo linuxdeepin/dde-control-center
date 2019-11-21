@@ -24,7 +24,7 @@
 #include "modules/modulewidget.h"
 #include "modules/personalization/personalizationmodel.h"
 
-#include <dswitchbutton.h>
+#include "dtkwidget_global.h"
 
 #include <QWidget>
 
@@ -39,6 +39,14 @@ namespace widgets {
 class TitledSliderItem;
 }
 }
+
+DWIDGET_BEGIN_NAMESPACE
+class DSwitchButton;
+DWIDGET_END_NAMESPACE
+
+QT_BEGIN_NAMESPACE
+class QLabel;
+QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace personalization {

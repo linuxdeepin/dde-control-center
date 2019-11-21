@@ -24,8 +24,10 @@
 #include "widgets/dccslider.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/settingsitem.h"
+#include "widgets/titlelabel.h"
 
 #include <DStyle>
+#include <DSwitchButton>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -53,7 +55,7 @@ const QList<QString> ACTIVE_COLORS = {
 PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
-    , m_wmSwitch(new DTK_WIDGET_NAMESPACE::DSwitchButton())
+    , m_wmSwitch(new DSwitchButton())
     //~ contents_path /personalization/General
     , m_transparentSlider(new dcc::widgets::TitledSliderItem(tr("Transparency")))
     , m_Themes(new PerssonalizationThemeWidget())
@@ -62,14 +64,18 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     m_centralLayout->setMargin(0);
     //appearance
     //~ contents_path /personalization/General
-    m_centralLayout->addWidget(new QLabel(tr("Theme")));
+    QLabel *themeL = new TitleLabel(tr("Theme"));
+    themeL->setMargin(10);
+    m_centralLayout->addWidget(themeL);
     //pictures and types
     m_Themes->setMainLayout(new QHBoxLayout(), true);
     m_centralLayout->addWidget(m_Themes);
 
     //active colors
     //~ contents_path /personalization/General
-    m_centralLayout->addWidget(new QLabel(tr("Accent Color")));
+    QLabel *activeL = new TitleLabel(tr("Accent Color"));
+    activeL->setMargin(10);
+    m_centralLayout->addWidget(activeL);
 
     QHBoxLayout *colorLayout = new QHBoxLayout();
     m_bgWidget->setLayout(colorLayout);

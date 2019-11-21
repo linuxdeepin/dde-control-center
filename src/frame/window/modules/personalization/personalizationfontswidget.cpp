@@ -27,6 +27,9 @@
 #include "modules/personalization/model/fontsizemodel.h"
 #include "modules/personalization/model/fontmodel.h"
 
+#include <DSlider>
+#include <DFontSizeManager>
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -34,11 +37,10 @@
 #include <QStandardItemModel>
 #include <QDebug>
 
-#include <DSlider>
-
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 using namespace dcc::widgets;
+DWIDGET_USE_NAMESPACE
 
 PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     : QWidget(parent)
@@ -67,11 +69,10 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     slider->setPageStep(1);
 
     m_centralLayout->addWidget(m_fontSizeSlider);
-    m_centralLayout->addSpacing(10);
 
     //standard font
     QHBoxLayout *sfontLayout = new QHBoxLayout();
-    sfontLayout->setContentsMargins(20, 6, 10, 6);
+    sfontLayout->setContentsMargins(10, 6, 10, 6);
     SettingsItem *sfontitem = new SettingsItem;
     sfontitem->addBackground();
     sfontitem->setLayout(sfontLayout);
@@ -89,7 +90,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
 
     //mono font
     QHBoxLayout *mfontLayout = new QHBoxLayout();
-    mfontLayout->setContentsMargins(20, 6, 10, 6);
+    mfontLayout->setContentsMargins(10, 6, 10, 6);
     SettingsItem *mfontitem = new SettingsItem;
     mfontitem->addBackground();
     mfontitem->setLayout(mfontLayout);
