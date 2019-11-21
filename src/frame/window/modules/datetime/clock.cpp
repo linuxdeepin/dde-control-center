@@ -34,7 +34,10 @@ Clock::Clock(QWidget *parent)
     , m_autoNightMode(true)
     , n_bIsUseBlackPlat(true)
 {
-
+    m_plat = getPixmap(":/datetime/icons/dcc_clock_black.svg", clockSize);
+    m_hour = getPixmap(":/datetime/icons/dcc_noun_hour.svg", pointSize);
+    m_min = getPixmap(":/datetime/icons/dcc_noun_minute.svg", pointSize);
+    m_sec = getPixmap(":/datetime/icons/dcc_noun_second.svg", pointSize);
 }
 
 Clock::~Clock()
@@ -55,7 +58,6 @@ void Clock::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    QPixmap pix;
     QDateTime datetime(QDateTime::currentDateTime());
     const QTime time(datetime.time());
     QPainter painter(this);
@@ -63,13 +65,8 @@ void Clock::paintEvent(QPaintEvent *event)
 
     // draw plate
     painter.save();
-    if (n_bIsUseBlackPlat) {
-        pix = getPixmap(":/datetime/icons/dcc_clock_black.svg", clockSize);
-    } else {
-        pix = getPixmap(":/datetime/icons/dcc_clock_white.svg", clockSize);
-    }
     painter.translate(width() / 2.0, height() / 2.0);
-    painter.drawPixmap(QPointF(-clockSize.width() / 2.0, -clockSize.height() / 2.0), pix);
+    painter.drawPixmap(QPointF(-clockSize.width() / 2.0, -clockSize.height() / 2.0), m_plat);
     painter.restore();
 
     int nHour = (time.hour() >= 12) ? (time.hour() - 12) : time.hour();
@@ -80,8 +77,7 @@ void Clock::paintEvent(QPaintEvent *event)
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(hourAngle);
-    pix = getPixmap(":/datetime/icons/dcc_noun_hour.svg", pointSize);
-    painter.drawPixmap(QPointF(-pointSize.width() / 2.0, -pointSize.height() / 2.0), pix);
+    painter.drawPixmap(QPointF(-pointSize.width() / 2.0, -pointSize.height() / 2.0), m_hour);
     painter.restore();
 
     // draw minute hand
@@ -89,8 +85,7 @@ void Clock::paintEvent(QPaintEvent *event)
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(minuteAngle);
-    pix = getPixmap(":/datetime/icons/dcc_noun_minute.svg", pointSize);
-    painter.drawPixmap(QPointF(-pointSize.width() / 2.0, -pointSize.height() / 2.0), pix);
+    painter.drawPixmap(QPointF(-pointSize.width() / 2.0, -pointSize.height() / 2.0), m_min);
     painter.restore();
 
     // draw second hand
@@ -98,8 +93,7 @@ void Clock::paintEvent(QPaintEvent *event)
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(secondAngle);
-    pix = getPixmap(":/datetime/icons/dcc_noun_second.svg", pointSize);
-    painter.drawPixmap(QPointF(-pointSize.width() / 2.0, -pointSize.height() / 2.0), pix);
+    painter.drawPixmap(QPointF(-pointSize.width() / 2.0, -pointSize.height() / 2.0), m_sec);
     painter.restore();
 
     painter.end();

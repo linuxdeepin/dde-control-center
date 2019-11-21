@@ -55,6 +55,10 @@ private:
     bool m_autoNightMode;
     bool n_bIsUseBlackPlat;
     ZoneInfo m_timeZone;
+    QPixmap m_plat;
+    QPixmap m_hour;
+    QPixmap m_min;
+    QPixmap m_sec;
 };
 }// namespace datetime
 }// namespace DCC_NAMESPACE
