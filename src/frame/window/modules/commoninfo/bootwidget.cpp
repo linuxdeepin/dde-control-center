@@ -30,6 +30,7 @@
 #include "widgets/settingsgroup.h"
 
 #include <DTipLabel>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QScrollBar>
@@ -67,6 +68,10 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     m_bootList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_bootList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+
+    DPalette dp = DApplicationHelper::instance()->palette(m_bootList);
+    dp.setColor(DPalette::Text, QColor(255, 255, 255));
+    DApplicationHelper::instance()->setPalette(m_bootList, dp);
 
     m_updatingLabel = new TipsLabel(tr("Updating..."));
     m_updatingLabel->setVisible(false);
