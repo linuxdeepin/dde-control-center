@@ -61,7 +61,7 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     title->setFont(font);
     title->setText(tr("Mirror List"));
 
-    m_testButton->setFixedSize(120, 48);
+    m_testButton->setFixedSize(120, 36);
     m_testButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
     layout->addWidget(title, 0, Qt::AlignHCenter);
@@ -71,7 +71,6 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
 
     m_view = new DListView();
     m_model = new QStandardItemModel;
-    m_view->setSpacing(10);
     m_view->setBackgroundType(DStyledItemDelegate::BackgroundType::RoundedBackground);
     m_view->setSelectionMode(DListView::NoSelection);
     m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

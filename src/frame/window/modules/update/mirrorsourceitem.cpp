@@ -13,6 +13,7 @@ MirrorSourceItem::MirrorSourceItem(QObject *parent)
 {
     m_action = new DViewItemAction;
     m_action->setText(m_rightLabel);
+    m_action->setFontSize(DFontSizeManager::T8);
     this->setText(m_leftLabel);
     this->setCheckState(Qt::CheckState::Unchecked);
     this->setActionList(Qt::RightEdge, {m_action});
