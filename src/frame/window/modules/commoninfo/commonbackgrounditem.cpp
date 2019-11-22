@@ -45,7 +45,7 @@ static const QStringList mimeTypeList { "image/jpg", "image/jpeg",
     "image/png", "image/tiff",
     "image/gif", "image/bmp" };
 static const int ItemHeight = 187;
-static const qreal Radius = 20.0;
+static const qreal Radius = 8.0;
 
 CommonBackgroundItem::CommonBackgroundItem(QFrame *parent)
     : SettingsItem(parent)
