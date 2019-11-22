@@ -24,12 +24,10 @@
  */
 
 #include "timezoneitem.h"
+#include "widgets/labels/normallabel.h"
 
 #include <QDebug>
 #include <QVBoxLayout>
-
-#include "widgets/labels/normallabel.h"
-#include "widgets/labels/tipslabel.h"
 
 using namespace dcc::widgets;
 
@@ -39,7 +37,7 @@ namespace datetime {
 TimezoneItem::TimezoneItem(QFrame *parent)
     : SettingsItem(parent)
     , m_city(new NormalLabel)
-    , m_details(new TipsLabel)
+    , m_details(new DTipLabel(""))
     , m_clock(new Clock)
     , m_removeBtn(new DIconButton(this))
 {

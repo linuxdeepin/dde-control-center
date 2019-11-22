@@ -28,9 +28,10 @@
 
 #include "widgets/settingsitem.h"
 #include "clock.h"
-
 #include <types/zoneinfo.h>
+
 #include <DIconButton>
+#include <DTipLabel>
 
 #include <QLabel>
 #include <QString>
@@ -64,7 +65,7 @@ private:
     ZoneInfo m_timezone;
 
     QLabel *m_city;
-    QLabel *m_details;
+    DTipLabel *m_details;
     Clock *m_clock;
     DIconButton *m_removeBtn;
 };
