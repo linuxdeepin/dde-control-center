@@ -296,17 +296,23 @@ QPixmap AccountsWidget::PixmapToRound(const QPixmap &src, const int radius)
         return QPixmap();
     }
 
-    QSize size(2 * radius, 2 * radius);
-    QBitmap mask(size);
-    QPainter painter(&mask);
-    painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-    painter.fillRect(0, 0, size.width(), size.height(), Qt::white);
-    painter.setBrush(QColor(0, 0, 0));
-    painter.drawRoundedRect(0, 0, size.width(), size.height(), 99, 99);
+    auto ratio = devicePixelRatioF();
+    QSize size = QSizeF(2 * radius * ratio, 2 * radius * ratio).toSize();
 
-    QPixmap image = src.scaled(size);
-    image.setMask(mask);
-    return image;
+    QPixmap mask(size);
+    mask.fill(Qt::transparent);
+
+    QPainter painter(&mask);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    QPainterPath path;
+    path.addEllipse(0, 0, size.width(), size.height());
+    painter.setClipPath(path);
+
+    auto pixmap = QPixmap(src).scaled(size, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    painter.drawPixmap(0, 0, pixmap);
+
+    return mask;
 }
 
 void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
