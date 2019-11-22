@@ -49,16 +49,17 @@ AbstractSettings::~AbstractSettings()
 
 bool AbstractSettings::allInputValid()
 {
+    bool sec = true;
     for (auto section : m_settingSections) {
         if (section->isVisible()) {
             if (!section->allInputValid()) {
+                sec = false;
                 qDebug() << "some section has Error!" << m_settingSections.indexOf(section);
-                return false;
             }
         }
     }
 
-    return true;
+    return sec;
 }
 
 void AbstractSettings::saveSettings()
