@@ -13,7 +13,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation type="unfinished"/>
+        <translation>Verifique se todos os dados foram salvos</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

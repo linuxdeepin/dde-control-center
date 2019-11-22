@@ -13,7 +13,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation type="unfinished"/>
+        <translation>Søg først for at al data er blevet gemt</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

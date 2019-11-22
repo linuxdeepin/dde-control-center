@@ -23,99 +23,99 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="150"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
         <source>Touchpad</source>
         <translation>Styreplate</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="151"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="163"/>
         <source>TrackPoint</source>
         <translation>Styrekule</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="180"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="200"/>
         <source>Account</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="182"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="593"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="595"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="202"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="613"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="615"/>
         <source>Cloud Sync</source>
         <translation type="unfinished"/>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="183"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="203"/>
         <source>Display</source>
         <translation>Skjerm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="184"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="204"/>
         <source>Default Applications</source>
         <translation>Standardprogrammer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="185"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="205"/>
         <source>Personalization</source>
         <translation>Personalisering</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="186"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="206"/>
         <source>Network</source>
         <translation>Nettverk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="187"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="207"/>
         <source>Sound</source>
         <translation>Lyd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="188"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="569"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="571"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="208"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="589"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="591"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="189"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="209"/>
         <source>Date and Time</source>
         <translation>Dato og tid</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="190"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="210"/>
         <source>Power</source>
         <translation>Strøm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="191"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="211"/>
         <source>Mouse</source>
         <translation>Mus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="192"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="581"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="583"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="212"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="601"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="603"/>
         <source>Drawing Tablet</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="193"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="213"/>
         <source>Keyboard and Language</source>
         <translation>Tastatur og Språk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="194"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="214"/>
         <source>Update</source>
         <translation>Oppdater</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="195"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="215"/>
         <source>System Info</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="196"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="216"/>
         <source>General Settings</source>
         <translation type="unfinished"/>
     </message>
@@ -124,33 +124,42 @@
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="153"/>
         <source>Full Name</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="292"/>
         <source>Change Password</source>
         <translation type="unfinished"/>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="294"/>
         <source>Delete Account</source>
         <translation>Slett bruker</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="297"/>
         <source>Auto Login</source>
         <translation>Automatisk innlogging</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="301"/>
         <source>Login Without Password</source>
         <translation>Innlogging uten passord</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="61"/>
+        <source>Create Account</source>
+        <translation>Opprett bruker</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
 </context>
 <context>
@@ -226,54 +235,54 @@
         <translation>Opprett</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="124"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="144"/>
         <source>Required</source>
         <translation>Påkrevd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="142"/>
         <source>optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="237"/>
         <source>Password cannot be empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
         <source>The password should be different from the username</source>
         <translation>Passordet bør være forskjellig fra brukernavnet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="250"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="257"/>
         <source>Passwords do not match</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="275"/>
         <source>Username cannot be empty</source>
         <translation>Brukernavn kan ikke være tomt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="281"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="288"/>
         <source>The first character must be in lower case</source>
         <translation>Første tegn må være liten bokstav</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation type="unfinished"/>
     </message>
@@ -334,40 +343,40 @@
         <translation>Lagre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="114"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="119"/>
         <source>Required</source>
         <translation>Påkrevd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="184"/>
         <source>Wrong password</source>
         <translation>Feil passord</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="187"/>
         <source>Password cannot be empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="194"/>
         <source>The password should be different from the username</source>
         <translation>Passordet bør være forskjellig fra brukernavnet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="200"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="208"/>
         <source>New password should differ from the current one</source>
         <translation>Nytt passord må være ulikt det gamle</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="217"/>
         <source>Passwords do not match</source>
         <translation type="unfinished"/>
     </message>
@@ -621,16 +630,28 @@
         <translation>Liste over tiddsoner</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="67"/>
+        <source>Add Timezone</source>
+        <translation>Legg til tidssone</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::defapp::DefappDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="70"/>
+        <source>Add Application</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="239"/>
         <source>Open Desktop file</source>
         <translation>Åpne fil på skrivebord</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="291"/>
         <source>Invalid</source>
         <translation type="unfinished"/>
     </message>
@@ -755,6 +776,15 @@
     </message>
 </context>
 <context>
+    <name>dccV20::display::DisplayModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="115"/>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV20::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="121"/>
@@ -787,6 +817,12 @@
         <source>Refresh Rate</source>
         <translation type="unfinished"/>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="161"/>
+        <source>Rotate Screen</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1546,6 +1582,15 @@
     </message>
 </context>
 <context>
+    <name>dccV20::network::HotspotPage</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="261"/>
+        <source>Create Hotspot</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+</context>
+<context>
     <name>dccV20::network::IpvxSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="33"/>
@@ -1700,6 +1745,16 @@
     <name>dccV20::network::NetworkModule</name>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="158"/>
+        <source>Wired Network</source>
+        <translation>Kablet Nettverk</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="159"/>
+        <source>Wireless Network</source>
+        <translation>Trådløst nettverk</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="160"/>
         <source>Personal Hotspot</source>
         <translation type="unfinished"/>
     </message>
@@ -1707,66 +1762,71 @@
 <context>
     <name>dccV20::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="65"/>
         <source>DSL</source>
         <translation>DSL</translation>
         <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="73"/>
         <source>VPN</source>
         <translation>VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="81"/>
         <source>System Proxy</source>
         <translation>System Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="87"/>
         <source>Application Proxy</source>
         <translation type="unfinished"/>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="95"/>
         <source>Network Details</source>
         <translation>Nettverksdetaljer</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="143"/>
+        <source>Configure by Network Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="280"/>
         <source>Personal Hotspot</source>
         <translation type="unfinished"/>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="295"/>
         <source>Wired Network %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="298"/>
         <source>Wired Network</source>
         <translation>Kablet Nettverk</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="302"/>
         <source>Wireless Network %1</source>
         <translation>Trådløst Nettverk: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="305"/>
         <source>Wireless Network</source>
         <translation>Trådløst nettverk</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="313"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="346"/>
         <source>Disconnected</source>
         <translation>Avkoblet</translation>
     </message>
@@ -1779,28 +1839,23 @@
         <translation>PPPoE</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="61"/>
-        <source>Invalid password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="80"/>
         <source>Username</source>
         <translation>Brukernavn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="82"/>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="88"/>
         <source>Required</source>
         <translation>Påkrevd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="84"/>
         <source>Service</source>
         <translation>Tjeneste </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="87"/>
         <source>Password</source>
         <translation>Passord</translation>
     </message>
@@ -1886,15 +1941,16 @@
 <context>
     <name>dccV20::network::PppoePage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="73"/>
-        <source>PPP</source>
-        <translation>PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="76"/>
         <source>Create PPPOE Connection</source>
         <translation type="unfinished"/>
         <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="74"/>
+        <source>PPP</source>
+        <translation>PPP</translation>
     </message>
 </context>
 <context>
@@ -1925,58 +1981,58 @@
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="69"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="79"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="86"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="110"/>
         <source>Optional</source>
         <translation>Valgfri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="76"/>
         <source>HTTP Proxy</source>
         <translation>HTTP Proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="80"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="100"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
         <source>HTTPS Proxy</source>
         <translation>HTTPS Proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
         <source>FTP Proxy</source>
         <translation>FTP Proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="97"/>
         <source>SOCKS Proxy</source>
         <translation>SOCKS Proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="107"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Ignorer proxykonfigurasjonen for overstående verter og domener</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="111"/>
         <source>Configuration URL</source>
         <translation>Konfigurasjons URL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="167"/>
         <source>System Proxy</source>
         <translation>System Proxy</translation>
     </message>
@@ -2145,11 +2201,6 @@
         <source>Password</source>
         <translation>Passord</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="587"/>
-        <source>Invalid password</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>dccV20::network::SecretHotspotSection</name>
@@ -2242,12 +2293,12 @@
         <translation>Påkrevd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="171"/>
         <source>Key</source>
         <translation>Nøkkel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="178"/>
         <source>Password</source>
         <translation>Passord</translation>
     </message>
@@ -2556,7 +2607,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="247"/>
         <source>Password</source>
         <translation>Passord</translation>
     </message>
@@ -2567,7 +2618,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="273"/>
         <source>Static Key</source>
         <translation>Statisk nøkkel</translation>
     </message>
@@ -2593,10 +2644,11 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="133"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="248"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="294"/>
         <source>Required</source>
         <translation>Påkrevd</translation>
     </message>
@@ -2622,7 +2674,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="234"/>
         <source>Pwd Options</source>
         <translation>Pwd Valg</translation>
     </message>
@@ -2632,35 +2684,29 @@
         <translation>Privat Pass</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="229"/>
         <source>Username</source>
         <translation>Brukernavn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="277"/>
         <source>Customize Key Direction</source>
         <translation>Tilpass Nøkkel Retning</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="281"/>
         <source>Key Direction</source>
         <translation>Nøkkel Retning </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
         <source>Remote IP</source>
         <translation>Fjern IP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
         <source>Local IP</source>
         <translation>Lokal IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="403"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="431"/>
-        <source>Invalid password</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2765,23 +2811,25 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="120"/>
         <source>Create VPN</source>
         <translation>Opprett VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="127"/>
         <source>Import VPN</source>
         <translation>Importer VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="321"/>
         <source>Import Error</source>
         <translation>Import feilet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="323"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -2794,59 +2842,54 @@
         <translation>VPN Proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="87"/>
-        <source>Invalid password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="142"/>
         <source>Not Required</source>
         <translation>Ikke påkrevd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="144"/>
         <source>SOCKS</source>
         <translation>SOCKS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="150"/>
         <source>Proxy Type</source>
         <translation>Proxytype</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <source>Server IP</source>
         <translation>Server-IP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="179"/>
         <source>Required</source>
         <translation>Påkrevd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="171"/>
         <source>Retry Indefinitely When Failed</source>
         <translation>Prøv på nytt i ubestemt tid Når Mislyktes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="174"/>
         <source>Username</source>
         <translation>Brukernavn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="178"/>
         <source>Password</source>
         <translation>Passord</translation>
     </message>
@@ -2907,54 +2950,49 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="72"/>
-        <source>Invalid password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="105"/>
         <source>Saved</source>
         <translation>Lagret</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
         <source>Ask</source>
         <translation>Spørre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Not Required</source>
         <translation>Ikke påkrevd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="113"/>
         <source>Gateway</source>
         <translation>Gateway </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="135"/>
         <source>Required</source>
         <translation>Påkrevd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="117"/>
         <source>Username</source>
         <translation>Brukernavn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="121"/>
         <source>Pwd Options</source>
         <translation>Pwd Valg</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="134"/>
         <source>Password</source>
         <translation>Passord</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="138"/>
         <source>NT Domain</source>
         <translation>NT Domene</translation>
     </message>
@@ -3142,73 +3180,67 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="98"/>
-        <source>Invalid password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
         <source>Saved</source>
         <translation>Lagret</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="162"/>
         <source>Ask</source>
         <translation>Spørre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
         <source>Not Required</source>
         <translation>Ikke påkrevd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="169"/>
         <source>Gateway</source>
         <translation>Gateway </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="207"/>
         <source>Required</source>
         <translation>Påkrevd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="173"/>
         <source>Username</source>
         <translation>Brukernavn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
         <source>Pwd Options</source>
         <translation>Pwd Valg</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="187"/>
         <source>Password</source>
         <translation>Passord</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="191"/>
         <source>Group Name</source>
         <translation>Gruppe Navn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="206"/>
         <source>Group Pwd</source>
         <translation>Gruppe Pass</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="210"/>
         <source>Use Hybrid Authentication</source>
         <translation>Bruk Hybrid Autentikasjon </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="213"/>
         <source>CA File</source>
         <translation>CA Fil</translation>
     </message>
@@ -3227,42 +3259,43 @@
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="97"/>
-        <source>Select Settings</source>
-        <translation>Velg innstillinger</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="106"/>
         <source>Add Network Connection</source>
         <translation>Legge til nettverkstilkobling</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="98"/>
+        <source>Select Settings</source>
+        <translation>Velg innstillinger</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="241"/>
         <source>Connect to hidden network</source>
         <translation>Koble til skjult nettverk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="251"/>
         <source>Wireless Network Adapter</source>
         <translation type="unfinished"/>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="260"/>
         <source>Close Hotspot</source>
         <translation>Lukk Hotspot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="263"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="286"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3620,27 +3653,38 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="290"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="600"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="69"/>
         <source>Touchpad</source>
         <translation>Styreplate</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="295"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="605"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="70"/>
         <source>TrackPoint</source>
         <translation>Styrekule</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="300"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="610"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="71"/>
         <source>Personal Hotspot</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="305"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="615"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="72"/>
         <source>On Battery</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="73"/>
+        <source>Wired Network</source>
+        <translation>Kablet Nettverk</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="74"/>
+        <source>Wireless Network</source>
+        <translation>Trådløst nettverk</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
+        <source>Multiple Displays</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4344,53 +4388,53 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="168"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="183"/>
         <source>On Battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="169"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="184"/>
         <source>Plugged In</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="170"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="185"/>
         <source>General</source>
         <translation>Generel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="171"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="186"/>
         <source>Mouse</source>
         <translation>Mus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="172"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="187"/>
         <source>Touchpad</source>
         <translation>Styreplate</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="173"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="188"/>
         <source>TrackPoint</source>
         <translation>Styrekule</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="174"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="189"/>
         <source>Application Proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="175"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="178"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="193"/>
         <source>System Proxy</source>
         <translation>System Proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="176"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="191"/>
         <source>Time Settings</source>
         <translation>Tidsinnstillinger</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="177"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="192"/>
         <source>Change System Timezone</source>
         <translation>Endre systemets tidssone</translation>
     </message>
@@ -4752,32 +4796,32 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="348"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="357"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Vellykket fjerning av vert fra domenets server</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="349"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="358"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Vellykket tilkobling av din vert mot domenets server</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="371"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="380"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Din vert klarte ikke å forlate domenets server</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="372"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="381"/>
         <source>Your host failed to join the domain server</source>
         <translation>Din vert klarte ikke å koble til domenets server</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="375"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="384"/>
         <source>AD domain settings</source>
         <translation>Active Directory innstillinger</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="444"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="453"/>
         <source>Password not match</source>
         <translation>Passord stemmer ikke</translation>
     </message>
@@ -5269,23 +5313,23 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="194"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
         <source>Confirm</source>
         <translation>Bekreft</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="189"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="188"/>
         <source>Add Timezone</source>
         <translation>Alle tidssoner</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="190"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="189"/>
         <source>Add</source>
         <translation>Legg til </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="192"/>
         <source>Change Timezone</source>
         <translation>Endre tidssone</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
@@ -8811,7 +8855,7 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="62"/>
+        <location filename="../src/frame/main.cpp" line="60"/>
         <source>Control Center provides all system settings for deepin users.</source>
         <translation type="unfinished"/>
     </message>
