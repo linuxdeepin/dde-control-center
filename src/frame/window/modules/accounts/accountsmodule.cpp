@@ -145,8 +145,6 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     if (m_fingerModel->isVaild()) {
         initFingerData();
     }
-    connect(m_userModel, &UserModel::setAvatarSuccess, w, &AccountsDetailWidget::requestSetAvatarSuccess);
-    connect(m_userModel, &UserModel::addNewAvatarSuccess, w, &AccountsDetailWidget::requestAddNewAvatarSuccess);
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
@@ -155,8 +153,6 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestBack, this, [&]() {
         m_accountsWidget->setShowFirstUserInfo(false);
     });
-    connect(w, &AccountsDetailWidget::requestDeleteAvatar, m_accountsWorker, &AccountsWorker::deleteUserIcon);
-    connect(w, &AccountsDetailWidget::requestAddNewAvatar, m_accountsWorker, &AccountsWorker::addNewAvatar);
     connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
     connect(w, &AccountsDetailWidget::requestShowFullnameSettings, m_accountsWorker, &AccountsWorker::setFullname);
     connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);

@@ -164,12 +164,13 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     fullnameLayout->addWidget(m_inputLineEdit);
     layout->addLayout(fullnameLayout);
 
-    m_avatarListWidget = new AvatarListWidget(this, true);
-    m_avatarListWidget->setUserModel(m_curUser);
+    m_avatarListWidget = new AvatarListWidget(m_curUser, this);
     m_avatarListWidget->setVisible(false);
+    m_avatarListWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     m_avatarListWidget->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-    m_avatarListWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    layout->addWidget(m_avatarListWidget, 0);
+    layout->addWidget(m_avatarListWidget);
+
+    connect(m_curUser, &User::currentAvatarChanged, m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
 
     //点击用户图像
     connect(avatar, &AvatarWidget::clicked, this, [ = ](const QString &iconPath) {
@@ -178,11 +179,8 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         m_avatarListWidget->setVisible(avatar->arrowed());
     });
 
-    //用户图像发生变化
-    connect(m_curUser, &User::currentAvatarChanged, this, [ = ](const QString &iconPath) {
-        avatar->setAvatarPath(iconPath);
-        m_avatarListWidget->setCurrentAvatarChecked(iconPath);
-    });
+
+    connect(m_curUser, &User::currentAvatarChanged, avatar, &AvatarWidget::setAvatarPath);
     //用户名发生变化
     connect(m_curUser, &User::nameChanged, shortName, &QLabel::setText);
     connect(m_curUser, &User::fullnameChanged, this, [ = ](const QString &fullname) {
@@ -288,21 +286,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             &AccountsDetailWidget::requestCleanThumbs);
 
     //图像列表操作
-    connect(m_avatarListWidget, &AvatarListWidget::requestAddNewAvatar,
-            this, &AccountsDetailWidget::requestAddNewAvatar);
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
     this, [ = ](const QString &avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
     });
-    connect(m_avatarListWidget, &AvatarListWidget::requestDeleteAvatar,
-    this, [ = ](const QString &iconPath) {
-        Q_EMIT requestDeleteAvatar(m_curUser, iconPath);
-    });
-    //添加图像最终结果处理
-    connect(this, &AccountsDetailWidget::requestAddNewAvatarSuccess,
-            m_avatarListWidget, &AvatarListWidget::onAddNewAvatarSuccess);
-    connect(this, &AccountsDetailWidget::requestSetAvatarSuccess,
-            m_avatarListWidget, &AvatarListWidget::onSetAvatarSuccess);
 }
 
 void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)

@@ -54,7 +54,7 @@ public:
     void setModel(dcc::accounts::User *user);
 
 private:
-    void initWidgets();
+    void initWidgets(QVBoxLayout *layout);
     void createUser();
     bool onPasswordEditFinished(DPasswordEdit *edit);
     bool validatePassword(const QString &password);

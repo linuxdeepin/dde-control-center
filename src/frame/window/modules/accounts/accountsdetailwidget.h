@@ -79,15 +79,11 @@ Q_SIGNALS:
     void requestNopasswdLogin(dcc::accounts::User *user, const bool nopasswdLogin);
     void requestDeleteAccount(dcc::accounts::User *user, const bool deleteHome);
     void requestBack();
-    void requestAddNewAvatar(dcc::accounts::User *user);
     void requestSetAvatar(dcc::accounts::User *user, const QString &filePath);
-    void requestDeleteAvatar(dcc::accounts::User *user, const QString &iconPath);
     void requestShowFullnameSettings(dcc::accounts::User *user, const QString &fullname);
     void requestShowFingerSettings(dcc::accounts::User *user);
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(dcc::accounts::User *user);
-    void requestAddNewAvatarSuccess(bool added);
-    void requestSetAvatarSuccess(bool modified);
 
 protected:
     void initUserInfo(QVBoxLayout *layout);

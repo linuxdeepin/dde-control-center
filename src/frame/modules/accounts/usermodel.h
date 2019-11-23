@@ -63,8 +63,6 @@ Q_SIGNALS:
     void isADUserLoginChanged(bool isLogind);
 #endif
     void deleteUserSuccess();
-    void addNewAvatarSuccess(bool added);
-    void setAvatarSuccess(bool modified);
 
 private:
     QMap<QString, User *> m_userList;

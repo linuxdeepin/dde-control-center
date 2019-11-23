@@ -31,26 +31,29 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QPixmap>
-#include <QList>
 #include <QDir>
 #include <QFileInfo>
 #include <QDebug>
 #include <QFileInfoList>
+#include <QFileDialog>
+#include <QStandardPaths>
+
+const int AvatarSize = 14;
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
-AvatarListWidget::AvatarListWidget(QWidget *parent, bool displayLastItem)
+AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
     : DListView(parent)
+    , m_curUser(usr)
     , m_avatarItemModel(new QStandardItemModel())
     , m_avatarItemDelegate(new AvatarItemDelegate())
-    , m_prevSelectIndex(-1)
-    , m_currentSelectIndex(-1)
-    , m_displayLastItem(displayLastItem)
+    , m_avatarSize(QSize(74, 74))
 {
     initWidgets();
-    initDatas();
+
+    connect(this, &DListView::clicked, this, &AvatarListWidget::onItemClicked);
 }
 
 void AvatarListWidget::initWidgets()
@@ -65,114 +68,107 @@ void AvatarListWidget::initWidgets()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    connect(this, &QListView::clicked, this, &AvatarListWidget::onItemClicked);
-}
-
-void AvatarListWidget::initDatas()
-{
-    addItemFromDefaultDir();
-    if (m_displayLastItem) {
-        //如果用户之前添加过新图片，那么用新图片替换最后一张图片；反之直接加上"+"
-        QString customPicPath = getUserAddedCustomPicPath();
-        if (!customPicPath.isEmpty() && checkFileIsExists(customPicPath)) {
-            //先删除最后一张图片
-            m_iconpathList.pop_back();
-            m_avatarItemModel->removeRow(m_avatarItemModel->rowCount() - 1);
-            //添加用户新添加的图片
-            addSecond2Last(customPicPath);
-        }
-        addLastItem();
-    }
-
     setItemDelegate(m_avatarItemDelegate);
     setModel(m_avatarItemModel);
+
+    addItemFromDefaultDir();
+
+    if (m_curUser)
+        refreshCustomAvatar(getUserAddedCustomPicPath(m_curUser->name()));
+    addLastItem();
+
+    if (m_curUser)
+        setCurrentAvatarChecked(m_curUser->currentAvatar());
 }
 
-void AvatarListWidget::setUserModel(dcc::accounts::User *user)
+void AvatarListWidget::refreshCustomAvatar(const QString& str)
 {
-    m_curUser = user;
+    QString customPicPath = str;
+    if (customPicPath.isEmpty())
+        return;
+
+    qDebug() << QString("find custom avatar path %1 whit user name %2.").arg(customPicPath, str);
+
+    QStandardItem *item = m_avatarItemModel->item(AvatarSize);;
+    if (!item || item->data(SaveAvatarRole).toString().isEmpty()) {
+        item = new QStandardItem();
+        qDebug() << "add avatar item with path :" << customPicPath;
+        item->setCheckState(Qt::Checked);
+        m_avatarItemModel->insertRow(AvatarSize, item);
+    } else {
+        item = m_avatarItemModel->item(AvatarSize);
+    }
+
+    item->setData(QVariant::fromValue(QPixmap(customPicPath)), Qt::DecorationRole);
+    item->setData(QVariant::fromValue(customPicPath), AvatarListWidget::SaveAvatarRole);
+    item->setData(m_avatarSize, Qt::SizeHintRole);
+
+    if (m_currentSelectIndex.isValid() && m_currentSelectIndex != item->index()) {
+        m_avatarItemModel->setData(m_currentSelectIndex, Qt::Unchecked, Qt::CheckStateRole);
+    }
+    item->setCheckState(Qt::Checked);
+    m_currentSelectIndex = item->index();
 }
 
 void AvatarListWidget::setCurrentAvatarChecked(const QString &avatar)
 {
-    QString currentAvatar;
-    if (avatar.startsWith("file://")) {
+    if (avatar.isEmpty())
+        return;
+
+    QString currentAvatar = avatar;
+    if (avatar.startsWith("file://"))
         currentAvatar = QUrl(avatar).toLocalFile();
-    }
+
+    qDebug() << "avatar file change to " << currentAvatar;
+    if (currentAvatar == "/var/lib/AccountsService/icons/default.png")
+        return;
+
+    if (!QFile(currentAvatar).exists())
+        return;
+
+    if (currentAvatar.isEmpty())
+        return;
+
     for (int i = 0; i< m_avatarItemModel->rowCount(); ++i) {
         QString itemAvatar = m_avatarItemModel->index(i, 0).data(AvatarListWidget::SaveAvatarRole).value<QString>();
-        if (!currentAvatar.isEmpty() && !itemAvatar.isEmpty() && currentAvatar == itemAvatar) {
-            if (m_prevSelectIndex != -1) {
-                m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
-            }
-            m_prevSelectIndex = i;
-            m_avatarItemModel->item(i)->setCheckState(Qt::Checked);
-            break;
-        } else {
-            m_prevSelectIndex = -1;
+        if (currentAvatar != itemAvatar)
+            continue;
+
+        if (m_currentSelectIndex.isValid()) {
+            m_avatarItemModel->setData(m_currentSelectIndex, Qt::Unchecked, Qt::CheckStateRole);
         }
+        m_avatarItemModel->item(i)->setCheckState(Qt::Checked);
+        m_currentSelectIndex = m_avatarItemModel->index(i, 0);
+        return;
     }
+
+    refreshCustomAvatar(currentAvatar);
 }
 
 void AvatarListWidget::onItemClicked(const QModelIndex &index)
 {
-    m_currentSelectIndex = index.row();
-    if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast) {
-        if (m_prevSelectIndex != -1) {
-            m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
+    if (index.data(Qt::CheckStateRole) == Qt::Checked)
+        return;
+
+    auto filepath = index.data(SaveAvatarRole).toString();
+    qDebug() << " item clicked witch save file path : " << filepath;
+    if (filepath.isEmpty()) {
+        QFileDialog fd;
+        fd.setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
+
+        QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
+        if (!directory.isEmpty()) {
+            fd.setDirectory(directory.first());
         }
 
-        if (index.row() == 14) {
-            Q_EMIT requestAddNewAvatar(m_curUser);
-        }
-    } else {
-        if (m_prevSelectIndex != -1) {
-            m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
-        }
-
-        //针对创建用户的情况
-        if (!m_displayLastItem) {
-            m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
-            m_prevSelectIndex = m_currentSelectIndex;
-        } else {
-            Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
+        if (fd.exec() == QFileDialog::Accepted) {
+            filepath = fd.selectedFiles().first();
         }
     }
-}
 
-void AvatarListWidget::onAddNewAvatarSuccess(bool added)
-{
-    if (added) {
-        //1.先把最后２项删除
-        for (int i = 0; i < 2; ++i) {
-            m_iconpathList.pop_back();
-            m_avatarItemModel->removeRow(m_avatarItemModel->rowCount() - 1);
-        }
-
-        //2.重新添加最后２项
-        QString newiconpath = getUserAddedCustomPicPath();
-        if (!newiconpath.isEmpty() && checkFileIsExists(newiconpath)) {
-            addSecond2Last(newiconpath);
-        }
-        addLastItem();
-
-        //3.选中当前的新添加的图像
-        int index = m_avatarItemModel->rowCount() - 2;
-        m_avatarItemModel->item(index)->setCheckState(Qt::Checked);
-        m_prevSelectIndex = index;
-    } else {
-        if (m_prevSelectIndex != -1) {
-            m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Checked);
-        }
-    }
-}
-
-void AvatarListWidget::onSetAvatarSuccess(bool modified)
-{
-    if (modified) {
-        m_avatarItemModel->item(m_currentSelectIndex)->setCheckState(Qt::Checked);
-    } else {
-        m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Checked);
+    if (!filepath.isEmpty()) {
+        qDebug() << "request set avatar : " << filepath;
+        Q_EMIT requestSetAvatar(filepath);
     }
 }
 
@@ -186,17 +182,20 @@ void AvatarListWidget::addItemFromDefaultDir()
     filters << "*.png";//设置过滤类型
     dir.setNameFilters(filters);//设置文件名的过滤
     QFileInfoList list = dir.entryInfoList();
+
     //根据文件名进行排序
     qSort(list.begin(), list.end(), [&](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
         return fileinfo1.baseName() < fileinfo2.baseName();
     });
-    for (int i = 0; i < list.size(); ++i) {
+
+    for (int i = 0; i < AvatarSize && i < list.size(); ++i) {
         if (hideList.contains(list.at(i).fileName())) {
             continue;
         }
+
         QString iconpath = list.at(i).filePath();
-        m_iconpathList.push_back(iconpath);
-        QStandardItem *item = new QStandardItem();
+
+        DStandardItem *item = new DStandardItem();
         auto ratio = devicePixelRatioF();
         if (ratio > 1.0) {
             iconpath.replace("icons/", "icons/bigger/");
@@ -205,65 +204,69 @@ void AvatarListWidget::addItemFromDefaultDir()
                                            Qt::KeepAspectRatio, Qt::SmoothTransformation);
         px.setDevicePixelRatio(ratio);
 
+        qDebug() << "add avatar item with path :" << iconpath;
         item->setData(QVariant::fromValue(px), Qt::DecorationRole);
         item->setData(QVariant::fromValue(iconpath), AvatarListWidget::SaveAvatarRole);
+        item->setData(m_avatarSize, Qt::SizeHintRole);
         m_avatarItemModel->appendRow(item);
     }
 }
 
 void AvatarListWidget::addLastItem()
 {
-    QString iconpath = "Deepin";
-    LastItemData lastItemData;
-    lastItemData.isDrawLast = true;
-    lastItemData.iconPath = iconpath;
-
-    m_iconpathList.push_back(iconpath);
-    QStandardItem *item = new QStandardItem();
-    item->setData(QVariant::fromValue(lastItemData), AvatarListWidget::AddAvatarRole);
+    qDebug() << "add avatar item with path :" << "(null)";
+    DStandardItem *item = new DStandardItem();
+    item->setData(m_avatarSize, Qt::SizeHintRole);
+    item->setData("", AvatarListWidget::SaveAvatarRole);
     m_avatarItemModel->appendRow(item);
 }
 
-void AvatarListWidget::addSecond2Last(QString newiconpath)
+QString AvatarListWidget::getUserAddedCustomPicPath(const QString& usrName)
 {
-    m_iconpathList << newiconpath;
-    QStandardItem *item = new QStandardItem();
-    item->setData(QVariant::fromValue(QPixmap(newiconpath)), Qt::DecorationRole);
-    item->setData(QVariant::fromValue(newiconpath), AvatarListWidget::SaveAvatarRole);
-    m_avatarItemModel->appendRow(item);
-}
+    if (usrName.isEmpty())
+        return "";
 
-QString AvatarListWidget::getUserAddedCustomPicPath()
-{
+    auto key = usrName + '-';
+    qDebug() << "start find custom avatar using User Name: " << usrName;
     QString newiconpath;
     QString dirpath("/var/lib/AccountsService/icons/local/");
     QDir dir(dirpath);
     QFileInfoList list = dir.entryInfoList(QDir::Dirs|QDir::Files|QDir::NoDotAndDotDot);//去除.和..
-    if (list.size() > 0) { //如果之前添加过新图片
-        if (list.size()) {
-            QString iconpath = list.at(0).filePath();
-            newiconpath = iconpath;
-        }
-    } else {
-        QString iconpath = "Deepin";
-        newiconpath = iconpath;
+    for (auto fi : list) {
+        auto str = fi.fileName();
+        qDebug() << "get custom avatar file name: " << str;
+        if (0 != str.indexOf(key))
+            continue;
+
+        if (str.right(str.size() - key.size()).indexOf('-') != -1)
+            continue;
+
+        newiconpath = fi.absoluteFilePath();
+        break;
     }
 
     return newiconpath;
 }
 
-bool AvatarListWidget::checkFileIsExists(QString path)
+QString AvatarListWidget::getAvatarPath() const
 {
-    QFileInfo check_file(path);
-    return check_file.exists() && check_file.isFile();
+    auto index = qrand() % 14;
+    if (m_currentSelectIndex.isValid())
+        index = m_currentSelectIndex.row();
+
+    return  m_avatarItemModel->data(m_currentSelectIndex, SaveAvatarRole).toString();
 }
 
-QString AvatarListWidget::getAvatarPath(int n) const
+void AvatarListWidget::setAvatarSize(QSize size)
 {
-    return  m_iconpathList.at(n);
-}
+    if(m_avatarSize == size)
+        return;
 
-int AvatarListWidget::getCurrentSelectIndex() const
-{
-    return m_currentSelectIndex;
+    m_avatarSize = size;
+
+    auto count = m_avatarItemModel->rowCount();
+    for(auto i = 0; i < count; ++i) {
+     auto idx = m_avatarItemModel->index(i, 0);
+     m_avatarItemModel->setData(idx, m_avatarSize, Qt::SizeHintRole);
+    }
 }

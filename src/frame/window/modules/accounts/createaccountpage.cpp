@@ -33,6 +33,7 @@
 #include <QDebug>
 #include <QSettings>
 #include <QApplication>
+#include <QScrollArea>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -41,71 +42,99 @@ using namespace DCC_NAMESPACE::accounts;
 
 CreateAccountPage::CreateAccountPage(QWidget *parent)
     : QWidget(parent)
-    , m_avatarListWidget(new AvatarListWidget(this, false))
+    , m_newUser{nullptr}
+    , m_avatarListWidget(new AvatarListWidget(m_newUser, this))
     , m_nameEdit(new DLineEdit)
     , m_fullnameEdit(new DLineEdit)
     , m_passwdEdit(new DPasswordEdit)
     , m_repeatpasswdEdit(new DPasswordEdit)
 {
-    initWidgets();
-}
+    QVBoxLayout *mainContentLayout = new QVBoxLayout;
+    mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    mainContentLayout->setMargin(0);
+    setLayout(mainContentLayout);
 
-CreateAccountPage::~CreateAccountPage()
-{
-}
+    QScrollArea *scrollArea = new QScrollArea;
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setFrameStyle(QFrame::NoFrame);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    scrollArea->setContentsMargins(0, 0, 0, 0);
+    mainContentLayout->addWidget(scrollArea);
 
-void CreateAccountPage::initWidgets()
-{
-    QHBoxLayout *titleLayout = new QHBoxLayout;
-    //~ contents_path /accounts/New Account
-    TitleLabel *titleLabel = new TitleLabel(tr("New Account"));
-    titleLayout->addWidget(titleLabel, 0, Qt::AlignCenter);
+    auto contentLayout = new QVBoxLayout();
+    contentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    auto tw = new QWidget();
+    tw->setLayout(contentLayout);
+    contentLayout->setSpacing(0);
+    contentLayout->setMargin(0);
+    scrollArea->setWidget(tw);
 
-    QVBoxLayout *inputLayout = new QVBoxLayout;
-    inputLayout->setSpacing(3);
+    initWidgets(contentLayout);
 
-    QLabel *nameLabel = new QLabel(tr("Username"));
-    inputLayout->addWidget(nameLabel);
-    inputLayout->addWidget(m_nameEdit);
+    QHBoxLayout *btnLayout = new QHBoxLayout;
+    btnLayout->setMargin(0);
 
-    QLabel *fullnameLabel = new QLabel(tr("Full Name"));
-    inputLayout->addWidget(fullnameLabel);
-    inputLayout->addWidget(m_fullnameEdit);
-
-    QLabel *passwdLabel = new QLabel(tr("Password"));
-    inputLayout->addWidget(passwdLabel);
-    inputLayout->addWidget(m_passwdEdit);
-
-    QLabel *repeatpasswdLabel = new QLabel(tr("Repeat Password"));
-    inputLayout->addWidget(repeatpasswdLabel);
-    inputLayout->addWidget(m_repeatpasswdEdit);
-
-    QHBoxLayout *selectLayout = new QHBoxLayout;
     QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
     DSuggestButton *addBtn = new DSuggestButton(tr("Create"));
-    selectLayout->setSpacing(10);
-    selectLayout->addWidget(cancleBtn);
-    selectLayout->addWidget(addBtn);
-    cancleBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    addBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-
-    QVBoxLayout *mainContentLayout = new QVBoxLayout;
-    mainContentLayout->setContentsMargins(10, 0, 10, 10);
-    mainContentLayout->setSpacing(0);
-    mainContentLayout->addSpacing(27);
-    mainContentLayout->addLayout(titleLayout);
-    mainContentLayout->addWidget(m_avatarListWidget);
-    mainContentLayout->addLayout(inputLayout);
-    mainContentLayout->addStretch();
-    mainContentLayout->addLayout(selectLayout);
-    setLayout(mainContentLayout);
+    btnLayout->addWidget(cancleBtn);
+    btnLayout->addWidget(addBtn);
+    mainContentLayout->addLayout(btnLayout);
 
     connect(cancleBtn, &QPushButton::clicked, this, [&] {
         Q_EMIT requestBack();
     });
     connect(addBtn, &DSuggestButton::clicked, this, &CreateAccountPage::createUser);
 
-    connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString & str) {
+}
+
+CreateAccountPage::~CreateAccountPage()
+{
+}
+
+void CreateAccountPage::initWidgets(QVBoxLayout *layout)
+{
+    //~ contents_path /accounts/New Account
+    TitleLabel *titleLabel = new TitleLabel(tr("New Account"));
+    titleLabel->setAlignment(Qt::AlignCenter);
+    layout->addSpacing(17);
+    layout->addWidget(titleLabel);
+
+    m_avatarListWidget->setAvatarSize(QSize(40, 40));
+    m_avatarListWidget->setViewportMargins(0, 0, 0, 0);
+    m_avatarListWidget->setSpacing(14);
+    m_avatarListWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    layout->addSpacing(10);
+    layout->addWidget(m_avatarListWidget, 0, Qt::AlignTop);
+
+    QLabel *nameLabel = new QLabel(tr("Username") + ':');
+    layout->addWidget(nameLabel);
+    layout->addWidget(m_nameEdit);
+    layout->addSpacing(10);
+
+    QLabel *fullnameLabel = new QLabel(tr("Full Name") + ':');
+    layout->addWidget(fullnameLabel);
+    layout->addWidget(m_fullnameEdit);
+    layout->addSpacing(10);
+
+    QLabel *passwdLabel = new QLabel(tr("Password") + ':');
+    layout->addWidget(passwdLabel);
+    layout->addWidget(m_passwdEdit);
+    layout->addSpacing(10);
+
+    QLabel *repeatpasswdLabel = new QLabel(tr("Repeat Password") + ':');
+    layout->addWidget(repeatpasswdLabel);
+    layout->addWidget(m_repeatpasswdEdit);
+
+    connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
+            m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
+    connect(m_avatarListWidget, &AvatarListWidget::requestAddNewAvatar,
+    this, [this](dcc::accounts::User *user, const QString &file) {
+        Q_UNUSED(user)
+        m_avatarListWidget->setCurrentAvatarChecked(file);
+    });
+
+    connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString &str) {
         if (m_nameEdit->isAlert()) {
             m_nameEdit->hideAlertMessage();
             m_nameEdit->setAlert(false);
@@ -118,7 +147,7 @@ void CreateAccountPage::initWidgets()
     });
 
     connect(m_fullnameEdit, &DLineEdit::textEdited, this, [ = ] {
-        if (m_fullnameEdit->isAlert()) {
+        if (m_fullnameEdit->isAlert()){
             m_fullnameEdit->hideAlertMessage();
             m_fullnameEdit->setAlert(false);
         }
@@ -142,12 +171,6 @@ void CreateAccountPage::initWidgets()
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
-
-    cancleBtn->setMinimumSize(165, 36);
-    addBtn->setMinimumSize(165, 36);
-    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5);
-
-    setFocusPolicy(Qt::StrongFocus);
 }
 
 void CreateAccountPage::setModel(User *user)
@@ -170,12 +193,8 @@ void CreateAccountPage::createUser()
     }
 
     //如果用户没有选图像
-    int index = m_avatarListWidget->getCurrentSelectIndex();
-    if (index == -1) {
-        //随机分配图像 [0, 13]
-        index = qrand() % 14;
-    }
-    m_newUser->setCurrentAvatar(m_avatarListWidget->getAvatarPath(index));
+    auto avatarPaht = m_avatarListWidget->getAvatarPath();
+    m_newUser->setCurrentAvatar(avatarPaht);
     m_newUser->setName(m_nameEdit->lineEdit()->text());
     m_newUser->setFullname(m_fullnameEdit->lineEdit()->text());
     m_newUser->setPassword(m_passwdEdit->lineEdit()->text());

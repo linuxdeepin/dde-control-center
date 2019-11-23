@@ -74,7 +74,6 @@ public Q_SLOTS:
     void randomUserIcon(User *user);
     void createAccount(const User *user);
 
-    void addNewAvatar(User *user);
     void setAvatar(User *user, const QString &iconPath);
     void setFullname(User *user, const QString &fullname);
     void deleteAccount(User *user, const bool deleteHome);

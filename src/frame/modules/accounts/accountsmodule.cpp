@@ -139,7 +139,9 @@ void AccountsModule::showAvatarPage(User *account)
 {
     ModifyAvatarPage *w = new ModifyAvatarPage(account);
 
+#ifndef WINDOW_MODE
     connect(w, &ModifyAvatarPage::requestAddNewAvatar, m_accountsWorker, &AccountsWorker::addNewAvatar);
+#endif
     connect(w, &ModifyAvatarPage::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
     connect(w, &ModifyAvatarPage::requestDeleteAvatar, m_accountsWorker, &AccountsWorker::deleteUserIcon);
 

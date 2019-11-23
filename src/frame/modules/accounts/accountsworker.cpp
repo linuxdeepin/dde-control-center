@@ -118,51 +118,13 @@ void AccountsWorker::createAccount(const User *user)
     watcher->setFuture(future);
 }
 
-void AccountsWorker::addNewAvatar(User *user)
-{
-    AccountsUser *userInter = m_userInters[user];
-    Q_ASSERT(userInter);
-
-    QFileDialog fd;
-    fd.setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
-
-    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
-    if (!directory.isEmpty()) {
-        fd.setDirectory(directory.first());
-    }
-
-    if (fd.exec() != QFileDialog::Accepted) {
-        Q_EMIT m_userModel->addNewAvatarSuccess(false);
-        return;
-    }
-
-    const QString file = fd.selectedFiles().first();
-    QFuture<void> future = QtConcurrent::run([=](){
-        userInter->SetIconFile(file).waitForFinished();
-    });
-    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
-    connect(watcher, &QFutureWatcher<void>::finished, [this, watcher] {
-        Q_EMIT m_userModel->addNewAvatarSuccess(true);
-        watcher->deleteLater();
-    });
-    watcher->setFuture(future);
-}
-
 void AccountsWorker::setAvatar(User *user, const QString &iconPath)
 {
+    qDebug() << "set account avatar:" << iconPath;
     AccountsUser *ui = m_userInters[user];
     Q_ASSERT(ui);
 
-    QDBusPendingCall call = ui->SetIconFile(iconPath);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (call.isError()) {
-            Q_EMIT m_userModel->setAvatarSuccess(false);
-        } else {
-            Q_EMIT m_userModel->setAvatarSuccess(true);
-        }
-        watcher->deleteLater();
-    });
+    ui->SetIconFile(iconPath);
 }
 
 void AccountsWorker::setFullname(User *user, const QString &fullname)

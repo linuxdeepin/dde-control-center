@@ -46,43 +46,43 @@ class AvatarListWidget : public DTK_WIDGET_NAMESPACE::DListView
 {
     Q_OBJECT
 public:
-    AvatarListWidget(QWidget *parent = nullptr, bool displayLastItem = true);
-    void initWidgets();
-    void initDatas();
-    void setUserModel(dcc::accounts::User *user);
-    void setCurrentAvatarChecked(const QString &avatar);
-
     enum ItemRole {
         AddAvatarRole = Dtk::UserRole + 1,
         SaveAvatarRole,
     };
 
+public:
+    AvatarListWidget(dcc::accounts::User *usr, QWidget *parent = nullptr);
+
+public:
     void addItemFromDefaultDir();
     void addLastItem();
-    void addSecond2Last(QString newiconpath);
-    QString getUserAddedCustomPicPath();
-    bool checkFileIsExists(QString path);
-    QString getAvatarPath(int n) const;
-    int getCurrentSelectIndex() const;
+    QString getAvatarPath() const;
+    inline QSize avatarSize() const { return m_avatarSize; }
+    void setAvatarSize(QSize size);
 
 Q_SIGNALS:
     void requestSetAvatar(const QString &avatarPath);
-    void requestAddNewAvatar(dcc::accounts::User *user);
-    void requestDeleteAvatar(const QString &iconPath);
+    void requestAddNewAvatar(dcc::accounts::User *user, const QString &file);
 
 public Q_SLOTS:
+    void setCurrentAvatarChecked(const QString &avatar);
+    void refreshCustomAvatar(const QString &str);
+
+private Q_SLOTS:
     void onItemClicked(const QModelIndex &index);
-    void onAddNewAvatarSuccess(bool added);
-    void onSetAvatarSuccess(bool modified);
 
 private:
-    dcc::accounts::User *m_curUser;
+    void initWidgets();
+    QString getUserAddedCustomPicPath(const QString &usrName);
+
+private:
+    dcc::accounts::User *m_curUser{nullptr};
     QVBoxLayout *m_mainContentLayout;
     QStandardItemModel *m_avatarItemModel;
     AvatarItemDelegate *m_avatarItemDelegate;
-    QList<QString> m_iconpathList;
-    int m_prevSelectIndex;
-    int m_currentSelectIndex;
+    QSize m_avatarSize;
+    QModelIndex m_currentSelectIndex;
     bool m_displayLastItem;
 };
 
