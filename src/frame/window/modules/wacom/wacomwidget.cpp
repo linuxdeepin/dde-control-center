@@ -80,16 +80,18 @@ void WacomWidget::initWidget()
     m_modeComboBox->addItem(getModeName(false));
     m_modeComboBox->setCurrentIndex(0);
 
-    m_modeLayout->setContentsMargins(8, 0, 20, 0);
+    m_modeLayout->setContentsMargins(10, 6, 10, 6);
     m_modeLayout->addWidget(m_modeTitle, 1);
     m_modeLayout->addWidget(m_modeComboBox, 1);
 
     m_modeSetting->setLayout(m_modeLayout);
     m_modeSetting->addBackground();
 
+    m_centralLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    m_centralLayout->setSpacing(10);
     m_centralLayout->addWidget(m_modeSetting);
     m_centralLayout->addWidget(m_sensitivity);
-    m_centralLayout->addStretch(0);
+    m_centralLayout->setMargin(0);
 
     setLayout(m_centralLayout);
 }
