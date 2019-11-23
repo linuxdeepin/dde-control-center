@@ -32,7 +32,7 @@
 #include <QDebug>
 
 ReminderDialog::ReminderDialog(QRect screenGeometry)
-    : DDialog(tr("Updates installed! A restart is required, restart now?"),
+    : DDialog(tr("Restart the computer to use the system and the applications properly"),
               tr("Make sure all data had been saved first")),
       m_screenGeometry(screenGeometry)
 {
