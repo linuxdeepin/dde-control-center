@@ -321,7 +321,7 @@ const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory 
                                    << "video/x-ms-asf" << "application/vnd.rn-realmedia" << "video/x-ms-wmv";
     case Picture:       return QStringList() << "image/jpeg" << "image/pjpeg" << "image/bmp" << "image/x-bmp" << "image/png"
                                    << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
-                                   << "image/x-xpixmap";
+                                   << "image/x-xpixmap"<< "image/vnd.microsoft.icon";
     case Terminal:      return QStringList() << "application/x-terminal";
     }
     return QStringList();
