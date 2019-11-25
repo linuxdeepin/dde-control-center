@@ -44,7 +44,6 @@ public:
 
 private:
     void initUI();
-    void initConnection();
 
 private:
     NetworkManager::PppoeSetting::Ptr m_pppoeSetting;

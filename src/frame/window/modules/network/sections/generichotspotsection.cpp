@@ -64,6 +64,4 @@ void GenericHotspotSection::initUI()
     m_connIdItem->setText(m_connSettings->id());
 
     appendItem(m_connIdItem);
-
-    connect(m_connIdItem->textEdit(), &QLineEdit::editingFinished, this, &GenericHotspotSection::allInputValid);
 }

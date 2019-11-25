@@ -69,14 +69,14 @@ bool SecretHotspotSection::allInputValid()
         valid = NetworkManager::wepKeyIsValid(m_passwdEdit->text(),
                                               NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
         m_passwdEdit->setIsErr(!valid);
-        if (!valid) {
+        if (!valid && !m_passwdEdit->text().isEmpty()) {
             m_passwdEdit->showAlertMessage(tr("Invalid password"));
         }
     }
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
         valid = NetworkManager::wpaPskIsValid(m_passwdEdit->text());
         m_passwdEdit->setIsErr(!valid);
-        if (!valid) {
+        if (!valid && !m_passwdEdit->text().isEmpty()) {
             m_passwdEdit->showAlertMessage(tr("Invalid password"));
         }
     }
@@ -138,7 +138,6 @@ void SecretHotspotSection::initConnection()
     });
 
     connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretHotspotSection::saveUserInputPassword);
-    connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretHotspotSection::allInputValid);
 }
 
 void SecretHotspotSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt)

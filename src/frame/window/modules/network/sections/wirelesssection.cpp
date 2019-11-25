@@ -173,7 +173,6 @@ void WirelessSection::initConnection()
 {
     //connect(m_clonedMac->textEdit(), &QLineEdit::editingFinished, this, &WirelessSection::allInputValid);
     connect(m_customMtuSwitch->switchWidget(), &SwitchWidget::checkedChanged, this, &WirelessSection::onCostomMtuChanged);
-    connect(m_apSsid->textEdit(), &QLineEdit::editingFinished, this, &WirelessSection::allInputValid);
     connect(m_apSsid->textEdit(), &QLineEdit::textChanged, this, &WirelessSection::ssidChanged);
 }
 

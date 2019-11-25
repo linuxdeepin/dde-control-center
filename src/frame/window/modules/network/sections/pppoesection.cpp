@@ -35,7 +35,6 @@ PPPOESection::PPPOESection(NetworkManager::PppoeSetting::Ptr pppoeSetting, QFram
     , m_password(new LineEditWidget(true, this))
 {
     initUI();
-    initConnection();
 }
 
 PPPOESection::~PPPOESection()
@@ -93,13 +92,3 @@ void PPPOESection::initUI()
     appendItem(m_password);
 }
 
-void PPPOESection::initConnection()
-{
-    connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, [this] {
-        m_userName->dTextEdit()->setAlert(false);
-    });
-    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, [this] {
-        m_password->dTextEdit()->setAlert(false);
-        m_password->hideAlertMessage();
-    });
-}

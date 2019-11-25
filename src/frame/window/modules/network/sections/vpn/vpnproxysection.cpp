@@ -197,9 +197,6 @@ void VpnProxySection::initConnection()
             }
         }
     });
-    connect(m_server->textEdit(), &QLineEdit::editingFinished, this, &VpnProxySection::allInputValid);
-    connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, &VpnProxySection::allInputValid);
-    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &VpnProxySection::allInputValid);
 }
 
 void VpnProxySection::onProxyTypeChanged(const QString &type)
