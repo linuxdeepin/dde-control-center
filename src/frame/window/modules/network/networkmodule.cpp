@@ -235,7 +235,9 @@ QStringList NetworkModule::availPage() const
     if (m_hasAp) {
         list << "Personal Hotspot";
     }
-
+    for (NetworkDevice *dev: m_networkModel->devices()) {
+        list << dev->path();
+    }
     return list;
 }
 
