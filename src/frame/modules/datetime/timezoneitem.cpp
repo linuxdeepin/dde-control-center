@@ -49,6 +49,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
 
     m_city->setObjectName("DCC-Datetime-TimezoneItem-Label");
     m_details->setObjectName("DCC-Datetime-TimezoneItem-Label");
+    m_details->setAlignment(Qt::AlignLeft);
 
     vlayout->addWidget(m_city);
     vlayout->addSpacing(1);

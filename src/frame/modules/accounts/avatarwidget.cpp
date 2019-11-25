@@ -166,7 +166,7 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
         painter.drawRect(rect);
     }
 
-    if (m_arrowed) {
+    if (!m_arrowed) {
         QPen pen(Qt::transparent);
         pen.setWidth(2);
         pen.setColor(Qt::white);
