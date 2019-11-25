@@ -69,8 +69,7 @@ public:
         ModifyPwdSuccess
     };
 
-    QPixmap ZoomImage(const QString &src);
-    QPixmap PixmapToRound(const QPixmap &src, const int radius);
+    QPixmap pixmapToRound(const QPixmap &src);
     void handleRequestBack(AccountsWidget::ActionOption option = AccountsWidget::ClickCancel);
 
 public Q_SLOTS:

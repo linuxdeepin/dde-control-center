@@ -44,9 +44,6 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
-//用户列表图标半径
-const int UserImageRadius = 16;
-
 AccountsWidget::AccountsWidget(QWidget *parent)
     : QWidget(parent)
     , m_createBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))
@@ -148,13 +145,10 @@ void AccountsWidget::addUser(User *user, bool t1)
         return;
     }
 
-    QPixmap pixmap;
-    if (user->currentAvatar().startsWith("file://")) {
-        pixmap = PixmapToRound(ZoomImage(QUrl(user->currentAvatar()).toLocalFile()), UserImageRadius);
+    auto path = user->currentAvatar();
+    path = path.startsWith("file://") ? QUrl(path).toLocalFile() : path;
+    QPixmap pixmap = pixmapToRound(path);
 
-    } else {
-        pixmap = PixmapToRound(ZoomImage(user->currentAvatar()), UserImageRadius);
-    }
     item->setIcon(QIcon(pixmap));
 
     //对用户全名做限制，如果长度超过32，就在后面显示...
@@ -248,12 +242,9 @@ void AccountsWidget::connectUserWithItem(User *user)
             path.replace("icons/", "icons/bigger/");
         }
 
-        QPixmap pixmap;
-        if (path.startsWith("file://")) {
-            pixmap = PixmapToRound(ZoomImage(QUrl(path).toLocalFile()), UserImageRadius);
-        } else {
-            pixmap = PixmapToRound(ZoomImage(path), UserImageRadius);
-        }
+        path = path.startsWith("file://") ? QUrl(path).toLocalFile() : path;
+        QPixmap pixmap = pixmapToRound(path);
+
         titem->setIcon(QIcon(pixmap));
     });
     connect(user, &User::createdTimeChanged, this, [ = ](const quint64 & createdtime) {
@@ -283,22 +274,14 @@ void AccountsWidget::connectUserWithItem(User *user)
     });
 }
 
-QPixmap AccountsWidget::ZoomImage(const QString &src)
-{
-    QPixmap srcPixmap(src);
-    QPixmap iconPixmap = srcPixmap.scaled(2 * UserImageRadius, 2 * UserImageRadius, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-    return iconPixmap;
-}
-
-QPixmap AccountsWidget::PixmapToRound(const QPixmap &src, const int radius)
+QPixmap AccountsWidget::pixmapToRound(const QPixmap &src)
 {
     if (src.isNull()) {
         return QPixmap();
     }
 
-    auto ratio = devicePixelRatioF();
-    QSize size = QSizeF(2 * radius * ratio, 2 * radius * ratio).toSize();
-
+    auto pixmap = QPixmap(src);
+    QSize size = pixmap.size();
     QPixmap mask(size);
     mask.fill(Qt::transparent);
 
@@ -308,8 +291,6 @@ QPixmap AccountsWidget::PixmapToRound(const QPixmap &src, const int radius)
     QPainterPath path;
     path.addEllipse(0, 0, size.width(), size.height());
     painter.setClipPath(path);
-
-    auto pixmap = QPixmap(src).scaled(size, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     painter.drawPixmap(0, 0, pixmap);
 
     return mask;
