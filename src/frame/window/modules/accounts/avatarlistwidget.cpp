@@ -254,7 +254,8 @@ QString AvatarListWidget::getAvatarPath() const
     if (m_currentSelectIndex.isValid())
         index = m_currentSelectIndex.row();
 
-    return  m_avatarItemModel->data(m_currentSelectIndex, SaveAvatarRole).toString();
+    auto idx = m_avatarItemModel->index(index, 0);
+    return  m_avatarItemModel->data(idx, SaveAvatarRole).toString();
 }
 
 void AvatarListWidget::setAvatarSize(QSize size)
