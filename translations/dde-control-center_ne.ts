@@ -123,31 +123,31 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="190"/>
         <source>Full Name</source>
         <translation>पुरा नाम</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="247"/>
         <source>Change Password</source>
         <translation>गोप्य शब्द बदल्नुहोस</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
         <source>Delete Account</source>
         <translation>खाता मेटाउनुहोस्</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="252"/>
         <source>Auto Login</source>
         <translation>स्वत: लगइन </translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="256"/>
         <source>Login Without Password</source>
         <translation>गोप्य शब्द बिना लगइन</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
@@ -156,7 +156,7 @@
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="58"/>
         <source>Create Account</source>
         <translation>खाता सिर्जना गर्नुहोस्</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
@@ -197,92 +197,100 @@
     </message>
 </context>
 <context>
+    <name>dccV20::accounts::AvatarListWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="157"/>
+        <source>Images</source>
+        <translation>इमेज </translation>
+    </message>
+</context>
+<context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="78"/>
+        <source>Cancel</source>
+        <translation>रद्द गर्नुहोस्</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="79"/>
+        <source>Create</source>
+        <translation>सिर्जना गर्नुहोस्</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="98"/>
         <source>New Account</source>
         <translation>नयाँ खाता</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="110"/>
         <source>Username</source>
         <translation>प्रयोगकर्ताको नाम</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="115"/>
         <source>Full Name</source>
         <translation>पुरा नाम</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="120"/>
         <source>Password</source>
         <translation>पासवर्ड</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="125"/>
         <source>Repeat Password</source>
         <translation>पासवर्ड फेरि दोहोर्याउँनुहोस्</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="84"/>
-        <source>Cancel</source>
-        <translation>रद्द गर्नुहोस्</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="85"/>
-        <source>Create</source>
-        <translation>सिर्जना गर्नुहोस्</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="143"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="173"/>
         <source>Required</source>
         <translation>आवश्यक</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="171"/>
         <source>optional</source>
         <translation>वैकल्पिक</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="256"/>
         <source>Password cannot be empty</source>
         <translation>गोप्य शब्द खाली हुन सक्दैन</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="262"/>
         <source>The password should be different from the username</source>
         <translation>प्रयोगकर्ता को नाम र गोप्य शब्द एउटै राख्न मिल्दैन</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation>गोप्य शब्दमा अंग्रेजि अक्षर हरु(a-z),संख्याहरु वा संकेत हरु (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)मात्र प्रयोग गर्न मिल्छ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
         <source>Passwords do not match</source>
         <translation>गोप्य शब्द मिलेन</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
         <source>Username cannot be empty</source>
         <translation>प्रयोगकर्ता को नाम खाली राख्न मिल्दैन</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>प्रयोगकर्ता को नाम 3 देखि 32  अक्षर को हुनुपर्छ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="307"/>
         <source>The first character must be in lower case</source>
         <translation>पहिलो अक्षर सानो abc मा हुनुपर्छ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="313"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>प्रयोगकर्ता को नाम मा a~z, 0~9, - वा  _ मात्र स्विकार्य छ</translation>
     </message>
@@ -300,12 +308,12 @@
         <translation>फिंगरप्रिन्ट पासवर्ड</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="101"/>
         <source>Fingerprint</source>
         <translation>फिंगरप्रिन्ट</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="128"/>
         <source>Add fingerprint</source>
         <translation>फिंगरप्रिन्ट थप्ने</translation>
     </message>
@@ -435,34 +443,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="76"/>
         <source>Updating...</source>
         <translation>अद्यावधिक/अपडेट हुँदैछ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
         <source>Startup Delay</source>
         <translation>स्टार्टअप ढिलाइ</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="92"/>
         <source>Theme</source>
         <translation>विषयवस्तु /थिम </translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>कम्प्युटरको मुख्य  प्रणाली छान्न विकल्प क्लिक गर्नुहोस्, र पृष्ठभूमि बदल्नको लागी तस्वीर ड्र्याग गर्नुहोस् र ड्रप गर्नुहोस्।</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="99"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>कम्प्युटर शुरु हुंदा तस्वीर देखाउन थीम सुचारु गर्नुहोस </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="120"/>
         <source>Boot Menu</source>
         <translation>बूट मेनु</translation>
     </message>
@@ -498,13 +506,13 @@
 <context>
     <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="46"/>
         <source>Join User Experience Program</source>
         <translation>प्रयोगकर्ता अनुभव कार्यक्रम  मा सामेल हुनुहोस </translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
         <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
         <translation>प्रयोगकर्ता अनुभव कार्यक्रमका सर्तहरूको लागि कृपया  प्रयोगकर्ता इजाजत पत्र सम्झौताको लेख 10~13 मा हेर्नुहोस्।</translation>
     </message>
@@ -573,17 +581,17 @@
 <context>
     <name>dccV20::datetime::DateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="60"/>
         <source>Year</source>
         <translation>वर्ष</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="63"/>
         <source>Month</source>
         <translation>महिना</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="66"/>
         <source>Day</source>
         <translation>दिन</translation>
     </message>
@@ -596,12 +604,13 @@
         <translation>समयक्षेत्र सूची</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="63"/>
         <source>Time Settings</source>
         <translation>समय सेटिंग्स</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="82"/>
         <source>24-hour Time</source>
         <translation>24-घण्टा समय</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
@@ -778,8 +787,8 @@
 <context>
     <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="112"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="116"/>
         <source>Multiple Displays</source>
         <translation>बहु प्रदर्शन</translation>
     </message>
@@ -787,39 +796,39 @@
 <context>
     <name>dccV20::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="124"/>
         <source>Multiple Displays</source>
         <translation>बहु प्रदर्शन</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="123"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="134"/>
         <source>Brightness</source>
         <translation>चम्किलोपन</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="125"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="136"/>
         <source>Display Scaling</source>
         <translation>द्रिश्य आकार</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="133"/>
         <source>Resolution</source>
         <translation>रिजोल्युसन</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="138"/>
         <source>Refresh Rate</source>
         <translation>रिफ़्रेश् दर</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="164"/>
         <source>Rotate Screen</source>
         <translation type="unfinished"/>
         <extra-contents_path>/display/Resolution</extra-contents_path>
@@ -876,12 +885,12 @@
 <context>
     <name>dccV20::display::RefreshRatePage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="80"/>
         <source>Hz</source>
         <translation>हर्ज</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="82"/>
         <source>Recommended</source>
         <translation>सिफारिस गरिएको</translation>
     </message>
@@ -1838,23 +1847,23 @@
         <translation>PPPoE</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="79"/>
         <source>Username</source>
         <translation>प्रयोगकर्तानाम</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="87"/>
         <source>Required</source>
         <translation>आवश्यक छ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="83"/>
         <source>Service</source>
         <translation>सेवा</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Password</source>
         <translation>पासवर्ड</translation>
     </message>
@@ -1942,9 +1951,9 @@
     <message>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="56"/>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="76"/>
-        <source>Create PPPOE Connection</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/network/DSL</extra-contents_path>
+        <source>Create PPPoE Connection</source>
+        <translation>PPPoE जडान बनाउनुहोस्</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="74"/>
@@ -2235,12 +2244,12 @@
         <translation>आवश्यक छ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="156"/>
         <source>Key</source>
         <translation>Key</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="162"/>
         <source>Password</source>
         <translation>पासवर्ड</translation>
     </message>
@@ -2813,14 +2822,14 @@
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="120"/>
         <source>Create VPN</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/network/VPN</extra-contents_path>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="124"/>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="127"/>
         <source>Import VPN</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/network/VPN</extra-contents_path>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="321"/>
@@ -3335,24 +3344,24 @@
 <context>
     <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="49"/>
         <source>Size</source>
         <translation>आकार</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="80"/>
         <source>Standard Font</source>
         <translation type="unfinished"/>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="98"/>
         <source>Monospaced Font</source>
         <translation type="unfinished"/>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="206"/>
         <source> (Unsupported font)</source>
         <translation type="unfinished"/>
     </message>
@@ -3360,24 +3369,24 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="60"/>
         <source>Transparency</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="67"/>
         <source>Theme</source>
         <translation>विषयवस्तु /थेम</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="76"/>
         <source>Accent Color</source>
         <translation type="unfinished"/>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="105"/>
         <source>Window Effect</source>
         <translation type="unfinished"/>
         <extra-contents_path>/personalization/General</extra-contents_path>
@@ -3413,22 +3422,22 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
         <source>Light</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
         <source>Dark</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="89"/>
         <source>Auto</source>
         <translation>स्वत: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="94"/>
         <source>Default</source>
         <translation type="unfinished"/>
     </message>
@@ -3652,39 +3661,44 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="74"/>
         <source>Touchpad</source>
         <translation>टचप्याड</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
         <source>TrackPoint</source>
         <translation>चिह्न बिंदु</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
         <source>Personal Hotspot</source>
         <translation>व्यक्तिगत हटस्पट </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
         <source>On Battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
         <source>Wired Network</source>
         <translation>वायर्ड नेटवर्क</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
         <source>Wireless Network</source>
         <translation>वायरलेस नेटवर्क</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
         <source>Multiple Displays</source>
         <translation>बहु प्रदर्शन</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="336"/>
+        <source>Server</source>
+        <translation>सर्भर </translation>
     </message>
 </context>
 <context>
@@ -3797,77 +3811,77 @@
         <translation>स्वचालित सिंक(Sync)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="46"/>
         <source>Syncing...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="87"/>
         <source>Sign Out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="109"/>
         <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="139"/>
         <source>Network Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="140"/>
         <source>Sound Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="141"/>
         <source>Mouse Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="142"/>
         <source>Update Settings</source>
         <translation>सेटिङ्हरू अपडेट गर्नुहोस्</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="143"/>
         <source>Dock</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="144"/>
         <source>Launcher</source>
         <translation>लन्चर</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="145"/>
         <source>Wallpaper</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="146"/>
         <source>Theme</source>
         <translation>विषयवस्तु /थेम</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="147"/>
         <source>Power Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="148"/>
         <source>Corner Settings</source>
         <translation>कर्नर सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="246"/>
         <source>Last Sync: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="248"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation type="unfinished"/>
     </message>
@@ -3875,23 +3889,23 @@
 <context>
     <name>dccV20::sync::LoginPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="19"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="21"/>
         <source>Sign In</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="25"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="23"/>
         <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
         <source>Deepin ID Sign In</source>
         <translation type="unfinished"/>
         <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Only supported in Mainland China at present</source>
         <translation type="unfinished"/>
     </message>
@@ -3970,22 +3984,22 @@
         <translation>टेस्ट नगरिएको</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="80"/>
         <source>Timeout</source>
         <translation>समय सकियो</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="82"/>
         <source>Slow</source>
         <translation>ढिलो</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="84"/>
         <source>Medium</source>
         <translation>मेडियम</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="86"/>
         <source>Fast</source>
         <translation>छिटो</translation>
     </message>
@@ -4004,12 +4018,12 @@
         <translation>गति परीक्षण</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="141"/>
         <source>Untested</source>
         <translation>टेस्ट नगरिएको</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="170"/>
         <source>Retest</source>
         <translation>रीटेस्ट</translation>
     </message>
@@ -4387,53 +4401,58 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="183"/>
+        <location filename="../src/frame/main.cpp" line="49"/>
+        <source>Control Center</source>
+        <translation>नियन्त्रण केन्द्र</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="188"/>
         <source>On Battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="184"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="189"/>
         <source>Plugged In</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="185"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="190"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="186"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="191"/>
         <source>Mouse</source>
         <translation>माउस</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="187"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="192"/>
         <source>Touchpad</source>
         <translation>टचप्याड</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="188"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="193"/>
         <source>TrackPoint</source>
         <translation>चिह्न बिंदु</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="194"/>
         <source>Application Proxy</source>
         <translation>अनुप्रयोग प्रोक्सी</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="190"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="193"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="195"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="198"/>
         <source>System Proxy</source>
         <translation>सिस्टम प्रोक्सी</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="191"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="196"/>
         <source>Time Settings</source>
         <translation>समय सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="192"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="197"/>
         <source>Change System Timezone</source>
         <translation>सिस्टम समय क्षेत्र परिवर्तन गर्नुहोस्</translation>
     </message>
@@ -4442,8 +4461,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>अद्यावधिक स्थापना गरियो! एक पुनःसुरु गर्न आवश्यक छ, अब फेरि सुरु गर्नुहोस्?</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
@@ -4789,37 +4808,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="127"/>
-        <source>Images</source>
-        <translation>इमेज </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="357"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="319"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="358"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="320"/>
         <source>Your host joins the domain server successfully</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="380"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="342"/>
         <source>Your host failed to leave the domain server</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="381"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="343"/>
         <source>Your host failed to join the domain server</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="384"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="346"/>
         <source>AD domain settings</source>
         <translation>AD डोमेन सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="453"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
         <source>Password not match</source>
         <translation type="unfinished"/>
     </message>
@@ -5311,23 +5325,23 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
         <source>Confirm</source>
         <translation>पक्का गर्नु</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="188"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="191"/>
         <source>Add Timezone</source>
         <translation>समय क्षेत्र थप्नुहोस्</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="189"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="192"/>
         <source>Add</source>
         <translation>थप्नुहोस्</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="192"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="195"/>
         <source>Change Timezone</source>
         <translation>समय क्षेत्र परिवर्तन गर्नुहोस्</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
@@ -8852,8 +8866,8 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="60"/>
-        <source>Control Center provides all system settings for deepin users.</source>
+        <location filename="../src/frame/main.cpp" line="61"/>
+        <source>Control Center provides the options for system settings.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -123,31 +123,31 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="190"/>
         <source>Full Name</source>
         <translation>نام کامل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="247"/>
         <source>Change Password</source>
         <translation>تغییر رمز عبور</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
         <source>Delete Account</source>
         <translation>حذف حساب</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="252"/>
         <source>Auto Login</source>
         <translation>ورود خودکار</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="256"/>
         <source>Login Without Password</source>
         <translation>ورود بدون رمز</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
@@ -156,7 +156,7 @@
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="58"/>
         <source>Create Account</source>
         <translation>ایجاد حساب کاربری</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
@@ -197,92 +197,100 @@
     </message>
 </context>
 <context>
+    <name>dccV20::accounts::AvatarListWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="157"/>
+        <source>Images</source>
+        <translation>تصاویر</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="78"/>
+        <source>Cancel</source>
+        <translation>انصراف</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="79"/>
+        <source>Create</source>
+        <translation>ایجاد</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="98"/>
         <source>New Account</source>
         <translation>حساب کاربری جدید</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="110"/>
         <source>Username</source>
         <translation>نام کاربری</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="115"/>
         <source>Full Name</source>
         <translation>نام کامل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="120"/>
         <source>Password</source>
         <translation>پسورد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="125"/>
         <source>Repeat Password</source>
         <translation>تکرار رمزعبور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="84"/>
-        <source>Cancel</source>
-        <translation>انصراف</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="85"/>
-        <source>Create</source>
-        <translation>ایجاد</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="143"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="173"/>
         <source>Required</source>
         <translation>مورد نیاز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="171"/>
         <source>optional</source>
         <translation>اختیاری</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="256"/>
         <source>Password cannot be empty</source>
         <translation>جایگاه رمزعبور نمی تواند خالی باشد.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="262"/>
         <source>The password should be different from the username</source>
         <translation>رمز عبور باید با نام کاربری متفاوت باشد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation>گذرواژه باید حاوی حروف انگلیسی ( حساس به حالت ) , اعداد یا نمادهای خاص باشد (~! @ # $٪ ^ &amp; * () [] {} | /؟ ،. &lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
         <source>Passwords do not match</source>
         <translation>رمزعبور یکسان نیست.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
         <source>Username cannot be empty</source>
         <translation>نام کاربری نمیتواند خالی باشد.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>نام کاربری باید بین 3 تا 32 نویسه باشد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="307"/>
         <source>The first character must be in lower case</source>
         <translation>حرف اول باید با حروف کوچک نوشته شود.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="313"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>نام کاربر باید فقط حاوی  a~z , 0~9 , - یا _ باشد .</translation>
     </message>
@@ -300,12 +308,12 @@
         <translation>رمزعبور اثرانگشت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="101"/>
         <source>Fingerprint</source>
         <translation>اثرانگشت </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="128"/>
         <source>Add fingerprint</source>
         <translation>اضافه کردن اثرانگشت</translation>
     </message>
@@ -435,34 +443,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="76"/>
         <source>Updating...</source>
         <translation>به‌روزرسانی...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
         <source>Startup Delay</source>
         <translation>تأخیر راه اندازی</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="92"/>
         <source>Theme</source>
         <translation>تم</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>روی گزینه در منوی بوت کلیک کنید تا آن را به عنوان اولین بوت تنظیم کنید و برای تغییر پس زمینه ، تصویری را بکشید و رها کنید</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="99"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>تعویض تم برای نمایش آن در منوی راه‌اندازی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="120"/>
         <source>Boot Menu</source>
         <translation>فهرست بوت</translation>
     </message>
@@ -498,13 +506,13 @@
 <context>
     <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="46"/>
         <source>Join User Experience Program</source>
         <translation> پیوستن به برنامه تجربه کاربر</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
         <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
         <translation>لطفاً برای شرایط برنامه تجربه کاربر ، به ماده 10 ~ 13 در موافقتنامه مجوز کاربر نهایی مراجعه کنید.</translation>
     </message>
@@ -573,17 +581,17 @@
 <context>
     <name>dccV20::datetime::DateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="60"/>
         <source>Year</source>
         <translation>سال</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="63"/>
         <source>Month</source>
         <translation>ماه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="66"/>
         <source>Day</source>
         <translation>روز</translation>
     </message>
@@ -596,12 +604,13 @@
         <translation>فهرست منطقه زمانی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="63"/>
         <source>Time Settings</source>
         <translation>تنظیمات زمان</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="82"/>
         <source>24-hour Time</source>
         <translation>زمان 24 ساعته</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
@@ -642,7 +651,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="70"/>
         <source>Add Application</source>
-        <translation type="unfinished"/>
+        <translation>افزودن برنامه</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -778,8 +787,8 @@
 <context>
     <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="112"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="116"/>
         <source>Multiple Displays</source>
         <translation>نمایشگرهای چندگانه</translation>
     </message>
@@ -787,41 +796,41 @@
 <context>
     <name>dccV20::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="124"/>
         <source>Multiple Displays</source>
         <translation>نمایشگرهای چندگانه</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="123"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="134"/>
         <source>Brightness</source>
         <translation>روشنایی</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="125"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="136"/>
         <source>Display Scaling</source>
         <translation>نمایش مقیاس</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="133"/>
         <source>Resolution</source>
         <translation>وضوح تصویر</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="138"/>
         <source>Refresh Rate</source>
         <translation>نرخ نوسازی</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="164"/>
         <source>Rotate Screen</source>
-        <translation type="unfinished"/>
+        <translation>چرخش صفحه</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -876,12 +885,12 @@
 <context>
     <name>dccV20::display::RefreshRatePage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="80"/>
         <source>Hz</source>
         <translation>هرتز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="82"/>
         <source>Recommended</source>
         <translation>توصیه‌شده</translation>
     </message>
@@ -1082,7 +1091,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="51"/>
         <source>System</source>
-        <translation>سیستمی</translation>
+        <translation>سیستم</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="56"/>
@@ -1097,7 +1106,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
         <source>Speech</source>
-        <translation type="unfinished"/>
+        <translation>صحبت</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="77"/>
@@ -1348,7 +1357,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="92"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>&quot;استفاده از پروکسی&quot; را در فهرست برنامه در راه انداز پس از پیکربندی بررسی کنید</translation>
+        <translation>&quot;استفاده از پروکسی&quot; را در فهرست برنامه در لانچر پس از پیکربندی بررسی کنید</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="98"/>
@@ -1585,7 +1594,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="261"/>
         <source>Create Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ساخت هات اسپات</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
@@ -1793,7 +1802,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="143"/>
         <source>Configure by Network Manager</source>
-        <translation type="unfinished"/>
+        <translation>پیکربندی توسط مدیر شبکه</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="280"/>
@@ -1838,23 +1847,23 @@
         <translation>PPPoE</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="79"/>
         <source>Username</source>
         <translation>نام کاربری</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="87"/>
         <source>Required</source>
         <translation>مورد نیاز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="83"/>
         <source>Service</source>
         <translation>خدمات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Password</source>
         <translation>پسورد</translation>
     </message>
@@ -1942,9 +1951,9 @@
     <message>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="56"/>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="76"/>
-        <source>Create PPPOE Connection</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/network/DSL</extra-contents_path>
+        <source>Create PPPoE Connection</source>
+        <translation>اتصال PPPoE ایجاد کنید</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="74"/>
@@ -2235,12 +2244,12 @@
         <translation>مورد نیاز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="156"/>
         <source>Key</source>
         <translation>کلید</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="162"/>
         <source>Password</source>
         <translation>رمزعبور </translation>
     </message>
@@ -2813,14 +2822,14 @@
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="120"/>
         <source>Create VPN</source>
         <translation>ایجاد VPN</translation>
-        <extra-contents_path>/network/VPN</extra-contents_path>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="124"/>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="127"/>
         <source>Import VPN</source>
         <translation>وارد کردن VPN</translation>
-        <extra-contents_path>/network/VPN</extra-contents_path>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="321"/>
@@ -3335,24 +3344,24 @@
 <context>
     <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="49"/>
         <source>Size</source>
         <translation>حجم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="80"/>
         <source>Standard Font</source>
         <translation>قلم استاندارد</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="98"/>
         <source>Monospaced Font</source>
         <translation>قلم Monospaced</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="206"/>
         <source> (Unsupported font)</source>
         <translation>(فونت پشتیبانی نشده)</translation>
     </message>
@@ -3360,24 +3369,24 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="60"/>
         <source>Transparency</source>
         <translation>شفافیت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="67"/>
         <source>Theme</source>
         <translation>ظاهر</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="76"/>
         <source>Accent Color</source>
         <translation>لهجه رنگ</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="105"/>
         <source>Window Effect</source>
         <translation>جلوه های پنجره</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
@@ -3413,22 +3422,22 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
         <source>Light</source>
         <translation>روشن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
         <source>Dark</source>
         <translation>تیره</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="89"/>
         <source>Auto</source>
         <translation>خودکار</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="94"/>
         <source>Default</source>
         <translation>پیش فرض</translation>
     </message>
@@ -3652,39 +3661,44 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="74"/>
         <source>Touchpad</source>
         <translation>صفحه لمسی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
         <source>TrackPoint</source>
         <translation>اهرم اشاره ای</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
         <source>Personal Hotspot</source>
         <translation>هات اسپات شخصی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
         <source>On Battery</source>
         <translation>در باتری</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
         <source>Wired Network</source>
         <translation>شبکه کابلی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
         <source>Wireless Network</source>
         <translation>شبکه بیسیم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
         <source>Multiple Displays</source>
         <translation>نمایشگرهای چندگانه</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="336"/>
+        <source>Server</source>
+        <translation>سرور</translation>
     </message>
 </context>
 <context>
@@ -3797,77 +3811,77 @@
         <translation>همگام سازی خودکار</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="46"/>
         <source>Syncing...</source>
         <translation>در حال همگام سازی...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="87"/>
         <source>Sign Out</source>
         <translation>خارج شدن از حساب کاربری</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="109"/>
         <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
         <translation>اگر تنظیمات شبکه روشن باشد ، رمز عبور Wi-Fi شما همگام سازی می شود</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="139"/>
         <source>Network Settings</source>
         <translation>تنظیمات شبکه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="140"/>
         <source>Sound Settings</source>
         <translation>تنظیمات صدا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="141"/>
         <source>Mouse Settings</source>
         <translation>تنظیمات ماوس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="142"/>
         <source>Update Settings</source>
         <translation>به روز رسانی تنظیمات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="143"/>
         <source>Dock</source>
         <translation>داک</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="144"/>
         <source>Launcher</source>
         <translation>لانچر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="145"/>
         <source>Wallpaper</source>
         <translation>تصویر زمینه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="146"/>
         <source>Theme</source>
         <translation>ظاهر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="147"/>
         <source>Power Settings</source>
         <translation>تنظیمات برق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="148"/>
         <source>Corner Settings</source>
         <translation>تنظیمات گوشه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="246"/>
         <source>Last Sync: %1</source>
         <translation>آخرین همگام سازی:٪ 1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="248"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
@@ -3875,23 +3889,23 @@
 <context>
     <name>dccV20::sync::LoginPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="19"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="21"/>
         <source>Sign In</source>
         <translation>وارد شدن به حساب کاربری</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="25"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="23"/>
         <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
         <translation>با Deepin ID وارد سیستم شوید و Cloud Sync را فعال کنید تا تنظیمات خاص سیستم را همگام کنید.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
         <source>Deepin ID Sign In</source>
         <translation>Deepin ID وارد شوید</translation>
         <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Only supported in Mainland China at present</source>
         <translation>در حال حاضر فقط در سرزمین اصلی چین پشتیبانی می شود</translation>
     </message>
@@ -3970,22 +3984,22 @@
         <translation>آزمایش نشده</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="80"/>
         <source>Timeout</source>
         <translation>انقضای مدت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="82"/>
         <source>Slow</source>
         <translation>آهسته</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="84"/>
         <source>Medium</source>
         <translation>متوسط</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="86"/>
         <source>Fast</source>
         <translation>سریع</translation>
     </message>
@@ -4004,12 +4018,12 @@
         <translation>تست سرعت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="141"/>
         <source>Untested</source>
         <translation>آزمایش نشده</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="170"/>
         <source>Retest</source>
         <translation>امتحان دوباره</translation>
     </message>
@@ -4387,53 +4401,58 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="183"/>
+        <location filename="../src/frame/main.cpp" line="49"/>
+        <source>Control Center</source>
+        <translation>مرکز کنترل</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="188"/>
         <source>On Battery</source>
         <translation>در باتری</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="184"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="189"/>
         <source>Plugged In</source>
         <translation>متصل شده به برق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="185"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="190"/>
         <source>General</source>
         <translation>کلی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="186"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="191"/>
         <source>Mouse</source>
         <translation>ماوس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="187"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="192"/>
         <source>Touchpad</source>
         <translation>صفحه لمسی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="188"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="193"/>
         <source>TrackPoint</source>
         <translation>اهرم اشاره ای</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="194"/>
         <source>Application Proxy</source>
         <translation>برنامه پروکسی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="190"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="193"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="195"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="198"/>
         <source>System Proxy</source>
         <translation>پراکسی سیستم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="191"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="196"/>
         <source>Time Settings</source>
         <translation>تنظیمات زمان</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="192"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="197"/>
         <source>Change System Timezone</source>
         <translation>منطقه زمانی سیستم را تغییر دهید</translation>
     </message>
@@ -4442,8 +4461,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>به روزرسانی های نصب شده! راه اندازی مجدد مورد نیاز است ، اکنون دوباره راه اندازی مجدد شود؟</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation>لطفاً برای استفاده صحیح از سیستم و برنامه های کاربردی پس از به روزرسانی مجدداً راه اندازی کنید</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
@@ -4789,37 +4808,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="127"/>
-        <source>Images</source>
-        <translation>تصاویر</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="357"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="319"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>میزبان شما با موفقیت از سرور دامنه حذف شد</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="358"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="320"/>
         <source>Your host joins the domain server successfully</source>
         <translation>میزبان با موفقیت به سرور دامنه پیوست</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="380"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="342"/>
         <source>Your host failed to leave the domain server</source>
         <translation>میزبان شما نتوانست سرور دامنه را ترک کند</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="381"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="343"/>
         <source>Your host failed to join the domain server</source>
         <translation>میزبان شما نتوانست به سرور دامنه بپیوندد</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="384"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="346"/>
         <source>AD domain settings</source>
         <translation>تنظیمات دامنه AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="453"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
         <source>Password not match</source>
         <translation>رمز عبور مطابقت ندارد</translation>
     </message>
@@ -5311,23 +5325,23 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
         <source>Confirm</source>
         <translation>تایید</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="188"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="191"/>
         <source>Add Timezone</source>
         <translation>اضافه کردن منطقه زمانی</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="189"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="192"/>
         <source>Add</source>
         <translation>اضافه کردن</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="192"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="195"/>
         <source>Change Timezone</source>
         <translation>تغییر منطقه زمانی</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
@@ -8852,9 +8866,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="60"/>
-        <source>Control Center provides all system settings for deepin users.</source>
-        <translation>مرکز کنترل ، کلیه تنظیمات سیستم را برای کاربران دیپین ارائه می دهد.</translation>
+        <location filename="../src/frame/main.cpp" line="61"/>
+        <source>Control Center provides the options for system settings.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
