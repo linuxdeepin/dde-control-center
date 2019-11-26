@@ -33,6 +33,9 @@
 #include <QSettings>
 #include <QDebug>
 #include <QApplication>
+#include <DSysInfo>
+
+DCORE_USE_NAMESPACE
 
 const QString systemCopyright()
 {
@@ -47,14 +50,7 @@ const QString systemCopyright()
 
 const QString systemLogo()
 {
-    const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
-    const QString logo_path = settings.value("system_info_vendor_logo").toString();
-    const QPixmap oem_logo(logo_path);
-
-    if (oem_logo.isNull())
-        return ":/systeminfo/themes/dark/icons/logo.png";
-    else
-        return logo_path;
+    return DSysInfo::deepinDistributorLogo(DSysInfo::Normal, ":/systeminfo/themes/dark/icons/logo.png");
 }
 
 namespace dcc{
