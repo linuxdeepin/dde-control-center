@@ -63,7 +63,9 @@ public:
     inline ModuleInterface *curInterface() const { return m_curInterface; }
 protected:
     void paintEvent(QPaintEvent *event) override;
-
+    void mousePressEvent(QMouseEvent *event) override;
+Q_SIGNALS:
+    void signalBack();
 private:
     QWidget *m_curWidget{nullptr};
     ModuleInterface *m_curInterface{nullptr};
@@ -120,6 +122,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onEnterSearchWidget(QString moduleName, QString widget);
+    void onBack();
 
 private:
     void changeEvent(QEvent *event) override;

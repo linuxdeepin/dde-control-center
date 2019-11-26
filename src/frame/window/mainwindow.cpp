@@ -184,6 +184,11 @@ MainWindow::~MainWindow()
     }
 }
 
+void MainWindow::onBack()
+{
+    popWidget();
+}
+
 void MainWindow::initAllModule()
 {
     using namespace sync;
@@ -271,7 +276,6 @@ void MainWindow::popWidget()
         m_topWidget = nullptr;
         return;
     }
-
     if (!m_contentStack.size())
         return;
 
@@ -703,8 +707,11 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
     m_topWidget->initWidget(w, inter);
     m_topWidget->setVisible(true);
 
+    connect(m_topWidget, &FourthColWidget::signalBack, this, &MainWindow::onBack);
+
     m_topWidget->setFixedHeight(height() - this->titlebar()->height());
     m_topWidget->move(0, titlebar()->height());
+
     resetNavList(m_contentStack.empty());
 }
 
@@ -855,6 +862,13 @@ void FourthColWidget::initWidget(QWidget *showWidget, ModuleInterface *module)
     m_curInterface = module;
 
     update();
+}
+
+void FourthColWidget::mousePressEvent(QMouseEvent *event)
+{
+    if (m_curWidget->geometry().contains(event->pos()))
+        return;
+    Q_EMIT signalBack();
 }
 
 void FourthColWidget::paintEvent(QPaintEvent *event)
