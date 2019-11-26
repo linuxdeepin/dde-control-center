@@ -33,8 +33,8 @@
 
 #include <QVBoxLayout>
 
-const float MinScreenWidth = 800.0f;
-const float MinScreenHeight = 600.0f;
+const float MinScreenWidth = 1024.0f;
+const float MinScreenHeight = 768.0f;
 
 using namespace dcc::display;
 using namespace dcc::widgets;
@@ -111,7 +111,8 @@ void ScalingPage::addSlider(int monitorID){
 
     m_slider = new TitledSliderItem("");
     m_slider->addBackground();
-    QStringList fscaleList = {"1.0", "1.25", "1.5", "1.75", "2.0", "2.25", "2.5", "2.75", "3.0"};
+    const QStringList maxList = {"1.0", "1.25", "1.5", "1.75", "2.0", "2.25", "2.5", "2.75", "3.0"};;
+    QStringList fscaleList = maxList;
     for (auto moni : m_displayModel->monitorList()) {
         if (!moni->enable()) {
             continue;
@@ -119,6 +120,17 @@ void ScalingPage::addSlider(int monitorID){
         auto tmode = moni->currentMode();
         auto ts = getScaleList(tmode);
         fscaleList = ts.size() < fscaleList.size() ? ts :fscaleList;
+    }
+
+    //如果仅一个缩放值可用，则不显示
+    auto scale = m_displayModel->uiScale();
+    if (fscaleList.size() == 1 && fabs(scale - 1.0) < 0.000001) {
+        return;
+    }
+
+    //如果当前缩放大于可用缩放，则显示至当前缩放
+    while(scale > fscaleList.last().toDouble() && fscaleList.size() < maxList.size()) {
+        fscaleList.append(maxList.at(fscaleList.size()));
     }
 
     DCCSlider *slider = m_slider->slider();
