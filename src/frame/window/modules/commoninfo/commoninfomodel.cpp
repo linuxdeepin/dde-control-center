@@ -70,6 +70,14 @@ void CommonInfoModel::setUeProgram(const bool ueProgram)
     Q_EMIT ueProgramChanged(m_joinUeProgram);
 }
 
+void CommonInfoModel::setDeveloperModeState(const bool state)
+{
+    if (m_developerModeState != state) {
+        m_developerModeState = state;
+    }
+    Q_EMIT developerModeStateChanged(state);
+}
+
 bool CommonInfoModel::bootDelay() const
 {
     return m_bootDelay;
@@ -99,4 +107,9 @@ void CommonInfoModel::setBackground(const QPixmap &background)
 bool CommonInfoModel::ueProgram() const
 {
     return m_joinUeProgram;
+}
+
+bool CommonInfoModel::developerModeState() const
+{
+    return m_developerModeState;
 }

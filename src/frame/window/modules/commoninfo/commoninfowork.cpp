@@ -53,6 +53,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
 
     m_dBusGrub->setSync(false, false);
     m_dBusGrubTheme->setSync(false, false);
+    getDeveloperModeState();
 
     connect(m_dBusGrub, &GrubDbus::DefaultEntryChanged, m_commomModel, &CommonInfoModel::setDefaultEntry);
     connect(m_dBusGrub, &GrubDbus::EnableThemeChanged, m_commomModel, &CommonInfoModel::setThemeEnabled);
@@ -218,6 +219,66 @@ void CommonInfoWork::setUeProgram(bool enabled)
         if (m_commomModel->ueProgram() != enabled) {
             m_commomModel->setUeProgram(enabled);
         }
+    }
+}
+
+void CommonInfoWork::setEnableDeveloperMode(bool enabled)
+{
+    if (!enabled)
+        return;
+    // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
+    QString title(tr("Developer Mode"));
+    QString allowContent(tr("Join developer mode"));
+
+    // license内容
+    QString content = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "");
+    QString contentPath("/tmp/tmpDeveloperMode.txt"); // 临时存储路径
+    QFile file(contentPath);
+    // 如果文件不存在，则创建文件
+    if (!file.exists()) {
+        file.open(QIODevice::WriteOnly);
+        file.close();
+    }
+    // 写入文件内容
+    if (!file.open(QFile::ReadWrite | QIODevice::Text | QIODevice::Truncate))
+        return;
+    file.write(content.toLocal8Bit());
+    file.close();
+
+    m_process = new QProcess(this);
+    int result = m_process->execute("dde-license-dialog",
+                                    QStringList() << "-t" << title << "-c" << contentPath << "-a" << allowContent);
+    m_process->deleteLater();
+    m_process = nullptr;
+
+    if(96 == result) {
+        QDBusInterface interface("com.deepin.daemon.Daemon", "/com/deepin/daemon/Daemon",
+                                 "com.deepin.daemon.Daemon",
+                                 QDBusConnection::systemBus(), this);
+
+        if (!interface.isValid()) {
+            return;
+        }
+        QDBusReply<void> reply = interface.call("EnableDeveloperMode");
+        if (reply.isValid()) {
+            m_commomModel->setDeveloperModeState(enabled);
+        }
+    }
+    file.remove();
+}
+
+void CommonInfoWork::getDeveloperModeState()
+{
+    QDBusInterface interface("com.deepin.daemon.Daemon", "/com/deepin/daemon/Daemon",
+                             "com.deepin.daemon.Daemon",
+                             QDBusConnection::systemBus(), this);
+
+    if (!interface.isValid()) {
+        return;
+    }
+    QDBusReply<bool> reply = interface.call("IsDeveloperMode");
+    if (reply.isValid()) {
+        m_commomModel->setDeveloperModeState(reply.value());
     }
 }
 

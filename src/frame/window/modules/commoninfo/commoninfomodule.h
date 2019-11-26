@@ -35,8 +35,7 @@ class CommonInfoModel;
 class CommonInfoWork;
 class CommonInfoWidget;
 class BootWidget;
-// 为开发者模式预留
-//class DeveloperModeWidget;
+class DeveloperModeWidget;
 class UserExperienceProgramWidget;
 // 以下内容为平板模式做预留
 //class TabletModeWidget;
@@ -71,8 +70,6 @@ private:
     CommonInfoWidget *m_commonWidget{nullptr}; // main widget
     BootWidget *m_bootWidget{nullptr}; // for bootmenu
     UserExperienceProgramWidget *m_ueProgramWidget{nullptr}; // for user experience program
-    // 为开发者模式预留
-//    DeveloperModeWidget *m_developerWidget; // for developer mode
     // 以下内容为平板模式做预留
     //TabletModeWidget* mTabletModeWidget;
 };

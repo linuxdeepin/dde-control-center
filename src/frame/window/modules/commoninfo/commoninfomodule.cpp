@@ -26,6 +26,7 @@
 #include "window/modules/commoninfo/commoninfowidget.h"
 #include "window/modules/commoninfo/bootwidget.h"
 #include "window/modules/commoninfo/userexperienceprogramwidget.h"
+#include "window/modules/commoninfo/developermodewidget.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::commoninfo;
@@ -106,10 +107,10 @@ int CommonInfoModule::load(QString path)
         indexRow = 0;
     } else if (path == "Developer Mode") {
         // 为开发者模式的search预留
-        //indexRow = 1;
+        indexRow = 1;
     } else if (path == "User Experience Program") {
         // 为用户体验计划的search预留
-        indexRow = 1;
+        indexRow = 2;
     } else if (path == "Tablet Mode") {
         // 为平板模式的search预留
         //indexRow = 3;
@@ -125,7 +126,7 @@ int CommonInfoModule::load(QString path)
 QStringList CommonInfoModule::availPage() const
 {
     QStringList sl;
-    sl << "Boot Menu" << "User Experience Program";
+    sl << "Boot Menu" << "User Experience Program" << "Developer mode";
 
     return sl;
 }
@@ -139,7 +140,11 @@ void CommonInfoModule::onShowBootWidget()
 
 void CommonInfoModule::onShowDeveloperWidget()
 {
-
+    DeveloperModeWidget *pWidget = new DeveloperModeWidget;
+    pWidget->setModel(m_commonModel);
+    connect(pWidget, &DeveloperModeWidget::enableDeveloperMode, m_commonWork, &CommonInfoWork::setEnableDeveloperMode);
+    pWidget->updateDeveloperModeState(m_commonModel->developerModeState());
+    m_frameProxy->pushWidget(this, pWidget);
 }
 
 void CommonInfoModule::onShowUEPlanWidget()

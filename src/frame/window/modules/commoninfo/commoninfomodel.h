@@ -43,6 +43,7 @@ public:
     QPixmap background() const;
     void setBackground(const QPixmap &background);
     bool ueProgram() const; // for user experience program
+    bool developerModeState() const;
 
 Q_SIGNALS:
     void bootDelayChanged(const int timeout) const;
@@ -52,6 +53,7 @@ Q_SIGNALS:
     void updatingChanged(const bool &updating);
     void backgroundChanged(const QPixmap &pixmap);
     void ueProgramChanged(const bool enable) const; // for user experience program
+    void developerModeStateChanged(const bool enable) const;
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -59,6 +61,7 @@ public Q_SLOTS:
     void setDefaultEntry(const QString &entry);
     void setUpdating(bool updating);
     void setUeProgram(const bool ueProgram); // for user experience program
+    void setDeveloperModeState(const bool state);
 
 private:
     bool m_bootDelay;
@@ -68,6 +71,7 @@ private:
     QString m_defaultEntry;
     QPixmap m_background;
     bool m_joinUeProgram;   // for user experience program
+    bool m_developerModeState; // for developer mode state
 };
 
 } // namespace commoninfo

@@ -71,12 +71,12 @@ void CommonInfoWidget::initData()
             tr("Boot Menu"),
             QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget)
         },
-//        {
-//            "dcc_developer_mode",
-//            //~ contents_path /commoninfo/Developer Mode
-//            tr("Developer Mode"),
-//            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)
-//        },
+        {
+            "dcc_developer_mode",
+            //~ contents_path /commoninfo/Developer Mode
+            tr("Developer Mode"),
+            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)
+        },
         {
             "dcc_ue_plan", // 小图标
             //~ contents_path /commoninfo/User Experience Program
