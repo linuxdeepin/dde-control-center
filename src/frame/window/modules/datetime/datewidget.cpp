@@ -47,6 +47,7 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
 
     m_lineEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_lineEdit->setObjectName("DCC-Datetime-QLineEdit");
+    m_lineEdit->setFrame(false);
     m_addBtn->setObjectName("DCC-Datetime-Datewidget-Add");
     m_reducedBtn->setObjectName("DCC-Datetime-Datewidget-Reduce");
 
