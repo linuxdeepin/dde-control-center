@@ -128,7 +128,8 @@ void ModifyPasswdPage::initWidget()
 void ModifyPasswdPage::clickSaveBtn()
 {
     //校验输入密码
-    if (!onPasswordEditFinished(m_oldPasswordEdit)) {
+    if (m_oldPasswordEdit->lineEdit()->text().isEmpty()) {
+        m_oldPasswordEdit->setAlert(true);
         return;
     }
     if (!onPasswordEditFinished(m_newPasswordEdit)) {
