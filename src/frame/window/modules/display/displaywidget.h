@@ -58,9 +58,12 @@ public:
     void setModel(dcc::display::DisplayModel *model);
     int showPath(const QString &path);
     QPoint getRotateBtnPos();
+    inline bool isMultiMode() const { return m_isMultiScreen; }
+
+public Q_SLOTS:
+    void onMonitorListChanged();
 
 private Q_SLOTS:
-    void onMonitorListChanged();
     void onMenuClicked(const QModelIndex &);
 
 public:

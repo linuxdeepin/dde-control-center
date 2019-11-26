@@ -82,12 +82,13 @@ void DisplayModule::active()
             this, &DisplayModule::showMultiScreenSettingPage);
     connect(m_displayWidget, &DisplayWidget::requestShowCustomConfigPage,
             this, &DisplayModule::showCustomSettingDialog);
-    connect(m_displayModel, &DisplayModel::monitorListChanged,
-            this, &DisplayModule::onMonitorListChanged);
 
     m_frameProxy->pushWidget(this, m_displayWidget);
-
-    onMonitorListChanged();
+    if (m_displayWidget->isMultiMode()) {
+        showMultiScreenSettingPage();
+    } else {
+        showResolutionDetailPage();
+    }
 }
 
 int DisplayModule::load(QString path)
@@ -354,16 +355,4 @@ void DisplayModule::showRecognize()
 {
     RecognizeDialog dialog(m_displayModel);
     dialog.exec();
-}
-
-void DisplayModule::onMonitorListChanged()
-{
-    if (m_frameProxy->currModule() != this)
-        return;
-
-    if (m_displayModel->monitorList().size() > 1) {
-        showMultiScreenSettingPage();
-    } else {
-        showResolutionDetailPage();
-    }
 }

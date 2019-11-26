@@ -64,6 +64,8 @@ void DisplayWidget::setModel(DisplayModel *model)
     connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onMonitorListChanged);
     connect(m_model, &DisplayModel::configCreated, this, &DisplayWidget::requestShowCustomConfigPage);
 
+    //确保第一次进入onMonitorListChanged会命中一个判断
+    m_isMultiScreen = model->monitorList().size() <= 1;
     onMonitorListChanged();
 }
 
@@ -73,7 +75,8 @@ int DisplayWidget::showPath(const QString &path)
             && m_model->monitorList().size() > 1)
             || path == "Customize") {
         Q_EMIT this->requestShowCustomConfigPage();
-        m_menuList->setCurrentIndex(m_menuList->model()->index(0, 0));
+        m_currentIdx = m_menuList->model()->index(0, 0);
+        m_menuList->setCurrentIndex(m_currentIdx);
         return 0;
     }
 
@@ -82,7 +85,8 @@ int DisplayWidget::showPath(const QString &path)
         auto menu = menuList[i];
         if (tr(path.toStdString().c_str()) == menu.menuText) {
             menu.method.invoke(this);
-            m_menuList->setCurrentIndex(m_menuList->model()->index(i, 0));
+            m_currentIdx = m_menuList->model()->index(i, 0);
+            m_menuList->setCurrentIndex(m_currentIdx);
             return 0;
         }
     }
@@ -100,18 +104,17 @@ void DisplayWidget::onMonitorListChanged()
 {
     const auto mons = m_model->monitorList();
 
-    if (mons.size() <= 1) {
+    if (m_isMultiScreen && mons.size() <= 1) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
-        m_model->setAllowEnableMultiScaleRatio(false);
-    } else {
+
+        onMenuClicked(m_menuList->model()->index(0, 0));
+    } else if(!m_isMultiScreen && mons.size() > 1) {
         m_isMultiScreen = true;
         m_menuList->setModel(m_multiModel);
-        m_model->setAllowEnableMultiScaleRatio(true);
-    }
 
-    m_menuList->setCurrentIndex(m_menuList->model()->index(0, 0));
-    m_currentIdx = m_menuList->currentIndex();
+        onMenuClicked(m_menuList->model()->index(0, 0));
+    }
 }
 
 void DisplayWidget::initMenuUI()
@@ -170,6 +173,7 @@ void DisplayWidget::onMenuClicked(const QModelIndex &idx)
         return;
 
     m_currentIdx = idx;
+    m_menuList->setCurrentIndex(m_currentIdx);
     if (m_isMultiScreen) {
         m_multMenuList[idx.row()].method.invoke(this);
     } else {

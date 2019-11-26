@@ -37,6 +37,8 @@ using namespace dcc::display;
 
 const QString DisplayInterface("com.deepin.daemon.Display");
 
+Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
+
 DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     : QObject(parent),
 
@@ -52,6 +54,17 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
 {
     // TODO:
     model->setPrimary(m_displayInter.primary());
+#if 0
+    QDBusInterface *inter = new QDBusInterface(DisplayInterface,
+                                               "/com/deepin/daemon/Display",
+                                               DisplayInterface,
+                                               QDBusConnection::sessionBus(), this);
+    auto reply = inter->property("Monitors");
+    onMonitorListChanged(reply.value<QList<QDBusObjectPath>>());
+#else
+    onMonitorListChanged(m_displayInter.monitors());
+#endif
+    model->setDisplayMode(m_displayInter.displayMode());
 
     m_displayInter.setSync(false);
     m_appearanceInter->setSync(false);
@@ -74,14 +87,12 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
             m_model, &DisplayModel::setAutoLightAdjust);
     connect(m_mouseInter, &MouseInter::LeftHandedChanged, m_model, &DisplayModel::setMouseLeftHand);
 
-    onMonitorListChanged(m_displayInter.monitors());
     onMonitorsBrightnessChanged(m_displayInter.brightness());
     model->setScreenHeight(m_displayInter.screenHeight());
     model->setScreenWidth(m_displayInter.screenWidth());
     model->setConfigList(m_displayInter.customIdList());
     model->setCurrentConfig(m_displayInter.currentCustomId());
 //    model->setHasConfig(m_displayInter.hasCustomConfig());
-    model->setDisplayMode(m_displayInter.displayMode());
 
     m_model->setAutoLightAdjustIsValid(m_powerInter->hasAmbientLightSensor());
     m_model->setAutoLightAdjust(m_powerInter->ambientLightAdjustBrightness());
@@ -278,6 +289,7 @@ void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
     for (const auto *mon : m_monitors.keys())
         ops << mon->path();
 
+    qDebug() << mons.size();
     QList<QString> pathList;
     for (const auto op : mons) {
         const QString path = op.path();
@@ -516,8 +528,6 @@ void DisplayWorker::monitorAdded(const QString &path)
     Q_ASSERT(inter->isValid());
     mon->setName(inter->name());
 
-    inter->setSync(false);
-
     mon->setMonitorEnable(inter->enabled());
     mon->setPath(path);
     mon->setX(inter->x());
@@ -536,6 +546,8 @@ void DisplayWorker::monitorAdded(const QString &path)
 
     m_model->monitorAdded(mon);
     m_monitors.insert(mon, inter);
+
+    inter->setSync(false);
 }
 
 void DisplayWorker::monitorRemoved(const QString &path)

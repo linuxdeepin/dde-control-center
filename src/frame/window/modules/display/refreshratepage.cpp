@@ -45,6 +45,7 @@ RefreshRatePage::RefreshRatePage(QWidget *parent)
 void RefreshRatePage::setModel(DisplayModel *model)
 {
     m_model = model;
+    qDebug() << model->monitorList().size();
     m_monitor = model->monitorList().first();
 
     initRateList();
@@ -63,10 +64,15 @@ void RefreshRatePage::initRateList()
     auto moni = m_model->monitorList().first();
     QList<double> rateList;
     bool isFirst = true;
+    qDebug() << "moni->modeList size:" << moni->modeList().size();
+    qDebug() << "moni current mode :" << moni->currentMode().width()
+             << "x" << moni->currentMode().height();
     for (auto m : moni->modeList()) {
         if (!Monitor::isSameResolution(m, moni->currentMode()))
             continue;
 
+        qDebug() << "get same resolution" << m.width()
+                 << "x" << m.height();
         auto trate = m.rate();
         DStandardItem *item = new DStandardItem;
         listModel->appendRow(item);
