@@ -33,6 +33,7 @@
 #include <QPen>
 #include <QSize>
 #include <QRect>
+#include <QDebug>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE::accounts;
@@ -51,53 +52,59 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
     if (!index.isValid())
         return;
 
+    QStyleOptionViewItem opt(option);
+    initStyleOption(&opt, index);
+    auto style = opt.widget->style();
+
     auto pm = static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth);
-    int borderWidth = option.widget->style()->pixelMetric(pm, &option, nullptr);
+    int borderWidth = style->pixelMetric(pm, &opt, nullptr);
     pm = static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing);
-    int borderSpacing = option.widget->style()->pixelMetric(pm, &option, nullptr);
+    int borderSpacing = style->pixelMetric(pm, &opt, nullptr);
     const QMargins margins(borderWidth + borderSpacing, borderWidth + borderSpacing,
                            borderWidth + borderSpacing, borderWidth + borderSpacing);
     QPixmap pixmap = index.data(Qt::DecorationRole).value<QPixmap>();
     QPainterPath path;
-    path.addEllipse(option.rect.marginsRemoved(margins));
+    path.addEllipse(opt.rect.marginsRemoved(margins));
     painter->setClipPath(path);
 
     if (!pixmap.isNull()) {
-        painter->drawPixmap(option.rect.marginsRemoved(margins), pixmap);
+        painter->drawPixmap(opt.rect.marginsRemoved(margins), pixmap);
         painter->setClipping(false);
     } else {
-        QString iconpath = index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().iconPath;
+        qreal tw = opt.rect.width() / 3.0;
+        qreal th = opt.rect.height() / 3.0;
+
+        //绘制背景
+        DStyleHelper dh(style);
+        QRectF rect(tw + opt.rect.x(), th + opt.rect.y(), tw, th);
+        rect.moveCenter(QRect(opt.rect).center());
+        painter->setPen(Qt::NoPen);
+        painter->setBrush(dh.getColor(&opt, QPalette::Button));
+        painter->drawEllipse(opt.rect.marginsRemoved(margins));
+
         //画+号
-        QRect rect(0, 0, option.rect.width() / 3.0, option.rect.height() / 3.0);
-        rect.moveCenter(QRect(option.rect).center());
-        painter->setClipPath(path);
-        painter->setClipping(true);
-        QPen pen(Qt::transparent);
-        pen.setColor(Qt::white);
-        painter->setPen(pen);
-        painter->setBrush(QColor("#E3E3E3"));
-        painter->drawEllipse(option.rect.marginsRemoved(margins));
-        painter->setClipping(false);
-        painter->setPen(QPen(option.palette.text(), 1.0));
-        painter->drawLine(QPointF(rect.x(), rect.center().y()), QPointF(rect.right(), rect.center().y()));
-        painter->drawLine(QPointF(rect.center().x(), rect.y()), QPointF(rect.center().x(), rect.bottom()));
+        qreal x1 = opt.rect.x() + tw ;
+        qreal y1 = opt.rect.y() + opt.rect.height() / 2.0 - 0.5;
+        qreal x2 = opt.rect.x() + opt.rect.width() / 2.0 - 0.5;
+        qreal y2 = opt.rect.y() + th;
+        painter->setBrush(dh.getColor(&opt, QPalette::Text));
+        painter->drawRect(QRectF(x1, y1, tw, 1.0));
+        painter->drawRect(QRectF(x2, y2, 1.0, th));
     }
 
     if (index.data(Qt::CheckStateRole) == Qt::Checked) {
-        painter->setPen(QPen(option.palette.highlight(), borderWidth));
+        painter->setPen(QPen(opt.palette.highlight(), borderWidth));
         painter->setBrush(Qt::NoBrush);
-        painter->drawEllipse(option.rect.adjusted(1, 1, -1, -1));
+        painter->drawEllipse(opt.rect.adjusted(1, 1, -1, -1));
 
         //在中间绘制选中小图标
-        QStyleOptionViewItem opt(option);
-        initStyleOption(&opt, index);
         int radius = 8;
-        int cx = option.rect.marginsRemoved(margins).center().x();
-        int cy = option.rect.marginsRemoved(margins).center().y();
+        int cx = opt.rect.marginsRemoved(margins).center().x();
+        int cy = opt.rect.marginsRemoved(margins).center().y();
         QRect crect(QPoint(cx - radius, cy - radius), QPoint(cx + radius, cy + radius));
         opt.rect = crect;
         opt.state |= QStyle::State_On;
-        option.widget->style()->drawPrimitive(DStyle::PE_IndicatorItemViewItemCheck, &opt, painter, nullptr);
+        style->drawPrimitive(DStyle::PE_IndicatorItemViewItemCheck, &opt, painter, nullptr);
         return;
     }
     // draw + in the end
