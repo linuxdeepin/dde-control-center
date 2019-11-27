@@ -211,7 +211,7 @@ void RecoveryDialog::backupInfomation(QString version, QString time)
 
 void RecoveryDialog::initUI()
 {
-    DLabel *txt = new DLabel(tr("Are you sure you want to roll back to deepin %1 backed up on %2?").arg(m_backupVersion).arg(m_backupTime));
+    DLabel *txt = new DLabel(tr("Are you sure you want to roll back to %1 backed up on %2?").arg('V' + m_backupVersion).arg(m_backupTime));
     txt->setWordWrap(true);
     addContent(txt);
     addButton(tr("Cancel and Reboot"), true, DDialog::ButtonRecommend);
