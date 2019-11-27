@@ -93,6 +93,7 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
 
 private:
     void resetNavList(bool isIconMode);

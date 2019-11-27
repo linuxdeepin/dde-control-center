@@ -412,6 +412,15 @@ void MainWindow::toggle()
     activateWindow();
 }
 
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape) {
+        if (m_topWidget) {
+            popWidget();
+        }
+    }
+}
+
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     DMainWindow::resizeEvent(event);
