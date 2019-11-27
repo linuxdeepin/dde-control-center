@@ -59,15 +59,15 @@ void ModifyPasswdPage::initWidget()
     mainContentLayout->addWidget(titleLabel, 0, Qt::AlignHCenter);
     mainContentLayout->addSpacing(40);
 
-    QLabel *oldPasswdLabel = new QLabel(tr("Current Password"));
+    QLabel *oldPasswdLabel = new QLabel(tr("Current Password") + ":");
     mainContentLayout->addWidget(oldPasswdLabel);
     mainContentLayout->addWidget(m_oldPasswordEdit);
 
-    QLabel *newPasswdLabel = new QLabel(tr("New Password"));
+    QLabel *newPasswdLabel = new QLabel(tr("New Password") + ":");
     mainContentLayout->addWidget(newPasswdLabel);
     mainContentLayout->addWidget(m_newPasswordEdit);
 
-    QLabel *repeatPasswdLabel = new QLabel(tr("Repeat Password"));
+    QLabel *repeatPasswdLabel = new QLabel(tr("Repeat Password") + ":");
     mainContentLayout->addWidget(repeatPasswdLabel);
     mainContentLayout->addWidget(m_repeatPasswordEdit);
     mainContentLayout->addStretch();
