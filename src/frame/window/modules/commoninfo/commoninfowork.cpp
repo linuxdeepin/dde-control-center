@@ -25,6 +25,8 @@
 #include "widgets/basiclistdelegate.h"
 #include "widgets/utils.h"
 
+#include <signal.h>
+
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
 
@@ -64,6 +66,17 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dBusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &CommonInfoWork::onBackgroundChanged);
+}
+
+CommonInfoWork::~CommonInfoWork()
+{
+    qDebug() << "~CommonInfoWork";
+    if (m_process) {
+        //如果控制中心被强制关闭，需要用kill来杀掉没有被关闭的窗口
+        kill(m_process->pid(), 15);
+        m_process->deleteLater();
+        m_process = nullptr;
+    }
 }
 
 void CommonInfoWork::activate()
@@ -163,7 +176,6 @@ void CommonInfoWork::setBackground(const QString &path)
 void CommonInfoWork::setUeProgram(bool enabled)
 {
     if (enabled && (m_dBusUeProgram->IsEnabled() != enabled)) {
-        QProcess *process = new QProcess(this);
 
         // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
         QString title(tr("User Experience Program"));
@@ -184,9 +196,11 @@ void CommonInfoWork::setUeProgram(bool enabled)
         file.write(content.toLocal8Bit());
         file.close();
 
-        int result = process->execute("dde-license-dialog",
+        m_process = new QProcess(this);
+        int result = m_process->execute("dde-license-dialog",
                                       QStringList() << "-t" << title << "-c" << contentPath << "-a" << allowContent);
-        process->deleteLater();
+        m_process->deleteLater();
+        m_process = nullptr;
 
         if (96 == result) {
             if (!m_commomModel->ueProgram()) {

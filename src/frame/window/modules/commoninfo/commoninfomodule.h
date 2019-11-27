@@ -66,11 +66,11 @@ private:
     void initBootWidget();
     void initUeProgramWidget(); // for user experience program
 private:
-    CommonInfoWork *m_commonWork;
-    CommonInfoModel *m_commonModel;
-    CommonInfoWidget *m_commonWidget; // main widget
-    BootWidget *m_bootWidget; // for bootmenu
-    UserExperienceProgramWidget *m_ueProgramWidget; // for user experience program
+    CommonInfoWork *m_commonWork{nullptr};
+    CommonInfoModel *m_commonModel{nullptr};
+    CommonInfoWidget *m_commonWidget{nullptr}; // main widget
+    BootWidget *m_bootWidget{nullptr}; // for bootmenu
+    UserExperienceProgramWidget *m_ueProgramWidget{nullptr}; // for user experience program
     // 为开发者模式预留
 //    DeveloperModeWidget *m_developerWidget; // for developer mode
     // 以下内容为平板模式做预留

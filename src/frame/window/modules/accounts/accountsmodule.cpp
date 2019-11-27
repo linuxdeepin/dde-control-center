@@ -174,8 +174,13 @@ void AccountsModule::onShowCreateAccountPage()
 
 AccountsModule::~AccountsModule()
 {
-    m_userModel->deleteLater();
-    m_accountsWorker->deleteLater();
+    if (m_userModel)
+        m_userModel->deleteLater();
+    m_userModel = nullptr;
+
+    if (m_accountsWorker)
+        m_accountsWorker->deleteLater();
+    m_accountsWorker = nullptr;
 }
 
 //修改密码界面

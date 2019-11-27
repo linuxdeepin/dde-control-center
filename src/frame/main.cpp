@@ -36,8 +36,19 @@
 #include <QStyle>
 #include <QGSettings>
 
+#include <signal.h>
+
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
+
+static DCC_NAMESPACE::MainWindow *gwm{nullptr};
+
+void closeSignal(int s) {
+    qDebug() << "signal 15!";
+    if (gwm) {
+        delete gwm;
+    }
+}
 
 int main(int argc, char *argv[])
 {
@@ -90,6 +101,9 @@ int main(int argc, char *argv[])
 
     DCC_NAMESPACE::MainWindow mw;
     mw.setGeometry(mwRect);
+    gwm = &mw;
+    //处理SIGTERM 信号，保证在控制中心被强制关闭时，正常退出
+    signal(15, closeSignal);
 
     const QString &reqModule = parser.value(moduleOption);
     const QString &reqPage = parser.value(pageOption);

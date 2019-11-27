@@ -41,8 +41,15 @@ CommonInfoModule::CommonInfoModule(dccV20::FrameProxyInterface *frame, QObject *
 
 CommonInfoModule::~CommonInfoModule()
 {
-    m_commonWork->deleteLater();
-    m_commonModel->deleteLater();
+    if (m_commonWork) {
+//        m_commonWork->deleteLater();
+        delete m_commonWork;
+        m_commonWork = nullptr;
+    }
+
+    if (m_commonModel)
+        m_commonModel->deleteLater();
+    m_commonModel = nullptr;
 
     if (m_commonWidget) {
         m_commonWidget->deleteLater();

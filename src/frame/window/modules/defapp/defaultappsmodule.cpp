@@ -43,8 +43,13 @@ DefaultAppsModule::DefaultAppsModule(FrameProxyInterface *frame, QObject *parent
 
 DefaultAppsModule::~DefaultAppsModule()
 {
-    m_defAppModel->deleteLater();
-    m_defAppWorker->deleteLater();
+    if (m_defAppModel)
+        m_defAppModel->deleteLater();
+    m_defAppModel = nullptr;
+
+    if (m_defAppWorker)
+        m_defAppWorker->deleteLater();
+    m_defAppWorker = nullptr;
 }
 
 void DefaultAppsModule::initialize()

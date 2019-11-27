@@ -66,10 +66,10 @@ private:
     ~AccountsModule();
 
 private:
-    dcc::accounts::UserModel *m_userModel;
-    dcc::accounts::AccountsWorker *m_accountsWorker;
-    dcc::accounts::FingerWorker *m_fingerWorker;
-    dcc::accounts::FingerModel *m_fingerModel;
+    dcc::accounts::UserModel *m_userModel{nullptr};
+    dcc::accounts::AccountsWorker *m_accountsWorker{nullptr};
+    dcc::accounts::FingerWorker *m_fingerWorker{nullptr};
+    dcc::accounts::FingerModel *m_fingerModel{nullptr};
     AccountsWidget *m_accountsWidget = nullptr;
 };
 

@@ -54,8 +54,8 @@ private Q_SLOTS:
     void showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category = dcc::defapp::DefAppWorker::Browser);
 
 private:
-    dcc::defapp::DefAppModel *m_defAppModel;
-    dcc::defapp::DefAppWorker *m_defAppWorker;
+    dcc::defapp::DefAppModel *m_defAppModel{nullptr};
+    dcc::defapp::DefAppWorker *m_defAppWorker{nullptr};
 };
 }
 }

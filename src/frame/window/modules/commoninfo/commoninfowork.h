@@ -42,6 +42,7 @@ class CommonInfoWork : public QObject
     Q_OBJECT
 public:
     explicit CommonInfoWork(CommonInfoModel *model, QObject *parent = nullptr);
+    virtual ~CommonInfoWork();
 
     void activate();
     void deactivate();
@@ -66,6 +67,7 @@ private:
     GrubDbus *m_dBusGrub;
     GrubThemeDbus *m_dBusGrubTheme;
     UeProgramDbus *m_dBusUeProgram; // for user experience program
+    QProcess *m_process{nullptr};
 };
 } // namespace commoninfo
 } // namespace DCC_NAMESPACE

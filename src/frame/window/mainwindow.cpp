@@ -175,6 +175,13 @@ MainWindow::~MainWindow()
     QGSettings gs(ControlCenterGSettings, QByteArray(), this);
     gs.set(GSettinsWindowWidth, width());
     gs.set(GSettinsWindowHeight, height());
+
+    qDebug() << "~MainWindow";
+    for (auto m : m_modules) {
+        if (m.first) {
+            delete m.first;
+        }
+    }
 }
 
 void MainWindow::initAllModule()
