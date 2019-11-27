@@ -1,6 +1,6 @@
 [Desktop Entry]
 Categories=Application;System;Settings
-Comment=Deepin Desktop Environment Control Center
+Comment=%1 Desktop Environment Control Center
 Encoding=UTF-8
 Exec=dbus-send --print-reply --dest=com.deepin.dde.ControlCenter /com/deepin/dde/ControlCenter com.deepin.dde.ControlCenter.Show
 Icon=preferences-system
@@ -90,7 +90,7 @@ Comment[es_AR]=Centro de Control del Entorno de Escritorio Deepin
 Name[es_AR]=Centro de Control
 Comment[es_MX]=Centro de Contrl del Entorno Escritorio Deepin
 Name[es_MX]=Centro de control
-Comment[en_AU]=Deepin Desktop Environment Control Center
+Comment[en_AU]=%1 Desktop Environment Control Center
 Name[en_AU]=Control Center
 Comment[es_ES]=Centro de Control de Escritorio de Deepin
 Name[es_ES]=Centro de Control
