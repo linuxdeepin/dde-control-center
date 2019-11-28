@@ -87,6 +87,7 @@ private:
     PerssonalizationThemeWidget *m_Themes;
     QList<RoundColorWidget *> m_activeColorsList;
     QWidget *m_bgWidget;
+    bool m_bSystemIsServer;
 };
 }
 }

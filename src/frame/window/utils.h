@@ -26,6 +26,7 @@
 
 #include <QMargins>
 #include <QVariant>
+#include <QSettings>
 
 Q_DECLARE_METATYPE(QMargins)
 
@@ -38,6 +39,12 @@ const QVariant VListViewItemMargin = QVariant::fromValue(ListViweItemMargin);
 const QMargins ListViweRightSubscriptItemMargin(42, 0, 0, 8);
 const QVariant VListViewRightSubscripItemMargin = QVariant::fromValue(ListViweRightSubscriptItemMargin);
 const int List_Interval = 10;
+
+static bool isServerSystem() {
+    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
+    setting.beginGroup("Release");
+    return (setting.value("Type").toString() == "Server");
+}
 }
 
 #endif // V20_DISPLAY_UTILS_H

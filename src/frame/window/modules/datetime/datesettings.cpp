@@ -23,6 +23,7 @@
 
 #include "clock.h"
 #include "datetimewidget.h"
+#include "window/utils.h"
 #include "modules/datetime/datetimemodel.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
@@ -66,9 +67,7 @@ DateSettings::DateSettings(QWidget *parent)
     , m_syncSettingTimer(new QTimer)
     , m_timeSec(0)
 {
-    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
-    setting.beginGroup("Release");
-    m_bSystemIsServer = (setting.value("Type").toString() == "Server");
+    m_bSystemIsServer = isServerSystem();
 
     if (m_bSystemIsServer) {
         m_ntpServerList = new datetimeCombox;

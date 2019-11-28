@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "searchwidget.h"
+#include "window/utils.h"
 #include "window/interface/moduleinterface.h"
 
 #include <DPinyin>
@@ -63,9 +64,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer->installEventFilter(this);
 
     //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
-    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
-    setting.beginGroup("Release");
-    m_bIsServerType = (setting.value("Type").toString() == "Server");
+    m_bIsServerType = isServerSystem();
 
     //first : 可移除设备名称
     //second : 可以除设备具体的页面名称(该页面必须与搜索的页面对应)
