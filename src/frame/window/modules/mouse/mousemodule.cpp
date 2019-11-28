@@ -50,7 +50,7 @@ void MouseModule::preInitialize()
     m_worker = new dcc::mouse::MouseWorker(m_model, this);
     m_model->moveToThread(qApp->thread());
     m_worker->moveToThread(qApp->thread());
-    m_worker->init();
+    m_worker->active();
 
     connect(m_model, &MouseModel::tpadExistChanged, this, [this](bool state) {
         qDebug() << "[Mouse] Touchpad , exist state : " << state;

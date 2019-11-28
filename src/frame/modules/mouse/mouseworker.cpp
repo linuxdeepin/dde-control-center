@@ -59,10 +59,6 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
 
     connect(m_dbusDevices, &InputDevices::WheelSpeedChanged, m_model, &MouseModel::setScrollSpeed);
 
-    m_dbusMouse->setSync(false);
-    m_dbusTouchPad->setSync(false);
-    m_dbusTouchPad->setSync(false);
-    m_dbusDevices->setSync(false);
 }
 
 void MouseWorker::active()
@@ -72,6 +68,11 @@ void MouseWorker::active()
     m_dbusTrackPoint->blockSignals(false);
 
     init();
+
+    m_dbusMouse->setSync(false);
+    m_dbusTouchPad->setSync(false);
+    m_dbusTouchPad->setSync(false);
+    m_dbusDevices->setSync(false);
 }
 
 void MouseWorker::deactive()
