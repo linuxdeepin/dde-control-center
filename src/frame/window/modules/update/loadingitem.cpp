@@ -91,7 +91,7 @@ void LoadingItem::setVersionVisible(bool state)
 
 void LoadingItem::setSystemVersion(QString version)
 {
-    m_labelText->setText(QString("deepin V%1").arg(version));
+    m_labelText->setText(QString("V%1").arg(version));
 }
 
 void LoadingItem::setImage(QImage *image)
