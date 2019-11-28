@@ -29,6 +29,8 @@
 
 #include <com_deepin_daemon_fprintd_device.h>
 
+#include <DCommandLinkButton>
+
 #include <QWidget>
 
 namespace DCC_NAMESPACE {
@@ -55,6 +57,7 @@ private:
     dcc::accounts::FingerModel *m_model;
     dcc::widgets::SettingsGroup *m_listGrp;
     QString m_notUseThumb;
+    DCommandLinkButton *m_clearBtn;
 };
 
 }

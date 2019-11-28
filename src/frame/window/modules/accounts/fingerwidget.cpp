@@ -22,7 +22,6 @@
 #include "fingerwidget.h"
 #include "widgets/titlelabel.h"
 
-#include <DCommandLinkButton>
 #include <DFontSizeManager>
 
 #include <QHBoxLayout>
@@ -38,10 +37,11 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
     , m_listGrp(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
+    , m_clearBtn(nullptr)
 {
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
 
-    DCommandLinkButton *clearBtn = new DCommandLinkButton(tr("Delete fingerprint"));
+    m_clearBtn = new DCommandLinkButton(tr("Delete fingerprint"));
     TitleLabel *fingetitleLabel = new TitleLabel(tr("Fingerprint Password"));
 
     m_listGrp->setSpacing(1);
@@ -53,7 +53,7 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     headLayout->setSpacing(0);
     headLayout->setContentsMargins(10, 0, 10, 0);
     headLayout->addWidget(fingetitleLabel, 0, Qt::AlignLeft);
-    headLayout->addWidget(clearBtn, 0, Qt::AlignRight);
+    headLayout->addWidget(m_clearBtn, 0, Qt::AlignRight);
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setSpacing(1);
@@ -64,9 +64,9 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     setLayout(mainContentLayout);
 
     //设置字体大小
-    DFontSizeManager::instance()->bind(clearBtn, DFontSizeManager::T8);
+    DFontSizeManager::instance()->bind(m_clearBtn, DFontSizeManager::T8);
 
-    connect(clearBtn, &DCommandLinkButton::clicked, this, [ = ] {
+    connect(m_clearBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestCleanThumbs(m_curUser);
     });
 }
@@ -113,6 +113,8 @@ void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::U
             isAddFingeBtn = false;
         }
     }
+
+    m_clearBtn -> setVisible(m_listGrp->itemCount());
 
     if (!thumb.isEmpty()) {
         m_notUseThumb = thumb.first();
