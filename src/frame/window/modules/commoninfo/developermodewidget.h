@@ -24,9 +24,11 @@
 
 #include <QWidget>
 
-QT_BEGIN_NAMESPACE
-class QPushButton;
-QT_END_NAMESPACE
+namespace dcc {
+namespace widgets {
+class SwitchWidget;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace commoninfo {
@@ -49,7 +51,7 @@ public Q_SLOTS:
     void updateDeveloperModeState(const bool state);
 
 private:
-    QPushButton *m_pEnableDeveloperModeBtn;
+    dcc::widgets::SwitchWidget *m_pDeveloperMode;
     CommonInfoModel *m_model;
 };
 }

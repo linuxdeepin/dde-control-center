@@ -42,17 +42,22 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     , m_model(nullptr)
 {
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
-    m_pEnableDeveloperModeBtn = new QPushButton(tr("Join developer mode"));
-    DTipLabel *titleLabel = new DTipLabel(tr("To join the developer mode, you need to bind the deepin ID. \nTo join the developer mode, you will lose your guarantee. Please note!"));
+    m_pDeveloperMode = new SwitchWidget(tr("Developer Mode"));
+    m_pDeveloperMode->addBackground();
+    DTipLabel *titleLabel = new DTipLabel(tr("To join the developer mode, you need to bind the deepin ID. To join the developer mode, you will lose your guarantee. Please note!"));
+    titleLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    titleLabel->setWordWrap(true);
+
     vBoxLayout->setMargin(0);
     vBoxLayout->setSpacing(0);
-    vBoxLayout->addWidget(m_pEnableDeveloperModeBtn);
-    vBoxLayout->addSpacing(8);
+    vBoxLayout->setContentsMargins(6, 0, 6, 0);
+    vBoxLayout->addWidget(m_pDeveloperMode);
+    vBoxLayout->addSpacing(10);
     vBoxLayout->addWidget(titleLabel);
     vBoxLayout->addStretch();
     setLayout(vBoxLayout);
 
-    connect(m_pEnableDeveloperModeBtn, &QPushButton::clicked, this, &DeveloperModeWidget::onCheckedChanged);
+    connect(m_pDeveloperMode, &SwitchWidget::clicked, this, &DeveloperModeWidget::onCheckedChanged);
 }
 
 void DeveloperModeWidget::setModel(CommonInfoModel *model)
@@ -72,9 +77,10 @@ void DeveloperModeWidget::onCheckedChanged()
 void DeveloperModeWidget::updateDeveloperModeState(const bool state)
 {
     if (state) {
-        m_pEnableDeveloperModeBtn->setText(tr("Root Access Allowed"));
-        m_pEnableDeveloperModeBtn->setDisabled(true);
+        m_pDeveloperMode->setChecked(true);
+        //开发者模式不可逆,这里将控件disable
+        m_pDeveloperMode->setDisabled(true);
     } else {
-        m_pEnableDeveloperModeBtn->setText(tr("Join developer mode"));
+        m_pDeveloperMode->setChecked(false);
     }
 }
