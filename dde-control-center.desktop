@@ -1,10 +1,10 @@
 [Desktop Entry]
 Categories=Application;System;Settings
-Comment=%1 Desktop Environment Control Center
+Comment=Deepin Desktop Environment Control Center
 Encoding=UTF-8
 Exec=dbus-send --print-reply --dest=com.deepin.dde.ControlCenter /com/deepin/dde/ControlCenter com.deepin.dde.ControlCenter.Show
 Icon=preferences-system
-Name=%1 Control Center
+Name=Deepin Control Center
 GenericName=Control Center
 OnlyShowIn=Deepin
 StartupNotify=false
