@@ -257,11 +257,11 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
         return false;
     }
 
-    if (m_nameEdit->text().toLower() == userpassword.toLower()) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("The password should be different from the username"), -1);
-        return false;
-    }
+//    if (m_nameEdit->text().toLower() == userpassword.toLower()) {
+//        edit->setAlert(true);
+//        edit->showAlertMessage(tr("The password should be different from the username"), -1);
+//        return false;
+//    }
 
     bool result = validatePassword(userpassword);
     if (!result) {
