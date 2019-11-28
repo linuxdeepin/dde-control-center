@@ -202,6 +202,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     });
     connect(m_inputLineEdit, &QLineEdit::editingFinished, this, [ = ]() {
         Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
+        m_inputLineEdit->clearFocus();
         updateLineEditDisplayStyle();
     });
 }
