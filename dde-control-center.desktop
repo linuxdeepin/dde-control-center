@@ -4,7 +4,8 @@ Comment=%1 Desktop Environment Control Center
 Encoding=UTF-8
 Exec=dbus-send --print-reply --dest=com.deepin.dde.ControlCenter /com/deepin/dde/ControlCenter com.deepin.dde.ControlCenter.Show
 Icon=preferences-system
-Name=Control Center
+Name=%1 Control Center
+GenericName=Control Center
 OnlyShowIn=Deepin
 StartupNotify=false
 Terminal=false
