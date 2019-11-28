@@ -117,8 +117,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setAutoScroll(true);
     m_navView->setTabKeyNavigation(true);
 
-    m_contentLayout->addWidget(m_navView);
-    m_contentLayout->addWidget(m_rightView);
+    m_contentLayout->addWidget(m_navView, 1);
+    m_contentLayout->addWidget(m_rightView, 5);
 
     m_rightView->hide();
     m_rightView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -500,7 +500,7 @@ void MainWindow::resetNavList(bool isIconMode)
         //The second page will Covered with fill blank areas
         m_navView->setViewportMargins(QMargins(10, 0, 10, 0));
         m_navView->setViewMode(QListView::ListMode);
-        m_navView->setFixedWidth(first_widget_min_width);
+        m_navView->setMinimumWidth(first_widget_min_width);
         m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
         m_navView->setIconSize(QSize(42, 42));
         m_navView->setItemSize(QSize(168, 48));
