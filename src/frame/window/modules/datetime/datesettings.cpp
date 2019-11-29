@@ -182,9 +182,14 @@ DateSettings::DateSettings(QWidget *parent)
     connect(confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
 
     connect(m_monthWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
+    connect(m_monthWidget, &DateWidget::notifyClickedState, this, &DateSettings::updateDayRange);
     connect(m_yearWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
+    connect(m_yearWidget, &DateWidget::notifyClickedState, this, &DateSettings::updateDayRange);
 
     connect(m_syncSettingTimer, &QTimer::timeout, this, &DateSettings::updateSettingTime);
+
+    //第一次进入时间设置页面，需要刷新day的天数
+    updateDayRange();
 }
 
 void DateSettings::setCurrentTimeZone(const ZoneInfo &info)
@@ -218,7 +223,7 @@ void DateSettings::updateDayRange()
 
     QDate date(year, month, 1);
     m_dayWidget->setRange(1, date.daysInMonth());
-
+    qDebug() << " year : " << year << " , month : " << month << " day range : 1 to " << date.daysInMonth();
     if (m_dayWidget->maximum() < m_dayWidget->getCurrentText().toInt()) {
         m_dayWidget->setCurrentText(QString(m_dayWidget->maximum()));
     }

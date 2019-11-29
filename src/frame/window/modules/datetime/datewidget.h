@@ -63,6 +63,7 @@ protected:
 
 Q_SIGNALS:
     void editingFinished();
+    void notifyClickedState(bool);
 
 public Q_SLOTS:
     void slotAdd();
