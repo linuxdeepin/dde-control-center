@@ -51,10 +51,6 @@ CommonInfoModule::~CommonInfoModule()
     if (m_commonModel)
         m_commonModel->deleteLater();
     m_commonModel = nullptr;
-
-    if (m_commonWidget) {
-        m_commonWidget->deleteLater();
-    }
 }
 
 void CommonInfoModule::initialize()

@@ -92,7 +92,6 @@ void CommonBackgroundItem::paintEvent(QPaintEvent *e)
     }
 
     painter.setPen(Qt::NoPen);
-    painter.restore();
     painter.end();
     if (m_isDrop) {
         painter.fillRect(this->rect(), QColor(0, 0, 0, 100));
