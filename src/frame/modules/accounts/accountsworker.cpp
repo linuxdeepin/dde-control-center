@@ -25,6 +25,7 @@
 
 #include "accountsworker.h"
 #include "user.h"
+#include "window/utils.h"
 
 #include <QFileDialog>
 #include <QtConcurrent>
@@ -39,6 +40,7 @@
 #include <crypt.h>
 
 using namespace dcc::accounts;
+using namespace DCC_NAMESPACE;
 
 const QString AccountsService("com.deepin.daemon.Accounts");
 const QString DisplayManagerService("org.freedesktop.DisplayManager");
@@ -417,7 +419,11 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     }
 
     // default FullName is empty string
-    QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->fullname(), 1);
+    bool m_bSystemIsServer;
+    m_bSystemIsServer = isServerSystem();
+    auto type = isServerSystem() ? 0 : 1;
+    QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->fullname(), type);
+
     const QString userPath = path.path();
     if (userPath.isEmpty() || userPath.isNull()) {
         result->setType(CreationResult::UnknownError);
