@@ -185,6 +185,19 @@ bool FingerWorker::recordFinger(const QString &name, const QString &thumb)
     call = m_fprDefaultInter->Release();
     call.waitForFinished();
 
+    QDBusInterface inter(FprintService,
+                         "/com/deepin/daemon/Fprintd",
+                         FprintService,
+                         QDBusConnection::systemBus(), this);
+    if (!inter.isValid()) {
+        return false;
+    }
+
+    QDBusReply<void> reply = inter.call("PreAuthEnroll");
+    if (!reply.isValid()) {
+        return false;
+    }
+
     call = m_fprDefaultInter->Claim(name);
     call.waitForFinished();
 
