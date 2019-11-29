@@ -34,6 +34,10 @@
 
 DWIDGET_USE_NAMESPACE
 
+QT_BEGIN_NAMESPACE
+class QPushButton;
+QT_END_NAMESPACE
+
 namespace dcc
 {
 
@@ -63,6 +67,29 @@ public:
 private:
     TipsLabel* m_title;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_value;
+};
+
+
+class TitleAuthorizedItem: public SettingsItem
+{
+    Q_OBJECT
+
+public:
+    TitleAuthorizedItem(QFrame *parent = nullptr);
+    void setTitle(const QString& title);
+    void setValue(const QString& value);
+    void setWordWrap(bool enable);
+    void setButtonText(const QString &str);
+    void setValueForegroundRole(const QColor &color);
+
+Q_SIGNALS:
+    //传递button的点击信号
+    void clicked();
+
+private:
+    TipsLabel* m_title;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_value;
+    QPushButton *m_pActivatorBtn;
 };
 
 }

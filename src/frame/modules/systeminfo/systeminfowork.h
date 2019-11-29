@@ -62,10 +62,12 @@ public Q_SLOTS:
     void grubServerFinished();
     void onBackgroundChanged();
     void setBackground(const QString &path);
+    void showActivatorDialog();
 
 private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
+    void getLicenseState();
 
 private:
     SystemInfoModel* m_model;

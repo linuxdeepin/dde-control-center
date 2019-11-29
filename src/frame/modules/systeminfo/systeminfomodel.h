@@ -32,6 +32,15 @@
 namespace dcc{
 namespace systeminfo{
 
+//授权状态
+enum ActiveState {
+    Unauthorized = 0,  //未授权
+    Authorized,  //已授权
+    AuthorizedLapse,  //授权失效
+    TrialAuthorized, //试用期已授权
+    TrialExpired //试用期已过期
+};
+
 class SystemInfoModel : public QObject
 {
     Q_OBJECT
@@ -50,6 +59,7 @@ public:
     QString memory() const { return m_memory;}
     QString disk() const { return m_disk;}
     QString kernel() const { return m_kernel;}
+    inline quint32 licenseState() const { return m_licenseState; }
 
     bool bootDelay() const;
     bool themeEnabled() const { return m_themeEnabled; }
@@ -72,6 +82,7 @@ Q_SIGNALS:
     void memoryChanged(const QString& memory);
     void diskChanged(const QString& disk);
     void kernelChanged(const QString& kernel);
+    void licenseStateChanged(quint32 state);
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -86,6 +97,7 @@ public Q_SLOTS:
     void setMemory(qulonglong memory);
     void setDisk(qulonglong disk);
     void setKernel(const QString &kernel);
+    void setLicenseState(quint32 state);
 
 private:
     bool m_bootDelay;
@@ -103,6 +115,7 @@ private:
     QString m_memory;
     QString m_disk;
     QString m_kernel;
+    quint32 m_licenseState;
 };
 
 }

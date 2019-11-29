@@ -104,6 +104,8 @@ void SystemInfoModule::onShowAboutNativePage()
 {
     NativeInfoWidget *w = new NativeInfoWidget(m_model);
     m_frameProxy->pushWidget(this, w);
+    //showActivatorDialog
+    connect(w, &NativeInfoWidget::clickedActivator, m_work, &SystemInfoWork::showActivatorDialog);
 }
 
 void SystemInfoModule::onVersionProtocolPage()

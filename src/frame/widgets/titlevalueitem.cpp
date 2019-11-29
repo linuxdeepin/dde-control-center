@@ -26,8 +26,11 @@
 #include "titlevalueitem.h"
 #include "widgets/labels/tipslabel.h"
 
+#include <DApplicationHelper>
+
 #include <QHBoxLayout>
 #include <QEvent>
+#include <QPushButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -86,6 +89,61 @@ void TitleValueItem::setValue(const QString &value)
 void TitleValueItem::setWordWrap(const bool enable)
 {
     m_value->setWordWrap(enable);
+}
+
+
+TitleAuthorizedItem::TitleAuthorizedItem(QFrame *parent)
+    : SettingsItem(parent)
+    , m_title(new TipsLabel)
+    , m_value(new DTipLabel(""))
+    , m_pActivatorBtn(new QPushButton)
+{
+    QHBoxLayout* layout = new QHBoxLayout;
+
+    m_value->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    m_value->setWordWrap(true);
+
+    layout->setContentsMargins(20, 9, 10, 10);
+
+    layout->addWidget(m_title);
+    layout->addWidget(m_value);
+    layout->addWidget(m_pActivatorBtn);
+    m_pActivatorBtn->setFocusPolicy(Qt::NoFocus);
+
+    m_value->installEventFilter(new ResizeEventFilter(this));
+
+    setLayout(layout);
+
+    //传递button的点击信号
+    connect(m_pActivatorBtn, SIGNAL(clicked()), this, SIGNAL(clicked()));
+}
+
+void TitleAuthorizedItem::setTitle(const QString& title)
+{
+    m_title->setText(title);
+}
+
+void TitleAuthorizedItem::setValue(const QString& value)
+{
+    m_value->setText(value);
+}
+
+void TitleAuthorizedItem::setWordWrap(bool enable)
+{
+    m_value->setWordWrap(enable);
+}
+
+void TitleAuthorizedItem::setButtonText(const QString &str)
+{
+    m_pActivatorBtn->setText(str);
+    m_pActivatorBtn->setFixedWidth(m_pActivatorBtn->fontMetrics().width(str) * 3 / 2);
+}
+
+void TitleAuthorizedItem::setValueForegroundRole(const QColor &color)
+{
+    auto pa = DApplicationHelper::instance()->palette(m_value);
+    pa.setBrush(DPalette::TextTips, color);
+    DApplicationHelper::instance()->setPalette(m_value, pa);
 }
 
 }

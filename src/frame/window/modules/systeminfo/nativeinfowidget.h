@@ -59,12 +59,17 @@ public Q_SLOTS:
     void setProcessor(const QString &processor);
     void setMemory(const QString &memory);
     void setDisk(const QString &disk);
+    void setLicenseState(quint32 state);
+
+Q_SIGNALS:
+    void clickedActivator();
 
 private:
     dcc::systeminfo::SystemInfoModel *m_model;
     QVBoxLayout *m_mainLayout;
     dcc::widgets::TitleValueItem *m_version;
     dcc::widgets::TitleValueItem *m_type;
+    dcc::widgets::TitleAuthorizedItem *m_authorized;
     dcc::widgets::TitleValueItem *m_kernel;
     dcc::widgets::TitleValueItem *m_processor;
     dcc::widgets::TitleValueItem *m_memory;

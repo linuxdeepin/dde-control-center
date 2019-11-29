@@ -31,6 +31,7 @@
 #include <QIcon>
 #include <QScrollArea>
 #include <QDebug>
+
 using namespace dcc::widgets;
 using namespace dcc::systeminfo;
 using namespace DCC_NAMESPACE::systeminfo;
@@ -68,6 +69,12 @@ void NativeInfoWidget::initWidget()
     //~ contents_path /systeminfo/About This PC
     m_type->setTitle(tr("Type:"));
 
+    m_authorized = new TitleAuthorizedItem();
+    m_authorized->setTitle(tr("Authorization:"));
+    m_authorized->setValue(tr("To be activated"));
+    m_authorized->setValueForegroundRole(QColor(255, 0, 0));
+    m_authorized->setButtonText(tr("Activate"));
+
     m_kernel = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_kernel->setTitle(tr("Kernel:"));
@@ -91,6 +98,7 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(logo);
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
+    infoGroup->appendItem(m_authorized);
     infoGroup->appendItem(m_kernel);
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);
@@ -107,7 +115,12 @@ void NativeInfoWidget::initWidget()
     connect(m_model, &SystemInfoModel::processorChanged, this, &NativeInfoWidget::setProcessor);
     connect(m_model, &SystemInfoModel::memoryChanged, this, &NativeInfoWidget::setMemory);
     connect(m_model, &SystemInfoModel::diskChanged, this, &NativeInfoWidget::setDisk);
+    //传递button的点击信号
+    connect(m_authorized, &TitleAuthorizedItem::clicked, this, &NativeInfoWidget::clickedActivator);
+    connect(m_model, &SystemInfoModel::licenseStateChanged, this, &NativeInfoWidget::setLicenseState);
+
     setType(m_model->type());
+    setLicenseState(m_model->licenseState());
 }
 
 void NativeInfoWidget::setEdition(const QString &edition)
@@ -133,6 +146,31 @@ void NativeInfoWidget::setMemory(const QString &memory)
 void NativeInfoWidget::setDisk(const QString &disk)
 {
     m_disk->setValue(disk);
+}
+
+void NativeInfoWidget::setLicenseState(quint32 state)
+{
+    if (state == Authorized) {
+        m_authorized->setValue(tr("Activated"));
+        m_authorized->setValueForegroundRole(QColor(0, 255, 0));
+        m_authorized->setButtonText(tr("View"));
+    } else if (state == Unauthorized) {
+        m_authorized->setValue(tr("To be activated"));
+        m_authorized->setValueForegroundRole(QColor(255, 0, 0));
+        m_authorized->setButtonText(tr("Activate"));
+    } else if (state == AuthorizedLapse) {
+        m_authorized->setValue(tr("Expired"));
+        m_authorized->setValueForegroundRole(QColor(255, 0, 0));
+        m_authorized->setButtonText(tr("View"));
+    } else if (state == TrialAuthorized) {
+        m_authorized->setValue(tr("Mid trial"));
+        m_authorized->setValueForegroundRole(QColor(255, 0, 0));
+        m_authorized->setButtonText(tr("Activate"));
+    } else if (state == TrialExpired) {
+        m_authorized->setValue(tr("Trial period has expired"));
+        m_authorized->setValueForegroundRole(QColor(255, 0, 0));
+        m_authorized->setButtonText(tr("Activate"));
+    }
 }
 
 const QString NativeInfoWidget::systemCopyright() const

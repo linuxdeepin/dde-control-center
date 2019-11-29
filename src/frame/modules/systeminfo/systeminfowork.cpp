@@ -42,7 +42,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 {
     m_systemInfoInter = new SystemInfoInter("com.deepin.daemon.SystemInfo",
                                             "/com/deepin/daemon/SystemInfo",
-                                            QDBusConnection::sessionBus(),this);
+                                            QDBusConnection::sessionBus(), this);
     m_systemInfoInter->setSync(false);
     m_dbusGrub = new GrubDbus("com.deepin.daemon.Grub2",
                               "/com/deepin/daemon/Grub2",
@@ -52,6 +52,13 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_dbusGrubTheme = new GrubThemeDbus("com.deepin.daemon.Grub2",
                                         "/com/deepin/daemon/Grub2/Theme",
                                         QDBusConnection::systemBus(), this);
+
+#if 0
+    //预留接口
+    m_dbusActivator = new GrubThemeDbus("com.deepin.license",
+                                        "/com/deepin/license/Info",
+                                        "com.deepin.license.Info", this);
+#endif
 
     m_dbusGrub->setSync(false, false);
     m_dbusGrubTheme->setSync(false, false);
@@ -77,6 +84,8 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     // connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
     // connect(m_systemInfoInter, &__SystemInfo::MemoryCapChanged, m_model, &SystemInfoModel::setMemory);
     // connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
+    //预留接口
+    //connect(m_dbusActivator, &GrubDbus::LicenseStateChange, m_model, &SystemInfoModel::setLicenseState);
 
     QProcess process;
     process.start("uname -r");
@@ -87,6 +96,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
         output.remove(idx, 1);
     }
     m_model->setKernel(output);
+    getLicenseState();
 }
 
 void SystemInfoWork::activate()
@@ -215,6 +225,15 @@ void SystemInfoWork::setBackground(const QString &path)
     });
 }
 
+void SystemInfoWork::showActivatorDialog()
+{
+    QDBusInterface activator("com.deepin.license.activator",
+                             "/com/deepin/license/activator",
+                             "com.deepin.license.activator",
+                             QDBusConnection::sessionBus());
+    activator.call(QDBus::AutoDetect, "Show");
+}
+
 void SystemInfoWork::getEntryTitles()
 {
     QDBusPendingCall call = m_dbusGrub->GetSimpleEntryTitles();
@@ -256,6 +275,20 @@ void SystemInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
     }
 
     w->deleteLater();
+}
+
+void SystemInfoWork::getLicenseState()
+{
+    QDBusInterface licenseInfo("com.deepin.license.activator",
+                               "/com/deepin/license/activator",
+                               "com.deepin.license.activator",
+                               QDBusConnection::sessionBus());
+    if (!licenseInfo.isValid()) {
+        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        return;
+    }
+
+    m_model->setLicenseState(licenseInfo.property("GetIndicatorData").toUInt());
 }
 
 }
