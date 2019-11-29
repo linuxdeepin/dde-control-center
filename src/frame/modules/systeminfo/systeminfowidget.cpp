@@ -50,7 +50,7 @@ const QString systemCopyright()
 
 const QString systemLogo()
 {
-    return DSysInfo::deepinDistributorLogo(DSysInfo::Normal, ":/systeminfo/themes/dark/icons/logo.png");
+    return DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal, ":/systeminfo/themes/dark/icons/logo.png");
 }
 
 namespace dcc{
