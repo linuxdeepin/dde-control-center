@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Güncellemeler kuruldu! Yeniden başlatma gerekiyor. Şimdi yeniden başlatılsın mı?</translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">İlerlemeden önce tüm verilerin kaydedildiğinden emin olun</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation>Sistemi ve uygulamaları doğru kullanmak için bilgisayarı yeniden başlat</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

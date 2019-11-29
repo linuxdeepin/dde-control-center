@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>به روزرسانی های نصب شده! راه اندازی مجدد مورد نیاز است ، اکنون دوباره راه اندازی شود؟</translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">اطمینان حاصل کنید که تمام داده ها قبل از ادامه کار ذخیره شده اند</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation>لطفاً برای استفاده صحیح از سیستم و برنامه های کاربردی پس از به روزرسانی مجدداً راه اندازی کنید</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

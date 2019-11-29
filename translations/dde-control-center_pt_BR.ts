@@ -33,89 +33,89 @@
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="200"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="212"/>
         <source>Account</source>
-        <translation>Conta</translation>
+        <translation>Contas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="202"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="613"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="615"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="214"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="633"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="635"/>
         <source>Cloud Sync</source>
         <translation>Sincronização em Nuvem</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="203"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="215"/>
         <source>Display</source>
         <translation>Tela</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="204"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="216"/>
         <source>Default Applications</source>
         <translation>Aplicativos Padrão</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="205"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="217"/>
         <source>Personalization</source>
         <translation>Personalização</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="206"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="218"/>
         <source>Network</source>
         <translation>Rede</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="207"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="219"/>
         <source>Sound</source>
         <translation>Som</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="208"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="589"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="591"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="220"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="609"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="611"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="209"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="221"/>
         <source>Date and Time</source>
         <translation>Data e Hora</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="210"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="222"/>
         <source>Power</source>
         <translation>Energia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="211"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="223"/>
         <source>Mouse</source>
         <translation>Mouse</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="212"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="601"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="603"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="224"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="621"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="623"/>
         <source>Drawing Tablet</source>
         <translation>Mesa Digitalizadora</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="213"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="225"/>
         <source>Keyboard and Language</source>
         <translation>Teclado e Idioma</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="214"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="226"/>
         <source>Update</source>
         <translation>Atualizar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="215"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="227"/>
         <source>System Info</source>
         <translation>Informação do Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="216"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="228"/>
         <source>General Settings</source>
         <translation>Configurações Gerais</translation>
     </message>
@@ -252,17 +252,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="171"/>
         <source>optional</source>
-        <translation>opcional</translation>
+        <translation>Opcional</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="256"/>
         <source>Password cannot be empty</source>
         <translation>A senha não pode ficar vazia</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="262"/>
-        <source>The password should be different from the username</source>
-        <translation>A senha deve ser diferente do nome de usuário</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
@@ -313,7 +308,7 @@
         <translation>Impressão Digital</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="130"/>
         <source>Add fingerprint</source>
         <translation>Adicionar impressão digital</translation>
     </message>
@@ -358,33 +353,33 @@
         <translation>Obrigatório</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="185"/>
         <source>Wrong password</source>
         <translation>Senha incorreta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="188"/>
         <source>Password cannot be empty</source>
         <translation>A senha não pode ficar vazia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="195"/>
         <source>The password should be different from the username</source>
         <translation>A Senha deve ser diferente do Nome de Usuário</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="201"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation>A senha deve conter letras (sensível a maiúsculas e minúsculas), números ou símbolos especiais (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
         <source>New password should differ from the current one</source>
         <translation>A nova senha deve ser diferente da atual</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="218"/>
         <source>Passwords do not match</source>
         <translation>As senhas não coincidem</translation>
     </message>
@@ -406,7 +401,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation>Ativar o Bluetooth para encontrar dispositivos próximos (alto-falantes, teclado, mouse)</translation>
+        <translation>Ative o Bluetooth para encontrar dispositivos próximos (alto-falantes, teclado, mouse)</translation>
     </message>
 </context>
 <context>
@@ -467,7 +462,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="99"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Ative o Tema para vê-lo no Menu de Inicialização</translation>
+        <translation>Será exibido um tema no Menu de Inicialização</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="120"/>
@@ -484,6 +479,12 @@
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="77"/>
+        <source>Developer Mode</source>
+        <translation>Modo Desenvolvedor</translation>
+        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
         <translation>Programa de Experiência do Usuário</translation>
@@ -493,14 +494,37 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="182"/>
         <source>User Experience Program</source>
         <translation>Programa de Experiência do Usuário</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="183"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Concordar e Participar do Programa de Experiência do Usuário</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="230"/>
+        <source>Developer Mode</source>
+        <translation>Modo Desenvolvedor</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
+        <source>Join developer mode</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
+        <source>Developer Mode</source>
+        <translation>Modo Desenvolvedor</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
+        <source>To join the developer mode, you need to bind the deepin ID. To join the developer mode, you will lose your guarantee. Please note!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -534,46 +558,46 @@
 <context>
     <name>dccV20::datetime::DateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="80"/>
         <source>Auto Sync</source>
         <translation>Sincronização Automática</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="87"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="88"/>
         <source>Confirm</source>
         <translation>Confirmar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="135"/>
         <source>Server</source>
         <translation>Servidor</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="142"/>
         <source>Address</source>
         <translation>Endereço</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="144"/>
         <source>Required</source>
         <translation>Obrigatório</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="235"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="236"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="237"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="344"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="392"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="391"/>
         <source>Customize</source>
         <translation>Personalizar</translation>
     </message>
@@ -670,7 +694,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="49"/>
         <source>Webpage</source>
-        <translation>Site</translation>
+        <translation>Navegador Web</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -682,7 +706,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
         <source>Text</source>
-        <translation>Texto</translation>
+        <translation>Editor de Texto</translation>
         <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
@@ -700,7 +724,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="59"/>
         <source>Picture</source>
-        <translation>Imagem</translation>
+        <translation>Visualizador de Imagem</translation>
         <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
@@ -1044,7 +1068,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="95"/>
         <source>System</source>
-        <translation>Systema</translation>
+        <translation>Sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="95"/>
@@ -1076,7 +1100,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="55"/>
         <source>System Language</source>
-        <translation>Idioma do Sistema</translation>
+        <translation>Idioma</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
@@ -1091,7 +1115,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="51"/>
         <source>System</source>
-        <translation>Systema</translation>
+        <translation>Sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="56"/>
@@ -1129,7 +1153,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
         <source>Add System Language</source>
-        <translation>Adicionar Idioma do Sistema</translation>
+        <translation>Escolha um Idioma</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
@@ -1138,7 +1162,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
         <source>Language List</source>
-        <translation>Lista de Idiomas</translation>
+        <translation>Idioma do Sistema</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
@@ -1666,7 +1690,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="310"/>
         <source>Netmask</source>
-        <translation>Máscara de Subrede</translation>
+        <translation>Máscara de Sub-Rede</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="321"/>
@@ -1731,7 +1755,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="182"/>
         <source>Netmask</source>
-        <translation>Máscara de Subrede</translation>
+        <translation>Máscara de Sub-Rede</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="190"/>
@@ -1829,7 +1853,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="305"/>
         <source>Wireless Network</source>
-        <translation>Rede Sem Fio</translation>
+        <translation>Rede Wi-Fi</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
@@ -3284,12 +3308,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="241"/>
         <source>Connect to hidden network</source>
-        <translation>Conecte-se à rede oculta</translation>
+        <translation>Conecte-se à Rede Oculta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="251"/>
         <source>Wireless Network Adapter</source>
-        <translation>Adaptador de Rede Sem Fio</translation>
+        <translation>Adaptador de Rede Wi-Fi</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
@@ -3369,26 +3393,27 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="60"/>
-        <source>Transparency</source>
-        <translation>Transparência</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="68"/>
         <source>Theme</source>
         <translation>Tema</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="77"/>
         <source>Accent Color</source>
         <translation>Cor de Destaque</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="110"/>
         <source>Window Effect</source>
         <translation>Efeito Janela</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="116"/>
+        <source>Transparency</source>
+        <translation>Transparência</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
@@ -3474,28 +3499,28 @@
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="41"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="52"/>
         <source>Power Saving Mode</source>
-        <translation>Modo de Economia de Energia</translation>
+        <translation>Economia de Energia</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="42"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
         <source>Auto Mode Switch</source>
-        <translation>Modo Automático</translation>
+        <translation>Modo Automático de Economia</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="56"/>
         <source>Password is required to wake up the computer</source>
-        <translation>É necessária uma senha para ativar o computador</translation>
+        <translation>Solicitar senha para ativar o computador</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
         <source>Password is required to wake up the monitor</source>
-        <translation>Senha necessária para ativar o monitor</translation>
+        <translation>Solicitar senha para ativar o monitor</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
@@ -3514,7 +3539,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="220"/>
         <source>Battery critically low</source>
-        <translation>Bateria criticamente fraca</translation>
+        <translation>Bateria Criticamente Fraca</translation>
     </message>
 </context>
 <context>
@@ -3560,7 +3585,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="57"/>
         <source>Lock screen after</source>
-        <translation>Bloquear tela após</translation>
+        <translation>Bloquear a Tela após</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -3604,7 +3629,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="52"/>
         <source>Monitor will suspend after</source>
-        <translation>Suspender o monitor após</translation>
+        <translation>Suspender o Monitor após</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -3620,7 +3645,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="58"/>
         <source>Lock screen after</source>
-        <translation>Bloquear tela após</translation>
+        <translation>Bloquear a Tela após</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -3661,42 +3686,42 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="73"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="74"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
         <source>Personal Hotspot</source>
         <translation>Hotspot Pessoal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
         <source>On Battery</source>
         <translation>Na Bateria</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
         <source>Wired Network</source>
         <translation>Rede Cabeada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
         <source>Wireless Network</source>
         <translation>Rede Wi-Fi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
         <source>Multiple Displays</source>
         <translation>Telas Múltiplas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="335"/>
         <source>Server</source>
         <translation>Servidor</translation>
     </message>
@@ -3843,7 +3868,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="142"/>
         <source>Update Settings</source>
-        <translation>Atualizar Configurações</translation>
+        <translation>Configurações de Atualização</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="143"/>
@@ -4071,7 +4096,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="228"/>
         <source>Install updates</source>
-        <translation>Instalar atualizações</translation>
+        <translation>Instalar Atualizações</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -4158,7 +4183,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="49"/>
         <source>Update Settings</source>
-        <translation>Atualizar Configurações</translation>
+        <translation>Configurações de Atualização</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="62"/>
@@ -4169,18 +4194,18 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="66"/>
         <source>Updates Notification</source>
-        <translation>Notificação de Atualizações</translation>
+        <translation>Notificar Atualizações</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
         <source>Auto Download Updates</source>
-        <translation>Baixar Atualizações Automaticamente</translation>
+        <translation>Baixar Atualizações automaticamente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Baixar automaticamente as atualizações em rede sem fio ou cabeada</translation>
+        <translation>As atualizações serão baixadas automaticamente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="79"/>
@@ -4191,7 +4216,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="83"/>
         <source>Show a notification if system update repository has been modified</source>
-        <translation>Exibir notificação se o Repositório de Atualização do Sistema for modificado</translation>
+        <translation>Notificar se o Repositório de Atualização do Sistema for modificado</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="109"/>
@@ -4202,7 +4227,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="116"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Ative para conectar-se ao Repositório Espelho mais rápido</translation>
+        <translation>O sistema irá se conectar ao espelho mais rápido</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
@@ -4223,7 +4248,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
         <source>Update Settings</source>
-        <translation>Atualizar Configurações</translation>
+        <translation>Configurações de Atualização</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
@@ -4401,60 +4426,60 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="49"/>
+        <location filename="../src/frame/main.cpp" line="60"/>
         <source>Control Center</source>
         <translation>Central de Controle</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="188"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="187"/>
         <source>On Battery</source>
         <translation>Na Bateria</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="188"/>
         <source>Plugged In</source>
         <translation>Na Tomada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="189"/>
         <source>General</source>
         <translation>Geral</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="191"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="190"/>
         <source>Mouse</source>
         <translation>Mouse</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="192"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="191"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="193"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="192"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="194"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="193"/>
         <source>Application Proxy</source>
         <translation>Proxy de Aplicativos</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="195"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="198"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="194"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="197"/>
         <source>System Proxy</source>
         <translation>Proxy do Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="196"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="195"/>
         <source>Time Settings</source>
         <translation>Configurações de Data e Hora</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="197"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="196"/>
         <source>Change System Timezone</source>
-        <translation>Fuso Horário</translation>
+        <translation>Alterar Fuso Horário</translation>
     </message>
 </context>
 <context>
@@ -4462,7 +4487,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Reinicie o computador para usar o sistema e aplicativos corretamente</translation>
+        <translation>Reinicie o computador para usar o sistema e os aplicativos corretamente</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
@@ -4577,12 +4602,12 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
-        <translation>Bateria fraca</translation>
+        <translation>Bateria Fraca</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar ícone do Lançador para à Área de Trabalho</translation>
+        <translation>Envio de Ícone do Lançador para Área de Trabalho</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
@@ -4684,7 +4709,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
         <source>Just updated</source>
-        <translation>Recém atualizado</translation>
+        <translation>Atualizado Recentemente</translation>
     </message>
 </context>
 <context>
@@ -4692,12 +4717,12 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
-        <translation>Clique no ícone para ativar o WIFI</translation>
+        <translation>Clique no ícone para ativar o Wi-Fi</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
         <source>Connect to hidden network</source>
-        <translation>Conecte-se à rede oculta</translation>
+        <translation>Conecte-se à Rede Oculta</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
@@ -4758,7 +4783,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation>Entrar Automaticamente</translation>
+        <translation>Login Automático</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
@@ -5082,7 +5107,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Ative o bluetooth para encontrar dispositivos próximos (alto-falante, teclado, mouse)</translation>
+        <translation>Ative o Bluetooth para encontrar dispositivos próximos (alto-falante, teclado, mouse)</translation>
     </message>
 </context>
 <context>
@@ -5304,7 +5329,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="61"/>
         <source>Change System Timezone</source>
-        <translation>Fuso horário</translation>
+        <translation>Fuso Horário</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="69"/>
@@ -5344,7 +5369,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="195"/>
         <source>Change Timezone</source>
-        <translation>Fuso horário</translation>
+        <translation>Fuso Horário</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
 </context>
@@ -5845,7 +5870,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="111"/>
         <source>System Language</source>
-        <translation>Idioma do Sistema</translation>
+        <translation>Idioma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
@@ -5858,7 +5883,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/keyboard/langwidget.cpp" line="48"/>
         <source>System Language</source>
-        <translation>Idioma do Sistema</translation>
+        <translation>Idioma</translation>
     </message>
 </context>
 <context>
@@ -5940,7 +5965,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
         <source>Double-click Test</source>
-        <translation>Teste de duplo clique</translation>
+        <translation>Teste do Clique Duplo</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
@@ -6056,7 +6081,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="82"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation>Desative a opção se o touchpad não funcionar após ativada</translation>
+        <translation>Desative se o Touchpad não funcionar</translation>
     </message>
 </context>
 <context>
@@ -6362,7 +6387,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
         <source>Netmask</source>
-        <translation>Máscara de sub-rede</translation>
+        <translation>Máscara de Sub-Rede</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="305"/>
@@ -6427,7 +6452,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="195"/>
         <source>Netmask</source>
-        <translation>Máscara de sub-rede</translation>
+        <translation>Máscara de Sub-Rede</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="205"/>
@@ -7985,7 +8010,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="64"/>
         <source>Connect to hidden network</source>
-        <translation>Conecte-se à rede oculta</translation>
+        <translation>Conecte-se à Rede Oculta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
@@ -8102,7 +8127,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Window Effect</source>
-        <translation>Efeito de Janela</translation>
+        <translation>Efeito Janela</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="72"/>
@@ -8163,19 +8188,19 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="47"/>
         <source>On battery</source>
-        <translation>Na bateria</translation>
+        <translation>Na Bateria</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="48"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="50"/>
         <source>Monitor will suspend after</source>
-        <translation>Suspender o monitor após</translation>
+        <translation>Suspender o Monitor após</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="49"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
-        <translation>Suspender o computador após</translation>
+        <translation>Suspender o Computador após</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="62"/>
@@ -8186,7 +8211,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password required to wake up the monitor</source>
-        <translation>Exigir senha para ligar o monitor</translation>
+        <translation>Solicitar senha para ativar o monitor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
@@ -8197,7 +8222,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="107"/>
         <source>Suspend on lid close</source>
-        <translation>Suspender ao fechar a tampa</translation>
+        <translation>Suspender ao fechar a Tampa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="110"/>
@@ -8308,13 +8333,13 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="69"/>
         <source>Low battery</source>
-        <translation>Bateria fraca</translation>
+        <translation>Bateria Fraca</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="70"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="86"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar ícone do Lançador para à Área de Trabalho</translation>
+        <translation>Envio de Ícone do Lançador para Área de Trabalho</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="71"/>
@@ -8435,7 +8460,7 @@ Arraste e solte qualquer imagem, para defini-lá como plano de fundo da iniciali
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Alternar tema para visualizá-lo no menu de inicialização</translation>
+        <translation>Será exibido um tema no Menu de Inicialização</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -8462,70 +8487,70 @@ Arraste e solte qualquer imagem, para defini-lá como plano de fundo da iniciali
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="46"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="138"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="66"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
         <location filename="../src/frame/navigationbar.cpp" line="217"/>
         <source>System Information</source>
         <translation>Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="81"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Distribution:</source>
         <translation>Distribuição:</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="86"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="82"/>
         <source>Distribution Release:</source>
         <translation>Versão da distribuição:</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="91"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="87"/>
         <source>Edition:</source>
         <translation>Versão:</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="95"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="91"/>
         <source>Type:</source>
         <translation>Tipo:</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="98"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="94"/>
         <source>Processor:</source>
         <translation>Processador:</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="102"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Memory:</source>
         <translation>Memória:</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="106"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="102"/>
         <source>Disk:</source>
         <translation>Disco:</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="119"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="115"/>
         <source>Edition License</source>
         <translation>Licença da Versão</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="122"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="118"/>
         <source>End User License Agreement</source>
         <translation>Contrato de Licença do Usuário Final</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="126"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="122"/>
         <source>Boot Menu</source>
         <translation>Menu de Inicialização</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="178"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
     </message>
@@ -8619,7 +8644,7 @@ Arraste e solte qualquer imagem, para defini-lá como plano de fundo da iniciali
         <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
         <location filename="../src/frame/navigationbar.cpp" line="216"/>
         <source>Update</source>
-        <translation>Atualizar</translation>
+        <translation>Atualizações</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
@@ -8655,7 +8680,7 @@ Arraste e solte qualquer imagem, para defini-lá como plano de fundo da iniciali
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="208"/>
         <source>Your system is up to date</source>
-        <translation>O sistema está atualizado</translation>
+        <translation>Sistema Atualizado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="213"/>
@@ -8771,7 +8796,7 @@ Arraste e solte qualquer imagem, para defini-lá como plano de fundo da iniciali
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="114"/>
         <source>Switch Mirror</source>
-        <translation>Alternar espelho</translation>
+        <translation>Alternar Espelho</translation>
     </message>
 </context>
 <context>
@@ -8868,9 +8893,9 @@ Arraste e solte qualquer imagem, para defini-lá como plano de fundo da iniciali
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="61"/>
+        <location filename="../src/frame/main.cpp" line="72"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>A Central de Controle fornece opções para as configurações do sistema.</translation>
     </message>
 </context>
 </TS>

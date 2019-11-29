@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>ਅੱਪਡੇਟ ਇੰਸਟਾਲ ਕੀਤੇ! ਮੁੜ-ਚਾਲੂ ਕਰਨ ਦੀ ਲੋੜ ਹੈ, ਹੁਣੇ ਮੁੜ-ਚਾਲੂ ਕਰਨਾ ਹੈ?</translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਪੱਕਾ ਕਰੋ ਕਿ ਸਾਰਾ ਡਾਟਾ ਸੰਭਾਲਿਆ ਜਾ ਚੁੱਕਾ ਹੈ</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

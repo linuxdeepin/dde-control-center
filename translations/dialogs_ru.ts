@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Обновления установлены, требуется перезагрузка, перезагрузить сейчас?</translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">Убедитесь, что все данные были сохранены, прежде чем продолжить</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation>Перезагрузитесь, чтобы правильно использовать систему и приложения после обновления.</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

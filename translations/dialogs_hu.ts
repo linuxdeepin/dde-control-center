@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Frissítések települtek! Újraindítás szükséges, szeretnéd újraindítani most a számítógépet?</translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">A folytatás előtt ments el mindent</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation>Frissítés után újraindítás szükséges az alkalmazások és a rendszer problémamentes használatához.</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

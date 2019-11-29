@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Atnaujinimai įdiegti! Reikia paleisti kompiuterį iš naujo, padaryti tai dabar?</translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">Prieš tęsdami, įsitikinkite, kad visi duomenys buvo įrašyti</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation>Norėdami tinkamai naudotis sistema ir programomis, paleiskite kompiuterį iš naujo</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Atualizações instaladas! Um reinício é necessário, reiniciar agora?</translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">Primeiro certifique-se que todos os dados foram guardados</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation>Reinicie o computador para utilizar o sistema e as aplicações corretamente</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

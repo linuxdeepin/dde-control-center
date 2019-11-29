@@ -1,22 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
 <context>
     <name>RecoveryDialog</name>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="214"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation type="unfinished"></translation>
+        <translation>Are you sure you want to roll back to %1 backed up on %2?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="217"/>
         <source>Cancel and Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancel and Reboot</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="218"/>
         <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirm</translation>
     </message>
 </context>
 </TS>

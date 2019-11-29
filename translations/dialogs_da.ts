@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Opdateringer installeret! En genstart kræves, genstart nu?</translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">Sørg for at al data er blevet gemt, inden du fortsætter</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation>Genstart computeren for at bruge systemet og programmerne ordentligt</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

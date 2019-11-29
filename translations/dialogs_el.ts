@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Οι ενημερώσεις εγκαταστάθηκαν με επιτυχία! Απαιτείται επανεκκίνηση, να γίνει επανεκκίνηση τώρα;</translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">Βεβαιωθείτε ότι έχουν αποθηκευτεί όλα τα δεδομένα πριν προχωρήσετε</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

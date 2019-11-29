@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>يېڭىلاشنى ئورنىتىش! قايتىدىن قوزغىتىش كېرەك ، ھازىر قايتا قوزغىتامسىز ؟ </translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">داۋاملاشتۇرۇشتىن بۇرۇن ، بارلىق سانلىق مەلۇمات ساقلاش كاپالەتلىك قىلىڭ </translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

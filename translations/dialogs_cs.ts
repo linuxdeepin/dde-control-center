@@ -3,12 +3,8 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Aktualizace nainstalovány. Je potřeba provést opětovné spuštění. Restartovat nyní?</translation>
-    </message>
-    <message>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="vanished">Před pokračováním se ujistěte, že byla všechna data uložena</translation>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation>Spusťte počítač znovu, aby se daly systém a programy používat řádně</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
