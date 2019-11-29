@@ -47,7 +47,9 @@
 #include <DBackgroundGroup>
 #include <DIconButton>
 #include <DApplicationHelper>
+#include <DSlider>
 
+#include <QScrollArea>
 #include <QHBoxLayout>
 #include <QMetaEnum>
 #include <QDebug>
@@ -187,6 +189,73 @@ MainWindow::~MainWindow()
 void MainWindow::onBack()
 {
     popWidget();
+}
+
+void MainWindow::resetTabOrder()
+{
+    if (m_contentStack.size() == 0) {
+        m_navView->setTabKeyNavigation(true);
+        return;
+    }
+    m_navView->setTabKeyNavigation(false);
+
+    QWidget *pre = m_navView;
+    pre->setFocusPolicy(Qt::TabFocus);
+    for (int i =0; i < m_contentStack.size(); ++i) {
+        auto tw = m_contentStack.at(i).second;
+        findFocusChild(tw, pre);
+    }
+}
+
+void MainWindow::findFocusChild(QWidget *w, QWidget *&pre)
+{
+    if (!w->layout() || w->layout()->count() == 0)
+        return;
+
+    auto l = w->layout();
+    findFocusChild(l, pre);
+}
+
+void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
+{
+    for (int i =0; i < l->count(); ++i) {
+        qDebug() << l->itemAt(i);
+        auto cw = l->itemAt(i)->widget();
+        auto cl = l->itemAt(i)->layout();
+
+        if (cw) {
+            if (cw && cw->layout() && cw->layout()->count()) {
+                findFocusChild(cw, pre);
+            }
+
+            if (auto scr = qobject_cast<QScrollArea *>(cw)) {
+                if (scr->widget()) {
+                    findFocusChild(scr->widget(), pre);
+                }
+            }
+
+            if ((!qobject_cast<QAbstractButton *>(cw)
+                 && !qobject_cast<QLineEdit *>(cw)
+                 && !qobject_cast<QAbstractItemView *>(cw)
+                 && !qobject_cast<QAbstractSlider *>(cw)) || !cw->isEnabled()) {
+                cw->setFocusPolicy(Qt::NoFocus);
+                continue;
+            }
+
+            if (!pre) {
+                pre = cw;
+                continue;
+            }
+
+            cw->setFocusPolicy(Qt::TabFocus);
+            setTabOrder(pre, cw);
+            pre = cw;
+        } else if (cl) {
+            if (cl && cl->layout() && cl->layout()->count()) {
+                findFocusChild(cl, pre);
+            }
+        }
+    }
 }
 
 void MainWindow::initAllModule()
@@ -668,22 +737,7 @@ void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, Push
         break;
     }
 
-    if (m_contentStack.size() > 0) {
-        setTabOrder(this->titlebar(), m_navView);
-        m_navView->setFocus();
-
-        QWidget *secondWidget = qobject_cast<QWidget *>(m_contentStack.at(0).second);
-        if (secondWidget != nullptr) {
-            setTabOrder(m_navView, secondWidget);
-        }
-        if (m_contentStack.size() > 1) {
-            QWidget *thirdWidget = qobject_cast<QWidget *>(m_contentStack.at(1).second);
-            if (thirdWidget != nullptr) {
-                setTabOrder(secondWidget, thirdWidget);
-                setTabOrder(thirdWidget, this->titlebar());
-            }
-        }
-    }
+    resetTabOrder();
 }
 
 //First save the third level page, Then pop the third level page

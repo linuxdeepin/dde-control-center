@@ -124,6 +124,9 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onEnterSearchWidget(QString moduleName, QString widget);
     void onBack();
+    void resetTabOrder();
+    void findFocusChild(QWidget *w, QWidget *&pre);
+    void findFocusChild(QLayout *l, QWidget *&pre);
 
 private:
     void changeEvent(QEvent *event) override;
