@@ -81,6 +81,9 @@ public:
     void removeUnExsitData(QString module = "", QString datail = "");
     void setRemoveableDeviceStatus(QString name, bool isExist);
 
+private Q_SLOTS:
+    void onCompleterActivated(QString value);
+
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
 
@@ -94,6 +97,7 @@ private:
     QString containTxtData(QString txt);
     void appendChineseData(SearchBoxStruct data);
     void clearSearchData();
+    bool isLoadText(QString txt);
 
 private:
     QStandardItemModel *m_model;
@@ -112,6 +116,7 @@ private:
     QList<QPair<QString, QString>> m_removedefaultWidgetList;//用于存储可以出设备名称，和该名称对应的页面
     QList<QPair<QString, QString>> m_removeableActualExistList;//存储实际模块是否存在
     bool m_bIsServerType;
+    QList<QPair<QString, bool>> m_serverTxtList;//QString表示和服务器/桌面版有关的文言,bool:true表示只有服务器版会存在,false表示只有桌面版存在
 };
 
 }// namespace search

@@ -24,6 +24,7 @@
  */
 
 #include "datetimemodel.h"
+#include "window/utils.h"
 
 #include <QDateTime>
 #include <QTimeZone>
@@ -37,9 +38,7 @@ DatetimeModel::DatetimeModel(QObject *parent)
     , m_ntp(true)
     , m_bUse24HourType(true)
 {
-    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
-    setting.beginGroup("Release");
-    m_bSystemIsServer = (setting.value("Type").toString() == "Server");
+    m_bSystemIsServer = DCC_NAMESPACE::isServerSystem();
 }
 
 void DatetimeModel::setNTP(bool ntp)

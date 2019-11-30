@@ -66,6 +66,14 @@ SearchWidget::SearchWidget(QWidget *parent)
     //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
     m_bIsServerType = isServerSystem();
 
+    //first存储和服务器/桌面版有关的文言
+    //second : true 用于记录"服务器"才有的搜索数据
+    //second : false用于记录"桌面版"才有的搜索数据
+    m_serverTxtList = {
+        {tr("Server"), true},
+        {tr("Window Effect"), false},
+    };
+
     //first : 可移除设备名称
     //second : 可以除设备具体的页面名称(该页面必须与搜索的页面对应)
     //通过在 loadXml() 301行，使用 “qDebug() << m_searchBoxStruct.fullPagePath.section('/', 2, -1);”解析
@@ -142,6 +150,9 @@ SearchWidget::SearchWidget(QWidget *parent)
             }
         }
     });
+
+    //鼠标点击后直接页面跳转(存在同名信号)
+    connect(m_completer, SIGNAL(activated(QString)), this, SLOT(onCompleterActivated(QString)));
 }
 
 SearchWidget::~SearchWidget()
@@ -332,7 +343,7 @@ void SearchWidget::loadxml()
                             }
 
                             //判断是否为服务器,是服务器时,若当前不是服务器就不添加"Server"
-                            if (tr("Server") == m_searchBoxStruct.translateContent && !m_bIsServerType) {
+                            if (isLoadText(m_searchBoxStruct.translateContent)) {
                                 clearSearchData();
                                 continue;
                             }
@@ -561,6 +572,26 @@ void SearchWidget::clearSearchData()
     m_searchBoxStruct.fullPagePath = "";
 }
 
+//返回值:true,不加载该搜索数据
+bool SearchWidget::isLoadText(QString txt)
+{
+    for (auto data : m_serverTxtList) {
+        //有first数据继续判断second
+        if (data.first == txt) {
+            //second: true,需要是服务器才显示
+            //second:false,需要不是服务器才显示
+            //m_bIsServerType当前是否为服务器,true是服务器(此处要取反,需要根据返回值判断)
+            if (data.second == !m_bIsServerType) {
+                return true;
+            } else {
+                break;
+            }
+        }
+    }
+
+    return false;
+}
+
 void SearchWidget::setLanguage(QString type)
 {
     QString xmlPath = RES_TS_PATH + QString("dde-control-center_%1.ts").arg(type);;
@@ -645,6 +676,12 @@ void SearchWidget::setRemoveableDeviceStatus(QString name, bool isExist)
     } else {
         qWarning() << " Not remember the data , name : " << name;
     }
+}
+
+void SearchWidget::onCompleterActivated(QString value)
+{
+    qDebug() << Q_FUNC_INFO << value;
+    Q_EMIT returnPressed();
 }
 
 bool ddeCompleter::eventFilter(QObject *o, QEvent *e)
