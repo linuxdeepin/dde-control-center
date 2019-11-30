@@ -21,6 +21,9 @@
 
 #include "accountsdetailwidget.h"
 #include "accounntfingeitem.h"
+#include "groupitem.h"
+#include "window/utils.h"
+#include "modules/accounts/usermodel.h"
 #include "modules/accounts/removeuserdialog.h"
 
 #include <DIconButton>
@@ -47,7 +50,10 @@ using namespace DCC_NAMESPACE::accounts;
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
+    , m_groupListView(nullptr)
+    , m_groupItemModel(nullptr)
 {
+    m_isServerSystem = isServerSystem();
     //整体布局
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
@@ -74,6 +80,10 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
     initUserInfo(contentLayout);
     initSetting(contentLayout);
+
+    if (m_isServerSystem) {
+        initGroups(contentLayout);
+    }
 }
 
 void AccountsDetailWidget::setFingerModel(FingerModel *model)
@@ -291,6 +301,81 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     this, [ = ](const QString &avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
     });
+}
+
+void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
+{
+    if (!model) {
+        return;
+    }
+    m_userModel = model;
+    if (!m_groupItemModel)
+        return;
+    m_groupItemModel->clear();
+    for(QString item : m_userModel->getAllGroups()) {
+        GroupItem *it = new GroupItem(item);
+        it->setCheckable(false);
+        m_groupItemModel->appendRow(it);
+    }
+
+    changeUserGroup(m_curUser->groups());
+    connect(m_curUser, &User::groupsChanged, this, &AccountsDetailWidget::changeUserGroup);
+}
+
+void AccountsDetailWidget::initGroups(QVBoxLayout *layout)
+{
+    QStringList userGroup = m_curUser->groups();
+    m_groupListView = new DListView(this);
+    m_groupItemModel = new QStandardItemModel();
+    m_groupListView->setModel(m_groupItemModel);
+    m_groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_groupListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_groupListView->setSelectionMode(QAbstractItemView::NoSelection);
+    m_groupListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    m_groupListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_groupListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_groupListView->setSpacing(1);
+    connect(m_groupListView, &DListView::clicked, this, &AccountsDetailWidget::userGroupClicked);
+    QLabel *groupTip = new QLabel(tr("Group"));
+    layout->addWidget(groupTip);
+    layout->addSpacing(List_Interval);
+    layout->addWidget(m_groupListView);
+}
+
+void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
+{
+    QStringList curUserGroup;
+    int row_count = m_groupItemModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        QStandardItem *itemGroup = m_groupItemModel->item(i, 0);
+        if (itemGroup && itemGroup->checkState()) {
+            curUserGroup << itemGroup->text();
+        }
+    }
+
+    QStandardItem *item = m_groupItemModel->item(index.row() ,index.column());
+    Qt::CheckState state = item->checkState();
+    if (state == Qt::Checked) {
+        curUserGroup.removeOne(item->text());
+    } else {
+        curUserGroup << item->text();
+    }
+
+    Q_EMIT requestSetGroups(m_curUser, curUserGroup);
+}
+
+void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
+{
+    int row_count = m_groupItemModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        QStandardItem *item = m_groupItemModel->item(i, 0);
+        if (item && groups.contains(item->text())) {
+            item->setCheckState(Qt::Checked);
+        } else {
+            item->setCheckState(Qt::Unchecked);
+        }
+    }
+    m_groupItemModel->sort(0);
 }
 
 void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)

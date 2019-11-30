@@ -53,8 +53,9 @@ class QStackedWidget;
 QT_END_NAMESPACE
 
 namespace dcc {
-namespace account {
+namespace accounts {
 class FingerModel;
+class UserModel;
 }
 }
 
@@ -71,6 +72,7 @@ public:
     void initHeadPart(QVBoxLayout *headLayout);
     void initBodyPart(QVBoxLayout *bodyLayout);
     void updateLineEditDisplayStyle(bool edit = false);
+    void setAccountModel(dcc::accounts::UserModel *model);
     void setFingerModel(dcc::accounts::FingerModel *model);
 
 Q_SIGNALS:
@@ -84,22 +86,29 @@ Q_SIGNALS:
     void requestShowFingerSettings(dcc::accounts::User *user);
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(dcc::accounts::User *user);
+    void requestSetGroups(dcc::accounts::User *user, const QStringList &usrGroups);
 
 protected:
     void initUserInfo(QVBoxLayout *layout);
     void initSetting(QVBoxLayout *layout);
+    void initGroups(QVBoxLayout *layout);
 
 private Q_SLOTS:
     void deleteUserClicked();
-
+    void changeUserGroup(const QStringList &groups);
+    void userGroupClicked(const QModelIndex &index);
 private:
     dcc::accounts::User *m_curUser;
+    dcc::accounts::UserModel *m_userModel;
     QLabel *m_fullName;//账户全名
     DTK_WIDGET_NAMESPACE::DIconButton *m_fullNameBtn;//账户全名编辑按钮
     QLineEdit *m_inputLineEdit;//账户全名编辑框
     dcc::accounts::FingerModel *m_model;
     FingerWidget *m_fingerWidget;//指纹界面
     AvatarListWidget *m_avatarListWidget;//图像列表
+    DTK_WIDGET_NAMESPACE::DListView *m_groupListView;
+    QStandardItemModel *m_groupItemModel;
+    bool m_isServerSystem;
 };
 
 }   // namespace accounts

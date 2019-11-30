@@ -98,4 +98,24 @@ void UserModel::setADUserLogind(bool isADUserLogind)
 
     Q_EMIT isADUserLoginChanged(isADUserLogind);
 }
+
+void UserModel::setAllGroups(const QStringList &groups)
+{
+    m_allGroups = groups;
+}
+
+QStringList UserModel::getAllGroups()
+{
+    return m_allGroups;
+}
+
+void UserModel::setPresetGroups(const QStringList &presetGroups)
+{
+    m_presetGroups = presetGroups;
+}
+
+QStringList UserModel::getPresetGroups()
+{
+    return m_presetGroups;
+}
 #endif

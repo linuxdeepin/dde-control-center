@@ -72,6 +72,14 @@ void User::setAvatars(const QList<QString> &avatars)
     Q_EMIT avatarListChanged(m_avatars);
 }
 
+void User::setGroups(const QStringList &groups)
+{
+    if (m_groups != groups) {
+        m_groups = groups;
+        Q_EMIT groupsChanged(m_groups);
+    }
+}
+
 void User::setCurrentAvatar(const QString &avatar)
 {
     if (m_currentAvatar != avatar)

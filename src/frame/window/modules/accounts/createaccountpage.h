@@ -23,6 +23,7 @@
 
 #include "window/namespace.h"
 #include "modules/accounts/user.h"
+#include "modules/accounts/usermodel.h"
 #include "modules/accounts/creationresult.h"
 #include "avatarlistwidget.h"
 #include "widgets/lineeditwidget.h"
@@ -51,10 +52,11 @@ class CreateAccountPage : public QWidget
 public:
     explicit CreateAccountPage(QWidget *parent = nullptr);
     ~CreateAccountPage();
-    void setModel(dcc::accounts::User *user);
+    void setModel(dcc::accounts::UserModel *userModel, dcc::accounts::User *user);
 
 private:
     void initWidgets(QVBoxLayout *layout);
+    void initUsrGroup(QVBoxLayout *layout);
     void createUser();
     bool onPasswordEditFinished(DPasswordEdit *edit);
     bool validatePassword(const QString &password);
@@ -71,11 +73,16 @@ public Q_SLOTS:
 
 private:
     dcc::accounts::User *m_newUser;
+    dcc::accounts::UserModel *m_userModel;
     AvatarListWidget *m_avatarListWidget;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_nameEdit;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_fullnameEdit;
     DTK_WIDGET_NAMESPACE::DPasswordEdit *m_passwdEdit;
     DTK_WIDGET_NAMESPACE::DPasswordEdit *m_repeatpasswdEdit;
+
+    DTK_WIDGET_NAMESPACE::DListView *m_groupListView;
+    QStandardItemModel *m_groupItemModel;
+    bool m_isServerSystem;
 };
 
 }
