@@ -63,11 +63,11 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void refershButton();
+    void onClicked();
 
 private:
     TitleLabel *m_title;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_edit;
-    DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_cancel;
 
     State m_state;
 };

@@ -39,18 +39,12 @@ SettingsHead::SettingsHead(QFrame *parent)
     : SettingsItem(parent)
     , m_title(new TitleLabel)
     , m_edit(new DCommandLinkButton(""))
-    , m_cancel(new DCommandLinkButton(""))
     , m_state(Cancel)
 {
     m_title->setObjectName("SettingsHeadTitle");
 
     // can not translate correctly just using tr()
     m_edit->setText(qApp->translate("SettingsHead", "Edit"));
-    m_edit->setVisible(false);
-
-    // same as above
-    m_cancel->setText(qApp->translate("SettingsHead", "Cancel"));
-    m_cancel->setVisible(false);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setMargin(0);
@@ -59,12 +53,10 @@ SettingsHead::SettingsHead(QFrame *parent)
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_edit);
-    mainLayout->addWidget(m_cancel);
 
     setLayout(mainLayout);
 
-    connect(m_edit, &DCommandLinkButton::clicked, this, &SettingsHead::toEdit);
-    connect(m_cancel, &DCommandLinkButton::clicked, this, &SettingsHead::toCancel);
+    connect(m_edit, &DCommandLinkButton::clicked, this, &SettingsHead::onClicked);
 }
 
 void SettingsHead::setTitle(const QString &title)
@@ -78,8 +70,11 @@ void SettingsHead::setEditEnable(bool state)
     // reset state
     toCancel();
 
-    m_edit->setVisible(state && m_state == Cancel);
-    m_cancel->setVisible(state && m_state == Edit);
+    if (state && m_state == Cancel) {
+        m_edit->setText(qApp->translate("SettingsHead", "Edit"));
+    } else if (state && m_state == Edit) {
+        m_edit->setText(qApp->translate("SettingsHead", "Cancel"));
+    }
 }
 
 void SettingsHead::toEdit()
@@ -98,8 +93,20 @@ void SettingsHead::toCancel()
     Q_EMIT editChanged(false);
 }
 
+void SettingsHead::onClicked()
+{
+    if (m_state == Cancel) {
+        toEdit();
+    } else {
+        toCancel();
+    }
+}
+
 void SettingsHead::refershButton()
 {
-    m_edit->setVisible(m_state == Cancel);
-    m_cancel->setVisible(m_state == Edit);
+    if (m_state == Cancel) {
+        m_edit->setText(qApp->translate("SettingsHead", "Edit"));
+    } else {
+        m_edit->setText(qApp->translate("SettingsHead", "Cancel"));
+    }
 }
