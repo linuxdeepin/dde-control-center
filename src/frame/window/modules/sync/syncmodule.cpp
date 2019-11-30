@@ -5,6 +5,7 @@
 #include "../../../modules/sync/syncmodel.h"
 
 #include "syncwidget.h"
+#include "window/utils.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
@@ -50,7 +51,7 @@ void SyncModule::preInitialize()
     m_model = new dcc::cloudsync::SyncModel;
     m_worker = new dcc::cloudsync::SyncWorker(m_model);
 
-    m_frameProxy->setModuleVisible(this, m_model->syncIsValid());
+    m_frameProxy->setModuleVisible(this, m_model->syncIsValid() && !isServerSystem());
 }
 
 QStringList SyncModule::availPage() const
