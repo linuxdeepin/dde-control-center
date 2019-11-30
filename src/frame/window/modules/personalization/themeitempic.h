@@ -22,13 +22,9 @@
 
 #include "window/namespace.h"
 
-#include "dtkwidget_global.h"
+#include <DSvgRenderer>
 
 #include <QWidget>
-
-DWIDGET_BEGIN_NAMESPACE
-class DSvgRenderer;
-DWIDGET_END_NAMESPACE
 
 class QSize;
 
@@ -52,7 +48,7 @@ protected:
 
 private:
     bool m_isSelected = false;
-    DTK_WIDGET_NAMESPACE::DSvgRenderer *render;
+    DTK_GUI_NAMESPACE::DSvgRenderer *render;
 };
 }
 }

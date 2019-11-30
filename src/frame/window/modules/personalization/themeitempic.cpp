@@ -33,11 +33,13 @@
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
+using DTK_GUI_NAMESPACE::DSvgRenderer;
 
 ThemeItemPic::ThemeItemPic(QWidget *parent)
     : QWidget(parent)
     , m_isSelected(false)
-    , render(new DSvgRenderer)
+    , render(new DSvgRenderer())
 {
 }
 
