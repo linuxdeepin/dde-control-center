@@ -20,6 +20,7 @@
  */
 
 #include "commoninfowidget.h"
+#include "window/utils.h"
 
 #include <DStandardItem>
 
@@ -64,30 +65,35 @@ void CommonInfoWidget::initWidget()
 
 void CommonInfoWidget::initData()
 {
-    m_itemList = {
-        {
-            "dcc_boot_menu",
-            //~ contents_path /commoninfo/Boot Menu
-            tr("Boot Menu"),
-            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget)
-        },
-        {
-            "dcc_developer_mode",
-            //~ contents_path /commoninfo/Developer Mode
-            tr("Developer Mode"),
-            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)
-        },
-        {
-            "dcc_ue_plan", // 小图标
-            //~ contents_path /commoninfo/User Experience Program
-            tr("User Experience Program"),
-            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)
-        },
-//        {
-//            "", tr("Tablet Mode"),
-//            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowTabletModeWidget)
-//        },
-    };
+    m_itemList.append(
+    {"dcc_boot_menu",
+     //~ contents_path /commoninfo/Boot Menu
+     tr("Boot Menu"),
+     QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget)}
+                );
+
+    //以下模块只在非服务器版本使用
+    if (!isServerSystem()) {
+        m_itemList.append(
+        {"dcc_developer_mode",
+         //~ contents_path /commoninfo/Developer Mode
+         tr("Developer Mode"),
+         QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)}
+                    );
+
+        m_itemList.append(
+        {"dcc_ue_plan", // 小图标
+         //~ contents_path /commoninfo/User Experience Program
+         tr("User Experience Program"),
+         QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)}
+                    );
+
+        //预留模块
+//        m_itemList.append({
+//                              "", tr("Tablet Mode"),
+//                              QMetaMethod::fromSignal(&CommonInfoWidget::requestShowTabletModeWidget)}
+//                          );
+    }
 
     for (auto m : m_itemList) {
         DStandardItem *item = new DStandardItem;

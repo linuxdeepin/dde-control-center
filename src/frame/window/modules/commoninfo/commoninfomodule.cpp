@@ -27,6 +27,7 @@
 #include "window/modules/commoninfo/bootwidget.h"
 #include "window/modules/commoninfo/userexperienceprogramwidget.h"
 #include "window/modules/commoninfo/developermodewidget.h"
+#include "window/utils.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::commoninfo;
@@ -122,7 +123,11 @@ int CommonInfoModule::load(QString path)
 QStringList CommonInfoModule::availPage() const
 {
     QStringList sl;
-    sl << "Boot Menu" << "User Experience Program" << "Developer mode";
+    sl << "Boot Menu";
+
+    if (!isServerSystem()) {
+        sl << "User Experience Program" << "Developer mode";
+    }
 
     return sl;
 }
