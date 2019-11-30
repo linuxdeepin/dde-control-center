@@ -39,6 +39,9 @@ public:
     ~RecoveryDialog() override;
 
     void backupInfomation(QString version, QString time);
+    void grabMouseAndKeyboardFocus(bool bgrab = true);
+    void updateRestoringWaitUI();
+    void updateRestoringFailedUI();
 
 Q_SIGNALS:
     void notifyButtonClicked(bool);

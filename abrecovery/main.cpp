@@ -21,12 +21,15 @@
 #include "recoverydialog.h"
 
 #include <DApplication>
+#include <DLog>
+
 #include <QTranslator>
 #include <DDBusSender>
 #include <QDBusConnection>
 #include <QDebug>
 
 DWIDGET_USE_NAMESPACE
+DCORE_USE_NAMESPACE
 
 int main(int argc, char *argv[])
 {
@@ -37,6 +40,9 @@ int main(int argc, char *argv[])
     QTranslator translator;
     translator.load("/usr/share/dde-control-center/translations/recovery_" + QLocale::system().name());
     a.installTranslator(&translator);
+
+    DLogManager::registerConsoleAppender();
+    DLogManager::registerFileAppender();
 
     Manage *recovery = new Manage;
     if (QDBusConnection::sessionBus().registerService("com.deepin.ABRecovery"))

@@ -19,13 +19,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "recoverydialog.h"
+#include "backgroundwidget.h"
 
 #include <DLabel>
 #include <DFontSizeManager>
+#include <DSpinner>
+#include <DStyle>
 
 #include <QDesktopWidget>
 #include <QApplication>
 #include <QWindow>
+#include <QHBoxLayout>
 
 //在"控制中心",进行"Install update"前,会先备份,备份成功后再升级,升级完成需要重启;(重启后在启动列表中选择更新的启动项)
 //然后启动该进程,根据构造函数中的条件逐渐往下判断,都满足则showDialog
@@ -58,49 +62,20 @@ void Manage::showDialog()
     m_dialog->setAttribute(Qt::WA_DeleteOnClose);
     m_dialog->setVisible(true);
     m_dialog->backupInfomation(m_systemRecovery->backupVersion(), getBackupTime());
+    //设置点击按钮不立即关闭当前页面
+    m_dialog->setOnButtonClickedClose(false);
 
     QTimer::singleShot(100, this, [this]() {
-        QDesktopWidget *desktop = qApp->desktop();
-        m_dialog->move((desktop->width() - m_dialog->width()) / 2, (desktop->height() - m_dialog->height()) / 2);
-
-        m_dialog->grab();
-        bool bGrabMouseState = m_dialog->windowHandle()->setMouseGrabEnabled(true);
-        bool bGrabKeyboardState = m_dialog->windowHandle()->setKeyboardGrabEnabled(true);
-        qDebug() << "抓取鼠标焦点(true : 成功)，setMouseGrabEnabled :" << bGrabMouseState;
-        qDebug() << "抓取键盘焦点(true : 成功)， d->setKeyboardGrabEnabled :" << bGrabKeyboardState;
-
-        //获取鼠标焦点失败后，重抓，最多重连3次
-        if (!bGrabMouseState) {
-            QTimer::singleShot(100, this, [this]() {
-                for (int i = 0; i < 3; i++) {
-                    bool state = m_dialog->windowHandle()->setMouseGrabEnabled(true);
-                    qDebug() << "抓取鼠标焦点(true : 成功)，setMouseGrabEnabled :" << state;
-                    if (state) {
-                        break;
-                    }
-                }
-            });
-        }
-
-        //获取键盘焦点失败后，重抓，最多重抓3次
-        if (!bGrabKeyboardState) {
-            QTimer::singleShot(100, this, [this]() {
-                for (int i = 0; i < 3; i++) {
-                    bool state = m_dialog->windowHandle()->setKeyboardGrabEnabled(true);
-                    qDebug() << "抓取键盘焦点(true : 成功)setKeyboardGrabEnabled :" << state;
-                    if (state) {
-                        break;
-                    }
-                }
-            });
-        }
+        m_dialog->grabMouseAndKeyboardFocus();
     });
 
     connect(m_dialog, &RecoveryDialog::notifyButtonClicked, m_sessionManager, [ = ](bool state) {
         //能够进入到弹框页面,说明是满足一切版本回退的条件
         //true: 确认 , 要恢复旧版本
+        qDebug() << " state : " << state << " restoring() : " << m_systemRecovery->restoring();
         if (state) {
             m_systemRecovery->StartRestore();
+            m_dialog->updateRestoringWaitUI();
         } else {
             //false: 取消, 使用升级后的版本,需要重启
             requestReboot();
@@ -108,18 +83,20 @@ void Manage::showDialog()
     });
 
     connect(m_systemRecovery, &AbRecoveryInter::JobEnd, this, [ this ](const QString & kind, bool success, const QString & errMsg) {
-        if ("restore" != kind)
+        qDebug() << "kind : " << kind;
+        if ("restore" != kind) {
             return ;
+        }
 
         //恢复成功,打印log
         if (success) {
             qDebug() << "Restore successed.";
+            exitApp();
         } else {
             //恢复失败,不做处理并退出当前进程
             qWarning() << Q_FUNC_INFO << " , Recovery restore failed. errMsg : " << errMsg;
+            m_dialog->updateRestoringFailedUI();
         }
-
-        exitApp();
     });
 
 }
@@ -189,6 +166,11 @@ RecoveryDialog::RecoveryDialog(DDialog *parent)
 
     this->setWindowFlag(Qt::WindowStaysOnTopHint);
     this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    //触发关闭按钮需要退出当前进程
+    connect(this, &DDialog::closed, [&]{
+        exit(0);
+    });
 }
 
 RecoveryDialog::~RecoveryDialog()
@@ -207,6 +189,86 @@ void RecoveryDialog::backupInfomation(QString version, QString time)
     }
 
     initUI();
+}
+
+void RecoveryDialog::grabMouseAndKeyboardFocus(bool bgrab)
+{
+    QDesktopWidget *desktop = qApp->desktop();
+    move((desktop->width() - width()) / 2, (desktop->height() - height()) / 2);
+    grab();
+
+    if (!bgrab)
+        return;
+
+    bool bGrabMouseState = windowHandle()->setMouseGrabEnabled(true);
+    bool bGrabKeyboardState = windowHandle()->setKeyboardGrabEnabled(true);
+    qDebug() << "抓取鼠标焦点(true : 成功)，setMouseGrabEnabled :" << bGrabMouseState;
+    qDebug() << "抓取键盘焦点(true : 成功)， d->setKeyboardGrabEnabled :" << bGrabKeyboardState;
+
+    //获取鼠标焦点失败后，重抓，最多重连3次
+    if (!bGrabMouseState) {
+        QTimer::singleShot(100, this, [this]() {
+            for (int i = 0; i < 3; i++) {
+                bool state = windowHandle()->setMouseGrabEnabled(true);
+                qDebug() << "抓取鼠标焦点(true : 成功)，setMouseGrabEnabled :" << state;
+                if (state) {
+                    break;
+                }
+            }
+        });
+    }
+
+    //获取键盘焦点失败后，重抓，最多重抓3次
+    if (!bGrabKeyboardState) {
+        QTimer::singleShot(100, this, [this]() {
+            for (int i = 0; i < 3; i++) {
+                bool state = windowHandle()->setKeyboardGrabEnabled(true);
+                qDebug() << "抓取键盘焦点(true : 成功)setKeyboardGrabEnabled :" << state;
+                if (state) {
+                    break;
+                }
+            }
+        });
+    }
+}
+
+//正在进行版本回退中,更新提示信息
+void RecoveryDialog::updateRestoringWaitUI()
+{
+    if (isVisible())
+        setVisible(false);
+
+    BackgroundWidget *w = new BackgroundWidget(true);
+    w->show();
+}
+
+void RecoveryDialog::updateRestoringFailedUI()
+{
+    qDebug() << Q_FUNC_INFO;
+    clearContents();
+    clearButtons();
+
+    if (!isVisible())
+        setVisible(true);
+
+    setCloseButtonVisible(true);
+
+    setIcon(QApplication::style()->standardIcon(DStyle::SP_MessageBoxWarning));
+
+    QWidget *widget = new QWidget(this);
+    setMessage(tr("Rollback failed."));
+    DLabel *txtReminder = new DLabel(tr("目标文件夹位于源文件夹内！"));//此处文言有待产品更新
+    QPalette pe;
+    pe.setColor(QPalette::WindowText, Qt::gray);
+    txtReminder->setPalette(pe);
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addWidget(txtReminder, 0, Qt::AlignCenter);
+    layout->setAlignment(Qt::AlignTop);
+    widget->setLayout(layout);
+    addContent(widget);
+    addButton(tr("Reboot"), true, DDialog::ButtonNormal);
+    setFocus();
+    grabMouseAndKeyboardFocus();
 }
 
 void RecoveryDialog::initUI()

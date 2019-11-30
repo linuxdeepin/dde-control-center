@@ -25,6 +25,8 @@ set(SRCS
     main.cpp
     recoverydialog.h
     recoverydialog.cpp
+    backgroundwidget.h
+    backgroundwidget.cpp
     deepin-ab-recovery.desktop
 )
 
