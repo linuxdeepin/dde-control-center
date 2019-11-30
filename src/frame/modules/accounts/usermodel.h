@@ -54,7 +54,10 @@ public:
     bool isADUserLogind() const { return m_isADUserLogind; }
     void setADUserLogind(bool isADUserLogind);
 #endif
-
+    void setAllGroups(const QStringList &groups);
+    QStringList getAllGroups();
+    void setPresetGroups(const QStringList &presetGroups);
+    QStringList getPresetGroups();
 Q_SIGNALS:
     void userAdded(User *user);
     void userRemoved(User *user);
@@ -66,6 +69,8 @@ Q_SIGNALS:
 
 private:
     QMap<QString, User *> m_userList;
+    QStringList m_allGroups;
+    QStringList m_presetGroups;
 #ifdef DCC_ENABLE_ADDOMAIN
     bool m_isJoinADDomain;
     bool m_isADUserLogind;

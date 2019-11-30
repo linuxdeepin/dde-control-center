@@ -39,7 +39,6 @@ using namespace dcc::accounts;
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : ContentWidget(parent),
       m_user(user),
-
       m_accountSettings(new SettingsGroup),
       m_modifyAvatar(new NextPageWidget),
       m_modifyFullname(new NextPageWidget),

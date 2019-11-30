@@ -57,6 +57,9 @@ public:
     inline const QList<QString> &avatars() const { return m_avatars; }
     void setAvatars(const QList<QString> &avatars);
 
+    inline const QStringList &groups() const { return m_groups; }
+    void setGroups(const QStringList &groups);
+
     inline const QString currentAvatar() const { return m_currentAvatar; }
     void setCurrentAvatar(const QString &avatar);
 
@@ -90,6 +93,7 @@ Q_SIGNALS:
     void currentAvatarChanged(const QString &avatar) const;
     void autoLoginChanged(const bool autoLogin) const;
     void avatarListChanged(const QList<QString> &avatars) const;
+    void groupsChanged(const QStringList &groups) const;
     void onlineChanged(const bool &online) const;
     void nopasswdLoginChanged(const bool nopasswdLogin) const;
     void isCurrentUserChanged(bool isCurrentUser);
@@ -108,6 +112,7 @@ private:
     QString m_currentAvatar;
     QString m_passwordStatus; // NP: no password, P have a password, L user is locked
     QList<QString> m_avatars;
+    QStringList m_groups;
     quint64 m_createdTime;
 };
 

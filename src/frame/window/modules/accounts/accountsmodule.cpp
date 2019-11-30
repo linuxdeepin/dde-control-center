@@ -140,6 +140,7 @@ QStringList AccountsModule::availPage() const
 void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
+    w->setAccountModel(m_userModel);
     w->setFingerModel(m_fingerModel);
 
     if (m_fingerModel->isVaild()) {
@@ -150,6 +151,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
+    connect(w, &AccountsDetailWidget::requestSetGroups, m_accountsWorker, &AccountsWorker::setGroups);
     connect(w, &AccountsDetailWidget::requestBack, this, [&]() {
         m_accountsWidget->setShowFirstUserInfo(false);
     });
@@ -165,7 +167,7 @@ void AccountsModule::onShowCreateAccountPage()
 {
     CreateAccountPage *w = new CreateAccountPage();
     User *newUser = new User(this);
-    w->setModel(newUser);
+    w->setModel(m_userModel, newUser);
     connect(w, &CreateAccountPage::requestCreateUser, m_accountsWorker, &AccountsWorker::createAccount);
     connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
     connect(w, &CreateAccountPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);

@@ -71,6 +71,53 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 #endif
     onUserListChanged(m_accountsInter->userList());
     updateUserOnlineStatus(m_dmInter->sessions());
+    getAllGroups();
+    getPresetGroups();
+}
+
+void AccountsWorker::getAllGroups()
+{
+    QDBusPendingReply<QStringList> reply = m_accountsInter->GetGroups();
+    QDBusPendingCallWatcher *groupResult = new QDBusPendingCallWatcher(reply, this);
+    connect(groupResult, &QDBusPendingCallWatcher::finished, this, &AccountsWorker::getAllGroupsResult);
+}
+
+void AccountsWorker::getAllGroupsResult(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<QStringList> reply = *watch;
+    if (!watch->isError()) {
+        m_userModel->setAllGroups(reply.value());
+    } else {
+        qWarning() << "getAllGroupsResult error." << watch->error();
+    }
+    watch->deleteLater();
+}
+
+void AccountsWorker::getPresetGroups()
+{
+    int userType = DCC_NAMESPACE::isServerSystem() ? 1 : 0;
+    QDBusPendingReply<QStringList> reply = m_accountsInter->GetPresetGroups(userType);
+    QDBusPendingCallWatcher *presetGroupsResult = new QDBusPendingCallWatcher(reply, this);
+    connect(presetGroupsResult, &QDBusPendingCallWatcher::finished, this, &AccountsWorker::getPresetGroupsResult);
+}
+
+void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<QStringList> reply = *watch;
+    if (!watch->isError()) {
+        m_userModel->setPresetGroups(reply.value());
+    } else {
+        qWarning() << "getPresetGroupsResult error." << watch->error();
+    }
+    watch->deleteLater();
+}
+
+void AccountsWorker::setGroups(User *user, const QStringList &usrGroups)
+{
+    AccountsUser *userInter = m_userInters[user];
+    Q_ASSERT(userInter);
+
+    userInter->SetGroups(usrGroups);
 }
 
 void AccountsWorker::active()
@@ -80,6 +127,7 @@ void AccountsWorker::active()
         it.key()->setName(it.value()->userName());
         it.key()->setAutoLogin(it.value()->automaticLogin());
         it.key()->setAvatars(it.value()->iconList());
+        it.key()->setGroups(it.value()->groups());
         it.key()->setCurrentAvatar(it.value()->iconFile());
         it.key()->setCreatedTime(it.value()->createdTime());
     }
@@ -236,11 +284,13 @@ void AccountsWorker::addUser(const QString &userPath)
     connect(userInter, &AccountsUser::NoPasswdLoginChanged, user, &User::setNopasswdLogin);
     connect(userInter, &AccountsUser::PasswordStatusChanged, user, &User::setPasswordStatus);
     connect(userInter, &AccountsUser::CreatedTimeChanged, user, &User::setCreatedTime);
+    connect(userInter, &AccountsUser::GroupsChanged, user, &User::setGroups);
 
     user->setName(userInter->userName());
     user->setFullname(userInter->fullName());
     user->setAutoLogin(userInter->automaticLogin());
     user->setAvatars(userInter->iconList());
+    user->setGroups(userInter->groups());
     user->setCurrentAvatar(userInter->iconFile());
     user->setNopasswdLogin(userInter->noPasswdLogin());
     user->setPasswordStatus(userInter->passwordStatus());
@@ -419,8 +469,6 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     }
 
     // default FullName is empty string
-    bool m_bSystemIsServer;
-    m_bSystemIsServer = isServerSystem();
     auto type = isServerSystem() ? 0 : 1;
     QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->fullname(), type);
 
@@ -442,12 +490,16 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     //TODO(hualet): better to check all the call results.
     bool sifResult = !userDBus->SetIconFile(user->currentAvatar()).isError();
     bool spResult = !userDBus->SetPassword(cryptUserPassword(user->password())).isError();
+    bool groupResult = true;
+    if (isServerSystem()) {
+        groupResult = !userDBus->SetGroups(user->groups()).isError();
+    }
 
-    if (!sifResult || !spResult) {
+    if (!sifResult || !spResult || !groupResult) {
         result->setType(CreationResult::UnknownError);
         if (!sifResult) result->setMessage("set icon file for new created user failed.");
         if (!spResult) result->setMessage("set password for new created user failed");
-
+        if (!groupResult) result->setMessage("set group for new created user failed");
         return result;
     }
 

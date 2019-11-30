@@ -21,6 +21,8 @@
 
 #include "createaccountpage.h"
 #include "widgets/titlelabel.h"
+#include "window/utils.h"
+#include "groupitem.h"
 
 #include <DFontSizeManager>
 
@@ -43,12 +45,15 @@ using namespace DCC_NAMESPACE::accounts;
 CreateAccountPage::CreateAccountPage(QWidget *parent)
     : QWidget(parent)
     , m_newUser{nullptr}
-    , m_avatarListWidget(new AvatarListWidget(m_newUser, this))
     , m_nameEdit(new DLineEdit)
     , m_fullnameEdit(new DLineEdit)
     , m_passwdEdit(new DPasswordEdit)
     , m_repeatpasswdEdit(new DPasswordEdit)
+    , m_avatarListWidget(nullptr)
+    , m_groupListView(nullptr)
+    , m_groupItemModel(nullptr)
 {
+    m_isServerSystem = isServerSystem();
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     mainContentLayout->setMargin(0);
@@ -71,6 +76,10 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     scrollArea->setWidget(tw);
 
     initWidgets(contentLayout);
+    if (m_isServerSystem) {
+        contentLayout->addSpacing(List_Interval);
+        initUsrGroup(contentLayout);
+    }
 
     QHBoxLayout *btnLayout = new QHBoxLayout;
     btnLayout->setMargin(0);
@@ -92,6 +101,34 @@ CreateAccountPage::~CreateAccountPage()
 {
 }
 
+void CreateAccountPage::initUsrGroup(QVBoxLayout *layout)
+{
+    m_groupListView = new DListView(this);
+    m_groupItemModel = new QStandardItemModel();
+    m_groupListView->setModel(m_groupItemModel);
+    m_groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_groupListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_groupListView->setSelectionMode(QAbstractItemView::NoSelection);
+    m_groupListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    m_groupListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_groupListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_groupListView->setSpacing(1);
+    connect(m_groupListView, &DListView::clicked, this, [=](const QModelIndex &index) {
+        QStandardItem *item = m_groupItemModel->item(index.row() ,index.column());
+        Qt::CheckState state = item->checkState();
+        if (state == Qt::Checked) {
+            item->setCheckState(Qt::Unchecked);
+        } else {
+            item->setCheckState(Qt::Checked);
+        }
+        m_groupItemModel->sort(0);
+    });
+    QLabel *groupTip = new QLabel(tr("Group"));
+    layout->addWidget(groupTip);
+    layout->addSpacing(List_Interval);
+    layout->addWidget(m_groupListView);
+}
+
 void CreateAccountPage::initWidgets(QVBoxLayout *layout)
 {
     //~ contents_path /accounts/New Account
@@ -100,6 +137,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     layout->addSpacing(17);
     layout->addWidget(titleLabel);
 
+    m_avatarListWidget = new AvatarListWidget(m_newUser, this);
     m_avatarListWidget->setAvatarSize(QSize(40, 40));
     m_avatarListWidget->setViewportMargins(0, 0, 0, 0);
     m_avatarListWidget->setSpacing(14);
@@ -173,10 +211,34 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
 }
 
-void CreateAccountPage::setModel(User *user)
+void CreateAccountPage::setModel(UserModel *userModel, User *user)
 {
     m_newUser = user;
     Q_ASSERT(m_newUser);
+    m_userModel = userModel;
+    Q_ASSERT(m_userModel);
+
+    if (!m_groupItemModel) {
+        return;
+    }
+    m_groupItemModel->clear();
+    for(QString item : m_userModel->getAllGroups()) {
+        GroupItem *it = new GroupItem(item);
+        it->setCheckable(false);
+        m_groupItemModel->appendRow(it);
+    }
+
+    QStringList presetGroup = m_userModel->getPresetGroups();
+    int row_count = m_groupItemModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        QStandardItem *item = m_groupItemModel->item(i, 0);
+        if (item && presetGroup.contains(item->text())) {
+            item->setCheckState(Qt::Checked);
+        } else {
+            item->setCheckState(Qt::Unchecked);
+        }
+    }
+    m_groupItemModel->sort(0);
 }
 
 void CreateAccountPage::createUser()
@@ -199,6 +261,18 @@ void CreateAccountPage::createUser()
     m_newUser->setFullname(m_fullnameEdit->lineEdit()->text());
     m_newUser->setPassword(m_passwdEdit->lineEdit()->text());
     m_newUser->setRepeatPassword(m_repeatpasswdEdit->lineEdit()->text());
+
+    if (m_isServerSystem) {
+        QStringList usrGroups;
+        int row_count = m_groupItemModel->rowCount();
+        for (int i = 0; i < row_count; ++i) {
+            QStandardItem *item = m_groupItemModel->item(i, 0);
+            if (item->checkState() == Qt::Checked) {
+                usrGroups << item->text();
+            }
+        }
+        m_newUser->setGroups(usrGroups);
+    }
 
     Q_EMIT requestCreateUser(m_newUser);
 }
