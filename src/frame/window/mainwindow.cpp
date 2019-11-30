@@ -238,7 +238,7 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
                  && !qobject_cast<QLineEdit *>(cw)
                  && !qobject_cast<QAbstractItemView *>(cw)
                  && !qobject_cast<QAbstractSlider *>(cw)) || !cw->isEnabled()) {
-                cw->setFocusPolicy(Qt::NoFocus);
+//                cw->setFocusPolicy(Qt::NoFocus);
                 continue;
             }
 
@@ -247,7 +247,7 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
                 continue;
             }
 
-            cw->setFocusPolicy(Qt::TabFocus);
+            cw->setFocusPolicy(Qt::StrongFocus);
             setTabOrder(pre, cw);
             pre = cw;
         } else if (cl) {
