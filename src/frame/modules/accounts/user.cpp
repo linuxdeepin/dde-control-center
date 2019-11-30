@@ -158,3 +158,12 @@ void User::setCreatedTime(const quint64 & createdtime)
 
     Q_EMIT createdTimeChanged(createdtime);
 }
+
+void User::setUserType(const int userType)
+{
+    if (m_userType == userType) {
+        return;
+    }
+    m_userType = userType;
+    Q_EMIT userTypeChanged(userType);
+}

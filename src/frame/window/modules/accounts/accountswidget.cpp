@@ -24,6 +24,7 @@
 #include "modules/accounts/usermodel.h"
 #include "modules/accounts/user.h"
 #include "accountsdetailwidget.h"
+#include "window/utils.h"
 
 #include <DStyleOption>
 #include <DStandardItem>
@@ -122,8 +123,27 @@ void AccountsWidget::addUser(User *user, bool t1)
     m_userList << user;
     DStandardItem *item = new DStandardItem;
     item->setData(0, AccountsWidget::ItemDataRole);
-    m_userItemModel->appendRow(item);
+    if (isServerSystem()) {
+        auto *subTitleAction = new DViewItemAction;
+        if (1 == user->userType()) {
+            subTitleAction->setText("Administrator");
+        }else {
+            subTitleAction->setText("Standard User");
+        }
+        subTitleAction->setFontSize(DFontSizeManager::T8);
+        subTitleAction->setTextColorRole(DPalette::TextTips);
+        item->setTextActionList({subTitleAction});
 
+        connect(user, &User::userTypeChanged, this, [ = ](int userType) {
+            if (1 == userType) {
+                subTitleAction->setText("Administrator");
+            } else {
+                subTitleAction->setText("Standard User");
+            }
+        });
+    }
+
+    m_userItemModel->appendRow(item);
     connectUserWithItem(user);
 
     connect(user, &User::isCurrentUserChanged, this, [ = ](bool isCurrentUser) {

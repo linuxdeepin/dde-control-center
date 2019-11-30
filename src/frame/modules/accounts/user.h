@@ -86,6 +86,8 @@ public:
     inline quint64 createdTime() const { return m_createdTime; }
     void setCreatedTime(const quint64 & createdtime);
 
+    inline int userType() const { return m_userType; }
+    void setUserType(const int userType);
 Q_SIGNALS:
     void passwordModifyFinished(const int exitCode) const;
     void nameChanged(const QString &name) const;
@@ -99,12 +101,14 @@ Q_SIGNALS:
     void isCurrentUserChanged(bool isCurrentUser);
     void passwordStatusChanged(const QString& password) const;
     void createdTimeChanged(const quint64 & createtime);
+    void userTypeChanged(const int userType);
 
 private:
     bool m_isCurrentUser;
     bool m_autoLogin;
     bool m_online;
     bool m_nopasswdLogin;
+    int m_userType;
     QString m_name;
     QString m_fullname;
     QString m_password;
