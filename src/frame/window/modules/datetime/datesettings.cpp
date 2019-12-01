@@ -204,7 +204,9 @@ void DateSettings::onCancelButtonClicked()
 
 void DateSettings::onConfirmButtonClicked()
 {
-    if (m_bSystemIsServer && m_ntpServerList->currentText() == tr("Customize")) {
+    if (m_autoSyncTimeSwitch->checked()
+            && m_bSystemIsServer
+            && m_ntpServerList->currentText() == tr("Customize")) {
         if ("" == m_addressContent->text()) {
             qWarning() << "The customize address is nullptr.";
             return;
