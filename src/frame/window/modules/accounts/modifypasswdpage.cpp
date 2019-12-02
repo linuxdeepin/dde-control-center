@@ -190,11 +190,11 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         return false;
     }
 
-    if (m_curUser->name().toLower() == password.toLower()) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("The password should be different from the username"), -1);
-        return false;
-    }
+//    if (m_curUser->name().toLower() == password.toLower()) {
+//        edit->setAlert(true);
+//        edit->showAlertMessage(tr("The password should be different from the username"), -1);
+//        return false;
+//    }
 
     if (!validatePassword(password)) {
         edit->setAlert(true);
