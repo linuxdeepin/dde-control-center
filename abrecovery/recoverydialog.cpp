@@ -257,12 +257,7 @@ void RecoveryDialog::updateRestoringFailedUI()
 
     QWidget *widget = new QWidget(this);
     setMessage(tr("Rollback failed."));
-    DLabel *txtReminder = new DLabel(tr("目标文件夹位于源文件夹内！"));//此处文言有待产品更新
-    QPalette pe;
-    pe.setColor(QPalette::WindowText, Qt::gray);
-    txtReminder->setPalette(pe);
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(txtReminder, 0, Qt::AlignCenter);
     layout->setAlignment(Qt::AlignTop);
     widget->setLayout(layout);
     addContent(widget);

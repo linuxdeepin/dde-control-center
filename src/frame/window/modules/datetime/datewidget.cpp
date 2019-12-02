@@ -23,6 +23,7 @@
 
 #include <QIntValidator>
 #include <QHBoxLayout>
+#include <QMouseEvent>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
@@ -35,8 +36,8 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
     , m_type(type)
     , m_minimum(minimum)
     , m_maximum(maximum)
-    , m_lineEdit(new QLineEdit)
-    , m_label(new NormalLabel)
+    , m_lineEdit(new TimeSetLineEdit)
+    , m_label(new TimeSetEdit)
     , m_addBtn(new DIconButton(this))
     , m_reducedBtn(new DIconButton(this))
 {
@@ -102,6 +103,14 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
         fixup();
         Q_EMIT editingFinished();
     });
+
+    connect(m_label, &TimeSetEdit::notifyClicked, [this] {
+        m_lineEdit->setFocus();
+    });
+
+    connect(m_lineEdit, &TimeSetLineEdit::notifyClicked, [this] {
+        m_lineEdit->setFocus();
+    });
 }
 
 void DateWidget::setValue(const int &value)
@@ -119,7 +128,6 @@ int DateWidget::value() const
 void DateWidget::slotAdd()
 {
     int value = m_lineEdit->text().toInt() + 1;
-    m_lineEdit->setFocus();
 
     if (value < m_minimum) {
         value = m_maximum;
@@ -135,7 +143,6 @@ void DateWidget::slotAdd()
 void DateWidget::slotReduced()
 {
     int value = m_lineEdit->text().toInt() - 1;
-    m_lineEdit->setFocus();
 
     if (value < m_minimum) {
         value = m_maximum;
@@ -189,6 +196,13 @@ bool DateWidget::eventFilter(QObject *watched, QEvent *event)
     }
 
     return false;
+}
+
+void DateWidget::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        m_lineEdit->setFocus();
+    }
 }
 
 int DateWidget::minimum() const

@@ -22,6 +22,7 @@
 
 #include "window/namespace.h"
 #include "widgets/settingsitem.h"
+#include "timesetedit.h"
 
 #include <DIconButton>
 
@@ -59,7 +60,8 @@ public:
     void setCurrentText(QString text);
 
 protected:
-    bool eventFilter(QObject *watched, QEvent *event);
+    bool eventFilter(QObject *watched, QEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 
 Q_SIGNALS:
     void editingFinished();
@@ -74,8 +76,8 @@ private:
     Type m_type;
     int m_minimum;
     int m_maximum;
-    QLineEdit *m_lineEdit;
-    dcc::widgets::NormalLabel *m_label;
+    TimeSetLineEdit *m_lineEdit;
+    TimeSetEdit *m_label;
     DTK_WIDGET_NAMESPACE::DIconButton *m_addBtn;
     DTK_WIDGET_NAMESPACE::DIconButton *m_reducedBtn;
 };

@@ -159,6 +159,7 @@ set(WINDOW_FILES
     window/modules/datetime/timezonecontentlist.cpp
     window/modules/datetime/systemtimezone.cpp
     window/modules/datetime/datesettings.cpp
+    window/modules/datetime/timesetedit.cpp
     window/modules/datetime/datetimecombox.cpp
     window/modules/datetime/timespinbox.cpp
     window/modules/display/displaymodule.cpp
