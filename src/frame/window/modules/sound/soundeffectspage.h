@@ -26,12 +26,13 @@
 
 #include <DDesktopServices>
 #include <DListView>
+
 #include <QWidget>
+#include <QSound>
 
 QT_BEGIN_NAMESPACE
 class QListView;
 class QVBoxLayout;
-class QSound;
 QT_END_NAMESPACE
 
 namespace dcc {

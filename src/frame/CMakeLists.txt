@@ -70,9 +70,9 @@ set(FRAME_FILES
                 main.cpp
                 dbuscontrolcenterservice.cpp
                 framecontentwrapper.cpp
-                framecontentwrapper.h
-                navigationdelegate.h
-                navigationview.h
+#                framecontentwrapper.h
+#                navigationdelegate.h
+#                navigationview.h
                 # quick_control/bluetooth/bluetoothdelegate.cpp
                 # quick_control/bluetooth/bluetoothdelegate.h
                 # quick_control/bluetooth/bluetoothlist.cpp
@@ -103,43 +103,43 @@ set(FRAME_FILES
                 # quick_control/wifi/wifilistmodel.h
                 # quick_control/basicsettingspage.cpp
                 # quick_control/basicsettingspage.h
-                navigation/navdelegate.cpp
-                navigation/navdelegate.h
-                navigation/navwidget.cpp
-                navigation/navmodel.h
-                navigation/navwidget.h
-                navigation/navmodel.cpp
-                navigationdelegate.cpp
-                notify/notifydelegate.cpp
-                notify/notifywidget.cpp
-                notify/notifydelegate.h
-                notify/notifymodel.h
-                notify/notifywidget.h
-                notify/notifyview.h
-                notify/notifyview.cpp
-                notify/notifymodel.cpp
+#                navigation/navdelegate.cpp
+#                navigation/navdelegate.h
+#                navigation/navwidget.cpp
+#                navigation/navmodel.h
+#                navigation/navwidget.h
+#                navigation/navmodel.cpp
+#                navigationdelegate.cpp
+#                notify/notifydelegate.cpp
+#                notify/notifywidget.cpp
+#                notify/notifydelegate.h
+#                notify/notifymodel.h
+#                notify/notifywidget.h
+#                notify/notifyview.h
+#                notify/notifyview.cpp
+#                notify/notifymodel.cpp
                 dbuscontrolcenterservice.h
-                frame.cpp
-                frame.h
-                framewidget.cpp
-                framewidget.h
-                indicatorwidget.cpp
-                indicatorwidget.h
-                mainwidget.cpp
-                mainwidget.h
+#                frame.cpp
+#                frame.h
+#                framewidget.cpp
+#                framewidget.h
+#                indicatorwidget.cpp
+#                indicatorwidget.h
+#                mainwidget.cpp
+#                mainwidget.h
                 moduleinitthread.cpp
-                moduleinitthread.h
-                navigationbar.cpp
-                navigationbar.h
-                navigationmodel.cpp
-                navigationmodel.h
+#                moduleinitthread.h
+#                navigationbar.cpp
+#                navigationbar.h
+#                navigationmodel.cpp
+#                navigationmodel.h
                 navigationview.cpp
                 pluginscontroller.cpp
-                pluginscontroller.h
-                settingswidget.cpp
-                settingswidget.h
+#                pluginscontroller.h
+#                settingswidget.cpp
+#                settingswidget.h
                 updatenotifier.cpp
-                updatenotifier.h
+#                updatenotifier.h
 )
 
 set(WINDOW_FILES
@@ -307,45 +307,45 @@ set(MODULE_FILES
 
 # load accounts
 set(ACCOUNTS_FILES
-                modules/accounts/accountsmodule.cpp
+#                modules/accounts/accountsmodule.cpp
                 modules/accounts/avatardel.cpp
                 modules/accounts/creationresult.cpp
-                modules/accounts/creationresult.h
+#                modules/accounts/creationresult.h
                 modules/accounts/removeuserdialog.cpp
-                modules/accounts/removeuserdialog.h
+#                modules/accounts/removeuserdialog.h
                 modules/accounts/useroptionitem.cpp
                 modules/accounts/widgets/fingeritem.cpp
                 modules/accounts/widgets/fingeritem.h
-                modules/accounts/widgets/addialog.cpp
-                modules/accounts/widgets/addialog.h
+#                modules/accounts/widgets/addialog.cpp
+#                modules/accounts/widgets/addialog.h
                 modules/accounts/widgets/fingerwidget.cpp
                 modules/accounts/widgets/fingerwidget.h
-                modules/accounts/accountsdetailwidget.cpp
-                modules/accounts/accountsdetailwidget.h
-                modules/accounts/accountsmodule.h
-                modules/accounts/accountswidget.cpp
-                modules/accounts/accountswidget.h
+#                modules/accounts/accountsdetailwidget.cpp
+#                modules/accounts/accountsdetailwidget.h
+#                modules/accounts/accountsmodule.h
+#                modules/accounts/accountswidget.cpp
+#                modules/accounts/accountswidget.h
                 modules/accounts/accountsworker.cpp
                 modules/accounts/accountsworker.h
-                modules/accounts/addfingerpage.cpp
-                modules/accounts/addfingerpage.h
-                modules/accounts/avatardel.h
+#                modules/accounts/addfingerpage.cpp
+#                modules/accounts/addfingerpage.h
+#                modules/accounts/avatardel.h
                 modules/accounts/avatarwidget.cpp
                 modules/accounts/avatarwidget.h
-                modules/accounts/createpage.cpp
-                modules/accounts/createpage.h
+#                modules/accounts/createpage.cpp
+#                modules/accounts/createpage.h
                 modules/accounts/fingermodel.cpp
                 modules/accounts/fingermodel.h
                 modules/accounts/fingerpage.cpp
                 modules/accounts/fingerpage.h
                 modules/accounts/fingerworker.cpp
                 modules/accounts/fingerworker.h
-                modules/accounts/modifyavatarpage.cpp
-                modules/accounts/modifyavatarpage.h
-                modules/accounts/modifyfullnamepage.cpp
-                modules/accounts/modifyfullnamepage.h
-                modules/accounts/modifypasswordpage.cpp
-                modules/accounts/modifypasswordpage.h
+#                modules/accounts/modifyavatarpage.cpp
+#                modules/accounts/modifyavatarpage.h
+#                modules/accounts/modifyfullnamepage.cpp
+#                modules/accounts/modifyfullnamepage.h
+#                modules/accounts/modifypasswordpage.cpp
+#                modules/accounts/modifypasswordpage.h
                 modules/accounts/user.cpp
                 modules/accounts/user.h
                 modules/accounts/usermodel.cpp
@@ -376,28 +376,28 @@ set(ACCOUNTS_FILES
 
 # load bluetooth
 set(BLUETOOTH_FILES
-                modules/bluetooth/bluetoothmodule.cpp
+#                modules/bluetooth/bluetoothmodule.cpp
                 modules/bluetooth/pincodedialog.cpp
-                modules/bluetooth/pincodedialog.h
-                modules/bluetooth/TitleEdit.cpp
-                modules/bluetooth/TitleEdit.h
+#                modules/bluetooth/pincodedialog.h
+#                modules/bluetooth/TitleEdit.cpp
+#                modules/bluetooth/TitleEdit.h
                 modules/bluetooth/adapter.cpp
                 modules/bluetooth/adapter.h
-                modules/bluetooth/adapterwidget.cpp
-                modules/bluetooth/adapterwidget.h
+#                modules/bluetooth/adapterwidget.cpp
+#                modules/bluetooth/adapterwidget.h
                 modules/bluetooth/bluetoothmodel.cpp
                 modules/bluetooth/bluetoothmodel.h
-                modules/bluetooth/bluetoothmodule.h
-                modules/bluetooth/bluetoothwidget.cpp
-                modules/bluetooth/bluetoothwidget.h
+#                modules/bluetooth/bluetoothmodule.h
+#                modules/bluetooth/bluetoothwidget.cpp
+#                modules/bluetooth/bluetoothwidget.h
                 modules/bluetooth/bluetoothworker.cpp
                 modules/bluetooth/bluetoothworker.h
-                modules/bluetooth/detailpage.cpp
-                modules/bluetooth/detailpage.h
+#                modules/bluetooth/detailpage.cpp
+#                modules/bluetooth/detailpage.h
                 modules/bluetooth/device.cpp
-                modules/bluetooth/device.h
-                modules/bluetooth/devicesettingsitem.cpp
-                modules/bluetooth/devicesettingsitem.h
+#                modules/bluetooth/device.h
+#                modules/bluetooth/devicesettingsitem.cpp
+#                modules/bluetooth/devicesettingsitem.h
 
                 window/modules/bluetooth/titleedit.h
                 window/modules/bluetooth/titleedit.cpp
@@ -416,9 +416,9 @@ set(BLUETOOTH_FILES
 #load datetime
 set(DATETIME_FILES
                 modules/datetime/clock.cpp
-                modules/datetime/clock.h
-                modules/datetime/clockitem.cpp
-                modules/datetime/timezone_dialog/consts.h
+#                modules/datetime/clock.h
+#                modules/datetime/clockitem.cpp
+#                modules/datetime/timezone_dialog/consts.h
                 modules/datetime/timezone_dialog/file_util.cpp
                 modules/datetime/timezone_dialog/file_util.h
                 modules/datetime/timezone_dialog/popup_menu_delegate.cpp
@@ -433,47 +433,47 @@ set(DATETIME_FILES
                 modules/datetime/timezone_dialog/timezone_map.cpp
                 modules/datetime/timezone_dialog/timezone_map.h
                 modules/datetime/timezone_dialog/timezonechooser.cpp
-                modules/datetime/timezone_dialog/timezonechooser.h
-                modules/datetime/timezone_dialog/tooltip_pin.h
+#                modules/datetime/timezone_dialog/timezonechooser.h
+#                modules/datetime/timezone_dialog/tooltip_pin.h
                 modules/datetime/timezoneitem.cpp
-                modules/datetime/datetimemodule.cpp
-                modules/datetime/clockitem.h
-                modules/datetime/datesettings.cpp
-                modules/datetime/datesettings.h
-                modules/datetime/datetime.cpp
-                modules/datetime/datetime.h
+#                modules/datetime/datetimemodule.cpp
+#                modules/datetime/clockitem.h
+#                modules/datetime/datesettings.cpp
+#                modules/datetime/datesettings.h
+#                modules/datetime/datetime.cpp
+#                modules/datetime/datetime.h
                 modules/datetime/datetimemodel.cpp
-                modules/datetime/datetimemodel.h
-                modules/datetime/datetimemodule.h
-                modules/datetime/datetimewidget.cpp
-                modules/datetime/datetimewidget.h
+#                modules/datetime/datetimemodel.h
+#                modules/datetime/datetimemodule.h
+#                modules/datetime/datetimewidget.cpp
+#                modules/datetime/datetimewidget.h
                 modules/datetime/datetimework.cpp
-                modules/datetime/datetimework.h
-                modules/datetime/timezoneitem.h
+#                modules/datetime/datetimework.h
+#                modules/datetime/timezoneitem.h
 )
 
 # load defapp
 set(DEFAPP_FILES
                 modules/defapp/defappmodel.cpp
-                modules/defapp/defappmodel.h
-                modules/defapp/defappviewer.cpp
-                modules/defapp/defappwidget.cpp
+#                modules/defapp/defappmodel.h
+#                modules/defapp/defappviewer.cpp
+#                modules/defapp/defappwidget.cpp
                 modules/defapp/model/category.cpp
-                modules/defapp/model/category.h
-                modules/defapp/widgets/defcategoryaddwidget.cpp
-                modules/defapp/widgets/defcategoryaddwidget.h
-                modules/defapp/widgets/funcbutton.cpp
-                modules/defapp/widgets/funcbutton.h
-                modules/defapp/widgets/optionwidget.cpp
-                modules/defapp/widgets/optionwidget.h
+#                modules/defapp/model/category.h
+#                modules/defapp/widgets/defcategoryaddwidget.cpp
+#                modules/defapp/widgets/defcategoryaddwidget.h
+#                modules/defapp/widgets/funcbutton.cpp
+#                modules/defapp/widgets/funcbutton.h
+#                modules/defapp/widgets/optionwidget.cpp
+#                modules/defapp/widgets/optionwidget.h
                 modules/defapp/defappworker.cpp
-                modules/defapp/defappviewer.h
-                modules/defapp/defappwidget.h
-                modules/defapp/defappworker.h
-                modules/defapp/defaultappsmodule.cpp
-                modules/defapp/defaultappsmodule.h
-                modules/defapp/defcategorywidget.cpp
-                modules/defapp/defcategorywidget.h
+#                modules/defapp/defappviewer.h
+#                modules/defapp/defappwidget.h
+#                modules/defapp/defappworker.h
+#                modules/defapp/defaultappsmodule.cpp
+#                modules/defapp/defaultappsmodule.h
+#                modules/defapp/defcategorywidget.cpp
+#                modules/defapp/defcategorywidget.h
 
                 window/modules/defapp/defappwidget.cpp
                 window/modules/defapp/defaultappsmodule.cpp
@@ -482,118 +482,118 @@ set(DEFAPP_FILES
 
 # load display
 set(DISPLAY_FILES
-                modules/display/connectwidget.cpp
+#                modules/display/connectwidget.cpp
                 modules/display/iconbutton.cpp
-                modules/display/iconbutton.h
-                modules/display/miracastworker.cpp
+#                modules/display/iconbutton.h
+#                modules/display/miracastworker.cpp
                 modules/display/monitorindicator.cpp
-                modules/display/monitorindicator.h
+#                modules/display/monitorindicator.h
                 modules/display/recognizedialog.cpp
-                modules/display/brightnesspage.cpp
-                modules/display/displayitemdelegate.cpp
-                modules/display/displayitemdelegate.h
-                modules/display/displaymodule.cpp
+#                modules/display/brightnesspage.cpp
+#                modules/display/displayitemdelegate.cpp
+#                modules/display/displayitemdelegate.h
+#                modules/display/displaymodule.cpp
                 modules/display/monitorcontrolwidget.cpp
-                modules/display/brightnessitem.cpp
-                modules/display/brightnessitem.h
-                modules/display/brightnesspage.h
-                modules/display/connectwidget.h
-                modules/display/customconfigpage.cpp
-                modules/display/customconfigpage.h
-                modules/display/displaycontrolmodel.cpp
-                modules/display/displaycontrolmodel.h
-                modules/display/displaycontrolpage.cpp
-                modules/display/displaycontrolpage.h
+#                modules/display/brightnessitem.cpp
+#                modules/display/brightnessitem.h
+#                modules/display/brightnesspage.h
+#                modules/display/connectwidget.h
+#                modules/display/customconfigpage.cpp
+#                modules/display/customconfigpage.h
+#                modules/display/displaycontrolmodel.cpp
+#                modules/display/displaycontrolmodel.h
+#                modules/display/displaycontrolpage.cpp
+#                modules/display/displaycontrolpage.h
                 modules/display/displaymodel.cpp
-                modules/display/displaymodel.h
-                modules/display/displaymodule.h
-                modules/display/displaywidget.cpp
-                modules/display/displaywidget.h
+#                modules/display/displaymodel.h
+#                modules/display/displaymodule.h
+#                modules/display/displaywidget.cpp
+#                modules/display/displaywidget.h
                 modules/display/displayworker.cpp
-                modules/display/displayworker.h
-                modules/display/miracastdevicemodel.cpp
-                modules/display/miracastdevicemodel.h
-                modules/display/miracastitem.cpp
-                modules/display/miracastitem.h
-                modules/display/miracastmodel.cpp
-                modules/display/miracastmodel.h
-                modules/display/miracastnodevicewidget.cpp
-                modules/display/miracastnodevicewidget.h
-                modules/display/miracastsettings.cpp
-                modules/display/miracastsettings.h
-                modules/display/miracastworker.h
+#                modules/display/displayworker.h
+#                modules/display/miracastdevicemodel.cpp
+#                modules/display/miracastdevicemodel.h
+#                modules/display/miracastitem.cpp
+#                modules/display/miracastitem.h
+#                modules/display/miracastmodel.cpp
+#                modules/display/miracastmodel.h
+#                modules/display/miracastnodevicewidget.cpp
+#                modules/display/miracastnodevicewidget.h
+#                modules/display/miracastsettings.cpp
+#                modules/display/miracastsettings.h
+#                modules/display/miracastworker.h
                 modules/display/monitor.cpp
-                modules/display/monitor.h
-                modules/display/monitorcontrolwidget.h
+#                modules/display/monitor.h
+#                modules/display/monitorcontrolwidget.h
                 modules/display/monitorproxywidget.cpp
-                modules/display/monitorproxywidget.h
-                modules/display/monitorsettingdialog.cpp
-                modules/display/monitorsettingdialog.h
+#                modules/display/monitorproxywidget.h
+#                modules/display/monitorsettingdialog.cpp
+#                modules/display/monitorsettingdialog.h
                 modules/display/monitorsground.cpp
-                modules/display/monitorsground.h
-                modules/display/recognizedialog.h
-                modules/display/resolutiondetailpage.cpp
-                modules/display/resolutiondetailpage.h
-                modules/display/rotatedialog.cpp
-                modules/display/rotatedialog.h
-                modules/display/settingslistwidget.cpp
-                modules/display/settingslistwidget.h
-                modules/display/settingsoptionitem.cpp
-                modules/display/settingsoptionitem.h
-                modules/display/scalingpage.h
-                modules/display/scalingpage.cpp
+#                modules/display/monitorsground.h
+#                modules/display/recognizedialog.h
+#                modules/display/resolutiondetailpage.cpp
+#                modules/display/resolutiondetailpage.h
+#                modules/display/rotatedialog.cpp
+#                modules/display/rotatedialog.h
+#                modules/display/settingslistwidget.cpp
+#                modules/display/settingslistwidget.h
+#                modules/display/settingsoptionitem.cpp
+#                modules/display/settingsoptionitem.h
+#                modules/display/scalingpage.h
+#                modules/display/scalingpage.cpp
 )
 
 # load keyboard
 set(KEYBOARD_FILES
                 modules/keyboard/indexdelegate.cpp
-                modules/keyboard/indexdelegate.h
+#                modules/keyboard/indexdelegate.h
                 modules/keyboard/indexmodel.cpp
-                modules/keyboard/indexmodel.h
+#                modules/keyboard/indexmodel.h
                 modules/keyboard/indexview.cpp
-                modules/keyboard/keyboardcontrol.cpp
-                modules/keyboard/keyboardcontrol.h
-                modules/keyboard/keyboardwidget.cpp
-                modules/keyboard/keyitem.cpp
-                modules/keyboard/keyitem.h
-                modules/keyboard/keylabel.h
-                modules/keyboard/langwidget.cpp
+#                modules/keyboard/keyboardcontrol.cpp
+#                modules/keyboard/keyboardcontrol.h
+#                modules/keyboard/keyboardwidget.cpp
+#                modules/keyboard/keyitem.cpp
+#                modules/keyboard/keyitem.h
+#                modules/keyboard/keylabel.h
+#                modules/keyboard/langwidget.cpp
                 modules/keyboard/shortcutkey.cpp
-                modules/keyboard/shortcutkey.h
-                modules/keyboard/titlebuttonItem.cpp
-                modules/keyboard/keyboardmodule.cpp
+#                modules/keyboard/shortcutkey.h
+#                modules/keyboard/titlebuttonItem.cpp
+#                modules/keyboard/keyboardmodule.cpp
                 modules/keyboard/keylabel.cpp
-                modules/keyboard/checkitem.cpp
-                modules/keyboard/checkitem.h
-                modules/keyboard/customcontent.cpp
-                modules/keyboard/customcontent.h
+#                modules/keyboard/checkitem.cpp
+#                modules/keyboard/checkitem.h
+#                modules/keyboard/customcontent.cpp
+#                modules/keyboard/customcontent.h
                 modules/keyboard/customedit.cpp
-                modules/keyboard/customedit.h
+#                modules/keyboard/customedit.h
                 modules/keyboard/customitem.cpp
-                modules/keyboard/customitem.h
+#                modules/keyboard/customitem.h
                 modules/keyboard/indexframe.cpp
-                modules/keyboard/indexframe.h
-                modules/keyboard/indexview.h
-                modules/keyboard/keyboarddetails.cpp
-                modules/keyboard/keyboarddetails.h
+#                modules/keyboard/indexframe.h
+#                modules/keyboard/indexview.h
+#                modules/keyboard/keyboarddetails.cpp
+#                modules/keyboard/keyboarddetails.h
                 modules/keyboard/keyboardlayoutwidget.cpp
-                modules/keyboard/keyboardlayoutwidget.h
+#                modules/keyboard/keyboardlayoutwidget.h
                 modules/keyboard/keyboardmodel.cpp
-                modules/keyboard/keyboardmodel.h
-                modules/keyboard/keyboardmodule.h
-                modules/keyboard/keyboardwidget.h
+#                modules/keyboard/keyboardmodel.h
+#                modules/keyboard/keyboardmodule.h
+#                modules/keyboard/keyboardwidget.h
                 modules/keyboard/keyboardwork.cpp
-                modules/keyboard/keyboardwork.h
-                modules/keyboard/langwidget.h
+#                modules/keyboard/keyboardwork.h
+#                modules/keyboard/langwidget.h
                 modules/keyboard/shortcutcontent.cpp
-                modules/keyboard/shortcutcontent.h
+#                modules/keyboard/shortcutcontent.h
                 modules/keyboard/shortcutitem.cpp
-                modules/keyboard/shortcutitem.h
+#                modules/keyboard/shortcutitem.h
                 modules/keyboard/shortcutmodel.cpp
-                modules/keyboard/shortcutmodel.h
-                modules/keyboard/shortcutwidget.cpp
-                modules/keyboard/shortcutwidget.h
-                modules/keyboard/titlebuttonItem.h
+#                modules/keyboard/shortcutmodel.h
+#                modules/keyboard/shortcutwidget.cpp
+#                modules/keyboard/shortcutwidget.h
+#                modules/keyboard/titlebuttonItem.h
 
                 window/modules/keyboard/checkitem.h
                 window/modules/keyboard/checkitem.cpp
@@ -617,18 +617,18 @@ set(KEYBOARD_FILES
 
 # load mouse
 set(MOUSE_FILES
-                modules/mouse/mousemodule.h
-                modules/mouse/mousemodule.cpp
-                modules/mouse/mousewidget.h
-                modules/mouse/mousewidget.cpp
-                modules/mouse/mouseworker.h
+#                modules/mouse/mousemodule.h
+#                modules/mouse/mousemodule.cpp
+#                modules/mouse/mousewidget.h
+#                modules/mouse/mousewidget.cpp
+#                modules/mouse/mouseworker.h
                 modules/mouse/mouseworker.cpp
                 modules/mouse/widget/doutestwidget.cpp
-                modules/mouse/widget/doutestwidget.h
+#                modules/mouse/widget/doutestwidget.h
                 modules/mouse/widget/palmdetectsetting.cpp
-                modules/mouse/widget/palmdetectsetting.h
+#                modules/mouse/widget/palmdetectsetting.h
                 modules/mouse/mousemodel.cpp
-                modules/mouse/mousemodel.h
+#                modules/mouse/mousemodel.h
 
                 window/modules/mouse/mousemodule.h
                 window/modules/mouse/mousemodule.cpp
@@ -866,33 +866,33 @@ set(NETWORK_FILES
 # load personalization
 set(PERSONALIZATION_FILES
                 modules/personalization/model/fontmodel.cpp
-                modules/personalization/model/fontmodel.h
+#                modules/personalization/model/fontmodel.h
                 modules/personalization/model/fontsizemodel.cpp
-                modules/personalization/model/fontsizemodel.h
+#                modules/personalization/model/fontsizemodel.h
                 modules/personalization/model/thememodel.cpp
-                modules/personalization/model/thememodel.h
-                modules/personalization/module/fontswidget/fontsettingswidget.cpp
-                modules/personalization/module/fontswidget/fontsizewidget.cpp
-                modules/personalization/module/fontswidget/fontswidget.cpp
-                modules/personalization/module/fontswidget/fontlistwidget.cpp
-                modules/personalization/module/fontswidget/fontlistwidget.h
-                modules/personalization/module/fontswidget/fontsettingswidget.h
-                modules/personalization/module/fontswidget/fontsizewidget.h
-                modules/personalization/module/fontswidget/fontswidget.h
-                modules/personalization/module/themewidget/themewidget.cpp
-                modules/personalization/module/themewidget/theme.cpp
-                modules/personalization/module/themewidget/theme.h
-                modules/personalization/module/themewidget/themewidget.h
-                modules/personalization/personalizationmodule.h
-                modules/personalization/widget/fontitem.cpp
-                modules/personalization/widget/fontitem.h
-                modules/personalization/personalizationmodule.cpp
-                modules/personalization/personalizationwidget.cpp
+#                modules/personalization/model/thememodel.h
+#                modules/personalization/module/fontswidget/fontsettingswidget.cpp
+#                modules/personalization/module/fontswidget/fontsizewidget.cpp
+#                modules/personalization/module/fontswidget/fontswidget.cpp
+#                modules/personalization/module/fontswidget/fontlistwidget.cpp
+#                modules/personalization/module/fontswidget/fontlistwidget.h
+#                modules/personalization/module/fontswidget/fontsettingswidget.h
+#                modules/personalization/module/fontswidget/fontsizewidget.h
+#                modules/personalization/module/fontswidget/fontswidget.h
+#                modules/personalization/module/themewidget/themewidget.cpp
+#                modules/personalization/module/themewidget/theme.cpp
+#                modules/personalization/module/themewidget/theme.h
+#                modules/personalization/module/themewidget/themewidget.h
+#                modules/personalization/personalizationmodule.h
+#                modules/personalization/widget/fontitem.cpp
+#                modules/personalization/widget/fontitem.h
+#                modules/personalization/personalizationmodule.cpp
+#                modules/personalization/personalizationwidget.cpp
                 modules/personalization/personalizationwork.cpp
                 modules/personalization/personalizationmodel.cpp
-                modules/personalization/personalizationmodel.h
-                modules/personalization/personalizationwidget.h
-                modules/personalization/personalizationwork.h
+#                modules/personalization/personalizationmodel.h
+#                modules/personalization/personalizationwidget.h
+#                modules/personalization/personalizationwork.h
 
                 window/modules/personalization/personalizationmodule.h
                 window/modules/personalization/personalizationmodule.cpp
@@ -914,49 +914,49 @@ set(PERSONALIZATION_FILES
 
 # load power
 set(POWER_FILES
-                modules/power/powermodule.cpp
-                modules/power/powermodule.h
-                modules/power/powerwidget.cpp
+#                modules/power/powermodule.cpp
+#                modules/power/powermodule.h
+#                modules/power/powerwidget.cpp
                 modules/power/powerworker.cpp
                 modules/power/powermodel.cpp
-                modules/power/powermodel.h
-                modules/power/powerwidget.h
-                modules/power/powerworker.h
+#                modules/power/powermodel.h
+#                modules/power/powerwidget.h
+#                modules/power/powerworker.h
 )
 
 # load sound
 set(SOUND_FILES
-                modules/sound/portitem.cpp
-                modules/sound/soundmodule.cpp
+#                modules/sound/portitem.cpp
+#                modules/sound/soundmodule.cpp
                 modules/sound/soundworker.cpp
-                modules/sound/widgets/titledsettingsitem.cpp
-                modules/sound/widgets/titledsettingsitem.h
-                modules/sound/advancedpage.cpp
-                modules/sound/advancedpage.h
-                modules/sound/portitem.h
+#                modules/sound/widgets/titledsettingsitem.cpp
+#                modules/sound/widgets/titledsettingsitem.h
+#                modules/sound/advancedpage.cpp
+#                modules/sound/advancedpage.h
+#                modules/sound/portitem.h
                 modules/sound/soundmodel.cpp
-                modules/sound/soundmodel.h
-                modules/sound/soundmodule.h
-                modules/sound/soundwidget.cpp
-                modules/sound/soundwidget.h
-                modules/sound/soundworker.h
-                modules/sound/soundeffectpage.h
-                modules/sound/soundeffectpage.cpp
+#                modules/sound/soundmodel.h
+#                modules/sound/soundmodule.h
+#                modules/sound/soundwidget.cpp
+#                modules/sound/soundwidget.h
+#                modules/sound/soundworker.h
+#                modules/sound/soundeffectpage.h
+#                modules/sound/soundeffectpage.cpp
 )
 
 # load sync
 set(SYNC_FILES
     modules/sync/syncmodel.cpp
-    modules/sync/syncmodel.h
-    modules/sync/syncwidget.cpp
-    modules/sync/syncwidget.h
+#    modules/sync/syncmodel.h
+#    modules/sync/syncwidget.cpp
+#    modules/sync/syncwidget.h
     modules/sync/syncworker.cpp
-    modules/sync/syncworker.h
-    modules/sync/syncstatewidget.h
-    modules/sync/syncstatewidget.cpp
-    modules/sync/syncstateicon.h
+#    modules/sync/syncworker.h
+#    modules/sync/syncstatewidget.h
+#    modules/sync/syncstatewidget.cpp
+#    modules/sync/syncstateicon.h
     modules/sync/syncstateicon.cpp
-    modules/sync/utils.h
+#    modules/sync/utils.h
 
     window/modules/sync/syncmodule.h
     window/modules/sync/syncmodule.cpp
@@ -974,24 +974,24 @@ set(SYNC_FILES
 
 # load systeminfo
 set(SYSTEMINFO_FILES
-                modules/systeminfo/copyrightwidget.h
-                modules/systeminfo/logoitem.h
-                modules/systeminfo/copyrightwidget.cpp
+#                modules/systeminfo/copyrightwidget.h
+#                modules/systeminfo/logoitem.h
+#                modules/systeminfo/copyrightwidget.cpp
                 modules/systeminfo/logoitem.cpp
-                modules/systeminfo/systeminfomodule.cpp
-                modules/systeminfo/systeminfowidget.cpp
-                modules/systeminfo/userlicense.cpp
-                modules/systeminfo/userlicense.h
-                modules/systeminfo/bootwidget.h
-                modules/systeminfo/grubbackgrounditem.h
+#                modules/systeminfo/systeminfomodule.cpp
+#                modules/systeminfo/systeminfowidget.cpp
+#                modules/systeminfo/userlicense.cpp
+#                modules/systeminfo/userlicense.h
+#                modules/systeminfo/bootwidget.h
+#                modules/systeminfo/grubbackgrounditem.h
                 modules/systeminfo/systeminfomodel.cpp
-                modules/systeminfo/systeminfomodel.h
-                modules/systeminfo/systeminfomodule.h
-                modules/systeminfo/systeminfowidget.h
+#                modules/systeminfo/systeminfomodel.h
+#                modules/systeminfo/systeminfomodule.h
+#                modules/systeminfo/systeminfowidget.h
                 modules/systeminfo/systeminfowork.cpp
-                modules/systeminfo/systeminfowork.h
-                modules/systeminfo/bootwidget.cpp
-                modules/systeminfo/grubbackgrounditem.cpp
+#                modules/systeminfo/systeminfowork.h
+#                modules/systeminfo/bootwidget.cpp
+#                modules/systeminfo/grubbackgrounditem.cpp
                 #for V20
                 window/modules/systeminfo/systeminfomodule.h
                 window/modules/systeminfo/systeminfomodule.cpp
@@ -1007,51 +1007,51 @@ set(SYSTEMINFO_FILES
 
 # load update
 set(UPDATE_FILES
-                modules/update/common.h
+#                modules/update/common.h
                 modules/update/loadingitem.cpp
-                modules/update/loadingitem.h
+#                modules/update/loadingitem.h
                 modules/update/resultitem.cpp
-                modules/update/resultitem.h
+#                modules/update/resultitem.h
                 modules/update/summaryitem.cpp
-                modules/update/summaryitem.h
+#                modules/update/summaryitem.h
                 modules/update/updateitem.cpp
-                modules/update/updateitem.h
-                modules/update/updateview.cpp
-                modules/update/updatemodule.cpp
-                modules/update/updatesettings.cpp
+#                modules/update/updateitem.h
+#                modules/update/updateview.cpp
+#                modules/update/updatemodule.cpp
+#                modules/update/updatesettings.cpp
                 modules/update/updatework.cpp
                 modules/update/downloadprogressbar.cpp
-                modules/update/downloadprogressbar.h
-                modules/update/mirroritem.cpp
-                modules/update/mirroritem.h
-                modules/update/mirrorswidget.cpp
-                modules/update/mirrorswidget.h
+#                modules/update/downloadprogressbar.h
+#                modules/update/mirroritem.cpp
+#                modules/update/mirroritem.h
+#                modules/update/mirrorswidget.cpp
+#                modules/update/mirrorswidget.h
                 modules/update/updatectrlwidget.cpp
-                modules/update/updatectrlwidget.h
+#                modules/update/updatectrlwidget.h
                 modules/update/updatemodel.cpp
-                modules/update/updatemodel.h
-                modules/update/updatemodule.h
-                modules/update/updatesettings.h
-                modules/update/updateview.h
-                modules/update/updatework.h
+#                modules/update/updatemodel.h
+#                modules/update/updatemodule.h
+#                modules/update/updatesettings.h
+#                modules/update/updateview.h
+#                modules/update/updatework.h
 )
 
 # load wacom
 set(WACOM_FILES
                 modules/wacom/model/wacommodelbase.cpp
-                modules/wacom/model/wacommodelbase.h
-                modules/wacom/wacommodule.cpp
-                modules/wacom/wacomwidget.cpp
+#                modules/wacom/model/wacommodelbase.h
+#                modules/wacom/wacommodule.cpp
+#                modules/wacom/wacomwidget.cpp
                 modules/wacom/wacomworker.cpp
-                modules/wacom/widget/wacomsettings.cpp
-                modules/wacom/widget/wacomsettings.h
+#                modules/wacom/widget/wacomsettings.cpp
+#                modules/wacom/widget/wacomsettings.h
                 modules/wacom/wacommodel.cpp
-                modules/wacom/wacommodel.h
-                modules/wacom/wacommodepage.cpp
-                modules/wacom/wacommodepage.h
-                modules/wacom/wacommodule.h
-                modules/wacom/wacomwidget.h
-                modules/wacom/wacomworker.h
+#                modules/wacom/wacommodel.h
+#                modules/wacom/wacommodepage.cpp
+#                modules/wacom/wacommodepage.h
+#                modules/wacom/wacommodule.h
+#                modules/wacom/wacomwidget.h
+#                modules/wacom/wacomworker.h
                 #v20
 #                window/modules/wacom/wacommodule.h
 #                window/modules/wacom/wacommodule.cpp
@@ -1304,38 +1304,38 @@ ${Qt_LIBS}
 Qt5::Test
 )
 
-set(TEST_SRCS
-    tests/display_test.h
-    ${DISPLAY_FILES}
-    ${WIDGETS_FILES}
-    ${MODULE_FILES}
-)
+#set(TEST_SRCS
+#    tests/display_test.h
+#    ${DISPLAY_FILES}
+#    ${WIDGETS_FILES}
+#    ${MODULE_FILES}
+#)
 
-add_executable(display-unit-test
-    ${TEST_SRCS}
-)
+#add_executable(display-unit-test
+#    ${TEST_SRCS}
+#)
 
-target_include_directories(display-unit-test PUBLIC
-    ${DtkWidget_INCLUDE_DIRS}
-    ${DFrameworkDBus_INCLUDE_DIRS}
-    ${QGSettings_INCLUDE_DIRS}
-    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
-    ${Qt5X11Extras_INCLUDE_DIRS}
-    ${QGSettings_INCLUDE_DIRS}
-    ${XCB_EWMH_INCLUDE_DIRS}
-    ${PROJECT_BINARY_DIR}
-)
+#target_include_directories(display-unit-test PUBLIC
+#    ${DtkWidget_INCLUDE_DIRS}
+#    ${DFrameworkDBus_INCLUDE_DIRS}
+#    ${QGSettings_INCLUDE_DIRS}
+#    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
+#    ${Qt5X11Extras_INCLUDE_DIRS}
+#    ${QGSettings_INCLUDE_DIRS}
+#    ${XCB_EWMH_INCLUDE_DIRS}
+#    ${PROJECT_BINARY_DIR}
+#)
 
-target_link_libraries(display-unit-test PRIVATE
-    ${DISPLAY_TEST_LIBS}
-    ${DFrameworkDBus_LIBRARIES}
-    ${DtkWidget_LIBRARIES}
-    ${Qt5Widgets_LIBRARIES}
-    ${Qt5X11Extras_LIBRARIES}
-    ${Qt5DBus_LIBRARIES}
-    ${QGSettings_LIBRARIES}
-    ${XCB_EWMH_LIBRARIES}
-    ${Qt_LIBS}
-)
+#target_link_libraries(display-unit-test PRIVATE
+#    ${DISPLAY_TEST_LIBS}
+#    ${DFrameworkDBus_LIBRARIES}
+#    ${DtkWidget_LIBRARIES}
+#    ${Qt5Widgets_LIBRARIES}
+#    ${Qt5X11Extras_LIBRARIES}
+#    ${Qt5DBus_LIBRARIES}
+#    ${QGSettings_LIBRARIES}
+#    ${XCB_EWMH_LIBRARIES}
+#    ${Qt_LIBS}
+#)
 
-add_test(NAME display-unit-test COMMAND "${CMAKE_CURRENT_BINARY_DIR}/display-unit-test")
+#add_test(NAME display-unit-test COMMAND "${CMAKE_CURRENT_BINARY_DIR}/display-unit-test")
