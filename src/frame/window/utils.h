@@ -40,6 +40,12 @@ const QMargins ListViweRightSubscriptItemMargin(42, 0, 0, 8);
 const QVariant VListViewRightSubscripItemMargin = QVariant::fromValue(ListViweRightSubscriptItemMargin);
 const int List_Interval = 10;
 
+static QString getSystemTypeName() {
+    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
+    setting.beginGroup("Release");
+    return setting.value("Type").toString();
+}
+
 static bool isServerSystem() {
     QSettings setting("/etc/deepin-version", QSettings::IniFormat);
     setting.beginGroup("Release");

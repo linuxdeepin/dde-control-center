@@ -73,21 +73,23 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_updateLbl->setAlignment(Qt::AlignLeft);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    SettingsGroup *sourceCheckGrp = new SettingsGroup;
-    m_sourceCheck = new SwitchWidget;
-    //~ contents_path /update/Update Settings
-    m_sourceCheck->setTitle(tr("System Repository Detection"));
-    sourceCheckGrp->appendItem(m_sourceCheck);
-    layout->addWidget(sourceCheckGrp);
-    layout->addSpacing(8);
-    DTipLabel *sourceCheckLbl = new DTipLabel(tr("Show a notification if system update repository has been modified"));
-    sourceCheckLbl->setWordWrap(true);
-    sourceCheckLbl->setAlignment(Qt::AlignLeft);
-    QHBoxLayout *sourceCheckLblLayout = new QHBoxLayout;
-    sourceCheckLblLayout->addSpacing(TipLeftInterver);
-    sourceCheckLblLayout->addWidget(sourceCheckLbl);
-    layout->addLayout(sourceCheckLblLayout);
-    layout->addSpacing(8);
+    if (getSystemTypeName() != "Server" && getSystemTypeName() != "Professional") {
+        SettingsGroup *sourceCheckGrp = new SettingsGroup;
+        m_sourceCheck = new SwitchWidget;
+        //~ contents_path /update/Update Settings
+        m_sourceCheck->setTitle(tr("System Repository Detection"));
+        sourceCheckGrp->appendItem(m_sourceCheck);
+        layout->addWidget(sourceCheckGrp);
+        layout->addSpacing(8);
+        DTipLabel *sourceCheckLbl = new DTipLabel(tr("Show a notification if system update repository has been modified"));
+        sourceCheckLbl->setWordWrap(true);
+        sourceCheckLbl->setAlignment(Qt::AlignLeft);
+        QHBoxLayout *sourceCheckLblLayout = new QHBoxLayout;
+        sourceCheckLblLayout->addSpacing(TipLeftInterver);
+        sourceCheckLblLayout->addWidget(sourceCheckLbl);
+        layout->addLayout(sourceCheckLblLayout);
+        layout->addSpacing(8);
+    }
 #endif
 
     ug->setSpacing(List_Interval);
@@ -147,7 +149,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    connect(m_sourceCheck, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetSourceCheck);
+    if (getSystemTypeName() != "Server" && getSystemTypeName() != "Professional") {
+        connect(m_sourceCheck, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetSourceCheck);
+    }
 #endif
 
     setModel(model);
@@ -196,7 +200,9 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_updateLbl->setVisible(model->autoCheckUpdates());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
-    m_sourceCheck->setChecked(model->sourceCheck());
+    if (getSystemTypeName() != "Server" && getSystemTypeName() != "Professional") {
+        connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
+        m_sourceCheck->setChecked(model->sourceCheck());
+    }
 #endif
 }
