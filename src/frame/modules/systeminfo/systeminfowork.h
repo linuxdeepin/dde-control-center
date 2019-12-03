@@ -70,6 +70,7 @@ public Q_SLOTS:
 private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
+    QString getGraphicProcessUnit() const;
 
 #endif
 

@@ -52,6 +52,7 @@ public:
     QString memory() const { return m_memory;}
     QString disk() const { return m_disk;}
     QString kernel() const { return m_kernel;}
+    QString graphicProcessingUnit() const { return m_gpu; }
 
 #ifndef DCC_DISABLE_GRUB
     bool bootDelay() const;
@@ -78,6 +79,7 @@ Q_SIGNALS:
     void memoryChanged(const QString& memory);
     void diskChanged(const QString& disk);
     void kernelChanged(const QString& kernel);
+    void graphicProcessingUnitChanged(const QString &gpu);
 
 public Q_SLOTS:
 #ifndef DCC_DISABLE_GRUB
@@ -94,6 +96,7 @@ public Q_SLOTS:
     void setMemory(qulonglong memory);
     void setDisk(qulonglong disk);
     void setKernel(const QString &kernel);
+    void setGraphicProcessingUnit(const QString &gpu);
 
 private:
 #ifndef DCC_DISABLE_GRUB
@@ -113,6 +116,7 @@ private:
     QString m_memory;
     QString m_disk;
     QString m_kernel;
+    QString m_gpu;
 };
 
 }

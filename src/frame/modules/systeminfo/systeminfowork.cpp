@@ -115,6 +115,7 @@ void SystemInfoWork::activate()
                                             .arg(QThread::idealThreadCount()));
     m_model->setMemory(DSysInfo::memoryTotalSize());
     m_model->setDisk(DSysInfo::systemDiskSize());
+    m_model->setGraphicProcessingUnit(getGraphicProcessUnit());
 }
 
 void SystemInfoWork::deactivate()
@@ -259,6 +260,34 @@ void SystemInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
 
     w->deleteLater();
 }
+
+QString SystemInfoWork::getGraphicProcessUnit() const
+{
+    QProcess process;
+    //这里查询所有的显卡信息(查询/sys/class/drm目录下的card0 card1 card2 ...这样的目录)
+    process.start("/bin/sh", QStringList()<< "-c" << R"(cd /sys/class/drm && ls | grep -P "card\d+" | xargs -n 1 -i cat {}/device/uevent | perl -lne 'next unless m{PCI_SLOT_NAME=(.+)$};print $1' | xargs -n 1 lspci -s
+)");
+    process.waitForFinished();
+    QString info_str(QString::fromUtf8(process.readAll()));
+    QRegularExpression regex_ex(R"(^.*controller:\s*(.+)$)");
+    QString gpu_info;
+
+    //对执行命令后获取的文本逐行匹配
+    for (const auto &line_str : info_str.split("\n")) {
+        auto match = regex_ex.match(line_str);
+        if (match.hasMatch()) {
+            gpu_info += match.captured(1) + "\n";
+        }
+    }
+
+    //去掉最后的多余换行符
+    if (gpu_info.endsWith("\n")) {
+        gpu_info.chop(1);
+    }
+
+    return gpu_info;
+}
+
 #endif
 
 }

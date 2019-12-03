@@ -196,5 +196,14 @@ void SystemInfoModel::setKernel(const QString &kernel)
     kernelChanged(kernel);
 }
 
+void SystemInfoModel::setGraphicProcessingUnit(const QString &gpu)
+{
+    if (m_gpu == gpu)
+        return;
+
+    m_gpu = gpu;
+    graphicProcessingUnitChanged(gpu);
+}
+
 }
 }

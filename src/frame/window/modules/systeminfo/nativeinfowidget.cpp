@@ -82,6 +82,11 @@ void NativeInfoWidget::initWidget()
     m_disk->setTitle(tr("Disk:"));
     m_disk->setValue(m_model->disk());
 
+    m_gpu = new TitleValueItem();
+    //~ contents_path /systeminfo/About This PC
+    m_gpu->setTitle(tr("Graphics Card:"));
+    m_gpu->setValue(m_model->graphicProcessingUnit());
+
     infoGroup->appendItem(logo);
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
@@ -89,6 +94,7 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);
     infoGroup->appendItem(m_disk);
+    infoGroup->appendItem(m_gpu);
     infoGroup->setSpacing(10);
     m_mainLayout->setMargin(0);
     m_mainLayout->addWidget(infoGroup);
@@ -100,6 +106,7 @@ void NativeInfoWidget::initWidget()
     connect(m_model, &SystemInfoModel::processorChanged, this, &NativeInfoWidget::setProcessor);
     connect(m_model, &SystemInfoModel::memoryChanged, this, &NativeInfoWidget::setMemory);
     connect(m_model, &SystemInfoModel::diskChanged, this, &NativeInfoWidget::setDisk);
+    connect(m_model, &SystemInfoModel::graphicProcessingUnitChanged, this, &NativeInfoWidget::setGraphicProcessingUnit);
 
     setType(m_model->type());
 }
@@ -127,6 +134,11 @@ void NativeInfoWidget::setMemory(const QString &memory)
 void NativeInfoWidget::setDisk(const QString &disk)
 {
     m_disk->setValue(disk);
+}
+
+void NativeInfoWidget::setGraphicProcessingUnit(const QString &gpu)
+{
+    m_gpu->setValue(gpu);
 }
 
 const QString NativeInfoWidget::systemCopyright() const
