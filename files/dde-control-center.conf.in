@@ -5,4 +5,4 @@ STRONG_PASSWORD=@STRONG_PASSWORD@
 AllowEnableMultiScaleRatio=@AllowEnableMultiScaleRatio@
 
 [CloudSync]
-AllowCloudSync=@AllowCloudSync@
+AllowCloudSync=false

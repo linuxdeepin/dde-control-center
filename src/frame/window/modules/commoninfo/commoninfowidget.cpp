@@ -73,7 +73,7 @@ void CommonInfoWidget::initData()
                 );
 
     //以下模块只在非服务器版本使用
-    if (!isServerSystem()) {
+    if (0/*!isServerSystem()*/) {
         m_itemList.append(
         {"dcc_developer_mode",
          //~ contents_path /commoninfo/Developer Mode

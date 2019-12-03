@@ -102,15 +102,18 @@ int CommonInfoModule::load(QString path)
     int indexRow = 0;
     if (path == "Boot Menu") {
         indexRow = 0;
-    } else if (path == "Developer Mode") {
+    }
+    if(0) {
+        if (path == "Developer Mode") {
         // 为开发者模式的search预留
-        indexRow = 1;
-    } else if (path == "User Experience Program") {
+            indexRow = 1;
+        } else if (path == "User Experience Program") {
         // 为用户体验计划的search预留
-        indexRow = 2;
-    } else if (path == "Tablet Mode") {
+            indexRow = 2;
+        } else if (path == "Tablet Mode") {
         // 为平板模式的search预留
         //indexRow = 3;
+        }
     }
 
     QModelIndex idx = list->model()->index(indexRow, 0);
@@ -125,7 +128,7 @@ QStringList CommonInfoModule::availPage() const
     QStringList sl;
     sl << "Boot Menu";
 
-    if (!isServerSystem()) {
+    if (/*!isServerSystem()*/0) {
         sl << "User Experience Program" << "Developer mode";
     }
 
