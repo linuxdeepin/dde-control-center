@@ -511,7 +511,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
         <source>Join developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Afegiu-vos al mode de desenvolupament</translation>
     </message>
 </context>
 <context>
@@ -524,7 +524,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
         <source>To join the developer mode, you need to bind the deepin ID. To join the developer mode, you will lose your guarantee. Please note!</source>
-        <translation type="unfinished"/>
+        <translation>Per afegir-vos al mode de desenvolupament, heu de vincular l&apos;identificador del Deepin. Tingueu en compte que en afegir-vos-hi perdeu la garantia del sistema!</translation>
     </message>
 </context>
 <context>

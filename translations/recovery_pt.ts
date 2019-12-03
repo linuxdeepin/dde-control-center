@@ -4,7 +4,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="214"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation type="unfinished"/>
+        <translation>Tem a certeza que deseja reverter para %1 com a cópia de segurança de %2?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="217"/>

@@ -511,7 +511,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
         <source>Join developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Entwickler-Modus beitreten</translation>
     </message>
 </context>
 <context>
@@ -524,7 +524,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
         <source>To join the developer mode, you need to bind the deepin ID. To join the developer mode, you will lose your guarantee. Please note!</source>
-        <translation type="unfinished"/>
+        <translation>Um in den Entwicklermodus zu wechseln, müssen Sie die Deepin-ID verknüpfen. Wenn Sie in den Entwicklermodus wechseln, verlieren Sie Ihre Garantie. Bitte beachten Sie!</translation>
     </message>
 </context>
 <context>
@@ -3569,7 +3569,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="42"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
         <source>Monitor will suspend after</source>
-        <translation>Ruhezustand des Monitors nach</translation>
+        <translation>Bereitschaftszustand des Monitors nach</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -3577,7 +3577,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation>Ruhezustand des Computers nach</translation>
+        <translation>Bereitschaftszustand des Computers nach</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -3593,7 +3593,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="60"/>
         <source>Suspend on lid close</source>
-        <translation>Ruhezustand wenn Deckel geschlossen</translation>
+        <translation>Bereitschaftszustand beim Schließen des Deckels</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -3629,7 +3629,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="52"/>
         <source>Monitor will suspend after</source>
-        <translation>Ruhezustand des Monitors nach</translation>
+        <translation>Bereitschaftszustand des Monitors nach</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -3637,7 +3637,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="55"/>
         <source>Computer will suspend after</source>
-        <translation>Ruhezustand des Computers nach</translation>
+        <translation>Bereitschaftszustand des Computers nach</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -3653,7 +3653,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="46"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="61"/>
         <source>Suspend on lid close</source>
-        <translation>Ruhezustand wenn Deckel geschlossen</translation>
+        <translation>Bereitschaftszustand beim Schließen des Deckels</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -8194,13 +8194,13 @@ Bei keiner Eingabe werden die Einstellungen in %1s zurückgesetzt.</translation>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="48"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="50"/>
         <source>Monitor will suspend after</source>
-        <translation>Ruhezustand des Monitors nach</translation>
+        <translation>Bereitschaftszustand des Monitors nach</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="49"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
-        <translation>Ruhezustand des Computers nach</translation>
+        <translation>Bereitschaftszustand des Computers nach</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="62"/>
@@ -8222,7 +8222,7 @@ Bei keiner Eingabe werden die Einstellungen in %1s zurückgesetzt.</translation>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="107"/>
         <source>Suspend on lid close</source>
-        <translation>Ruhezustand wenn Deckel geschlossen</translation>
+        <translation>Bereitschaftszustand beim Schließen des Deckels</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="110"/>
@@ -8894,7 +8894,7 @@ Bei keiner Eingabe werden die Einstellungen in %1s zurückgesetzt.</translation>
     <message>
         <location filename="../src/frame/main.cpp" line="72"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>Das Kontrollzentrum stellt die Optionen für die Systemeinstellungen zur Verfügung.</translation>
     </message>
 </context>
 </TS>

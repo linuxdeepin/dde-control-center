@@ -511,7 +511,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
         <source>Join developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Приступи режиму програмера</translation>
     </message>
 </context>
 <context>
@@ -524,7 +524,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
         <source>To join the developer mode, you need to bind the deepin ID. To join the developer mode, you will lose your guarantee. Please note!</source>
-        <translation type="unfinished"/>
+        <translation>За приступ режиму програмера потребно је повезати Дипин ИД. Приступањем режиму програмера губите гаранцију. Имајте ово на уму!</translation>
     </message>
 </context>
 <context>

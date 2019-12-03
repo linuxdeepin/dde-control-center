@@ -481,7 +481,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="77"/>
         <source>Developer Mode</source>
-        <translation>Modo Desenvolvedor</translation>
+        <translation>Modo de Desenvolvedor</translation>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
@@ -506,12 +506,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="230"/>
         <source>Developer Mode</source>
-        <translation>Modo Desenvolvedor</translation>
+        <translation>Modo de Desenvolvedor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
         <source>Join developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Ingressar no Modo de Desenvolvedor</translation>
     </message>
 </context>
 <context>
@@ -519,12 +519,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
         <source>Developer Mode</source>
-        <translation>Modo Desenvolvedor</translation>
+        <translation>Modo de Desenvolvedor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
         <source>To join the developer mode, you need to bind the deepin ID. To join the developer mode, you will lose your guarantee. Please note!</source>
-        <translation type="unfinished"/>
+        <translation>Para ingressar no Modo de Desenvolvedor, é necessário vincular o deepin ID. Atente-se, pois você perderá a garantia.</translation>
     </message>
 </context>
 <context>

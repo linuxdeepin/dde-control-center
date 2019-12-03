@@ -481,7 +481,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="77"/>
         <source>Developer Mode</source>
-        <translation>Modo desarrollador</translation>
+        <translation>Modo Desarrollador</translation>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
@@ -506,12 +506,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="230"/>
         <source>Developer Mode</source>
-        <translation>Modo desarrollador</translation>
+        <translation>Modo Desarrollador</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
         <source>Join developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Entrar en el modo de desarrollador</translation>
     </message>
 </context>
 <context>
@@ -519,12 +519,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
         <source>Developer Mode</source>
-        <translation>Modo desarrollador</translation>
+        <translation>Modo Desarrollador</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
         <source>To join the developer mode, you need to bind the deepin ID. To join the developer mode, you will lose your guarantee. Please note!</source>
-        <translation type="unfinished"/>
+        <translation>Para entrar en el modo de desarrollador, es necesario enlazar el ID de Deepin. Para entrar en el modo de desarrollador, perderás la garantía. Por favor, tenga en cuenta!</translation>
     </message>
 </context>
 <context>
@@ -8894,7 +8894,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/main.cpp" line="72"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>El Centro de control proporciona las opciones para la configuración del sistema.</translation>
     </message>
 </context>
 </TS>

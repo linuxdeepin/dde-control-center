@@ -675,7 +675,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="70"/>
         <source>Add Application</source>
-        <translation type="unfinished"/>
+        <translation>Pridėti programą</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -854,7 +854,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="164"/>
         <source>Rotate Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pasukti ekraną</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -1618,7 +1618,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="261"/>
         <source>Create Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Sukurti prieigos tašką</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
@@ -8896,7 +8896,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/main.cpp" line="72"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>Valdymo centras pateikia sistemos nustatymų parametrus.</translation>
     </message>
 </context>
 </TS>

@@ -4,12 +4,12 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="214"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation type="unfinished"/>
+        <translation>Anda pasti mahu kembali menyandar %1 pada %2?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="217"/>
         <source>Cancel and Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Batal dan But Semula</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="218"/>

@@ -511,7 +511,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
         <source>Join developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Приєднатися до режиму розробника</translation>
     </message>
 </context>
 <context>
@@ -524,7 +524,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
         <source>To join the developer mode, you need to bind the deepin ID. To join the developer mode, you will lose your guarantee. Please note!</source>
-        <translation type="unfinished"/>
+        <translation>Щоб приєднатися до режиму розробника, вам потрібно прив&apos;язати ID Deepin. Якщо приєднатися до режиму розробника, ви втратите свою гарантію. Будь ласка, зверніть увагу!</translation>
     </message>
 </context>
 <context>
@@ -8894,7 +8894,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/main.cpp" line="72"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>Центр керування надає параметри для системних налаштувань.</translation>
     </message>
 </context>
 </TS>

@@ -35,14 +35,14 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="212"/>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Akaun</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="214"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="633"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="635"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Segerak Awan</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
@@ -97,7 +97,7 @@
         <location filename="../src/frame/window/mainwindow.cpp" line="621"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="623"/>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Tablet Lukis</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="225"/>
@@ -112,12 +112,12 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="227"/>
         <source>System Info</source>
-        <translation type="unfinished"/>
+        <translation>Maklumat SIstem</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="228"/>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tetapan Am</translation>
     </message>
 </context>
 <context>
@@ -126,12 +126,12 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="136"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="190"/>
         <source>Full Name</source>
-        <translation type="unfinished"/>
+        <translation>Nama Penuh</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="247"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Ubah Kata Laluan</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
@@ -172,7 +172,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
         <source>Scan again</source>
-        <translation type="unfinished"/>
+        <translation>Imbas lagi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
@@ -193,7 +193,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Cap jari ditambah</translation>
     </message>
 </context>
 <context>
@@ -230,7 +230,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="115"/>
         <source>Full Name</source>
-        <translation type="unfinished"/>
+        <translation>Nama Penuh</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="120"/>
@@ -252,22 +252,22 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="171"/>
         <source>optional</source>
-        <translation type="unfinished"/>
+        <translation>pilihan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="256"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan tidak boleh kosong</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan mesti mengandungi abjad Bahasa Inggeris (sensitif-kata), nombor atau simbol khas (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan tidak sepadan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
@@ -277,7 +277,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Nama pengguna mestilah antara 3 hingga 32 aksara</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="307"/>
@@ -287,7 +287,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="313"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
-        <translation type="unfinished"/>
+        <translation>Nama pengguna mesti hanya mengandungi a~z, 0~9, - atau _</translation>
     </message>
 </context>
 <context>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Padam cap jari</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
@@ -310,7 +310,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="130"/>
         <source>Add fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Tambah cap jari</translation>
     </message>
 </context>
 <context>
@@ -318,7 +318,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="58"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Ubah Kata Laluan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="62"/>
@@ -361,7 +361,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="188"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan tidak boleh kosong</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="195"/>
@@ -371,7 +371,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="201"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan mesti mengandungi abjad Bahasa Inggeris (sensitif-kata), nombor atau simbol khas (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
@@ -381,7 +381,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="218"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan tidak sepadan</translation>
     </message>
 </context>
 <context>
@@ -401,7 +401,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Benarkan Bluetooth untuk mencari peranti berhampiran (pembesar suara, papan kekunci, tetikus)</translation>
     </message>
 </context>
 <context>
@@ -409,7 +409,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Ignore this device</source>
-        <translation type="unfinished"/>
+        <translation>Abai peranti ini</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="45"/>
@@ -419,7 +419,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="51"/>
         <source>Change Name</source>
-        <translation type="unfinished"/>
+        <translation>Ubah Nama</translation>
     </message>
 </context>
 <context>
@@ -481,13 +481,13 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="77"/>
         <source>Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mod Pembangun</translation>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Program Pengalaman Pengguna</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
 </context>
@@ -496,22 +496,22 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="182"/>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Program Pengalaman Pengguna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="183"/>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Setuju dan Sertai Program Pengalaman Pengguna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="230"/>
         <source>Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mod Pembangun</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
         <source>Join developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Sertai mod pembangun</translation>
     </message>
 </context>
 <context>
@@ -519,7 +519,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
         <source>Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mod Pembangun</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
@@ -532,7 +532,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="46"/>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Sertai Program Pengalaman Pengguna</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
@@ -547,12 +547,12 @@
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="78"/>
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="181"/>
         <source>AM</source>
-        <translation type="unfinished"/>
+        <translation>AM</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="181"/>
         <source>PM</source>
-        <translation type="unfinished"/>
+        <translation>PM</translation>
     </message>
 </context>
 <context>
@@ -599,7 +599,7 @@
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="343"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="391"/>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>Suaikan</translation>
     </message>
 </context>
 <context>
@@ -636,7 +636,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="82"/>
         <source>24-hour Time</source>
-        <translation type="unfinished"/>
+        <translation>Waktu 24-jam</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -651,7 +651,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="45"/>
         <source>System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Zon Waktu Sistem</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -675,7 +675,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="70"/>
         <source>Add Application</source>
-        <translation type="unfinished"/>
+        <translation>Tambah Aplikasi</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -686,7 +686,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="291"/>
         <source>Invalid</source>
-        <translation type="unfinished"/>
+        <translation>Tidak sah</translation>
     </message>
 </context>
 <context>
@@ -764,7 +764,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Skrin Utama</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
@@ -774,7 +774,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="105"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Kadar Segar Semula</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="134"/>
@@ -789,18 +789,18 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="266"/>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="268"/>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="325"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Disarankan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="355"/>
         <source>inch</source>
-        <translation type="unfinished"/>
+        <translation>inci</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="356"/>
@@ -848,7 +848,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="138"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Kadar Segar Semula</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
     <message>
@@ -888,7 +888,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
         <source>%1 only</source>
-        <translation type="unfinished"/>
+        <translation>%1 sahaja</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
@@ -898,7 +898,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>Suaikan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
@@ -911,12 +911,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="80"/>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="82"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Disarankan</translation>
     </message>
 </context>
 <context>
@@ -924,7 +924,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="116"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Disarankan</translation>
     </message>
 </context>
 <context>
@@ -1030,13 +1030,13 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="76"/>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>Uji di sini</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="92"/>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Pad Kekunci Numerik</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
@@ -1062,7 +1062,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="93"/>
         <source>Applies to</source>
-        <translation type="unfinished"/>
+        <translation>Diterapkan pada</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
@@ -1130,7 +1130,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
         <source>Speech</source>
-        <translation type="unfinished"/>
+        <translation>Pertuturan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="77"/>
@@ -1153,7 +1153,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
         <source>Add System Language</source>
-        <translation type="unfinished"/>
+        <translation>Tambah Bahasa Sistem</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
@@ -1162,7 +1162,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
         <source>Language List</source>
-        <translation type="unfinished"/>
+        <translation>Senarai Bahasa</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
@@ -1177,13 +1177,13 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="48"/>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Lumpuhkan pad sentuh ketika menaip</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="50"/>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Kelajuan Penatalan</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
@@ -1596,7 +1596,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
-        <translation type="unfinished"/>
+        <translation>Auto Sambung</translation>
     </message>
 </context>
 <context>
@@ -1618,7 +1618,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="261"/>
         <source>Create Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Cipta Kawasan Khas</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
@@ -1788,7 +1788,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="160"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Kawasan Khas Peribadi</translation>
     </message>
 </context>
 <context>
@@ -1826,12 +1826,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="143"/>
         <source>Configure by Network Manager</source>
-        <translation type="unfinished"/>
+        <translation>Dikonfigut oleh Pengurus Rangkaian</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="280"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Kawasan Khas Peribadi</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
@@ -3698,7 +3698,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Kawasan Khas Peribadi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
@@ -3873,7 +3873,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="143"/>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>Labuh</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="144"/>
@@ -4058,7 +4058,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="69"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"/>
+        <translation>Mulakan semula komputer supaya dapat guna sistem dan aplikasi dengan baik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
@@ -4487,12 +4487,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"/>
+        <translation>Mulakan semula komputer supaya dapat guna sistem dan aplikasi dengan baik</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation type="unfinished"/>
+        <translation>Pastikan semua data telah disimpan terlebih dahulu</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -5214,7 +5214,7 @@ simpan, jika tiada apa-apa operaasi, paparan akan dipulihkan selepas %1s.</trans
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>Labuh</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
@@ -5263,7 +5263,7 @@ simpan, jika tiada apa-apa operaasi, paparan akan dipulihkan selepas %1s.</trans
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Segerak Awan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
@@ -8431,7 +8431,7 @@ simpan, jika tiada apa-apa operaasi, paparan akan dipulihkan selepas %1s.</trans
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Segerak Awan</translation>
     </message>
 </context>
 <context>
