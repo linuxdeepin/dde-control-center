@@ -190,12 +190,6 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         return false;
     }
 
-//    if (m_curUser->name().toLower() == password.toLower()) {
-//        edit->setAlert(true);
-//        edit->showAlertMessage(tr("The password should be different from the username"), -1);
-//        return false;
-//    }
-
     if (!validatePassword(password)) {
         edit->setAlert(true);
         edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"), -1);
@@ -207,6 +201,12 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         if (m_oldPasswordEdit->lineEdit()->text() == password) {
             edit->setAlert(true);
             edit->showAlertMessage(tr("New password should differ from the current one"), -1);
+            return false;
+        }
+
+        if (password.size() > 512) {
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("The password length should be less then 512"), -1);
             return false;
         }
     }

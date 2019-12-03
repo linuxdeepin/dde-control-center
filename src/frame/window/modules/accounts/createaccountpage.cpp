@@ -336,6 +336,11 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
 //        edit->showAlertMessage(tr("The password should be different from the username"), -1);
 //        return false;
 //    }
+    if (m_nameEdit->text().size() > 512) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("The password length should be less then 512"), -1);
+        return false;
+    }
 
     bool result = validatePassword(userpassword);
     if (!result) {
