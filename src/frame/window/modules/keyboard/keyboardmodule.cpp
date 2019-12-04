@@ -190,6 +190,7 @@ void KeyboardModule::showSystemLanguageSetting()
     connect(m_systemLanguageWidget, &SystemLanguageWidget::onSystemLanguageAdded, this, &KeyboardModule::onPushSystemLanguageSetting);
     connect(m_systemLanguageWidget, &SystemLanguageWidget::delLocalLang, m_work, &KeyboardWorker::deleteLang);
     connect(m_systemLanguageWidget, &SystemLanguageWidget::setCurLang, m_work, &KeyboardWorker::setLang);
+    connect(m_model, &KeyboardModel::onSetCurLangFinish, m_systemLanguageWidget,&SystemLanguageWidget::onSetCurLang);
     m_frameProxy->pushWidget(this, m_systemLanguageWidget);
 }
 

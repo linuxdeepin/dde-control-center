@@ -89,6 +89,9 @@ public:
     int kbSwitch() const;
     void setKbSwitch(int kbSwitch);
 
+    inline int getLangChangedState() const { return m_status; }
+    void setLangChangedState(const int state);
+
 Q_SIGNALS:
 #ifndef DCC_DISABLE_KBLAYOUT
     void curLayoutChanged(const QString &layout);
@@ -103,7 +106,8 @@ Q_SIGNALS:
     void langChanged(const QList<MetaData> &data);
     void kbSwitchChanged(int kbSwitch);
 
-    void curLocalLangChanged(const QStringList &localLangList);
+    void curLocalLangChanged(const QStringList &localLangList);    
+    void onSetCurLangFinish(const int value);
 
 public Q_SLOTS:
 #ifndef DCC_DISABLE_KBLAYOUT
@@ -132,6 +136,7 @@ private:
     QList<MetaData> m_langList;
     QMap<QStringList, int> m_shortcutMap;
     int m_kbSwitch;
+    int m_status{0};
 };
 }
 }

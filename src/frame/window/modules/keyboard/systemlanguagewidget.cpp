@@ -88,6 +88,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
         onAddLanguage(localLangList[i]);
     }
     onDefault(m_model->curLang());
+    onSetCurLang(m_model->getLangChangedState());
 }
 
 void SystemLanguageWidget::onEdit(bool value)
@@ -145,4 +146,9 @@ void SystemLanguageWidget::onRemoveLang(CheckItem *item)
     if (m_localMaps.size() < 2) {
         m_head->setEditEnable(false);
     }
+}
+
+void SystemLanguageWidget::onSetCurLang(int value)
+{
+        m_group->setEnabled(!value);
 }

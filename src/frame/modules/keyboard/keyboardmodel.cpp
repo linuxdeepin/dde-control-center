@@ -37,6 +37,14 @@ KeyboardModel::KeyboardModel(QObject *parent)
 {
 }
 
+void KeyboardModel::setLangChangedState(const int state)
+{
+    if (m_status != state) {
+        m_status = state;
+        Q_EMIT onSetCurLangFinish(state);
+    }
+}
+
 #ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardModel::setLayoutLists(QMap<QString, QString> lists)
 {

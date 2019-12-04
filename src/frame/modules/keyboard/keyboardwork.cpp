@@ -80,6 +80,8 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
 #ifndef DCC_DISABLE_LANGUAGE
     m_langSelector->setSync(false, false);
 #endif
+    m_model->setLangChangedState(m_langSelector->localeState());
+    connect(m_langSelector, &LangSelector::LocaleStateChanged, m_model, &KeyboardModel::setLangChangedState);
 }
 
 void KeyboardWorker::resetAll() {

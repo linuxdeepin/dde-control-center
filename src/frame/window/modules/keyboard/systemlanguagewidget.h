@@ -57,6 +57,7 @@ public Q_SLOTS:
     void onDefault(const QString &curLang);
     void setCurLangChecked(const QString &curLang);
     void onRemoveLang(CheckItem *item);
+    void onSetCurLang(int value);
 private:
     dcc::keyboard::KeyboardModel *m_model;
     dcc::widgets::SettingsGroup *m_group;
