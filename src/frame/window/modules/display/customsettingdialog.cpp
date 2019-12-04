@@ -273,7 +273,9 @@ void CustomSettingDialog::initRefreshrateList()
         } else {
             item->setCheckState(Qt::CheckState::Unchecked);
         }
+        qDebug() << "set item id data:" << m.id();
         item->setData(QVariant(m.id()), IdRole);
+        item->setData(QVariant(m.rate()), RateRole);
         item->setData(QVariant(m.width()), WidthRole);
         item->setData(QVariant(m.height()), HeightRole);
         item->setText(tstr);
@@ -318,6 +320,7 @@ void CustomSettingDialog::initResolutionList()
         auto *item = new DStandardItem();
 
         item->setData(QVariant(m.id()), IdRole);
+        item->setData(QVariant(m.rate()), RateRole);
         item->setData(QVariant(m.width()), WidthRole);
         item->setData(QVariant(m.height()), HeightRole);
         if (first) {
@@ -414,6 +417,10 @@ void CustomSettingDialog::initPrimaryDialog()
 void CustomSettingDialog::initConnect()
 {
     connect(m_resolutionList, &QListView::clicked, this, [this](QModelIndex idx) {
+        auto check = m_resolutionListModel->data(idx, Qt::CheckStateRole);
+        if (check == Qt::Checked)
+            return;
+
         auto w = m_resolutionListModel->data(idx, WidthRole).toInt();
         auto h = m_resolutionListModel->data(idx, HeightRole).toInt();
         auto id = m_resolutionListModel->data(idx, IdRole).toInt();
@@ -439,28 +446,37 @@ void CustomSettingDialog::initConnect()
         }
     });
     connect(m_rateList, &DListView::clicked, this, [this](QModelIndex idx){
-        if (m_model->isMerge()) {
-            auto w = m_model->primaryMonitor()->currentMode().width();
-            auto h = m_model->primaryMonitor()->currentMode().height();
-            auto rate = m_rateList->model()->data(idx, RateRole).toInt();
+        auto lm = m_rateList->model();
+        auto check = lm->data(idx, Qt::CheckStateRole);
+        if (check == Qt::Checked)
+            return;
 
-            if ((m_model->primaryMonitor()->currentMode().rate() - rate) < 0.00001) {
+        if (m_model->isMerge()) {
+            auto cm = m_model->primaryMonitor()->currentMode();
+            auto w = cm.width();
+            auto h = cm.height();
+            auto rate = lm->data(idx, RateRole).toDouble();
+
+            qDebug() << rate;
+            if (fabs(cm.rate() - rate) < 0.00001) {
                 return;
             }
 
+            qDebug() << rate;
             ResolutionDate res;
             res.w = w;
             res.h = h;
             res.rate = rate;
-            this->requestSetResolution(m_monitor, res);
+            this->requestSetResolution(nullptr, res);
         } else {
-            auto id = m_resolutionListModel->data(idx, IdRole).toInt();
+            auto id = lm->data(idx, IdRole).toInt();
             if (id == m_monitor->currentMode().id()) {
                 return;
             }
 
             ResolutionDate res;
             res.id = id;
+            qDebug() << "request set resolution to id :" << id;
             this->requestSetResolution(m_monitor, res);
         }
     });
@@ -503,10 +519,9 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
     if (!beChecked)
         return;
 
-    if (!m_moniList)
-        return;
+    if (m_moniList)
+        m_moniList->setVisible(false);
 
-    m_moniList->setVisible(false);
     m_resolutionList->setVisible(false);
     m_rateList->setVisible(false);
 

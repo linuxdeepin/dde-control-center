@@ -79,7 +79,7 @@ struct ResolutionDate {
     qint32 id;
     qint32 w;
     qint32 h;
-    qint32 rate{0};
+    double rate{0.0};
 };
 
 Q_SIGNALS:
