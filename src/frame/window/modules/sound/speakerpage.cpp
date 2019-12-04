@@ -86,7 +86,7 @@ void SpeakerPage::initSlider()
     outputSlider->setRightIcon(icon_high);
     outputSlider->setIconSize(QSize(24, 24));
     slider->setTickInterval(1);
-    slider->setSliderPosition(static_cast<int>(m_model->speakerVolume() * 100.0));
+    slider->setValue(static_cast<int>(m_model->speakerVolume() * 100.0));
     slider->setPageStep(1);
 
     auto slotfunc1 = [ = ](int pos) {
@@ -99,7 +99,7 @@ void SpeakerPage::initSlider()
     connect(m_model, &SoundModel::speakerOnChanged, outputSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::speakerVolumeChanged, this, [ = ](double v) {
         slider->blockSignals(true);
-        slider->setSliderPosition(static_cast<int>(v * 100));
+        slider->setValue(static_cast<int>(v * 100));
         slider->blockSignals(false);
         outputSlider->setValueLiteral(QString::number(int(v * 100)) + "%");
     });
