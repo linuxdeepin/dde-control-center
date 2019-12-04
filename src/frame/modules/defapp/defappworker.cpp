@@ -139,8 +139,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         app.Exec = info.filePath();
         app.isUser = true;
 
-        Category *category = getCategory(mime);
-        category->addUserItem(app);
+        onGetListApps();
     } else {
         QFile file(m_userLocalPath +"deepin-custom-" + info.baseName() + ".desktop");
 
@@ -176,8 +175,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         app.Exec = info.filePath();
         app.isUser = true;
 
-        Category *category = getCategory(mime);
-        category->addUserItem(app);
+        onGetListApps();
     }
 }
 
