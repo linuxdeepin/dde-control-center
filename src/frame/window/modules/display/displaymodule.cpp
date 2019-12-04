@@ -27,6 +27,7 @@
 #include "scalingpage.h"
 #include "multiscreensettingpage.h"
 #include "refreshratepage.h"
+#include "window/utils.h"
 
 #include "widgets/timeoutdialog.h"
 #include "modules/display/displaymodel.h"
@@ -121,12 +122,15 @@ QStringList DisplayModule::availPage() const
 {
     QStringList sl;
     sl << "Resolution"
-       << "Display Scaling"
        << "Refresh Rate"
        << "Brightness";
 
     if (m_displayModel && m_displayModel->monitorList().size() > 1) {
         sl << "Multiple Displays";
+    }
+
+    if (isServerSystem()) {
+        sl << "Display Scaling";
     }
 
     return sl;

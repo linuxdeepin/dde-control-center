@@ -123,20 +123,26 @@ void DisplayWidget::initMenuUI()
         //~ contents_path /display/Multiple Displays
         {tr("Multiple Displays"), "dcc_display", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
         //~ contents_path /display/Brightness
-        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
-        //~ contents_path /display/Display Scaling
-        {tr("Display Scaling"), "dcc_screen", QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
+        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)}
     };
 
     m_singleMenuList = {
         //~ contents_path /display/Resolution
         {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
-        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
-///     //~ contents_path /display/Display Scaling
-        {tr("Display Scaling"), "dcc_screen", QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)},
-        //~ contents_path /display/Refresh Rate
-        {tr("Refresh Rate"), "dcc_refresh_rate", QMetaMethod::fromSignal(&DisplayWidget::requestShowRefreshRatePage)}
+        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)}
     };
+    if (!isServerSystem()) {
+        //~ contents_path /display/Display Scaling
+        MenuMethod scaleMenu = {tr("Display Scaling"), "dcc_screen",
+                          QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)};
+        m_multMenuList << scaleMenu;
+        m_singleMenuList << scaleMenu;
+    }
+
+    //~ contents_path /display/Refresh Rate
+    MenuMethod refreshMenu = {tr("Refresh Rate"), "dcc_refresh_rate",
+                              QMetaMethod::fromSignal(&DisplayWidget::requestShowRefreshRatePage)};
+    m_singleMenuList << refreshMenu;
 
     DStandardItem *btn{nullptr};
     for (auto menu : m_multMenuList) {
