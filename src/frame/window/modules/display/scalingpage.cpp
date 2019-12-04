@@ -29,8 +29,6 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
 
-#include <DTipLabel>
-
 #include <QVBoxLayout>
 
 const float MinScreenWidth = 1024.0f;
@@ -52,16 +50,16 @@ ScalingPage::ScalingPage(QWidget *parent)
     m_centralLayout->setSpacing(10);
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
 
-    DTipLabel *tip = new DTipLabel(tr("Some applications cannot be scaled with the specified settings in multi-display environment."));
+    m_tip = new DTipLabel(tr("Some applications cannot be scaled with the specified settings in multi-display environment."));
 
-    tip->setWordWrap(true);
-    tip->adjustSize();
-    tip->setIndent(0);
-    tip->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    tip->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    tip->setContentsMargins(10, 0, 0, 0);
+    m_tip->setWordWrap(true);
+    m_tip->adjustSize();
+    m_tip->setIndent(0);
+    m_tip->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    m_tip->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    m_tip->setContentsMargins(10, 0, 0, 0);
 
-    m_centralLayout->addWidget(tip);
+    m_centralLayout->addWidget(m_tip);
 
     setLayout(m_centralLayout);
 }
@@ -125,9 +123,11 @@ void ScalingPage::addSlider(int monitorID){
     //如果仅一个缩放值可用，则不显示
     auto scale = m_displayModel->uiScale();
     if (fscaleList.size() == 1 && fabs(scale - 1.0) < 0.000001) {
+        m_tip->setText(tr("The monitor only supports 100% display scaling"));
         return;
     }
 
+    m_tip->setText(tr("Some applications cannot be scaled with the specified settings in multi-display environment."));
     //如果当前缩放大于可用缩放，则显示至当前缩放
     while(scale > fscaleList.last().toDouble() && fscaleList.size() < maxList.size()) {
         fscaleList.append(maxList.at(fscaleList.size()));
@@ -146,7 +146,6 @@ void ScalingPage::addSlider(int monitorID){
     if (scaling < 1.0)
         scaling = 1.0;
     slider->setValue(convertToSlider(scaling));
-    slider->setSliderPosition(convertToSlider(scaling));
 
     connect(slider, &DCCSlider::valueChanged, this, [ = ](const int value) {
         Q_EMIT requestUiScaleChange(convertToScale(value));
@@ -154,7 +153,7 @@ void ScalingPage::addSlider(int monitorID){
     connect(m_displayModel, &DisplayModel::uiScaleChanged, this, [ = ](const double scale) {
         slider->blockSignals(true);
         qDebug() << "monitor scaleCahnged ,scale :" << convertToSlider(scale);
-        slider->setSliderPosition(convertToSlider(scale));
+        slider->setValue(convertToSlider(scale));
         slider->blockSignals(false);
     });
 

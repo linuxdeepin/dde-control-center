@@ -27,6 +27,8 @@
 
 #include "window/namespace.h"
 
+#include <DTipLabel>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -76,6 +78,7 @@ private:
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
     QVBoxLayout *m_centralLayout{nullptr};
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_tip{nullptr};
 #ifdef ALL_MONITOR_SAME_SCALE
     dcc::widgets::TitledSliderItem *m_slider{nullptr};
 #else
