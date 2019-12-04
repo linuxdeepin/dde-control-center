@@ -128,6 +128,7 @@ public:
     virtual ~WirelessPage();
 
     void setModel(dde::network::NetworkModel *model);
+    void jumpByUuid(const QString &uuid);
 Q_SIGNALS:
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
     void requestDisconnectConnection(const QString &uuid);

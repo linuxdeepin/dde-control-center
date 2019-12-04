@@ -420,11 +420,13 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     auto pm = findModule(module);
     Q_ASSERT(pm);
 
-    if (page != "" && !pm->availPage().contains(page)) {
-        qDebug() << QString("get error page path %1!").arg(page);
+    qDebug() << page;
+    QStringList pages = page.split(",");
+    if (pages[0] != "" && !pm->availPage().contains(pages[0])) {
+        qDebug() << QString("get error page path %1!").arg(pages[0]);
         if (calledFromDBus()) {
             auto err = QString("cannot find page path that name is %1 on module %2.")
-                                .arg(page).arg(module);
+                                .arg(pages[0]).arg(module);
             sendErrorReply(QDBusError::InvalidArgs, err);
 
             if (!isVisible()) {
@@ -599,12 +601,23 @@ void MainWindow::resetNavList(bool isIconMode)
 
 void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
 {
-    qDebug() << Q_FUNC_INFO << " moduleName : " << moduleName << " , widget :" << widget;
+    QStringList widgetPages = widget.split(",");
+    QString widgetFirst = widgetPages[0];
+    qDebug() << Q_FUNC_INFO << " moduleName : " << moduleName << " , widget :" << widgetFirst;
 
     if (!m_contentStack.isEmpty()
             && (m_contentStack.top().first->name() == moduleName)
-            && (m_widgetName == widget)) {
+            && (m_widgetName == widgetFirst)) {
         qDebug() << Q_FUNC_INFO << " Search widget is current display widget.";
+        // load wireless detail pages.
+        if ((moduleName == "network") && (widgetPages.size() > 1)) {
+            for (auto ite : m_modules) {
+                if (ite.first->name() == moduleName) {
+                    ite.first->load(widget);
+                    return;
+                }
+            }
+        }
         return;
     }
 
@@ -623,11 +636,11 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
             //这样当前界面实际有进入的模块的界面界面。这样会出现重复调用该函数显示同一个界面的情况
             //目前看对程序没有影响
             m_firstCount = firstCount;
-            m_widgetName = widget;
+            m_widgetName = widgetFirst;
 
             //notify related module load widget
 //            QTimer::singleShot(0, this, [ = ] { //avoid default and load sequence in time
-            auto errCode = m_modules[m_firstCount].first->load(m_widgetName);
+            auto errCode = m_modules[m_firstCount].first->load(widget);
             if (!errCode || m_widgetName == "") {
                 return;
             }

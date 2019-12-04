@@ -43,6 +43,7 @@ namespace DCC_NAMESPACE {
 namespace network {
 class ConnectionEditPage;
 class NetworkModuleWidget;
+class WirelessPage;
 class NetworkModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -79,6 +80,7 @@ private Q_SLOTS:
 private:
     dde::network::NetworkModel *m_networkModel;
     dde::network::NetworkWorker *m_networkWorker;
+    QPointer<WirelessPage> m_wirelessPage;
     NetworkModuleWidget *m_networkWidget;
     ConnectionEditPage *m_connEditPage;
     QTimer *m_initSettingTimer;

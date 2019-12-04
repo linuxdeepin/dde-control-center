@@ -383,6 +383,18 @@ void WirelessPage::setModel(NetworkModel *model)
     onDeviceStatusChanged(m_device->status());
 }
 
+void WirelessPage::jumpByUuid(const QString &uuid)
+{
+    if (uuid.isEmpty())
+        return;
+
+    QTimer::singleShot(50, this, [ = ] {
+        if (m_apItems.contains(connectionSsid(uuid))) {
+            onApWidgetEditRequested("", uuid);
+        }
+    });
+}
+
 void WirelessPage::onNetworkAdapterChanged(bool checked)
 {
     Q_EMIT requestDeviceEnabled(m_device->path(), checked);
@@ -521,6 +533,9 @@ void WirelessPage::sortAPList()
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
 {
     const QString uuid = connectionUuid(ssid);
+    if (!m_apEditPage.isNull()) {
+        return;
+    }
 
     m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid);
 
