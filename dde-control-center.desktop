@@ -11,7 +11,7 @@ StartupNotify=false
 Terminal=false
 Type=Application
 X-MultipleArgs=false
-
+X-Deepin-Vendor=deepin
 
 
 # Translations
