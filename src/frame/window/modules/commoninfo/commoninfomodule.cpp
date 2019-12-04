@@ -39,6 +39,9 @@ CommonInfoModule::CommonInfoModule(dccV20::FrameProxyInterface *frame, QObject *
     , m_bootWidget(nullptr)
     , m_ueProgramWidget(nullptr)
 {
+#ifdef DCC_DISABLE_GRUB
+    m_frameProxy->setModuleVisible(this, false);
+#endif
 }
 
 CommonInfoModule::~CommonInfoModule()
