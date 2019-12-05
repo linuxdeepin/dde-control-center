@@ -77,6 +77,7 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     mainLayout->addSpacing(10);
     mainLayout->addLayout(bottomLayout);
 
+    addBackground();
     setAccessibleName(title);
 }
 

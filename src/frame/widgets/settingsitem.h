@@ -26,7 +26,7 @@
 #ifndef SETTINGSITEM_H
 #define SETTINGSITEM_H
 
-#include <DBackgroundGroup>
+#include <DFrame>
 
 #include <QFrame>
 
@@ -52,7 +52,7 @@ protected:
 private:
     bool m_isErr;
 
-    DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bgGroup{nullptr};
+    DTK_WIDGET_NAMESPACE::DFrame *m_bgGroup{nullptr};
 };
 
 }

@@ -25,11 +25,14 @@
 
 #include "widgets/settingsitem.h"
 
+#include <DPalette>
+
 #include <QStyle>
 #include <QVBoxLayout>
 #include <QResizeEvent>
 
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
@@ -66,8 +69,11 @@ void SettingsItem::addBackground()
     //将　widget　加入到一个新建的　DBackgroundGroup中
     auto bglayout = new QVBoxLayout;
     bglayout->setContentsMargins(mg);
-    m_bgGroup = new DBackgroundGroup(bglayout, this);
-    m_bgGroup->setBackgroundRole(QPalette::Window);
+    if (m_bgGroup)
+        m_bgGroup->deleteLater();
+    m_bgGroup = new DFrame(this);
+    m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
+    m_bgGroup->setLineWidth(0);
     bglayout->addWidget(bgWidget);
 
     //将 m_bgGroup 沉底
