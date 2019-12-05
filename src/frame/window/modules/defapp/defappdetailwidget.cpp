@@ -34,6 +34,7 @@
 #include <QStandardItemModel>
 #include <QIcon>
 #include <QFileDialog>
+#include <QMimeDatabase>
 
 using namespace DCC_NAMESPACE::defapp;
 
@@ -310,24 +311,17 @@ bool DefappDetailWidget::isDesktopOrBinaryFile(const QString &fileName)
     if (QFileInfo(fileName).suffix() == "desktop")
         return true;
 
+    QMimeDatabase mimeDatabase;
+    QMimeType mimeType;
+
     QFile file(fileName);
     if (!file.open(QFile::ReadOnly))
         return false;
-
-    long text_char_count = 0;
-    unsigned char byte;
-
-    while (file.read((char *)(&byte), 1) > 0) {
-        if (byte == 9 || byte == 10 || byte == 13 || (byte >= 32)) {
-            text_char_count++;
-        } else if ((byte <= 6) || (byte >= 14 && byte <= 31)) {
-            file.close();
-            return true;
-        }
-    }
-
     file.close();
-    return (text_char_count >= 1) ? false : true;
+
+    mimeType = mimeDatabase.mimeTypeForFile(fileName);
+
+    return  (mimeType.name().startsWith("application/octet-stream"));
 }
 
 bool DefappDetailWidget::isValid(const dcc::defapp::App &app)
