@@ -180,35 +180,8 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
     const QString &password = edit->lineEdit()->text();
 
     if (password.isEmpty()) {
-        if (edit == m_oldPasswordEdit && m_curUser->passwordStatus() != NO_PASSWORD) {
-            edit->setAlert(true);
-            edit->showAlertMessage(tr("Wrong password"), -1);
-        } else {
-            edit->setAlert(true);
-            edit->showAlertMessage(tr("Password cannot be empty"), -1);
-        }
-        return false;
-    }
-
-    if (!validatePassword(password)) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"), -1);
         return false;
-    }
-
-    //新密码
-    if (edit == m_newPasswordEdit) {
-        if (m_oldPasswordEdit->lineEdit()->text() == password) {
-            edit->setAlert(true);
-            edit->showAlertMessage(tr("New password should differ from the current one"), -1);
-            return false;
-        }
-
-        if (password.size() > 512) {
-            edit->setAlert(true);
-            edit->showAlertMessage(tr("The password length should be less then 512"), -1);
-            return false;
-        }
     }
 
     //重复密码
@@ -218,6 +191,25 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
             edit->showAlertMessage(tr("Passwords do not match"), -1);
             return false;
         }
+    }
+
+    if (!validatePassword(password)) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"), -1);
+        return false;
+    }
+
+    if (m_oldPasswordEdit->lineEdit()->text() == password) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("New password should differ from the current one"), -1);
+        return false;
+    }
+
+    const int maxSize = 512;
+    if (password.size() > maxSize) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
+        return false;
     }
 
     return true;
