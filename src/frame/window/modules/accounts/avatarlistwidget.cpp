@@ -37,6 +37,7 @@
 #include <QFileInfoList>
 #include <QFileDialog>
 #include <QStandardPaths>
+#include <QDateTime>
 
 const int AvatarSize = 14;
 
@@ -250,6 +251,7 @@ QString AvatarListWidget::getUserAddedCustomPicPath(const QString& usrName)
 
 QString AvatarListWidget::getAvatarPath() const
 {
+    qsrand(QDateTime::currentDateTime().toTime_t());
     auto index = qrand() % 14;
     if (m_currentSelectIndex.isValid())
         index = m_currentSelectIndex.row();
