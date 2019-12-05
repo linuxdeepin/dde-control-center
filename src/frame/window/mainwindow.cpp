@@ -219,7 +219,7 @@ void MainWindow::findFocusChild(QWidget *w, QWidget *&pre)
 void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
 {
     for (int i =0; i < l->count(); ++i) {
-        qDebug() << l->itemAt(i);
+//        qDebug() << l->itemAt(i);
         auto cw = l->itemAt(i)->widget();
         auto cl = l->itemAt(i)->layout();
 
@@ -392,7 +392,7 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 {
     Q_UNUSED(animation)
 
-    qDebug() << Q_FUNC_INFO;
+//    qDebug() << Q_FUNC_INFO;
     if (!isModuleAvailable(module) && !module.isEmpty()) {
         qDebug() << QString("get error module name %1!").arg(module);
         if (calledFromDBus()) {
