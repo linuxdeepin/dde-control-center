@@ -327,18 +327,13 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
     const QString &userpassword = edit->lineEdit()->text();
     if (userpassword.isEmpty()) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password cannot be empty"), -1);
         return false;
     }
 
-//    if (m_nameEdit->text().toLower() == userpassword.toLower()) {
-//        edit->setAlert(true);
-//        edit->showAlertMessage(tr("The password should be different from the username"), -1);
-//        return false;
-//    }
-    if (m_nameEdit->text().size() > 512) {
+    const int maxSize = 512;
+    if (userpassword.size() > maxSize) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The password length should be less then 512"), -1);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
         return false;
     }
 
