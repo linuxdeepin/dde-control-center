@@ -242,26 +242,26 @@ void SoundWorker::cardsChanged(const QString &cards)
 
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
-            // const double portAvai = jPort["Available"].toDouble();
-            // if (portAvai == 2 || portAvai == 0 ||) { // 0 Unknow 1 Not available 2 Available
-            const QString portId = jPort["Name"].toString();
-            const QString portName = jPort["Description"].toString();
+            const double portAvai = jPort["Available"].toDouble();
+            if (portAvai == 2 || portAvai == 0 ) { // 0 Unknow 1 Not available 2 Available
+                const QString portId = jPort["Name"].toString();
+                const QString portName = jPort["Description"].toString();
 
-            Port *port = m_model->findPort(portId, cardId);
-            const bool include = port != nullptr;
-            if (!include) { port = new Port(m_model); }
+                Port *port = m_model->findPort(portId, cardId);
+                const bool include = port != nullptr;
+                if (!include) { port = new Port(m_model); }
 
-            port->setId(portId);
-            port->setName(portName);
-            port->setDirection(Port::Direction(jPort["Direction"].toDouble()));
-            port->setCardId(cardId);
-            port->setCardName(cardName);
-            port->setIsActive(portId == m_activeSinkPort || portId == m_activeSourcePort);
+                port->setId(portId);
+                port->setName(portName);
+                port->setDirection(Port::Direction(jPort["Direction"].toDouble()));
+                port->setCardId(cardId);
+                port->setCardName(cardName);
+                port->setIsActive(portId == m_activeSinkPort || portId == m_activeSourcePort);
 
-            if (!include) { m_model->addPort(port); }
+                if (!include) { m_model->addPort(port); }
 
-            tmpPorts << portId;
-            // }
+                tmpPorts << portId;
+            }
         }
         tmpCardIds.insert(cardId, tmpPorts);
     }
