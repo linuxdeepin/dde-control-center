@@ -147,6 +147,8 @@ void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo> &infos)
 
         m_summaryGroup->appendItem(item);
     }
+    //在只有一个更新的时候,为防止item过度的拉伸
+    m_summaryGroup->getLayout()->addStretch();
 }
 
 void UpdateCtrlWidget::onProgressBarClicked()

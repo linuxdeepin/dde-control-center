@@ -71,6 +71,7 @@ public:
 
     int itemCount() const;
     void clear();
+    QVBoxLayout *getLayout() const { return m_layout; }
 
 private:
     BackgroundStyle m_bgStyle{ItemBackground};

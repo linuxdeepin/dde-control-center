@@ -100,8 +100,7 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_iconLayout = new QVBoxLayout;
     m_iconLayout->setMargin(0);
     m_iconLayout->setSpacing(0);
-    m_iconLayout->addWidget(m_appIcon, 0, Qt::AlignCenter);
-    m_iconLayout->addStretch();
+    m_iconLayout->addWidget(m_appIcon);
 
     iconContainer->setLayout(m_iconLayout);
 
