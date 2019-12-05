@@ -48,6 +48,8 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     , m_addBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))
     , m_categoryValue(category)
     , m_category(nullptr)
+    , m_systemAppCnt(0)
+    , m_userAppCnt(0)
 {
     m_defApps->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_defApps->setEditTriggers(QListView::NoEditTriggers);
@@ -108,6 +110,7 @@ void DefappDetailWidget::setCategory(dcc::defapp::Category *const category)
     connect(m_category, &dcc::defapp::Category::addedUserItem, this, &DefappDetailWidget::addItem);
     connect(m_category, &dcc::defapp::Category::removedUserItem, this, &DefappDetailWidget::removeItem);
     connect(m_category, &dcc::defapp::Category::categoryNameChanged, this, &DefappDetailWidget::setCategoryName);
+    connect(m_category, &dcc::defapp::Category::clearAll, this, &DefappDetailWidget::onClearAll);
 
     AppsItemChanged(m_category->getappItem());
 
@@ -135,6 +138,11 @@ void DefappDetailWidget::removeItem(const dcc::defapp::App &item)
         QString id = m_model->data(m_model->index(row, 0), DefAppIdRole).toString();
         if (id == item.Id) {
             m_model->removeRow(row);
+            if (item.isUser) {
+                m_userAppCnt--;
+            } else {
+                m_systemAppCnt--;
+            }
             break;
         }
     }
@@ -273,6 +281,14 @@ void  DefappDetailWidget::onDelBtnClicked() {
     Q_EMIT requestDelUserApp(m_categoryName, app);
 }
 
+void DefappDetailWidget::onClearAll()
+{
+    int cnt = m_model->rowCount();
+    m_model->removeRows(0, cnt);
+    m_systemAppCnt = 0;
+    m_userAppCnt = 0;
+}
+
 dcc::defapp::App DefappDetailWidget::getAppById(const QString &appId) {
     for (dcc::defapp::App item : m_category->getappItem()) {
         if (item.Id == appId) {
@@ -303,7 +319,15 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
     item->setData(app.CanDelete, DefAppCanDeleteRole);
     item->setData(VListViewItemMargin, Dtk::MarginsRole);
 
-    m_model->appendRow(item);
+    int index = 0;
+    if (app.isUser) {
+        index = m_systemAppCnt + m_userAppCnt;
+        m_userAppCnt++;
+    } else {
+        index = m_systemAppCnt;
+        m_systemAppCnt++;
+    }
+    m_model->insertRow(index, item);
 }
 
 bool DefappDetailWidget::isDesktopOrBinaryFile(const QString &fileName)

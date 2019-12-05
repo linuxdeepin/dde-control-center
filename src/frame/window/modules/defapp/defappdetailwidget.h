@@ -89,6 +89,7 @@ public Q_SLOTS:
     void onListViewClicked(const QModelIndex &index);
     void onAddBtnClicked();
     void onDelBtnClicked();
+    void onClearAll();
 
 private:
     void AppsItemChanged(const QList<dcc::defapp::App> &list);
@@ -105,6 +106,8 @@ private:
     int m_categoryValue;
     dcc::defapp::Category *m_category;
     QMap<DTK_WIDGET_NAMESPACE::DViewItemAction *, QString> m_actionMap;
+    int m_systemAppCnt;
+    int m_userAppCnt;
 };
 }
 }

@@ -50,6 +50,17 @@ void Category::setCategory(const QString &category)
     Q_EMIT categoryNameChanged(category);
 }
 
+void Category::clear()
+{
+    bool clearFlag = !m_applist.isEmpty();
+
+    m_systemAppList.clear();
+    m_userAppList.clear();
+    m_applist.clear();
+    if (clearFlag)
+        Q_EMIT clearAll();
+}
+
 void Category::addUserItem(const App &value)
 {
     if (value.isUser) {

@@ -66,6 +66,7 @@ public:
     inline const QList<App> systemAppList() const { return m_systemAppList; }
     inline const QList<App> userAppList() const { return m_userAppList; }
     inline const App getDefault() { return m_default;}
+    void clear();
     void addUserItem(const App &value);
     void delUserItem(const App &value);
 
@@ -74,6 +75,7 @@ Q_SIGNALS:
     void addedUserItem(const App &app);
     void removedUserItem(const App &app);
     void categoryNameChanged(const QString &name);
+    void clearAll();
 
 private:
     QList<App> m_applist;
