@@ -30,6 +30,7 @@
 #include "window/namespace.h"
 
 #include <DButtonBox>
+#include <DTextEdit>
 
 namespace dde {
 namespace network {
@@ -91,7 +92,7 @@ private:
     dcc::widgets::LineEditWidget *m_ftpPort;
     dcc::widgets::LineEditWidget *m_socksAddr;
     dcc::widgets::LineEditWidget *m_socksPort;
-    dcc::widgets::PlainTextItem *m_ignoreList;
+    DTextEdit *m_ignoreList;
 
     dcc::widgets::LineEditWidget *m_autoUrl;
 

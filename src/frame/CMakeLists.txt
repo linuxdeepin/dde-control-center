@@ -237,8 +237,6 @@ set(WIDGETS_FILES
                 widgets/loadingnextpagewidget.cpp
                 widgets/nextbutton.cpp
                 widgets/optionlistpage.cpp
-                widgets/plantextitem.cpp
-                widgets/plantextitem.h
                 widgets/searchinput.cpp
                 widgets/searchinput.h
                 widgets/separator.cpp

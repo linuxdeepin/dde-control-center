@@ -29,7 +29,6 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsheaderitem.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/plantextitem.h"
 #include "widgets/settingsitem.h"
 #include <networkmodel.h>
 
@@ -99,7 +98,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_socksPort->setPlaceholderText(tr("Optional"));
     m_socksPort->setTitle(tr("Port"));
 
-    m_ignoreList = new PlainTextItem;
+    m_ignoreList = new DTextEdit;
     QLabel *ignoreTips = new QLabel;
     ignoreTips->setWordWrap(true);
     ignoreTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -128,10 +127,6 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     SettingsGroup *autoGroup = new SettingsGroup;
     autoGroup->appendItem(m_autoUrl);
-
-    DPalette pa = DApplicationHelper::instance()->palette(m_ignoreList);
-    pa.setBrush(DPalette::Active, DPalette::Base, QColor(236, 236, 236));
-    DApplicationHelper::instance()->setPalette(m_ignoreList, pa);
 
     QVBoxLayout *manualLayout = new QVBoxLayout;
     manualLayout->addWidget(httpGroup);
@@ -174,7 +169,7 @@ ProxyPage::ProxyPage(QWidget *parent)
         onProxyToggled(m_proxyTabs->id(value));
     });
 //    connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { Q_EMIT requestSetProxyMethod(ProxyMethodList[index]); });
-//    connect(m_ignoreList->plainEdit(), &QPlainTextEdit::textChanged, [=] { Q_EMIT requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText()); });
+//    connect(m_ignoreList, &QPlainTextEdit::textChanged, [=] { Q_EMIT requestSetIgnoreHosts(m_ignoreList->toPlainText()); });
 //    connect(m_httpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
 //    connect(m_httpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
 //    connect(m_httpsAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("https"); });
@@ -234,7 +229,7 @@ void ProxyPage::applySettings() const
     Q_EMIT requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
     Q_EMIT requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
 
-    Q_EMIT requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText());
+    Q_EMIT requestSetIgnoreHosts(m_ignoreList->toPlainText());
 
     Q_EMIT requestSetAutoProxy(m_autoUrl->text());
 
@@ -243,12 +238,12 @@ void ProxyPage::applySettings() const
 
 void ProxyPage::onIgnoreHostsChanged(const QString &hosts)
 {
-    const QTextCursor cursor = m_ignoreList->plainEdit()->textCursor();
+    const QTextCursor cursor = m_ignoreList->textCursor();
 
-    m_ignoreList->plainEdit()->blockSignals(true);
-    m_ignoreList->plainEdit()->setPlainText(hosts);
-    m_ignoreList->plainEdit()->setTextCursor(cursor);
-    m_ignoreList->plainEdit()->blockSignals(false);
+    m_ignoreList->blockSignals(true);
+    m_ignoreList->setPlainText(hosts);
+    m_ignoreList->setTextCursor(cursor);
+    m_ignoreList->blockSignals(false);
 }
 
 void ProxyPage::applyProxy(const QString &type)
