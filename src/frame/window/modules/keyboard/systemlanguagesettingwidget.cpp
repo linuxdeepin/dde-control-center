@@ -45,11 +45,12 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     layout->setMargin(0);
     layout->setSpacing(0);
 
-    m_searchModel = new IndexModel();
-
-    m_model = new IndexModel();
-    m_view = new IndexView();
-    m_delegate = new IndexDelegate();
+    m_model = new QStandardItemModel();
+    m_view = new DListView();
+    m_view->setFrameShape(QFrame::NoFrame);
+    m_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_view->setBackgroundType(DStyledItemDelegate::ClipCornerBackground);
 
     m_search = new SearchInput();
     //~ contents_path /keyboard/System Language
@@ -73,8 +74,8 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     m_contentWidget->setAttribute(Qt::WA_TranslucentBackground);
 
     connect(m_search, &SearchInput::textChanged, this, &SystemLanguageSettingWidget::onSearch);
-    connect(m_view, &IndexView::clicked, this, &SystemLanguageSettingWidget::click);
-    connect(m_view, &IndexView::clicked, this, &SystemLanguageSettingWidget::back);
+    connect(m_view, &DListView::clicked, this, &SystemLanguageSettingWidget::click);
+    connect(m_view, &DListView::clicked, this, &SystemLanguageSettingWidget::back);
     connect(m_keyboardModel, &KeyboardModel::langChanged, this, &SystemLanguageSettingWidget::setModelData);
 
     setModelData(m_keyboardModel->langLists());
@@ -85,16 +86,18 @@ void SystemLanguageSettingWidget::onSearch(const QString &text)
     if (text.length() == 0) {
         m_view->setModel(m_model);
     } else {
-        QList<MetaData> datas = m_model->metaData();
-        QList<MetaData>::iterator it = datas.begin();
-        QList<MetaData> sdatas;
-        for (; it != datas.end(); ++it) {
-            if ((*it).text().contains(text, Qt::CaseInsensitive)) {
-                sdatas.append(*it);
+        QStandardItemModel *model = new QStandardItemModel;
+
+        for (auto md : m_datas) {
+            if (md.text().contains(text, Qt::CaseInsensitive)) {
+                auto item = new DStandardItem(md.text());
+                item->setText(md.text());
+                item->setData(md.key(),KeyRole);
+                item->setData(md.pinyin(),PingYinRole);
+                model->appendRow(item);
             }
         }
-        m_searchModel->setMetaData(sdatas);
-        m_view->setModel(m_searchModel);
+        m_view->setModel(model);
     }
 }
 
@@ -110,9 +113,14 @@ void SystemLanguageSettingWidget::setModelData(const QList<MetaData> &datas)
         }
     }
 
-    m_model->setMetaData(m_datas);
+    for (auto md : m_datas) {
+        auto item = new DStandardItem();
+        item->setText(md.text());
+        item->setData(md.key(),KeyRole);
+        item->setData(md.pinyin(),PingYinRole);
+        m_model->appendRow(item);
+    }
     m_view->setModel(m_model);
-    m_view->setItemDelegate(m_delegate);
 }
 
 bool SystemLanguageSettingWidget::eventFilter(QObject *watched, QEvent *event)

@@ -195,9 +195,8 @@ void KeyboardModule::showSystemLanguageSetting()
 
 void KeyboardModule::onAddLocale(const QModelIndex &index)
 {
-    QVariant var = index.data();
-    MetaData md = var.value<MetaData>();
-    m_work->addLang(md.key());
+    QVariant var = index.data(SystemLanguageSettingWidget::KeyRole);
+    m_work->addLang(var.toString());
 }
 
 void KeyboardModule::showShortCutSetting()

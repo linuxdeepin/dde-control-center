@@ -25,6 +25,7 @@
 #include "widgets/contentwidget.h"
 
 #include <DGraphicsClipEffect>
+#include <DListView>
 
 DWIDGET_USE_NAMESPACE
 
@@ -52,6 +53,12 @@ class SystemLanguageSettingWidget : public dcc::ContentWidget
 public:
     explicit SystemLanguageSettingWidget(dcc::keyboard::KeyboardModel *model, QWidget *parent = nullptr);
 
+    enum LanguageRole{
+        TextRole = DTK_NAMESPACE::UserRole + 1,
+        KeyRole,
+        PingYinRole
+    };
+
 Q_SIGNALS:
     void click(const QModelIndex &index);
     void back();
@@ -64,10 +71,8 @@ protected:
 private:
     QLabel *m_title;
     dcc::widgets::SearchInput *m_search;
-    dcc::keyboard::IndexDelegate *m_delegate;
-    dcc::keyboard::IndexView *m_view;
-    dcc::keyboard::IndexModel *m_model;
-    dcc::keyboard::IndexModel *m_searchModel;
+    Dtk::Widget::DListView *m_view;
+    QStandardItemModel *m_model;
     dcc::keyboard::KeyboardModel *m_keyboardModel;
     DGraphicsClipEffect *m_clipEffectWidget;
     dcc::widgets::TranslucentFrame *m_contentWidget;
