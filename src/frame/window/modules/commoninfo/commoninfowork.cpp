@@ -198,8 +198,15 @@ void CommonInfoWork::setUeProgram(bool enabled)
         file.close();
 
         m_process = new QProcess(this);
+
+        auto pathType = "-c";
+        QStringList sl;
+        sl << "zh_CN" << "zh_TW";
+        if (!sl.contains(QLocale::system().name()))
+            pathType = "-e";
         int result = m_process->execute("dde-license-dialog",
-                                      QStringList() << "-t" << title << "-c" << contentPath << "-a" << allowContent);
+                                      QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent);
+
         m_process->deleteLater();
         m_process = nullptr;
 
@@ -245,9 +252,15 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     file.write(content.toLocal8Bit());
     file.close();
 
+    auto pathType = "-c";
+    QStringList sl;
+    sl << "zh_CN" << "zh_TW";
+    if (!sl.contains(QLocale::system().name()))
+        pathType = "-e";
+
     m_process = new QProcess(this);
     int result = m_process->execute("dde-license-dialog",
-                                    QStringList() << "-t" << title << "-c" << contentPath << "-a" << allowContent);
+                                    QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent);
     m_process->deleteLater();
     m_process = nullptr;
 
