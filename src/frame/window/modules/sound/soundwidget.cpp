@@ -58,7 +58,8 @@ int SoundWidget::showPath(const QString &path)
         auto menu = m_menuMethod[i];
         if (tr(path.toStdString().c_str()) == menu.menuText) {
             menu.method.invoke(this);
-            m_menuList->setCurrentIndex(m_menuList->model()->index(i, 0));
+            m_currentIdx = m_menuList->model()->index(i, 0);
+            m_menuList->setCurrentIndex(m_currentIdx);
             return 0;
         }
     }
@@ -93,6 +94,7 @@ void SoundWidget::initMenuUI()
     connect(m_menuList, &QListView::clicked, [ = ](const QModelIndex & idx) {
         if (idx == m_currentIdx)
             return;
+
         m_currentIdx = idx;
         m_menuMethod[idx.row()].method.invoke(this);
     });
