@@ -369,6 +369,11 @@
         <translation>The password should be different from the username</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="336"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Password must be no more than %1 characters</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="201"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
@@ -5037,6 +5042,11 @@ If no operation, the display will be restored after %1s.</translation>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="58"/>
         <source>Required</source>
         <translation>Required</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Password must be no more than %1 characters</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="62"/>

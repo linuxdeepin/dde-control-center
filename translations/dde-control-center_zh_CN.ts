@@ -243,6 +243,11 @@
         <translation>重复密码</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="336"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>密码长度不能超过%1个字符</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="170"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="173"/>
@@ -324,6 +329,11 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="62"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="66"/>
