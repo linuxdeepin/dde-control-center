@@ -29,6 +29,8 @@
 
 #include <DStyle>
 #include <DSwitchButton>
+#include <DPalette>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -41,6 +43,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 using namespace dcc::widgets;
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 const QList<QString> ACTIVE_COLORS = {
     "#D8316C",
@@ -57,9 +60,9 @@ const QList<QString> ACTIVE_COLORS = {
 PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
-    , m_Themes(new PerssonalizationThemeWidget())
     , m_wmSwitch(nullptr)
     , m_transparentSlider(nullptr)
+    , m_Themes(new PerssonalizationThemeWidget())
     , m_bgWidget(new QWidget)
 {
     m_centralLayout->setMargin(0);
@@ -183,7 +186,8 @@ void PersonalizationGeneral::paintEvent(QPaintEvent *event)
 
     QPainterPath path;
     path.addRoundedRect(r, frame_radius, frame_radius);
-    painter.fillPath(path, palette().background());
+    const DPalette &pal = DApplicationHelper::instance()->palette(this);
+    painter.fillPath(path, pal.brush(DPalette::ItemBackground));
 }
 
 void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget)
