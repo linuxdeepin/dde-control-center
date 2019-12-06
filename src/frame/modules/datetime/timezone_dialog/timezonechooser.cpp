@@ -136,6 +136,8 @@ TimeZoneChooser::TimeZoneChooser()
         m_map->setTimezone(timezone);
     });
 
+    connect(m_searchInput, &SearchInput::textChanged, m_searchInput, &SearchInput::editingFinished);
+
     connect(m_map, &installer::TimezoneMap::timezoneUpdated, this, [this] {
         m_searchInput->setText("");
         m_searchInput->clearFocus();
