@@ -204,7 +204,7 @@
 <context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="158"/>
         <source>Images</source>
         <translation>ছবি সমূহ</translation>
     </message>
@@ -508,12 +508,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="237"/>
         <source>Developer Mode</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="238"/>
         <source>Join developer mode</source>
         <translation type="unfinished"/>
     </message>
@@ -1088,7 +1088,7 @@
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="232"/>
         <source>Custom Shortcut</source>
         <translation>কাস্টম শর্টকাট</translation>
     </message>
@@ -1160,7 +1160,7 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="57"/>
         <source>Add System Language</source>
         <translation type="unfinished"/>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -3402,25 +3402,25 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
         <source>Theme</source>
         <translation>থিম</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="80"/>
         <source>Accent Color</source>
         <translation type="unfinished"/>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="113"/>
         <source>Window Effect</source>
         <translation>উইন্ডো ইফেক্ট</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="119"/>
         <source>Transparency</source>
         <translation>স্বচ্ছতা</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
@@ -3789,24 +3789,24 @@
 <context>
     <name>dccV20::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="74"/>
         <source>Speaker</source>
         <translation>স্পিকার</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Microphone</source>
         <translation>মাইক্রোফোন</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
         <source>Advanced</source>
         <translation>অ্যাডভান্সড</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
         <source>Sound Effects</source>
         <translation>সাউন্ড ইফেক্ট</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
@@ -4091,101 +4091,101 @@
         <translation>এই আপডেটটি অনেক সময় নিতে পারে, প্রক্রিয়াটি শেষ না হওয়া পর্যন্ত অনুগ্রহ করে বন্ধ বা পুনরায় চালু করবেন না।</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="200"/>
         <source>Checking for updates, please wait...</source>
         <translation>আপডেটের জন্য চেক করা হচ্ছে, দয়া করে অপেক্ষা করুন...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="208"/>
         <source>Download and install updates</source>
         <translation>আপডেট ডাউনলোড এবং ইনস্টল করুন</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% ডাউনলোড করা হয়েছে (বিরতি দিতে ক্লিক করুন)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="340"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% ডাউনলোড করা হয়েছে (চালিয়ে যেতে ক্লিক করুন)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="230"/>
         <source>Install updates</source>
         <translation>আপডেট সমূহ ইনস্টল করুন</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Your system is up to date</source>
         <translation>আপনার সিস্টেম আপ টু ডেট আছে</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="245"/>
         <source>Updating, please wait...</source>
         <translation>আপডেট করা হচ্ছে, দয়া করে অপেক্ষা করুন...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="258"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>সবচেয়ে নতুন সিস্টেম ইনস্টল করা হয়েছে, কার্যকর করতে বন্ধ করে পুনরায় চালু করুন</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="268"/>
         <source>Update failed: insufficient disk space</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="273"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>নির্ভরশীলতা ত্রুটি, আপডেট সনাক্ত করতে বার্থ হয়েছে।</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="280"/>
         <source>Backing up, please wait...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="285"/>
         <source>System backup failed</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="308"/>
         <source>%n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>New system edition available</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="315"/>
         <source>New system edition and %n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
         <source>Downloaded</source>
         <translation>ডাউনলোড করা হয়েছে</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="324"/>
         <source>Size: %1</source>
         <translation>আকার: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>আপনার ব্যাটারী 50% এর কম, চালিয়ে যেতে দয়া করে চার্জার লাগান</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="350"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>দয়া করে পুনরায় চালু করার পর্যাপ্ত শক্তি নিশ্চিত করুন, এবং আপনার মেশিনটি বন্ধ বা আনপ্লাগ করবেন না</translation>
     </message>
@@ -5374,23 +5374,23 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="198"/>
         <source>Confirm</source>
         <translation>নিশ্চিত করুন</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="191"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
         <source>Add Timezone</source>
         <translation>টাইমজোন যোগ করুন</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="192"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="194"/>
         <source>Add</source>
         <translation>যোগ করুন</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="195"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="197"/>
         <source>Change Timezone</source>
         <translation>টাইমজোন পরিবর্তন করুন</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
@@ -8766,7 +8766,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="124"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
         <source>Details</source>
         <translation>বিস্তারিত</translation>
     </message>

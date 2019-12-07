@@ -204,7 +204,7 @@
 <context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="158"/>
         <source>Images</source>
         <translation>صور</translation>
     </message>
@@ -508,12 +508,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="237"/>
         <source>Developer Mode</source>
         <translation>وضع المطور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="238"/>
         <source>Join developer mode</source>
         <translation type="unfinished"/>
     </message>
@@ -1088,7 +1088,7 @@
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="232"/>
         <source>Custom Shortcut</source>
         <translation>اختصار مخصص</translation>
     </message>
@@ -1160,7 +1160,7 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="57"/>
         <source>Add System Language</source>
         <translation type="unfinished"/>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -3402,25 +3402,25 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
         <source>Theme</source>
         <translation>السمة</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="80"/>
         <source>Accent Color</source>
         <translation type="unfinished"/>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="113"/>
         <source>Window Effect</source>
         <translation>تأثيرات النوافذ</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="119"/>
         <source>Transparency</source>
         <translation>الشفافية</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
@@ -3789,24 +3789,24 @@
 <context>
     <name>dccV20::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="74"/>
         <source>Speaker</source>
         <translation>مكبر الصوت</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Microphone</source>
         <translation>المايكروفون</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
         <source>Advanced</source>
         <translation>متقدم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
         <source>Sound Effects</source>
         <translation>مؤثرات الصوت</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
@@ -4091,101 +4091,101 @@
         <translation>هذا التحديث قد يأخذ وقتًا طويًا، رجاءً لا تقم بإلغاء أو إعادة التشغيل خلال هذه العملية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="200"/>
         <source>Checking for updates, please wait...</source>
         <translation>التحقق من وجود تحديثات، يرجى الانتظار ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="208"/>
         <source>Download and install updates</source>
         <translation>تنزيل وتثبيت التحديثات</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% تم تحميله (انقر للإيقاف)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="340"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% تم تحميله (أنقر للإستمرار)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="230"/>
         <source>Install updates</source>
         <translation>تثبيت التحديثات</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Your system is up to date</source>
         <translation>نظامك محدث حتى الآن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="245"/>
         <source>Updating, please wait...</source>
         <translation>يتم التحديث ، يرجى الانتظار ..</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="258"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>النظام الأحدث مثبت الآن ، إعادة التشغيل </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="268"/>
         <source>Update failed: insufficient disk space</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="273"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>خطأ في الملفات المعتمد عليها، فشل في تحديد التحديثات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="280"/>
         <source>Backing up, please wait...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="285"/>
         <source>System backup failed</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="308"/>
         <source>%n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>New system edition available</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="315"/>
         <source>New system edition and %n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
         <source>Downloaded</source>
         <translation>تم التنزيل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="324"/>
         <source>Size: %1</source>
         <translation>الحجم: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>البطارية أقل من 50٪، يرجى التوصيل للمتابعة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="350"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>الرجاء التأكد من أن الطاقة كافية لإعادة التشغيل، وعدم فصل الجهاز من الطاقة</translation>
     </message>
@@ -5374,23 +5374,23 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="198"/>
         <source>Confirm</source>
         <translation>تأكيد</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="191"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
         <source>Add Timezone</source>
         <translation>إضافة المنطقة الزمنية</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="192"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="194"/>
         <source>Add</source>
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="195"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="197"/>
         <source>Change Timezone</source>
         <translation>تغيير المنطقة الزمنية</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
@@ -8763,7 +8763,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="124"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
         <source>Details</source>
         <translation>التفاصيل</translation>
     </message>

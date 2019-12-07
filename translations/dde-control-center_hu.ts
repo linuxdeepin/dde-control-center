@@ -25,7 +25,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="164"/>
         <source>Touchpad</source>
-        <translation>Tapipad</translation>
+        <translation>Érintőpad</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="165"/>
@@ -204,7 +204,7 @@
 <context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="158"/>
         <source>Images</source>
         <translation>Képek</translation>
     </message>
@@ -267,7 +267,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="336"/>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó nem lehet hosszabb %1 karakternél</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="343"/>
@@ -385,7 +385,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó nem lehet hosszabb %1 karakternél</translation>
     </message>
 </context>
 <context>
@@ -508,14 +508,14 @@
         <translation>Egyetértés és csatlakozás a Felhasználói Élmény Programhoz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="237"/>
         <source>Developer Mode</source>
         <translation>Fejlesztői mód</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="238"/>
         <source>Join developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Csatlakozás a fejlesztői módhoz</translation>
     </message>
 </context>
 <context>
@@ -679,7 +679,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="73"/>
         <source>Add Application</source>
-        <translation type="unfinished"/>
+        <translation>Alkalmazás hozzáadása</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -857,7 +857,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="170"/>
         <source>Rotate Screen</source>
-        <translation type="unfinished"/>
+        <translation>Képernyő elforgatása</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -959,7 +959,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="126"/>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>A képernyő csak a 100%-os képskálázást támogatja</translation>
     </message>
 </context>
 <context>
@@ -1088,7 +1088,7 @@
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="232"/>
         <source>Custom Shortcut</source>
         <translation>Egyedi gyorsbillentyű</translation>
     </message>
@@ -1160,7 +1160,7 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="57"/>
         <source>Add System Language</source>
         <translation>Rendszernyelv hozzáadása</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -1627,7 +1627,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="262"/>
         <source>Create Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot létrehozása</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
@@ -1835,7 +1835,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="145"/>
         <source>Configure by Network Manager</source>
-        <translation type="unfinished"/>
+        <translation>Network Manager általi beállítás</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="282"/>
@@ -3402,25 +3402,25 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
         <source>Theme</source>
         <translation>Téma</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="80"/>
         <source>Accent Color</source>
         <translation>Színárnyalat</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="113"/>
         <source>Window Effect</source>
         <translation>Ablak effekt</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="119"/>
         <source>Transparency</source>
         <translation>Áttetszőség</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
@@ -3789,24 +3789,24 @@
 <context>
     <name>dccV20::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="74"/>
         <source>Speaker</source>
         <translation>Hangszóró</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Microphone</source>
         <translation>Mikrofon</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
         <source>Advanced</source>
         <translation>Részletes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
         <source>Sound Effects</source>
         <translation>Hangeffektusok</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
@@ -4003,7 +4003,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
         <source>Graphics Card:</source>
-        <translation type="unfinished"/>
+        <translation>Videókártya:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -4091,101 +4091,101 @@
         <translation>A frissítés sokáig tarthat, kérlek ez alatt ne kapcsold ki, és ne indítsd újra a számítógépet.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="200"/>
         <source>Checking for updates, please wait...</source>
         <translation>Frissítések keresése, kérlek várj...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="208"/>
         <source>Download and install updates</source>
         <translation>Frissítések letöltése és telepítése</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% letöltve (Kattints a megállításhoz)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="340"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% letöltve (Kattints a folytatáshoz)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="230"/>
         <source>Install updates</source>
         <translation>Frissítések telepítése</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Your system is up to date</source>
         <translation>A rendszer frissítésre került</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="245"/>
         <source>Updating, please wait...</source>
         <translation>Frissítés, kérlek várj...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="258"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>A legfrissebb rendszer telepítve, újraindítás szükséges a befejezéshez</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="268"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Frissítés sikertelen: nincs elegendő lemezterület</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="273"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Függőségi hiba, a frissítések keresése sikertelen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="280"/>
         <source>Backing up, please wait...</source>
         <translation>Biztonsági mentés készítése folyamatban, kérem várjon...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="285"/>
         <source>System backup failed</source>
         <translation>Biztonsági mentés készítése meghiúsult</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="308"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n alkalmazásfrissítés elérhető</numerusform><numerusform>%n alkalmazásfrissítés elérhető</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>New system edition available</source>
         <translation>Új rendszer verzió érhető el</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="315"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Új rendszerverzió és %n alkalmazásfrissítés elérhető</numerusform><numerusform>Új rendszerverzió és %n alkalmazásfrissítés elérhető</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
         <source>Downloaded</source>
         <translation>Letöltve</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="324"/>
         <source>Size: %1</source>
         <translation>méret: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Az akkumulátor töltöttsége 50% alatt van, csatlakoztasd a töltőre a készüléket.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="350"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Ellenőrizd az akkumulátor töltöttségét és ne vedd le a töltőről a készüléket.</translation>
     </message>
@@ -5374,23 +5374,23 @@ Ha nem működik, a képernyőbeállítás visszaáll %1 másodperc elteltével.
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="198"/>
         <source>Confirm</source>
         <translation>Megerősítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="191"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
         <source>Add Timezone</source>
         <translation>Időzóna hozzáadása</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="192"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="194"/>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="195"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="197"/>
         <source>Change Timezone</source>
         <translation>Időzóna módosítás</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
@@ -8763,7 +8763,7 @@ Ha nem működik, a képernyőbeállítás visszaáll %1 másodperc elteltével.
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="124"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
         <source>Details</source>
         <translation>Részletek</translation>
     </message>
@@ -8917,7 +8917,7 @@ Ha nem működik, a képernyőbeállítás visszaáll %1 másodperc elteltével.
     <message>
         <location filename="../src/frame/main.cpp" line="72"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>A Vezérlőközpont lehetőséget nyújt a rendszerbeállítások módosítására.</translation>
     </message>
 </context>
 </TS>

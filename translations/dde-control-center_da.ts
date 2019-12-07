@@ -204,7 +204,7 @@
 <context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="158"/>
         <source>Images</source>
         <translation>Billeder</translation>
     </message>
@@ -508,12 +508,12 @@
         <translation>Accepter og deltag i vores brugeroplevelsesprogram</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="237"/>
         <source>Developer Mode</source>
         <translation>Udviklertilstand</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="238"/>
         <source>Join developer mode</source>
         <translation>Deltag i udviklertilstand</translation>
     </message>
@@ -1088,7 +1088,7 @@
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="232"/>
         <source>Custom Shortcut</source>
         <translation>Brugerdefineret genvej</translation>
     </message>
@@ -1160,7 +1160,7 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="57"/>
         <source>Add System Language</source>
         <translation>Tilføj systemsprog</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -3402,25 +3402,25 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
         <source>Theme</source>
         <translation>Tema</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="80"/>
         <source>Accent Color</source>
         <translation>Accentfarve</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="113"/>
         <source>Window Effect</source>
         <translation>Vindueseffekt</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="119"/>
         <source>Transparency</source>
         <translation>Gennemsigtighed</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
@@ -3789,24 +3789,24 @@
 <context>
     <name>dccV20::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="74"/>
         <source>Speaker</source>
         <translation>Højttaler</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Microphone</source>
         <translation>Mikrofon</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
         <source>Advanced</source>
         <translation>Avanceret</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
         <source>Sound Effects</source>
         <translation>Lydeffekter</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
@@ -4091,101 +4091,101 @@
         <translation>Opdateringen kan tage længere tid, luk venligst ikke ned eller genstarter under processen.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="200"/>
         <source>Checking for updates, please wait...</source>
         <translation>Søger efter opdateringer, vent venligst...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="208"/>
         <source>Download and install updates</source>
         <translation>Download og installer opdateringer</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% downloadet (klik for at pause)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="340"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% downloadet (klik for at fortsætte)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="230"/>
         <source>Install updates</source>
         <translation>Installer opdateringer</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Your system is up to date</source>
         <translation>Dit system er opdateret</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="245"/>
         <source>Updating, please wait...</source>
         <translation>Opdaterer, vent venligst...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="258"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Nyeste system installeret, genstart for at træde i kraft</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="268"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Opdatering mislykkedes: utilstrækkelig diskplads</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="273"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Afhængighedsfejl, kunne ikke registrere opdateringerne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="280"/>
         <source>Backing up, please wait...</source>
         <translation>Sikkerhedskopiérer, vent venligst...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="285"/>
         <source>System backup failed</source>
         <translation>Sikkerhedskopiering af system mislykkedes</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="308"/>
         <source>%n application update(s) available</source>
         <translation><numerusform>%n programopdatering tilgængelig</numerusform><numerusform>%n programopdateringer tilgængelig</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>New system edition available</source>
         <translation>Ny systemudgave tilgængelig</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="315"/>
         <source>New system edition and %n application update(s) available</source>
         <translation><numerusform>Ny systemudgave og %n programopdatering tilgængelig</numerusform><numerusform>Ny systemudgave og %n programopdateringer tilgængelig</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
         <source>Downloaded</source>
         <translation>Downloadet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="324"/>
         <source>Size: %1</source>
         <translation>Størrelse: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Dit batteri er under 50%, tilslut venligst strømforsyningen for at fortsætte</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="350"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Sørg venligst for tilstrækkeligt med strøm til genstart, og sluk ikke eller frakobl strømforsyningen fra din maskine</translation>
     </message>
@@ -5374,23 +5374,23 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="198"/>
         <source>Confirm</source>
         <translation>Bekræft</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="191"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
         <source>Add Timezone</source>
         <translation>Tilføj tidszone</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="192"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="194"/>
         <source>Add</source>
         <translation>Tilføj</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="195"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="197"/>
         <source>Change Timezone</source>
         <translation>Skift tidszone</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
@@ -8763,7 +8763,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="124"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
         <source>Details</source>
         <translation>Detaljer</translation>
     </message>

@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="el" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="et" version="2.1">
 <context>
     <name>BackgroundWidget</name>
     <message>
@@ -18,7 +18,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="264"/>
         <source>Reboot</source>
-        <translation>Επανεκκίνηση</translation>
+        <translation>Taaskäivita</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
@@ -28,12 +28,12 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>
         <source>Cancel and Reboot</source>
-        <translation>Ακύρωση και επανεκκίνηση </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="275"/>
         <source>Confirm</source>
-        <translation>Επιβεβαίωση</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
