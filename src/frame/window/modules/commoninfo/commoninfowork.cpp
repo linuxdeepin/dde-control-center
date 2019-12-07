@@ -49,11 +49,15 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
                                        "/com/deepin/daemon/Grub2/Theme",
                                        QDBusConnection::systemBus(), this);
 
+    m_dBusdeepinIdInter = new GrubDevelopMode("com.deepin.deepinid",
+                                                "/com/deepin/deepinid",
+                                                QDBusConnection::sessionBus(), this);
+
     m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus(), this);
 
+    m_commomModel->setDeveloperModeState(m_dBusdeepinIdInter->deviceUnlocked());
     m_dBusGrub->setSync(false, false);
     m_dBusGrubTheme->setSync(false, false);
-    getDeveloperModeState();
 
     connect(m_dBusGrub, &GrubDbus::DefaultEntryChanged, m_commomModel, &CommonInfoModel::setDefaultEntry);
     connect(m_dBusGrub, &GrubDbus::EnableThemeChanged, m_commomModel, &CommonInfoModel::setThemeEnabled);
@@ -67,6 +71,8 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dBusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &CommonInfoWork::onBackgroundChanged);
+
+    connect(m_dBusdeepinIdInter, &GrubDevelopMode::DeviceUnlockedChanged, this, &CommonInfoWork::setEnableDeveloperMode);
 }
 
 CommonInfoWork::~CommonInfoWork()
@@ -265,34 +271,17 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     m_process = nullptr;
 
     if(96 == result) {
-        QDBusInterface interface("com.deepin.daemon.Daemon", "/com/deepin/daemon/Daemon",
-                                 "com.deepin.daemon.Daemon",
-                                 QDBusConnection::systemBus(), this);
+        QDBusPendingCall call = m_dBusdeepinIdInter->UnlockDevice();
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
+            if (!w->isError()) {
+                Q_EMIT m_commomModel->setDeveloperModeState(m_dBusdeepinIdInter->deviceUnlocked());
+            }
+            w->deleteLater();
+        });
 
-        if (!interface.isValid()) {
-            return;
-        }
-        QDBusReply<void> reply = interface.call("EnableDeveloperMode");
-        if (reply.isValid()) {
-            m_commomModel->setDeveloperModeState(enabled);
-        }
     }
     file.remove();
-}
-
-void CommonInfoWork::getDeveloperModeState()
-{
-    QDBusInterface interface("com.deepin.daemon.Daemon", "/com/deepin/daemon/Daemon",
-                             "com.deepin.daemon.Daemon",
-                             QDBusConnection::systemBus(), this);
-
-    if (!interface.isValid()) {
-        return;
-    }
-    QDBusReply<bool> reply = interface.call("IsDeveloperMode");
-    if (reply.isValid()) {
-        m_commomModel->setDeveloperModeState(reply.value());
-    }
 }
 
 void CommonInfoWork::getEntryTitles()
@@ -340,3 +329,4 @@ void CommonInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
 
     w->deleteLater();
 }
+

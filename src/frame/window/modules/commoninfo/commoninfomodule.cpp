@@ -73,7 +73,7 @@ const QString CommonInfoModule::name() const
 
 void CommonInfoModule::active()
 {
-//    mCommonWork->activate();
+    //    mCommonWork->activate();
     m_commonWidget = new CommonInfoWidget();
     connect(m_commonWidget, &CommonInfoWidget::requestShowBootWidget, this, &CommonInfoModule::onShowBootWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowDeveloperModeWidget, this, &CommonInfoModule::onShowDeveloperWidget);
