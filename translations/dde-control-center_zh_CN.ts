@@ -146,6 +146,11 @@
         <translation>过期时间(天)</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
+        <source>Group</source>
+        <translation>用户组</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="252"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
@@ -226,6 +231,11 @@
         <source>New Account</source>
         <translation>新帐户</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="110"/>
+        <source>Group</source>
+        <translation>用户组</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="110"/>

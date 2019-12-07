@@ -142,6 +142,11 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
+        <source>Group</source>
+        <translation>Group</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
         <source>Date Expired (Days)</source>
         <translation>Date Expired (Days)</translation>
     </message>
@@ -231,6 +236,11 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="110"/>
         <source>Username</source>
         <translation>Username</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="110"/>
+        <source>Group</source>
+        <translation>Group</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="115"/>
