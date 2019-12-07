@@ -152,7 +152,7 @@ DateSettings::DateSettings(QWidget *parent)
         m_ntpServerList->addItem(tr("Customize"));
     }
 
-    m_datetimeGroup->appendItem(timeItem); 
+    m_datetimeGroup->appendItem(timeItem);
     m_datetimeGroup->appendItem(m_yearWidget);
     m_datetimeGroup->appendItem(m_monthWidget);
     m_datetimeGroup->appendItem(m_dayWidget);
@@ -347,6 +347,7 @@ void DateSettings::setControlVisible(bool state)
 
     if (m_bSystemIsServer) {
         m_ntpSrvItem->setVisible(state);
+        m_buttonTuple->setVisible(m_ntpServerList->currentText() == tr("Customize"));
         m_address->setVisible(state && m_ntpServerList->currentText() == tr("Customize"));
     }
 }
