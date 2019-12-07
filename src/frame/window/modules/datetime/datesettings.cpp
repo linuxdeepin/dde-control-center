@@ -347,7 +347,8 @@ void DateSettings::setControlVisible(bool state)
 
     if (m_bSystemIsServer) {
         m_ntpSrvItem->setVisible(state);
-        m_buttonTuple->setVisible(m_ntpServerList->currentText() == tr("Customize"));
+        m_buttonTuple->setVisible(m_buttonTuple->isVisible()
+                                  || m_ntpServerList->currentText() == tr("Customize"));
         m_address->setVisible(state && m_ntpServerList->currentText() == tr("Customize"));
     }
 }

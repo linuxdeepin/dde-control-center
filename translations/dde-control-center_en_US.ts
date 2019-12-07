@@ -147,6 +147,11 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
+        <source>Maximum number of days between password change</source>
+        <translation>Maximum number of days between password change</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
         <source>Group</source>
         <translation>Group</translation>
     </message>

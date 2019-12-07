@@ -148,7 +148,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
         <source>Date Expired (Days)</source>
-        <translation>过期时间(天)</translation>
+        <translation>过期天数</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
+        <source>Maximum number of days between password change</source>
+        <translation>两次改变密码之间相距的最大天数</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
