@@ -32,36 +32,35 @@
 #include <QMap>
 
 static const QMap<QString, QString> DisplaykeyMap = { {"exclam", "!"}, {"at", "@"}, {"numbersign", "#"}, {"dollar", "$"}, {"percent", "%"},
-    {"asciicircum", "^"}, {"ampersand", "&"}, {"asterisk", "*"}, {"parenleft", "("},
-    {"parenright", ")"}, {"underscore", "_"}, {"plus", "+"}, {"braceleft", "{"}, {"braceright", "}"},
-    {"bar", "|"}, {"colon", ":"}, {"quotedbl", "\""}, {"less", "<"}, {"greater", ">"}, {"question", "?"},
-    {"minus", "-"}, {"equal", "="}, {"brackertleft", "["}, {"breckertright", "]"}, {"backslash", "\\"},
-    {"semicolon", ";"}, {"apostrophe", "'"}, {"comma", ","}, {"period", "."}, {"slash", "/"}, {"Up", "↑"},
-    {"Left", "←"}, {"Down", "↓"}, {"Right", "→"}, {"asciitilde", "~"}, {"grave", "`"}, {"Control", "Ctrl"},
-    {"Super_L", "Super"}, {"Super_R", "Super"}
-};
+                                                      {"asciicircum", "^"}, {"ampersand", "&"}, {"asterisk", "*"}, {"parenleft", "("},
+                                                      {"parenright", ")"}, {"underscore", "_"}, {"plus", "+"}, {"braceleft", "{"}, {"braceright", "}"},
+                                                      {"bar", "|"}, {"colon", ":"}, {"quotedbl", "\""}, {"less", "<"}, {"greater", ">"}, {"question", "?"},
+                                                      {"minus", "-"}, {"equal", "="}, {"brackertleft", "["}, {"breckertright", "]"}, {"backslash", "\\"},
+                                                      {"semicolon", ";"}, {"apostrophe", "'"}, {"comma", ","}, {"period", "."}, {"slash", "/"}, {"Up", "↑"},
+                                                      {"Left", "←"}, {"Down", "↓"}, {"Right", "→"}, {"asciitilde", "~"}, {"grave", "`"},{"Control", "Ctrl"},
+                                                      {"Super_L", "Super"}, {"Super_R", "Super"} };
 
 
 namespace dcc {
-namespace keyboard {
+namespace keyboard{
 
 class ShortcutItem;
-struct ShortcutInfo {
+struct ShortcutInfo
+{
     QString accels;
     QString id;
     QString name;
     QString command;
     quint32 type;
-    ShortcutInfo *replace = nullptr;
-    ShortcutItem *item = nullptr;
+    ShortcutInfo* replace = nullptr;
+    ShortcutItem* item = nullptr;
 
     bool operator==(const ShortcutInfo &info) const
     {
         return id == info.id && type == info.type;
     }
 
-    QString toString()
-    {
+    QString toString() {
         return name + accels + command + id + QString::number(type);
     }
 };
@@ -74,49 +73,46 @@ class ShortcutModel : public QObject
 public:
     explicit ShortcutModel(QObject *parent = 0);
     ~ShortcutModel();
-    enum InfoType {
+    enum InfoType{
         System,
         Custom,
         Media,
         Window,
-        Workspace,
-        Speech
+        Workspace
     };
 
-    QList<ShortcutInfo *> systemInfo() const;
-    QList<ShortcutInfo *> windowInfo() const;
-    QList<ShortcutInfo *> workspaceInfo() const;
-    QList<ShortcutInfo *> SpeechInfo() const;
-    QList<ShortcutInfo *> customInfo() const;
-    QList<ShortcutInfo *> infos() const;
+    QList<ShortcutInfo*> systemInfo() const;
+    QList<ShortcutInfo*> windowInfo() const;
+    QList<ShortcutInfo*> workspaceInfo() const;
+    QList<ShortcutInfo*> customInfo() const;
+    QList<ShortcutInfo*> infos() const;
 
-    void delInfo(ShortcutInfo *info);
+    void delInfo(ShortcutInfo* info);
 
     ShortcutInfo *currentInfo() const;
     void setCurrentInfo(ShortcutInfo *currentInfo);
 
-    ShortcutInfo *getInfo(const QString &shortcut);
+    ShortcutInfo * getInfo(const QString &shortcut);
     void setSearchResult(const QString &searchResult);
 Q_SIGNALS:
     void listChanged(QList<ShortcutInfo *>, InfoType);
-    void addCustomInfo(ShortcutInfo *info);
+    void addCustomInfo(ShortcutInfo* info);
     void shortcutChanged(ShortcutInfo *info);
     void keyEvent(bool press, const QString &shortcut);
-    void searchFinished(const QList<ShortcutInfo *> searchResult);
+    void searchFinished(const QList<ShortcutInfo*> searchResult);
 public Q_SLOTS:
-    void onParseInfo(const QString &info);
-    void onCustomInfo(const QString &json);
+    void onParseInfo(const QString& info);
+    void onCustomInfo(const QString& json);
     void onKeyBindingChanged(const QString &value);
 
 private:
     QString m_info;
-    QList<ShortcutInfo *> m_infos;
-    QList<ShortcutInfo *> m_systemInfos;
-    QList<ShortcutInfo *> m_windowInfos;
-    QList<ShortcutInfo *> m_workspaceInfos;
-    QList<ShortcutInfo *> m_speechInfos;
-    QList<ShortcutInfo *> m_customInfos;
-    QList<ShortcutInfo *> m_searchList;
+    QList<ShortcutInfo*> m_infos;
+    QList<ShortcutInfo*> m_systemInfos;
+    QList<ShortcutInfo*> m_windowInfos;
+    QList<ShortcutInfo*> m_workspaceInfos;
+    QList<ShortcutInfo*> m_customInfos;
+    QList<ShortcutInfo*> m_searchList;
     ShortcutInfo *m_currentInfo;
 };
 

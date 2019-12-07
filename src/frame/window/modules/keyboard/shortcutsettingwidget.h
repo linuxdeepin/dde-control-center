@@ -96,7 +96,6 @@ private:
     dcc::widgets::SettingsGroup *m_systemGroup;
     dcc::widgets::SettingsGroup *m_windowGroup;
     dcc::widgets::SettingsGroup *m_workspaceGroup;
-    dcc::widgets::SettingsGroup *m_speechGroup;
     dcc::widgets::SettingsGroup *m_customGroup;
     dcc::widgets::SettingsGroup *m_searchGroup;
     QMap<QString, dcc::keyboard::ShortcutInfo *> m_searchInfos;
@@ -107,7 +106,6 @@ private:
     QList<dcc::keyboard::ShortcutItem *> m_systemList;
     QList<dcc::keyboard::ShortcutItem *> m_windowList;
     QList<dcc::keyboard::ShortcutItem *> m_workspaceList;
-    QList<dcc::keyboard::ShortcutItem *> m_speechList;
     QList<dcc::keyboard::ShortcutItem *> m_customList;
 };
 }

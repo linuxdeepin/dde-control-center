@@ -58,16 +58,11 @@ static const QStringList systemFilter = { "terminal",
                                           "clipboard"
                                        };
 
-QStringList windowFilter = { "maximize", "unmaximize", "minimize",
-                            "begin-move", "begin-resize", "close"
-                           };
+QStringList windowFilter = { "maximize",   "unmaximize",   "minimize",
+                             "begin-move", "begin-resize", "close" };
 
 QStringList workspaceFilter = { "switch-to-workspace-left", "switch-to-workspace-right",
-                               "move-to-workspace-left", "move-to-workspace-right"
-                              };
-
-QStringList speechFilter = { "ai-assistant", "text-to-speech", "speech-to-text"
-                           };
+                                "move-to-workspace-left", "move-to-workspace-right" };
 
 namespace dcc {
 namespace keyboard {
@@ -102,11 +97,6 @@ QList<ShortcutInfo *> ShortcutModel::workspaceInfo() const
     return m_workspaceInfos;
 }
 
-QList<ShortcutInfo *> ShortcutModel::SpeechInfo() const
-{
-    return m_speechInfos;
-}
-
 QList<ShortcutInfo *> ShortcutModel::customInfo() const
 {
     return m_customInfos;
@@ -137,7 +127,6 @@ void ShortcutModel::onParseInfo(const QString &info)
     m_systemInfos.clear();
     m_windowInfos.clear();
     m_workspaceInfos.clear();
-    m_speechInfos.clear();
     m_customInfos.clear();
 
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
@@ -160,40 +149,37 @@ void ShortcutModel::onParseInfo(const QString &info)
                 m_systemInfos << info;
                 continue;
             }
+
             if (windowFilter.contains(info->id)) {
                 m_windowInfos << info;
                 continue;
             }
+
             if (workspaceFilter.contains(info->id)) {
                 m_workspaceInfos << info;
                 continue;
             }
-            if (speechFilter.contains(info->id)) {
-                m_speechInfos << info;
-                continue;
-            }
-            if (type == 1) {
-                m_customInfos << info;
-            }
+
+            if (type == 1) m_customInfos << info;
         }
     }
 
-    qSort(m_systemInfos.begin(), m_systemInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    qSort(m_systemInfos.begin(), m_systemInfos.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
         return systemFilter.indexOf(s1->id) < systemFilter.indexOf(s2->id);
     });
 
-    qSort(m_windowInfos.begin(), m_windowInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    qSort(m_windowInfos.begin(), m_windowInfos.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
         return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
     });
 
-    qSort(m_workspaceInfos.begin(), m_workspaceInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
-        return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
-    });
+    qSort(m_workspaceInfos.begin(), m_workspaceInfos.end(),
+          [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
+              return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
+          });
 
     Q_EMIT listChanged(m_systemInfos, InfoType::System);
     Q_EMIT listChanged(m_windowInfos, InfoType::Window);
     Q_EMIT listChanged(m_workspaceInfos, InfoType::Workspace);
-    Q_EMIT listChanged(m_speechInfos, InfoType::Speech);
     Q_EMIT listChanged(m_customInfos, InfoType::Custom);
 }
 
@@ -217,7 +203,7 @@ void ShortcutModel::onCustomInfo(const QString &json)
 void ShortcutModel::onKeyBindingChanged(const QString &value)
 {
     const QJsonObject &obj       = QJsonDocument::fromJson(value.toStdString().c_str()).object();
-    const QString     &update_id = obj["Id"].toString();
+    const QString &    update_id = obj["Id"].toString();
 
     for (ShortcutInfo *info : m_infos) {
         if (info->id == update_id) {
@@ -256,11 +242,10 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
     qDeleteAll(m_searchList);
     m_searchList.clear();
 
-    QList<ShortcutInfo *> systemInfoList;
-    QList<ShortcutInfo *> windowInfoList;
-    QList<ShortcutInfo *> workspaceInfoList;
-    QList<ShortcutInfo *> customInfoList;
-    QList<ShortcutInfo *> speechInfoList;
+    QList<ShortcutInfo*> systemInfoList;
+    QList<ShortcutInfo*> windowInfoList;
+    QList<ShortcutInfo*> workspaceInfoList;
+    QList<ShortcutInfo*> customInfoList;
 
     QJsonArray array = QJsonDocument::fromJson(searchResult.toStdString().c_str()).array();
     for (auto value : array) {
@@ -286,10 +271,6 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
                 workspaceInfoList << info;
                 continue;
             }
-            if (speechFilter.contains(info->id)) {
-                speechInfoList << info;
-                continue;
-            }
             if (type == 1) {
                 customInfoList << info;
             }
@@ -298,19 +279,18 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
         }
     }
 
-    qSort(systemInfoList.begin(), systemInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    qSort(systemInfoList.begin(), systemInfoList.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
         return systemFilter.indexOf(s1->id) < systemFilter.indexOf(s2->id);
     });
-    qSort(windowInfoList.begin(), windowInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    qSort(windowInfoList.begin(), windowInfoList.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
         return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
     });
-    qSort(workspaceInfoList.begin(), workspaceInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    qSort(workspaceInfoList.begin(), workspaceInfoList.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
         return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
     });
     m_searchList.append(systemInfoList);
     m_searchList.append(windowInfoList);
     m_searchList.append(workspaceInfoList);
-    m_searchList.append(speechInfoList);
     m_searchList.append(customInfoList);
     int i = 0;
     for (auto search : m_searchList) {
