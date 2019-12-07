@@ -1,20 +1,41 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="en_US">
+<context>
+    <name>BackgroundWidget</name>
+    <message>
+        <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
+        <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
+        <source>Rolling back the system, please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context>
     <name>RecoveryDialog</name>
     <message>
-        <location filename="../abrecovery/recoverydialog.cpp" line="214"/>
+        <location filename="../abrecovery/recoverydialog.cpp" line="259"/>
+        <source>Rollback failed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../abrecovery/recoverydialog.cpp" line="264"/>
+        <source>Reboot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>Are you sure you want to roll back to %1 backed up on %2?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../abrecovery/recoverydialog.cpp" line="217"/>
+        <location filename="../abrecovery/recoverydialog.cpp" line="274"/>
         <source>Cancel and Reboot</source>
-        <translation>Cancel and Reboot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../abrecovery/recoverydialog.cpp" line="218"/>
+        <location filename="../abrecovery/recoverydialog.cpp" line="275"/>
         <source>Confirm</source>
-        <translation>Confirm</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -265,8 +265,7 @@ QString SystemInfoWork::getGraphicProcessUnit() const
 {
     QProcess process;
     //这里查询所有的显卡信息(查询/sys/class/drm目录下的card0 card1 card2 ...这样的目录)
-    process.start("/bin/sh", QStringList()<< "-c" << R"(cd /sys/class/drm && ls | grep -P "card\d+" | xargs -n 1 -i cat {}/device/uevent | perl -lne 'next unless m{PCI_SLOT_NAME=(.+)$};print $1' | xargs -n 1 lspci -s
-)");
+    process.start("/bin/sh", QStringList()<< "-c" << R"(cd /sys/class/drm && ls | grep -P "card\d+" | xargs -n 1 -i cat {}/device/uevent | perl -lne 'next unless m{PCI_SLOT_NAME=(.+)$};print $1' | xargs -n 1 lspci -s)");
     process.waitForFinished();
     QString info_str(QString::fromUtf8(process.readAll()));
     QRegularExpression regex_ex(R"(^.*controller:\s*(.+)$)");
