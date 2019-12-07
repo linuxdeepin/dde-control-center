@@ -670,7 +670,7 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
     if (!m_checkUpdateJob.isNull())
         return;
 
-    qDebug() << "[update] start status : " << m_model->status();
+    qDebug() << "[setCheckUpdatesJob] start status : " << m_model->status();
     UpdatesStatus state = m_model->status();
     if (UpdatesStatus::Downloading != state && UpdatesStatus::DownloadPaused != state && UpdatesStatus::Installing != state) {
         m_model->setStatus(UpdatesStatus::Checking, __LINE__);
@@ -680,6 +680,7 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 
     m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
     connect(m_checkUpdateJob, &__Job::StatusChanged, [this](const QString & status) {
+        qDebug() << "[setCheckUpdatesJob]status is: " << status;
         if (status == "failed") {
             qWarning() << "check for updates job failed";
             m_managerInter->CleanJob(m_checkUpdateJob->id());
@@ -839,7 +840,9 @@ void UpdateWorker::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
             qWarning() << Q_FUNC_INFO << "UpdateFailed, error msg : " << obj["Type"].toString();
         }
 
-        resetDownloadInfo();
+        if (m_model->status() == UpdatesStatus::UpdateFailed) {
+            resetDownloadInfo();
+        }
         w->deleteLater();
         return;
     }
@@ -926,7 +929,9 @@ void UpdateWorker::checkDiskSpace(JobInter *job)
         qWarning() << Q_FUNC_INFO << "UpdateFailed , jobDescription : " << jobDescription;
     }
     //以上错误均需重置更新信息
-    resetDownloadInfo();
+    if (m_model->status() == UpdatesStatus::UpdateFailed) {
+        resetDownloadInfo();
+    }
 }
 
 DownloadInfo *UpdateWorker::calculateDownloadInfo(const AppUpdateInfoList &list)
