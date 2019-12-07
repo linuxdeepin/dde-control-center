@@ -141,6 +141,11 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
+        <source>Date Expired (Days)</source>
+        <translation>Date Expired (Days)</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="252"/>
         <source>Auto Login</source>
         <translation>Auto Login</translation>

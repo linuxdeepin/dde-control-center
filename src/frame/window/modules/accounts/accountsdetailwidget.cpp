@@ -31,7 +31,9 @@
 #include <DCommandLinkButton>
 #include <DFontSizeManager>
 #include <DApplicationHelper>
+#include <DLineEdit>
 #include <DFontSizeManager>
+#include <DTipLabel>
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -222,6 +224,13 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     QPushButton *modifyPassword = new QPushButton;
     DWarningButton *deleteAccount = new DWarningButton;
 
+#if 0
+    auto pwTip = new DTipLabel(tr("xxxxxxxxxxxxxxxxxxx"));
+    pwTip->setContentsMargins(0, 10, 0, 10);
+    pwTip->setVisible(m_curUser->isPasswordExpired());
+    connect(m_curUser, &User::isPasswordExpiredChanged, pwTip, &DTipLabel::setVisible);
+#endif
+
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->setContentsMargins(10, 0, 10, 0);
     modifydelLayout->addWidget(modifyPassword);
@@ -229,6 +238,75 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     modifydelLayout->addWidget(deleteAccount);
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
+
+    if (isServerSystem()) {
+        auto pwHLayout = new QHBoxLayout;
+        auto pwWidget = new SettingsItem;
+        pwWidget->addBackground();
+        layout->addSpacing(15);
+        layout->addWidget(pwWidget);
+        pwWidget->setLayout(pwHLayout);
+
+        pwHLayout->addWidget(new QLabel(tr("Date Expired (Days)")), 0, Qt::AlignLeft);
+        auto ageEdit = new DLineEdit();
+        ageEdit->setText(QString::number(m_curUser->passwordAge()));
+        ageEdit->setMaximumWidth(120);
+        ageEdit->setClearButtonEnabled(false);
+        pwHLayout->addWidget(ageEdit, 0, Qt::AlignRight);
+
+        connect(ageEdit, &DLineEdit::textChanged, this, [ageEdit](){
+            ageEdit->setAlert(false);
+        });
+        connect(ageEdit, &DLineEdit::editingFinished, this, [this, ageEdit](){
+            if (ageEdit->text().isEmpty())
+                return;
+
+            bool isInt = false;
+            auto age = ageEdit->text().toInt(&isInt);
+            if (!isInt) {
+                ageEdit->setAlert(true);
+                return;
+            }
+
+            if (age == m_curUser->passwordAge())
+                return;
+
+            Q_EMIT requsetSetPassWordAge(m_curUser, ageEdit->text().toInt());
+        });
+        connect(m_curUser, &User::passwordAgeChanged, this, [ageEdit](const int age) {
+            ageEdit->setText(QString::number(age));
+        });
+    }
+
+#if 0
+    auto pwAgeGroup = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    auto pwSwitch = new SwitchWidget(tr("has password age"));
+    pwAgeGroup->appendItem(pwSwitch);
+    pwAgeGroup->layout()->setMargin(0);
+    layout->addWidget(pwAgeGroup);
+
+    pwSwitch->setChecked(m_curUser->passwordAge() != -1);
+    connect(m_curUser, &User::passwordAgeChanged, this, [pwSwitch](const int age) {
+        pwSwitch->setChecked(age != -1);
+    });
+
+    auto pwDayItem = new SettingsItem();
+    auto pwDVLayout = new QVBoxLayout();
+    pwDayItem->setLayout(pwDVLayout);
+    pwDayItem->setVisible(m_curUser->passwordAge() != -1);
+    pwAgeGroup->appendItem(pwDayItem);
+
+    connect(pwSwitch, &SwitchWidget::checkedChanged, pwDayItem, &QWidget::setVisible);
+    auto lastDay = new DTipLabel("2020/2/15");
+    pwDVLayout->addWidget(lastDay, 0, Qt::AlignBottom | Qt::AlignRight);
+
+    connect(m_curUser, &User::passwordAgeChanged, this, [lastDay](const int age) {
+        lastDay->setText(QString::number(age));
+    });
+    connect(m_curUser, &User::passwordAgeChanged, this, [lastDay](const int age) {
+        lastDay->setText(QString::number(age));
+    });
+#endif
 
     SwitchWidget *autoLogin = new SwitchWidget;
     SwitchWidget *nopasswdLogin = new SwitchWidget;

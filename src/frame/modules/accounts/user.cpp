@@ -158,3 +158,21 @@ void User::setCreatedTime(const quint64 & createdtime)
 
     Q_EMIT createdTimeChanged(createdtime);
 }
+
+void User::setIsPasswordExpired(bool isExpired)
+{
+    if (isExpired == m_isPasswordExpired)
+        return;
+
+    m_isPasswordExpired = isExpired;
+    Q_EMIT isPasswordExpiredChanged(isExpired);
+}
+
+void User::setPasswordAge(const int age)
+{
+    if (age == m_pwAge)
+        return;
+
+    m_pwAge = age;
+    Q_EMIT passwordAgeChanged(age);
+}

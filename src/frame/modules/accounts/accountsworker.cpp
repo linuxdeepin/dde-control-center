@@ -285,6 +285,7 @@ void AccountsWorker::addUser(const QString &userPath)
     connect(userInter, &AccountsUser::PasswordStatusChanged, user, &User::setPasswordStatus);
     connect(userInter, &AccountsUser::CreatedTimeChanged, user, &User::setCreatedTime);
     connect(userInter, &AccountsUser::GroupsChanged, user, &User::setGroups);
+    connect(userInter, &AccountsUser::MaxPasswordAgeChanged, user, &User::setPasswordAge);
 
     user->setName(userInter->userName());
     user->setFullname(userInter->fullName());
@@ -295,6 +296,8 @@ void AccountsWorker::addUser(const QString &userPath)
     user->setNopasswdLogin(userInter->noPasswdLogin());
     user->setPasswordStatus(userInter->passwordStatus());
     user->setCreatedTime(userInter->createdTime());
+    user->setPasswordAge(userInter->maxPasswordAge());
+    user->setIsPasswordExpired(userInter->IsPasswordExpired());
 
     m_userInters[user] = userInter;
     m_userModel->addUser(userPath, user);
@@ -334,6 +337,14 @@ void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
         Q_EMIT requestFrameAutoHide(true);
         watcher->deleteLater();
     });
+}
+
+void AccountsWorker::setMaxPasswordAge(User *user, const int maxAge)
+{
+    AccountsUser *userInter = m_userInters[user];
+    Q_ASSERT(userInter);
+
+    userInter->SetMaxPasswordAge(maxAge);
 }
 
 #ifdef DCC_ENABLE_ADDOMAIN

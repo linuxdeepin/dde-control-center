@@ -82,6 +82,7 @@ public Q_SLOTS:
     void setPassword(User *user, const QString &oldpwd, const QString &passwd);
     void deleteUserIcon(User *user, const QString &iconPath);
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
+    void setMaxPasswordAge(User *user, const int maxAge);
 
 #ifdef DCC_ENABLE_ADDOMAIN
     void refreshADDomain();

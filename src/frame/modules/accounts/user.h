@@ -86,6 +86,12 @@ public:
     inline quint64 createdTime() const { return m_createdTime; }
     void setCreatedTime(const quint64 & createdtime);
 
+    inline bool isPasswordExpired() const { return m_isPasswordExpired; }
+    void setIsPasswordExpired(bool isExpired);
+
+    inline int passwordAge() const { return m_pwAge; }
+    void setPasswordAge(const int age);
+
 Q_SIGNALS:
     void passwordModifyFinished(const int exitCode) const;
     void nameChanged(const QString &name) const;
@@ -99,12 +105,16 @@ Q_SIGNALS:
     void isCurrentUserChanged(bool isCurrentUser);
     void passwordStatusChanged(const QString& password) const;
     void createdTimeChanged(const quint64 & createtime);
+    void isPasswordExpiredChanged(const bool isExpired) const;
+    void passwordAgeChanged(const int age) const;
 
 private:
     bool m_isCurrentUser;
     bool m_autoLogin;
     bool m_online;
     bool m_nopasswdLogin;
+    bool m_isPasswordExpired{false};
+    int m_pwAge{-1};
     QString m_name;
     QString m_fullname;
     QString m_password;

@@ -87,6 +87,7 @@ Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(dcc::accounts::User *user);
     void requestSetGroups(dcc::accounts::User *user, const QStringList &usrGroups);
+    void requsetSetPassWordAge(dcc::accounts::User *user, const int age);
 
 protected:
     void initUserInfo(QVBoxLayout *layout);
