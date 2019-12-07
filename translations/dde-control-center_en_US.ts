@@ -142,6 +142,11 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
+        <source>Full name must be no more than %1 characters</source>
+        <translation>Full name must be no more than %1 characters</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
         <source>Group</source>
         <translation>Group</translation>
     </message>
@@ -220,6 +225,11 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="78"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="79"/>
+        <source>Full name must be no more than %1 characters</source>
+        <translation>Full name must be no more than %1 characters</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="79"/>

@@ -34,6 +34,7 @@
 #include <DLineEdit>
 #include <DFontSizeManager>
 #include <DTipLabel>
+#include <DLineEdit>
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -157,12 +158,13 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     m_fullNameBtn->setIconSize(QSize(12, 12));
     m_fullNameBtn->setFlat(true);//设置背景透明
 
-    m_inputLineEdit = new QLineEdit;
+    m_inputLineEdit = new DLineEdit;
     m_inputLineEdit->setMinimumWidth(220);
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_inputLineEdit->setVisible(false);
-    m_inputLineEdit->setFrame(false);
-    m_inputLineEdit->setAlignment(Qt::AlignCenter);
+    m_inputLineEdit->setClearButtonEnabled(false);
+    m_inputLineEdit->lineEdit()->setFrame(false);
+    m_inputLineEdit->lineEdit()->setAlignment(Qt::AlignCenter);
 
     DFontSizeManager::instance()->bind(m_fullName, DFontSizeManager::T5);
     DFontSizeManager::instance()->bind(m_inputLineEdit, DFontSizeManager::T5);
@@ -212,8 +214,21 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         updateLineEditDisplayStyle(true);
         m_inputLineEdit->setFocus();
     });
-    connect(m_inputLineEdit, &QLineEdit::editingFinished, this, [ = ]() {
+    connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ]() {
+        m_inputLineEdit->setAlert(false);
+        m_inputLineEdit->hideAlertMessage();
+    });
+
+    connect(m_inputLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ]() {
+        const int maxSize = 32;
+        if (m_inputLineEdit->text().size() > maxSize) {
+            m_inputLineEdit->setAlert(true);
+            m_inputLineEdit->showAlertMessage(tr("Full name must be no more than %1 characters").arg(maxSize), -1);
+            return;
+        }
+
         Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
+//        m_inputLineEdit->setAlert(false);
         m_inputLineEdit->clearFocus();
         updateLineEditDisplayStyle();
     });
@@ -466,6 +481,6 @@ void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
 
     if (edit) {
         m_inputLineEdit->setText(m_curUser->fullname());
-        m_inputLineEdit->selectAll();
+        m_inputLineEdit->lineEdit()->selectAll();
     }
 }

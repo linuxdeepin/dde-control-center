@@ -247,6 +247,14 @@ void CreateAccountPage::createUser()
     if (!onNameEditFinished(m_nameEdit)) {
         return;
     }
+
+    const int maxSize = 32;
+    if (m_fullnameEdit->text().size() > maxSize) {
+        m_fullnameEdit->setAlert(true);
+        m_fullnameEdit->showAlertMessage(tr("Full name must be no more than %1 characters").arg(maxSize), -1);
+        return;
+    };
+
     if (!onPasswordEditFinished(m_passwdEdit)) {
         return;
     }

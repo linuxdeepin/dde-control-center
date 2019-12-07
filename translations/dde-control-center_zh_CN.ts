@@ -129,6 +129,11 @@
         <translation>设置全名</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="61"/>
+        <source>Full name must be no more than %1 characters</source>
+        <translation>用户全名不能超过%1个字符</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="247"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
@@ -236,6 +241,11 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="110"/>
         <source>Group</source>
         <translation>用户组</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="110"/>
+        <source>Full name must be no more than %1 characters</source>
+        <translation>用户全名不能超过%1个字符</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="110"/>
