@@ -280,6 +280,12 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
     int pkgCount = m_updatablePackages.count();
     int appCount = value.count();
 
+    //其他错误假如被修正后,已经还能再次设置更新状态
+    if (m_model->status() == UpdatesStatus::UpdateFailed) {
+        qDebug() << " [UpdateWork] The status is error. Current status : " << m_model->status();
+        return;
+    }
+
     if (!pkgCount && !appCount) {
         QFile file("/tmp/.dcc-update-successd");
         if (file.exists()) {
@@ -327,12 +333,6 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
     qDebug() << "updatable packages:" <<  m_updatablePackages << result->appInfos();
     qDebug() << "total download size:" << formatCap(result->downloadSize());
     m_downloadSize = result->downloadSize();
-
-    //其他错误假如被修正后,已经还能再次设置更新状态
-    if (m_model->status() == UpdatesStatus::UpdateFailed && getNotUpdateState()) {
-        qDebug() << " [UpdateWork] The status is error. Current status : " << m_model->status();
-        return;
-    }
 
     if (result->appInfos().length() == 0) {
         m_model->setStatus(UpdatesStatus::Updated, __LINE__);
