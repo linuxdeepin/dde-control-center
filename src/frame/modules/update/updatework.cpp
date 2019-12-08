@@ -328,6 +328,12 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
     qDebug() << "total download size:" << formatCap(result->downloadSize());
     m_downloadSize = result->downloadSize();
 
+    //其他错误假如被修正后,已经还能再次设置更新状态
+    if (m_model->status() == UpdatesStatus::UpdateFailed && getNotUpdateState()) {
+        qDebug() << " [UpdateWork] The status is error. Current status : " << m_model->status();
+        return;
+    }
+
     if (result->appInfos().length() == 0) {
         m_model->setStatus(UpdatesStatus::Updated, __LINE__);
     } else {
