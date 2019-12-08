@@ -498,6 +498,7 @@ void UpdateWorker::distUpgrade()
 
     //First start backupRecovery , then to load(in RecoveryInter::JobEnd Lemon function)
     bool bConfigVlid = m_model->recoverConfigValid();
+    bConfigVlid = false;
     qDebug() << Q_FUNC_INFO << " [abRecovery] 更新前,检查备份配置是否满足(true:满足) : " << bConfigVlid;
 
     if (bConfigVlid) { //系统环境配置为可以恢复,在收到jobEnd()后,且"backup",成功,后才会继续到下一步下载数据
@@ -515,6 +516,7 @@ void UpdateWorker::downloadAndDistUpgrade()
         m_bDownAndUpdate = true;
 
     bool bConfigVlid = m_model->recoverConfigValid();
+    bConfigVlid = false;
     qDebug() << Q_FUNC_INFO << " [abRecovery] 下载并更新前,检查备份配置是否满足(true:满足) : " << bConfigVlid;
 
     if (bConfigVlid) { //系统环境配置为可以恢复,在收到jobEnd()后,且"backup",成功,后才会继续到下一步下载数据
