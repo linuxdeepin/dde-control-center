@@ -141,6 +141,27 @@ MainWindow::MainWindow(QWidget *parent)
     titlebar->addWidget(m_searchWidget, Qt::AlignCenter);
     connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::onEnterSearchWidget);
 
+    auto menu = titlebar->menu();
+    if (!menu) {
+        qDebug() << "menu is nullptr, create menu!";
+        menu = new QMenu;
+    } else {
+        qDebug() << "get title bar menu :" << menu;
+    }
+    titlebar->setMenu(menu);
+
+    auto action = new QAction(tr("Help"));
+    menu->addAction(action);
+    connect(action, &QAction::triggered, this, [] {
+        const QString dmanInterface = "com.deepin.Manual.Open";
+        QDBusInterface *inter = new QDBusInterface(dmanInterface,
+                                                   "/com/deepin/Manual/Open",
+                                                   dmanInterface,
+                                                   QDBusConnection::sessionBus());
+        inter->call("ShowManual", "dde");
+        inter->deleteLater();
+    });
+
     m_backwardBtn = new DIconButton(this);
     m_backwardBtn->setEnabled(false);
     m_backwardBtn->setIcon(QStyle::SP_ArrowBack);
@@ -485,11 +506,27 @@ void MainWindow::toggle()
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
-    if (event->key() == Qt::Key_Escape) {
+    switch(event->key()) {
+    case Qt::Key_Escape:
         if (m_topWidget) {
             popWidget();
         }
+        break;
+    case Qt::Key_F1: {
+        const QString dmanInterface = "com.deepin.Manual.Open";
+        QDBusInterface *inter = new QDBusInterface(dmanInterface,
+                                                   "/com/deepin/Manual/Open",
+                                                   dmanInterface,
+                                                   QDBusConnection::sessionBus());
+        inter->call("ShowManual", "dde");
+        inter->deleteLater();
+        break;
     }
+    default:
+        break;
+    }
+
+    DMainWindow::keyPressEvent(event);
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
