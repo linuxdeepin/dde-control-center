@@ -32,11 +32,8 @@
 #include <com_deepin_daemon_grub2_theme.h>
 
 using SystemInfoInter=com::deepin::daemon::SystemInfo;
-
-#ifndef DCC_DISABLE_GRUB
 using GrubDbus=com::deepin::daemon::Grub2;
 using GrubThemeDbus = com::deepin::daemon::grub2::Theme;
-#endif
 
 namespace dcc{
 namespace systeminfo{
@@ -53,7 +50,6 @@ public:
     void activate();
     void deactivate();
 
-#ifndef DCC_DISABLE_GRUB
     void loadGrubSettings();
 
 Q_SIGNALS:
@@ -72,15 +68,11 @@ private:
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
     QString getGraphicProcessUnit() const;
 
-#endif
-
 private:
     SystemInfoModel* m_model;
     SystemInfoInter* m_systemInfoInter;
-#ifndef DCC_DISABLE_GRUB
     GrubDbus* m_dbusGrub;
     GrubThemeDbus *m_dbusGrubTheme;
-#endif
 };
 
 }

@@ -44,7 +44,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                             "/com/deepin/daemon/SystemInfo",
                                             QDBusConnection::sessionBus(),this);
     m_systemInfoInter->setSync(false);
-#ifndef DCC_DISABLE_GRUB
     m_dbusGrub = new GrubDbus("com.deepin.daemon.Grub2",
                               "/com/deepin/daemon/Grub2",
                               QDBusConnection::systemBus(),
@@ -69,7 +68,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dbusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &SystemInfoWork::onBackgroundChanged);
-#endif
+
 
     connect(m_systemInfoInter, &__SystemInfo::DistroIDChanged, m_model, &SystemInfoModel::setDistroID);
     connect(m_systemInfoInter, &__SystemInfo::DistroVerChanged, m_model, &SystemInfoModel::setDistroVer);
@@ -123,7 +122,6 @@ void SystemInfoWork::deactivate()
 
 }
 
-#ifndef DCC_DISABLE_GRUB
 void SystemInfoWork::loadGrubSettings()
 {
     if (m_dbusGrub->isValid()) {
@@ -286,8 +284,6 @@ QString SystemInfoWork::getGraphicProcessUnit() const
 
     return gpu_info;
 }
-
-#endif
 
 }
 }
