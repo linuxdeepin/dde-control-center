@@ -997,7 +997,7 @@ AppUpdateInfo UpdateWorker::getInfo(const AppUpdateInfo &packageInfo, const QStr
 AppUpdateInfo UpdateWorker::getDDEInfo()
 {
     AppUpdateInfo dde;
-    dde.m_name = "Deepin";
+    dde.m_name = tr("System");
     dde.m_packageId = "dde";
 
     QFile file("/var/lib/lastore/update_infos.json");
