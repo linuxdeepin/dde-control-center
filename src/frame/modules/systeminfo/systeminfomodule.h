@@ -59,9 +59,7 @@ public:
 
 public Q_SLOTS:
     void onPushCopyright();
-#ifndef DCC_DISABLE_GRUB
     void onPushBoot();
-#endif
 
     void onSetAutoHide(const bool visible);
     void showLicensePage();
@@ -69,9 +67,7 @@ public Q_SLOTS:
 private:
     SystemInfoWork* m_work;
     SystemInfoModel* m_model;
-#ifndef DCC_DISABLE_GRUB
     BootWidget* m_bootWidget;
-#endif
     SystemInfoWidget* m_mainWidget;
     CopyrightWidget* m_copyrightWidget;
 };

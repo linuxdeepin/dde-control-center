@@ -38,11 +38,9 @@ class SystemInfoModel : public QObject
 public:
     explicit SystemInfoModel(QObject *parent = 0);
 
-#ifndef DCC_DISABLE_GRUB
     void setEntryLists(const QStringList& list);
     QStringList entryLists() const { return m_entryLists;}
     QString defaultEntry() const { return m_defaultEntry;}
-#endif
 
     QString distroid() const { return m_distroid;}
     QString distrover() const { return m_distrover;}
@@ -54,23 +52,19 @@ public:
     QString kernel() const { return m_kernel;}
     QString graphicProcessingUnit() const { return m_gpu; }
 
-#ifndef DCC_DISABLE_GRUB
     bool bootDelay() const;
     bool themeEnabled() const { return m_themeEnabled; }
     bool updating() const { return m_updating; }
     QPixmap background() const;
     void setBackground(const QPixmap &background);
-#endif
 
 Q_SIGNALS:
-#ifndef DCC_DISABLE_GRUB
     void bootDelayChanged(const int timeout) const;
     void themeEnabledChanged(const bool enabled) const;
     void entryListsChanged(const QStringList &list);
     void defaultEntryChanged(const QString& entry);
     void updatingChanged(const bool &updating);
     void backgroundChanged(const QPixmap &pixmap);
-#endif
     void distroidChanged(const QString& distroid);
     void distroverChanged(const QString& distrover);
     void versionChanged(const QString& version);
@@ -82,12 +76,10 @@ Q_SIGNALS:
     void graphicProcessingUnitChanged(const QString &gpu);
 
 public Q_SLOTS:
-#ifndef DCC_DISABLE_GRUB
     void setBootDelay(bool bootDelay);
     void setThemeEnabled(const bool enabled);
     void setDefaultEntry(const QString& entry);
     void setUpdating(bool updating);
-#endif
     void setDistroID(const QString& distroid);
     void setDistroVer(const QString& distrover);
     void setVersion(const QString& version);
@@ -99,14 +91,12 @@ public Q_SLOTS:
     void setGraphicProcessingUnit(const QString &gpu);
 
 private:
-#ifndef DCC_DISABLE_GRUB
     bool m_bootDelay;
     bool m_themeEnabled;
     bool m_updating;
     QStringList m_entryLists;
     QString m_defaultEntry;
     QPixmap m_background;
-#endif
 
     QString m_distroid;
     QString m_distrover;

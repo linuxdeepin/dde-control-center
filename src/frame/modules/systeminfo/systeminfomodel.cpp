@@ -58,7 +58,6 @@ SystemInfoModel::SystemInfoModel(QObject *parent)
 
 }
 
-#ifndef DCC_DISABLE_GRUB
 void SystemInfoModel::setEntryLists(const QStringList &list)
 {
     if (list != m_entryLists) {
@@ -117,7 +116,6 @@ void SystemInfoModel::setBackground(const QPixmap &background)
     Q_EMIT backgroundChanged(background);
 }
 
-#endif
 
 void SystemInfoModel::setDistroID(const QString &distroid)
 {
