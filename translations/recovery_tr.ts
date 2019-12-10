@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi geri alıyor, lütfen bekleyin...</translation>
     </message>
 </context>
 <context>
@@ -13,7 +13,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="259"/>
         <source>Rollback failed.</source>
-        <translation type="unfinished"/>
+        <translation>Geri alma başarısız.</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="264"/>
@@ -28,7 +28,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>
         <source>Cancel and Reboot</source>
-        <translation>İptal ve Yeniden Başlat</translation>
+        <translation>İptal et ve Yeniden başlat</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="275"/>

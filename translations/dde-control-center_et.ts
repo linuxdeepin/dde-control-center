@@ -23,99 +23,104 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="164"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="153"/>
+        <source>Help</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="185"/>
         <source>Touchpad</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="165"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="186"/>
         <source>TrackPoint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="281"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="302"/>
         <source>Account</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="283"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="715"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="717"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="304"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="752"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="754"/>
         <source>Cloud Sync</source>
         <translation type="unfinished"/>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="284"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
         <source>Display</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="285"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Default Applications</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="286"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
         <source>Personalization</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="287"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Network</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="288"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Sound</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="289"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="691"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="693"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="728"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="730"/>
         <source>Bluetooth</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="290"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Date and Time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="291"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Power</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="292"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
         <source>Mouse</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="293"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="703"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="705"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="740"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="742"/>
         <source>Drawing Tablet</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Keyboard and Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="295"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Update</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
         <source>System Info</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="297"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
         <source>General Settings</source>
         <translation type="unfinished"/>
     </message>
@@ -601,7 +606,8 @@
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="251"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="297"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="350"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="399"/>
         <source>Customize</source>
         <translation type="unfinished"/>
     </message>
@@ -1088,7 +1094,7 @@
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="233"/>
         <source>Custom Shortcut</source>
         <translation type="unfinished"/>
     </message>
@@ -8837,13 +8843,18 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="318"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="324"/>
         <source>Patches</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="319"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="325"/>
         <source>System patches</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1000"/>
+        <source>System</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Ruller systemet tilbage, vent venligst...</translation>
     </message>
 </context>
 <context>
@@ -13,7 +13,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="259"/>
         <source>Rollback failed.</source>
-        <translation type="unfinished"/>
+        <translation>Tilbagerulning mislykkedes.</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="264"/>
