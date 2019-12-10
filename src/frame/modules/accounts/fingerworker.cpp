@@ -110,6 +110,7 @@ void FingerWorker::saveEnroll(const QString &name)
 {
     QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
     connect(watcher, &QFutureWatcher<void>::finished, [this, watcher, name] {
+        qDebug() << "saveEnroll: " << name;
         refreshUserEnrollList(name);
         m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
 
@@ -156,7 +157,7 @@ void FingerWorker::onGetListEnrolledFinished(QDBusPendingCallWatcher *w)
         u.userThumbs = reply.value();
         m_model->addUserThumbs(u);
     } else {
-        qDebug() << reply.error();
+        qDebug() << "onGetListEnrolledFinished: " << reply.error();
     }
 
     w->deleteLater();
@@ -164,6 +165,7 @@ void FingerWorker::onGetListEnrolledFinished(QDBusPendingCallWatcher *w)
 
 void FingerWorker::onEnrollStatus(const QString &value, const bool status)
 {
+    qDebug() << "onEnrollStatus: " << value << "," << status;
     if (value == "enroll-completed" && status == 1) {
         m_model->setEnrollStatus(FingerModel::EnrollStatus::Finished);
         return;

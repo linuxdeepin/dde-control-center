@@ -95,14 +95,17 @@ void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::U
             continue;
         }
 
-        int i = 1;//记录指纹列表项编号
-        Q_FOREACH (const QString &title, u.userThumbs) {
+        int i = 1; // 记录指纹列表项编号
+        qDebug() << "user thumb count: " << u.userThumbs.size();
+        for (const QString &title : u.userThumbs) {
             AccounntFingeItem *item = new AccounntFingeItem(this);
-            item->setTitle(tr("Fingerprint") + QString::number(i++));
+            QString finger = tr("Fingerprint") + QString::number(i++);
+            item->setTitle(finger);
             item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
             DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
             m_listGrp->appendItem(item);
             thumb.removeOne(title);
+            qDebug() << "onThumbsListChanged: " << finger;
         }
 
         if (!thumb.isEmpty()) {
