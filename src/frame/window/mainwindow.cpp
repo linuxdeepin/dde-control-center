@@ -602,6 +602,7 @@ void MainWindow::resetNavList(bool isIconMode)
             }
         }
 
+        DStyle::setFrameRadius(m_navView, 18);
         m_rightView->hide();
         m_backwardBtn->setEnabled(false);
     } else {
@@ -625,6 +626,7 @@ void MainWindow::resetNavList(bool isIconMode)
             }
         }
 
+        DStyle::setFrameRadius(m_navView, 8);
         // 选中当前的项
         m_navView->selectionModel()->select(m_navView->currentIndex(), QItemSelectionModel::SelectCurrent);
         m_rightView->show();
