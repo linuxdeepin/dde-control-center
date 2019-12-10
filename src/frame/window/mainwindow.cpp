@@ -460,7 +460,7 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 
     raise();
     if (isMinimized() || !isVisible())
-        show();
+        showNormal();
 
     activateWindow();
     onEnterSearchWidget(module, page);
@@ -499,7 +499,7 @@ void MainWindow::toggle()
 {
     raise();
     if (isMinimized() || !isVisible())
-        show();
+        showNormal();
 
     activateWindow();
 }

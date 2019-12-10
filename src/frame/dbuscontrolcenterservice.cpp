@@ -132,7 +132,7 @@ void DBusControlCenterService::Show()
 #else
     parent()->raise();
     if (parent()->isMinimized() || !parent()->isVisible())
-        parent()->show();
+        parent()->showNormal();
 
     parent()->activateWindow();
 #endif
@@ -145,7 +145,7 @@ void DBusControlCenterService::ShowImmediately()
     parent()->showSettingsPage(QString(), QString());
 #else
     if (parent()->isMinimized())
-        parent()->show();
+        parent()->showNormal();
 
     parent()->activateWindow();
 #endif
