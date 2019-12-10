@@ -52,6 +52,7 @@ SystemTimezone::SystemTimezone(QWidget *parent)
     m_layout->addWidget(m_systemTimezone);
     m_layout->addSpacing(3);
     m_layout->addWidget(m_setSystemTimezone);
+    m_layout->setMargin(0);
 
     setLayout(m_layout);
 
