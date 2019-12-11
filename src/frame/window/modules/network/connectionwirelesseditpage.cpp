@@ -31,9 +31,13 @@ using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-ConnectionWirelessEditPage::ConnectionWirelessEditPage(const QString &devPath, const QString &connUuid, QWidget *parent)
+ConnectionWirelessEditPage::ConnectionWirelessEditPage(const QString &devPath, const QString &connUuid, bool isHidden, QWidget *parent)
     : ConnectionEditPage(ConnectionEditPage::ConnectionType::WirelessConnection, devPath, connUuid, parent)
 {
+    if (isHidden) {
+        m_connectionSettings->setting(NetworkManager::Setting::SettingType::Wireless)
+                .staticCast<NetworkManager::WirelessSetting>()->setHidden(isHidden);
+    }
 }
 
 ConnectionWirelessEditPage::~ConnectionWirelessEditPage()

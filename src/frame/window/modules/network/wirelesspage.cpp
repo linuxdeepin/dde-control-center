@@ -588,7 +588,7 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
 
 void WirelessPage::showConnectHidePage()
 {
-    m_apEditPage = new ConnectionWirelessEditPage(m_device->path());
+    m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), QString(), true);
     m_apEditPage->initSettingsWidget();
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
     connect(m_apEditPage, &ConnectionEditPage::requestFrameAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
