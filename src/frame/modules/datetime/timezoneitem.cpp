@@ -59,6 +59,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     m_removeBtn->setIcon(DStyle::StandardPixmap::SP_DeleteButton);
 
     m_removeBtn->setFixedSize(QSize(48, 48));
+    m_removeBtn->setIconSize(QSize(24, 24));
     m_removeBtn->setVisible(false);
 
     m_clock->setDrawTicks(false);
