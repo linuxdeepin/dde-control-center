@@ -89,7 +89,9 @@ BootWidget::BootWidget(QWidget *parent)
 
     m_theme = new SwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
+#ifndef DCC_DISABLE_GRUB_THEME
     m_theme->setTitle(tr("Theme"));
+#endif
 
     DTipLabel *backgroundLabel = new DTipLabel(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background"));
     backgroundLabel->setWordWrap(true);
@@ -103,8 +105,9 @@ BootWidget::BootWidget(QWidget *parent)
 
     groupOther->appendItem(m_bootDelay);
     groupOther->setSpacing(List_Interval);
+#ifndef DCC_DISABLE_GRUB_THEME
     groupOther->appendItem(m_theme);
-
+#endif
     layout->setMargin(0);
     layout->setSpacing(0);
     layout->addSpacing(List_Interval);
@@ -113,7 +116,9 @@ BootWidget::BootWidget(QWidget *parent)
     layout->addWidget(backgroundLabel);
     layout->addSpacing(List_Interval);
     layout->addWidget(groupOther);
+#ifndef DCC_DISABLE_GRUB_THEME
     layout->addWidget(themeLbl);
+#endif
     layout->addStretch();
     layout->setContentsMargins(ThirdPageContentsMargins);
     setLayout(layout);
