@@ -45,7 +45,7 @@ class SettingsHead : public SettingsItem
 public:
     enum State {
         Edit,
-        Cancel,
+        Cancel
     };
 
 public:

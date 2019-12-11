@@ -45,7 +45,6 @@ SettingsHead::SettingsHead(QFrame *parent)
 
     // can not translate correctly just using tr()
     m_edit->setText(qApp->translate("SettingsHead", "Edit"));
-
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
@@ -67,14 +66,7 @@ void SettingsHead::setTitle(const QString &title)
 
 void SettingsHead::setEditEnable(bool state)
 {
-    // reset state
-    toCancel();
-
-    if (state && m_state == Cancel) {
-        m_edit->setText(qApp->translate("SettingsHead", "Edit"));
-    } else if (state && m_state == Edit) {
-        m_edit->setText(qApp->translate("SettingsHead", "Cancel"));
-    }
+    m_edit->setVisible(state);
 }
 
 void SettingsHead::toEdit()

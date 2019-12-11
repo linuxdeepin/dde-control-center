@@ -48,22 +48,26 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     m_searchText = QString();
     SettingsHead *systemHead = new SettingsHead();
+    systemHead->setEditEnable(false);
     systemHead->setTitle(tr("System"));
     m_systemGroup = new SettingsGroup();
     m_systemGroup->appendItem(systemHead, SettingsGroup::NoneBackground);
 
     SettingsHead *windowHead = new SettingsHead();
+    windowHead->setEditEnable(false);
     windowHead->setTitle(tr("Window"));
     m_windowGroup = new SettingsGroup();
     m_windowGroup->appendItem(windowHead, SettingsGroup::NoneBackground);
 
     SettingsHead *workspaceHead = new SettingsHead();
+    workspaceHead->setEditEnable(false);
     workspaceHead->setTitle(tr("Workspace"));
     m_workspaceGroup = new SettingsGroup();
     m_workspaceGroup->appendItem(workspaceHead, SettingsGroup::NoneBackground);
 
     SettingsHead *speechHead = new SettingsHead();
     speechHead->setTitle(tr("Speech"));
+    speechHead->setEditEnable(false);
     m_speechGroup = new SettingsGroup();
     m_speechGroup->appendItem(speechHead, SettingsGroup::NoneBackground);
 
