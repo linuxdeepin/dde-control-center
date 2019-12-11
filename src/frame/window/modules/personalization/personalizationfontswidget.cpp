@@ -147,6 +147,8 @@ void PersonalizationFontsWidget::setFontSize(int size)
     m_fontSizeSlider->blockSignals(true);
     m_fontSizeSlider->slider()->setValue(size);
     m_fontSizeSlider->blockSignals(false);
+
+    setCommboxItemFontSize();
 }
 
 void PersonalizationFontsWidget::setList(const QList<QJsonObject> &list, dcc::personalization::FontModel *model)
@@ -171,6 +173,23 @@ void PersonalizationFontsWidget::setList(const QList<QJsonObject> &list, dcc::pe
     m_isAppend = false;
 
     onDefaultFontChanged(model->getFontName(), model);
+}
+
+void PersonalizationFontsWidget::setCommboxItemFontSize()
+{
+    auto setCommboxSize = [this](QComboBox *cb){
+        auto model = qobject_cast<QStandardItemModel *>(cb->model());
+        for (auto i = 0; i < model->rowCount(); ++i) {
+            auto item = model->item(i);
+            auto font = item->font();
+            auto fsize = DFontSizeManager::instance()->t7().pixelSize();
+            font.setPixelSize(fsize);
+            item->setFont(font);
+        }
+    };
+
+    setCommboxSize(m_standardFontsCbBox);
+    setCommboxSize(m_monoFontsCbBox);
 }
 
 void PersonalizationFontsWidget::onSelectChanged(const QString &name)
