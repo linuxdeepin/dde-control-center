@@ -95,7 +95,7 @@ void AccountsWorker::getAllGroupsResult(QDBusPendingCallWatcher *watch)
 
 void AccountsWorker::getPresetGroups()
 {
-    int userType = DCC_NAMESPACE::isServerSystem() ? 1 : 0;
+    int userType = DCC_NAMESPACE::isServerSystem() ? 0 : 1;
     QDBusPendingReply<QStringList> reply = m_accountsInter->GetPresetGroups(userType);
     QDBusPendingCallWatcher *presetGroupsResult = new QDBusPendingCallWatcher(reply, this);
     connect(presetGroupsResult, &QDBusPendingCallWatcher::finished, this, &AccountsWorker::getPresetGroupsResult);
