@@ -256,7 +256,10 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, &NetworkDevice::enableChanged, this, [this] (const bool enabled) {
         m_switch->setChecked(enabled);
-        onNetworkAdapterChanged(enabled);
+        if (m_lvAP) {
+            m_lvAP->setVisible(enabled);
+            updateLayout(!m_lvAP->isHidden());
+        }
     });
 
     m_closeHotspotBtn->setText(tr("Close Hotspot"));
