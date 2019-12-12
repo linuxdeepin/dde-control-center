@@ -86,23 +86,21 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootDelay = new SwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
     m_bootDelay->setTitle(tr("Startup Delay"));
-
+#ifndef DCC_DISABLE_GRUB_THEME
     m_theme = new SwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
-#ifndef DCC_DISABLE_GRUB_THEME
     m_theme->setTitle(tr("Theme"));
 #endif
-
     DTipLabel *backgroundLabel = new DTipLabel(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background"));
     backgroundLabel->setWordWrap(true);
     backgroundLabel->setContentsMargins(5, 0, 10, 0);
     backgroundLabel->setAlignment(Qt::AlignLeft);
-
+#ifndef DCC_DISABLE_GRUB_THEME
     DTipLabel *themeLbl = new DTipLabel(tr("Switch theme on to view it in boot menu"));
     themeLbl->setWordWrap(true);
     themeLbl->setContentsMargins(5, 0, 10, 0);
     themeLbl->setAlignment(Qt::AlignLeft);
-
+#endif
     groupOther->appendItem(m_bootDelay);
     groupOther->setSpacing(List_Interval);
 #ifndef DCC_DISABLE_GRUB_THEME
@@ -124,7 +122,9 @@ BootWidget::BootWidget(QWidget *parent)
     setLayout(layout);
     setWindowTitle(tr("Boot Menu"));
 
+#ifndef DCC_DISABLE_GRUB_THEME
     connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);
+#endif
     connect(m_bootDelay, &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
     connect(m_bootList, static_cast<void (DListView::*)(const QModelIndex &previous)>(&DListView::currentChanged),
             this, &BootWidget::onCurrentItem);
@@ -152,7 +152,9 @@ void BootWidget::setDefaultEntry(const QString &value)
 void BootWidget::setModel(CommonInfoModel *model)
 {
     connect(model, &CommonInfoModel::bootDelayChanged, m_bootDelay, &SwitchWidget::setChecked);
+#ifndef
     connect(model, &CommonInfoModel::themeEnabledChanged, m_theme, &SwitchWidget::setChecked);
+#endif
     connect(model, &CommonInfoModel::defaultEntryChanged, this, &BootWidget::setDefaultEntry);
     connect(model, &CommonInfoModel::updatingChanged, m_updatingLabel, &SmallLabel::setVisible);
     connect(model, &CommonInfoModel::entryListsChanged, this, &BootWidget::setEntryList);
@@ -165,8 +167,9 @@ void BootWidget::setModel(CommonInfoModel *model)
     } else {
         m_bootDelay->setChecked(model->bootDelay());
     }
-
+#ifndef DCC_DISABLE_GRUB_THEME
     m_theme->setChecked(model->themeEnabled());
+#endif
     m_updatingLabel->setVisible(model->updating());
     m_background->setThemeEnable(model->themeEnabled());
 
