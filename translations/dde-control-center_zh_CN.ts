@@ -3968,13 +3968,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="23"/>
         <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
-        <translation>使用Deepin ID登录并开启云同步服务，可以帮助你同步一些系统设置。</translation>
+        <translation>使用%1 ID登录并开启云同步服务，可以帮助你同步一些系统设置。</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
         <source>Deepin ID Sign In</source>
-        <translation>Deepin ID登录</translation>
-        <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
+        <translation>%1 ID登录</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>

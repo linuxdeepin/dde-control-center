@@ -57,6 +57,6 @@ void SyncModule::preInitialize(bool sync)
 QStringList SyncModule::availPage() const
 {
     QStringList sl;
-    sl << "Cloud Sync" << "Deepin ID Sign In";
+    sl << "Cloud Sync" << "Sync ID Sign In";
     return sl;
 }

@@ -3989,14 +3989,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="23"/>
-        <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
+        <source>Sign in with %1 ID and turn on Cloud Sync to sync the specific system settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
-        <source>Deepin ID Sign In</source>
+        <source>%1 ID Sign In</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>

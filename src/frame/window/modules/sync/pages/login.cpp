@@ -3,6 +3,7 @@
 #include <DSuggestButton>
 #include <DFontSizeManager>
 #include <DTipLabel>
+#include <DSysInfo>
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -10,6 +11,16 @@
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
 DWIDGET_USE_NAMESPACE
+DCORE_USE_NAMESPACE
+
+#include "window/utils.h"
+
+QString systemName() {
+    if (getSystemTypeName() == "Professional")
+        return "UOS";
+
+    return "Deepin";
+}
 
 LoginPage::LoginPage(QWidget *parent)
     : QWidget(parent)
@@ -18,9 +29,11 @@ LoginPage::LoginPage(QWidget *parent)
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
+    //~ contents_path /cloudsync/Sync ID Sign In
     DSuggestButton *loginBtn = new DSuggestButton(tr("Sign In"));
     loginBtn->setMinimumWidth(302);
-    DTipLabel *tip = new DTipLabel(tr("Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings."));
+    DTipLabel *tip = new DTipLabel(tr("Sign in with %1 ID and turn on Cloud Sync to sync the specific system settings.")
+                                   .arg(systemName()));
     tip->setWordWrap(true);
     tip->setAlignment(Qt::AlignCenter);
 
@@ -29,8 +42,7 @@ LoginPage::LoginPage(QWidget *parent)
     pLogo->setPixmap(QIcon::fromTheme("dcc_cloud").pixmap(128, 100));
     m_mainLayout->addWidget(pLogo, 0, Qt::AlignHCenter);
     m_mainLayout->addSpacing(10);
-    //~ contents_path /cloudsync/Deepin ID Sign In
-    QLabel *signintip = new QLabel(tr("Deepin ID Sign In"));
+    QLabel *signintip = new QLabel(tr("%1 ID Sign In").arg(systemName()));
     QFont font = signintip->font();
     font.setBold(true);
     signintip->setFont(font);
