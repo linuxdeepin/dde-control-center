@@ -61,6 +61,8 @@ public Q_SLOTS:
     void setBackground(const QString &path);
     void setUeProgram(bool enabled);
     void setEnableDeveloperMode(bool enabled);
+    void login();
+
 private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);

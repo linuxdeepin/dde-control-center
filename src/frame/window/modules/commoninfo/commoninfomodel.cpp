@@ -74,8 +74,17 @@ void CommonInfoModel::setDeveloperModeState(const bool state)
 {
     if (m_developerModeState != state) {
         m_developerModeState = state;
+        Q_EMIT developerModeStateChanged(state);
     }
-    Q_EMIT developerModeStateChanged(state);
+}
+
+void CommonInfoModel::setIsLogin(const bool log)
+{
+    if (m_isLogin == log)
+        return;
+
+    m_isLogin = log;
+    Q_EMIT isLoginChenged(log);
 }
 
 bool CommonInfoModel::bootDelay() const

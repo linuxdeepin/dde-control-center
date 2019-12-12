@@ -22,7 +22,13 @@
 #pragma once
 #include "window/namespace.h"
 
+#include <DTipLabel>
+
 #include <QWidget>
+
+QT_BEGIN_NAMESPACE
+class QPushButton;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace widgets {
@@ -43,16 +49,18 @@ public:
 
 Q_SIGNALS:
     void enableDeveloperMode(bool enabled);
+    void requestLogin();
 
 private Q_SLOTS:
-    void onCheckedChanged();
+    void onLoginChanged();
 
 public Q_SLOTS:
     void updateDeveloperModeState(const bool state);
 
 private:
-    dcc::widgets::SwitchWidget *m_pDeveloperMode;
-    CommonInfoModel *m_model;
+    QPushButton *m_devBtn;
+    CommonInfoModel *m_model{nullptr};
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_tips{nullptr};
 };
 }
 }

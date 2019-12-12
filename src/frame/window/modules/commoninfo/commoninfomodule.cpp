@@ -146,8 +146,8 @@ void CommonInfoModule::onShowDeveloperWidget()
 {
     DeveloperModeWidget *pWidget = new DeveloperModeWidget;
     pWidget->setModel(m_commonModel);
+    connect(pWidget, &DeveloperModeWidget::requestLogin, m_commonWork, &CommonInfoWork::login);
     connect(pWidget, &DeveloperModeWidget::enableDeveloperMode, m_commonWork, &CommonInfoWork::setEnableDeveloperMode);
-    pWidget->updateDeveloperModeState(m_commonModel->developerModeState());
     m_frameProxy->pushWidget(this, pWidget);
 }
 

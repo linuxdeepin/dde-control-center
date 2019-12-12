@@ -53,12 +53,16 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
                                                 "/com/deepin/deepinid",
                                                 QDBusConnection::sessionBus(), this);
 
+
     m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus(), this);
 
+    m_commomModel->setIsLogin(m_dBusdeepinIdInter->isLogin());
     m_commomModel->setDeveloperModeState(m_dBusdeepinIdInter->deviceUnlocked());
     m_dBusGrub->setSync(false, false);
     m_dBusGrubTheme->setSync(false, false);
 
+    connect(m_dBusdeepinIdInter, &GrubDevelopMode::IsLoginChanged, m_commomModel, &CommonInfoModel::setIsLogin);
+    connect(m_dBusdeepinIdInter, &GrubDevelopMode::DeviceUnlockedChanged, m_commomModel, &CommonInfoModel::setDeveloperModeState);
     connect(m_dBusGrub, &GrubDbus::DefaultEntryChanged, m_commomModel, &CommonInfoModel::setDefaultEntry);
     connect(m_dBusGrub, &GrubDbus::EnableThemeChanged, m_commomModel, &CommonInfoModel::setThemeEnabled);
     connect(m_dBusGrub, &GrubDbus::TimeoutChanged, this, [this](const int &value) {
@@ -71,8 +75,6 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dBusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &CommonInfoWork::onBackgroundChanged);
-
-    connect(m_dBusdeepinIdInter, &GrubDevelopMode::DeviceUnlockedChanged, this, &CommonInfoWork::setEnableDeveloperMode);
 }
 
 CommonInfoWork::~CommonInfoWork()
@@ -239,6 +241,8 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
 {
     if (!enabled)
         return;
+
+    m_dBusdeepinIdInter->setSync(false);
     // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
     QString title(tr("Developer Mode"));
     QString allowContent(tr("Join developer mode"));
@@ -274,14 +278,23 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
         QDBusPendingCall call = m_dBusdeepinIdInter->UnlockDevice();
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
-            if (!w->isError()) {
-                Q_EMIT m_commomModel->setDeveloperModeState(m_dBusdeepinIdInter->deviceUnlocked());
+            if (w->isError()) {
+                Q_EMIT m_commomModel->developerModeStateChanged(false);
             }
             w->deleteLater();
         });
-
+    } else {
+        Q_EMIT m_commomModel->developerModeStateChanged(false);
     }
     file.remove();
+}
+
+void CommonInfoWork::login()
+{
+    Q_ASSERT(m_dBusdeepinIdInter);
+    m_dBusdeepinIdInter->setSync(true);
+    QDBusPendingCall call = m_dBusdeepinIdInter->Login();
+    call.waitForFinished();
 }
 
 void CommonInfoWork::getEntryTitles()

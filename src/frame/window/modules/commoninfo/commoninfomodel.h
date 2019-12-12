@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     wuchuanfei <wuchuanfei_cm@deepin.com>
@@ -44,6 +44,7 @@ public:
     void setBackground(const QPixmap &background);
     bool ueProgram() const; // for user experience program
     bool developerModeState() const;
+    inline bool isLogin() const { return m_isLogin; }
 
 Q_SIGNALS:
     void bootDelayChanged(const int timeout) const;
@@ -54,6 +55,7 @@ Q_SIGNALS:
     void backgroundChanged(const QPixmap &pixmap);
     void ueProgramChanged(const bool enable) const; // for user experience program
     void developerModeStateChanged(const bool enable) const;
+    void isLoginChenged(bool log) const;
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -62,6 +64,7 @@ public Q_SLOTS:
     void setUpdating(bool updating);
     void setUeProgram(const bool ueProgram); // for user experience program
     void setDeveloperModeState(const bool state);
+    void setIsLogin(const bool log);
 
 private:
     bool m_bootDelay;
@@ -71,7 +74,8 @@ private:
     QString m_defaultEntry;
     QPixmap m_background;
     bool m_joinUeProgram;   // for user experience program
-    bool m_developerModeState; // for developer mode state
+    bool m_developerModeState{false}; // for developer mode state
+    bool m_isLogin{false};
 };
 
 } // namespace commoninfo
