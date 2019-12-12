@@ -51,6 +51,8 @@ public:
     QString disk() const { return m_disk;}
     QString kernel() const { return m_kernel;}
     QString graphicProcessingUnit() const { return m_gpu; }
+    inline QString soundCard() const { return m_soundCard; }
+    inline QString networkCard() const { return m_networkCard; }
 
     bool bootDelay() const;
     bool themeEnabled() const { return m_themeEnabled; }
@@ -74,6 +76,8 @@ Q_SIGNALS:
     void diskChanged(const QString& disk);
     void kernelChanged(const QString& kernel);
     void graphicProcessingUnitChanged(const QString &gpu);
+    void soundCardChanged(const QString &soundCard);
+    void networkCardChanged(const QString &networkCard);
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -89,7 +93,8 @@ public Q_SLOTS:
     void setDisk(qulonglong disk);
     void setKernel(const QString &kernel);
     void setGraphicProcessingUnit(const QString &gpu);
-
+    void setSoundCard(const QString &soundCard);
+    void setNetworkCard(const QString &networkCard);
 private:
     bool m_bootDelay;
     bool m_themeEnabled;
@@ -107,6 +112,8 @@ private:
     QString m_disk;
     QString m_kernel;
     QString m_gpu;
+    QString m_soundCard;
+    QString m_networkCard;
 };
 
 }

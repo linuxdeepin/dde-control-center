@@ -60,6 +60,8 @@ public Q_SLOTS:
     void setMemory(const QString &memory);
     void setDisk(const QString &disk);
     void setGraphicProcessingUnit(const QString &gpu);
+    void setSoundCard(const QString &soundCard);
+    void setNetworkCard(const QString &networkcard);
 
 private:
     dcc::systeminfo::SystemInfoModel *m_model;
@@ -71,6 +73,9 @@ private:
     dcc::widgets::TitleValueItem *m_memory;
     dcc::widgets::TitleValueItem *m_disk;
     dcc::widgets::TitleValueItem *m_gpu;//显卡
+    dcc::widgets::TitleValueItem *m_soundCard;
+    dcc::widgets::TitleValueItem *m_networkCard;
+
 };
 
 }

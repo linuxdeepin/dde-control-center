@@ -115,6 +115,8 @@ void SystemInfoWork::activate()
     m_model->setMemory(DSysInfo::memoryTotalSize());
     m_model->setDisk(DSysInfo::systemDiskSize());
     m_model->setGraphicProcessingUnit(getGraphicProcessUnit());
+    m_model->setSoundCard(getSoundCardInfo());
+    m_model->setNetworkCard(getNetworkCardInfo());
 }
 
 void SystemInfoWork::deactivate()
@@ -283,6 +285,47 @@ QString SystemInfoWork::getGraphicProcessUnit() const
     }
 
     return gpu_info;
+}
+
+QString SystemInfoWork::getSoundCardInfo() const
+{
+    QProcess process;
+    process.start("bash", QStringList() << "-c" << "lspci | grep -i audio");
+    process.waitForFinished();
+    QString soundCardInfo = QString::fromLocal8Bit(process.readAllStandardOutput());
+    QString resultSoundCardInfo;
+    for(const auto &line : soundCardInfo.split("\n")){
+        if(line.isEmpty())
+            continue;
+        resultSoundCardInfo += line.split("device:")[1]+ "\n";
+    }
+
+    //去掉最后的多余换行符
+    if (resultSoundCardInfo.endsWith("\n")) {
+        resultSoundCardInfo.chop(1);
+    }
+
+    return resultSoundCardInfo;
+}
+
+QString SystemInfoWork::getNetworkCardInfo() const
+{
+    QProcess process;
+    process.start("bash", QStringList() << "-c" << " lspci | grep -i net");
+    process.waitForFinished();
+    QString netWorkInfo = QString::fromLocal8Bit(process.readAllStandardOutput());
+    QString resultNetworkInfo;
+    for(const auto &line : netWorkInfo.split("\n")){
+        if(line.isEmpty())
+            continue;
+        resultNetworkInfo += line.split("controller:")[1]+ "\n";
+    }
+
+    //去掉最后的多余换行符
+    if (resultNetworkInfo.endsWith("\n")) {
+        resultNetworkInfo.chop(1);
+    }
+    return resultNetworkInfo;
 }
 
 }

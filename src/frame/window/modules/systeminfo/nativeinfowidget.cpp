@@ -28,7 +28,8 @@
 #include <QApplication>
 #include <QSettings>
 #include <QIcon>
-
+#include <QScrollArea>
+#include <QDebug>
 using namespace dcc::widgets;
 using namespace dcc::systeminfo;
 using namespace DCC_NAMESPACE::systeminfo;
@@ -47,8 +48,8 @@ NativeInfoWidget::NativeInfoWidget(SystemInfoModel *model, QWidget *parent)
 void NativeInfoWidget::initWidget()
 {
     SettingsGroup *infoGroup = new SettingsGroup();
-
     LogoItem *logo = new LogoItem;
+    logo->setDescription(true); //显示文字描述
     logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
 //    logo->setLogo(QIcon::fromTheme("dcc_deepin_logo"), 164, 42);
 //    logo->setLogo(QIcon::fromTheme("dcc_deepin_uos_logo"), 156, 46); //不生效
@@ -87,6 +88,16 @@ void NativeInfoWidget::initWidget()
     m_gpu->setTitle(tr("Graphics Card:"));
     m_gpu->setValue(m_model->graphicProcessingUnit());
 
+    m_soundCard = new TitleValueItem();
+    //~ contents_path /systeminfo/About This PC
+    m_soundCard->setTitle(tr("Sound Card:"));
+    m_soundCard->setValue(m_model->soundCard());
+
+    m_networkCard = new TitleValueItem();
+    //~ contents_path /systeminfo/About This PC
+    m_networkCard->setTitle("Network Card:");
+    m_networkCard->setValue(m_model->networkCard());
+
     infoGroup->appendItem(logo);
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
@@ -95,11 +106,24 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(m_memory);
     infoGroup->appendItem(m_disk);
     infoGroup->appendItem(m_gpu);
+    infoGroup->appendItem(m_soundCard);
+    infoGroup->appendItem(m_networkCard);
     infoGroup->setSpacing(10);
+
+    //添加滚动区域
+    QScrollArea *pScroller = new QScrollArea();
+    pScroller->setFrameStyle(QFrame::NoFrame);
+    pScroller->setWidget(infoGroup);
+    pScroller->setWidgetResizable(true);
+
+
     m_mainLayout->setMargin(0);
-    m_mainLayout->addWidget(infoGroup);
+//    m_mainLayout->addWidget(infoGroup);
+    m_mainLayout->addWidget(pScroller);
     m_mainLayout->addStretch();
     setLayout(m_mainLayout);
+
+
 
     connect(m_model, &SystemInfoModel::versionChanged, this, &NativeInfoWidget::setEdition);
     connect(m_model, &SystemInfoModel::typeChanged, this, &NativeInfoWidget::setType);
@@ -107,7 +131,8 @@ void NativeInfoWidget::initWidget()
     connect(m_model, &SystemInfoModel::memoryChanged, this, &NativeInfoWidget::setMemory);
     connect(m_model, &SystemInfoModel::diskChanged, this, &NativeInfoWidget::setDisk);
     connect(m_model, &SystemInfoModel::graphicProcessingUnitChanged, this, &NativeInfoWidget::setGraphicProcessingUnit);
-
+    connect(m_model, &SystemInfoModel::soundCardChanged, this, &NativeInfoWidget::setSoundCard);
+    connect(m_model, &SystemInfoModel::networkCardChanged, this, &NativeInfoWidget::setNetworkCard);
     setType(m_model->type());
 }
 
@@ -139,6 +164,16 @@ void NativeInfoWidget::setDisk(const QString &disk)
 void NativeInfoWidget::setGraphicProcessingUnit(const QString &gpu)
 {
     m_gpu->setValue(gpu);
+}
+
+void NativeInfoWidget::setSoundCard(const QString &soundCard)
+{
+    m_soundCard->setValue(soundCard);
+}
+
+void NativeInfoWidget::setNetworkCard(const QString &networkcard)
+{
+    m_networkCard->setValue(networkcard);
 }
 
 const QString NativeInfoWidget::systemCopyright() const

@@ -29,16 +29,20 @@
 #include "logoitem.h"
 #include "widgets/nextpagewidget.h"
 
+#include <DSysInfo>
+
 #include <QVBoxLayout>
 #include <QSettings>
 #include <QDebug>
 #include <QApplication>
-#include <DSysInfo>
 
 DCORE_USE_NAMESPACE
 
 const QString systemCopyright()
 {
+    if (!DSysInfo::deepinCopyright().isEmpty())
+        return DSysInfo::deepinCopyright();
+
     const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
     const QString oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
 

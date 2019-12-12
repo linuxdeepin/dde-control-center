@@ -63,6 +63,11 @@ void LogoItem::setDescription(const QString &des)
     m_description->setMinimumHeight(r.height());
 }
 
+void LogoItem::setDescription(bool isVisible)
+{
+    m_description->setVisible(isVisible);
+}
+
 void LogoItem::setLogo(const QString &logo)
 {
     m_logo->setPixmap(loadPixmap(logo));

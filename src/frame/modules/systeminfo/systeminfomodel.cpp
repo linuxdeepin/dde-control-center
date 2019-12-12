@@ -203,5 +203,23 @@ void SystemInfoModel::setGraphicProcessingUnit(const QString &gpu)
     graphicProcessingUnitChanged(gpu);
 }
 
+void SystemInfoModel::setSoundCard(const QString &soundCard)
+{
+    if (m_soundCard == soundCard)
+        return;
+
+    m_soundCard = soundCard;
+    soundCardChanged(m_soundCard);
+}
+
+void SystemInfoModel::setNetworkCard(const QString &networkCard)
+{
+    if (m_networkCard == networkCard)
+        return;
+
+    m_networkCard = networkCard;
+    networkCardChanged(m_networkCard);
+}
+
 }
 }
