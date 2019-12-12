@@ -152,7 +152,7 @@ void BootWidget::setDefaultEntry(const QString &value)
 void BootWidget::setModel(CommonInfoModel *model)
 {
     connect(model, &CommonInfoModel::bootDelayChanged, m_bootDelay, &SwitchWidget::setChecked);
-#ifndef
+#ifndef DCC_DISABLE_GRUB_THEME
     connect(model, &CommonInfoModel::themeEnabledChanged, m_theme, &SwitchWidget::setChecked);
 #endif
     connect(model, &CommonInfoModel::defaultEntryChanged, this, &BootWidget::setDefaultEntry);
