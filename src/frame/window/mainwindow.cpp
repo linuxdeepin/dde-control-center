@@ -117,7 +117,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setEditTriggers(QListView::NoEditTriggers);
     m_navView->setResizeMode(QListView::Adjust);
     m_navView->setAutoScroll(true);
-    m_navView->setTabKeyNavigation(true);
 
     m_contentLayout->addWidget(m_navView, 1);
     m_contentLayout->addWidget(m_rightView, 5);
@@ -214,12 +213,6 @@ void MainWindow::onBack()
 
 void MainWindow::resetTabOrder()
 {
-    if (m_contentStack.size() == 0) {
-        m_navView->setTabKeyNavigation(true);
-        return;
-    }
-    m_navView->setTabKeyNavigation(false);
-
     QWidget *pre = m_navView;
     pre->setFocusPolicy(Qt::TabFocus);
     for (int i =0; i < m_contentStack.size(); ++i) {
