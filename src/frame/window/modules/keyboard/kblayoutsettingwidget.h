@@ -68,7 +68,7 @@ public Q_SLOTS:
     void onLayoutScope(const int value);
 
 private:
-    bool m_bEdit;
+    bool m_bEdit{false};
     dcc::widgets::SettingsGroup *m_group;
     dcc::widgets::SettingsHead *m_head;
     dcc::widgets::SettingsHead *m_switchLayoutHead;

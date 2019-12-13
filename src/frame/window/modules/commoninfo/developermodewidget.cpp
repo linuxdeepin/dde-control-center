@@ -26,11 +26,13 @@
 #include "widgets/labels/tipslabel.h"
 
 #include <DTipLabel>
+#include <DDialog>
+#include <DDBusSender>
 
 #include <QVBoxLayout>
 #include <QTimer>
-#include<QPushButton>
-#include<QDebug>
+#include <QPushButton>
+#include <QDebug>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
@@ -88,7 +90,7 @@ void DeveloperModeWidget::onLoginChanged()
     if (!m_model->isLogin()) {
         m_tips->setText(tr("Sign in with UOS ID to get root privileges"));
     } else {
-        m_tips->setText(tr("No root privileges. Please request root access in developer mode in Control Center. "));
+        m_tips->setText(tr("No root privileges. Please request root access in developer mode in Control Center."));
     }
 }
 
@@ -101,6 +103,20 @@ void DeveloperModeWidget::updateDeveloperModeState(const bool state)
         m_devBtn->setText(tr("Root Access Allowed"));
         m_tips->setText(tr(""));
         m_tips->setVisible(false);
+
+        DDialog dlg("", tr("To make it effective, a restart is required. Restart now?"));
+        dlg.addButtons({tr("Cancel"), tr("Restart Now")});
+        connect(&dlg, &DDialog::buttonClicked, this, [](int idx, QString str){
+            if (idx == 1) {
+                DDBusSender()
+                .service("com.deepin.SessionManager")
+                .interface("com.deepin.SessionManager")
+                .path("/com/deepin/SessionManager")
+                .method("Reboot")
+                .call();
+            }
+        });
+        dlg.exec();
     } else {
         m_devBtn->setEnabled(true);
         m_devBtn->setText(tr("Request Root Access"));

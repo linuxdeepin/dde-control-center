@@ -64,7 +64,7 @@ private:
     dcc::widgets::SettingsHead *m_head;
     QMap<QString, CheckItem *> m_localMaps;
     SystemLanguageSettingWidget *m_settingWidget;
-    bool m_bEdit;
+    bool m_bEdit{false};
 };
 }
 }
