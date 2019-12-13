@@ -65,34 +65,26 @@ void CommonInfoWidget::initWidget()
 
 void CommonInfoWidget::initData()
 {
-    m_itemList.append(
-    {"dcc_boot_menu",
-     //~ contents_path /commoninfo/Boot Menu
-     tr("Boot Menu"),
-     QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget)}
-                );
+#ifndef DCC_DISABLE_GRUB
+    //~ contents_path /commoninfo/Boot Menu
+    m_itemList.append({"dcc_boot_menu", tr("Boot Menu"),
+                       QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget)});
+#endif
 
     //以下模块只在非服务器版本使用
     if (!isServerSystem()) {
-        m_itemList.append(
-        {"dcc_developer_mode",
-         //~ contents_path /commoninfo/Developer Mode
-         tr("Developer Mode"),
-         QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)}
-                    );
+        //~ contents_path /commoninfo/Developer Mode
+        m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
+                           QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)});
 
-        m_itemList.append(
-        {"dcc_ue_plan", // 小图标
-         //~ contents_path /commoninfo/User Experience Program
-         tr("User Experience Program"),
-         QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)}
-                    );
+        //~ contents_path /commoninfo/User Experience Program
+        m_itemList.append({"dcc_ue_plan", tr("User Experience Program"),
+                           QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)});
 
-        //预留模块
-//        m_itemList.append({
-//                              "", tr("Tablet Mode"),
-//                              QMetaMethod::fromSignal(&CommonInfoWidget::requestShowTabletModeWidget)}
-//                          );
+#if 0
+        m_itemList.append({"", tr("Tablet Mode"),
+                              QMetaMethod::fromSignal(&CommonInfoWidget::requestShowTabletModeWidget)});
+#endif
     }
 
     for (auto m : m_itemList) {

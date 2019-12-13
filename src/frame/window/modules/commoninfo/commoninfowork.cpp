@@ -30,9 +30,6 @@
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
 
-static const int ItemWidth = 334;
-static const int ItemHeight = 177;
-
 const QString UeProgramInterface("com.deepin.userexperience.Daemon");
 const QString UeProgramObjPath("/com/deepin/userexperience/Daemon");
 

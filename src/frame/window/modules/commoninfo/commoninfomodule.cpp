@@ -39,8 +39,11 @@ CommonInfoModule::CommonInfoModule(dccV20::FrameProxyInterface *frame, QObject *
     , m_bootWidget(nullptr)
     , m_ueProgramWidget(nullptr)
 {
+
 #ifdef DCC_DISABLE_GRUB
-    m_frameProxy->setModuleVisible(this, false);
+    //如果服务器版本，且不显示GRUB(arm),则整个模块不显示
+    if (isServerSystem())
+        m_frameProxy->setModuleVisible(this, false);
 #endif
 }
 
@@ -105,16 +108,25 @@ int CommonInfoModule::load(QString path)
     int indexRow = 0;
     if (path == "Boot Menu") {
         indexRow = 0;
-    } else if (path == "Developer Mode") {
-        // 为开发者模式的search预留
-        indexRow = 1;
-    } else if (path == "User Experience Program") {
-        // 为用户体验计划的search预留
-        indexRow = 2;
-    } else if (path == "Tablet Mode") {
-        // 为平板模式的search预留
-        //indexRow = 3;
     }
+
+    if (!isServerSystem()) {
+        if (path == "Developer Mode") {
+            // 为开发者模式的search预留
+            indexRow = 1;
+        } else if (path == "User Experience Program") {
+            // 为用户体验计划的search预留
+            indexRow = 2;
+        } else if (path == "Tablet Mode") {
+            // 为平板模式的search预留
+            //indexRow = 3;
+        }
+    }
+
+#ifdef DCC_DISABLE_GRUB
+    indexRow -= 1;
+    Q_ASSERT(indexRow >= 0);
+#endif
 
     QModelIndex idx = list->model()->index(indexRow, 0);
     list->setCurrentIndex(idx);
