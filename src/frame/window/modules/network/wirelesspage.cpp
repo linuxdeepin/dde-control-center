@@ -401,6 +401,7 @@ void WirelessPage::jumpByUuid(const QString &uuid)
 void WirelessPage::onNetworkAdapterChanged(bool checked)
 {
     Q_EMIT requestDeviceEnabled(m_device->path(), checked);
+    m_clickedItem = nullptr;
     m_lvAP->setVisible(checked);
     updateLayout(!m_lvAP->isHidden());
 }
