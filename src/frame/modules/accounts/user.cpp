@@ -167,3 +167,21 @@ void User::setUserType(const int userType)
     m_userType = userType;
     Q_EMIT userTypeChanged(userType);
 }
+
+void User::setIsPasswordExpired(bool isExpired)
+{
+    if (isExpired == m_isPasswordExpired)
+        return;
+
+    m_isPasswordExpired = isExpired;
+    Q_EMIT isPasswordExpiredChanged(isExpired);
+}
+
+void User::setPasswordAge(const int age)
+{
+    if (age == m_pwAge)
+        return;
+
+    m_pwAge = age;
+    Q_EMIT passwordAgeChanged(age);
+}
