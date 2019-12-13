@@ -21,6 +21,8 @@
 #ifndef RECOVERYDIALOG_H
 #define RECOVERYDIALOG_H
 
+#include "backgroundwidget.h"
+
 #include <DDialog>
 
 #include <com_deepin_abrecovery.h>
@@ -41,6 +43,7 @@ public:
     void backupInfomation(QString version, QString time);
     void grabMouseAndKeyboardFocus(bool bgrab = true);
     void updateRestoringWaitUI();
+    void destroyRestoringWaitUI();
     void updateRestoringFailedUI();
 
 Q_SIGNALS:
@@ -53,6 +56,7 @@ private:
 private:
     QString m_backupVersion;
     QString m_backupTime;
+    BackgroundWidget *m_restoreWidget;
 };
 
 class Manage : public QObject

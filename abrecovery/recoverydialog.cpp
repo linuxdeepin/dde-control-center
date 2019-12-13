@@ -44,6 +44,7 @@ Manage::Manage(QObject *parent)
                                                QDBusConnection::sessionBus(), this))
     , m_dialog(nullptr)
 {
+    qDebug() << "abrecovery: Manage construct";
     //满足配置条件,再判断是否满足恢复的条件
     if (m_systemRecovery->configValid()) {
         recoveryCanRestore();
@@ -82,15 +83,17 @@ void Manage::showDialog()
         }
     });
 
-    connect(m_systemRecovery, &AbRecoveryInter::JobEnd, this, [ this ](const QString & kind, bool success, const QString & errMsg) {
-        qDebug() << "kind : " << kind;
+    connect(m_systemRecovery, &AbRecoveryInter::JobEnd, this, [ this ](const QString &kind, bool success, const QString &errMsg) {
+        qDebug() << "AbRecoveryInter::JobEnd kind: " << kind << ",success:" << success << ",errMsg:" << errMsg;
+        m_dialog->destroyRestoringWaitUI();
         if ("restore" != kind) {
-            return ;
+            qDebug() << "AbRecoveryInter::JobEnd return:" << kind;
+            return;
         }
 
         //恢复成功,打印log
         if (success) {
-            qDebug() << "Restore successed.";
+            qDebug() << "Restore successed. exitApp";
             exitApp();
         } else {
             //恢复失败,不做处理并退出当前进程
@@ -161,6 +164,7 @@ RecoveryDialog::RecoveryDialog(DDialog *parent)
     : DDialog(parent)
     , m_backupVersion("")
     , m_backupTime("")
+    , m_restoreWidget(nullptr)
 {
     setCloseButtonVisible(false);
 
@@ -238,8 +242,16 @@ void RecoveryDialog::updateRestoringWaitUI()
     if (isVisible())
         setVisible(false);
 
-    BackgroundWidget *w = new BackgroundWidget(true);
-    w->show();
+    m_restoreWidget = new BackgroundWidget(true);
+    m_restoreWidget->show();
+}
+
+void RecoveryDialog::destroyRestoringWaitUI()
+{
+    if (m_restoreWidget) {
+        m_restoreWidget->hide();
+        m_restoreWidget->deleteLater();
+    }
 }
 
 void RecoveryDialog::updateRestoringFailedUI()
