@@ -154,6 +154,8 @@ void BootWidget::setModel(CommonInfoModel *model)
     connect(model, &CommonInfoModel::bootDelayChanged, m_bootDelay, &SwitchWidget::setChecked);
 #ifndef DCC_DISABLE_GRUB_THEME
     connect(model, &CommonInfoModel::themeEnabledChanged, m_theme, &SwitchWidget::setChecked);
+#else
+    model->setThemeEnabled(false);
 #endif
     connect(model, &CommonInfoModel::defaultEntryChanged, this, &BootWidget::setDefaultEntry);
     connect(model, &CommonInfoModel::updatingChanged, m_updatingLabel, &SmallLabel::setVisible);
