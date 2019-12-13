@@ -56,7 +56,7 @@ public:
     const QString name() const override;
     void active() override;
     int load(QString path) override;
-    void preInitialize() override;
+    void preInitialize(bool sync = false) override;
     QStringList availPage() const override;
 
 private Q_SLOTS:

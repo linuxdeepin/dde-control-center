@@ -176,18 +176,6 @@ MainWindow::MainWindow(QWidget *parent)
         }
         resetNavList(m_contentStack.isEmpty());
     });
-
-    QTimer::singleShot(0, this, &MainWindow::initAllModule);
-    QTimer::singleShot(0, this, &MainWindow::modulePreInitialize);
-    QTimer::singleShot(0, this, [ = ]() {
-        //设置 触控板，指点杆 是否存在
-        m_searchWidget->setRemoveableDeviceStatus(tr("Touchpad"), getRemoveableDeviceStatus(tr("Touchpad")));
-        m_searchWidget->setRemoveableDeviceStatus(tr("TrackPoint"), getRemoveableDeviceStatus(tr("TrackPoint")));
-
-        //after initAllModule to load ts data
-        m_searchWidget->setLanguage(QLocale::system().name());
-    });
-
     setMinimumSize(QSize(WidgetMinimumWidget, WidgetMinimumHeight));
     updateViewBackground();
 }
@@ -272,8 +260,12 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
     }
 }
 
-void MainWindow::initAllModule()
+void MainWindow::initAllModule(QString m)
 {
+    if (m_bInit)
+        return;
+
+    m_bInit = true;
     using namespace sync;
     using namespace datetime;
     using namespace defapp;
@@ -336,14 +328,27 @@ void MainWindow::initAllModule()
     }
 
     resetNavList(isIcon);
+
+    modulePreInitialize(m);
+    QTimer::singleShot(0, this, [ = ]() {
+        //设置 触控板，指点杆 是否存在
+        m_searchWidget->setRemoveableDeviceStatus(tr("Touchpad"), getRemoveableDeviceStatus(tr("Touchpad")));
+        m_searchWidget->setRemoveableDeviceStatus(tr("TrackPoint"), getRemoveableDeviceStatus(tr("TrackPoint")));
+
+        QElapsedTimer et;
+        et.start();
+        //after initAllModule to load ts data
+        m_searchWidget->setLanguage(QLocale::system().name());
+        qDebug() << QString("load search info with %1ms").arg(et.elapsed());
+    });
 }
 
-void MainWindow::modulePreInitialize()
+void MainWindow::modulePreInitialize(QString m)
 {
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
         QElapsedTimer et;
         et.start();
-        it->first->preInitialize();
+        it->first->preInitialize(m == it->first->name());
         qDebug() << QString("initalize %1 module using time: %2ms")
                     .arg(it->first->name())
                     .arg(et.elapsed());
@@ -405,7 +410,6 @@ void MainWindow::popWidget(ModuleInterface *const inter)
 void MainWindow::showModulePage(const QString &module, const QString &page, bool animation)
 {
     Q_UNUSED(animation)
-
 //    qDebug() << Q_FUNC_INFO;
     if (!isModuleAvailable(module) && !module.isEmpty()) {
         qDebug() << QString("get error module name %1!").arg(module);

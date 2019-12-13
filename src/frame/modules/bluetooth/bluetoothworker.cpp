@@ -34,7 +34,7 @@
 namespace dcc {
 namespace bluetooth {
 
-BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
+BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync) :
     QObject(),
     m_bluetoothInter(new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this)),
     m_model(model)
@@ -81,13 +81,15 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
         }
     });
 
-    m_bluetoothInter->setSync(false, false);
+    m_bluetoothInter->setSync(sync);
 
     //第一次调用时传true，refresh 函数会使用同步方式去获取蓝牙设备数据
     //避免出现当dbus调用控制中心接口直接显示蓝牙模块时，
     //因为异步的数据获取使控制中心设置了蓝牙模块不可见，
     //而出现没办法显示蓝牙模块
     refresh(true);
+
+    m_bluetoothInter->setSync(false);
 }
 
 BluetoothWorker::~BluetoothWorker()
@@ -95,9 +97,9 @@ BluetoothWorker::~BluetoothWorker()
 
 }
 
-BluetoothWorker &BluetoothWorker::Instance()
+BluetoothWorker &BluetoothWorker::Instance(bool sync)
 {
-    static BluetoothWorker worker(new BluetoothModel);
+    static BluetoothWorker worker(new BluetoothModel, sync);
     return worker;
 }
 

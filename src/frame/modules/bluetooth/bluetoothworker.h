@@ -42,7 +42,7 @@ class BluetoothWorker : public QObject, public ModuleWorker
 {
     Q_OBJECT
 public:
-    static BluetoothWorker &Instance();
+    static BluetoothWorker &Instance(bool sync = false);
 
     BluetoothModel *model() { return m_model; }
 
@@ -84,7 +84,7 @@ private Q_SLOTS:
     void refresh(bool beFirst = false);
 
 private:
-    explicit BluetoothWorker(BluetoothModel *model);
+    explicit BluetoothWorker(BluetoothModel *model, bool sync = false);
     BluetoothWorker(BluetoothWorker const &) = delete;
     BluetoothWorker& operator =(BluetoothWorker const &) = delete;
     ~BluetoothWorker();

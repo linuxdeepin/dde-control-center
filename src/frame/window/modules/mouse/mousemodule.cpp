@@ -44,13 +44,13 @@ MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
 {
 }
 
-void MouseModule::preInitialize()
+void MouseModule::preInitialize(bool sync)
 {
     m_model  = new dcc::mouse::MouseModel(this);
     m_worker = new dcc::mouse::MouseWorker(m_model, this);
     m_model->moveToThread(qApp->thread());
     m_worker->moveToThread(qApp->thread());
-    m_worker->active();
+    m_worker->active(sync);
 
     connect(m_model, &MouseModel::tpadExistChanged, this, [this](bool state) {
         qDebug() << "[Mouse] Touchpad , exist state : " << state;

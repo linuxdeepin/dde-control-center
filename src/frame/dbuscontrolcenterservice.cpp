@@ -130,6 +130,8 @@ void DBusControlCenterService::Show()
 #ifdef DISABLE_MAIN_PAGE
     parent()->showSettingsPage(QString(), QString());
 #else
+    parent()->initAllModule();
+
     parent()->raise();
     if (parent()->isMinimized() || !parent()->isVisible())
         parent()->showNormal();
@@ -163,6 +165,8 @@ void DBusControlCenterService::ShowModule(const QString &module)
 
 void DBusControlCenterService::ShowPage(const QString &module, const QString &page)
 {
+    parent()->initAllModule(module);
+
     static bool firstEnter = true;
     QStringList delayModule{"bluetooth"};
     if (delayModule.contains(module) && firstEnter) {

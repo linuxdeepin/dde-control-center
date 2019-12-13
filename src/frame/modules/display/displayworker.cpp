@@ -39,7 +39,7 @@ const QString DisplayInterface("com.deepin.daemon.Display");
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
 
-DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
+DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     : QObject(parent),
 
       m_model(model),
@@ -52,18 +52,12 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
       m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
 
 {
-    // TODO:
+
+    m_displayInter.setSync(isSync);
+    m_appearanceInter->setSync(isSync);
+
     model->setPrimary(m_displayInter.primary());
-#if 0
-    QDBusInterface *inter = new QDBusInterface(DisplayInterface,
-                                               "/com/deepin/daemon/Display",
-                                               DisplayInterface,
-                                               QDBusConnection::sessionBus(), this);
-    auto reply = inter->property("Monitors");
-    onMonitorListChanged(reply.value<QList<QDBusObjectPath>>());
-#else
     onMonitorListChanged(m_displayInter.monitors());
-#endif
     model->setDisplayMode(m_displayInter.displayMode());
 
     m_displayInter.setSync(false);

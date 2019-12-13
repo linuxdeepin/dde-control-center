@@ -35,7 +35,6 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
     , m_sysPowerInter(new SysPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
 {
-    m_powerInter->setSync(false);
 
     connect(m_powerInter, &PowerInter::ScreenBlackLockChanged, m_powerModel, &PowerModel::setScreenBlackLock);
     connect(m_powerInter, &PowerInter::SleepLockChanged, m_powerModel, &PowerModel::setSleepLock);
@@ -56,10 +55,11 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_sysPowerInter, &SysPowerInter::BatteryPercentageChanged, m_powerModel, &PowerModel::setBatteryPercentage);
 }
 
-void PowerWorker::active()
+void PowerWorker::active(bool isSync)
 {
     m_powerInter->blockSignals(false);
 
+    m_powerInter->setSync(isSync);
     // refersh data
     m_powerModel->setScreenBlackLock(m_powerInter->screenBlackLock());
     m_powerModel->setSleepLock(m_powerInter->sleepLock());
@@ -81,6 +81,7 @@ void PowerWorker::active()
     m_powerModel->setAutoPowerSaveMode(m_sysPowerInter->powerSavingModeAuto());
     m_powerModel->setPowerSaveMode(m_sysPowerInter->powerSavingModeEnabled());
 #endif
+    m_powerInter->setSync(false);
 }
 
 void PowerWorker::deactive()

@@ -44,7 +44,7 @@ UpdateModule::UpdateModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 }
 
-void UpdateModule::preInitialize()
+void UpdateModule::preInitialize(bool sync)
 {
     if (!m_model)
         m_model = new UpdateModel(this);

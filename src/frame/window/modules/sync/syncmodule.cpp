@@ -46,7 +46,7 @@ void SyncModule::active()
     m_frameProxy->pushWidget(this, widget);
 }
 
-void SyncModule::preInitialize()
+void SyncModule::preInitialize(bool sync)
 {
     m_model = new dcc::cloudsync::SyncModel;
     m_worker = new dcc::cloudsync::SyncWorker(m_model);

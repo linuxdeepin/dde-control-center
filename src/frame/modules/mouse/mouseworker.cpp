@@ -61,8 +61,13 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
 
 }
 
-void MouseWorker::active()
+void MouseWorker::active(bool sync)
 {
+    m_dbusMouse->setSync(sync);
+    m_dbusTouchPad->setSync(sync);
+    m_dbusTouchPad->setSync(sync);
+    m_dbusDevices->setSync(sync);
+
     m_dbusMouse->blockSignals(false);
     m_dbusTouchPad->blockSignals(false);
     m_dbusTrackPoint->blockSignals(false);

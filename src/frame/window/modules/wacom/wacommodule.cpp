@@ -47,7 +47,7 @@ WacomModule::~WacomModule()
     }
 }
 
-void WacomModule::preInitialize()
+void WacomModule::preInitialize(bool sync)
 {
     m_model  = new WacomModel(this);
     m_worker = new WacomWorker(m_model);

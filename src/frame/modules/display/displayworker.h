@@ -52,7 +52,7 @@ class DisplayWorker : public QObject
     Q_OBJECT
 
 public:
-    explicit DisplayWorker(DisplayModel *model, QObject *parent = 0);
+    explicit DisplayWorker(DisplayModel *model, QObject *parent = 0, bool isSync = false);
     ~DisplayWorker();
 
     void active();

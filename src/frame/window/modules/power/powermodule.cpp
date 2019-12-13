@@ -48,13 +48,13 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
 
 }
 
-void PowerModule::preInitialize()
+void PowerModule::preInitialize(bool sync)
 {
     m_model = new PowerModel;
     m_work = new PowerWorker(m_model);
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
-    m_work->active(); //refresh data
+    m_work->active(sync); //refresh data
 
     connect(m_model, &PowerModel::batteryLockScreenDelayChanged, this, &PowerModule::onSetBatteryDefault);
     connect(m_model, &PowerModel::powerLockScreenDelayChanged, this, &PowerModule::onSetPowerDefault);

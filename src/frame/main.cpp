@@ -102,6 +102,7 @@ int main(int argc, char *argv[])
     DCC_NAMESPACE::MainWindow mw;
     mw.setGeometry(mwRect);
     gwm = &mw;
+
     //处理SIGTERM 信号，保证在控制中心被强制关闭时，正常退出
     signal(15, closeSignal);
 
@@ -110,6 +111,7 @@ int main(int argc, char *argv[])
 
     DBusControlCenterService adaptor(&mw);
     Q_UNUSED(adaptor);
+
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("com.deepin.dde.ControlCenter") ||
             !conn.registerObject("/com/deepin/dde/ControlCenter", &mw)) {
@@ -142,19 +144,26 @@ int main(int argc, char *argv[])
             .call();
     }
 
-    if (!reqModule.isEmpty()) {
-        qDebug() << "call showModulePage";
-        QTimer::singleShot(0, &mw, [&] { mw.showModulePage(reqModule, reqPage, false); });
-    } else if (parser.isSet(showOption)) {
-        qDebug() << "call show";
-        QTimer::singleShot(0, &mw, [&] { mw.show(); });
-    }
+    if (!reqModule.isEmpty())
+        DDBusSender()
+        .service("com.deepin.dde.ControlCenter")
+        .interface("com.deepin.dde.ControlCenter")
+        .path("/com/deepin/dde/ControlCenter")
+        .method("ShowPage")
+        .arg(reqModule)
+        .arg(reqPage)
+        .call();
 
 #ifdef QT_DEBUG
     //debug时会直接show
     //发布版本，不会直接显示，为了满足在被dbus调用时，
     //如果dbus参数错误，不会有任何UI上的变化
-    mw.show();
+    DDBusSender()
+    .service("com.deepin.dde.ControlCenter")
+    .interface("com.deepin.dde.ControlCenter")
+    .path("/com/deepin/dde/ControlCenter")
+    .method("Show")
+    .call();
 #endif
 
     return app.exec();

@@ -101,7 +101,7 @@ int DisplayModule::load(QString path)
     return m_displayWidget->showPath(path);
 }
 
-void DisplayModule::preInitialize()
+void DisplayModule::preInitialize(bool sync)
 {
     m_displayModel = new DisplayModel;
     m_displayWorker = new DisplayWorker(m_displayModel);

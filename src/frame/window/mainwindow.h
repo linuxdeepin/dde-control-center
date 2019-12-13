@@ -90,6 +90,19 @@ public:
     bool isModuleAvailable(const QString &m);
     void toggle();
     void popWidget();
+    void initAllModule(QString m = "");
+Q_SIGNALS:
+    void moduleVisibleChanged(const QString &module, bool visible);
+
+private:
+    void changeEvent(QEvent *event) override;
+
+private Q_SLOTS:
+    void onEnterSearchWidget(QString moduleName, QString widget);
+    void onBack();
+    void resetTabOrder();
+    void findFocusChild(QWidget *w, QWidget *&pre);
+    void findFocusChild(QLayout *l, QWidget *&pre);
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
@@ -97,8 +110,18 @@ protected:
 
 private:
     void resetNavList(bool isIconMode);
+    void modulePreInitialize(QString m = nullptr);
+    void popAllWidgets(int place = 0);//place is Remain count
+    void onFirstItemClick(const QModelIndex &index);
+    void pushNormalWidget(ModuleInterface *const inter, QWidget *const w);  //exchange third widget : push new widget
+    void replaceThirdWidget(ModuleInterface *const inter, QWidget *const w);  //replace(hide) third widget : Can recover
+    void pushTopWidget(ModuleInterface *const inter, QWidget *const w);  //Covere the top
+    void pushFinalWidget(ModuleInterface *const inter, QWidget *const w);  //Insert after the finalWidget
+    void judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w);
+    void updateViewBackground();
 
 private:
+    bool m_bInit{false};
     QHBoxLayout *m_contentLayout;
     QHBoxLayout *m_rightContentLayout;
     DListView *m_navView;
@@ -117,30 +140,6 @@ private:
     DIconButton *m_backwardBtn;
     QList<QPair<QString, DViewItemAction *>> m_remindeSubscriptList;//用于记录是否有角标, QString为模块名称，DViewItemAction为角标对象
     QList<QString> m_removeableDeviceList;//用于记录可移除设备是否当前是否存在,存在加到list，不存在从list移除
-
-Q_SIGNALS:
-    void moduleVisibleChanged(const QString &module, bool visible);
-
-private Q_SLOTS:
-    void onEnterSearchWidget(QString moduleName, QString widget);
-    void onBack();
-    void resetTabOrder();
-    void findFocusChild(QWidget *w, QWidget *&pre);
-    void findFocusChild(QLayout *l, QWidget *&pre);
-
-private:
-    void changeEvent(QEvent *event) override;
-
-    void initAllModule();
-    void modulePreInitialize();
-    void popAllWidgets(int place = 0);//place is Remain count
-    void onFirstItemClick(const QModelIndex &index);
-    void pushNormalWidget(ModuleInterface *const inter, QWidget *const w);  //exchange third widget : push new widget
-    void replaceThirdWidget(ModuleInterface *const inter, QWidget *const w);  //replace(hide) third widget : Can recover
-    void pushTopWidget(ModuleInterface *const inter, QWidget *const w);  //Covere the top
-    void pushFinalWidget(ModuleInterface *const inter, QWidget *const w);  //Insert after the finalWidget
-    void judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w);
-    void updateViewBackground();
 };
 }
 
