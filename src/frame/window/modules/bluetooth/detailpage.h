@@ -24,6 +24,8 @@
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
 
+#include <DIconButton>
+
 QT_BEGIN_NAMESPACE
 class QLabel;
 class QLineEdit;

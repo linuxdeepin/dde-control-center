@@ -22,6 +22,7 @@
 
 #include "window/namespace.h"
 #include "window/interface/moduleinterface.h"
+
 #include <QMap>
 #include <QObject>
 

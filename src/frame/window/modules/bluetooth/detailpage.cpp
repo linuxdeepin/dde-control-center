@@ -48,6 +48,12 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setSpacing(0);
     layout->setMargin(0);
+    DIconButton *backWidgetBtn;
+    backWidgetBtn = new DIconButton(this);
+    backWidgetBtn->setFlat(true);
+    backWidgetBtn->setFixedSize(30, 48);
+    backWidgetBtn->setIcon(QStyle::SP_ArrowBack);
+    layout->addWidget(backWidgetBtn, Qt::AlignLeft);
     m_devNameLabel = new TitleLabel(tr("Change Name"));
     layout->addWidget(m_devNameLabel, 0, Qt::AlignCenter);
     layout->addSpacing(10);
@@ -83,6 +89,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     });
     connect(m_editDevName, &QLineEdit::editingFinished, this, &DetailPage::onDeviceNameChanged);
     connect(adapter, &Adapter::destroyed, this, &DetailPage::back);
+    connect(backWidgetBtn, &DIconButton::clicked, this, &DetailPage::back);
 }
 
 void DetailPage::onDeviceStatusChanged()
