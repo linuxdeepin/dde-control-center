@@ -276,6 +276,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         connect(m_curUser, &User::passwordAgeChanged, this, [ageEdit](const int age) {
             ageEdit->setText(QString::number(age));
         });
+
+        auto pwTip = new DTipLabel(tr("Maximum number of days between password change"));
+        pwTip->setContentsMargins(6, 0, 0, 0);
+        layout->addSpacing(5);
+        layout->addWidget(pwTip, 0, Qt::AlignLeft);
+
     }
 
 #if 0
@@ -409,7 +415,7 @@ void AccountsDetailWidget::initGroups(QVBoxLayout *layout)
     m_groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_groupListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_groupListView->setSelectionMode(QAbstractItemView::NoSelection);
-    m_groupListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    m_groupListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
     m_groupListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_groupListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_groupListView->setSpacing(1);

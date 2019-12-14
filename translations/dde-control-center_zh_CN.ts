@@ -158,6 +158,16 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="74"/>
+        <source>Date Expired (Days)</source>
+        <translation>过期时间(天)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
+        <source>Maximum number of days between password change</source>
+        <translation>两次改变密码之间相距的最大天数</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="339"/>
         <source>Group</source>
         <translation>用户组</translation>
@@ -170,6 +180,16 @@
         <source>Create Account</source>
         <translation>创建帐户</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Administrator</source>
+        <translation>管理员</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Standard User</source>
+        <translation>普通用户</translation>
     </message>
 </context>
 <context>
@@ -4035,8 +4055,17 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
         <source>Graphics Card:</source>
-        <translation>显卡</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+        <translation>显卡：</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
+        <source>Network Card:</source>
+        <translation>网卡：</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
+        <source>Sound Card:</source>
+        <translation>声卡：</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="121"/>

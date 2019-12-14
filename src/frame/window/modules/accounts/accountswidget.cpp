@@ -126,9 +126,9 @@ void AccountsWidget::addUser(User *user, bool t1)
     if (isServerSystem()) {
         auto *subTitleAction = new DViewItemAction;
         if (1 == user->userType()) {
-            subTitleAction->setText("Administrator");
+            subTitleAction->setText(tr("Administrator"));
         }else {
-            subTitleAction->setText("Standard User");
+            subTitleAction->setText(tr("Standard User"));
         }
         subTitleAction->setFontSize(DFontSizeManager::T8);
         subTitleAction->setTextColorRole(DPalette::TextTips);
@@ -136,9 +136,9 @@ void AccountsWidget::addUser(User *user, bool t1)
 
         connect(user, &User::userTypeChanged, this, [ = ](int userType) {
             if (1 == userType) {
-                subTitleAction->setText("Administrator");
+                subTitleAction->setText(tr("Administrator"));
             } else {
-                subTitleAction->setText("Standard User");
+                subTitleAction->setText(tr("Standard User"));
             }
         });
     }

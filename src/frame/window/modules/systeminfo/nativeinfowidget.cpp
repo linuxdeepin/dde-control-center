@@ -48,6 +48,7 @@ NativeInfoWidget::NativeInfoWidget(SystemInfoModel *model, QWidget *parent)
 void NativeInfoWidget::initWidget()
 {
     SettingsGroup *infoGroup = new SettingsGroup();
+    infoGroup->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     LogoItem *logo = new LogoItem;
     logo->setDescription(true); //显示文字描述
     logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
@@ -95,7 +96,7 @@ void NativeInfoWidget::initWidget()
 
     m_networkCard = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
-    m_networkCard->setTitle("Network Card:");
+    m_networkCard->setTitle(tr("Network Card:"));
     m_networkCard->setValue(m_model->networkCard());
 
     infoGroup->appendItem(logo);
@@ -115,15 +116,11 @@ void NativeInfoWidget::initWidget()
     pScroller->setFrameStyle(QFrame::NoFrame);
     pScroller->setWidget(infoGroup);
     pScroller->setWidgetResizable(true);
-
+    pScroller->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
 
     m_mainLayout->setMargin(0);
-//    m_mainLayout->addWidget(infoGroup);
     m_mainLayout->addWidget(pScroller);
-    m_mainLayout->addStretch();
     setLayout(m_mainLayout);
-
-
 
     connect(m_model, &SystemInfoModel::versionChanged, this, &NativeInfoWidget::setEdition);
     connect(m_model, &SystemInfoModel::typeChanged, this, &NativeInfoWidget::setType);
