@@ -82,6 +82,9 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
         //更新界面
         updateDeveloperModeState(state);
 
+        if (!state)
+            return;
+
         //弹窗提示重启
         DDialog dlg("", tr("To make it effective, a restart is required. Restart now?"));
         dlg.addButtons({tr("Cancel"), tr("Restart Now")});
