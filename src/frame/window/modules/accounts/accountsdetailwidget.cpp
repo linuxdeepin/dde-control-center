@@ -157,12 +157,12 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     m_fullNameBtn->setIconSize(QSize(12, 12));
     m_fullNameBtn->setFlat(true);//设置背景透明
 
-    m_inputLineEdit = new QLineEdit;
+    m_inputLineEdit = new DLineEdit();
     m_inputLineEdit->setMinimumWidth(220);
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_inputLineEdit->setVisible(false);
-    m_inputLineEdit->setFrame(false);
-    m_inputLineEdit->setAlignment(Qt::AlignCenter);
+    m_inputLineEdit->lineEdit()->setFrame(false);
+    m_inputLineEdit->lineEdit()->setAlignment(Qt::AlignCenter);
 
     DFontSizeManager::instance()->bind(m_fullName, DFontSizeManager::T5);
     DFontSizeManager::instance()->bind(m_inputLineEdit, DFontSizeManager::T5);
@@ -210,10 +210,27 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     //点击用户全名编辑按钮
     connect(m_fullNameBtn, &DIconButton::clicked, this, [ = ]() {
         updateLineEditDisplayStyle(true);
-        m_inputLineEdit->setFocus();
+        m_inputLineEdit->lineEdit()->setFocus();
     });
-    connect(m_inputLineEdit, &QLineEdit::editingFinished, this, [ = ]() {
-        Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
+    connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ]() {
+        m_inputLineEdit->setAlert(false);
+        m_inputLineEdit->hideAlertMessage();
+    });
+    connect(m_inputLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ]() {
+        auto uerList = m_userModel->userList();
+        //判断账户全名是否被其他用户所用
+        auto userList = m_userModel->userList();
+        if(m_inputLineEdit->text() != m_curUser->fullname()){
+            for(auto u : userList){
+                if(u->fullname() == m_inputLineEdit->text()){
+                    m_inputLineEdit->setAlert(true);
+                    m_inputLineEdit->showAlertMessage(tr("The full name already exists"), -1);
+                    return;
+                }
+            }
+            Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
+        }
+
         m_inputLineEdit->clearFocus();
         updateLineEditDisplayStyle();
     });
@@ -472,6 +489,6 @@ void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
 
     if (edit) {
         m_inputLineEdit->setText(m_curUser->fullname());
-        m_inputLineEdit->selectAll();
+        m_inputLineEdit->lineEdit()->selectAll();
     }
 }

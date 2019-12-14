@@ -63,6 +63,7 @@ private:
     bool containsChar(const QString &password, const QString &validate);
     bool validateUsername(const QString &username);
     bool onNameEditFinished(DLineEdit *edit);
+    bool onFullNameEidtFinished(DLineEdit *edit);
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);

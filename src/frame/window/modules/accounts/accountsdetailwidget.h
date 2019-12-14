@@ -34,11 +34,13 @@
 #include "accounntfingeitem.h"
 #include "fingerwidget.h"
 
+#include <DLineEdit>
 
 DWIDGET_BEGIN_NAMESPACE
 class DIconButton;
 class DWarningButton;
 class DCommandLinkButton;
+class DLineEdit;
 DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
@@ -103,7 +105,7 @@ private:
     dcc::accounts::UserModel *m_userModel;
     QLabel *m_fullName;//账户全名
     DTK_WIDGET_NAMESPACE::DIconButton *m_fullNameBtn;//账户全名编辑按钮
-    QLineEdit *m_inputLineEdit;//账户全名编辑框
+    DLineEdit *m_inputLineEdit;//账户全名编辑框
     dcc::accounts::FingerModel *m_model;
     FingerWidget *m_fingerWidget;//指纹界面
     AvatarListWidget *m_avatarListWidget;//图像列表

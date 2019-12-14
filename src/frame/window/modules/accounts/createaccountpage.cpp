@@ -250,6 +250,9 @@ void CreateAccountPage::createUser()
     if (!onPasswordEditFinished(m_passwdEdit)) {
         return;
     }
+    if (!onFullNameEidtFinished(m_fullnameEdit)) {
+        return;
+    }
     if (!onPasswordEditFinished(m_repeatpasswdEdit)) {
         return;
     }
@@ -386,6 +389,20 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
         edit->setAlert(true);
         edit->showAlertMessage(tr("Username must only contain a~z, 0~9, - or _"), -1);
         return false;
+    }
+    return true;
+}
+
+bool CreateAccountPage::onFullNameEidtFinished(DLineEdit *edit)
+{
+    auto userFullName = edit->lineEdit()->text();
+    auto userList = m_userModel->userList();
+    for (auto u : userList) {
+        if (u->fullname() == userFullName) {
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("The full name already exists"), -1);
+            return false;
+        }
     }
     return true;
 }
