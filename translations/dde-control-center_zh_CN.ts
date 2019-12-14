@@ -520,20 +520,47 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="238"/>
         <source>Join developer mode</source>
-        <translation type="unfinished"/>
+		<translation>加入开发者模式</translation>
     </message>
 </context>
 <context>
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
-        <source>Developer Mode</source>
-        <translation>开发者模式</translation>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="122"/>
+        <source>Request Root Access</source>
+        <translation>进入开发者模块</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
-        <source>To join the developer mode, you need to bind the deepin ID. To join the developer mode, you will lose your guarantee. Please note!</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="91"/>
+        <source>Sign in with UOS ID to get root privileges</source>
+        <translation>进入开发者模式需要登录UOS ID</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="93"/>
+        <source>No root privileges. Please request root access in developer mode in Control Center.</source>
+        <translation>无root权限，如想获得root权限可以在控制中心选择进入开发者模式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="103"/>
+        <source>Root Access Allowed</source>
+        <translation>已进入开发者模式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="107"/>
+        <source>To make it effective, a restart is required. Restart now?</source>
+        <translation>开发者模式需要重启后生效，是否立即重启？</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
+        <source>Restart Now</source>
+        <translation>立即重启</translation>
     </message>
 </context>
 <context>

@@ -112,7 +112,7 @@ void DeveloperModeWidget::updateDeveloperModeState(const bool state)
                 .service("com.deepin.SessionManager")
                 .interface("com.deepin.SessionManager")
                 .path("/com/deepin/SessionManager")
-                .method("Reboot")
+                .method("RequestReboot")
                 .call();
             }
         });

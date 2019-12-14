@@ -196,7 +196,7 @@ void DBusControlCenterService::Toggle()
 //        m_toggleProcessed = false;
 //    }
 
-    parent()->toggle();
+    Show();
 }
 
 void DBusControlCenterService::ToggleInLeft()
