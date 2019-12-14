@@ -78,7 +78,25 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
     m_model = model;
     onLoginChanged();
     updateDeveloperModeState(model->developerModeState());
-    connect(model, &CommonInfoModel::developerModeStateChanged, this, &DeveloperModeWidget::updateDeveloperModeState);
+    connect(model, &CommonInfoModel::developerModeStateChanged, this, [this](const bool state){
+        //更新界面
+        updateDeveloperModeState(state);
+
+        //弹窗提示重启
+        DDialog dlg("", tr("To make it effective, a restart is required. Restart now?"));
+        dlg.addButtons({tr("Cancel"), tr("Restart Now")});
+        connect(&dlg, &DDialog::buttonClicked, this, [](int idx, QString str){
+            if (idx == 1) {
+                DDBusSender()
+                .service("com.deepin.SessionManager")
+                .interface("com.deepin.SessionManager")
+                .path("/com/deepin/SessionManager")
+                .method("RequestReboot")
+                .call();
+            }
+        });
+        dlg.exec();
+    });
     connect(model, &CommonInfoModel::isLoginChenged, this, &DeveloperModeWidget::onLoginChanged);
 }
 
@@ -94,6 +112,7 @@ void DeveloperModeWidget::onLoginChanged()
     }
 }
 
+//开发者模式变化时，更新界面
 void DeveloperModeWidget::updateDeveloperModeState(const bool state)
 {
     if (state) {
@@ -103,20 +122,6 @@ void DeveloperModeWidget::updateDeveloperModeState(const bool state)
         m_devBtn->setText(tr("Root Access Allowed"));
         m_tips->setText(tr(""));
         m_tips->setVisible(false);
-
-        DDialog dlg("", tr("To make it effective, a restart is required. Restart now?"));
-        dlg.addButtons({tr("Cancel"), tr("Restart Now")});
-        connect(&dlg, &DDialog::buttonClicked, this, [](int idx, QString str){
-            if (idx == 1) {
-                DDBusSender()
-                .service("com.deepin.SessionManager")
-                .interface("com.deepin.SessionManager")
-                .path("/com/deepin/SessionManager")
-                .method("RequestReboot")
-                .call();
-            }
-        });
-        dlg.exec();
     } else {
         m_devBtn->setEnabled(true);
         m_devBtn->setText(tr("Request Root Access"));
