@@ -24,6 +24,7 @@
 #include "customcontent.h"
 #include "generalkbsettingwidget.h"
 #include "kblayoutsettingwidget.h"
+#include "keyboardlayoutwidget.h"
 #include "shortcutsettingwidget.h"
 #include "systemlanguagewidget.h"
 #include "systemlanguagesettingwidget.h"
@@ -33,7 +34,6 @@
 #include "modules/keyboard/shortcutmodel.h"
 #include "modules/keyboard/customedit.h"
 #include "modules/keyboard/shortcutcontent.h"
-#include "modules/keyboard/keyboardlayoutwidget.h"
 
 using namespace dcc;
 using namespace dcc::keyboard;

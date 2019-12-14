@@ -34,7 +34,6 @@ IndexFrame::IndexFrame(QFrame *parent):TranslucentFrame(parent)
 {
     setMouseTracking(true);
     setFrameShape(QFrame::NoFrame);
-    setStyleSheet("background-color: rgba(238,238,238,20%); border: 0px;");
     m_letters.clear();
     QFontMetrics fm(font());
 

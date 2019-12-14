@@ -26,14 +26,16 @@
 #ifndef KEYBOARDLAYOUTWIDGET_H
 #define KEYBOARDLAYOUTWIDGET_H
 
+#include "window/namespace.h"
 #include "widgets/contentwidget.h"
-#include "indexmodel.h"
-#include "indexview.h"
-#include "indexframe.h"
-#include "indexdelegate.h"
+#include "modules/keyboard/indexmodel.h"
+#include "modules/keyboard/indexview.h"
+#include "modules/keyboard/indexframe.h"
+#include "modules/keyboard/indexdelegate.h"
 #include "widgets/searchinput.h"
 
 #include <DGraphicsClipEffect>
+#include <DListView>
 
 DWIDGET_USE_NAMESPACE
 
@@ -66,12 +68,11 @@ public Q_SLOTS:
 
 private:
     int textLength;
-    SearchInput* m_search;
-    IndexDelegate* m_delegate;
-    IndexView* m_view;
-    IndexModel* m_model;
-    IndexModel* m_searchModel;
-    IndexFrame* m_indexframe;
+    SearchInput *m_search;
+    IndexView *m_view;
+    IndexModel *m_model;
+    IndexModel *m_searchModel;
+    IndexFrame *m_indexframe;
     TranslucentFrame *m_mainWidget;
     DGraphicsClipEffect *m_clipEffectWidget;
     QList<MetaData> m_data;

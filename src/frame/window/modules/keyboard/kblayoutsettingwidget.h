@@ -24,6 +24,12 @@
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
 
+#include <DListView>
+
+QT_BEGIN_NAMESPACE
+class QPushButton;
+QT_END_NAMESPACE
+
 namespace dcc {
 namespace keyboard {
 class KeyboardModel;
@@ -33,8 +39,6 @@ class MetaData;
 namespace widgets {
 class SearchInput;
 class TranslucentFrame;
-class SettingsGroup;
-class SettingsHead;
 class ComboxWidget;
 }
 }
@@ -42,7 +46,7 @@ class ComboxWidget;
 namespace DCC_NAMESPACE {
 namespace keyboard {
 class CheckItem;
-class KBLayoutSettingWidget : public dcc::ContentWidget
+class KBLayoutSettingWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -59,25 +63,32 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void onAddKeyboard(const QString &id, const QString &value);
-    void onEdit(bool value);
-    void onRemoveLayout(CheckItem *item);
+    void onEditClicked();
     void onDefault(const QString &value);
-    void onSwitchKBChanged();
+    void onKBLayoutChanged(const QModelIndex &index);
+    void onSwitchKBChanged(const QModelIndex &index);
     void onSwitchKB(int kbSwitch);
     void onLayoutAdded();
     void onLayoutScope(const int value);
-
 private:
-    bool m_bEdit{false};
-    dcc::widgets::SettingsGroup *m_group;
-    dcc::widgets::SettingsHead *m_head;
-    dcc::widgets::SettingsHead *m_switchLayoutHead;
+    void setUIVisible();
+private:
+    bool m_bEdit = false;
     QList<dcc::keyboard::MetaData> m_datas;
-    QMap<QString, CheckItem *> m_maps;
+    QStringList m_kbLangList;
     dcc::keyboard::KeyboardModel *m_model;
-    dcc::widgets::SettingsGroup *m_switchKBLayout;
-    QMap<CheckItem *, int> m_switchCheckItem;
     dcc::widgets::ComboxWidget *m_comboWidget;
+    QLabel *m_switchTitle;
+    DListView *m_kbLayoutListView;
+    DListView *m_switchLayoutListView;
+    QPushButton *m_editKBLayout;
+    QStandardItemModel *m_kbLayoutModel;
+    QStandardItemModel *m_switchLayoutModel;
+private:
+    enum {
+        SwitchValueRole = Dtk::UserRole + 1,
+        KBLangIdRole
+    };
 };
 }
 }

@@ -24,10 +24,7 @@
  */
 
 #include "keyboardlayoutwidget.h"
-#include "indexdelegate.h"
-#include "indexmodel.h"
-#include "indexview.h"
-#include "indexframe.h"
+#include "window/utils.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
 #include "widgets/translucentframe.h"
@@ -63,7 +60,14 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 
     m_model = new IndexModel();
     m_view = new IndexView();
-    m_delegate = new IndexDelegate();
+
+    m_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_view->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_view->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_view->setSelectionMode(QAbstractItemView::NoSelection);
 
     m_indexframe = nullptr;
 
@@ -82,6 +86,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     m_contentTopLayout->addSpacing(10);
 
     m_mainWidget->setLayout(hlayout);
+    m_mainWidget->setContentsMargins(DCC_NAMESPACE::ListViweItemMargin);
 
     m_clipEffectWidget = new DGraphicsClipEffect(m_mainWidget);
     m_mainWidget->installEventFilter(this);
@@ -100,7 +105,6 @@ KeyboardLayoutWidget::~KeyboardLayoutWidget()
 {
     m_searchModel->deleteLater();
     m_model->deleteLater();
-    m_delegate->deleteLater();
 }
 
 void KeyboardLayoutWidget::setMetaData(const QList<MetaData> &datas)
@@ -122,7 +126,6 @@ void KeyboardLayoutWidget::setMetaData(const QList<MetaData> &datas)
 
     m_model->setMetaData(m_data);
     m_view->setModel(m_model);
-    m_view->setItemDelegate(m_delegate);
 }
 
 void KeyboardLayoutWidget::setLetters(QList<QString> letters)
@@ -172,7 +175,7 @@ void KeyboardLayoutWidget::onSearch(const QString &text)
 
 void KeyboardLayoutWidget::onItemClicked(const QModelIndex &index)
 {
-    QVariant var = index.data();
+    QVariant var = index.data(IndexModel::KBLayoutRole);
     MetaData md = var.value<MetaData>();
 
     if (m_model->letters().contains(md.text()))

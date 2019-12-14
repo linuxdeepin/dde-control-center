@@ -26,12 +26,14 @@
 #ifndef INDEXVIEW_H
 #define INDEXVIEW_H
 
-#include <QListView>
+#include <DListView>
 #include <QLabel>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace keyboard{
-class IndexView : public QListView
+class IndexView : public DListView
 {
     Q_OBJECT
 

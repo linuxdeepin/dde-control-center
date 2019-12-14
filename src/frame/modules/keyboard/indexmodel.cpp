@@ -23,9 +23,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <DStandardItem>
+
 #include "indexmodel.h"
 #include <QDBusInterface>
 #include <com_deepin_daemon_inputdevice_keyboard.h>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace keyboard {
@@ -115,7 +119,7 @@ QDebug &operator<<(QDebug dbg, const MetaData &md)
 }
 
 IndexModel::IndexModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : QStandardItemModel(parent)
 {
 }
 
@@ -123,6 +127,11 @@ void IndexModel::setMetaData(const QList<MetaData> &datas)
 {
     beginResetModel();
     m_datas = datas;
+    for (int i = 0; i < m_datas.size(); ++i) {
+        DStandardItem *item = new DStandardItem(m_datas[i].text());
+        item->setData(QVariant::fromValue(m_datas[i]), KBLayoutRole);
+        appendRow(item);
+    }
     endResetModel();
 }
 
@@ -162,31 +171,31 @@ int IndexModel::rowCount(const QModelIndex &parent) const
     return m_datas.count();
 }
 
-QVariant IndexModel::data(const QModelIndex &index, int role) const
-{
-    if (!index.isValid())
-        return QVariant();
+//QVariant IndexModel::data(const QModelIndex &index, int role) const
+//{
+//    if (!index.isValid())
+//        return QVariant();
 
-    MetaData md = m_datas[index.row()];
-    if (role == Qt::DisplayRole) {
-        QVariant v;
-        v.setValue(md);
-        return v;
-    } else if (role == Qt::BackgroundColorRole) {
-        return QBrush(Qt::transparent);
-    } else
-        return QVariant();
-}
+//    MetaData md = m_datas[index.row()];
+//    if (role == Qt::DisplayRole) {
+//        QVariant v;
+//        v.setValue(md);
+//        return v;
+////    } else if (role == Qt::BackgroundColorRole) {
+////        return QBrush(Qt::transparent);
+//    } else
+//        return QVariant();
+//}
 
-Qt::ItemFlags IndexModel::flags(const QModelIndex &index) const
-{
-    QVariant var = index.data();
-    MetaData md = var.value<MetaData>();
-    if (md.section()) {
-        return Qt::NoItemFlags;
-    }
-    return QAbstractListModel::flags(index);
-}
+//Qt::ItemFlags IndexModel::flags(const QModelIndex &index) const
+//{
+//    QVariant var = index.data();
+//    MetaData md = var.value<MetaData>();
+//    if (md.section()) {
+//        return Qt::NoItemFlags;
+//    }
+//    return QStandardItemModel::flags(index);
+//}
 
 int IndexModel::getModelCount()
 {

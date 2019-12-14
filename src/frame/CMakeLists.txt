@@ -575,8 +575,6 @@ set(KEYBOARD_FILES
 #                modules/keyboard/indexview.h
 #                modules/keyboard/keyboarddetails.cpp
 #                modules/keyboard/keyboarddetails.h
-                modules/keyboard/keyboardlayoutwidget.cpp
-#                modules/keyboard/keyboardlayoutwidget.h
                 modules/keyboard/keyboardmodel.cpp
 #                modules/keyboard/keyboardmodel.h
 #                modules/keyboard/keyboardmodule.h
@@ -606,6 +604,8 @@ set(KEYBOARD_FILES
                 window/modules/keyboard/generalkbsettingwidget.cpp
                 window/modules/keyboard/kblayoutsettingwidget.h
                 window/modules/keyboard/kblayoutsettingwidget.cpp
+                window/modules/keyboard/keyboardlayoutwidget.cpp
+                window/modules/keyboard/keyboardlayoutwidget.h
                 window/modules/keyboard/systemlanguagesettingwidget.h
                 window/modules/keyboard/systemlanguagesettingwidget.cpp
                 window/modules/keyboard/shortcutsettingwidget.h

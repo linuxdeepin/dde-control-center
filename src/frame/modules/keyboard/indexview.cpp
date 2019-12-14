@@ -34,12 +34,11 @@ namespace dcc {
 namespace keyboard{
 
 IndexView::IndexView(QWidget *parent)
-    :QListView(parent)
+    :DListView(parent)
 {
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollMode(ScrollPerPixel);
-    setStyleSheet("border: 0px; background: transparent");
     QScroller::grabGesture(this, QScroller::LeftMouseButtonGesture);
 }
 
@@ -50,8 +49,7 @@ void IndexView::onClick(const QString &ch)
     md.setText(ch);
 
     int index = model->indexOf(md);
-    if(index != -1)
-    {
+    if(index != -1) {
         scrollTo(model->index(index,0),QAbstractItemView::PositionAtTop);
     }
 }

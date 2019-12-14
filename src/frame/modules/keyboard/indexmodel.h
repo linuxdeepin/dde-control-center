@@ -26,10 +26,14 @@
 #ifndef INDEXMODEL_H
 #define INDEXMODEL_H
 
+#include <DListView>
+
 #include <QString>
-#include <QAbstractListModel>
+#include <QStandardItemModel>
 #include <QItemDelegate>
 #include <QFrame>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace keyboard {
@@ -67,7 +71,7 @@ private:
 
 QDebug &operator<<(QDebug dbg, const MetaData &md);
 
-class IndexModel : public QAbstractListModel
+class IndexModel : public QStandardItemModel
 {
     Q_OBJECT
 
@@ -82,17 +86,21 @@ public:
     QList<QString> letters() const;
 
 //    QModelIndex index(int row, int column = 0, const QModelIndex &parent = QModelIndex()) const;
-    Qt::ItemFlags flags(const QModelIndex &index) const;
+//    Qt::ItemFlags flags(const QModelIndex &index) const;
 
     int getModelCount();
 
 protected:
     int rowCount(const QModelIndex &parent) const;
-    QVariant data(const QModelIndex &index, int role) const;
+//    QVariant data(const QModelIndex &index, int role) const;
 
 private:
     QList<MetaData> m_datas;
     QList<QString> m_letters;
+public:
+    enum {
+        KBLayoutRole = Dtk::UserRole + 1,
+    };
 };
 
 }

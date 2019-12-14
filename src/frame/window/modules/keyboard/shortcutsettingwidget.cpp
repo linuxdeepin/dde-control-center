@@ -113,9 +113,9 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     QWidget *widget = new QWidget(this);
     widget->setLayout(m_layout);
-    ContentWidget *m_contentWidget = new ContentWidget(this);
-    m_contentWidget->setContent(widget);
-    vlayout->addWidget(m_contentWidget);
+    ContentWidget *contentWidget = new ContentWidget(this);
+    contentWidget->setContent(widget);
+    vlayout->addWidget(contentWidget);
 
     m_addCustomShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, this);
 
