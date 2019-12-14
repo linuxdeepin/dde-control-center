@@ -57,7 +57,6 @@ int main(int argc, char *argv[])
     DApplication app(argc, argv);
     app.setOrganizationName("deepin");
     app.setApplicationName("dde-control-center");
-    app.setApplicationDisplayName(QApplication::translate("main", "Control Center"));
     app.setApplicationVersion("4.0");
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
     app.loadTranslator();
@@ -69,6 +68,7 @@ int main(int argc, char *argv[])
     QTranslator translator;
     translator.load("/usr/share/dde-network-utils/translations/dde-network-utils_" + QLocale::system().name());
     app.installTranslator(&translator);
+    app.setApplicationDisplayName(QObject::tr("Control Center"));
     app.setApplicationDescription(QApplication::translate("main", "Control Center provides the options for system settings."));
 
     DLogManager::registerConsoleAppender();
