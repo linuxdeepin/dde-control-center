@@ -21,6 +21,7 @@
 
 #include "commoninfowork.h"
 #include "window/modules/commoninfo/commoninfomodel.h"
+#include "window/utils.h"
 
 #include "widgets/basiclistdelegate.h"
 #include "widgets/utils.h"
@@ -182,7 +183,7 @@ void CommonInfoWork::setBackground(const QString &path)
 void CommonInfoWork::setUeProgram(bool enabled)
 {
     if (enabled && (m_dBusUeProgram->IsEnabled() != enabled)) {
-
+        qInfo("suser opened experience project switch.");
         // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
         QString title(tr("User Experience Program"));
         QString allowContent(tr("Agree and Join User Experience Program"));
@@ -217,19 +218,23 @@ void CommonInfoWork::setUeProgram(bool enabled)
 
         if (96 == result) {
             if (!m_commomModel->ueProgram()) {
-                m_commomModel->setUeProgram(enabled);
+                m_commomModel->setUeProgram(enabled);          
+                qInfo("user agreed experience project.");
             }
             m_dBusUeProgram->Enable(enabled);
         } else {
             m_commomModel->setUeProgram(m_dBusUeProgram->IsEnabled());
+            qInfo("user closed experience project switch");
         }
         file.remove();
     } else {
         if (m_dBusUeProgram->IsEnabled() != enabled) {
             m_dBusUeProgram->Enable(enabled);
+            qInfo("user closed experience project switch.");
         }
         if (m_commomModel->ueProgram() != enabled) {
             m_commomModel->setUeProgram(enabled);
+            qInfo("user cancelled experience project.");
         }
     }
 }
