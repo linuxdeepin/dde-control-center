@@ -88,6 +88,7 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     DSuggestButton *addBtn = new DSuggestButton(tr("Create"));
     btnLayout->addWidget(cancleBtn);
     btnLayout->addWidget(addBtn);
+    mainContentLayout->addSpacing(0);
     mainContentLayout->addLayout(btnLayout);
 
     connect(cancleBtn, &QPushButton::clicked, this, [&] {
@@ -134,7 +135,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     //~ contents_path /accounts/New Account
     TitleLabel *titleLabel = new TitleLabel(tr("New Account"));
     titleLabel->setAlignment(Qt::AlignCenter);
-    layout->addSpacing(17);
+    layout->addSpacing(13);
     layout->addWidget(titleLabel);
 
     m_avatarListWidget = new AvatarListWidget(m_newUser, this);
@@ -142,27 +143,28 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     m_avatarListWidget->setViewportMargins(0, 0, 0, 0);
     m_avatarListWidget->setSpacing(14);
     m_avatarListWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    layout->addSpacing(10);
+    layout->addSpacing(7);
     layout->addWidget(m_avatarListWidget, 0, Qt::AlignTop);
 
     QLabel *nameLabel = new QLabel(tr("Username") + ':');
     layout->addWidget(nameLabel);
     layout->addWidget(m_nameEdit);
-    layout->addSpacing(10);
+    layout->addSpacing(7);
 
     QLabel *fullnameLabel = new QLabel(tr("Full Name") + ':');
     layout->addWidget(fullnameLabel);
     layout->addWidget(m_fullnameEdit);
-    layout->addSpacing(10);
+    layout->addSpacing(7);
 
     QLabel *passwdLabel = new QLabel(tr("Password") + ':');
     layout->addWidget(passwdLabel);
     layout->addWidget(m_passwdEdit);
-    layout->addSpacing(10);
+    layout->addSpacing(7);
 
     QLabel *repeatpasswdLabel = new QLabel(tr("Repeat Password") + ':');
     layout->addWidget(repeatpasswdLabel);
     layout->addWidget(m_repeatpasswdEdit);
+    layout->addSpacing(7);
 
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
             m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
