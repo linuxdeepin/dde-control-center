@@ -23,6 +23,7 @@
 
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
+#include "widgets/buttontuple.h"
 
 #include <DGraphicsClipEffect>
 #include <DListView>
@@ -42,6 +43,7 @@ class IndexView;
 namespace widgets {
 class SearchInput;
 class TranslucentFrame;
+class ButtonTuple;
 }
 }
 
@@ -65,18 +67,22 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setModelData(const QList<dcc::keyboard::MetaData> &datas);
     void onSearch(const QString &text);
+    void onAddLanguage();
+    void onLangSelect(const QModelIndex &index);
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QLabel *m_title;
     dcc::widgets::SearchInput *m_search;
+    dcc::widgets::ButtonTuple *m_buttonTuple;
     Dtk::Widget::DListView *m_view;
     QStandardItemModel *m_model;
     dcc::keyboard::KeyboardModel *m_keyboardModel;
     DGraphicsClipEffect *m_clipEffectWidget;
     dcc::widgets::TranslucentFrame *m_contentWidget;
-    QList<dcc::keyboard::MetaData> m_datas;
+    QList<dcc::keyboard::MetaData> m_datas;  
+    QModelIndex m_modelIndex;
 };
 }
 }

@@ -39,6 +39,7 @@ using namespace dcc::keyboard;
 SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_keyboardModel(model)
+    , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
     m_contentWidget = new TranslucentFrame();
     QVBoxLayout *layout = new QVBoxLayout();
@@ -51,6 +52,12 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     m_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_view->setBackgroundType(DStyledItemDelegate::ClipCornerBackground);
+    m_view->setSelectionMode(QAbstractItemView::NoSelection);
+
+    QPushButton *cancel = m_buttonTuple->leftButton();
+    cancel->setText(tr("Cancel"));
+    QPushButton *ok = m_buttonTuple->rightButton();
+    ok->setText(tr("Add"));
 
     m_search = new SearchInput();
     //~ contents_path /keyboard/System Language
@@ -63,6 +70,8 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     m_contentTopLayout->addSpacing(10);
 
     layout->addWidget(m_view);
+    layout->addSpacing(10);
+    layout->addWidget(m_buttonTuple);
     m_contentWidget->setLayout(layout);
 
     // 矩形圆角
@@ -74,9 +83,10 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     m_contentWidget->setAttribute(Qt::WA_TranslucentBackground);
 
     connect(m_search, &SearchInput::textChanged, this, &SystemLanguageSettingWidget::onSearch);
-    connect(m_view, &DListView::clicked, this, &SystemLanguageSettingWidget::click);
-    connect(m_view, &DListView::clicked, this, &SystemLanguageSettingWidget::back);
     connect(m_keyboardModel, &KeyboardModel::langChanged, this, &SystemLanguageSettingWidget::setModelData);
+    connect(cancel, &QPushButton::clicked, this, &SystemLanguageSettingWidget::back);
+    connect(ok, &QPushButton::clicked, this, &SystemLanguageSettingWidget::onAddLanguage);
+    connect(m_view, &DListView::clicked, this, &SystemLanguageSettingWidget::onLangSelect);
 
     setModelData(m_keyboardModel->langLists());
 }
@@ -99,6 +109,20 @@ void SystemLanguageSettingWidget::onSearch(const QString &text)
         }
         m_view->setModel(model);
     }
+}
+
+void SystemLanguageSettingWidget::onAddLanguage()
+{
+    Q_EMIT click(m_modelIndex);
+    Q_EMIT back();
+}
+
+void SystemLanguageSettingWidget::onLangSelect(const QModelIndex &index)
+{
+    if(m_modelIndex.isValid())
+        m_model->itemFromIndex(m_modelIndex)->setCheckState(Qt::Unchecked);
+    m_model->itemFromIndex(index)->setCheckState(Qt::Checked);
+    m_modelIndex = index;
 }
 
 void SystemLanguageSettingWidget::setModelData(const QList<MetaData> &datas)
