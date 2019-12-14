@@ -940,6 +940,7 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         return;
     }
 
+    m_navView->setFocus();
     popAllWidgets();
 
     if (!m_initList.contains(inter)) {
