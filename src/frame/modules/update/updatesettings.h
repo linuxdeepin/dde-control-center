@@ -71,7 +71,6 @@ private:
     NextPageWidget* m_updateMirrors;
     TipsLabel *m_updateLbl;
     SettingsGroup *m_mirrorGrp;
-    bool m_isProfessional;
 };
 
 }

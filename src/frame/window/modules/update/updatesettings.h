@@ -76,7 +76,6 @@ private:
     dcc::widgets::NextPageWidget *m_updateMirrors;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_updateLbl;
     dcc::widgets::SettingsGroup *m_mirrorGrp;
-    bool m_isProfessional;
 };
 
 }// namespace datetime

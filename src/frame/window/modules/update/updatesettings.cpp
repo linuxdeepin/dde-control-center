@@ -44,7 +44,6 @@ using namespace DCC_NAMESPACE::update;
 UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(nullptr)
-    , m_isProfessional(false)
 {
     setTitle(tr("Update Settings"));
 
@@ -105,7 +104,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->addLayout(updateLblLayout);
     layout->addSpacing(15);
 
-    if (!m_isProfessional) {
+    if (getSystemTypeName() != "Professional") {
         m_smartMirrorBtn = new SwitchWidget;
         //~ contents_path /update/Update Settings
         m_smartMirrorBtn->setTitle(tr("Smart Mirror Switch"));
@@ -165,7 +164,7 @@ void UpdateSettings::setModel(UpdateModel *model)
         m_autoDownloadSwitch->setChecked(autoDownload);
     };
 
-    if (!m_isProfessional) {
+    if (getSystemTypeName() != "Professional") {
         auto setDefaultMirror = [this](const MirrorInfo & mirror) {
             m_updateMirrors->setValue(mirror.m_name);
         };
