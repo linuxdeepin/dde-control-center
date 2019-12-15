@@ -297,7 +297,13 @@ QString SystemInfoWork::getSoundCardInfo() const
     for(const auto &line : soundCardInfo.split("\n")){
         if(line.isEmpty())
             continue;
-        resultSoundCardInfo += line.split("device:")[1]+ "\n";
+
+        auto spStr = "device:";
+        auto vinfo = line.split(spStr);
+        if (vinfo.size() < 2)
+            continue;
+
+        resultSoundCardInfo += vinfo[1] + "\n";
     }
 
     //去掉最后的多余换行符
@@ -318,7 +324,13 @@ QString SystemInfoWork::getNetworkCardInfo() const
     for(const auto &line : netWorkInfo.split("\n")){
         if(line.isEmpty())
             continue;
-        resultNetworkInfo += line.split("controller:")[1]+ "\n";
+
+        auto spStr = "controller:";
+        auto vinfo = line.split(spStr);
+        if (vinfo.size() < 2)
+            continue;
+
+        resultNetworkInfo += vinfo[1] + "\n";
     }
 
     //去掉最后的多余换行符
