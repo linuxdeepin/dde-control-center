@@ -139,7 +139,7 @@ void RotateDialog::showEvent(QShowEvent *e)
     QDialog::showEvent(e);
 
     QTimer::singleShot(100, this, static_cast<void (RotateDialog::*)()>(&RotateDialog::grabMouse));
-    QTimer::singleShot(100, this, &RotateDialog::grabKeyboard);
+    QTimer::singleShot(1, this, &RotateDialog::grabKeyboard);
 }
 
 void RotateDialog::paintEvent(QPaintEvent *e)
@@ -193,11 +193,18 @@ void RotateDialog::paintEvent(QPaintEvent *e)
 
 void RotateDialog::mouseMoveEvent(QMouseEvent *e)
 {
-    Q_UNUSED(e)
+    QDialog::mouseMoveEvent(e);
 
     //当旋转过程中可能因未知原因，grabmouse会失效，
     //mouseMove消息中固定鼠标位置确保可以继续操作
-    QCursor::setPos(this->rect().center());
+    QCursor::setPos(rect().center() + pos());
+}
+
+void RotateDialog::leaveEvent(QEvent *e)
+{
+    QDialog::leaveEvent(e);
+
+    QCursor::setPos(rect().center() + pos());
 }
 
 void RotateDialog::rotate()
@@ -230,14 +237,16 @@ void RotateDialog::rotate()
 
 void RotateDialog::resetGeometry()
 {
-    const qreal ratio = devicePixelRatioF();
-    Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
-    if (m_wmHelper->hasComposite()) {
-        setFixedSize(int(mon->w() / ratio), int(mon->h() / ratio));
-        move(mon->x(), mon->y());
-    } else {
-        setFixedSize(600, 500);
-        move((mon->w() - width()) / 2 + mon->x(),
-             (mon->h() - height()) / 2 + mon->y());
-    }
+    QTimer::singleShot(100, this, [this]{
+        const qreal ratio = devicePixelRatioF();
+        Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
+        if (m_wmHelper->hasComposite()) {
+            setFixedSize(int(mon->w() / ratio), int(mon->h() / ratio));
+            move(mon->x(), mon->y());
+        } else {
+            setFixedSize(600, 500);
+            move((mon->w() - width()) / 2 + mon->x(),
+                 (mon->h() - height()) / 2 + mon->y());
+        }
+    });
 }

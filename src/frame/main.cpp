@@ -155,6 +155,14 @@ int main(int argc, char *argv[])
         .arg(reqPage)
         .call();
 
+    if (parser.isSet(showOption))
+        DDBusSender()
+        .service("com.deepin.dde.ControlCenter")
+        .interface("com.deepin.dde.ControlCenter")
+        .path("/com/deepin/dde/ControlCenter")
+        .method("Show")
+        .call();
+
 #ifdef QT_DEBUG
     //debug时会直接show
     //发布版本，不会直接显示，为了满足在被dbus调用时，
