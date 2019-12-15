@@ -84,7 +84,11 @@ void CommonInfoModule::active()
     connect(m_commonWidget, &CommonInfoWidget::requestShowTabletModeWidget, this, &CommonInfoModule::onShowTabletModeWidget);
     m_frameProxy->pushWidget(this, m_commonWidget);
 
+#ifndef DCC_DISABLE_GRUB
     onShowBootWidget();
+#else
+    onShowDeveloperWidget();
+#endif
     QModelIndex curSelectIndex = m_commonWidget->getCommonListView()->model()->index(0, 0); // 第一行
     m_commonWidget->getCommonListView()->setCurrentIndex(curSelectIndex);
 }
