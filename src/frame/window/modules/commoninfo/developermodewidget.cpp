@@ -26,6 +26,7 @@
 #include "widgets/labels/tipslabel.h"
 
 #include <DTipLabel>
+#include <DTipLabel>
 #include <DDialog>
 #include <DDBusSender>
 
@@ -45,30 +46,46 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
 {
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
     m_devBtn = new QPushButton(tr("Request Root Access"));
-    m_tips = new DTipLabel(tr("Sign in with UOS ID to get root privileges"));
-    m_tips->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    m_tips->setWordWrap(true);
+    auto dtip = new DTipLabel(tr("Developer mode enables using root privilege, installing and running unsigned Apps, but you may also damage the integration of your system, please use it carefully."));
+    dtip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    dtip->setWordWrap(true);
+
+    auto utip = new DTipLabel(tr("Developer mode needs UOS ID login."));
+    utip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    utip->setWordWrap(true);
 
     vBoxLayout->setMargin(0);
-    vBoxLayout->setSpacing(0);
+    vBoxLayout->setSpacing(10);
     vBoxLayout->setContentsMargins(6, 0, 6, 0);
     vBoxLayout->addWidget(m_devBtn);
-    vBoxLayout->addSpacing(10);
-    vBoxLayout->addWidget(m_tips);
+    vBoxLayout->addWidget(dtip);
+    vBoxLayout->addWidget(utip);
     vBoxLayout->addStretch();
     setLayout(vBoxLayout);
 
     connect(m_devBtn, &QPushButton::clicked, this, [this]{
         Q_ASSERT(m_model);
-        if (!m_model->isLogin()) {
-            Q_EMIT requestLogin();
-        } else {
+        auto requestDev = [this]{
             qDebug() << "click btn and status :" << m_devBtn->isEnabled();
             m_devBtn->setEnabled(false);
             //防止出现弹窗时可以再次点击按钮
             QTimer::singleShot(100, this, [this]{
                 Q_EMIT enableDeveloperMode(true);
             });
+        };
+
+        if (!m_model->isLogin()) {
+            m_enterDev = true;
+            Q_EMIT requestLogin();
+            connect(m_model, &CommonInfoModel::isLoginChenged, this, [requestDev, this](bool log){
+                if (!log || !m_enterDev)
+                    return;
+
+                requestDev();
+                m_enterDev = false;
+            });
+        } else {
+            requestDev();
         }
     });
 }
@@ -105,14 +122,8 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
 
 void DeveloperModeWidget::onLoginChanged()
 {
-    if (m_model->developerModeState())
-        return;
-
-    if (!m_model->isLogin()) {
-        m_tips->setText(tr("Sign in with UOS ID to get root privileges"));
-    } else {
-        m_tips->setText(tr("No root privileges. Please request root access in developer mode in Control Center."));
-    }
+//    if (m_model->developerModeState())
+//        return;
 }
 
 //开发者模式变化时，更新界面
@@ -123,8 +134,6 @@ void DeveloperModeWidget::updateDeveloperModeState(const bool state)
         m_devBtn->clearFocus();
         m_devBtn->setEnabled(false);
         m_devBtn->setText(tr("Root Access Allowed"));
-        m_tips->setText(tr(""));
-        m_tips->setVisible(false);
     } else {
         m_devBtn->setEnabled(true);
         m_devBtn->setText(tr("Request Root Access"));

@@ -549,7 +549,12 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="47"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="122"/>
         <source>Request Root Access</source>
-        <translation>进入开发者模块</translation>
+        <translation>进入开发者模式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="48"/>
+        <source>Developer mode needs UOS ID login.</source>
+        <translation>进入开发者模式需要先登录UOS ID。</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="48"/>
@@ -561,6 +566,11 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="93"/>
         <source>No root privileges. Please request root access in developer mode in Control Center.</source>
         <translation>无root权限，如想获得root权限可以在控制中心选择进入开发者模式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="103"/>
+        <source>Developer mode enables using root privilege, installing and running unsigned Apps, but you may also damage the integration of your system, please use it carefully.</source>
+        <translation>进入开发者模式后可以获得root使用权限，安装和运行非商店签名应用，但同时也可能导致系统完整性遭到破坏，请谨慎使用。</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="103"/>

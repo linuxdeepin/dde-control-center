@@ -22,8 +22,6 @@
 #pragma once
 #include "window/namespace.h"
 
-#include <DTipLabel>
-
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -58,9 +56,9 @@ public Q_SLOTS:
     void updateDeveloperModeState(const bool state);
 
 private:
+    bool m_enterDev{false};
     QPushButton *m_devBtn;
     CommonInfoModel *m_model{nullptr};
-    DTK_WIDGET_NAMESPACE::DTipLabel *m_tips{nullptr};
 };
 }
 }
