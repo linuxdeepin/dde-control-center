@@ -231,6 +231,15 @@ void SearchWidget::loadxml()
         m_model->clear();
     }
 
+    //添加一项空数据，为了防止使用setText输入错误数据时直接跳转到list中正确的第一个页面
+    m_searchBoxStruct.fullPagePath = "";
+    m_searchBoxStruct.actualModuleName = "";
+    m_searchBoxStruct.translateContent = "";
+    m_searchBoxStruct.childPageName = "";
+    m_EnterNewPagelist.append(m_searchBoxStruct);
+    m_inputList.append(SearchDataStruct());
+    m_model->appendRow(new QStandardItem(""));
+
     if (file.exists()) {
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             QXmlStreamReader xmlRead(&file);
