@@ -61,6 +61,7 @@ int main(int argc, char *argv[])
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
     app.loadTranslator();
     app.setStyle("chameleon");
+    app.setProductIcon(QIcon::fromTheme("preferences-system"));
     app.setWindowIcon(QIcon::fromTheme("preferences-system"));
 
     DApplicationSettings settings;
