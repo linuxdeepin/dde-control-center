@@ -133,16 +133,11 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     setWindowTitle(tr("Shortcut"));
 
     connect(m_model, &ShortcutModel::addCustomInfo, this, &ShortCutSettingWidget::onCustomAdded);
+    //每次页面点击时会通过m_work->refreshShortcut()时,model会发出listChanged信号，对界面进行初始化
     connect(m_model, &ShortcutModel::listChanged, this, &ShortCutSettingWidget::addShortcut);
     connect(m_model, &ShortcutModel::shortcutChanged, this, &ShortCutSettingWidget::onShortcutChanged);
     connect(m_model, &ShortcutModel::keyEvent, this, &ShortCutSettingWidget::onKeyEvent);
     connect(m_model, &ShortcutModel::searchFinished, this, &ShortCutSettingWidget::onSearchStringFinish);
-
-    addShortcut(m_model->systemInfo(), ShortcutModel::System);
-    addShortcut(m_model->windowInfo(), ShortcutModel::Window);
-    addShortcut(m_model->workspaceInfo(), ShortcutModel::Workspace);
-    addShortcut(m_model->SpeechInfo(), ShortcutModel::Speech);
-    addShortcut(m_model->customInfo(), ShortcutModel::Custom);
 }
 
 void ShortCutSettingWidget::showCustomShotcut()
