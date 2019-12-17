@@ -57,7 +57,11 @@ int main(int argc, char *argv[])
     DApplication app(argc, argv);
     app.setOrganizationName("deepin");
     app.setApplicationName("dde-control-center");
+#ifdef CVERSION
+    app.setApplicationVersion(CVERSION);
+#else
     app.setApplicationVersion("4.0");
+#endif
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
     app.loadTranslator();
     app.setStyle("chameleon");

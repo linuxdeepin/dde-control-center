@@ -6,6 +6,8 @@ find_package(DtkCMake REQUIRED)
 include(Dart)
 include(CTest)
 
+add_definitions(-DCVERSION="${CVERSION}")
+
 # Install settings
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
