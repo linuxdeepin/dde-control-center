@@ -72,6 +72,9 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_serverTxtList = {
         {tr("Server"), true},
         {tr("Window Effect"), false},
+        {tr("Developer Mode"), false},
+        {tr("User Experience Program"), false},
+        {tr("Join User Experience Program"), false},
     };
 
     //first : 可移除设备名称
