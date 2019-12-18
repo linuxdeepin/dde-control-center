@@ -2,7 +2,7 @@
 Categories=Application;System;Settings
 Comment=Deepin Desktop Environment Control Center
 Encoding=UTF-8
-Exec=dbus-send --print-reply --dest=com.deepin.dde.ControlCenter /com/deepin/dde/ControlCenter com.deepin.dde.ControlCenter.Show
+Exec=dde-control-center --show
 Icon=preferences-system
 Name=Deepin Control Center
 GenericName=Control Center
