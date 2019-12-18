@@ -39,6 +39,7 @@
 #include <QDebug>
 #include <QList>
 
+DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::keyboard;
 using namespace dcc;
@@ -46,36 +47,57 @@ using namespace dcc::keyboard;
 using namespace dcc::widgets;
 
 SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent)
-    : ContentWidget(parent)
+    : QWidget(parent)
     , m_model(model)
     , m_settingWidget(nullptr)
 {
-    TranslucentFrame *content = new TranslucentFrame();
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setSpacing(20);
     layout->setMargin(0);
 
-    m_group = new SettingsGroup();
-    m_head = new SettingsHead();
-    //~ contents_path /keyboard/System Language
-    m_head->setTitle(tr("Language List"));
-    m_head->setEditEnable(false);
-    layout->addSpacing(10);
-    layout->addWidget(m_head);
-    layout->addWidget(m_group);
+    QHBoxLayout *headLayout = new QHBoxLayout();
+    QLabel *headTitle = new QLabel(tr("Language List"));
+    m_editSystemLang = new QPushButton(tr("Edit"));
+    headLayout->addWidget(headTitle);
+    headLayout->addStretch();
+    headLayout->addWidget(m_editSystemLang);
+
+    layout->addLayout(headLayout);
+    m_langListview = new DListView();
+    m_langListview->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_langListview->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_langListview->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    m_langListview->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    m_langListview->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_langListview->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_langListview->setSelectionMode(QAbstractItemView::NoSelection);
+    m_langListview->setContentsMargins(ListViweItemMargin);
+
+    m_langItemModel = new QStandardItemModel();
+    m_langListview->setModel(m_langItemModel);
+
+    layout->addWidget(m_langListview);
     layout->setContentsMargins(ThirdPageContentsMargins);
     layout->addStretch();
-    content->setLayout(layout);
-    setContent(content);
+
+    QWidget *widget = new QWidget(this);
+    widget->setLayout(layout);
+    ContentWidget *contentWidget = new ContentWidget(this);
+    contentWidget->setContent(widget);
+
+    QVBoxLayout *vLayout = new QVBoxLayout();
+    vLayout->addWidget(contentWidget);
 
     DFloatingButton *addSystemLanguage = new DFloatingButton(DStyle::SP_IncreaseElement, this);
-    DAnchors<DFloatingButton> anchors(addSystemLanguage);
-    anchors.setAnchor(Qt::AnchorBottom, this, Qt::AnchorBottom);
-    anchors.setBottomMargin(2);
-    anchors.setAnchor(Qt::AnchorHorizontalCenter, this, Qt::AnchorHorizontalCenter);
+    QHBoxLayout *btnLayout = new QHBoxLayout;
+    btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
+    btnLayout->addWidget(addSystemLanguage);
+    vLayout->addLayout(btnLayout);
+    setLayout(vLayout);
 
+    connect(m_langListview, &DListView::clicked, this, &SystemLanguageWidget::setCurLangChecked);
     connect(addSystemLanguage, &DFloatingButton::clicked, this, &SystemLanguageWidget::onSystemLanguageAdded);
-    connect(m_head, &SettingsHead::editChanged, this, &SystemLanguageWidget::onEdit);
+    connect(m_editSystemLang, &QPushButton::clicked, this, &SystemLanguageWidget::onEditClicked);
 
     connect(m_model, &KeyboardModel::curLocalLangChanged, this, [this](const QStringList &curLocalLang) {
         for (int i = 0; i < curLocalLang.size(); i++) {
@@ -91,64 +113,88 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     onSetCurLang(m_model->getLangChangedState());
 }
 
-void SystemLanguageWidget::onEdit(bool value)
+void SystemLanguageWidget::onEditClicked()
 {
-    m_bEdit = value;
+    m_bEdit = !m_bEdit;
+    if (m_bEdit) {
+        m_editSystemLang->setText(tr("Cancel"));
+        int row_count = m_langItemModel->rowCount();
+        for (int i = 0; i < row_count; ++i) {
+            DStandardItem *item = dynamic_cast<DStandardItem *>(m_langItemModel->item(i, 0));
+            if (item && (item->checkState() == Qt::Unchecked)) {
+                DViewItemAction *iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(24, 24), QSize(), true);
+                iconAction->setIcon(DStyle::standardIcon(style(), DStyle::SP_DeleteButton));
+                item->setActionList(Qt::RightEdge, {iconAction});
+                connect(iconAction, &DViewItemAction::triggered, this, [this,item] {
+                    m_sysLanglist.removeOne(item->text());
+                    int idx = m_langItemModel->indexFromItem(item).row();
+                    Q_EMIT delLocalLang(item->text());
+                    m_langItemModel->removeRow(idx);
+                    m_langListview->adjustSize();
+                    m_langListview->update();
+                    m_editSystemLang->setVisible(m_sysLanglist.size() > 1);
+                });
+            }
+        }
+    } else {
+        m_editSystemLang->setText(tr("Edit"));
+        int row_count = m_langItemModel->rowCount();
+        for (int i = 0; i < row_count; ++i) {
+            DStandardItem *item = dynamic_cast<DStandardItem *>(m_langItemModel->item(i, 0));
+            if (item && (item->checkState() == Qt::Unchecked)) {
+                item->setActionList(Qt::RightEdge, {});
+            }
+        }
+    }
 }
 
 void SystemLanguageWidget::onAddLanguage(const QString &localeLang)
 {
-    if (m_localMaps.contains(localeLang))
+    if (m_sysLanglist.contains(localeLang))
         return;
 
-    CheckItem *checkItem = new CheckItem();
-    connect(m_head, &SettingsHead::editChanged, checkItem, &CheckItem::onEditMode);
-    connect(checkItem, &CheckItem::checkedChanged, this, &SystemLanguageWidget::setCurLangChecked);
-    connect(checkItem, &CheckItem::destroySelf, this, &SystemLanguageWidget::onRemoveLang);
-
-    checkItem->setTitle(localeLang);
-    checkItem->onEditMode(m_bEdit);
-    checkItem->setMultipleMode(false);
-    m_group->appendItem(checkItem);
-
-    m_localMaps[localeLang] = checkItem;
-    m_head->setEditEnable(m_localMaps.size() > 1);
+    DStandardItem *item = new DStandardItem(localeLang);
+    m_langItemModel->appendRow(item);
+    m_langListview->adjustSize();
+    m_langListview->update();
+    m_sysLanglist << localeLang;
+    m_editSystemLang->setVisible(m_sysLanglist.size() > 1);
 }
 
-void SystemLanguageWidget::setCurLangChecked(const QString &curLang)
+void SystemLanguageWidget::setCurLangChecked(const QModelIndex &index)
 {
-    for (auto i(m_localMaps.begin()); i != m_localMaps.end(); ++i) {
-        CheckItem *item = i.value();
-        item->setChecked(item->title() == curLang);
+    if (m_bEdit) {
+        return;
     }
-    QString langKey = m_model->langFromText(curLang);
-    Q_EMIT setCurLang(langKey);
+    int row_count = m_langItemModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        QStandardItem *item = m_langItemModel->item(i, 0);
+        if (item && (index.row() == i)) {
+            item->setCheckState(Qt::Checked);
+            QString langKey = m_model->langFromText(item->text());
+            Q_EMIT setCurLang(langKey);
+        } else {
+            item->setCheckState(Qt::Unchecked);
+        }
+    }
 }
 
 void SystemLanguageWidget::onDefault(const QString &curLang)
 {
     qDebug() << "curLang is " << curLang;
-    for (auto i(m_localMaps.begin()); i != m_localMaps.end(); ++i) {
-        CheckItem *item = i.value();
-        item->setChecked(item->title() == curLang);
-    }
-}
-
-void SystemLanguageWidget::onRemoveLang(CheckItem *item)
-{
-    if (item) {
-        m_group->removeItem(item);
-        Q_EMIT delLocalLang(item->title());
-        m_localMaps.remove(item->title());
-        item->deleteLater();
-    }
-
-    if (m_localMaps.size() < 2) {
-        m_head->setEditEnable(false);
+    int row_count = m_langItemModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        QStandardItem *item = m_langItemModel->item(i, 0);
+        if (item && (item->text() == curLang)) {
+            item->setCheckState(Qt::Checked);
+        } else {
+            item->setCheckState(Qt::Unchecked);
+        }
     }
 }
 
 void SystemLanguageWidget::onSetCurLang(int value)
 {
-        m_group->setEnabled(!value);
+    m_langListview->setEnabled(!value);
+    m_editSystemLang->setEnabled(!value);
 }

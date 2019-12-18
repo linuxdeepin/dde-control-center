@@ -132,9 +132,8 @@ void SystemLanguageSettingWidget::setModelData(const QList<MetaData> &datas)
     for (QList<MetaData>::iterator iter = m_datas.begin(); iter != m_datas.end();) {
         if (removeLangList.contains(iter->text())) {
             m_datas.erase(iter);
-        } else {
-            ++iter;
         }
+        ++iter;
     }
 
     for (auto md : m_datas) {

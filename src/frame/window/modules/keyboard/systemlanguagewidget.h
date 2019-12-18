@@ -24,6 +24,10 @@
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
 
+#include <DListView>
+
+#include <QWidget>
+
 namespace dcc {
 namespace keyboard {
 class KeyboardModel;
@@ -32,16 +36,13 @@ class MetaData;
 
 namespace widgets {
 class TranslucentFrame;
-class SettingsGroup;
-class SettingsHead;
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace keyboard {
 class SystemLanguageSettingWidget;
-class CheckItem;
-class SystemLanguageWidget : public dcc::ContentWidget
+class SystemLanguageWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -52,17 +53,17 @@ Q_SIGNALS:
     void delLocalLang(const QString &localLang);
     void setCurLang(const QString &curLang);
 public Q_SLOTS:
-    void onEdit(bool value);
+    void onEditClicked();
     void onAddLanguage(const QString &localeLang);
     void onDefault(const QString &curLang);
-    void setCurLangChecked(const QString &curLang);
-    void onRemoveLang(CheckItem *item);
+    void setCurLangChecked(const QModelIndex &index);
     void onSetCurLang(int value);
 private:
     dcc::keyboard::KeyboardModel *m_model;
-    dcc::widgets::SettingsGroup *m_group;
-    dcc::widgets::SettingsHead *m_head;
-    QMap<QString, CheckItem *> m_localMaps;
+    QStringList m_sysLanglist;
+    QStandardItemModel *m_langItemModel;
+    DTK_WIDGET_NAMESPACE::DListView *m_langListview;
+    QPushButton *m_editSystemLang;
     SystemLanguageSettingWidget *m_settingWidget;
     bool m_bEdit{false};
 };
