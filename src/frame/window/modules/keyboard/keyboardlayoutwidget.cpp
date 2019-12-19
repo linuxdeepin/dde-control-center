@@ -63,7 +63,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 
     m_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_view->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_view->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    //m_view->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
