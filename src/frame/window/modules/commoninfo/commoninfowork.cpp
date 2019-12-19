@@ -246,11 +246,11 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
 
     m_dBusdeepinIdInter->setSync(false);
     // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
-    QString title(tr("Developer Mode"));
+    QString title(tr("The Disclaimer of Developer Mode"));
     QString allowContent(tr("Join developer mode"));
 
     // license内容
-    QString content = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "");
+    QString content = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
     QString contentPath("/tmp/tmpDeveloperMode.txt"); // 临时存储路径
     QFile file(contentPath);
     // 如果文件不存在，则创建文件
