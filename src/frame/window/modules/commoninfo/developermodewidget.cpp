@@ -57,7 +57,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     dtip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     dtip->setWordWrap(true);
 
-    auto utip = new DTipLabel(tr("Developer mode needs UOS ID login."));
+    auto utip = new DTipLabel(tr("Developer mode needs Cloud Account login."));
     utip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     utip->setWordWrap(true);
 
