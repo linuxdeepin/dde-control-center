@@ -61,7 +61,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     utip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     utip->setWordWrap(true);
 
-    m_offlineBtn = new QPushButton(tr("Request Root Access") + QString("(%1)").arg(tr("离线")));
+    m_offlineBtn = new QPushButton(tr("Request Root Access") + QString("(%1)").arg(tr("offline")));
     connect(m_offlineBtn, &QPushButton::clicked, this, [this]{
         QProcess *pro = new QProcess;
         pro->start("pkexec", {"/usr/lib/dde-control-center/develop-tool"});
@@ -159,7 +159,7 @@ void DeveloperModeWidget::updateDeveloperModeState(const bool state)
 
         m_offlineBtn->clearFocus();
         m_offlineBtn->setEnabled(false);
-        m_offlineBtn->setText(tr("Root Access Allowed") + QString("%1").arg(tr("offline")));
+        m_offlineBtn->setText(tr("Root Access Allowed"));
     } else {
         m_devBtn->setEnabled(true);
         m_devBtn->setText(tr("Request Root Access"));

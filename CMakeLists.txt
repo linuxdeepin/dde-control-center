@@ -67,6 +67,7 @@ install(FILES data/timezone.db DESTINATION share/dde-control-center)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION share/dde-control-center)
 
 # polkit policy file
+install(FILES com.deepin.controlcenter.develop.policy DESTINATION share/polkit-1/actions)
 if (OS_DEEPIN_PROFESSIONAL)
     if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
         install(FILES com.deepin.controlcenter.addomain.policy DESTINATION share/polkit-1/actions)

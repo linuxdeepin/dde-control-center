@@ -553,6 +553,11 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="48"/>
+        <source>offline</source>
+        <translation>离线</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="48"/>
         <source>Developer mode needs UOS ID login.</source>
         <translation>进入开发者模式需要先登录UOS ID。</translation>
     </message>
