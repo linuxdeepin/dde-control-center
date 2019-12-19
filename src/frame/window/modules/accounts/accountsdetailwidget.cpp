@@ -222,7 +222,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         auto userList = m_userModel->userList();
         if(m_inputLineEdit->text() != m_curUser->fullname()){
             for(auto u : userList){
-                if(u->fullname() == m_inputLineEdit->text()){
+                if(u->fullname() == m_inputLineEdit->text() && u->fullname() != nullptr){
                     m_inputLineEdit->setAlert(true);
                     m_inputLineEdit->showAlertMessage(tr("The full name already exists"), -1);
                     return;
