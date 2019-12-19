@@ -61,7 +61,6 @@ public:
 Q_SIGNALS:
 
 public Q_SLOTS:
-    void onPushWidget(int index);
     void onSetBatteryDefault(const int value);
     void onSetPowerDefault(const int value);
     void onBatteryPercentageChanged(const double value);

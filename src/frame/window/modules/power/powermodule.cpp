@@ -23,6 +23,7 @@
 #include "modules/power/powermodel.h"
 #include "modules/power/powerworker.h"
 #include "powerwidget.h"
+#include "window/utils.h"
 
 #include "generalwidget.h"
 #include "useelectricwidget.h"
@@ -74,12 +75,15 @@ const QString PowerModule::name() const
 
 void PowerModule::active()
 {
-    m_widget = new PowerWidget;;
+    m_widget = new PowerWidget;
+
     m_widget->initialize(m_model->haveBettary());
 
-    connect(m_widget, &PowerWidget::requestPushWidget, this, &PowerModule::onPushWidget);
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::requestRemoveBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
+    connect(m_widget, &PowerWidget::requestShowGeneral, this, &PowerModule::showGeneral);
+    connect(m_widget, &PowerWidget::requestShowUseBattery, this, &PowerModule::showUseBattery);
+    connect(m_widget, &PowerWidget::requestShowUseElectric, this, &PowerModule::showUseElectric);
 
     m_frameProxy->pushWidget(this, m_widget);
     m_widget->setDefaultWidget();
@@ -173,23 +177,6 @@ void PowerModule::showUseBattery()
     connect(battery, &UseBatteryWidget::requestSetSleepDelayOnBattery, m_work, &PowerWorker::setSleepDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetAutoLockScreenOnBattery, m_work, &PowerWorker::setLockScreenDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed, m_work, &PowerWorker::setSleepOnLidOnBatteryClosed);//Suspend on lid close
-}
-
-void PowerModule::onPushWidget(int index)
-{
-    switch (static_cast<powerType>(index)) {
-    case GENERAL:
-        showGeneral();
-        break;
-    case USE_ELECTRIC:
-        showUseElectric();
-        break;
-    case USE_BATTERY:
-        showUseBattery();
-        break;
-    default:
-        break;
-    }
 }
 
 void PowerModule::onSetBatteryDefault(const int value)

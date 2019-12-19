@@ -52,20 +52,28 @@ void PowerWidget::initialize(bool hasBattery)
 {
     m_bhasBattery = hasBattery;
 
-    QList<QPair<QIcon, QString>> menuIconText;
-    menuIconText = {
-        //~ contents_path /power/General
-        { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
-        //~ contents_path /power/Plugged In
-        { QIcon::fromTheme("dcc_using_electric"), tr("Plugged In")},
-        //~ contents_path /power/On Battery
-        { QIcon::fromTheme("dcc_battery"), tr("On Battery")},
-    };
+    if (!isServerSystem()) {
+        m_menuIconText = {
+            //~ contents_path /power/General
+            { QIcon::fromTheme("dcc_general_purpose"), tr("General"), QMetaMethod::fromSignal(&PowerWidget::requestShowGeneral)},
+            //~ contents_path /power/Plugged In
+            { QIcon::fromTheme("dcc_using_electric"), tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric)},
+            //~ contents_path /power/On Battery
+            { QIcon::fromTheme("dcc_battery"), tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
+        };
+    } else {
+        m_menuIconText = {
+            //~ contents_path /power/Plugged In
+            { QIcon::fromTheme("dcc_using_electric"), tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric)},
+            //~ contents_path /power/On Battery
+            { QIcon::fromTheme("dcc_battery"), tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
+        };
+    }
 
     auto model = new QStandardItemModel(this);
     DStandardItem *item = nullptr;
-    for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
-        item = new DStandardItem(it->first, it->second);
+    for (auto menu : m_menuIconText) {
+        item = new DStandardItem(menu.menuIcon,menu.menuText);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         model->appendRow(item);
     }
@@ -73,7 +81,11 @@ void PowerWidget::initialize(bool hasBattery)
     m_listview->setModel(model);
     m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_listview->setRowHidden(2, !hasBattery);
+    if (!isServerSystem())
+        m_listview->setRowHidden(2, !hasBattery);
+    else {
+        m_listview->setRowHidden(1, !hasBattery);
+    }
 
     connect(m_listview, &DListView::clicked, this, &PowerWidget::onItemClieck);
     connect(this, &PowerWidget::requestRemoveBattery, this, [this](bool state) {
@@ -109,5 +121,6 @@ void PowerWidget::setDefaultWidget()
 
 void PowerWidget::onItemClieck(const QModelIndex &index)
 {
-    Q_EMIT requestPushWidget(index.row());
+    m_listview->setCurrentIndex(index);
+    m_menuIconText[index.row()].method.invoke(this);
 }

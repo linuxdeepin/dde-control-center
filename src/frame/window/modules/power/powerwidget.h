@@ -51,6 +51,16 @@ public:
 Q_SIGNALS:
     void requestPushWidget(int index);
     void requestRemoveBattery(bool state);
+    void requestShowGeneral() const;
+    void requestShowUseElectric() const;
+    void requestShowUseBattery() const;
+
+private:
+    struct MenuMethod {
+        QIcon menuIcon;
+        QString menuText;
+        QMetaMethod method;
+    };
 
 public Q_SLOTS:
     void onItemClieck(const QModelIndex &index);
@@ -59,6 +69,7 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_listview;
     const dcc::power::PowerModel *m_model;
     bool m_bhasBattery;
+    QList<MenuMethod> m_menuIconText;
 };
 
 }// namespace datetime
