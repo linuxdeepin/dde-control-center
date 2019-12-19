@@ -34,6 +34,9 @@
 #include <QTimer>
 #include <QPushButton>
 #include <QDebug>
+#include <QDBusInterface>
+#include <QDBusReply>
+#include <QProcess>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
@@ -44,6 +47,10 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     : QWidget(parent)
     , m_model(nullptr)
 {
+    m_inter = new QDBusInterface("com.deepin.sync.Helper",
+                                                 "/com/deepin/sync/Helper",
+                                                 "com.deepin.sync.Helper",
+                                                 QDBusConnection::systemBus(), this);
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
     m_devBtn = new QPushButton(tr("Request Root Access"));
     auto dtip = new DTipLabel(tr("Developer mode enables using root privilege, installing and running unsigned Apps, but you may also damage the integration of your system, please use it carefully."));
@@ -54,6 +61,18 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     utip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     utip->setWordWrap(true);
 
+    m_offlineBtn = new QPushButton(tr("Request Root Access") + QString("(%1)").arg(tr("离线")));
+    connect(m_offlineBtn, &QPushButton::clicked, this, [this]{
+        QProcess *pro = new QProcess;
+        pro->start("pkexec", {"/usr/lib/dde-control-center/develop-tool"});
+        this->connect(pro, static_cast<void (QProcess:: *)(int)>(&QProcess::finished), this, [this](int code){
+            if (0 != code)
+                return;
+
+            updateDeveloperModeState(true);
+        });
+    });
+
     vBoxLayout->setMargin(0);
     vBoxLayout->setSpacing(10);
     vBoxLayout->setContentsMargins(6, 0, 6, 0);
@@ -61,12 +80,14 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     vBoxLayout->addWidget(dtip);
     vBoxLayout->addWidget(utip);
     vBoxLayout->addStretch();
+    vBoxLayout->addWidget(m_offlineBtn, 0, Qt::AlignBottom);
     setLayout(vBoxLayout);
 
     connect(m_devBtn, &QPushButton::clicked, this, [this]{
         Q_ASSERT(m_model);
         auto requestDev = [this]{
             qDebug() << "click btn and status :" << m_devBtn->isEnabled();
+            m_devBtn->clearFocus();
             m_devBtn->setEnabled(false);
             //防止出现弹窗时可以再次点击按钮
             QTimer::singleShot(100, this, [this]{
@@ -129,11 +150,16 @@ void DeveloperModeWidget::onLoginChanged()
 //开发者模式变化时，更新界面
 void DeveloperModeWidget::updateDeveloperModeState(const bool state)
 {
-    if (state) {
+    QDBusReply<bool> reply = m_inter->call("IsDeveloperMode");
+    if (state || reply.value()) {
         //开发者模式不可逆,这里将控件disable
         m_devBtn->clearFocus();
         m_devBtn->setEnabled(false);
         m_devBtn->setText(tr("Root Access Allowed"));
+
+        m_offlineBtn->clearFocus();
+        m_offlineBtn->setEnabled(false);
+        m_offlineBtn->setText(tr("Root Access Allowed") + QString("%1").arg(tr("offline")));
     } else {
         m_devBtn->setEnabled(true);
         m_devBtn->setText(tr("Request Root Access"));

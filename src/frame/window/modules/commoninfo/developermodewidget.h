@@ -26,6 +26,7 @@
 
 QT_BEGIN_NAMESPACE
 class QPushButton;
+class QDBusInterface;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -58,7 +59,9 @@ public Q_SLOTS:
 private:
     bool m_enterDev{false};
     QPushButton *m_devBtn;
-    CommonInfoModel *m_model{nullptr};
+    QPushButton *m_offlineBtn;
+    CommonInfoModel *m_model{nullptr};    
+    QDBusInterface *m_inter;
 };
 }
 }
