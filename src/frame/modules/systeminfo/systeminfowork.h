@@ -66,9 +66,6 @@ public Q_SLOTS:
 private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
-    QString getGraphicProcessUnit() const;
-    QString getSoundCardInfo() const;
-    QString getNetworkCardInfo() const;
 
 private:
     SystemInfoModel* m_model;

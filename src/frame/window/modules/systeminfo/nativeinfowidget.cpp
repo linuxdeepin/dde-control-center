@@ -84,21 +84,6 @@ void NativeInfoWidget::initWidget()
     m_disk->setTitle(tr("Disk:"));
     m_disk->setValue(m_model->disk());
 
-    m_gpu = new TitleValueItem();
-    //~ contents_path /systeminfo/About This PC
-    m_gpu->setTitle(tr("Graphics Card:"));
-    m_gpu->setValue(m_model->graphicProcessingUnit());
-
-    m_soundCard = new TitleValueItem();
-    //~ contents_path /systeminfo/About This PC
-    m_soundCard->setTitle(tr("Sound Card:"));
-    m_soundCard->setValue(m_model->soundCard());
-
-    m_networkCard = new TitleValueItem();
-    //~ contents_path /systeminfo/About This PC
-    m_networkCard->setTitle(tr("Network Card:"));
-    m_networkCard->setValue(m_model->networkCard());
-
     infoGroup->appendItem(logo);
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
@@ -106,20 +91,11 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);
     infoGroup->appendItem(m_disk);
-    infoGroup->appendItem(m_gpu);
-    infoGroup->appendItem(m_soundCard);
-    infoGroup->appendItem(m_networkCard);
     infoGroup->setSpacing(10);
 
-    //添加滚动区域
-    QScrollArea *pScroller = new QScrollArea();
-    pScroller->setFrameStyle(QFrame::NoFrame);
-    pScroller->setWidget(infoGroup);
-    pScroller->setWidgetResizable(true);
-    pScroller->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
-
     m_mainLayout->setMargin(0);
-    m_mainLayout->addWidget(pScroller);
+    m_mainLayout->addWidget(infoGroup);
+    m_mainLayout->addStretch();
     setLayout(m_mainLayout);
 
     connect(m_model, &SystemInfoModel::versionChanged, this, &NativeInfoWidget::setEdition);
@@ -127,9 +103,6 @@ void NativeInfoWidget::initWidget()
     connect(m_model, &SystemInfoModel::processorChanged, this, &NativeInfoWidget::setProcessor);
     connect(m_model, &SystemInfoModel::memoryChanged, this, &NativeInfoWidget::setMemory);
     connect(m_model, &SystemInfoModel::diskChanged, this, &NativeInfoWidget::setDisk);
-    connect(m_model, &SystemInfoModel::graphicProcessingUnitChanged, this, &NativeInfoWidget::setGraphicProcessingUnit);
-    connect(m_model, &SystemInfoModel::soundCardChanged, this, &NativeInfoWidget::setSoundCard);
-    connect(m_model, &SystemInfoModel::networkCardChanged, this, &NativeInfoWidget::setNetworkCard);
     setType(m_model->type());
 }
 
@@ -156,21 +129,6 @@ void NativeInfoWidget::setMemory(const QString &memory)
 void NativeInfoWidget::setDisk(const QString &disk)
 {
     m_disk->setValue(disk);
-}
-
-void NativeInfoWidget::setGraphicProcessingUnit(const QString &gpu)
-{
-    m_gpu->setValue(gpu);
-}
-
-void NativeInfoWidget::setSoundCard(const QString &soundCard)
-{
-    m_soundCard->setValue(soundCard);
-}
-
-void NativeInfoWidget::setNetworkCard(const QString &networkcard)
-{
-    m_networkCard->setValue(networkcard);
 }
 
 const QString NativeInfoWidget::systemCopyright() const

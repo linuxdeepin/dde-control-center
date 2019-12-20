@@ -114,9 +114,6 @@ void SystemInfoWork::activate()
                                             .arg(QThread::idealThreadCount()));
     m_model->setMemory(DSysInfo::memoryTotalSize());
     m_model->setDisk(DSysInfo::systemDiskSize());
-    m_model->setGraphicProcessingUnit(getGraphicProcessUnit());
-    m_model->setSoundCard(getSoundCardInfo());
-    m_model->setNetworkCard(getNetworkCardInfo());
 }
 
 void SystemInfoWork::deactivate()
@@ -259,85 +256,6 @@ void SystemInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
     }
 
     w->deleteLater();
-}
-
-QString SystemInfoWork::getGraphicProcessUnit() const
-{
-    QProcess process;
-    //这里查询所有的显卡信息(查询/sys/class/drm目录下的card0 card1 card2 ...这样的目录)
-    process.start("/bin/sh", QStringList()<< "-c" << R"(cd /sys/class/drm && ls | grep -P "card\d+" | xargs -n 1 -i cat {}/device/uevent | perl -lne 'next unless m{PCI_SLOT_NAME=(.+)$};print $1' | xargs -n 1 lspci -s)");
-    process.waitForFinished();
-    QString info_str(QString::fromUtf8(process.readAll()));
-    QRegularExpression regex_ex(R"(^.*controller:\s*(.+)$)");
-    QString gpu_info;
-
-    //对执行命令后获取的文本逐行匹配
-    for (const auto &line_str : info_str.split("\n")) {
-        auto match = regex_ex.match(line_str);
-        if (match.hasMatch()) {
-            gpu_info += match.captured(1) + "\n";
-        }
-    }
-
-    //去掉最后的多余换行符
-    if (gpu_info.endsWith("\n")) {
-        gpu_info.chop(1);
-    }
-
-    return gpu_info;
-}
-
-QString SystemInfoWork::getSoundCardInfo() const
-{
-    QProcess process;
-    process.start("bash", QStringList() << "-c" << "lspci | grep -i audio");
-    process.waitForFinished();
-    QString soundCardInfo = QString::fromLocal8Bit(process.readAllStandardOutput());
-    QString resultSoundCardInfo;
-    for(const auto &line : soundCardInfo.split("\n")){
-        if(line.isEmpty())
-            continue;
-
-        auto spStr = "device:";
-        auto vinfo = line.split(spStr);
-        if (vinfo.size() < 2)
-            continue;
-
-        resultSoundCardInfo += vinfo[1] + "\n";
-    }
-
-    //去掉最后的多余换行符
-    if (resultSoundCardInfo.endsWith("\n")) {
-        resultSoundCardInfo.chop(1);
-    }
-
-    return resultSoundCardInfo;
-}
-
-QString SystemInfoWork::getNetworkCardInfo() const
-{
-    QProcess process;
-    process.start("bash", QStringList() << "-c" << " lspci | grep -i net");
-    process.waitForFinished();
-    QString netWorkInfo = QString::fromLocal8Bit(process.readAllStandardOutput());
-    QString resultNetworkInfo;
-    for(const auto &line : netWorkInfo.split("\n")){
-        if(line.isEmpty())
-            continue;
-
-        auto spStr = "controller:";
-        auto vinfo = line.split(spStr);
-        if (vinfo.size() < 2)
-            continue;
-
-        resultNetworkInfo += vinfo[1] + "\n";
-    }
-
-    //去掉最后的多余换行符
-    if (resultNetworkInfo.endsWith("\n")) {
-        resultNetworkInfo.chop(1);
-    }
-    return resultNetworkInfo;
 }
 
 }
