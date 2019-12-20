@@ -76,6 +76,10 @@ BootWidget::BootWidget(QWidget *parent)
     m_updatingLabel = new TipsLabel(tr("Updating..."));
     m_updatingLabel->setVisible(false);
 
+    DPalette dpLabel = DApplicationHelper::instance()->palette(m_updatingLabel);
+    dpLabel.setColor(DPalette::Text, QColor(255, 255, 255));
+    DApplicationHelper::instance()->setPalette(m_updatingLabel, dpLabel);
+
     m_listLayout->addSpacing(List_Interval);
     m_listLayout->addWidget(m_bootList);
     m_listLayout->addStretch();
