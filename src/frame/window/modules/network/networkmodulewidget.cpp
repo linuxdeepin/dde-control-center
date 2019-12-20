@@ -316,21 +316,29 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
     QPointer<DViewItemAction> dummystatus(new DViewItemAction(Qt::AlignmentFlag::AlignRight));
     ret->setActionList(Qt::Edge::RightEdge, {dummystatus});
 
-    if (dev->enabled() && !dummystatus.isNull()) {
-        dummystatus->setText(dev->statusString());
+    if (!dummystatus.isNull()) {
+        if (dev->enabled()) {
+            dummystatus->setText(dev->statusString());
+        } else {
+            dummystatus->setText(tr("Disabled"));
+        }
         m_lvnmpages->update();
     }
 
     connect(dev, &NetworkDevice::enableChanged, this, [this, dev, dummystatus](const bool enabled) {
         if (!dummystatus.isNull()) {
-            QString txt = enabled ? dev->statusString() : dev->statusStringDetail();
+            QString txt = enabled ? dev->statusString() : tr("Disabled");
             dummystatus->setText(txt);
         }
         this->m_lvnmpages->update();
     });
     connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), this, [this, dev, dummystatus] {
         if (!dummystatus.isNull()) {
-            dummystatus->setText(dev->statusString());
+            if (dev->enabled()) {
+                dummystatus->setText(dev->statusString());
+            } else {
+                dummystatus->setText(tr("Disabled"));
+            }
         }
         this->m_lvnmpages->update();
     }, Qt::QueuedConnection);
