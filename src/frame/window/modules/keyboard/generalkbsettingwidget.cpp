@@ -24,12 +24,14 @@
 #include "widgets/dccslider.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/titledslideritem.h"
-#include "widgets/searchinput.h"
 #include "widgets/switchwidget.h"
 #include "modules/keyboard/keyboardmodel.h"
 
+#include <DApplicationHelper>
+
 #include <QVBoxLayout>
 #include <QDebug>
+#include <QLineEdit>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::keyboard;
@@ -70,12 +72,16 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     speeds << tr("Fast");
     speedItem->setAnnotations(speeds);
 
-    SearchInput *testArea = new SearchInput();
+    QLineEdit *testArea = new QLineEdit();
     testArea->setFixedWidth(200);
     //~ contents_path /keyboard/General
-    testArea->setSearchText(tr("Test here"));
-    testArea->setIconVisible(false);
-    testArea->setStyleSheet("border: 0px");
+    testArea->setPlaceholderText(tr("Test here"));
+    testArea->setAlignment(Qt::AlignCenter);
+    DApplicationHelper *testAreaHelper = DApplicationHelper::instance();
+    auto pa = testAreaHelper->palette(testArea);
+    pa.setColor(DPalette::Highlight, Qt::transparent);
+    pa.setColor(DPalette::Button, Qt::transparent);
+    testAreaHelper->setPalette(testArea, pa);
 
     // adding extra stuff to speedItem
     QVBoxLayout *speedItemLayout = qobject_cast<QVBoxLayout *>(speedItem->layout());

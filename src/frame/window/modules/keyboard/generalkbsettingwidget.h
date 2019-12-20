@@ -33,7 +33,6 @@ namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
 class DCCSlider;
-class SearchInput;
 }
 }
 
