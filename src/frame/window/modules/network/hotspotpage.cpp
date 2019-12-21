@@ -28,6 +28,7 @@
 #include "widgets/nextpagewidget.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
+#include "window/utils.h"
 
 #include <DFloatingButton>
 
@@ -216,7 +217,7 @@ void HotspotDeviceWidget::refreshHotspotConnectionList()
         DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
         QStyleOption opt;
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-        editaction->setClickAreaMargins(QMargins(18, 18, 18, 18));
+        editaction->setClickAreaMargins(ArrowEnterClickMargin);
 
         it->setActionList(Qt::Edge::RightEdge, {editaction});
         connect(editaction, &QAction::triggered, std::bind(&HotspotDeviceWidget::onConnEditRequested, this, uuid));

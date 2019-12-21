@@ -39,6 +39,7 @@ const QVariant VListViewItemMargin = QVariant::fromValue(ListViweItemMargin);
 const QMargins ListViweRightSubscriptItemMargin(42, 0, 0, 8);
 const QVariant VListViewRightSubscripItemMargin = QVariant::fromValue(ListViweRightSubscriptItemMargin);
 const int List_Interval = 10;
+const QMargins ArrowEnterClickMargin(8, 8, 8, 8);
 
 static QString getSystemTypeName() {
     QSettings setting("/etc/deepin-version", QSettings::IniFormat);

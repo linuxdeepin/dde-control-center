@@ -31,6 +31,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/tipsitem.h"
+#include "window/utils.h"
 
 #include <DStyleOption>
 
@@ -56,6 +57,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     , m_switch(new SwitchWidget())
     , m_lvProfiles(new DListView())
 {
+    //有线连接
     m_lvProfiles->setModel(m_modelprofiles = new QStandardItemModel());
     m_lvProfiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvProfiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
@@ -71,14 +73,16 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_tipsGrp->appendItem(tips);
 
     //~ contents_path /network/Wired Network
-    m_switch->setTitle(tr("Wired Network Adapter"));
+    m_switch->setTitle(tr("Wired Network Adapter"));//有线网卡
     m_switch->setChecked(dev->enabled());
     m_tipsGrp->setVisible(dev->enabled());
     connect(m_switch, &SwitchWidget::checkedChanged, this, [this] (const bool checked) {
         Q_EMIT requestDeviceEnabled(m_device->path(), checked);
     });
+    //设置有线网卡选中状态
     connect(m_device, &NetworkDevice::enableChanged, m_switch, &SwitchWidget::setChecked);
 
+    //有线网络下的三级菜单的“+”创建按钮大小
     m_createBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement);
     m_createBtn->setMinimumSize(QSize(47, 47));
     m_createBtn->setToolTip(tr("Add Network Connection"));
@@ -88,15 +92,15 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     centralLayout->addWidget(m_tipsGrp);
     centralLayout->addWidget(m_lvProfiles);
     centralLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);
-    centralLayout->setSpacing(10);
+    centralLayout->setSpacing(10);//三级菜单控件间的间隙
     centralLayout->setMargin(0);
-
+    //当点击下拉选框，设置半透明状态
     QWidget *centralWidget = new TranslucentFrame;
     centralWidget->setLayout(centralLayout);
 
     setContent(centralWidget);
     setTitle(tr("Select Settings"));
-
+    //点击有线连接按钮
     connect(m_lvProfiles, &DListView::clicked, this, [this](const QModelIndex &idx) {
         qDebug() << "m_lvProfiles: " << idx.data(PathRole).toString();
         this->activateConnection(idx.data(PathRole).toString());
@@ -171,7 +175,7 @@ void WiredPage::refreshConnectionList()
         DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
         QStyleOption opt;
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-        editaction->setClickAreaMargins(QMargins(18, 18, 18, 18));
+        editaction->setClickAreaMargins(ArrowEnterClickMargin);
 
         connect(editaction, &QAction::triggered, [this, path] {
             this->editConnection(path);

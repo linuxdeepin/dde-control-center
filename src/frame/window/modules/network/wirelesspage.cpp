@@ -30,6 +30,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/translucentframe.h"
 #include "widgets/tipsitem.h"
+#include "window/utils.h"
 
 #include <DStyle>
 #include <DStyleHelper>
@@ -81,7 +82,7 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
     m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
     QStyleOption opt;
     m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-    m_arrowAction->setClickAreaMargins(QMargins(18, 18, 18, 18));
+    m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);
     setActionList(Qt::Edge::RightEdge, {m_arrowAction});
 }
 
@@ -198,7 +199,7 @@ bool APItem::setLoading(bool isLoading)
         m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
         QStyleOption opt;
         m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-        m_arrowAction->setClickAreaMargins(QMargins(18, 18, 18, 18));
+        m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);//ArrowEnterClickMargin
         m_arrowAction->setVisible(true);
         setActionList(Qt::Edge::RightEdge, {m_arrowAction});
         isReconnect = true;
