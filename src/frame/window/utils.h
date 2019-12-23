@@ -52,6 +52,19 @@ static bool isServerSystem() {
     setting.beginGroup("Release");
     return (setting.value("Type").toString() == "Server");
 }
+
+static bool isDesktopSystem() {
+    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
+    setting.beginGroup("Release");
+    return (setting.value("Type").toString() == "Desktop");
+}
+
+static bool isProfessionalSystem() {
+    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
+    setting.beginGroup("Release");
+    return (setting.value("Type").toString() == "Professional");
+}
+
 }
 
 #endif // V20_DISPLAY_UTILS_H
