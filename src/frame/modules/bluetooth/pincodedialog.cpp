@@ -42,7 +42,7 @@ PinCodeDialog::PinCodeDialog(const QString &pinCode, const bool &cancelable) :
     setIcon(QIcon::fromTheme("notification-bluetooth-connected"), QSize(64, 64));
 
     m_pinCodeLabel->setObjectName("PinCodeText");
-    addContent(m_pinCodeLabel, Qt::AlignTop);
+    addContent(m_pinCodeLabel, Qt::AlignTop | Qt::AlignCenter);
 
     QStringList btns;
     if (cancelable) {
