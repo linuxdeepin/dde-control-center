@@ -23,6 +23,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/titlevalueitem.h"
 #include "modules/systeminfo/logoitem.h"
+#include "window/utils.h"
 
 #include <QVBoxLayout>
 #include <QApplication>
@@ -54,7 +55,10 @@ void NativeInfoWidget::initWidget()
     logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
 //    logo->setLogo(QIcon::fromTheme("dcc_deepin_logo"), 164, 42);
 //    logo->setLogo(QIcon::fromTheme("dcc_deepin_uos_logo"), 156, 46); //不生效
-    logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logo.svg"), 156, 46);
+    if(DCC_NAMESPACE::isDesktopSystem())
+        logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_logo_164px.svg"), 156, 46);
+    else
+        logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logo.svg"), 156, 46);
 
     m_version = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
@@ -137,7 +141,10 @@ const QString NativeInfoWidget::systemCopyright() const
     const QString oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
 
     if (oem_copyright.isEmpty()) {
-        return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.")).arg(2019);
+        if(DCC_NAMESPACE::isDesktopSystem())
+            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Deepin Community")).arg(2019);
+        else
+            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-2020 UnionTech Software Technology Co., LTD")).arg(2019);
     } else {
         return oem_copyright;
     }
