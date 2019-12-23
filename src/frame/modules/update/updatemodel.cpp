@@ -66,6 +66,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_bRecoverConfigValid(false)
     , m_bRecoverRestoring(false)
     , m_systemVersionInfo("")
+    , m_bSystemActivation(false)
 {
     m_metaEnum = QMetaEnum::fromType<ModelUpdatesStatus>();
 }
@@ -295,6 +296,16 @@ void UpdateModel::setSystemVersionInfo(QString systemVersionInfo)
     m_systemVersionInfo = systemVersionInfo;
 
     Q_EMIT systemVersionChanged(systemVersionInfo);
+}
+
+void UpdateModel::setSystemActivation(bool systemactivation)
+{
+    if (m_bSystemActivation == systemactivation) {
+        return;
+    }
+    m_bSystemActivation = systemactivation;
+
+    Q_EMIT setSystemActivationChanged(systemactivation);
 }
 
 //判断当前是否正在备份中，若正在备份则不能再设置其他状态，直到备份有结果了才能继续设置其他状态

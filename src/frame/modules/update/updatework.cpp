@@ -162,6 +162,9 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     connect(m_abRecoveryInter, &RecoveryInter::BackingUpChanged, m_model, &UpdateModel::setRecoverBackingUp);
     connect(m_abRecoveryInter, &RecoveryInter::ConfigValidChanged, m_model, &UpdateModel::setRecoverConfigValid);
     connect(m_abRecoveryInter, &RecoveryInter::RestoringChanged, m_model, &UpdateModel::setRecoverRestoring);
+    //预留接口
+   //connect(m_dbusActivator, &GrubDbus::LicenseStateChange, m_model, &UpdateModel::setSystemActivation);
+
     m_model->setRecoverConfigValid(m_abRecoveryInter->configValid());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
@@ -174,12 +177,26 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
 
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     refreshMirrors();
-#endif
+#endif   
+    getLicenseState();
 }
 
 UpdateWorker::~UpdateWorker()
 {
 
+}
+
+void UpdateWorker::getLicenseState()
+{
+    QDBusInterface licenseInfo("com.deepin.license.activator",
+                               "/com/deepin/license/activator",
+                               "com.deepin.license.activator",
+                               QDBusConnection::sessionBus());
+    if (!licenseInfo.isValid()) {
+        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        return;
+    }
+    m_model->setSystemActivation(licenseInfo.property("GetIndicatorData").toUInt());
 }
 
 void UpdateWorker::activate()

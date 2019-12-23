@@ -144,6 +144,9 @@ public:
 
     bool getIsRecoveryBackingup(UpdatesStatus state) const;
 
+    inline bool systemActivation() const {return m_bSystemActivation;}
+    void setSystemActivation(bool systemactivation);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -168,6 +171,7 @@ Q_SIGNALS:
     void recoverConfigValidChanged(bool recoverConfigValid);
     void recoverRestoringChanged(bool recoverRestoring);
     void systemVersionChanged(QString version);
+    void setSystemActivationChanged(bool systemactivation);
 
 private:
     UpdatesStatus m_status;
@@ -194,6 +198,7 @@ private:
     bool m_bRecoverRestoring;
     QString m_systemVersionInfo;
     QMetaEnum m_metaEnum;
+    bool m_bSystemActivation;
 };
 
 }

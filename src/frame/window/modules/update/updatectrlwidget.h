@@ -83,6 +83,7 @@ private:
     void setRecoverBackingUp(const bool value);
     void setRecoverConfigValid(const bool value);
     void setRecoverRestoring(const bool value);
+    void setShowInfo(const bool value);
 
 private:
     dcc::update::UpdateModel *m_model;
@@ -104,6 +105,7 @@ private:
     bool m_bRecoverConfigValid;
     bool m_bRecoverRestoring;
     dcc::ContentWidget *m_updateList;
+    dcc::widgets::TipsLabel *m_authorizationPrompt;
 };
 
 }// namespace datetime

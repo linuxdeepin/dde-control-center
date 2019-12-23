@@ -66,6 +66,7 @@ public:
     void setOnBattery(bool onBattery);
     void setBatteryPercentage(const BatteryPercentageInfo &info);
     void setSystemBatteryPercentage(const double &value);
+    void getLicenseState();
 
 public Q_SLOTS:
     void checkForUpdates();

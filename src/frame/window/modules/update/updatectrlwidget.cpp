@@ -63,6 +63,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_bRecoverConfigValid(false)
     , m_bRecoverRestoring(false)
     , m_updateList(new ContentWidget)
+    , m_authorizationPrompt(new TipsLabel)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -70,8 +71,18 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_noNetworkTip->setText(tr("Network disconnected, please retry after connected"));
 
     m_progress->setVisible(false);
+
+    QVBoxLayout *fullProcesslayout = new QVBoxLayout();
+
     m_fullProcess->setVisible(false);
     m_fullProcess->setProcessValue(100);
+
+    m_authorizationPrompt->setText(tr("Your system is not authorized, please activate first"));
+    m_authorizationPrompt->setAlignment(Qt::AlignHCenter);
+    m_authorizationPrompt->setVisible(false);
+
+    fullProcesslayout->addWidget(m_fullProcess);
+    fullProcesslayout->addWidget(m_authorizationPrompt);
 
     m_summaryGroup->setVisible(true);
 
@@ -100,7 +111,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     layout->addWidget(m_powerTip);  
     layout->addWidget(m_summary);
     layout->addWidget(m_progress);
-    layout->addWidget(m_fullProcess);
+    layout->addLayout(fullProcesslayout);
     layout->addWidget(m_updateList ,1);
 
     layout->addStretch();
@@ -129,6 +140,12 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 UpdateCtrlWidget::~UpdateCtrlWidget()
 {
 
+}
+
+void UpdateCtrlWidget::setShowInfo(const bool value)
+{
+    m_fullProcess->setEnabled(value);
+    m_authorizationPrompt->setVisible(UpdatesStatus::UpdatesAvailable == m_model->status() && !value);
 }
 
 void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo> &infos)
@@ -183,6 +200,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_resultItem->setVisible(false);
     m_progress->setVisible(false);
     m_fullProcess->setVisible(false);
+    m_authorizationPrompt->setVisible(false);
     m_updateList->setVisible(false);
     m_upgradeWarningGroup->setVisible(false);
     m_reminderTip->setVisible(false);
@@ -202,6 +220,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::UpdatesAvailable:
         m_fullProcess->setVisible(true);
+        setShowInfo(m_model->systemActivation());
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
         //~ contents_path /update/Update
