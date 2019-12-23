@@ -24,6 +24,7 @@
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
 
+#include <DCommandLinkButton>
 #include <DListView>
 
 QT_BEGIN_NAMESPACE
@@ -81,7 +82,7 @@ private:
     QLabel *m_switchTitle;
     DListView *m_kbLayoutListView;
     DListView *m_switchLayoutListView;
-    QPushButton *m_editKBLayout;
+    DCommandLinkButton *m_editKBLayout;
     QStandardItemModel *m_kbLayoutModel;
     QStandardItemModel *m_switchLayoutModel;
 private:

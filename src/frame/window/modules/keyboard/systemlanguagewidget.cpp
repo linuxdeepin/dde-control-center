@@ -56,8 +56,8 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     layout->setMargin(0);
 
     QHBoxLayout *headLayout = new QHBoxLayout();
-    QLabel *headTitle = new QLabel(tr("Language List"));
-    m_editSystemLang = new QPushButton(tr("Edit"));
+    TitleLabel *headTitle = new TitleLabel(tr("Language List"));
+    m_editSystemLang = new DCommandLinkButton(tr("Edit"));
     headLayout->addWidget(headTitle);
     headLayout->addStretch();
     headLayout->addWidget(m_editSystemLang);

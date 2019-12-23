@@ -24,6 +24,7 @@
 #include "widgets/comboxwidget.h"
 #include "modules/keyboard/keylabel.h"
 #include "modules/keyboard/keyboardmodel.h"
+#include "widgets/titlelabel.h"
 
 #include <DFloatingButton>
 #include <DAnchors>
@@ -49,10 +50,10 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
     QHBoxLayout *headLayout = new QHBoxLayout();
-    QLabel *headTitle = new QLabel(tr("Keyboard Layout"));
+    TitleLabel *headTitle = new TitleLabel(tr("Keyboard Layout"));
     headLayout->addWidget(headTitle);
     headLayout->addStretch();
-    m_editKBLayout = new QPushButton(tr("Edit"));
+    m_editKBLayout = new DCommandLinkButton(tr("Edit"));
     headLayout->addWidget(m_editKBLayout);
     mainLayout->addLayout(headLayout);
 
@@ -68,7 +69,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_kbLayoutListView->setContentsMargins(ListViweItemMargin);
     mainLayout->addWidget(m_kbLayoutListView);
     mainLayout->addSpacing(List_Interval);
-    m_switchTitle = new QLabel(tr("Switch Layouts (Multiple)"));
+    m_switchTitle = new TitleLabel(tr("Switch Layouts (Multiple)"));
     mainLayout->addWidget(m_switchTitle);
     mainLayout->addWidget(m_switchLayoutListView);
 
