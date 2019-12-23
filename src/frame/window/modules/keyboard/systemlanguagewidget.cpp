@@ -117,7 +117,7 @@ void SystemLanguageWidget::onEditClicked()
 {
     m_bEdit = !m_bEdit;
     if (m_bEdit) {
-        m_editSystemLang->setText(tr("Cancel"));
+        m_editSystemLang->setText(tr("Done"));
         int row_count = m_langItemModel->rowCount();
         for (int i = 0; i < row_count; ++i) {
             DStandardItem *item = dynamic_cast<DStandardItem *>(m_langItemModel->item(i, 0));

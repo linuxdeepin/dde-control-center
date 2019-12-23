@@ -99,6 +99,6 @@ void SettingsHead::refershButton()
     if (m_state == Cancel) {
         m_edit->setText(qApp->translate("SettingsHead", "Edit"));
     } else {
-        m_edit->setText(qApp->translate("SettingsHead", "Cancel"));
+        m_edit->setText(qApp->translate("SettingsHead", "Done"));
     }
 }

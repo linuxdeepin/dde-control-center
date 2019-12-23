@@ -166,7 +166,7 @@ void KBLayoutSettingWidget::onEditClicked()
     }
     m_bEdit = !m_bEdit;
     if (m_bEdit) {
-        m_editKBLayout->setText(tr("Cancel"));
+        m_editKBLayout->setText(tr("Done"));
         int row_count = m_kbLayoutModel->rowCount();
         for (int i = 0; i < row_count; ++i) {
             DStandardItem *item = dynamic_cast<DStandardItem *>(m_kbLayoutModel->item(i, 0));
