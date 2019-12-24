@@ -242,7 +242,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     DWarningButton *deleteAccount = new DWarningButton;
 
 #if 0
-    auto pwTip = new DTipLabel(tr("xxxxxxxxxxxxxxxxxxx"));
+    auto pwTip = new DTipLabel("");
     pwTip->setContentsMargins(0, 10, 0, 10);
     pwTip->setVisible(m_curUser->isPasswordExpired());
     connect(m_curUser, &User::isPasswordExpiredChanged, pwTip, &DTipLabel::setVisible);
