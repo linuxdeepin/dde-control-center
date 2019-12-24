@@ -589,14 +589,19 @@
         <translation>进入开发者模式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="93"/>
+        <source>No root privileges. Please request root access in developer mode in Control Center.</source>
+        <translation>无root权限，如想获得root权限可以在控制中心选择进入开发者模式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="103"/>
         <source>Developer mode enables using root privilege, installing and running unsigned Apps, but you may also damage the integration of your system, please use it carefully.</source>
-        <translation type="unfinished"/>
+        <translation>进入开发者模式后可以获得root使用权限，安装和运行非商店签名应用，但同时也可能导致系统完整性遭到破坏，请谨慎使用。</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="60"/>
         <source>Developer mode needs Cloud Account login.</source>
-        <translation type="unfinished"/>
+        <translation>进入开发者模式需要登录网络ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="64"/>
@@ -4152,6 +4157,17 @@
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
+        <source>End User License Agreement</source>
+        <translation>最终用户许可协议</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
+        <source>Edition License</source>
+        <translation>版本协议</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
         <source>About This PC</source>
         <translation>关于本机</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
@@ -5958,6 +5974,16 @@ If no operation, the display will be restored after %1s.</source>
 </context>
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="48"/>
+        <source>Add</source>
+        <translation>添加</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="48"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="48"/>
         <source>Add Keyboard Layout</source>
