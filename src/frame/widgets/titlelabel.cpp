@@ -32,7 +32,7 @@ TitleLabel::TitleLabel(QWidget *parent, Qt::WindowFlags f)
     : QLabel(parent, f)
 {
     auto tf = this->font();
-    tf.setBold(true);
+    tf.setWeight(QFont::Medium);
     setFont(tf);
 
     DFontSizeManager::instance()->bind(this,DFontSizeManager::T5);
@@ -48,7 +48,7 @@ bool TitleLabel::event(QEvent *e)
 {
     if (e->type() == QEvent::ApplicationFontChange) {
         auto tf = this->font();
-        tf.setBold(true);
+        tf.setWeight(QFont::Medium);
         setFont(tf);
     }
 
