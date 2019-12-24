@@ -66,7 +66,7 @@ void Manage::showDialog()
     //设置点击按钮不立即关闭当前页面
     m_dialog->setOnButtonClickedClose(false);
 
-    QTimer::singleShot(100, this, [this]() {
+    QTimer::singleShot(300, this, [this]() {
         m_dialog->grabMouseAndKeyboardFocus();
     });
 
