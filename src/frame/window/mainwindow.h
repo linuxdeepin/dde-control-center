@@ -33,6 +33,7 @@
 #include <QStack>
 #include <QPair>
 #include <QDBusContext>
+#include <QGSettings>
 
 DWIDGET_USE_NAMESPACE
 
@@ -140,6 +141,7 @@ private:
     DIconButton *m_backwardBtn;
     QList<QPair<QString, DViewItemAction *>> m_remindeSubscriptList;//用于记录是否有角标, QString为模块名称，DViewItemAction为角标对象
     QList<QString> m_removeableDeviceList;//用于记录可移除设备是否当前是否存在,存在加到list，不存在从list移除
+    QGSettings *m_moduleSettings{nullptr};
 };
 }
 

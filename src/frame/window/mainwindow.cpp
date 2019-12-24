@@ -62,6 +62,7 @@
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
 DTK_USE_NAMESPACE
+#define GSETTINGS_HIDE_MODULE "hide-module"
 
 const QByteArray ControlCenterGSettings = "com.deepin.dde.control-center";
 const QString GSettinsWindowWidth = "window-width";
@@ -302,6 +303,16 @@ void MainWindow::initAllModule(QString m)
         { new SystemInfoModule(this), tr("System Info")},
         { new CommonInfoModule(this), tr("General Settings")},
     };
+
+    //通过gsetting设置某模块是否显示,默认都显示
+    m_moduleSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+
+    auto listModule =  m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
+    for (auto i : m_modules) {
+        if(listModule.contains((i.first->name()))){
+            setModuleVisible(i.first, false);
+        }
+    }
 
     bool isIcon = m_contentStack.empty();
 
