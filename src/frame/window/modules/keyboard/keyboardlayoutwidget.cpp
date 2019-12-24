@@ -39,10 +39,10 @@ using namespace dcc;
 namespace dcc {
 namespace keyboard {
 
-
 KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     : ContentWidget(parent)
     , textLength(0)
+    , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
     //~ contents_path /keyboard/Keyboard Layout
     setTitle(tr("Add Keyboard Layout"));
@@ -69,6 +69,11 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setSelectionMode(QAbstractItemView::NoSelection);
 
+    QPushButton *cancel = m_buttonTuple->leftButton();
+    cancel->setText(tr("Cancel"));
+    QPushButton *ok = m_buttonTuple->rightButton();
+    ok->setText(tr("Add"));
+
     m_indexframe = nullptr;
 
     hlayout->addWidget(m_view);
@@ -85,7 +90,12 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     m_contentTopLayout->addWidget(m_search);
     m_contentTopLayout->addSpacing(10);
 
-    m_mainWidget->setLayout(hlayout);
+    QVBoxLayout *mainVLayout = new QVBoxLayout();
+    mainVLayout->addLayout(hlayout);
+    mainVLayout->addSpacing(10);
+    mainVLayout->addWidget(m_buttonTuple);
+
+    m_mainWidget->setLayout(mainVLayout);
     m_mainWidget->setContentsMargins(DCC_NAMESPACE::ListViweItemMargin);
 
     m_clipEffectWidget = new DGraphicsClipEffect(m_mainWidget);
@@ -97,14 +107,42 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     m_mainWidget->setAttribute(Qt::WA_TranslucentBackground);
 
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
-
-    connect(m_view, &IndexView::clicked, this, &KeyboardLayoutWidget::onItemClicked);
+    connect(cancel, &QPushButton::clicked, this, &KeyboardLayoutWidget::back);
+    connect(ok, &QPushButton::clicked, this, &KeyboardLayoutWidget::onAddKBLayout);
+    connect(m_view, &IndexView::clicked, this, &KeyboardLayoutWidget::onKBLayoutSelect);
 }
 
 KeyboardLayoutWidget::~KeyboardLayoutWidget()
 {
     m_searchModel->deleteLater();
     m_model->deleteLater();
+}
+
+void KeyboardLayoutWidget::onAddKBLayout()
+{
+
+    QVariant var = m_selectIndex.data(IndexModel::KBLayoutRole);
+    MetaData md = var.value<MetaData>();
+
+    if (m_model->letters().contains(md.text()))
+        return;
+
+    Q_EMIT layoutSelected(md.text());
+    Q_EMIT back();
+}
+
+void KeyboardLayoutWidget::onKBLayoutSelect(const QModelIndex &index)
+{
+    if(m_selectIndex.isValid())
+        m_model->itemFromIndex(m_selectIndex)->setCheckState(Qt::Unchecked);
+    QStandardItem *selectItem = m_model->itemFromIndex(index);
+    if (selectItem) {
+        selectItem->setCheckState(Qt::Checked);
+        m_selectIndex = index;
+        m_buttonTuple->rightButton()->setEnabled(true);
+    } else {
+        m_buttonTuple->rightButton()->setEnabled(false);
+    }
 }
 
 void KeyboardLayoutWidget::setMetaData(const QList<MetaData> &datas)

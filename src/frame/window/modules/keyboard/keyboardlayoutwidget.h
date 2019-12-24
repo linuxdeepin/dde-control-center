@@ -33,6 +33,7 @@
 #include "modules/keyboard/indexframe.h"
 #include "modules/keyboard/indexdelegate.h"
 #include "widgets/searchinput.h"
+#include "widgets/buttontuple.h"
 
 #include <DGraphicsClipEffect>
 #include <DListView>
@@ -65,10 +66,12 @@ Q_SIGNALS:
 public Q_SLOTS:
     void onSearch(const QString& text);
     void onItemClicked(const QModelIndex &index);
-
+    void onKBLayoutSelect(const QModelIndex &index);
+    void onAddKBLayout();
 private:
     int textLength;
     SearchInput *m_search;
+    ButtonTuple *m_buttonTuple;
     IndexView *m_view;
     IndexModel *m_model;
     IndexModel *m_searchModel;
@@ -76,6 +79,7 @@ private:
     TranslucentFrame *m_mainWidget;
     DGraphicsClipEffect *m_clipEffectWidget;
     QList<MetaData> m_data;
+    QModelIndex m_selectIndex;
 };
 }
 }
