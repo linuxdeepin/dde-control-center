@@ -21,7 +21,6 @@
 #include "personalizationgeneral.h"
 #include "perssonalizationthemewidget.h"
 #include "roundcolorwidget.h"
-#include "window/utils.h"
 #include "widgets/dccslider.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/settingsitem.h"
@@ -37,7 +36,6 @@
 #include <QColor>
 #include <QRect>
 #include <QPalette>
-#include <QSettings>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -61,7 +59,8 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
     , m_wmSwitch(nullptr)
-    , m_transparentSlider(nullptr)
+    //~ contents_path /personalization/General
+    , m_transparentSlider(new dcc::widgets::TitledSliderItem(tr("Transparency")))
     , m_Themes(new PerssonalizationThemeWidget())
     , m_bgWidget(new QWidget)
 {
@@ -99,56 +98,53 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     m_centralLayout->addWidget(m_bgWidget);
 
-    m_bSystemIsServer = isServerSystem();
+    //sw switch
+    QHBoxLayout *swswitchLayout = new QHBoxLayout();
+    SettingsItem *switem = new dcc::widgets::SettingsItem;
+    switem->addBackground();
+    switem->setLayout(swswitchLayout);
 
-    if (!m_bSystemIsServer) {
-        //sw switch
-        m_wmSwitch = new DSwitchButton();
-        QHBoxLayout *swswitchLayout = new QHBoxLayout();
-        SettingsItem *switem = new dcc::widgets::SettingsItem;
-        switem->addBackground();
-        switem->setLayout(swswitchLayout);
+    m_wmSwitch = new DSwitchButton();
 
-        //~ contents_path /personalization/General
-        swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
-        swswitchLayout->addStretch();
-        swswitchLayout->addWidget(m_wmSwitch);
-        m_centralLayout->addWidget(switem);
+    //~ contents_path /personalization/General
+    swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
+    swswitchLayout->addStretch();
+    swswitchLayout->addWidget(m_wmSwitch);
+    m_centralLayout->addWidget(switem);
 
-        //~ contents_path /personalization/General
-        m_transparentSlider = new dcc::widgets::TitledSliderItem(tr("Transparency"));
-        //transparancy switch
-        m_transparentSlider->addBackground();
-        m_transparentSlider->slider()->setOrientation(Qt::Horizontal);
-        m_transparentSlider->setObjectName("Transparency");
+    //transparancy switch
+    m_transparentSlider->addBackground();
+    m_transparentSlider->slider()->setOrientation(Qt::Horizontal);
+    m_transparentSlider->setObjectName("Transparency");
 
-        //设计效果图变更：增加左右图标
-        m_transparentSlider->slider()->setLeftIcon(QIcon::fromTheme("dcc_transparency_low"));
-        m_transparentSlider->slider()->setRightIcon(QIcon::fromTheme("dcc_transparency_high"));
-        m_transparentSlider->slider()->setIconSize(QSize(24, 24));
-        dcc::widgets::DCCSlider *slider = m_transparentSlider->slider();
-        //设计效果图变更：去掉刻度数字显示
-    //    QStringList annotions;
-    //    annotions << "0.1" << "0.2" << "0.4" << "0.5" << "0.65" << "0.8" << "1.0";
-    //    m_transparentSlider->setAnnotations(annotions);
-    //    slider->setRange(0, 6);
-        slider->setRange(0, 100);
-        slider->setType(dcc::widgets::DCCSlider::Vernier);
-        slider->setTickPosition(QSlider::TicksBelow);
-        slider->setTickInterval(1);
-        slider->setPageStep(1);
-        m_centralLayout->addWidget(m_transparentSlider);
+    //设计效果图变更：增加左右图标
+    m_transparentSlider->slider()->setLeftIcon(QIcon::fromTheme("dcc_transparency_low"));
+    m_transparentSlider->slider()->setRightIcon(QIcon::fromTheme("dcc_transparency_high"));
+    m_transparentSlider->slider()->setIconSize(QSize(24, 24));
+    dcc::widgets::DCCSlider *slider = m_transparentSlider->slider();
+    //设计效果图变更：去掉刻度数字显示
+//    QStringList annotions;
+//    annotions << "0.1" << "0.2" << "0.4" << "0.5" << "0.65" << "0.8" << "1.0";
+//    m_transparentSlider->setAnnotations(annotions);
+//    slider->setRange(0, 6);
+    slider->setRange(0, 100);
+    slider->setType(dcc::widgets::DCCSlider::Vernier);
+    slider->setTickPosition(QSlider::TicksBelow);
+    slider->setTickInterval(1);
+    slider->setPageStep(1);
+    m_centralLayout->addWidget(m_transparentSlider);
 
-        connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
-                &PersonalizationGeneral::requestSetOpacity);
-        connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::sliderMoved, this,
-                &PersonalizationGeneral::requestSetOpacity);
-        connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this,
-                &PersonalizationGeneral::requestSwitchWM);
-    }
+    connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this,
+            &PersonalizationGeneral::requestSwitchWM);
+
     m_centralLayout->setSpacing(20);
     m_centralLayout->addStretch();
     setLayout(m_centralLayout);
+
+    connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
+            &PersonalizationGeneral::requestSetOpacity);
+    connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::sliderMoved, this,
+            &PersonalizationGeneral::requestSetOpacity);
 }
 
 void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel *model)
@@ -156,20 +152,18 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
     m_model = model;
     m_Themes->setModel(model->getWindowModel());
 
-    if (!m_bSystemIsServer) {
-        connect(model, &dcc::personalization::PersonalizationModel::wmChanged, this,
-                [this](bool checked) {
-            m_wmSwitch->blockSignals(true);
-            updateWMSwitcher(checked);
-            m_wmSwitch->blockSignals(false);
-        });
+    connect(model, &dcc::personalization::PersonalizationModel::wmChanged, this,
+            [this](bool checked) {
+        m_wmSwitch->blockSignals(true);
+        updateWMSwitcher(checked);
+        m_wmSwitch->blockSignals(false);
+    });
 
-        updateWMSwitcher(model->is3DWm());
-        connect(model, &dcc::personalization::PersonalizationModel::onOpacityChanged, this,
-                &PersonalizationGeneral::onOpacityChanged);
+    updateWMSwitcher(model->is3DWm());
+    connect(model, &dcc::personalization::PersonalizationModel::onOpacityChanged, this,
+            &PersonalizationGeneral::onOpacityChanged);
 
-        onOpacityChanged(model->opacity());
-    }
+    onOpacityChanged(model->opacity());
 
     connect(model, &dcc::personalization::PersonalizationModel::onActiveColorChanged, this,
             &PersonalizationGeneral::onActiveColorChanged);
@@ -203,22 +197,16 @@ void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget
 
 void PersonalizationGeneral::updateWMSwitcher(bool checked)
 {
-    if (m_wmSwitch) {
-        m_wmSwitch->setChecked(checked);
-    }
-    if (m_transparentSlider) {
-        m_transparentSlider->setVisible(checked);
-    }
+    m_wmSwitch->setChecked(checked);
+    m_transparentSlider->setVisible(checked);
 }
 
 void PersonalizationGeneral::onOpacityChanged(std::pair<int, double> value)
 {
-    if (m_transparentSlider) {
-        m_transparentSlider->slider()->blockSignals(true);
-        m_transparentSlider->slider()->setValue(value.first);
-        m_transparentSlider->setValueLiteral(QString::number(value.second));
-        m_transparentSlider->slider()->blockSignals(false);
-    }
+    m_transparentSlider->slider()->blockSignals(true);
+    m_transparentSlider->slider()->setValue(value.first);
+    m_transparentSlider->setValueLiteral(QString::number(value.second));
+    m_transparentSlider->slider()->blockSignals(false);
 }
 
 void PersonalizationGeneral::onActiveColorChanged(const QString &newColor)
