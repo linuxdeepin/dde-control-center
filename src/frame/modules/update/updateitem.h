@@ -65,12 +65,14 @@ private:
     dcc::widgets::SmallLabel *m_appName;
     dcc::widgets::SmallLabel *m_appVersion;
     dcc::widgets::SmallLabel *m_appChangelog;
+    int m_detail_state;
 
     QPushButton *m_details;
     QVBoxLayout *m_iconLayout;
 
     QString elidedChangelog() const;
     void expandChangelog();
+    void collaspChangelog();
 };
 
 }

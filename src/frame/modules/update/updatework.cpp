@@ -953,7 +953,8 @@ AppUpdateInfo UpdateWorker::getInfo(const AppUpdateInfo &packageInfo, const QStr
     auto fetchVersionedChangelog = [](QJsonObject changelog, QString & destVersion) {
 
         for (QString version : changelog.keys()) {
-            if (version == destVersion) {
+            if (version == destVersion || destVersion != "") {
+                qDebug() << Q_FUNC_INFO << QString("The destVersion(%1) is not empty or version(%2) to the destVersion(%1) to be updated").arg(destVersion).arg(version);
                 return changelog.value(version).toString();
             }
         }

@@ -121,19 +121,20 @@ UpdateItem::UpdateItem(QFrame *parent)
 
     m_details->setFlat(true);
     m_details->setText(tr("Details"));
+    m_detail_state = 1;
 
     QHBoxLayout* logLayout = new QHBoxLayout;
     logLayout->setMargin(0);
     logLayout->setSpacing(0);
     logLayout->addWidget(m_appChangelog, 1);
-    logLayout->addWidget(m_details);
+    logLayout->addWidget(m_details, 0, Qt::AlignRight | Qt::AlignBottom);
 
     QHBoxLayout *nameLayout = new QHBoxLayout;
     nameLayout->setMargin(0);
     nameLayout->setSpacing(0);
     nameLayout->addWidget(m_appName);
     nameLayout->addSpacing(4);
-    nameLayout->addWidget(m_appVersion);
+    nameLayout->addWidget(m_appVersion, 1, Qt::AlignRight);
     nameLayout->addStretch();
 
     QVBoxLayout* rightLayout = new QVBoxLayout;
@@ -155,10 +156,18 @@ UpdateItem::UpdateItem(QFrame *parent)
     setLayout(layout);
 
     connect(m_details, &QPushButton::clicked, [this] {
-        m_details->hide();
-        // The point of this timer is that the calculation should be taken
-        // after the relayout of this item caused by the hide of details button.
-        QTimer::singleShot(0, this, &UpdateItem::expandChangelog);
+            if (1 == m_detail_state) {
+                m_details->setText(tr("Collapse"));
+                // The point of this timer is that the calculation should be taken
+                // after the relayout of this item caused by the hide of details button.
+                QTimer::singleShot(0, this, &UpdateItem::expandChangelog);
+                m_detail_state = 2;
+            } else if (2 == m_detail_state) {
+                m_details->setText(tr("Details"));
+                m_detail_state = 1;
+                collaspChangelog();
+            }
+            update();
     });
 
 //    connect(m_openWebsite, &QPushButton::clicked, [this] {
@@ -213,7 +222,7 @@ QString UpdateItem::elidedChangelog() const
     const QString text = QString(clearHTMLTags(m_info.m_changelog)).replace("\n", "");
 
     const QFontMetrics fm(m_appChangelog->font());
-    const QRect rect(0, 0, 200, fontMetrics().height() * 2);
+    const QRect rect(0, 0, 200, fontMetrics().height() * 1);
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
 
     if (rect.contains(fm.boundingRect(rect, textFlag, text)))
@@ -245,5 +254,10 @@ void UpdateItem::expandChangelog()
     m_appChangelog->setText(stylesheet + m_info.m_changelog.replace('\n', "<br>"));
 }
 
+void UpdateItem::collaspChangelog()
+{
+    m_info.m_changelog.replace("<br>", "\n");
+    m_appChangelog->setText(elidedChangelog());
+}
 }
 }
