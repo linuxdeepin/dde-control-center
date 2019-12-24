@@ -64,13 +64,10 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     m_offlineBtn = new QPushButton(tr("Request Root Access") + QString("(%1)").arg(tr("offline")));
     connect(m_offlineBtn, &QPushButton::clicked, this, [this]{
         QProcess *pro = new QProcess;
-        pro->start("pkexec", {"/usr/lib/dde-control-center/develop-tool"});
-        this->connect(pro, static_cast<void (QProcess:: *)(int)>(&QProcess::finished), this, [this](int code){
-            if (0 != code)
-                return;
-
-            updateDeveloperModeState(true);
-        });
+        int code = pro->execute("pkexec", {"/usr/lib/dde-control-center/develop-tool"});
+        if (0 != code)
+            return;
+        updateDeveloperModeState(true);
     });
 
     vBoxLayout->setMargin(0);
