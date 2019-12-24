@@ -121,8 +121,12 @@ void SystemLanguageSettingWidget::onLangSelect(const QModelIndex &index)
 {
     if(m_modelIndex.isValid())
         m_model->itemFromIndex(m_modelIndex)->setCheckState(Qt::Unchecked);
-    m_model->itemFromIndex(index)->setCheckState(Qt::Checked);
-    m_modelIndex = index;
+    QStandardItem *selectedItem = m_model->itemFromIndex(index);
+    if (selectedItem) {
+        selectedItem->setCheckState(Qt::Checked);
+        m_modelIndex = index;
+    }
+    m_buttonTuple->rightButton()->setEnabled(selectedItem != nullptr);
 }
 
 void SystemLanguageSettingWidget::setModelData(const QList<MetaData> &datas)

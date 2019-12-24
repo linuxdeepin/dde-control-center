@@ -136,13 +136,19 @@ void KeyboardLayoutWidget::onKBLayoutSelect(const QModelIndex &index)
     if(m_selectIndex.isValid())
         m_model->itemFromIndex(m_selectIndex)->setCheckState(Qt::Unchecked);
     QStandardItem *selectItem = m_model->itemFromIndex(index);
+    bool addBtnEnabled = false;
     if (selectItem) {
-        selectItem->setCheckState(Qt::Checked);
-        m_selectIndex = index;
-        m_buttonTuple->rightButton()->setEnabled(true);
-    } else {
-        m_buttonTuple->rightButton()->setEnabled(false);
+        QVariant var = index.data(IndexModel::KBLayoutRole);
+        MetaData md = var.value<MetaData>();
+        if (md.text().isEmpty() || m_model->letters().contains(md.text())) {
+            addBtnEnabled = false;
+        } else {
+            selectItem->setCheckState(Qt::Checked);
+            m_selectIndex = index;
+            addBtnEnabled = true;
+        }
     }
+    m_buttonTuple->rightButton()->setEnabled(addBtnEnabled);
 }
 
 void KeyboardLayoutWidget::setMetaData(const QList<MetaData> &datas)
