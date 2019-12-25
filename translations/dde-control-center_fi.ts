@@ -35,7 +35,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="289"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>Pilvitili</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
@@ -140,27 +140,22 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="227"/>
         <source>The full name already exists</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="245"/>
-        <source>xxxxxxxxxxxxxxxxxxx</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimi on jo olemassa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
         <source>Date Expired (Days)</source>
-        <translation type="unfinished"/>
+        <translation>Viimeinen voimassaolopäivä (päivää)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="297"/>
         <source>Maximum number of days between password change</source>
-        <translation type="unfinished"/>
+        <translation>Päivien enimmäismäärä salasanan vaihdon välillä</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="306"/>
         <source>has password age</source>
-        <translation type="unfinished"/>
+        <translation>on salasanan kausi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="359"/>
@@ -210,7 +205,7 @@
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="131"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="141"/>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Tavallinen käyttäjä</translation>
     </message>
 </context>
 <context>
@@ -268,87 +263,87 @@
         <translation>Luo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
         <source>Group</source>
         <translation>Ryhmä</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="136"/>
         <source>New Account</source>
         <translation>Uusi käyttäjätili</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="149"/>
         <source>Username</source>
         <translation>Käyttäjänimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="154"/>
         <source>Full Name</source>
         <translation>Koko nimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="159"/>
         <source>Password</source>
         <translation>Salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="164"/>
         <source>Repeat Password</source>
         <translation>Toista salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="208"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="210"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="213"/>
         <source>Required</source>
         <translation>Vaadittu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="211"/>
         <source>optional</source>
         <translation>valinnainen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="341"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Salasanassa saa olla enintään %1 merkkiä</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="348"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation>Salasanassa vain englanninkielisiä kirjaimia (isot ja pienet kirjaimet), numeroita tai erikoismerkkejä (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="355"/>
         <source>Passwords do not match</source>
         <translation>Salasanat eivät täsmää</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="373"/>
         <source>Username cannot be empty</source>
         <translation>Käyttäjätunnus on pakollinen kenttä</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="379"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Käyttäjätunnuksen on oltava 3-32 merkin pituinen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="386"/>
         <source>The first character must be in lower case</source>
         <translation>Ensimmäisen merkin on oltava pieniä kirjaimia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="392"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>Käyttäjätunnuksen tulee sisältää vain a~z, 0~9, - tai _. </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>The full name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimi on jo olemassa</translation>
     </message>
 </context>
 <context>
@@ -542,7 +537,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="77"/>
         <source> (Beta)</source>
-        <translation type="unfinished"/>
+        <translation>(Beeta)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="81"/>
@@ -571,12 +566,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="249"/>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Kehittäjätilan vastuuvapauslauseke</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="250"/>
-        <source>Join developer mode</source>
-        <translation>Liity kehittäjätilaan</translation>
+        <source>Agree and Request Root Access</source>
+        <translation>Hyväksy ja pyydä pääkäyttäjän oikeuksia</translation>
     </message>
 </context>
 <context>
@@ -586,27 +581,27 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="64"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="165"/>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Pyydä pääkäyttäjän oikeuksia</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
         <source>Developer mode enables using root privilege, installing and running unsigned Apps, but you may also damage the integration of your system, please use it carefully.</source>
-        <translation type="unfinished"/>
+        <translation>Kehittäjätila mahdollistaa root oikeuden käytön, allekirjoittamattomien sovellusten asentamisen, sekä ajamisen, mutta voit myös vahingoittaa järjestelmää. Käytä sitä varovasti.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="60"/>
         <source>Developer mode needs Cloud Account login.</source>
-        <translation type="unfinished"/>
+        <translation>Kehittäjätila tarvitsee pilvitilin kirjautumisen.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="64"/>
         <source>offline</source>
-        <translation type="unfinished"/>
+        <translation>poissa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="127"/>
         <source>To make it effective, a restart is required. Restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöönotto, tarvitaan uudelleenkäynnistys. Käynnistä uudelleen nyt?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="128"/>
@@ -622,7 +617,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="158"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="162"/>
         <source>Root Access Allowed</source>
-        <translation type="unfinished"/>
+        <translation>Root oikeudet sallittu</translation>
     </message>
 </context>
 <context>
@@ -1186,8 +1181,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="169"/>
-        <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <source>Done</source>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>
@@ -1296,8 +1291,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="120"/>
-        <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <source>Done</source>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>
@@ -1991,8 +1986,15 @@
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="342"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="340"/>
+        <source>Disabled</source>
+        <translation>Suljettu</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="356"/>
         <source>Disconnected</source>
         <translation>Katkaistu</translation>
     </message>
@@ -3469,6 +3471,11 @@
 <context>
     <name>dccV20::network::WirelessSection</name>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
+        <source>WLAN</source>
+        <translation>WLAN</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
         <source>Not Bind</source>
         <translation>Ei sido</translation>
@@ -3527,27 +3534,26 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="63"/>
+        <source>Transparency</source>
+        <translation>Läpinäkyvyys</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="70"/>
         <source>Theme</source>
         <translation>Teema</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="79"/>
         <source>Accent Color</source>
         <translation>Korostusväri</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="110"/>
         <source>Window Effect</source>
         <translation>Ikkunatehosteet</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="119"/>
-        <source>Transparency</source>
-        <translation>Läpinäkyvyys</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
@@ -4078,12 +4084,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation type="unfinished"/>
+        <translation>Kun olet kirjautunut sisään pilvitilille, voit käyttää pilvisynkronointia, sovelluskauppaa, sähköpostiohjelmaa, selainta ja muita pilvipalveluita.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Cloud Account Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Pilvitilin kirjautuminen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
@@ -4107,43 +4113,43 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
         <source>Edition:</source>
         <translation>Versio:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
         <source>Type:</source>
         <translation>Tyyppi:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="73"/>
         <source>Kernel:</source>
         <translation>Kernel:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="78"/>
         <source>Processor:</source>
         <translation>Prosessori:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="83"/>
         <source>Memory:</source>
         <translation>Muisti:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="88"/>
         <source>Disk:</source>
         <translation>Levy:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="120"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
@@ -4151,10 +4157,22 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="61"/>
         <source>About This PC</source>
         <translation>Tietoja tästä tietokoneesta</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="63"/>
+        <source>Edition License</source>
+        <translation>Järjestelmän käyttöoikeus</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="65"/>
+        <source>End User License Agreement</source>
+        <translation>Loppukäyttäjän lisenssisopimus</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
 </context>
 <context>
@@ -4707,8 +4725,8 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/settingshead.cpp" line="102"/>
-        <source>Cancel</source>
-        <translation>Peru</translation>
+        <source>Done</source>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>
@@ -5963,6 +5981,16 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <source>Add Keyboard Layout</source>
         <translation>Lisää näppäimistömalli</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="73"/>
+        <source>Cancel</source>
+        <translation>Peruuta</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="75"/>
+        <source>Add</source>
+        <translation>Lisää</translation>
     </message>
 </context>
 <context>
@@ -8644,7 +8672,6 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="50"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="140"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
@@ -8709,6 +8736,16 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="145"/>
+        <source>Deepin Community</source>
+        <translation>Deepinin yhteisö</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="147"/>
+        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
+        <translation>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -8898,8 +8935,14 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <name>dcc::update::UpdateItem</name>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="166"/>
         <source>Details</source>
         <translation>Tiedot</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="160"/>
+        <source>Collapse</source>
+        <translation>Tiivistetty</translation>
     </message>
 </context>
 <context>
@@ -8982,7 +9025,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <translation>Järjestelmän korjaukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="998"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="999"/>
         <source>System</source>
         <translation>Järjestelmä</translation>
     </message>

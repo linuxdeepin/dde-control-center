@@ -143,11 +143,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="245"/>
-        <source>xxxxxxxxxxxxxxxxxxx</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
         <source>Date Expired (Days)</source>
         <translation type="unfinished"/>
@@ -268,85 +263,85 @@
         <translation>Створити</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
         <source>Group</source>
         <translation>Група</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="136"/>
         <source>New Account</source>
         <translation>Новий Обліковий запис</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="149"/>
         <source>Username</source>
         <translation>Ім&apos;я користувача</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="154"/>
         <source>Full Name</source>
         <translation>Повне ім&apos;я</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="159"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="164"/>
         <source>Repeat Password</source>
         <translation>Повторіть Пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="208"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="210"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="213"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="211"/>
         <source>optional</source>
         <translation>необов&apos;язковий</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="341"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Пароль має складатися з не більше, ніж %1 символів</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="348"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation>Пароль повинен містити англійські літери (чутливі до регістру), цифри або спеціальні символи(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="355"/>
         <source>Passwords do not match</source>
         <translation>Паролі не збігаються</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="373"/>
         <source>Username cannot be empty</source>
         <translation>Поле, призначене для імені користувача, не може бути пустим</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="379"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Ім&apos;я користувача має містити 3-32 символи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="386"/>
         <source>The first character must be in lower case</source>
         <translation>Перший символ має бути у нижньому регістрі.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="392"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>Ім&apos;я користувача повинне містити такі символи, як a~z, 0~9, - або _</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>The full name already exists</source>
         <translation type="unfinished"/>
     </message>
@@ -575,8 +570,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="250"/>
-        <source>Join developer mode</source>
-        <translation>Приєднатися до режиму розробника</translation>
+        <source>Agree and Request Root Access</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1186,8 +1181,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="169"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
+        <source>Done</source>
+        <translation>Готово</translation>
     </message>
 </context>
 <context>
@@ -1296,8 +1291,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="120"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
+        <source>Done</source>
+        <translation>Готово</translation>
     </message>
 </context>
 <context>
@@ -1991,8 +1986,15 @@
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="342"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="340"/>
+        <source>Disabled</source>
+        <translation>Вимкнено</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="356"/>
         <source>Disconnected</source>
         <translation>Від’єднано</translation>
     </message>
@@ -3469,6 +3471,11 @@
 <context>
     <name>dccV20::network::WirelessSection</name>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
+        <source>WLAN</source>
+        <translation>WLAN</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
         <source>Not Bind</source>
         <translation>Не прив&apos;язано</translation>
@@ -3527,27 +3534,26 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="63"/>
+        <source>Transparency</source>
+        <translation>Прозорість</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="70"/>
         <source>Theme</source>
         <translation>Тема</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="79"/>
         <source>Accent Color</source>
         <translation>Колір тексту</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="110"/>
         <source>Window Effect</source>
         <translation>Ефект вікон</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="119"/>
-        <source>Transparency</source>
-        <translation>Прозорість</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
@@ -4107,43 +4113,43 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
         <source>Edition:</source>
         <translation>Версія: </translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
         <source>Type:</source>
         <translation>Тип:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="73"/>
         <source>Kernel:</source>
         <translation>Ядро:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="78"/>
         <source>Processor:</source>
         <translation>Процесор:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="83"/>
         <source>Memory:</source>
         <translation>Пам’ять:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="88"/>
         <source>Disk:</source>
         <translation>Диск:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="120"/>
         <source>%1-bit</source>
         <translation>%1 біт</translation>
     </message>
@@ -4151,10 +4157,22 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="61"/>
         <source>About This PC</source>
         <translation>Про цей ПК</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="63"/>
+        <source>Edition License</source>
+        <translation>Ліцензія на випуск</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="65"/>
+        <source>End User License Agreement</source>
+        <translation>Ліцензійна угода із кінцевим користувачем</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
 </context>
 <context>
@@ -4707,8 +4725,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/widgets/settingshead.cpp" line="102"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
+        <source>Done</source>
+        <translation>Готово</translation>
     </message>
 </context>
 <context>
@@ -5963,6 +5981,16 @@ If no operation, the display will be restored after %1s.</source>
         <source>Add Keyboard Layout</source>
         <translation>Додати Розкладку Клавіатури</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="73"/>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="75"/>
+        <source>Add</source>
+        <translation>Додати</translation>
     </message>
 </context>
 <context>
@@ -8644,7 +8672,6 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="50"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="140"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
@@ -8709,6 +8736,16 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
         <source>%1Bit</source>
         <translation>%1Біт</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="145"/>
+        <source>Deepin Community</source>
+        <translation>Спільнота Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="147"/>
+        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8898,8 +8935,14 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::update::UpdateItem</name>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="166"/>
         <source>Details</source>
         <translation>Деталі</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="160"/>
+        <source>Collapse</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8982,7 +9025,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Латки до системи</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="998"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="999"/>
         <source>System</source>
         <translation>Система</translation>
     </message>

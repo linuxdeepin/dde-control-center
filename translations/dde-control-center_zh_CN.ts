@@ -143,11 +143,6 @@
         <translation>该全名已存在</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="245"/>
-        <source>xxxxxxxxxxxxxxxxxxx</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
         <source>Date Expired (Days)</source>
         <translation>过期时间（天）</translation>
@@ -268,85 +263,85 @@
         <translation>创建</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
         <source>Group</source>
         <translation>用户组</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="136"/>
         <source>New Account</source>
         <translation>新帐户</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="149"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="154"/>
         <source>Full Name</source>
         <translation>设置全名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="159"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="164"/>
         <source>Repeat Password</source>
         <translation>重复密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="208"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="210"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="213"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="211"/>
         <source>optional</source>
         <translation>选填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="341"/>
         <source>Password must be no more than %1 characters</source>
         <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="348"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="355"/>
         <source>Passwords do not match</source>
         <translation>密码不一致</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="373"/>
         <source>Username cannot be empty</source>
         <translation>用户名不能为空</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="379"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>用户名长度必须介于3到32个字符之间</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="386"/>
         <source>The first character must be in lower case</source>
         <translation>首字符必须为小写字母</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="392"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>用户名只能由a~z,0~9,-,_组成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>The full name already exists</source>
         <translation>该全名已存在</translation>
     </message>
@@ -575,8 +570,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="250"/>
-        <source>Join developer mode</source>
-        <translation type="unfinished"/>
+        <source>Agree and Request Root Access</source>
+        <translation>同意并进入开发者模式</translation>
     </message>
 </context>
 <context>
@@ -589,19 +584,14 @@
         <translation>进入开发者模式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="93"/>
-        <source>No root privileges. Please request root access in developer mode in Control Center.</source>
-        <translation>无root权限，如想获得root权限可以在控制中心选择进入开发者模式</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
         <source>Developer mode enables using root privilege, installing and running unsigned Apps, but you may also damage the integration of your system, please use it carefully.</source>
-        <translation>进入开发者模式后可以获得root使用权限，安装和运行非商店签名应用，但同时也可能导致系统完整性遭到破坏，请谨慎使用。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="60"/>
         <source>Developer mode needs Cloud Account login.</source>
-        <translation>进入开发者模式需要登录网络ID</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="64"/>
@@ -1191,8 +1181,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="169"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
+        <source>Done</source>
+        <translation>完成</translation>
     </message>
 </context>
 <context>
@@ -1301,8 +1291,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="120"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
+        <source>Done</source>
+        <translation>完成</translation>
     </message>
 </context>
 <context>
@@ -1996,8 +1986,15 @@
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="342"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="340"/>
+        <source>Disabled</source>
+        <translation>已禁用</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="356"/>
         <source>Disconnected</source>
         <translation>已断开</translation>
     </message>
@@ -3474,6 +3471,11 @@
 <context>
     <name>dccV20::network::WirelessSection</name>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
+        <source>WLAN</source>
+        <translation>Wi-Fi</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
         <source>Not Bind</source>
         <translation>不指定设备</translation>
@@ -3532,27 +3534,26 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="63"/>
+        <source>Transparency</source>
+        <translation>透明度调节</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="70"/>
         <source>Theme</source>
         <translation>主题</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="79"/>
         <source>Accent Color</source>
         <translation>活动用色</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="110"/>
         <source>Window Effect</source>
         <translation>窗口特效</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="119"/>
-        <source>Transparency</source>
-        <translation>透明度调节</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
@@ -4112,43 +4113,43 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
         <source>Edition:</source>
         <translation>版本：</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
         <source>Type:</source>
         <translation>类型：</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="73"/>
         <source>Kernel:</source>
         <translation>内核版本：</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="78"/>
         <source>Processor:</source>
         <translation>处理器：</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="83"/>
         <source>Memory:</source>
         <translation>内存：</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="88"/>
         <source>Disk:</source>
         <translation>磁盘：</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="120"/>
         <source>%1-bit</source>
         <translation>%1位</translation>
     </message>
@@ -4156,21 +4157,22 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
-        <source>End User License Agreement</source>
-        <translation>最终用户许可协议</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
-        <source>Edition License</source>
-        <translation>版本协议</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="61"/>
         <source>About This PC</source>
         <translation>关于本机</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="63"/>
+        <source>Edition License</source>
+        <translation>版本协议</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="65"/>
+        <source>End User License Agreement</source>
+        <translation>最终用户许可协议</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
 </context>
 <context>
@@ -4723,8 +4725,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/widgets/settingshead.cpp" line="102"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
+        <source>Done</source>
+        <translation>完成</translation>
     </message>
 </context>
 <context>
@@ -5976,19 +5978,19 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="48"/>
-        <source>Add</source>
-        <translation>添加</translation>
+        <source>Add Keyboard Layout</source>
+        <translation>添加键盘布局</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="73"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="48"/>
-        <source>Add Keyboard Layout</source>
-        <translation>添加键盘布局</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="75"/>
+        <source>Add</source>
+        <translation>添加</translation>
     </message>
 </context>
 <context>
@@ -8670,7 +8672,6 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="50"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="140"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Copyright © 2011-%1 武汉深之度科技有限公司</translation>
     </message>
@@ -8735,6 +8736,16 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
         <source>%1Bit</source>
         <translation>%1位</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="145"/>
+        <source>Deepin Community</source>
+        <translation>深度社区</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="147"/>
+        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
+        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>
@@ -8924,8 +8935,14 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::update::UpdateItem</name>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="166"/>
         <source>Details</source>
         <translation>详情</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="160"/>
+        <source>Collapse</source>
+        <translation>收起</translation>
     </message>
 </context>
 <context>
@@ -9008,7 +9025,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation>系统补丁</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="998"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="999"/>
         <source>System</source>
         <translation>系统</translation>
     </message>

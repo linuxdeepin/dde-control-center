@@ -35,7 +35,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="289"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>Compte de núvol</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
@@ -140,27 +140,22 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="227"/>
         <source>The full name already exists</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="245"/>
-        <source>xxxxxxxxxxxxxxxxxxx</source>
-        <translation type="unfinished"/>
+        <translation>El nom complet ja existeix.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
         <source>Date Expired (Days)</source>
-        <translation type="unfinished"/>
+        <translation>Data de caducitat (dies)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="297"/>
         <source>Maximum number of days between password change</source>
-        <translation type="unfinished"/>
+        <translation>Nombre màxim de dies entre canvis de contrasenya</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="306"/>
         <source>has password age</source>
-        <translation type="unfinished"/>
+        <translation>té contrasenya de caducitat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="359"/>
@@ -210,7 +205,7 @@
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="131"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="141"/>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Usuari estàndard</translation>
     </message>
 </context>
 <context>
@@ -268,87 +263,87 @@
         <translation>Crea</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
         <source>Group</source>
         <translation>Grup</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="136"/>
         <source>New Account</source>
         <translation>Compte nou</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="149"/>
         <source>Username</source>
         <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="154"/>
         <source>Full Name</source>
         <translation>Nom complet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="159"/>
         <source>Password</source>
         <translation>Contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="164"/>
         <source>Repeat Password</source>
         <translation>Repetiu la contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="208"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="210"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="213"/>
         <source>Required</source>
         <translation>Cal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="211"/>
         <source>optional</source>
         <translation>opcional</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="341"/>
         <source>Password must be no more than %1 characters</source>
         <translation>La contrasenya no ha de tenir més de %1 caràcters.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="348"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation>La contrasenya només ha de contenir caràcters en anglès (majúscules o minúscules), números o símbols especials (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;).</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="355"/>
         <source>Passwords do not match</source>
         <translation>Les contrasenyes no coincideixen.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="373"/>
         <source>Username cannot be empty</source>
         <translation>El nom d&apos;usuari no es pot deixar en blanc</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="379"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>El nom d&apos;usuari ha de tenir de 3 a 32 caràcters de llargada.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="386"/>
         <source>The first character must be in lower case</source>
         <translation>El primer caràcter ha de ser en minúscules.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="392"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>El nom d&apos;usuari ha de contenir lletres de la a a la z, números del 0 al 9, - o bé _</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>The full name already exists</source>
-        <translation type="unfinished"/>
+        <translation>El nom complet ja existeix.</translation>
     </message>
 </context>
 <context>
@@ -542,7 +537,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="77"/>
         <source> (Beta)</source>
-        <translation type="unfinished"/>
+        <translation> (Beta)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="81"/>
@@ -571,12 +566,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="249"/>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Exempció de responsabilitat del mode de desenvolumpador</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="250"/>
-        <source>Join developer mode</source>
-        <translation>Afegiu-vos al mode de desenvolupament</translation>
+        <source>Agree and Request Root Access</source>
+        <translation>Ho accepto i demana l&apos;accés d&apos;arrel</translation>
     </message>
 </context>
 <context>
@@ -586,27 +581,27 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="64"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="165"/>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Demana l&apos;accés d&apos;arrel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
         <source>Developer mode enables using root privilege, installing and running unsigned Apps, but you may also damage the integration of your system, please use it carefully.</source>
-        <translation type="unfinished"/>
+        <translation>El mode de desenvolupador permet usar els privilegis d&apos;arrel, instal·lar i executar aplicacions sense signar, però també podeu danyar la integració del sistema. Feu-ne ús amb cura.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="60"/>
         <source>Developer mode needs Cloud Account login.</source>
-        <translation type="unfinished"/>
+        <translation>El mode de desenvolupador necessita entrar al compte de núvol.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="64"/>
         <source>offline</source>
-        <translation type="unfinished"/>
+        <translation>fora de línia</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="127"/>
         <source>To make it effective, a restart is required. Restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Per fer-ho efectiu, cal reiniciar. Reinicio ara?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="128"/>
@@ -622,7 +617,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="158"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="162"/>
         <source>Root Access Allowed</source>
-        <translation type="unfinished"/>
+        <translation>Es permet l&apos;accés d&apos;arrel.</translation>
     </message>
 </context>
 <context>
@@ -1186,8 +1181,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="169"/>
-        <source>Cancel</source>
-        <translation>Cancel·la</translation>
+        <source>Done</source>
+        <translation>Fet</translation>
     </message>
 </context>
 <context>
@@ -1296,8 +1291,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="120"/>
-        <source>Cancel</source>
-        <translation>Cancel·la</translation>
+        <source>Done</source>
+        <translation>Fet</translation>
     </message>
 </context>
 <context>
@@ -1991,8 +1986,15 @@
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="342"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="340"/>
+        <source>Disabled</source>
+        <translation>Inhabilitat</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="356"/>
         <source>Disconnected</source>
         <translation>Desconnectat</translation>
     </message>
@@ -3469,6 +3471,11 @@
 <context>
     <name>dccV20::network::WirelessSection</name>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
+        <source>WLAN</source>
+        <translation>WLAN</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
         <source>Not Bind</source>
         <translation>Sense vincle</translation>
@@ -3527,27 +3534,26 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="63"/>
+        <source>Transparency</source>
+        <translation>Transparència</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="70"/>
         <source>Theme</source>
         <translation>Tema</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="79"/>
         <source>Accent Color</source>
         <translation>Color del realçament</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="110"/>
         <source>Window Effect</source>
         <translation>Efecte de la finestra</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="119"/>
-        <source>Transparency</source>
-        <translation>Transparència</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
@@ -4078,12 +4084,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation type="unfinished"/>
+        <translation>Després d’iniciar la sessió al compte de núvol, podeu usar la sincronització en núvol, la botiga d’aplicacions, el client de correu electrònic, el navegador i altres serveis del núvol.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Cloud Account Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Registre al compte de núvol</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
@@ -4107,43 +4113,43 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
         <source>Edition:</source>
         <translation>Edició:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
         <source>Type:</source>
         <translation>Tipus:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="73"/>
         <source>Kernel:</source>
         <translation>Nucli</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="78"/>
         <source>Processor:</source>
         <translation>Processador:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="83"/>
         <source>Memory:</source>
         <translation>Memòria:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="88"/>
         <source>Disk:</source>
         <translation>Disc:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="120"/>
         <source>%1-bit</source>
         <translation>%1 bits</translation>
     </message>
@@ -4151,10 +4157,22 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="61"/>
         <source>About This PC</source>
         <translation>Quant a aquest ordinador</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="63"/>
+        <source>Edition License</source>
+        <translation>Llicència de l&apos;edició</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="65"/>
+        <source>End User License Agreement</source>
+        <translation>Acord de llicència de l&apos;usuari final</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
 </context>
 <context>
@@ -4707,8 +4725,8 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/settingshead.cpp" line="102"/>
-        <source>Cancel</source>
-        <translation>Cancel·la</translation>
+        <source>Done</source>
+        <translation>Fet</translation>
     </message>
 </context>
 <context>
@@ -5963,6 +5981,16 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
         <source>Add Keyboard Layout</source>
         <translation>Afegeix una disposició de teclat</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="73"/>
+        <source>Cancel</source>
+        <translation>Cancel·la</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="75"/>
+        <source>Add</source>
+        <translation>Afegeix</translation>
     </message>
 </context>
 <context>
@@ -8644,7 +8672,6 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="50"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="140"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Dret de reproducció © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
@@ -8709,6 +8736,16 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
         <source>%1Bit</source>
         <translation>%1 bits</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="145"/>
+        <source>Deepin Community</source>
+        <translation>Comunitat del Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="147"/>
+        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
+        <translation>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -8898,8 +8935,14 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <name>dcc::update::UpdateItem</name>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="166"/>
         <source>Details</source>
         <translation>Detalls</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="160"/>
+        <source>Collapse</source>
+        <translation>Replega</translation>
     </message>
 </context>
 <context>
@@ -8982,7 +9025,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
         <translation>Pedaços de sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="998"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="999"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>

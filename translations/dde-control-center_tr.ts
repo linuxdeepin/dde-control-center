@@ -143,11 +143,6 @@
         <translation>Tam isim zaten var</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="245"/>
-        <source>xxxxxxxxxxxxxxxxxxx</source>
-        <translation>xxxxxxxxxxxxxxxxxxx</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
         <source>Date Expired (Days)</source>
         <translation>Geçerlilik Tarihi (Gün)</translation>
@@ -268,85 +263,85 @@
         <translation>Oluştur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
         <source>Group</source>
         <translation>Grup</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="136"/>
         <source>New Account</source>
         <translation>Yeni Hesap</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="149"/>
         <source>Username</source>
         <translation>Kullanıcı Adı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="154"/>
         <source>Full Name</source>
         <translation>Tam İsim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="159"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="164"/>
         <source>Repeat Password</source>
         <translation>Parolayı Tekrarla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="208"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="210"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="213"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="211"/>
         <source>optional</source>
         <translation>isteğe bağlı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="341"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Parola %1 karakterden fazla olmamalıdır</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="348"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation>Parola, İngilizce harfler (büyük/küçük harf duyarlı), sayılar veya özel semboller içermelidir (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="355"/>
         <source>Passwords do not match</source>
         <translation>Parolalar eşleşmiyor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="373"/>
         <source>Username cannot be empty</source>
         <translation>Kullanıcı adı boş olamaz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="379"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Kullanıcı adı 3 ile 32 karakter arasında olmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="386"/>
         <source>The first character must be in lower case</source>
         <translation>İlk karakter küçük harf olmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="392"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>Kullanıcı adı yalnızca a~z, 0~ 9, - veya _ içermelidir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>The full name already exists</source>
         <translation>Tam isim zaten var</translation>
     </message>
@@ -575,8 +570,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="250"/>
-        <source>Join developer mode</source>
-        <translation>Geliştirici kipine katıl</translation>
+        <source>Agree and Request Root Access</source>
+        <translation>Kök Erişimi Kabul Et ve İste</translation>
     </message>
 </context>
 <context>
@@ -606,7 +601,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="127"/>
         <source>To make it effective, a restart is required. Restart now?</source>
-        <translation>Etkili hale getirmek için yeniden başlatma gerekir. Şimdi yeniden başlat?</translation>
+        <translation>Etkili olması için yeniden başlatma gerekir. Şimdi yeniden başlat?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="128"/>
@@ -685,7 +680,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="144"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="152"/>
@@ -1186,8 +1181,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="169"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
+        <source>Done</source>
+        <translation>Tamam</translation>
     </message>
 </context>
 <context>
@@ -1296,8 +1291,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="120"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
+        <source>Done</source>
+        <translation>Tamam</translation>
     </message>
 </context>
 <context>
@@ -1991,8 +1986,15 @@
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="342"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="340"/>
+        <source>Disabled</source>
+        <translation>Devre Dışı</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="356"/>
         <source>Disconnected</source>
         <translation>Bağlantı kesildi</translation>
     </message>
@@ -2253,7 +2255,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
         <source>Not Required</source>
-        <translation>Gerekli Değil</translation>
+        <translation>Zorunlu Değil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
@@ -2304,7 +2306,7 @@
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="231"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="245"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
@@ -2399,7 +2401,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="128"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="156"/>
@@ -2417,7 +2419,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="34"/>
         <source>Security Required</source>
-        <translation>Gerekli Güvenlik</translation>
+        <translation>Zorunlu Güvenlik</translation>
     </message>
 </context>
 <context>
@@ -2479,12 +2481,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
         <source>Customize Gateway Port</source>
-        <translation>Ağ Geçidi Kapı Numarasını Özelleştir</translation>
+        <translation>Ağ Geçidi Port Özelleştir</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
         <source>Gateway Port</source>
-        <translation>Ağ Geçidi Kapı Numarası</translation>
+        <translation>Ağ Geçidi Port</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
@@ -2499,17 +2501,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation>LZO Veri Sıkıştırması Kullanılsın</translation>
+        <translation>LZO Veri Sıkıştırması Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation>TCP Bağlantısı Kullanılsın</translation>
+        <translation>TCP Bağlantısı Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation>TAP Aygıtı Kullanılsın</translation>
+        <translation>TAP Aygıtı Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -2557,7 +2559,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="143"/>
         <source>Netscreen</source>
-        <translation>Ağ Ekranı</translation>
+        <translation>Netscreen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
@@ -2665,7 +2667,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="233"/>
         <source>Disable Dead Peer Detection</source>
-        <translation>Ölü Eş Algılaması Devre Dışı Bırakılsın</translation>
+        <translation>Ölü Eş Algılamayı Devre Dışı Bırak</translation>
     </message>
 </context>
 <context>
@@ -2721,7 +2723,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
@@ -2736,7 +2738,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Cisco Güvenli Masaüstü Truva Atı Kullanılsın</translation>
+        <translation>Cisco Güvenli Masaüstü Trojanına İzin Ver</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
@@ -2756,7 +2758,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation>Anahtar Parolası için FSID kullanılsın</translation>
+        <translation>Anahtar Parolası için FSID kullan</translation>
     </message>
 </context>
 <context>
@@ -2986,7 +2988,7 @@
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="124"/>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="127"/>
         <source>Import VPN</source>
-        <translation>VPN&apos;yi içe aktar</translation>
+        <translation>VPN&apos;yi İçe Aktar</translation>
         <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
@@ -3010,7 +3012,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="142"/>
         <source>Not Required</source>
-        <translation>Gerekli Değil</translation>
+        <translation>Zorunlu Değil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -3037,7 +3039,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="175"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="179"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
@@ -3047,7 +3049,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="171"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Başarısız Olduğunda Sınırsız Yeniden Dene</translation>
+        <translation>Başarısız Olduğunda Sürekli Dene</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="174"/>
@@ -3075,7 +3077,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation>TLS Sunucu Adı Eklentileri Kullanılsın</translation>
+        <translation>TLS Sunucu Adı Eklentileri Kullan</translation>
     </message>
 </context>
 <context>
@@ -3128,7 +3130,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Not Required</source>
-        <translation>Gerekli Değil</translation>
+        <translation>Zorunlu Değil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="113"/>
@@ -3358,7 +3360,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
         <source>Not Required</source>
-        <translation>Gerekli Değil</translation>
+        <translation>Zorunlu Değil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="169"/>
@@ -3469,6 +3471,11 @@
 <context>
     <name>dccV20::network::WirelessSection</name>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
+        <source>WLAN</source>
+        <translation>WLAN</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
         <source>Not Bind</source>
         <translation>Bağlı Değil</translation>
@@ -3527,27 +3534,26 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="63"/>
+        <source>Transparency</source>
+        <translation>Saydamlık</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="70"/>
         <source>Theme</source>
         <translation>Tema</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="79"/>
         <source>Accent Color</source>
         <translation>Vurgu Rengi</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="110"/>
         <source>Window Effect</source>
         <translation>Pencere Etkisi</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="119"/>
-        <source>Transparency</source>
-        <translation>Saydamlık</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
@@ -4107,43 +4113,43 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
         <source>Edition:</source>
         <translation>Sürüm:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
         <source>Type:</source>
         <translation>Tür:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="73"/>
         <source>Kernel:</source>
         <translation>Çekirdek:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="78"/>
         <source>Processor:</source>
         <translation>İşlemci:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="83"/>
         <source>Memory:</source>
         <translation>Bellek:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="88"/>
         <source>Disk:</source>
         <translation>Disk:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="120"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
@@ -4151,10 +4157,22 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="61"/>
         <source>About This PC</source>
         <translation>Bu PC Hakkında</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="63"/>
+        <source>Edition License</source>
+        <translation>Sürüm Lisansı</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="65"/>
+        <source>End User License Agreement</source>
+        <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
 </context>
 <context>
@@ -4214,17 +4232,17 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="69"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Sistemi ve uygulamaları doğru kullanmak için bilgisayarı yeniden başlatın</translation>
+        <translation>Sistemi ve uygulamaları doğru kullanmak için bilgisayarı yeniden başlat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation>Ağ bağlantısı kesildi, lütfen bağlandıktan sonra tekrar deneyin</translation>
+        <translation>Ağ bağlantısı kesildi, lütfen bağlandıktan sonra tekrar dene</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="90"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Bu güncellemenin yapılması uzun sürebilir. Lütfen işlem sürerken bilgisayarı kapatmayın ya da yeniden başlatmayın</translation>
+        <translation>Güncelleme uzun sürebilir. Lütfen işlem sürerken bilgisayarı kapatmayın ya da yeniden başlatmayın</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="200"/>
@@ -4293,7 +4311,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="308"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform>%n uygulama güncellemesi() mevcut</numerusform><numerusform>%n uygulama güncellemesi() mevcut</numerusform></translation>
+        <translation><numerusform>%n uygulama güncellemesi mevcut</numerusform><numerusform>%n uygulama güncellemesi mevcut</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
@@ -4303,7 +4321,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="315"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi() mevcut</numerusform><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi() mevcut</numerusform></translation>
+        <translation><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi mevcut</numerusform><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi mevcut</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
@@ -4672,8 +4690,8 @@
         <location filename="../src/frame/modules/display/rotatedialog.cpp" line="137"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
 If no operation, the display will be restored after %1s.</source>
-        <translation>Döndürmek için sol, değişiklikleri geri alıp çıkmak için sağ tıklayın. Kaydetmek için Ctrl+S tuşlarına basın.
-Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler %1s sonra geri alınacak.</translation>
+        <translation>Döndürmek için sol tık, geri yüklemek ve çıkmak için sağ tık, kaydetmek için Ctrl+S tuşlarına bas.
+Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
@@ -4707,8 +4725,8 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     </message>
     <message>
         <location filename="../src/frame/widgets/settingshead.cpp" line="102"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
+        <source>Done</source>
+        <translation>Tamam</translation>
     </message>
 </context>
 <context>
@@ -4840,7 +4858,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
-        <translation>Güncellemeler bulundu, görüntülemek için tıklayın</translation>
+        <translation>Güncellemeler bulundu, görüntülemek için tıkla</translation>
     </message>
 </context>
 <context>
@@ -4848,7 +4866,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation>VPN bağlantısını açmak için simgeye tıklayın</translation>
+        <translation>VPN bağlantısını açmak için simgeye tıkla</translation>
     </message>
 </context>
 <context>
@@ -4861,7 +4879,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
         <source>Loading weather...</source>
-        <translation>Hava durumu bilgileri yükleniyor...</translation>
+        <translation>Hava durumu yükleniyor...</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
@@ -5176,7 +5194,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Current Password</source>
-        <translation>Geçerli Parola</translation>
+        <translation>Mevcut Parola</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="52"/>
@@ -5186,7 +5204,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
-        <translation>Parola Tekrarla</translation>
+        <translation>Parolayı Tekrarla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="56"/>
@@ -5264,7 +5282,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Yakındaki cihazları bulmak için Bluetooth ağını etkinleştirin (hoparlör, tuş takımı , fare gibi)</translation>
+        <translation>Yakındaki aygıtları bulmak için bluetooth özelliğini etkinleştir (hoparlör, klavye, fare)</translation>
     </message>
 </context>
 <context>
@@ -5420,7 +5438,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
         <source>Cloud Sync</source>
-        <translation>Bulut Eşitleme</translation>
+        <translation>Bulut Eşitleyici</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
@@ -5555,7 +5573,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="133"/>
         <source>%1 hours later than local</source>
-        <translation>yerelden %1 saat sonra</translation>
+        <translation>Yerelden %1 saat sonra</translation>
     </message>
 </context>
 <context>
@@ -5834,12 +5852,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
         <source>Display scaling for %1</source>
-        <translation>%1 için görüntü ölçeklendirme</translation>
+        <translation>%1 için görüntü ölçeği</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
         <source>Display scaling for all monitors</source>
-        <translation>Tüm ekranlar için görüntü ölçeklendirme</translation>
+        <translation>Tüm ekranlar için görüntü ölçeği</translation>
     </message>
 </context>
 <context>
@@ -5921,7 +5939,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="121"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıklayın</translation>
+        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıkla</translation>
     </message>
 </context>
 <context>
@@ -5934,7 +5952,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="112"/>
         <source>Please enter a shortcut</source>
-        <translation>Lütfen bir kısayol yazın</translation>
+        <translation>Lütfen bir kısayol gir</translation>
     </message>
 </context>
 <context>
@@ -5963,6 +5981,16 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <source>Add Keyboard Layout</source>
         <translation>Klavye Düzeni Ekle</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="73"/>
+        <source>Cancel</source>
+        <translation>İptal</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="75"/>
+        <source>Add</source>
+        <translation>Ekle</translation>
     </message>
 </context>
 <context>
@@ -6068,7 +6096,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="92"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Değiştir üzerine tıklayın</translation>
+        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Kaydet üzerine tıkla</translation>
     </message>
 </context>
 <context>
@@ -6076,7 +6104,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="82"/>
         <source>Enter a new shortcut</source>
-        <translation>Lütfen yeni bir kısayol girin</translation>
+        <translation>Lütfen yeni bir kısayol gir</translation>
     </message>
 </context>
 <context>
@@ -6185,7 +6213,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="61"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Fare Takılıyken Dokunmatik Yüzeyi Devre Dışı Bırak</translation>
+        <translation>Fare takılıyken dokunmatik yüzeyi devre dışı bırak</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
@@ -6215,7 +6243,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
         <source>Palm Detection</source>
-        <translation>Avuç İçi Algıla</translation>
+        <translation>Avuç İçi Algılaması</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -6238,7 +6266,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="82"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation>Dokunmatik yüzey etkinleştirildikten sonra çalışmazsa seçeneği devre dışı bırakın</translation>
+        <translation>Dokunmatik yüzey çalışmazsa bu seçeneği devre dışı bırak</translation>
     </message>
 </context>
 <context>
@@ -6751,62 +6779,62 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
-        <translation>EAP Kimlik Doğrulaması Reddedilsin</translation>
+        <translation>EAP Kimlik Doğrulamasını Reddet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
-        <translation>PAP Kimlik Doğrulaması Reddedilsin</translation>
+        <translation>PAP Kimlik Doğrulamasını Reddet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>CHAP Kimlik Doğrulaması Reddedilsin</translation>
+        <translation>CHAP Kimlik Doğrulamasını Reddet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>MSCHAP Kimlik Doğrulaması Reddedilsin</translation>
+        <translation>MSCHAP Kimlik Doğrulamasını Reddet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>MSCHAPv2 Kimlik Doğrulaması Reddedilsin</translation>
+        <translation>MSCHAPv2 Kimlik Doğrulamasını Reddet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
-        <translation>BSD Veri Sıkıştırması Yapılmasın</translation>
+        <translation>BSD Veri Sıkıştırması Yapma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation>Küçültme Veri Sıkıştırması Yapılmasın</translation>
+        <translation>Veri Küçültme Sıkıştırması Yapma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
-        <translation>TCP Üst Bilgi Sıkıştırması Yapılmasın</translation>
+        <translation>TCP Üst Bilgi Sıkıştırması Yapma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
-        <translation>İletişim Kuralı Alanı Sıkıştırması Yapılmasın</translation>
+        <translation>İletişim Kuralı Alanı Sıkıştırması Yapma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation>Adres/Denetim Sıkıştırması Yapılmasın</translation>
+        <translation>Adres/Denetim Sıkıştırması Yapma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
-        <translation>PPP Echo Paketleri Gönderilsin</translation>
+        <translation>PPP Echo Paketleri Gönder</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
-        <translation>MPPE Kullanılsın</translation>
+        <translation>MPPE Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="107"/>
@@ -6870,7 +6898,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/modules/network/proxypage.cpp" line="80"/>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
-        <translation>Kapı Numarası</translation>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="73"/>
@@ -6890,7 +6918,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Yukarıdaki bilgisayar ve etki alanları için vekil sunucu yapılandırmaları yok sayılsın</translation>
+        <translation>Yukarıdaki bilgisayar ve etki alanları için vekil sunucu yapılandırmaları yoksay</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="95"/>
@@ -7167,12 +7195,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
         <source>Customize Gateway Port</source>
-        <translation>Ağ Geçidi Kapı Numarasını Özelleştir</translation>
+        <translation>Ağ Geçidi Port Özelleştir</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
         <source>Gateway Port</source>
-        <translation>Ağ Geçidi Kapı Numarası</translation>
+        <translation>Ağ Geçidi Port</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
@@ -7187,17 +7215,17 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation>LZO Veri Sıkıştırması Kullanılsın</translation>
+        <translation>LZO Veri Sıkıştırması Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation>TCP Bağlantısı Kullanılsın</translation>
+        <translation>TCP Bağlantısı Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation>TAP Aygıtı Kullanılsın</translation>
+        <translation>TAP Aygıtı Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -7222,12 +7250,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation>Tünel TCP MSS Kısıtlansın</translation>
+        <translation>Tünel TCP MSS&apos;yi Kısıtla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
         <source>Randomize Remote Hosts</source>
-        <translation>Uzak Sunucular Rastlantısal Seçilsin</translation>
+        <translation>Uzak Sunucuları Rastlantısal Seç</translation>
     </message>
 </context>
 <context>
@@ -7348,12 +7376,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
         <source>Local Port</source>
-        <translation>Yerel Kapı Numarası</translation>
+        <translation>Yerel Port</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
         <source>Disable Dead Peer Detection</source>
-        <translation>Ölü Eş Algılaması Devre Dışı Bırakılsın</translation>
+        <translation>Ölü Eş Algılamayı Devre Dışı Bırak</translation>
     </message>
 </context>
 <context>
@@ -7366,7 +7394,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
         <source>Enable IPsec</source>
-        <translation>IPsec Kullanılsın</translation>
+        <translation>IPsec Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
@@ -7424,7 +7452,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Cisco Güvenli Masaüstü Truva Atı Kullanılsın</translation>
+        <translation>Cisco Güvenli Masaüstü Trojanına İzin Ver</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
@@ -7444,7 +7472,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation>Anahtar Parolası için FSID kullanılsın</translation>
+        <translation>Anahtar Parolası için FSID kullan</translation>
     </message>
 </context>
 <context>
@@ -7474,7 +7502,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
         <source>Static Key</source>
-        <translation>Durağan Anahtar</translation>
+        <translation>Statik Anahtar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="123"/>
@@ -7529,7 +7557,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
         <source>Pwd Options</source>
-        <translation>Parola Ayarları</translation>
+        <translation>Parola Seçenekleri</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
@@ -7587,62 +7615,62 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
-        <translation>EAP Kimlik Doğrulaması Reddedilsin</translation>
+        <translation>EAP Kimlik Doğrulamasını Reddet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
-        <translation>PAP Kimlik Doğrulaması Reddedilsin</translation>
+        <translation>PAP Kimlik Doğrulamasını Reddet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>CHAP Kimlik Doğrulaması Reddedilsin</translation>
+        <translation>CHAP Kimlik Doğrulamasını Reddet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>MSCHAP Kimlik Doğrulaması Reddedilsin</translation>
+        <translation>MSCHAP Kimlik Doğrulamasını Reddet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>MSCHAPv2 Kimlik Doğrulaması Reddedilsin</translation>
+        <translation>MSCHAPv2 Kimlik Doğrulamasını Reddet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
-        <translation>BSD Veri Sıkıştırması Yapılmasın</translation>
+        <translation>BSD Veri Sıkıştırması Yapma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
-        <translation>Küçültme Veri Sıkıştırması Yapılmasın</translation>
+        <translation>Veri Küçültme Sıkıştırması Yapma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
-        <translation>TCP Üst Bilgi Sıkıştırması Yapılmasın</translation>
+        <translation>TCP Üst Bilgi Sıkıştırması Yapma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
-        <translation>İletişim Kuralı Alanı Sıkıştırması Yapılmasın</translation>
+        <translation>İletişim Kuralı Alanı Sıkıştırması Yapma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
-        <translation>Adres/Denetim Sıkıştırması Yapılmasın</translation>
+        <translation>Adres/Denetim Sıkıştırması Yapma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
-        <translation>PPP Echo Paketleri Gönderilsin</translation>
+        <translation>PPP Echo Paketleri Gönder</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
-        <translation>MPPE Kullanılsın</translation>
+        <translation>MPPE Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
@@ -7680,7 +7708,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="242"/>
         <source>Import Error</source>
-        <translation>İçe Aktarma Sorunu</translation>
+        <translation>İçe Aktarma Hatası</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="244"/>
@@ -7770,12 +7798,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="157"/>
         <source>Port</source>
-        <translation>Kapı Numarası</translation>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Başarısız Olduğunda Sınırsız Yeniden Denensin</translation>
+        <translation>Başarısız Olduğunda Sürekli Dene</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
@@ -7798,12 +7826,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation>Sertifika Uyarıları Yok Sayılsın</translation>
+        <translation>Sertifika Uyarılarını Yok Say</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation>TLS Sunucu Adı Eklentileri Kullanılsın</translation>
+        <translation>TLS Sunucu Adı Eklentileri Kullan</translation>
     </message>
 </context>
 <context>
@@ -7828,7 +7856,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
         <source>Cipher</source>
-        <translation>Şifre</translation>
+        <translation>Şifreleme</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
@@ -7851,7 +7879,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Ask</source>
-        <translation>Sorulsun</translation>
+        <translation>Sor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
@@ -7878,7 +7906,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation>Parola ayarları</translation>
+        <translation>Parola Seçenekleri</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -7906,7 +7934,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
         <source>Port</source>
-        <translation>Kapı Numarası</translation>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
@@ -8081,7 +8109,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="160"/>
         <source>Ask</source>
-        <translation>Sorulsun</translation>
+        <translation>Sor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
@@ -8111,7 +8139,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation>Parola ayarları</translation>
+        <translation>Parola Seçenekleri</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -8131,7 +8159,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Karma Kimlik Doğrulaması Kullanılsın</translation>
+        <translation>Karma Kimlik Doğrulamayı Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
@@ -8588,7 +8616,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Cloud Sync</source>
-        <translation>Bulut Eşitleme</translation>
+        <translation>Bulut Eşitleyici</translation>
     </message>
 </context>
 <context>
@@ -8644,7 +8672,6 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="50"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="140"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Telif Hakları © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
@@ -8709,6 +8736,16 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="145"/>
+        <source>Deepin Community</source>
+        <translation>Deepin Topluluğu</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="147"/>
+        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
+        <translation>Telif Hakkı© 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -8891,15 +8928,21 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="304"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Lütfen yeniden başlatmak için yeterli güce sahip olduğunuzdan emin olun ve bilgisayarınızı kapatmayın ya da fişten çekmeyin</translation>
+        <translation>Lütfen yeniden başlatmak için yeterli gücü sağlayın ve bilgisayarı kapatmayın ve fişini çekmeyin</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="166"/>
         <source>Details</source>
         <translation>Ayrıntılar</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="160"/>
+        <source>Collapse</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8922,7 +8965,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
-        <translation>Güncellemeler Otomatik İndirilsin</translation>
+        <translation>Güncellemeleri Otomatik İndir</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
@@ -8982,7 +9025,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <translation>Sistem yamaları</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="998"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="999"/>
         <source>System</source>
         <translation>Sistem</translation>
     </message>
