@@ -30,6 +30,7 @@
 #include <QPushButton>
 #include <QXmlStreamReader>
 #include <QCompleter>
+#include <QRegularExpression>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -243,6 +244,11 @@ void SearchWidget::loadxml()
     m_inputList.append(SearchDataStruct());
     m_model->appendRow(new QStandardItem(""));
 
+    auto isChineseFunc = [](const QString &str)->bool {
+        QRegularExpression rex_expression(R"(^[^a-zA-Z]+$)");
+        return rex_expression.match(str).hasMatch();
+    };
+
     if (file.exists()) {
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             QXmlStreamReader xmlRead(&file);
@@ -313,6 +319,12 @@ void SearchWidget::loadxml()
                             m_searchBoxStruct.fullPagePath = xmlRead.text().toString();
                             //follow path module name to get actual module name  ->  Left module dispaly can support mulLanguages
                             m_searchBoxStruct.actualModuleName = getModulesName(m_searchBoxStruct.fullPagePath.section('/', 1, 1));
+
+                            if (!isChineseFunc(m_searchBoxStruct.translateContent)) {
+                                if (!m_TxtList.contains(m_searchBoxStruct.translateContent) ) {
+                                    m_TxtList.append(m_searchBoxStruct.translateContent);
+                                }
+                            }
 
                             //"蓝牙","数位板"不存在则不加载该模块search数据
                             //目前只用到了模块名，未使用detail信息，之后再添加模块内区分
@@ -525,6 +537,15 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
                          Qt::UserRole);
 
         QString hanziTxt = QString("%1 --> %2").arg(data.actualModuleName).arg(data.translateContent);
+
+        for (auto datas : m_TxtList) {
+            for (int i = 0; i < datas.count(); i++) {
+                if( data.translateContent == datas){
+                    return;
+                }
+            }
+        }
+
         QString pinyinTxt = QString("%1 --> %2")
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName)))
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
