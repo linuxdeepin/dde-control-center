@@ -63,7 +63,9 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     m_model = model;
 
     m_sw->setChecked(m_model->speakerOn());
+    //连接switch点击信号，发送切换开/关扬声器的请求信号
     connect(m_sw, &SwitchWidget::checkedChanged, this, &SpeakerPage::requestSwitchSpeaker);
+    //当扬声器状态发生变化，将switch设置为对应的状态
     connect(m_model, &SoundModel::speakerOnChanged, m_sw, &SwitchWidget::setChecked);
 
     initSlider();
@@ -77,11 +79,14 @@ void SpeakerPage::initSlider()
     outputSlider->setVisible(m_model->speakerOn());
     DCCSlider *slider = outputSlider->slider();
 
+    //初始化音量设置滚动条
     slider->setRange(0, 150);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::NoTicks);
+    //从DStyle 中获取标准图标
     auto icon_low = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement);
     outputSlider->setLeftIcon(icon_low);
+    //从DStyle 中获取标准图标
     auto icon_high = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeHighElement);
     outputSlider->setRightIcon(icon_high);
     outputSlider->setIconSize(QSize(24, 24));
@@ -89,14 +94,20 @@ void SpeakerPage::initSlider()
     slider->setValue(static_cast<int>(m_model->speakerVolume() * 100.0));
     slider->setPageStep(1);
 
+    //处理滑块位置变化的槽
     auto slotfunc1 = [ = ](int pos) {
         double val = pos / 100.0;
+        //滑块位置改变时，发送设置音量的信号
         Q_EMIT requestSetSpeakerVolume(val);
     };
     outputSlider->setValueLiteral(QString::number(int(m_model->speakerVolume() * 100)) + "%");
+    //当点击滑槽时不会有，sliderMoved消息，用这个补
     connect(slider, &DCCSlider::valueChanged, slotfunc1);
+    //滑块移动消息处理
     connect(slider, &DCCSlider::sliderMoved, slotfunc1);
+    //当扬声器开/关时，显示/隐藏控件
     connect(m_model, &SoundModel::speakerOnChanged, outputSlider, &TitledSliderItem::setVisible);
+    //当底层数据改变后，更新滑动条显示的数据
     connect(m_model, &SoundModel::speakerVolumeChanged, this, [ = ](double v) {
         slider->blockSignals(true);
         slider->setValue(static_cast<int>(v * 100));
@@ -111,6 +122,7 @@ void SpeakerPage::initSlider()
     balanceSlider->addBackground();
     balanceSlider->setVisible(m_model->speakerOn());
 
+    //信号处理与上面一致
     QStringList balanceList;
     balanceList << tr("Left")<< " ";
     balanceList << tr("Right");

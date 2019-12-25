@@ -47,6 +47,11 @@ namespace DCC_NAMESPACE {
 
 namespace sound {
 
+/**
+ * 该界面类对应 控制中心-声音模块-扬声器 界面
+ * 界面包含一个 switch 控件用于 打开/关闭扬声器
+ * 包含两个 slider 控件用于 调节输出音量和左/右声道平衡
+ */
 class SpeakerPage : public QWidget
 {
     Q_OBJECT
@@ -58,16 +63,23 @@ public:
     void setModel(dcc::sound::SoundModel *model);
 
 Q_SIGNALS:
+    //发出请求切换扬声器打开/关闭的请求
     void requestSwitchSpeaker(bool isOpen);
+    //请求改变输出音量 0-1.5
     void requestSetSpeakerVolume(double val);
+    //请求改变左右平衡 0-1.5
     void requestSetSpeakerBalance(double val);
 
 private:
+    //初始化使用到的 slider 控件
     void initSlider();
 
 private:
+    //model类， 为后端数据来源及数据变化信号来源
     dcc::sound::SoundModel *m_model{nullptr};
+    //用于切换扬声器开/关的 switch
     dcc::widgets::SwitchWidget *m_sw{nullptr};
+    //界面的主layout
     QVBoxLayout *m_layout{nullptr};
 };
 
