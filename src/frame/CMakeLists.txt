@@ -204,6 +204,7 @@ set(WINDOW_FILES
     window/modules/wacom/wacommodel.cpp
     window/modules/wacom/pressuresettings.cpp
     window/modules/commoninfo/developermodewidget.cpp
+    window/modules/commoninfo/developermodedialog.cpp
      )
 
 # load interfaces

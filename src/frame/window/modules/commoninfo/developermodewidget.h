@@ -21,6 +21,7 @@
 
 #pragma once
 #include "window/namespace.h"
+#include "developermodedialog.h"
 
 #include <QWidget>
 
@@ -62,6 +63,7 @@ private:
     QPushButton *m_offlineBtn;
     CommonInfoModel *m_model{nullptr};    
     QDBusInterface *m_inter;
+    DeveloperModeDialog *m_developerModeDialog{nullptr};
 };
 }
 }

@@ -57,9 +57,39 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     dtip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     dtip->setWordWrap(true);
 
-    auto utip = new DTipLabel(tr("Developer mode needs Cloud Account login."));
-    utip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    utip->setWordWrap(true);
+//    auto utip = new DTipLabel(tr("Developer mode needs Cloud Account login."));
+//    utip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+//    utip->setWordWrap(true);
+
+    //绑定选择激活开发模式窗口
+    connect(m_devBtn, &QPushButton::clicked, [this]{
+        m_developerModeDialog = new DeveloperModeDialog;
+        m_developerModeDialog->setModel(m_model);
+
+        connect(m_developerModeDialog, &DeveloperModeDialog::requestDeveloperMode, this, &DeveloperModeWidget::enableDeveloperMode);
+        connect(m_developerModeDialog, &DeveloperModeDialog::requestLogin, this, &DeveloperModeWidget::requestLogin);
+        connect(m_developerModeDialog, &DeveloperModeDialog::requestCommit, [this](QString filePath){
+           m_inter->call("EnableDeveloperMode", filePath);
+        });
+        connect(m_developerModeDialog, &DeveloperModeDialog::requestRestart, [this]{
+            //弹窗提示重启
+            DDialog dlg("", tr("To make some features effective, a restart is required. Restart now?"));
+            dlg.addButtons({tr("Cancel"), tr("Restart Now")});
+            connect(&dlg, &DDialog::buttonClicked, this, [](int idx, QString str){
+                if (idx == 1) {
+                    DDBusSender()
+                    .service("com.deepin.SessionManager")
+                    .interface("com.deepin.SessionManager")
+                    .path("/com/deepin/SessionManager")
+                    .method("RequestReboot")
+                    .call();
+                }
+            });
+            dlg.exec();
+        });
+        m_developerModeDialog->exec();
+    });
+
 
     m_offlineBtn = new QPushButton(tr("Request Root Access") + QString("(%1)").arg(tr("offline")));
     connect(m_offlineBtn, &QPushButton::clicked, this, [this]{
@@ -75,37 +105,11 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     vBoxLayout->setContentsMargins(6, 0, 6, 0);
     vBoxLayout->addWidget(m_devBtn);
     vBoxLayout->addWidget(dtip);
-    vBoxLayout->addWidget(utip);
+//    vBoxLayout->addWidget(utip);
     vBoxLayout->addStretch();
-    vBoxLayout->addWidget(m_offlineBtn, 0, Qt::AlignBottom);
+//    vBoxLayout->addWidget(m_offlineBtn, 0, Qt::AlignBottom);
     setLayout(vBoxLayout);
 
-    connect(m_devBtn, &QPushButton::clicked, this, [this]{
-        Q_ASSERT(m_model);
-        auto requestDev = [this]{
-            qDebug() << "click btn and status :" << m_devBtn->isEnabled();
-            m_devBtn->clearFocus();
-            m_devBtn->setEnabled(false);
-            //防止出现弹窗时可以再次点击按钮
-            QTimer::singleShot(100, this, [this]{
-                Q_EMIT enableDeveloperMode(true);
-            });
-        };
-
-        if (!m_model->isLogin()) {
-            m_enterDev = true;
-            Q_EMIT requestLogin();
-            connect(m_model, &CommonInfoModel::isLoginChenged, this, [requestDev, this](bool log){
-                if (!log || !m_enterDev)
-                    return;
-
-                requestDev();
-                m_enterDev = false;
-            });
-        } else {
-            requestDev();
-        }
-    });
 }
 
 void DeveloperModeWidget::setModel(CommonInfoModel *model)
@@ -121,7 +125,7 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
             return;
 
         //弹窗提示重启
-        DDialog dlg("", tr("To make it effective, a restart is required. Restart now?"));
+        DDialog dlg("", tr("To make some features effective, a restart is required. Restart now?"));
         dlg.addButtons({tr("Cancel"), tr("Restart Now")});
         connect(&dlg, &DDialog::buttonClicked, this, [](int idx, QString str){
             if (idx == 1) {
@@ -154,9 +158,9 @@ void DeveloperModeWidget::updateDeveloperModeState(const bool state)
         m_devBtn->setEnabled(false);
         m_devBtn->setText(tr("Root Access Allowed"));
 
-        m_offlineBtn->clearFocus();
-        m_offlineBtn->setEnabled(false);
-        m_offlineBtn->setText(tr("Root Access Allowed"));
+//        m_offlineBtn->clearFocus();
+//        m_offlineBtn->setEnabled(false);
+//        m_offlineBtn->setText(tr("Root Access Allowed"));
     } else {
         m_devBtn->setEnabled(true);
         m_devBtn->setText(tr("Request Root Access"));
