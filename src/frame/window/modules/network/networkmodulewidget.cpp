@@ -52,6 +52,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     setObjectName("Network");
     m_lvnmpages->setFrameShape(QFrame::NoFrame);
     m_lvnmpages->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_lvnmpages->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_lvnmpages->setModel(m_modelpages);
 
     m_centralLayout = new QVBoxLayout();
