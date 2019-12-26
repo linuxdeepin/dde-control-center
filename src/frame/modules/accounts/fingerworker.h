@@ -65,7 +65,7 @@ private Q_SLOTS:
     void onEnrollStatus(const QString &value, const bool status);
     bool recordFinger(const QString &name, const QString &thumb);
     bool reRecordFinger(const QString &thumb);
-    void saveFinger();
+    void releaseEnroll();
     bool cleanFinger(const QString &name);
     void onHandleDevicesChanged(const QList<QDBusObjectPath> &value);
 

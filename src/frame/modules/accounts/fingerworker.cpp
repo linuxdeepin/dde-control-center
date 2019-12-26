@@ -108,24 +108,17 @@ void FingerWorker::cleanEnroll(User *user)
 
 void FingerWorker::saveEnroll(const QString &name)
 {
-    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
-    connect(watcher, &QFutureWatcher<void>::finished, [this, watcher, name] {
-        qDebug() << "saveEnroll: " << name;
-        refreshUserEnrollList(name);
-        m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-
-        watcher->deleteLater();
-    });
-
-    QFuture<void> future = QtConcurrent::run(this, &FingerWorker::saveFinger);
-    watcher->setFuture(future);
+    //当指纹输入完成后，点击完成然后刷新列表，不用停止和释放，会在closeEvent事件中操作
+    qDebug() << "saveEnroll: " << name;
+    refreshUserEnrollList(name);
+    m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
 }
 
 void FingerWorker::stopEnroll()
 {
     QFutureWatcher<void> watcher(this);
 
-    QFuture<void> future = QtConcurrent::run(this, &FingerWorker::saveFinger);
+    QFuture<void> future = QtConcurrent::run(this, &FingerWorker::releaseEnroll);
     watcher.setFuture(future);
 }
 
@@ -241,7 +234,7 @@ bool FingerWorker::reRecordFinger(const QString &thumb)
     return true;
 }
 
-void FingerWorker::saveFinger()
+void FingerWorker::releaseEnroll()
 {
     QDBusPendingCall call = m_fprDefaultInter->EnrollStop();
     call.waitForFinished();
