@@ -350,7 +350,7 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
             m_powerTip->setText(tr("Please ensure sufficient power to restart, and don't power off or unplug your machine"));
         }
 
-        m_progress->setDisabled(lowBattery);
+        m_fullProcess->setDisabled(lowBattery);
         m_powerTip->setVisible(lowBattery);
     }
 }

@@ -1025,7 +1025,7 @@ set(UPDATE_FILES
 #                modules/update/mirroritem.h
 #                modules/update/mirrorswidget.cpp
 #                modules/update/mirrorswidget.h
-                modules/update/updatectrlwidget.cpp
+#                modules/update/updatectrlwidget.cpp
 #                modules/update/updatectrlwidget.h
                 modules/update/updatemodel.cpp
 #                modules/update/updatemodel.h
