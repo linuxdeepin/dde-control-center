@@ -51,12 +51,14 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     systemHead->setEditEnable(false);
     systemHead->setTitle(tr("System"));
     m_systemGroup = new SettingsGroup();
+    m_systemGroup->getLayout()->setMargin(0);
     m_systemGroup->appendItem(systemHead, SettingsGroup::NoneBackground);
 
     SettingsHead *windowHead = new SettingsHead();
     windowHead->setEditEnable(false);
     windowHead->setTitle(tr("Window"));
     m_windowGroup = new SettingsGroup();
+    m_windowGroup->getLayout()->setMargin(0);
     m_windowGroup->appendItem(windowHead, SettingsGroup::NoneBackground);
 
     SettingsHead *workspaceHead = new SettingsHead();
@@ -74,6 +76,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
     m_searchInput = new SearchInput();
+    m_searchInput->setContentsMargins(0, 0, 0, 0);
 
     m_head = new SettingsHead();
     m_head->setEditEnable(true);
@@ -82,8 +85,8 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_customGroup->appendItem(m_head, SettingsGroup::NoneBackground);
 
     QVBoxLayout *vlayout = new QVBoxLayout();
-
     QHBoxLayout *topLayout = new QHBoxLayout;
+    topLayout->setMargin(0);
     topLayout->setAlignment(Qt::AlignTop);
     topLayout->addSpacing(10);
     topLayout->addWidget(m_searchInput);
@@ -95,6 +98,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     //vlayout->addSpacing(10);
 
     m_layout = new QVBoxLayout;
+    m_layout->setMargin(0);
     m_layout->addWidget(m_systemGroup);
     m_layout->addSpacing(List_Interval);
     m_layout->addWidget(m_windowGroup);
@@ -106,7 +110,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_customGroup);
 
     m_resetBtn = new QPushButton(tr("Restore Defaults"));
-    m_layout->setMargin(10);
+    //m_layout->setMargin(10);
     m_layout->addWidget(m_resetBtn);
     m_layout->addSpacing(10);
     m_layout->addStretch();
@@ -120,6 +124,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_addCustomShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, this);
 
     QHBoxLayout *btnLayout = new QHBoxLayout;
+    btnLayout->setMargin(0);
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(m_addCustomShortcut);
     vlayout->addLayout(btnLayout);

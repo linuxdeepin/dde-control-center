@@ -52,6 +52,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
 
     auto contentWidget = new QWidget;
     auto contentLayout = new QVBoxLayout;
+    contentLayout->setMargin(0);
     contentWidget->setLayout(contentLayout);
     scrollarea->setWidget(contentWidget);
 

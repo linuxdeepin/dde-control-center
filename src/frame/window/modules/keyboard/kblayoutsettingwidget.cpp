@@ -49,7 +49,9 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     , m_switchLayoutListView(new DListView())
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
+    mainLayout->setMargin(0);
     QHBoxLayout *headLayout = new QHBoxLayout();
+    headLayout->setMargin(0);
     TitleLabel *headTitle = new TitleLabel(tr("Keyboard Layout"));
     headLayout->addWidget(headTitle);
     headLayout->addStretch();
@@ -110,10 +112,12 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     contentWidget->setContent(widget);
 
     QVBoxLayout *vLayout = new QVBoxLayout();
+    vLayout->setMargin(0);//
     vLayout->addWidget(contentWidget);
 
     DFloatingButton *addLayout = new DFloatingButton(DStyle::SP_IncreaseElement, this);
     QHBoxLayout *btnLayout = new QHBoxLayout;
+    btnLayout->setMargin(0);//
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(addLayout);
     vLayout->addLayout(btnLayout);
