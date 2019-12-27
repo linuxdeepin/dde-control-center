@@ -58,7 +58,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setEntryList(const QStringList &list);
-    void onCurrentItem(const QModelIndex &previousIdx);
+    void onCurrentItem(const QModelIndex &curIndex);
 
 private:
     QString m_defaultEntry;                      // 默认启动项
@@ -70,6 +70,8 @@ private:
     dcc::widgets::TipsLabel *m_updatingLabel;    // Updating标签
     CommonBackgroundItem *m_background;          // 背景项
     QVBoxLayout *m_listLayout;
+    QModelIndex m_curSelectedIndex;
+    QStandardItemModel *m_bootItemModel;
 };
 
 } // namespace commoninfo
