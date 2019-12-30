@@ -168,7 +168,7 @@ void VpnPage::refreshVpnList(const QList<QJsonObject> &vpnList)
         it->setText(vpn.value("Id").toString());
         it->setData(QVariant::fromValue(vpn), VpnInfoRole);
 
-        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
+        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(30, 30), QSize(), true);//oldsize 11,11
         QStyleOption opt;
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
         editaction->setClickAreaMargins(ArrowEnterClickMargin);

@@ -151,7 +151,7 @@ void MultiScreenSettingPage::initModeList()
         item->setIcon(QIcon::fromTheme(iconList[idx]));
         item->setText(titleList[idx]);
 
-        auto *subTitleAction = new DViewItemAction;
+        auto *subTitleAction = new DViewItemAction(Qt::Alignment(), QSize(30, 30), QSize(), false);
         subTitleAction->setText(subTitleList[idx]);
         subTitleAction->setFontSize(DFontSizeManager::T6);
         subTitleAction->setTextColorRole(DPalette::TextTips);

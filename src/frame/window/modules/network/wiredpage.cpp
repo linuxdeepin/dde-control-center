@@ -172,7 +172,7 @@ void WiredPage::refreshConnectionList()
         it->setCheckable(false);
         it->setCheckState(path == m_device->activeWiredConnSettingPath() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
 
-        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
+        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(30, 30), QSize(), true);//oldsize 11,11
         QStyleOption opt;
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
         editaction->setClickAreaMargins(ArrowEnterClickMargin);

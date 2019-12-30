@@ -351,10 +351,10 @@ void CustomSettingDialog::initMoniList()
         item->setIcon(QIcon::fromTheme(idx % 2 ? "dcc_display_vga1" : "dcc_display_lvds1"));
 
         auto moni = moniList[idx];
-        auto *titleAction = new DViewItemAction;
+        auto *titleAction = new DViewItemAction(Qt::Alignment(), QSize(30, 30), QSize(), false);
         titleAction->setText(moni->name());
 
-        auto *subTitleAction = new DViewItemAction;
+        auto *subTitleAction = new DViewItemAction(Qt::Alignment(), QSize(30, 30), QSize(), false);
         QString str = QString("%1 %2 ").arg(moni->w()).arg(tr("inch"));
         str += (tr("Resolution %1x%2").arg(QString::number(moni->w())).arg(QString::number(moni->h())));
         subTitleAction->setText(str);

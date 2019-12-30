@@ -121,7 +121,7 @@ void PerssonalizationThemeList::onSetPic(const QString &id, const QString &picPa
 
         DViewItemActionList list;
         QPixmap pxmap = QPixmap(picPath);
-        DViewItemAction *iconAction = new DViewItemAction(Qt::AlignLeft, pxmap.size() / devicePixelRatioF());
+        DViewItemAction *iconAction = new DViewItemAction(Qt::AlignLeft, pxmap.size() / devicePixelRatioF());//oldsize pxmap.size() / devicePixelRatioF()
         iconAction->setIcon(QIcon(pxmap));
         list << iconAction;
         item->setActionList(Qt::BottomEdge, list);
