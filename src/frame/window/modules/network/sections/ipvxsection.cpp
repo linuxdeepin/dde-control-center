@@ -572,6 +572,9 @@ bool IpvxSection::isIpv6Address(const QString &ip)
             || ipAddr.protocol() != QAbstractSocket::NetworkLayerProtocol::IPv6Protocol) {
         return false;
     }
+    if (ip == "::1") {
+        return false;
+    }
     return true;
 }
 
