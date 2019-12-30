@@ -54,7 +54,7 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
     const auto ratio = devicePixelRatioF();
 
     m_avatarPath = avatar;
-    m_avatar = QPixmap(avatar).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    m_avatar = QPixmap(avatar).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
     m_avatar.setDevicePixelRatio(ratio);
 
     setAccessibleName(m_avatarPath);

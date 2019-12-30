@@ -59,7 +59,7 @@ RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent) :
 
     const auto ratio = devicePixelRatioF();
     const QString iconFile = QUrl(user->currentAvatar()).toLocalFile();
-    const QPixmap pix = QPixmap(iconFile).scaled(48 * ratio, 48 * ratio, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    const QPixmap pix = QPixmap(iconFile).scaled(48 * ratio, 48 * ratio, Qt::IgnoreAspectRatio, Qt::FastTransformation);
     QPixmap p = RoundPixmap(pix);
     p.setDevicePixelRatio(ratio);
     setIconPixmap(p);

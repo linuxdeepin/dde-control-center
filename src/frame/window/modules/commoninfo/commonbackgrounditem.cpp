@@ -169,7 +169,7 @@ void CommonBackgroundItem::updateBackground(const QPixmap &pixmap)
     auto ratio = devicePixelRatioF();
     m_background = m_basePixmap.scaled(size() * ratio,
                                        Qt::IgnoreAspectRatio,
-                                       Qt::SmoothTransformation);
+                                       Qt::FastTransformation);
     m_background.setDevicePixelRatio(ratio);
     update();
 }

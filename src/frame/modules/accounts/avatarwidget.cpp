@@ -108,7 +108,7 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
         url = QUrl(avatar);
 
     m_avatarPath = url.toString();
-    m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
     m_avatar.setDevicePixelRatio(ratio);
 
     setAccessibleName(m_avatarPath);
@@ -222,7 +222,7 @@ void AvatarWidget::resizeEvent(QResizeEvent *event)
     const auto ratio = devicePixelRatioF();
 
     QUrl url(m_avatarPath);
-    m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
     m_avatar.setDevicePixelRatio(ratio);
 
     update();

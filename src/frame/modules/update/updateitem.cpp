@@ -187,13 +187,13 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
     if (file.exists())
         pix = loadPixmap(m_info.m_icon).scaled(m_appIcon->size() * ratio,
                                                Qt::KeepAspectRatioByExpanding,
-                                               Qt::SmoothTransformation);
+                                               Qt::FastTransformation);
     else {
         pix = QIcon::fromTheme(m_info.m_packageId, QIcon::fromTheme("application-x-desktop"))
                 .pixmap(m_appIcon->size() * ratio)
                 .scaled(m_appIcon->size() * ratio,
                         Qt::KeepAspectRatioByExpanding,
-                        Qt::SmoothTransformation);
+                        Qt::FastTransformation);
         pix.setDevicePixelRatio(ratio);
     }
 

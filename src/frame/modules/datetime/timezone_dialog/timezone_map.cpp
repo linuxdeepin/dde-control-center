@@ -127,7 +127,7 @@ void TimezoneMap::resizeEvent(QResizeEvent* event) {
   QLabel *background_label = findChild<QLabel*>("background_label");
   if (background_label) {
       QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile);
-      background_label->setPixmap(timezone_pixmap.scaled(event->size() * devicePixelRatioF(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+      background_label->setPixmap(timezone_pixmap.scaled(event->size() * devicePixelRatioF(), Qt::KeepAspectRatio, Qt::FastTransformation));
   }
 
   QWidget::resizeEvent(event);

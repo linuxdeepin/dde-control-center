@@ -51,7 +51,7 @@ void UserOptionItem::setAvatar(const QString &avatar)
     const QSize s = m_avatarLabel->size() * devicePixelRatioF();
 
     const QUrl url(avatar);
-    QPixmap pixmap = QPixmap(url.toLocalFile()).scaled(s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    QPixmap pixmap = QPixmap(url.toLocalFile()).scaled(s, Qt::KeepAspectRatio, Qt::FastTransformation);
 
     QPixmap pic(s);
     pic.fill(Qt::transparent);

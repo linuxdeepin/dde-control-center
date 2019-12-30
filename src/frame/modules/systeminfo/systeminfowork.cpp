@@ -259,7 +259,7 @@ void SystemInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
         const qreal ratio = qApp->devicePixelRatio();
 
         QPixmap pix = QPixmap(reply.value()).scaled(QSize(ItemWidth * ratio, ItemHeight * ratio),
-                                                    Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+                                                    Qt::KeepAspectRatioByExpanding, Qt::FastTransformation);
 
         const QRect r(0, 0, ItemWidth * ratio, ItemHeight * ratio);
         const QSize size(ItemWidth * ratio, ItemHeight * ratio);

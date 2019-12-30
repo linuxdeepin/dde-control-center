@@ -202,7 +202,7 @@ void AvatarListWidget::addItemFromDefaultDir()
             iconpath.replace("icons/", "icons/bigger/");
         }
         auto px = QPixmap(iconpath).scaled(QSize(74, 74) * ratio,
-                                           Qt::KeepAspectRatio, Qt::SmoothTransformation);
+                                           Qt::KeepAspectRatio, Qt::FastTransformation);
         px.setDevicePixelRatio(ratio);
 
         qDebug() << "add avatar item with path :" << iconpath;

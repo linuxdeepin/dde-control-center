@@ -100,7 +100,7 @@ void OptionWidget::setItem(const App &item)
 
     QPixmap pixmap = icon.pixmap(16 * ratio, 16 * ratio).scaled(16 * ratio, 16 * ratio,
                                                                 Qt::KeepAspectRatioByExpanding,
-                                                                Qt::SmoothTransformation);
+                                                                Qt::FastTransformation);
 
     pixmap.setDevicePixelRatio(ratio);
 
