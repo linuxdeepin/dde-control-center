@@ -54,6 +54,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     , m_bIsChinese(false)
     , m_searchValue("")
     , m_bIstextEdited(false)
+    , m_speechState(false)
 {
     m_model = new QStandardItemModel(this);
     m_completer = new ddeCompleter(m_model, this);
@@ -96,7 +97,6 @@ SearchWidget::SearchWidget(QWidget *parent)
         m_defaultRemoveableList << data.second;
     }
 
-    //直接调用setText不会发送该信号，故用该信号区分①输入框输入②外部使用setText输入
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textEdited, this, [ = ] {
         //m_bIstextEdited，　true : 用户输入　，　false : 直接调用setText
         //text(). ""　：　表示使用清除按钮删除数据，发送的信号；　非空　：　表示用户输入数据发送的信号
@@ -107,39 +107,72 @@ SearchWidget::SearchWidget(QWidget *parent)
         }
     });
 
-    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, [ = ] {
-        QString retValue = text();
-
-        //用户输入的时候，还是按直接设置setText流程运行(旧的流程)
-        //外部调用setText的时候，需要先对setText的内容进行解析，解析获取对应的存在数据
-        if (m_bIstextEdited) {
-            m_bIstextEdited = false;
-            //解决无法在已经输入数据前面输入数据,但是目前不清楚外部调用会出现什么问题,暂时注释代码
-//            this->setText(transPinyinToChinese(retValue));
-            return ;
-        }
-
-        //避免输入单个字符，直接匹配到第一个完整字符(导致不能匹配正确的字符)
-        if ("" == retValue || m_searchValue.contains(retValue, Qt::CaseInsensitive)) {
-            m_searchValue = retValue;
-            return ;
-        }
-
-        retValue = transPinyinToChinese(text());
-
-        //拼音转化没找到，再搜索字符包含关联字符
-        if (retValue == text()) {
-            retValue = containTxtData(retValue);
-        }
-
-        m_searchValue = retValue;
-
-        //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
-        Q_EMIT focusChanged(true);
-        this->setText(retValue);
+    //直接调用setText不会发送该信号，故用该信号区分①输入框输入②外部使用setText输入
+    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::voiceChanged, this, [ = ] {
+        m_speechState = isVoiceInput();
     });
 
+    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::voiceInputFinished, this, [ = ] {
+        QString retValue = text();
+
+        if (m_speechState) {
+            //避免输入单个字符，直接匹配到第一个完整字符(导致不能匹配正确的字符)
+            if ("" == retValue || m_searchValue.contains(retValue, Qt::CaseInsensitive)) {
+                m_searchValue = retValue;
+                return ;
+            }
+
+            retValue = transPinyinToChinese(text());
+
+            //拼音转化没找到，再搜索字符包含关联字符
+            if (retValue == text()) {
+                retValue = containTxtData(retValue);
+            }
+
+            m_searchValue = retValue;
+            //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
+            Q_EMIT focusChanged(true);
+            this->setText(retValue);
+        }
+  });
+
+    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, [ = ] {
+        QString retValue = text();
+        if (false == m_speechState) {
+            //用户输入的时候，还是按直接设置setText流程运行(旧的流程)
+            //外部调用setText的时候，需要先对setText的内容进行解析，解析获取对应的存在数据
+            if (m_bIstextEdited) {
+                m_bIstextEdited = false;
+                //解决无法在已经输入数据前面输入数据,但是目前不清楚外部调用会出现什么问题,暂时注释代码
+    //            this->setText(transPinyinToChinese(retValue));
+                return ;
+            }
+
+            //避免输入单个字符，直接匹配到第一个完整字符(导致不能匹配正确的字符)
+            if ("" == retValue || m_searchValue.contains(retValue, Qt::CaseInsensitive)) {
+                m_searchValue = retValue;
+                return ;
+            }
+
+            retValue = transPinyinToChinese(text());
+
+            //拼音转化没找到，再搜索字符包含关联字符
+            if (retValue == text()) {
+                retValue = containTxtData(retValue);
+            }
+
+            m_searchValue = retValue;
+
+            //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
+            Q_EMIT focusChanged(true);
+            this->setText(retValue);
+        }
+    });
+
+
+
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [ = ] {
+
         if (!text().isEmpty()) {
             //enter defalt set first
             if (!jumpContentPathWidget(text())) {
