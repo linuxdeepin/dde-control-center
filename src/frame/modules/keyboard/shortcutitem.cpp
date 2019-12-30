@@ -53,7 +53,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     m_title = new QLabel();
     m_title->setText("");
     m_title->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-    m_title->setWordWrap(true);
+    m_title->setWordWrap(false);
     m_title->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
     layout->addWidget(m_title);
@@ -147,11 +147,11 @@ void ShortcutItem::updateTitleSize()
     int v = width() - m_key->width() - 32;
 
     if (m_title->fontMetrics().width(m_title->text()) > v) {
-        m_title->setFixedWidth(v / 2);
         QFontMetrics fontWidth(m_title->font());
         QString elideNote = fontWidth.elidedText(m_title->text(), Qt::ElideRight, v / 2);
         m_title->setText(elideNote);
     }
+
 }
 
 void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
@@ -169,4 +169,20 @@ void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
         m_shortcutEdit->hide();
         m_key->show();
     }
+}
+
+void ShortcutItem::resizeEvent(QResizeEvent *event)
+{
+    QFrame::resizeEvent(event);
+
+    int v = width() - m_key->width() - 32;
+
+    if (m_title->fontMetrics().width(m_title->text()) <= v) {
+        QTimer::singleShot(0, this, [=](){
+            m_title->setText(m_info->name);
+        });
+    } else {
+        QTimer::singleShot(0, this, &ShortcutItem::updateTitleSize);
+    }
+
 }
