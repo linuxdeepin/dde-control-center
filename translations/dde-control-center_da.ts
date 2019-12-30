@@ -23,108 +23,108 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="152"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="153"/>
         <source>Help</source>
         <translation>Hjælp</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="287"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="288"/>
         <source>Account</source>
         <translation>Konto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="289"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="290"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>Skykonto</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="290"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="291"/>
         <source>Display</source>
         <translation>Skærm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="291"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="292"/>
         <source>Default Applications</source>
         <translation>Standardprogrammer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="292"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="293"/>
         <source>Personalization</source>
         <translation>Personlig tilpasning</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="293"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
         <source>Network</source>
         <translation>Netværk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="295"/>
         <source>Sound</source>
         <translation>Lyd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="295"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="727"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="729"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="738"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="740"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="297"/>
         <source>Date and Time</source>
         <translation>Dato og tid</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="297"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="298"/>
         <source>Power</source>
         <translation>Strøm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="298"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="299"/>
         <source>Mouse</source>
         <translation>Mus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="299"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="739"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="741"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="300"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="750"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="752"/>
         <source>Drawing Tablet</source>
         <translation>Tegneplade</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="300"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="301"/>
         <source>Keyboard and Language</source>
         <translation>Tastatur og sprog</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="301"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="302"/>
         <source>Update</source>
         <translation>Opdatering</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="302"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="303"/>
         <source>System Info</source>
         <translation>Systeminfo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="303"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="304"/>
         <source>General Settings</source>
         <translation>Generelle indstillinger</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>TrackPoint</source>
         <translation>Trackpoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="751"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="753"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="762"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="764"/>
         <source>Cloud Sync</source>
         <translation>Skysynkronisering</translation>
     </message>
@@ -140,12 +140,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="227"/>
         <source>The full name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Det fulde navn findes allerede</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
         <source>Date Expired (Days)</source>
-        <translation type="unfinished"/>
+        <translation>Udløbsdata (dage)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="297"/>
@@ -205,7 +205,7 @@
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="131"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="141"/>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Standardbruger</translation>
     </message>
 </context>
 <context>
@@ -343,7 +343,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>The full name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Det fulde navn findes allerede</translation>
     </message>
 </context>
 <context>
@@ -488,34 +488,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="78"/>
         <source>Updating...</source>
         <translation>Opdaterer...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
         <source>Startup Delay</source>
         <translation>Opstartsforsinkelse</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
         <source>Theme</source>
         <translation>Tema</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>Klik på valgmuligheden i opstartsmenuen for at indstille den som den første opstart, og trække og slippe et billede, for at skifte baggrunden</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="105"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>Slå tema til for at vise den i opstartsmenuen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="129"/>
         <source>Boot Menu</source>
         <translation>Opstartsmenu</translation>
     </message>
@@ -537,7 +537,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="77"/>
         <source> (Beta)</source>
-        <translation type="unfinished"/>
+        <translation> (beta)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="81"/>
@@ -579,7 +579,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="55"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="64"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="162"/>
         <source>Request Root Access</source>
         <translation type="unfinished"/>
     </message>
@@ -596,26 +596,26 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="64"/>
         <source>offline</source>
-        <translation type="unfinished"/>
+        <translation>offline</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="124"/>
         <source>To make it effective, a restart is required. Restart now?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="125"/>
         <source>Cancel</source>
         <translation>Annuller</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="125"/>
         <source>Restart Now</source>
         <translation>Genstart nu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="158"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="159"/>
         <source>Root Access Allowed</source>
         <translation type="unfinished"/>
     </message>
@@ -630,8 +630,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
-        <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
-        <translation>Se venligst artikel 10~13 i slutbrugerlicensaftalen for vilkårene for brugeroplevelsesprogrammet.</translation>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://openapi.chinauos.com/agreement/).</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1148,39 +1148,39 @@
 <context>
     <name>dccV20::keyboard::KBLayoutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="55"/>
         <source>Keyboard Layout</source>
         <translation>Tastaturlayout</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="56"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="193"/>
         <source>Edit</source>
         <translation>Rediger</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="74"/>
         <source>Switch Layouts (Multiple)</source>
         <translation>Skift layouts (flere)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="102"/>
         <source>Applies to</source>
         <translation>Gælder for</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="104"/>
         <source>System</source>
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="104"/>
         <source>Application</source>
         <translation>Program</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="173"/>
         <source>Done</source>
         <translation>Færdig</translation>
     </message>
@@ -1227,32 +1227,32 @@
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="59"/>
         <source>Window</source>
         <translation>Vindue</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
         <source>Workspace</source>
         <translation>Arbejdsområde</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="71"/>
         <source>Speech</source>
         <translation>Tale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="84"/>
         <source>Custom Shortcut</source>
         <translation>Brugerdefineret genvej</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="112"/>
         <source>Restore Defaults</source>
         <translation>Gendan standarder</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="138"/>
         <source>Shortcut</source>
         <translation>Genvej</translation>
     </message>
@@ -1279,18 +1279,18 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
         <translation>Sprogliste</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="143"/>
         <source>Edit</source>
         <translation>Rediger</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="123"/>
         <source>Done</source>
         <translation>Færdig</translation>
     </message>
@@ -1923,78 +1923,78 @@
 <context>
     <name>dccV20::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="66"/>
         <source>DSL</source>
         <translation>DSL</translation>
         <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="74"/>
         <source>VPN</source>
         <translation>VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="82"/>
         <source>System Proxy</source>
         <translation>Systemproxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="88"/>
         <source>Application Proxy</source>
         <translation>Programproxy</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="96"/>
         <source>Network Details</source>
         <translation>Netværksdetaljer</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="139"/>
         <source>Configure by Network Manager</source>
         <translation>Konfigurer med netværkshåndtering</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="283"/>
         <source>Personal Hotspot</source>
         <translation>Personligt hotspot</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="298"/>
         <source>Wired Network %1</source>
         <translation>Kablet netværk %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="301"/>
         <source>Wired Network</source>
         <translation>Kablet netværk</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="305"/>
         <source>Wireless Network %1</source>
         <translation>Trådløst netværk %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="308"/>
         <source>Wireless Network</source>
         <translation>Trådløst netværk</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="323"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="330"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="341"/>
         <source>Disabled</source>
         <translation>Deaktiveret</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="350"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="357"/>
         <source>Disconnected</source>
         <translation>Afbrudt</translation>
     </message>
@@ -3891,17 +3891,17 @@
 <context>
     <name>dccV20::sound::AdvancedPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="64"/>
         <source>Output</source>
         <translation>Output</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="86"/>
         <source>Input</source>
         <translation>Input</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="138"/>
         <source>Sound Card:</source>
         <translation>Lydkort:</translation>
     </message>
@@ -3968,24 +3968,24 @@
         <translation>Højttaler</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="77"/>
         <source>Output Volume</source>
         <translation>Lydstyrke (output)</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="121"/>
         <source>Left/Right Balance</source>
         <translation>Balance for venstre/højre</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="127"/>
         <source>Left</source>
         <translation>Venstre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="128"/>
         <source>Right</source>
         <translation>Højre</translation>
     </message>
@@ -4089,7 +4089,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Cloud Account Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Indlogning for skykonto</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
@@ -4113,45 +4113,90 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="66"/>
         <source>Edition:</source>
         <translation>Udgave:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="70"/>
         <source>Type:</source>
         <translation>Type:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="73"/>
+        <source>Authorization</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="158"/>
+        <source>To be activated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="172"/>
+        <source>Activate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="80"/>
         <source>Kernel:</source>
         <translation>Kerne:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="85"/>
         <source>Processor:</source>
         <translation>Processor:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="90"/>
         <source>Memory:</source>
         <translation>Hukommelse:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="95"/>
         <source>Disk:</source>
         <translation>Disk:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="133"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="154"/>
+        <source>Activated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="164"/>
+        <source>View</source>
+        <translation>Vis</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="162"/>
+        <source>Expired</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="166"/>
+        <source>Mid trial</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="170"/>
+        <source>Trial period has expired</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8738,14 +8783,14 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <translation>%1Bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
         <source>Deepin Community</source>
         <translation>Deepin-fællesskab</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="185"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>Ophavsret© 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -8942,7 +8987,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="160"/>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>Sammenfold</translation>
     </message>
 </context>
 <context>
