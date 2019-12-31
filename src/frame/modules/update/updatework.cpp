@@ -324,6 +324,9 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
             ddeUpdateInfo.m_avilableVersion = tr("Patches");
             ddeUpdateInfo.m_changelog = tr("System patches");
         }
+        //app updates are not displayed
+        infos.clear();
+
         infos.prepend(ddeUpdateInfo);
     }
 
