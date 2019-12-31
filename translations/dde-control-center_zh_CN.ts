@@ -580,6 +580,60 @@
     </message>
 </context>
 <context>
+    <name>dccV20::commoninfo::DeveloperModeDialog</name>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="55"/>
+        <source>Request Root Access</source>
+        <translation>开发者模式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="64"/>
+        <source>Online</source>
+        <translation>在线</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="65"/>
+        <source>Offline</source>
+        <translation>离线</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="104"/>
+        <source>Please sign in to your cloud account first and continue</source>
+	<translation type="unfinished">进入开发者模式需要进入网络账户</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="83"/>
+        <source>Next</source>
+        <translation type="unfinished">下一步</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="87"/>
+        <source>Export PC Info</source>
+        <translation type="unfinished">导出机器信息</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="88"/>
+        <source>Import Certificate</source>
+        <translation type="unfinished">导入证书</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="110"/>
+        <source>1. Export your PC information</source>
+        <translation type="unfinished">1.导出机器信息</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="111"/>
+        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
+        <translation type="unfinished">2.前往https://www.chinauos.com/developMode下载离线证书</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="112"/>
+        <source>3. Import the certificate</source>
+        <translation type="unfinished">导入证书</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="55"/>

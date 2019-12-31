@@ -63,15 +63,15 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
 
     //绑定选择激活开发模式窗口
     connect(m_devBtn, &QPushButton::clicked, [this]{
-        m_developerModeDialog = new DeveloperModeDialog;
-        m_developerModeDialog->setModel(m_model);
+        auto devDlg = new DeveloperModeDialog;
+        devDlg->setModel(m_model);
 
-        connect(m_developerModeDialog, &DeveloperModeDialog::requestDeveloperMode, this, &DeveloperModeWidget::enableDeveloperMode);
-        connect(m_developerModeDialog, &DeveloperModeDialog::requestLogin, this, &DeveloperModeWidget::requestLogin);
-        connect(m_developerModeDialog, &DeveloperModeDialog::requestCommit, [this](QString filePath){
+        connect(devDlg, &DeveloperModeDialog::requestDeveloperMode, this, &DeveloperModeWidget::enableDeveloperMode);
+        connect(devDlg, &DeveloperModeDialog::requestLogin, this, &DeveloperModeWidget::requestLogin);
+        connect(devDlg, &DeveloperModeDialog::requestCommit, [this](QString filePath){
            m_inter->call("EnableDeveloperMode", filePath);
         });
-        connect(m_developerModeDialog, &DeveloperModeDialog::requestRestart, [this]{
+        connect(devDlg, &DeveloperModeDialog::requestRestart, [this]{
             //弹窗提示重启
             DDialog dlg("", tr("To make some features effective, a restart is required. Restart now?"));
             dlg.addButtons({tr("Cancel"), tr("Restart Now")});
@@ -87,7 +87,8 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
             });
             dlg.exec();
         });
-        m_developerModeDialog->exec();
+        devDlg->exec();
+        devDlg->deleteLater();
     });
 
 
