@@ -355,6 +355,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     autoLogin->setEnabled(isCurUser);
     nopasswdLogin->setEnabled(isCurUser);
 
+    //服务器版本不显示自动登录，无密码登录
+    autoLogin->setVisible(!isServerSystem());
+    nopasswdLogin->setVisible(!isServerSystem());
+
     //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
     //~ contents_path /accounts/Accounts Detail
