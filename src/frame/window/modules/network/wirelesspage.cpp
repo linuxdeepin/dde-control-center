@@ -65,7 +65,7 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
     setCheckable(false);
 
-    m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(30, 30), QSize(), false);//oldsize 11,11
+    m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(11, 11), QSize(), false);
     m_secureAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_LockElement, nullptr, nullptr));
     m_secureAction->setVisible(false);
     setActionList(Qt::Edge::LeftEdge, { m_secureAction });
@@ -79,7 +79,7 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
         m_loadingIndicator->setParent(parent->viewport());
     }
 
-    m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(30, 30), QSize(), true);//oldsize 11,11
+    m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
     QStyleOption opt;
     m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
     m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);
@@ -184,7 +184,7 @@ bool APItem::setLoading(bool isLoading)
         if (!m_arrowAction.isNull()) {
             m_arrowAction->setVisible(false);
         }
-        m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(30, 30), QSize(), false);
+        m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false);
         m_loadingAction->setWidget(m_loadingIndicator);
         m_loadingAction->setVisible(true);
         m_loadingIndicator->start();
@@ -196,7 +196,7 @@ bool APItem::setLoading(bool isLoading)
         if (!m_loadingAction.isNull()) {
             m_loadingAction->setVisible(false);
         }
-        m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(30, 30), QSize(), true);//oldsize 11,11
+        m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
         QStyleOption opt;
         m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
         m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);//ArrowEnterClickMargin

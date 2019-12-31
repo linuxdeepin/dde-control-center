@@ -124,7 +124,7 @@ void AccountsWidget::addUser(User *user, bool t1)
     DStandardItem *item = new DStandardItem;
     item->setData(0, AccountsWidget::ItemDataRole);
     if (isServerSystem()) {
-        auto *subTitleAction = new DViewItemAction(Qt::Alignment(), QSize(30, 30), QSize(), false);
+        auto *subTitleAction = new DViewItemAction;
         if (1 == user->userType()) {
             subTitleAction->setText(tr("Administrator"));
         }else {

@@ -324,7 +324,7 @@ void MainWindow::initAllModule(QString m)
         //目前只有"update"模块需要使用右上角的角标，其他模块还是使用旧的位置数据设置
         //若其他地方需要使用右上角的角标，可在下面if处使用“||”添加对应模块的name()值
         if (it->first->name() == "update") {
-            auto action = new DViewItemAction(Qt::AlignTop | Qt::AlignRight, QSize(30, 30), QSize(), true);//oldsize 28,28
+            auto action = new DViewItemAction(Qt::AlignTop | Qt::AlignRight, QSize(28, 28), QSize(), true);
             action->setIcon(QIcon(":/icons/deepin/builtin/icons/dcc_common_subscript.svg"));
             action->setVisible(false);
             item->setActionList(Qt::Edge::RightEdge, {action});

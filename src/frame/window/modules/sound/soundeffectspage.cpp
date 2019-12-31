@@ -142,12 +142,12 @@ void SoundEffectsPage::initList()
     DStandardItem *item = nullptr;
     for (auto se : m_model->soundEffectMap()) {
         item = new DStandardItem(se.first);
-        auto action = new DViewItemAction(Qt::AlignVCenter, QSize(30, 30), QSize(), true);//oldsize 16,16
+        auto action = new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(), true);
         auto checkstatus = m_model->queryEffectData(se.second) ?
                            DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
         auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
         action->setIcon(icon);
-        auto aniAction = new DViewItemAction(Qt::AlignVCenter, QSize(30, 30));
+        auto aniAction = new DViewItemAction(Qt::AlignVCenter);
         aniAction->setVisible(false);
         item->setActionList(Qt::Edge::RightEdge, {aniAction, action});
         m_listModel->appendRow(item);

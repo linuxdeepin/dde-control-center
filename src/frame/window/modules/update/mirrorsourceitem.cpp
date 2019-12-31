@@ -11,7 +11,7 @@ MirrorSourceItem::MirrorSourceItem(QObject *parent)
     , m_bSelect(false)
     , m_speed(0)
 {
-    m_action = new DViewItemAction(Qt::Alignment(), QSize(30, 30));
+    m_action = new DViewItemAction;
     m_action->setText(m_rightLabel);
     m_action->setFontSize(DFontSizeManager::T8);
     this->setText(m_leftLabel);

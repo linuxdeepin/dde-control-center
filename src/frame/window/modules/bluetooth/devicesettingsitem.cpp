@@ -63,10 +63,10 @@ void DeviceSettingsItem::initItemActionList()
     m_loadingIndicator = new DSpinner();
     m_loadingIndicator->setFixedSize(24, 24);
     m_loadingIndicator->hide();
-    m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(30, 30), QSize(), false);//oldsize ()
+    m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false);
     m_loadingAction->setWidget(m_loadingIndicator);
-    m_iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(30, 30), QSize(), true);//oldsize 11,11
-    m_textAction = new DViewItemAction(Qt::AlignLeft, QSize(30, 30), QSize(), true);//oldsize ()
+    m_iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(11, 11), QSize(), true);
+    m_textAction = new DViewItemAction(Qt::AlignLeft, QSize(), QSize(), true);
     m_iconAction->setIcon(m_style->standardIcon(QStyle::SP_ArrowRight));
     m_dActionList.clear();
     m_dActionList.append(m_loadingAction);
