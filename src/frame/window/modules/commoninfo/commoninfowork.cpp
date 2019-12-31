@@ -64,6 +64,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     connect(m_dBusGrub, &GrubDbus::DefaultEntryChanged, m_commomModel, &CommonInfoModel::setDefaultEntry);
     connect(m_dBusGrub, &GrubDbus::EnableThemeChanged, m_commomModel, &CommonInfoModel::setThemeEnabled);
     connect(m_dBusGrub, &GrubDbus::TimeoutChanged, this, [this](const int &value) {
+        qDebug()<<" CommonInfoWork::TimeoutChanged  value =  "<< value;
         m_commomModel->setBootDelay(value > 1);
     });
     connect(m_dBusGrub, &__Grub2::UpdatingChanged, m_commomModel, &CommonInfoModel::setUpdating);
@@ -110,6 +111,7 @@ bool CommonInfoWork::defaultUeProgram()
 
 void CommonInfoWork::setBootDelay(bool value)
 {
+    qDebug()<<" CommonInfoWork::setBootDelay  value =  "<< value;
     QDBusPendingCall call = m_dBusGrub->SetTimeout(value ? 5 : 1);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
