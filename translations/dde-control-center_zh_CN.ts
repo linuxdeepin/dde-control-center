@@ -659,8 +659,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="124"/>
-        <source>To make it effective, a restart is required. Restart now?</source>
-        <translation>开发者模式需要重启后生效，是否立即重启？</translation>
+        <source>To make some features effective, a restart is required. Restart now?</source>
+        <translation>开发者模式部分功能需要重启后生效，是否立即重启？</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="125"/>

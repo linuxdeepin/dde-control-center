@@ -74,7 +74,7 @@ void CommonInfoWidget::initData()
     //以下模块只在非服务器版本使用
     if (!isServerSystem()) {
         //~ contents_path /commoninfo/Developer Mode
-        m_itemList.append({"dcc_developer_mode", tr("Developer Mode") + tr(" (Beta)"),
+        m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
                            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)});
 
         //~ contents_path /commoninfo/User Experience Program
