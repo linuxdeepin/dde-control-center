@@ -157,6 +157,8 @@ void BootWidget::setDefaultEntry(const QString &value)
 
 void BootWidget::setModel(CommonInfoModel *model)
 {
+    m_commonInfoModel = model;
+
     connect(model, &CommonInfoModel::bootDelayChanged, m_bootDelay, &SwitchWidget::setChecked);
 #ifndef DCC_DISABLE_GRUB_THEME
     connect(model, &CommonInfoModel::themeEnabledChanged, m_theme, &SwitchWidget::setChecked);
@@ -170,11 +172,7 @@ void BootWidget::setModel(CommonInfoModel *model)
     connect(model, &CommonInfoModel::backgroundChanged, m_background, &CommonBackgroundItem::updateBackground);
 
     // modified by wuchuanfei 20190909 for 8613
-    if (model->entryLists().count() == 1) {
-        m_bootDelay->setChecked(false);
-    } else {
-        m_bootDelay->setChecked(model->bootDelay());
-    }
+    m_bootDelay->setChecked(model->bootDelay());
 #ifndef DCC_DISABLE_GRUB_THEME
     m_theme->setChecked(model->themeEnabled());
 #endif
@@ -209,6 +207,7 @@ void BootWidget::setEntryList(const QStringList &list)
             item->setCheckState(Qt::CheckState::Unchecked);
         }
     }
+    m_bootDelay->setChecked(m_commonInfoModel->bootDelay());
 }
 
 void BootWidget::onCurrentItem(const QModelIndex &curIndex)

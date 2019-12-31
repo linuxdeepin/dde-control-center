@@ -72,6 +72,7 @@ private:
     QVBoxLayout *m_listLayout;
     QModelIndex m_curSelectedIndex;
     QStandardItemModel *m_bootItemModel;
+    CommonInfoModel *m_commonInfoModel;
 };
 
 } // namespace commoninfo

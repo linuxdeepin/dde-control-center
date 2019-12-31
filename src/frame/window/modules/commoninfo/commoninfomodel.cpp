@@ -20,12 +20,14 @@
  */
 
 #include "commoninfomodel.h"
+#include <QDebug>
 
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
 
 CommonInfoModel::CommonInfoModel(QObject *parent)
     : QObject(parent)
+    , m_bootDelay(false)
 {
 
 }
@@ -94,6 +96,7 @@ bool CommonInfoModel::bootDelay() const
 
 void CommonInfoModel::setBootDelay(bool bootDelay)
 {
+    qDebug()<<" CommonInfoModel::setBootDelay   bootDelay =  "<< bootDelay;
     if (m_bootDelay != bootDelay) {
         m_bootDelay = bootDelay;
         Q_EMIT bootDelayChanged(bootDelay);
