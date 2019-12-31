@@ -539,6 +539,11 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="238"/>
+        <source>UOS Privacy Policy</source>
+		<translation>UOS隐私政策</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="238"/>
         <source>Join developer mode</source>
 		<translation>加入开发者模式</translation>
     </message>
