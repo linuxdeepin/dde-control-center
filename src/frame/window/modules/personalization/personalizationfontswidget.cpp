@@ -147,7 +147,6 @@ void PersonalizationFontsWidget::setFontSize(int size)
     m_fontSizeSlider->blockSignals(true);
     m_fontSizeSlider->slider()->setValue(size);
     m_fontSizeSlider->blockSignals(false);
-
     setCommboxItemFontSize();
 }
 
@@ -182,8 +181,8 @@ void PersonalizationFontsWidget::setCommboxItemFontSize()
         for (auto i = 0; i < model->rowCount(); ++i) {
             auto item = model->item(i);
             auto font = item->font();
-            auto fsize = DFontSizeManager::instance()->t7().pixelSize();
-            font.setPixelSize(fsize);
+            auto fsize = DFontSizeManager::instance()->t7().pointSize();
+            font.setPointSize(fsize);
             item->setFont(font);
         }
     };
