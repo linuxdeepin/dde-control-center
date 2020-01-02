@@ -136,7 +136,6 @@ void TitleAuthorizedItem::setWordWrap(bool enable)
 void TitleAuthorizedItem::setButtonText(const QString &str)
 {
     m_pActivatorBtn->setText(str);
-    m_pActivatorBtn->setFixedWidth(m_pActivatorBtn->fontMetrics().width(str) * 3 / 2);
 }
 
 void TitleAuthorizedItem::setValueForegroundRole(const QColor &color)
