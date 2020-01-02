@@ -48,16 +48,25 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
     : DAbstractDialog (parent)
 {
     setMinimumSize(QSize(350, 380));
-    setWindowIcon(QIcon::fromTheme("preferences-system"));
-
-    QVBoxLayout *vBoxLayout = new QVBoxLayout;
-
+    //总布局
+    QVBoxLayout *vBoxLayout = new QVBoxLayout(this);
+    //图标和关闭按钮布局
+    QHBoxLayout *titleHBoxLayout = new QHBoxLayout();
+    DTitlebar *titleIcon = new DTitlebar();
+    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
+    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setIcon(QIcon::fromTheme("preferences-system"));
+    titleHBoxLayout->addWidget(titleIcon, Qt::AlignTop);
+    titleIcon->setMenuVisible(false);
+    titleIcon->setTitle("");
+    //内容布局
+    QVBoxLayout *contentVBoxLayout = new QVBoxLayout();
     auto chooseModeTip = new TitleLabel (tr("Request Root Access"), this);
     chooseModeTip->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
     chooseModeTip->setWordWrap(true);
 
-    setContentsMargins(40, 40, 40, 20);
-    vBoxLayout->addWidget(chooseModeTip, 0, Qt::AlignTop);
+    contentVBoxLayout->setContentsMargins(40, 0, 40, 20);
+    contentVBoxLayout->addWidget(chooseModeTip, 0, Qt::AlignTop);
 
     auto hw = new QWidget();
     QHBoxLayout *hBoxLayout = new QHBoxLayout();
@@ -69,7 +78,7 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
     hBoxLayout->setSpacing(20);
     hBoxLayout->addWidget(m_onlineBtn, 0, Qt::AlignCenter);
     hBoxLayout->addWidget(m_offlineBtn, 0, Qt::AlignCenter);
-    vBoxLayout->addWidget(hw, 0, Qt::AlignTop | Qt::AlignHCenter);
+    contentVBoxLayout->addWidget(hw, 0, Qt::AlignTop | Qt::AlignHCenter);
 
     //在线激活模式提示
     auto chooseModeCommonts = new DTipLabel("");
@@ -77,11 +86,11 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
     chooseModeCommonts->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     chooseModeCommonts->setText(tr("Please sign in to your cloud account first and continue"));
 
-    vBoxLayout->addWidget(chooseModeCommonts, 1, Qt::AlignTop);
+    contentVBoxLayout->addWidget(chooseModeCommonts, 1, Qt::AlignTop | Qt::AlignHCenter);
 
     //在线激活模式下一步按钮
     m_nextButton  = new DSuggestButton(tr("Next"));
-    vBoxLayout->addWidget(m_nextButton, 0, Qt::AlignBottom);
+    contentVBoxLayout->addWidget(m_nextButton, 0, Qt::AlignBottom);
 
     //离线激活模式导出机器信息和导入证书按钮
     auto exportBtn = new QPushButton(tr("Export PC Info"));
@@ -89,9 +98,12 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
     exportBtn->setVisible(false);
     importBtn->setVisible(false);
 
-    vBoxLayout->addWidget(exportBtn, 0, Qt::AlignBottom);
-    vBoxLayout->addWidget(importBtn, 0, Qt::AlignBottom);
+    contentVBoxLayout->addWidget(exportBtn, 0, Qt::AlignBottom);
+    contentVBoxLayout->addWidget(importBtn, 0, Qt::AlignBottom);
 
+    //加入布局
+    vBoxLayout->addLayout(titleHBoxLayout);
+    vBoxLayout->addLayout(contentVBoxLayout);
     setLayout(vBoxLayout);
 
     //选择激活在线模式或离线模式
