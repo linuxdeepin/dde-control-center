@@ -65,7 +65,7 @@ void DeviceSettingsItem::initItemActionList()
     m_loadingIndicator->hide();
     m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false);
     m_loadingAction->setWidget(m_loadingIndicator);
-    m_iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(11, 11), QSize(), true);
+    m_iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
     m_textAction = new DViewItemAction(Qt::AlignLeft, QSize(), QSize(), true);
     m_iconAction->setIcon(m_style->standardIcon(QStyle::SP_ArrowRight));
     m_dActionList.clear();

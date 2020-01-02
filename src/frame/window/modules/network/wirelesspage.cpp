@@ -79,7 +79,7 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
         m_loadingIndicator->setParent(parent->viewport());
     }
 
-    m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
+    m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
     QStyleOption opt;
     m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
     m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);
@@ -196,7 +196,7 @@ bool APItem::setLoading(bool isLoading)
         if (!m_loadingAction.isNull()) {
             m_loadingAction->setVisible(false);
         }
-        m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
+        m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
         QStyleOption opt;
         m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
         m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);//ArrowEnterClickMargin
