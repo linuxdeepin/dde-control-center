@@ -65,7 +65,7 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
     setCheckable(false);
 
-    m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(11, 11), QSize(), false);
+    m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), false);
     m_secureAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_LockElement, nullptr, nullptr));
     m_secureAction->setVisible(false);
     setActionList(Qt::Edge::LeftEdge, { m_secureAction });
