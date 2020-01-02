@@ -49,9 +49,7 @@ public:
 Q_SIGNALS:
      void requestDeveloperMode(bool enabled);
      void requestLogin();
-     void requestCommit(QString filePath);
-     void requestRestart();
-
+     void requestCommit(QString filePathName);
 private Q_SLOTS:
      void setLogin();
 

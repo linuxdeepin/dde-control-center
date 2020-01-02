@@ -121,8 +121,8 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
         auto hardwareInfo = inter->GetHardware();
 
         // 以读写方式打开主目录下的1.json文件，若该文件不存在则会自动创建
-        QString defaultPath = QDir::homePath() + "/Desktop/ ";
-        auto path = QFileDialog::getOpenFileName(this, "", defaultPath);
+        QString defaultPath = QDir::homePath() + "/Desktop/1.json";
+        auto path = QFileDialog::getSaveFileName(this, "", defaultPath);
         QFile file(path);
         if(!file.open(QIODevice::ReadWrite)) {
             qDebug() << "File open error";
@@ -172,9 +172,10 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
 
     connect(importBtn, &QPushButton::clicked, [this]{
         QString defaultPath = QDir::homePath() + "/Downloads/";
-        if(!QFileDialog::getOpenFileName(this, "", defaultPath).isEmpty()){
-            Q_EMIT requestCommit(defaultPath);
-            Q_EMIT requestRestart();
+        auto filePathName = QFileDialog::getOpenFileName(this, "", defaultPath);
+        if(!filePathName.isEmpty()){
+            Q_EMIT requestCommit(filePathName);
+            close();
         }
     });
 }

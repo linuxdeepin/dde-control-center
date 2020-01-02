@@ -37,6 +37,7 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QProcess>
+#include <QFile>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
@@ -68,24 +69,14 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
 
         connect(devDlg, &DeveloperModeDialog::requestDeveloperMode, this, &DeveloperModeWidget::enableDeveloperMode);
         connect(devDlg, &DeveloperModeDialog::requestLogin, this, &DeveloperModeWidget::requestLogin);
-        connect(devDlg, &DeveloperModeDialog::requestCommit, [this](QString filePath){
-           m_inter->call("EnableDeveloperMode", filePath);
-        });
-        connect(devDlg, &DeveloperModeDialog::requestRestart, [this]{
-            //弹窗提示重启
-            DDialog dlg("", tr("To make some features effective, a restart is required. Restart now?"));
-            dlg.addButtons({tr("Cancel"), tr("Restart Now")});
-            connect(&dlg, &DDialog::buttonClicked, this, [](int idx, QString str){
-                if (idx == 1) {
-                    DDBusSender()
-                    .service("com.deepin.SessionManager")
-                    .interface("com.deepin.SessionManager")
-                    .path("/com/deepin/SessionManager")
-                    .method("RequestReboot")
-                    .call();
-                }
-            });
-            dlg.exec();
+        connect(devDlg, &DeveloperModeDialog::requestCommit, [this](QString filePathName){
+            //读取机器信息证书
+            QFile fFile(filePathName);
+            if(!fFile.open(QIODevice::ReadOnly)){
+                qDebug()<<"Can't open file for writting";
+            }
+            QByteArray data = fFile.readAll();
+            QDBusMessage msg =  m_inter->call("EnableDeveloperMode", data);
         });
         devDlg->exec();
         devDlg->deleteLater();
