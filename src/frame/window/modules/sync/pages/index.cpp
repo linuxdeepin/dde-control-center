@@ -14,6 +14,7 @@
 #include <DTipLabel>
 
 #include <QScrollArea>
+#include <QScrollBar>
 #include <QLabel>
 #include <QStandardItemModel>
 #include <QVBoxLayout>
@@ -74,7 +75,7 @@ IndexPage::IndexPage(QWidget *parent)
     QWidget *backgroundWidget = new QWidget;
     backgroundWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     backgroundWidget->setFixedWidth(340);
-    scrollArea->setFixedWidth(340);
+    scrollArea->setFixedWidth(360);
     QVBoxLayout *backgroundLayout = new QVBoxLayout;
     backgroundWidget->setLayout(backgroundLayout);
 
