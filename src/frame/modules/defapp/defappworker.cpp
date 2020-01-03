@@ -80,10 +80,10 @@ void DefAppWorker::onGetListApps()
     //遍历QMap去获取dbus数据
     for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
         const QString type { getTypeByCategory(mimelist.value()) };
-        Category *category = getCategory(mimelist.key());
+        /*Category *category = getCategory(mimelist.key());
         if (category) {
             category->clear();
-        }
+        }*/
 
         QDBusPendingCallWatcher *Default_Watcher = new QDBusPendingCallWatcher(m_dbusManager->GetDefaultApp(type), this);
         Default_Watcher->setProperty("mime", mimelist.key());
