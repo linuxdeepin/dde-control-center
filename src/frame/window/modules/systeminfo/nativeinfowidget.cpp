@@ -114,6 +114,7 @@ void NativeInfoWidget::initWidget()
 
 
     m_mainLayout->setMargin(0);
+    m_mainLayout->setSpacing(10);
     m_mainLayout->addWidget(logoGroup);
     m_mainLayout->addWidget(infoGroup);
     m_mainLayout->addStretch();
