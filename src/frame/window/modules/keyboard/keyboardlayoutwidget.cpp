@@ -93,7 +93,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     QVBoxLayout *mainVLayout = new QVBoxLayout();
     mainVLayout->addLayout(hlayout);
     mainVLayout->addSpacing(10);
-    mainVLayout->addWidget(m_buttonTuple);
+    mainVLayout->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
 
     m_mainWidget->setLayout(mainVLayout);
     m_mainWidget->setContentsMargins(DCC_NAMESPACE::ListViweItemMargin);
