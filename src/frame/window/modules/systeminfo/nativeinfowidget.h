@@ -24,8 +24,11 @@
 #include "window/namespace.h"
 #include "modules/systeminfo/systeminfomodel.h"
 #include "widgets/titlevalueitem.h"
+#include "widgets/contentwidget.h"
 
 #include <QWidget>
+
+using namespace dcc;
 
 QT_BEGIN_NAMESPACE
 
@@ -42,7 +45,7 @@ class SystemInfoModel;
 namespace DCC_NAMESPACE {
 namespace systeminfo {
 
-class NativeInfoWidget : public QWidget
+class NativeInfoWidget : public ContentWidget
 {
     Q_OBJECT
 public:

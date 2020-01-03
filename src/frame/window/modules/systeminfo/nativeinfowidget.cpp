@@ -40,7 +40,7 @@ namespace DCC_NAMESPACE {
 namespace systeminfo {
 
 NativeInfoWidget::NativeInfoWidget(SystemInfoModel *model, QWidget *parent)
-    : QWidget(parent)
+    : ContentWidget(parent)
     , m_model(model)
     , m_mainLayout(new QVBoxLayout)
 {
@@ -49,8 +49,15 @@ NativeInfoWidget::NativeInfoWidget(SystemInfoModel *model, QWidget *parent)
 
 void NativeInfoWidget::initWidget()
 {
+    QWidget *container = new dcc::widgets::TranslucentFrame;
+    container->setLayout(m_mainLayout);
+    setContent(container);
+
     SettingsGroup *infoGroup = new SettingsGroup();
+    SettingsGroup *logoGroup = new SettingsGroup();
+    logoGroup->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     infoGroup->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
     LogoItem *logo = new LogoItem;
     logo->setDescription(true); //显示文字描述
     logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
@@ -95,7 +102,7 @@ void NativeInfoWidget::initWidget()
     m_disk->setTitle(tr("Disk:"));
     m_disk->setValue(m_model->disk());
 
-    infoGroup->appendItem(logo);
+    logoGroup->appendItem(logo);
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
     infoGroup->appendItem(m_authorized);
@@ -105,7 +112,9 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(m_disk);
     infoGroup->setSpacing(10);
 
+
     m_mainLayout->setMargin(0);
+    m_mainLayout->addWidget(logoGroup);
     m_mainLayout->addWidget(infoGroup);
     m_mainLayout->addStretch();
     setLayout(m_mainLayout);
