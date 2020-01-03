@@ -58,6 +58,7 @@ LogoItem::LogoItem(QFrame *parent)
 
 void LogoItem::setDescription(const QString &des)
 {
+    m_description->setScaledContents(true);
     m_description->setText(des);
     QRect r = m_description->fontMetrics().boundingRect(QRect(0, 0, m_description->minimumWidth(), 100), Qt::TextWordWrap, des);
     m_description->setMinimumHeight(r.height());
@@ -75,7 +76,10 @@ void LogoItem::setLogo(const QString &logo)
 
 void LogoItem::setLogo(const QIcon &icon, int w, int h)
 {
-    m_logo->setPixmap(icon.pixmap(w, h));
+    //m_logo->setPixmap(icon.pixmap(w, h));
+    m_logo->setScaledContents(true);
+    auto ratio = devicePixelRatio();
+    m_logo->setPixmap(icon.pixmap(w, h).scaled(QSize(w,h)*ratio, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
 }
 
 }
