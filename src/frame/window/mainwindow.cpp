@@ -204,7 +204,7 @@ void MainWindow::resetTabOrder()
 {
     QWidget *pre = m_navView;
     pre->setFocusPolicy(Qt::TabFocus);
-    for (int i =0; i < m_contentStack.size(); ++i) {
+    for (int i = 0; i < m_contentStack.size(); ++i) {
         auto tw = m_contentStack.at(i).second;
         findFocusChild(tw, pre);
     }
@@ -221,7 +221,7 @@ void MainWindow::findFocusChild(QWidget *w, QWidget *&pre)
 
 void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
 {
-    for (int i =0; i < l->count(); ++i) {
+    for (int i = 0; i < l->count(); ++i) {
 //        qDebug() << l->itemAt(i);
         auto cw = l->itemAt(i)->widget();
         auto cl = l->itemAt(i)->layout();
@@ -238,9 +238,9 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
             }
 
             if ((!qobject_cast<QAbstractButton *>(cw)
-                 && !qobject_cast<QLineEdit *>(cw)
-                 && !qobject_cast<QAbstractItemView *>(cw)
-                 && !qobject_cast<QAbstractSlider *>(cw)) || !cw->isEnabled()) {
+                    && !qobject_cast<QLineEdit *>(cw)
+                    && !qobject_cast<QAbstractItemView *>(cw)
+                    && !qobject_cast<QAbstractSlider *>(cw)) || !cw->isEnabled()) {
 //                cw->setFocusPolicy(Qt::NoFocus);
                 continue;
             }
@@ -309,7 +309,7 @@ void MainWindow::initAllModule(QString m)
 
     auto listModule =  m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
     for (auto i : m_modules) {
-        if(listModule.contains((i.first->name()))){
+        if (listModule.contains((i.first->name()))) {
             setModuleVisible(i.first, false);
         }
     }
@@ -324,11 +324,18 @@ void MainWindow::initAllModule(QString m)
         //目前只有"update"模块需要使用右上角的角标，其他模块还是使用旧的位置数据设置
         //若其他地方需要使用右上角的角标，可在下面if处使用“||”添加对应模块的name()值
         if (it->first->name() == "update") {
-            auto action = new DViewItemAction(Qt::AlignTop | Qt::AlignRight, QSize(), QSize(), true);
-            action->setIcon(QIcon(":/icons/deepin/builtin/icons/dcc_common_subscript.svg"));
-            action->setVisible(false);
-            item->setActionList(Qt::Edge::RightEdge, {action});
-            m_remindeSubscriptList.append(QPair<QString, DViewItemAction *>(it->first->name(), action));
+            auto action1 = new DViewItemAction(Qt::AlignTop | Qt::AlignRight, QSize(40, 40), QSize(), true);
+            action1->setIcon(QIcon(":/icons/deepin/builtin/icons/dcc_common_subscript.svg"));
+            action1->setVisible(false);
+            auto action2 = new DViewItemAction(Qt::AlignCenter, QSize(26, 26), QSize(), true);
+            action2->setIcon(QIcon(":/icons/deepin/builtin/icons/dcc_common_subscript.svg"));
+            action2->setVisible(false);
+            item->setActionList(Qt::Edge::RightEdge, {action1, action2});
+            CornerItemGroup group;
+            group.m_name = it->first->name();
+            group.m_action.first = action1;
+            group.m_action.second = action2;
+            m_remindeSubscriptList.append(group);
             item->setData(QVariant::fromValue(VListViewRightSubscripItemMargin), Dtk::MarginsRole);
         } else {
             item->setData(NavItemMargin, Dtk::MarginsRole);
@@ -361,8 +368,8 @@ void MainWindow::modulePreInitialize(QString m)
         et.start();
         it->first->preInitialize(m == it->first->name());
         qDebug() << QString("initalize %1 module using time: %2ms")
-                    .arg(it->first->name())
-                    .arg(et.elapsed());
+                 .arg(it->first->name())
+                 .arg(et.elapsed());
 
         setModuleVisible(it->first, it->first->isAvailable());
     }
@@ -436,8 +443,9 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
         return;
     }
 
-    auto findModule = [this](const QString &str)->ModuleInterface * {
-        for (auto m : m_modules) {
+    auto findModule = [this](const QString & str)->ModuleInterface * {
+        for (auto m : m_modules)
+        {
             if (m.first->name() == str) {
                 return m.first;
             }
@@ -455,7 +463,7 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
         qDebug() << QString("get error page path %1!").arg(pages[0]);
         if (calledFromDBus()) {
             auto err = QString("cannot find page path that name is %1 on module %2.")
-                                .arg(pages[0]).arg(module);
+                       .arg(pages[0]).arg(module);
             sendErrorReply(QDBusError::InvalidArgs, err);
 
             if (!isVisible()) {
@@ -476,19 +484,28 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 
 void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDisplay)
 {
-    auto find_it = std::find_if(m_remindeSubscriptList.cbegin(),
-                                m_remindeSubscriptList.cend(),
-    [ = ](const QPair<QString, DViewItemAction *> &pair) {
-        return pair.first == module ? pair.second : nullptr;
-    });
+    QPair<DViewItemAction *, DViewItemAction *> m_pair(nullptr, nullptr);
 
-    if (find_it->first != module || find_it == m_remindeSubscriptList.cend())
-        return;
-
-    if (find_it->second->isVisible() != bIsDisplay) {
-        find_it->second->setVisible(bIsDisplay);
-        m_navView->update();
+    for (const auto &k : m_remindeSubscriptList) {
+        if (module == k.m_name) {
+            m_pair = k.m_action;
+        }
     }
+
+    if (m_pair.first == nullptr) {
+        return;
+    }
+
+    if (m_navView->viewMode() == QListView::IconMode) {
+        if (m_pair.first->isVisible() != bIsDisplay) {
+            m_pair.first->setVisible(bIsDisplay);
+        }
+    } else {
+        if (m_pair.second->isVisible() != bIsDisplay) {
+            m_pair.second->setVisible(bIsDisplay);
+        }
+    }
+    m_navView->update();
 }
 
 bool MainWindow::isModuleAvailable(const QString &m)
@@ -514,7 +531,7 @@ void MainWindow::toggle()
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
-    switch(event->key()) {
+    switch (event->key()) {
     case Qt::Key_Escape:
         if (m_topWidget) {
             popWidget();
@@ -542,7 +559,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     DMainWindow::resizeEvent(event);
 
     auto dstWidth = event->size().width();
-    if (four_widget_min_widget > dstWidth ) {
+    if (four_widget_min_widget > dstWidth) {
         //update只有当Mirror页面存在时，才会有第二级页面；size变化小了，需要恢复成topWidget
         if ((m_contentStack.size() == 3) || (m_contentStack.size() == 2 && m_contentStack.first().first->name() == "update")) {
             auto ite = m_contentStack.pop();
@@ -603,8 +620,10 @@ void MainWindow::resetNavList(bool isIconMode)
         //Icon模式，"update"使用右上角角标Margin
         for (auto data : m_remindeSubscriptList) {
             for (int i = 0; i < m_navModel->rowCount(); i++) {
-                if(m_modules.at(i).first->name() == data.first) {
+                if (m_modules.at(i).first->name() == data.m_name) {
                     m_navModel->item(i, 0)->setData(QVariant::fromValue(VListViewRightSubscripItemMargin), Dtk::MarginsRole);
+                    data.m_action.first->setVisible(data.m_action.second->isVisible());
+                    data.m_action.second->setVisible(false);
                     break;
                 }
             }
@@ -627,8 +646,10 @@ void MainWindow::resetNavList(bool isIconMode)
         //List模式，"update"使用统一Margin
         for (auto data : m_remindeSubscriptList) {
             for (int i = 0; i < m_navModel->rowCount(); i++) {
-                if(m_modules.at(i).first->name() == data.first) {
+                if (m_modules.at(i).first->name() == data.m_name) {
                     m_navModel->item(i, 0)->setData(NavItemMargin, Dtk::MarginsRole);
+                    data.m_action.second->setVisible(data.m_action.first->isVisible());
+                    data.m_action.first->setVisible(false);
                     break;
                 }
             }
@@ -693,7 +714,7 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
             }
 
             auto errStr = QString("on module %1, cannot search page %2!")
-                            .arg(moduleName, m_widgetName);
+                          .arg(moduleName, m_widgetName);
             qDebug() << errStr;
 
             if (calledFromDBus()) {
