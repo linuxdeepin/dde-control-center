@@ -136,9 +136,9 @@ void TimezoneItem::updateInfo()
     QString gmData = "";
     int utcOff = m_timezone.getUTCOffset() / 3600;
     if (utcOff >= 0) {
-        gmData = QString("(GM+%1:%2)").arg(utcOff, 2, 10, QLatin1Char('0')).arg(m_timezone.getUTCOffset() % 3600 / 60, 2, 10, QLatin1Char('0'));
+        gmData = QString("(GMT+%1:%2)").arg(utcOff, 2, 10, QLatin1Char('0')).arg(m_timezone.getUTCOffset() % 3600 / 60, 2, 10, QLatin1Char('0'));
     } else {
-        gmData = QString("(GM%1:%2)").arg(utcOff, 3, 10, QLatin1Char('0')).arg(m_timezone.getUTCOffset() % 3600 / 60, 2, 10, QLatin1Char('0'));
+        gmData = QString("(GMT%1:%2)").arg(utcOff, 3, 10, QLatin1Char('0')).arg(m_timezone.getUTCOffset() % 3600 / 60, 2, 10, QLatin1Char('0'));
     }
 
     m_details->setText(QString("%1, %2").arg(dateLiteral).arg(compareLiteral));
