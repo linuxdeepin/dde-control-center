@@ -48,7 +48,7 @@ SoundWidget::SoundWidget(QWidget *parent)
     layout->addWidget(m_menuList, 1);
     initMenuUI();
 
-    layout->addStretch(1);
+   // layout->addStretch(1);
     setLayout(layout);
 }
 
