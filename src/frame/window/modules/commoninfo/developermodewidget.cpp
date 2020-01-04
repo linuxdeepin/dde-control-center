@@ -68,6 +68,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
         devDlg->setModel(m_model);
 
         connect(devDlg, &DeveloperModeDialog::requestDeveloperMode, this, &DeveloperModeWidget::enableDeveloperMode);
+        connect(this, &DeveloperModeWidget::enableDeveloperMode, devDlg, &DeveloperModeDialog::requestSetNextBtnStatus);
         connect(devDlg, &DeveloperModeDialog::requestLogin, this, &DeveloperModeWidget::requestLogin);
         connect(devDlg, &DeveloperModeDialog::requestCommit, [this](QString filePathName){
             //读取机器信息证书

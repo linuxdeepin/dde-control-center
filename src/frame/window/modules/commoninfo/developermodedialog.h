@@ -50,6 +50,7 @@ Q_SIGNALS:
      void requestDeveloperMode(bool enabled);
      void requestLogin();
      void requestCommit(QString filePathName);
+     void requestSetNextBtnStatus(bool state);
 private Q_SLOTS:
      void setLogin();
 
