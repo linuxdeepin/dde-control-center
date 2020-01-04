@@ -103,11 +103,16 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_bIsFirstGetDownloadProcess(true)
     , m_downloadSize(0)
 {
-    m_managerInter->setSync(false);
-    m_updateInter->setSync(false);
-    m_powerInter->setSync(false);
-    m_powerSystemInter->setSync(false);
-    m_lastoresessionHelper->setSync(false);
+    //m_managerInter->setSync(false);
+    m_managerInter->setSync(true);
+    //m_updateInter->setSync(false);
+    m_updateInter->setSync(true);
+    //m_powerInter->setSync(false);
+    m_powerInter->setSync(true);
+    //m_powerSystemInter->setSync(false);
+    m_powerSystemInter->setSync(true);
+    //m_lastoresessionHelper->setSync(false);
+    m_lastoresessionHelper->setSync(true);
     m_smartMirrorInter->setSync(true, false);
     m_model->setSystemVersionInfo(m_systemInfoInter->version());
 
