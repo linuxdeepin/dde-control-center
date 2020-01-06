@@ -220,13 +220,13 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::UpdatesAvailable:
         m_fullProcess->setVisible(true);
-        setShowInfo(m_model->systemActivation());
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
         //~ contents_path /update/Update
         m_fullProcess->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
         setLowBattery(m_model->lowBattery());
+        setShowInfo(m_model->systemActivation());
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
