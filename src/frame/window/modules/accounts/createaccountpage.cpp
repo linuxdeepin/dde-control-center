@@ -164,7 +164,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     QLabel *repeatpasswdLabel = new QLabel(tr("Repeat Password") + ':');
     layout->addWidget(repeatpasswdLabel);
     layout->addWidget(m_repeatpasswdEdit);
-    layout->addSpacing(7);
+    layout->addSpacing(33);
 
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
             m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
