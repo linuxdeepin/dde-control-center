@@ -88,9 +88,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     QHBoxLayout *topLayout = new QHBoxLayout;
     topLayout->setMargin(0);
     topLayout->setAlignment(Qt::AlignTop);
-    topLayout->addSpacing(10);
     topLayout->addWidget(m_searchInput);
-    topLayout->addSpacing(10);
     vlayout->addLayout(topLayout);
 
     vlayout->setMargin(0);
