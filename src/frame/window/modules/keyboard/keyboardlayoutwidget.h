@@ -54,6 +54,7 @@ public:
     explicit KeyboardLayoutWidget(QWidget *parent = 0);
     ~KeyboardLayoutWidget();
 
+    void setDataModel(IndexModel *model, QModelIndex &selectedIndex, const QModelIndex &index);
     void setMetaData(const QList<MetaData>& datas);
     void setLetters(QList<QString> letters);
 
@@ -70,6 +71,7 @@ public Q_SLOTS:
     void onAddKBLayout();
 private:
     int textLength;
+    bool searchStatus;
     SearchInput *m_search;
     ButtonTuple *m_buttonTuple;
     IndexView *m_view;
@@ -80,6 +82,7 @@ private:
     DGraphicsClipEffect *m_clipEffectWidget;
     QList<MetaData> m_data;
     QModelIndex m_selectIndex;
+    QModelIndex m_selectSearchIndex;
 };
 }
 }

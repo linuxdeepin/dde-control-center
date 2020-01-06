@@ -42,6 +42,7 @@ namespace keyboard {
 KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     : ContentWidget(parent)
     , textLength(0)
+    , searchStatus(false)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
     //~ contents_path /keyboard/Keyboard Layout
@@ -73,6 +74,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     cancel->setText(tr("Cancel"));
     QPushButton *ok = m_buttonTuple->rightButton();
     ok->setText(tr("Add"));
+    ok->setEnabled(false);
 
     m_indexframe = nullptr;
 
@@ -120,12 +122,22 @@ KeyboardLayoutWidget::~KeyboardLayoutWidget()
 
 void KeyboardLayoutWidget::onAddKBLayout()
 {
+    QVariant var;
+    MetaData md;
 
-    QVariant var = m_selectIndex.data(IndexModel::KBLayoutRole);
-    MetaData md = var.value<MetaData>();
-
-    if (m_model->letters().contains(md.text()))
-        return;
+    if (searchStatus) {
+        var = m_selectSearchIndex.data(IndexModel::KBLayoutRole);
+        md = var.value<MetaData>();
+        if (m_searchModel->letters().contains(md.text())) {
+            return;
+        }
+    } else {
+        var = m_selectIndex.data(IndexModel::KBLayoutRole);
+        md = var.value<MetaData>();
+        if (m_model->letters().contains(md.text())) {
+            return;
+        }
+    }
 
     Q_EMIT layoutSelected(md.text());
     Q_EMIT back();
@@ -133,22 +145,33 @@ void KeyboardLayoutWidget::onAddKBLayout()
 
 void KeyboardLayoutWidget::onKBLayoutSelect(const QModelIndex &index)
 {
-    if(m_selectIndex.isValid())
-        m_model->itemFromIndex(m_selectIndex)->setCheckState(Qt::Unchecked);
-    QStandardItem *selectItem = m_model->itemFromIndex(index);
-    bool addBtnEnabled = false;
+    if (searchStatus) {
+        setDataModel(m_searchModel, m_selectSearchIndex, index);
+    } else{
+        setDataModel(m_model, m_selectIndex, index);
+    }
+}
+
+void KeyboardLayoutWidget::setDataModel(IndexModel *model, QModelIndex &selectedIndex, const QModelIndex &index) {
+
+    if (selectedIndex.isValid()) {
+        model->itemFromIndex(selectedIndex)->setCheckState(Qt::Unchecked);
+    }
+
+    QStandardItem *selectItem = model->itemFromIndex(index);
+
     if (selectItem) {
+        bool addBtnEnabled = true;
         QVariant var = index.data(IndexModel::KBLayoutRole);
         MetaData md = var.value<MetaData>();
-        if (md.text().isEmpty() || m_model->letters().contains(md.text())) {
+        if (md.text().isEmpty() || model->letters().contains(md.text())) {
             addBtnEnabled = false;
         } else {
             selectItem->setCheckState(Qt::Checked);
-            m_selectIndex = index;
-            addBtnEnabled = true;
+            selectedIndex = index;
         }
+        m_buttonTuple->rightButton()->setEnabled(addBtnEnabled);
     }
-    m_buttonTuple->rightButton()->setEnabled(addBtnEnabled);
 }
 
 void KeyboardLayoutWidget::setMetaData(const QList<MetaData> &datas)
@@ -198,22 +221,27 @@ void KeyboardLayoutWidget::setLetters(QList<QString> letters)
 void KeyboardLayoutWidget::onSearch(const QString &text)
 {
     if (text.length() == 0) {
+        searchStatus = false;
         m_view->setModel(m_model);
         if (m_indexframe)
             m_indexframe->show();
     } else {
+        searchStatus = true;
         QList<MetaData> datas = m_model->metaData();
         QList<MetaData>::iterator it = datas.begin();
         QList<MetaData> sdatas;
         for (; it != datas.end(); ++it) {
             if ((*it).text().contains(text, Qt::CaseInsensitive)) {
-                sdatas.append(*it);
+                if (!(*it).key().isEmpty()) {
+                   sdatas.append(*it);
+                }
             }
         }
         m_searchModel->setMetaData(sdatas);
         m_view->setModel(m_searchModel);
         if (m_indexframe)
             m_indexframe->hide();
+        m_buttonTuple->rightButton()->setEnabled(false);
     }
 }
 
@@ -222,8 +250,10 @@ void KeyboardLayoutWidget::onItemClicked(const QModelIndex &index)
     QVariant var = index.data(IndexModel::KBLayoutRole);
     MetaData md = var.value<MetaData>();
 
-    if (m_model->letters().contains(md.text()))
+    if (m_model->letters().contains(md.text())) {
+        m_buttonTuple->rightButton()->setEnabled(true);
         return;
+    }
 
     Q_EMIT layoutSelected(md.text());
     Q_EMIT back();
