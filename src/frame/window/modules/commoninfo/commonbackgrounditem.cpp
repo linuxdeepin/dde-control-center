@@ -68,11 +68,13 @@ void CommonBackgroundItem::paintEvent(QPaintEvent *e)
 {
     SettingsItem::paintEvent(e);
 
-    if (m_background.isNull())
-        return;
-
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing);
+
+    if (m_background.isNull()) {
+        painter.fillRect(this->rect(), Qt::black);
+        return;
+    }
 
     QPalette pa = DApplicationHelper::instance()->palette(this);
     painter.setPen(Qt::NoPen);
