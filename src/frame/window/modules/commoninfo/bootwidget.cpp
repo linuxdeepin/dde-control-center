@@ -168,7 +168,10 @@ void BootWidget::setModel(CommonInfoModel *model)
     connect(model, &CommonInfoModel::defaultEntryChanged, this, &BootWidget::setDefaultEntry);
     connect(model, &CommonInfoModel::updatingChanged, m_updatingLabel, &SmallLabel::setVisible);
     connect(model, &CommonInfoModel::entryListsChanged, this, &BootWidget::setEntryList);
-    connect(model, &CommonInfoModel::themeEnabledChanged, m_background, &CommonBackgroundItem::setThemeEnable);
+    connect(model, &CommonInfoModel::themeEnabledChanged, this, [&](const bool _t1) {
+        m_background->setThemeEnable(_t1);
+        m_background->updateBackground(m_commonInfoModel->background());
+    });
     connect(model, &CommonInfoModel::backgroundChanged, m_background, &CommonBackgroundItem::updateBackground);
 
     // modified by wuchuanfei 20190909 for 8613
