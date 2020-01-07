@@ -64,7 +64,7 @@ public:
 
 private:
     void updateListView(const dcc::defapp::App &defaultApp);
-    QIcon getAppIcon(const QString &appIcon);
+    QIcon getAppIcon(const QString &appIcon, const QSize &size);
     dcc::defapp::App getAppById(const QString &appId);
     void appendItemData(const dcc::defapp::App &app);
     bool isDesktopOrBinaryFile(const QString &fileName);

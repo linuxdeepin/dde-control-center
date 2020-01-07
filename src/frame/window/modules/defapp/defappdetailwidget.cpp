@@ -118,8 +118,14 @@ void DefappDetailWidget::setCategory(dcc::defapp::Category *const category)
     setCategoryName(m_category->getName());
 }
 
-QIcon DefappDetailWidget::getAppIcon(const QString &appIcon) {
-    return QIcon::fromTheme(appIcon, QIcon::fromTheme("application-x-desktop"));
+QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size) {
+    QIcon icon = QIcon::fromTheme(appIcon, QIcon::fromTheme("application-x-desktop"));
+
+    const qreal ratio = devicePixelRatioF();
+    QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixmap.setDevicePixelRatio(ratio);
+
+    return pixmap;
 }
 
 void DefappDetailWidget::addItem(const dcc::defapp::App &item)
@@ -155,8 +161,8 @@ void DefappDetailWidget::showInvalidText(DStandardItem *modelItem, const QString
         return;
 
     DViewItemActionList actions;
-    DViewItemAction *act = new DViewItemAction(Qt::AlignVCenter | Qt::AlignLeft, QSize(), QSize(), false);
-    QIcon icon = getAppIcon(iconName);
+    DViewItemAction *act = new DViewItemAction(Qt::AlignVCenter | Qt::AlignLeft, QSize(32, 32), QSize(), false);
+    QIcon icon = getAppIcon(iconName, QSize(32, 32));
     act->setIcon(icon);
     act->setTextColorRole(DPalette::TextWarning);
     act->setIconText(name);
@@ -309,7 +315,7 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
 
     if (!app.isUser || isDesktopOrBinaryFile(app.Exec)) {
         item->setText(appName);
-        item->setIcon(getAppIcon(app.Icon));
+        item->setIcon(getAppIcon(app.Icon, QSize(32, 32)));
     } else {
         item->setData(appName, DefAppNameRole);
         item->setData(app.Icon, DefAppIconRole);
