@@ -173,7 +173,7 @@ void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
 
 void ShortcutItem::resizeEvent(QResizeEvent *event)
 {
-    QFrame::resizeEvent(event);
+    SettingsItem::resizeEvent(event);
 
     int v = width() - m_key->width() - 32;
 
