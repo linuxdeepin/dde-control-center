@@ -288,7 +288,9 @@ void SystemInfoWork::getLicenseState()
         return;
     }
 
-    m_model->setLicenseState(licenseInfo.property("GetIndicatorData").toUInt());
+    QDBusReply<quint32> reply = licenseInfo.call(QDBus::AutoDetect,
+                                   "GetIndicatorData");
+    m_model->setLicenseState(reply);
 }
 
 }
