@@ -943,9 +943,10 @@ void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *cons
 
 void MainWindow::updateViewBackground()
 {
+    DPalette pa = DApplicationHelper::instance()->palette(m_navView);
+    QColor base_color = palette().base().color();
+
     if (m_navView->viewMode() == QListView::IconMode) {
-        DPalette pa = DApplicationHelper::instance()->palette(m_navView);
-        QColor base_color = palette().base().color();
         DGuiApplicationHelper::ColorType ct = DGuiApplicationHelper::toColorType(base_color);
 
         if (ct == DGuiApplicationHelper::LightType) {
@@ -955,13 +956,11 @@ void MainWindow::updateViewBackground()
             pa.setColor(DPalette::ItemBackground, base_color);
         }
 
-        DApplicationHelper::instance()->setPalette(m_navView, pa);
     } else {
-        DPalette pa = DApplicationHelper::instance()->palette(m_navView);
-        pa.setColor(DPalette::ItemBackground, Qt::transparent);
-
-        DApplicationHelper::instance()->setPalette(m_navView, pa);
+        pa.setColor(DPalette::ItemBackground, base_color);
     }
+
+    DApplicationHelper::instance()->setPalette(m_navView, pa);
 }
 
 void MainWindow::onFirstItemClick(const QModelIndex &index)
