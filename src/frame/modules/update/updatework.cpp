@@ -416,6 +416,7 @@ bool UpdateWorker::checkDbusIsValid()
 
 void UpdateWorker::onSmartMirrorServiceIsValid(bool isvalid)
 {
+    m_smartMirrorInter->setSync(false);
     if (isvalid) {
         m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
     } else {
