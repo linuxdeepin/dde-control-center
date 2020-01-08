@@ -237,6 +237,7 @@ void KeyboardLayoutWidget::onSearch(const QString &text)
                 }
             }
         }
+        m_searchModel->clear();
         m_searchModel->setMetaData(sdatas);
         m_view->setModel(m_searchModel);
         if (m_indexframe)

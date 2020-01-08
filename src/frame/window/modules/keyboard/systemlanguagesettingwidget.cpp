@@ -38,6 +38,7 @@ using namespace dcc::keyboard;
 
 SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, QWidget *parent)
     : ContentWidget(parent)
+    , m_searchStatus(false)
     , m_keyboardModel(model)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
@@ -58,6 +59,7 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     cancel->setText(tr("Cancel"));
     QPushButton *ok = m_buttonTuple->rightButton();
     ok->setText(tr("Add"));
+    ok->setEnabled(false);
 
     m_search = new SearchInput();
     //~ contents_path /keyboard/System Language
@@ -94,9 +96,11 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
 void SystemLanguageSettingWidget::onSearch(const QString &text)
 {
     if (text.length() == 0) {
+        m_searchStatus = false;
         m_view->setModel(m_model);
     } else {
-        QStandardItemModel *model = new QStandardItemModel;
+        m_searchStatus = true;
+        m_searchModel = new QStandardItemModel;
 
         for (auto md : m_datas) {
             if (md.text().contains(text, Qt::CaseInsensitive)) {
@@ -104,29 +108,44 @@ void SystemLanguageSettingWidget::onSearch(const QString &text)
                 item->setText(md.text());
                 item->setData(md.key(),KeyRole);
                 item->setData(md.pinyin(),PingYinRole);
-                model->appendRow(item);
+                m_searchModel->appendRow(item);
             }
         }
-        m_view->setModel(model);
+        m_view->setModel(m_searchModel);
     }
 }
 
 void SystemLanguageSettingWidget::onAddLanguage()
 {
-    Q_EMIT click(m_modelIndex);
+    if(m_searchStatus) {
+        Q_EMIT click(m_searchModelIndex);
+    } else{
+        Q_EMIT click(m_modelIndex);
+    }
     Q_EMIT back();
 }
 
 void SystemLanguageSettingWidget::onLangSelect(const QModelIndex &index)
 {
-    if(m_modelIndex.isValid())
-        m_model->itemFromIndex(m_modelIndex)->setCheckState(Qt::Unchecked);
-    QStandardItem *selectedItem = m_model->itemFromIndex(index);
+    if(m_searchStatus) {
+        updateDataModel(m_searchModel, m_searchModelIndex, index);
+    } else {
+        updateDataModel(m_model, m_modelIndex, index);
+    }
+}
+
+void SystemLanguageSettingWidget::updateDataModel(QStandardItemModel *model, QModelIndex &selectedIndex, const QModelIndex &index) {
+
+    if (selectedIndex.isValid()) {
+        model->itemFromIndex(selectedIndex)->setCheckState(Qt::Unchecked);
+    }
+
+    QStandardItem *selectedItem = model->itemFromIndex(index);
     if (selectedItem) {
         selectedItem->setCheckState(Qt::Checked);
-        m_modelIndex = index;
+        selectedIndex = index;
+        m_buttonTuple->rightButton()->setEnabled(true);
     }
-    m_buttonTuple->rightButton()->setEnabled(selectedItem != nullptr);
 }
 
 void SystemLanguageSettingWidget::setModelData(const QList<MetaData> &datas)

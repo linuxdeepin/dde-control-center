@@ -55,6 +55,8 @@ class SystemLanguageSettingWidget : public dcc::ContentWidget
 public:
     explicit SystemLanguageSettingWidget(dcc::keyboard::KeyboardModel *model, QWidget *parent = nullptr);
 
+    void updateDataModel(QStandardItemModel *model, QModelIndex &selectedIndex, const QModelIndex &index);
+
     enum LanguageRole{
         TextRole = DTK_NAMESPACE::UserRole + 1,
         KeyRole,
@@ -74,15 +76,18 @@ protected:
 
 private:
     QLabel *m_title;
+    bool m_searchStatus;
     dcc::widgets::SearchInput *m_search;
+    dcc::keyboard::KeyboardModel *m_keyboardModel;
     dcc::widgets::ButtonTuple *m_buttonTuple;
     Dtk::Widget::DListView *m_view;
     QStandardItemModel *m_model;
-    dcc::keyboard::KeyboardModel *m_keyboardModel;
+    QStandardItemModel *m_searchModel;
     DGraphicsClipEffect *m_clipEffectWidget;
     dcc::widgets::TranslucentFrame *m_contentWidget;
     QList<dcc::keyboard::MetaData> m_datas;  
     QModelIndex m_modelIndex;
+    QModelIndex m_searchModelIndex;
 };
 }
 }
