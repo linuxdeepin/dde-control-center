@@ -142,7 +142,8 @@ void DefappDetailWidget::removeItem(const dcc::defapp::App &item)
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
         QString id = m_model->data(m_model->index(row, 0), DefAppIdRole).toString();
-        if (id == item.Id) {
+        bool bDelete = m_model->data(m_model->index(row, 0), DefAppCanDeleteRole).toBool();
+        if (id == item.Id && bDelete == item.isUser) {
             m_model->removeRow(row);
             if (item.isUser) {
                 m_userAppCnt--;
