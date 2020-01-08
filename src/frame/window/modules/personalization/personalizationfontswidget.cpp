@@ -36,6 +36,7 @@
 #include <QComboBox>
 #include <QStandardItemModel>
 #include <QDebug>
+#include <QTimer>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -147,7 +148,7 @@ void PersonalizationFontsWidget::setFontSize(int size)
     m_fontSizeSlider->blockSignals(true);
     m_fontSizeSlider->slider()->setValue(size);
     m_fontSizeSlider->blockSignals(false);
-    setCommboxItemFontSize();
+    QTimer::singleShot(100,this,&PersonalizationFontsWidget::setCommboxItemFontSize);
 }
 
 void PersonalizationFontsWidget::setList(const QList<QJsonObject> &list, dcc::personalization::FontModel *model)
@@ -181,8 +182,8 @@ void PersonalizationFontsWidget::setCommboxItemFontSize()
         for (auto i = 0; i < model->rowCount(); ++i) {
             auto item = model->item(i);
             auto font = item->font();
-            auto fsize = DFontSizeManager::instance()->t7().pointSize();
-            font.setPointSize(fsize);
+            auto fsize = DFontSizeManager::instance()->t7().pixelSize();
+            font.setPixelSize(fsize);
             item->setFont(font);
         }
     };
