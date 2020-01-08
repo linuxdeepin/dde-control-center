@@ -31,11 +31,13 @@
 #include <QIcon>
 #include <QScrollArea>
 #include <QDebug>
+#include <DSysInfo>
 
 using namespace dcc::widgets;
 using namespace dcc::systeminfo;
 using namespace DCC_NAMESPACE::systeminfo;
 
+DCORE_USE_NAMESPACE
 namespace DCC_NAMESPACE {
 namespace systeminfo {
 
@@ -61,12 +63,14 @@ void NativeInfoWidget::initWidget()
     LogoItem *logo = new LogoItem;
     logo->setDescription(true); //显示文字描述
     logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
-//    logo->setLogo(QIcon::fromTheme("dcc_deepin_logo"), 164, 42);
-//    logo->setLogo(QIcon::fromTheme("dcc_deepin_uos_logo"), 156, 46); //不生效
-    if(DCC_NAMESPACE::isDesktopSystem())
-        logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_logo_164px.svg"), 156, 46);
-    else
+    auto defIcon = ":/icons/deepin/builtin/icons/dcc_deepin_logo_164px.svg";
+    if (DCC_NAMESPACE::isDesktopSystem()) {
+        logo->setLogo(QIcon(defIcon), 156, 46);
+    } else if (DCC_NAMESPACE::isProfessionalSystem()) {
         logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logo.svg"), 156, 46);
+    } else {
+        logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal, defIcon));
+    }
 
     m_version = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
