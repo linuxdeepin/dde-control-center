@@ -324,10 +324,10 @@ void MainWindow::initAllModule(QString m)
         //目前只有"update"模块需要使用右上角的角标，其他模块还是使用旧的位置数据设置
         //若其他地方需要使用右上角的角标，可在下面if处使用“||”添加对应模块的name()值
         if (it->first->name() == "update") {
-            auto action1 = new DViewItemAction(Qt::AlignTop | Qt::AlignRight, QSize(40, 40), QSize(), true);
+            auto action1 = new DViewItemAction(Qt::AlignTop | Qt::AlignRight, QSize(ActionIconSize, ActionIconSize), QSize(ActionIconSize, ActionIconSize), false);
             action1->setIcon(QIcon(":/icons/deepin/builtin/icons/dcc_common_subscript.svg"));
             action1->setVisible(false);
-            auto action2 = new DViewItemAction(Qt::AlignCenter, QSize(26, 26), QSize(), true);
+            auto action2 = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(ActionListSize, ActionListSize), QSize(ActionListSize, ActionListSize), false);
             action2->setIcon(QIcon(":/icons/deepin/builtin/icons/dcc_common_subscript.svg"));
             action2->setVisible(false);
             item->setActionList(Qt::Edge::RightEdge, {action1, action2});
@@ -336,7 +336,7 @@ void MainWindow::initAllModule(QString m)
             group.m_action.first = action1;
             group.m_action.second = action2;
             m_remindeSubscriptList.append(group);
-            item->setData(QVariant::fromValue(VListViewRightSubscripItemMargin), Dtk::MarginsRole);
+            item->setData(QVariant::fromValue(QMargins(ListViweRightSubscriptItemDis,0,0,0)), Dtk::MarginsRole);
         } else {
             item->setData(NavItemMargin, Dtk::MarginsRole);
         }
@@ -610,8 +610,8 @@ void MainWindow::resetNavList(bool isIconMode)
         m_navView->setDragEnabled(false);
         m_navView->setMaximumWidth(QWIDGETSIZE_MAX);
         m_navView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        m_navView->setIconSize(QSize(84, 84));
-        m_navView->setItemSize(QSize(170, 168));
+        m_navView->setIconSize(ListViweItemIconSize);
+        m_navView->setItemSize(ListViweItemSize);
         m_navView->setItemSpacing(0);
         m_navView->setSpacing(20);
         m_navView->clearSelection();
@@ -621,7 +621,7 @@ void MainWindow::resetNavList(bool isIconMode)
         for (auto data : m_remindeSubscriptList) {
             for (int i = 0; i < m_navModel->rowCount(); i++) {
                 if (m_modules.at(i).first->name() == data.m_name) {
-                    m_navModel->item(i, 0)->setData(QVariant::fromValue(VListViewRightSubscripItemMargin), Dtk::MarginsRole);
+                    m_navModel->item(i, 0)->setData(QVariant::fromValue(QMargins(ListViweRightSubscriptItemDis,0,0,0)), Dtk::MarginsRole);
                     data.m_action.first->setVisible(data.m_action.second->isVisible());
                     data.m_action.second->setVisible(false);
                     break;
@@ -638,8 +638,8 @@ void MainWindow::resetNavList(bool isIconMode)
         m_navView->setViewMode(QListView::ListMode);
         m_navView->setMinimumWidth(first_widget_min_width);
         m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-        m_navView->setIconSize(QSize(42, 42));
-        m_navView->setItemSize(QSize(168, 48));
+        m_navView->setIconSize(ListViweItemIconSize_ListMode);
+        m_navView->setItemSize(ListViweItemSize_ListMode);
         m_navView->setSpacing(0);
         m_navView->setSelectionMode(QAbstractItemView::SingleSelection);
 
