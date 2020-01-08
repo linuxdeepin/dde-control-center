@@ -35,7 +35,6 @@
 #include <QDebug>
 #include <QSettings>
 #include <QApplication>
-#include <QScrollArea>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -59,21 +58,21 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     mainContentLayout->setMargin(0);
     setLayout(mainContentLayout);
 
-    QScrollArea *scrollArea = new QScrollArea;
-    scrollArea->setWidgetResizable(true);
-    scrollArea->setFrameStyle(QFrame::NoFrame);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    scrollArea->setContentsMargins(0, 0, 0, 0);
-    mainContentLayout->addWidget(scrollArea);
+    m_scrollArea = new QScrollArea;
+    m_scrollArea->setWidgetResizable(true);
+    m_scrollArea->setFrameStyle(QFrame::NoFrame);
+    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_scrollArea->setContentsMargins(0, 0, 0, 0);
+    mainContentLayout->addWidget(m_scrollArea);
 
     auto contentLayout = new QVBoxLayout();
     contentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    auto tw = new QWidget();
-    tw->setLayout(contentLayout);
+    m_tw = new QWidget();
+    m_tw->setLayout(contentLayout);
     contentLayout->setSpacing(0);
     contentLayout->setMargin(0);
-    scrollArea->setWidget(tw);
+    m_scrollArea->setWidget(m_tw);
 
     initWidgets(contentLayout);
     if (m_isServerSystem) {
@@ -100,6 +99,13 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
 
 CreateAccountPage::~CreateAccountPage()
 {
+}
+
+void CreateAccountPage::resizeEvent(QResizeEvent *e)
+{
+    if (m_tw) {
+        m_tw->resize(m_scrollArea->size());
+    }
 }
 
 void CreateAccountPage::initUsrGroup(QVBoxLayout *layout)

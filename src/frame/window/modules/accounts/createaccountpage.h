@@ -34,6 +34,7 @@
 #include <DSuggestButton>
 
 #include <QWidget>
+#include <QScrollArea>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -72,6 +73,9 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setCreationResult(dcc::accounts::CreationResult *result);
 
+protected:
+    void resizeEvent(QResizeEvent *e) override;
+
 private:
     dcc::accounts::User *m_newUser;
     dcc::accounts::UserModel *m_userModel;
@@ -84,6 +88,8 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_groupListView;
     QStandardItemModel *m_groupItemModel;
     bool m_isServerSystem;
+    QWidget *m_tw;
+    QScrollArea *m_scrollArea;
 };
 
 }
