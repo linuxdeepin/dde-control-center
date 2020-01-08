@@ -196,7 +196,9 @@ void UpdateWorker::getLicenseState()
         qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
         return;
     }
-    m_model->setSystemActivation(licenseInfo.property("GetIndicatorData").toUInt());
+    QDBusReply<quint32> reply = licenseInfo.call(QDBus::AutoDetect,
+                                   "GetIndicatorData");
+    m_model->setSystemActivation(reply);
 }
 
 void UpdateWorker::activate()
