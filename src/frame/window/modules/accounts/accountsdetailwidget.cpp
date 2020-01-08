@@ -264,8 +264,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         layout->addWidget(pwWidget);
         pwWidget->setLayout(pwHLayout);
 
-        pwHLayout->addWidget(new QLabel(tr("Date Expired (Days)")), 0, Qt::AlignLeft);
+        pwHLayout->addWidget(new QLabel(tr("Validity Days")), 0, Qt::AlignLeft);
         auto ageEdit = new DLineEdit();
+        ageEdit->lineEdit()->setPlaceholderText("Always");
         ageEdit->setText(QString::number(m_curUser->passwordAge()));
         ageEdit->setMaximumWidth(120);
         ageEdit->setClearButtonEnabled(false);
@@ -293,12 +294,6 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         connect(m_curUser, &User::passwordAgeChanged, this, [ageEdit](const int age) {
             ageEdit->setText(QString::number(age));
         });
-
-        auto pwTip = new DTipLabel(tr("Maximum number of days between password change"));
-        pwTip->setContentsMargins(6, 0, 0, 0);
-        layout->addSpacing(5);
-        layout->addWidget(pwTip, 0, Qt::AlignLeft);
-
     }
 
 #if 0
