@@ -163,11 +163,11 @@ void NativeInfoWidget::setLicenseState(quint32 state)
         m_authorized->setValueForegroundRole(QColor(255, 0, 0));
         m_authorized->setButtonText(tr("View"));
     } else if (state == TrialAuthorized) {
-        m_authorized->setValue(tr("Mid trial"));
+        m_authorized->setValue(tr("In trial period"));
         m_authorized->setValueForegroundRole(QColor(255, 0, 0));
         m_authorized->setButtonText(tr("Activate"));
     } else if (state == TrialExpired) {
-        m_authorized->setValue(tr("Trial period has expired"));
+        m_authorized->setValue(tr("Trial expired"));
         m_authorized->setValueForegroundRole(QColor(255, 0, 0));
         m_authorized->setButtonText(tr("Activate"));
     }

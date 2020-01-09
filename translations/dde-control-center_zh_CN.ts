@@ -4249,13 +4249,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="166"/>
-        <source>Mid trial</source>
-        <translation type="unfinished"/>
+        <source>In trial period</source>
+        <translation>试用期</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="170"/>
-        <source>Trial period has expired</source>
-        <translation type="unfinished"/>
+        <source>Trial expired</source>
+        <translation>试用期过期</translation>
     </message>
 </context>
 <context>
@@ -8849,7 +8849,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="185"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
+        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>
