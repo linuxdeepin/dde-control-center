@@ -25,7 +25,11 @@
 
 #include "soundmodel.h"
 
+#include "window/utils.h"
+
 #include <QDebug>
+
+using namespace DCC_NAMESPACE;
 
 static const QMap<DDesktopServices::SystemSoundEffect, QString> SOUND_EFFECT_MAP{
     { DDesktopServices::SystemSoundEffect::SSE_Notifications, "message" },
@@ -89,6 +93,11 @@ SoundModel::SoundModel(QObject *parent)
         { tr("Removable device removed"), DDesktopServices::SSE_DeviceRemoved },
         { tr("Error"), DDesktopServices::SSE_Error },
     };
+
+    if(isServerSystem()) {
+        m_soundEffectMapBattery.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
+        m_soundEffectMapPower.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
+    }
 }
 
 SoundModel::~SoundModel()
