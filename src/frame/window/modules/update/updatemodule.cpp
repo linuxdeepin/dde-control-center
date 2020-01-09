@@ -92,7 +92,11 @@ void UpdateModule::active()
 {
     UpdateWidget *mainWidget = new UpdateWidget;
     mainWidget->initialize();
-    mainWidget->setSystemVersion(m_model->systemVersionInfo());
+
+    if (m_model->systemActivation()) {
+        mainWidget->setSystemVersion(m_model->systemVersionInfo());
+    }
+
     mainWidget->setModel(m_model, m_work);
     m_updateWidget = mainWidget;
 

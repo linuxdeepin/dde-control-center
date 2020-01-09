@@ -50,7 +50,14 @@ enum UpdatesStatus {
     DeependenciesBrokenError,
     RecoveryBackingup,
     RecoveryBackingSuccessed,
-    RecoveryBackupFailed
+    RecoveryBackupFailed,
+    NoAtive
+};
+
+enum ShowStatus {
+    NoActive,
+    IsSuccessed,
+    IsFailed
 };
 
 //equal : false

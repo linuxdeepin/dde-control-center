@@ -29,6 +29,7 @@
 #include "widgets/settingsitem.h"
 
 #include "dimagebutton.h"
+#include "common.h"
 
 namespace dcc {
 namespace widgets {
@@ -46,12 +47,13 @@ class ResultItem : public dcc::widgets::SettingsItem
 public:
     explicit ResultItem(QFrame* parent = 0);
 
-    void setSuccess(bool success);
+    void setSuccess(ShowStatus type);
     void setMessage(const QString &message);
 
 private:
     dcc::widgets::NormalLabel* m_message;
     QLabel *m_icon;
+    QString m_pix;
 };
 
 } // namespace update

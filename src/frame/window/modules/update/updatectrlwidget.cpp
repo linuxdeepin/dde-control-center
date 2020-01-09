@@ -135,6 +135,12 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 
     connect(m_progress, &DownloadProgressBar::clicked, this, &UpdateCtrlWidget::onProgressBarClicked);
     connect(m_fullProcess, &DownloadProgressBar::clicked, this, &UpdateCtrlWidget::onProgressBarClicked);
+
+    if (m_model->systemActivation()) {
+        m_checkUpdateItem->setVisible(true);
+    } else {
+        m_checkUpdateItem->setVisible(false);
+    }
 }
 
 UpdateCtrlWidget::~UpdateCtrlWidget()
@@ -193,6 +199,10 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
     m_status = status;
 
+    if (!m_model->systemActivation()) {
+        m_status = NoAtive;
+    }
+
     Q_EMIT notifyUpdateState(m_status);
 
     m_powerTip->setVisible(false);
@@ -210,7 +220,11 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_checkUpdateItem->setImageAndTextVisible(false);
     m_summary->setVisible(false);
 
-    switch (status) {
+    switch (m_status) {
+    case UpdatesStatus::NoAtive:
+        m_resultItem->setVisible(true);
+        m_resultItem->setSuccess(ShowStatus::NoActive);
+        break;
     case UpdatesStatus::Checking:
         m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setVisible(true);
@@ -265,12 +279,12 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::UpdateSucceeded:
         m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(true);
+        m_resultItem->setSuccess(ShowStatus::IsSuccessed);
         m_reminderTip->setVisible(true);
         break;
     case UpdatesStatus::UpdateFailed:
         m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(false);
+        m_resultItem->setSuccess(ShowStatus::IsFailed);
         break;
     case UpdatesStatus::NeedRestart:
         m_checkUpdateItem->setVisible(true);
@@ -278,17 +292,17 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::NoNetwork:
         m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(false);
+        m_resultItem->setSuccess(ShowStatus::IsFailed);
         m_noNetworkTip->setVisible(true);
         break;
     case UpdatesStatus::NoSpace:
         m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(false);
+        m_resultItem->setSuccess(ShowStatus::IsFailed);
         m_resultItem->setMessage(tr("Update failed: insufficient disk space"));
         break;
     case UpdatesStatus::DeependenciesBrokenError:
         m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(false);
+        m_resultItem->setSuccess(ShowStatus::IsFailed);
         m_resultItem->setMessage(tr("Dependency error, failed to detect the updates"));
         break;
     case UpdatesStatus::RecoveryBackingup:
@@ -300,7 +314,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::RecoveryBackupFailed:
         m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(false);
+        m_resultItem->setSuccess(ShowStatus::IsFailed);
         m_resultItem->setMessage(tr("System backup failed"));
         break;
     default:

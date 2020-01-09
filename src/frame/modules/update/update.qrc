@@ -9,5 +9,6 @@
         <file>themes/dark/icons/nav_update_normal.svg</file>
         <file>themes/dark/icons/nav_update.svg</file>
         <file>themes/dde.svg</file>
+        <file>themes/common/icons/noactive.svg</file>
     </qresource>
 </RCC>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
-    <title>success</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="通用图标" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="success">
-            <circle id="Oval" fill="#63BB00" cx="25" cy="25" r="25"></circle>
-            <polyline id="Path-2" stroke="#FFFFFF" stroke-width="2" points="14 27 21 35 37 16"></polyline>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="update_success-a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#55C600"/>
+      <stop offset="100%" stop-color="#00C3B6"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="url(#update_success-a)" d="M48,96 C74.509668,96 96,74.509668 96,48 C96,21.490332 74.509668,0 48,0 C21.490332,0 0,21.490332 0,48 C0,74.509668 21.490332,96 48,96 Z"/>
+    <path fill="#FFF" fill-rule="nonzero" d="M38.4382219,63.9845183 C41.4382919,67.229833 46.2950661,67.2138646 49.2746411,63.9613939 L75.7817734,35.0265056 C76.9009716,33.8048014 76.8178741,31.9071249 75.5961698,30.7879267 C74.3744656,29.6687284 72.4767891,29.751826 71.3575909,30.9735302 L45.2285673,59.5671381 C44.4864832,60.3792183 43.2797624,60.3829284 42.5206665,59.5617792 L28.2029373,44.0736281 C27.0782368,42.8569873 25.1802046,42.7824551 23.9635639,43.9071557 C22.7469232,45.0318563 22.672391,46.9298884 23.7970915,48.1465291 L38.4382219,63.9845183 Z"/>
+  </g>
 </svg>

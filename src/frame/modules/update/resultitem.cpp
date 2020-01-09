@@ -27,6 +27,7 @@
 
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QDebug>
 #include <dhidpihelper.h>
 
 #include "widgets/labels/normallabel.h"
@@ -40,9 +41,10 @@ namespace update {
 ResultItem::ResultItem(QFrame *parent)
     : SettingsItem(parent),
       m_message(new dcc::widgets::NormalLabel),
-      m_icon(new QLabel)
+      m_icon(new QLabel),
+      m_pix("")
 {
-    m_icon->setFixedSize(50, 50);
+    m_icon->setFixedSize(96, 96);
 
     m_message->setWordWrap(true);
 
@@ -59,14 +61,28 @@ ResultItem::ResultItem(QFrame *parent)
     setLayout(layout);
 }
 
-void ResultItem::setSuccess(bool success)
+void ResultItem::setSuccess(ShowStatus type)
 {
-    const QString pix = success ? ":/update/themes/common/icons/success.svg" :
-                                  ":/update/themes/common/icons/failed.svg";
-    const QString message = success ? tr("Update successful") :
-                                      tr("Failed to update");
-    m_icon->setPixmap(DHiDPIHelper::loadNxPixmap(pix));
-    setMessage(message);
+    switch (type) {
+    case ShowStatus::NoActive:
+        m_pix = ":/update/themes/common/icons/noactive.svg";
+        m_icon->setPixmap(DHiDPIHelper::loadNxPixmap(m_pix));
+        setMessage(tr("Your system is not authorized, please activate first"));
+        break;
+    case ShowStatus::IsSuccessed:
+        m_pix = ":/update/themes/common/icons/success.svg";
+        m_icon->setPixmap(DHiDPIHelper::loadNxPixmap(m_pix));
+        setMessage(tr("Update successful"));
+        break;
+    case ShowStatus::IsFailed:
+        m_pix = ":/update/themes/common/icons/failed.svg";
+        m_icon->setPixmap(DHiDPIHelper::loadNxPixmap(m_pix));
+        setMessage(tr("Failed to update"));
+        break;
+    default:
+        qDebug() << "unknown status!!!";
+        break;
+    }
 }
 
 void ResultItem::setMessage(const QString &message)

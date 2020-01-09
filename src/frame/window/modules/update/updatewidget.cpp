@@ -231,9 +231,12 @@ void UpdateWidget::refreshWidget(UpdateType type)
 void UpdateWidget::showCheckUpdate()
 {
     qDebug() << Q_FUNC_INFO << " current update status : " << m_model->status();
-    m_work->checkForUpdates();
-    m_mainLayout->setCurrentIndex(0);
 
+    if (m_model->systemActivation()) {
+         m_work->checkForUpdates();
+    }
+
+    m_mainLayout->setCurrentIndex(0);
     // prohibit dde-offline-upgrader from showing while this page is showing.
     QDBusConnection::sessionBus().registerService(OfflineUpgraderService);
 }
