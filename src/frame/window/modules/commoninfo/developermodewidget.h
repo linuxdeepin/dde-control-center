@@ -60,7 +60,6 @@ public Q_SLOTS:
 private:
     bool m_enterDev{false};
     QPushButton *m_devBtn;
-    QPushButton *m_offlineBtn;
     CommonInfoModel *m_model{nullptr};    
     QDBusInterface *m_inter;
 };

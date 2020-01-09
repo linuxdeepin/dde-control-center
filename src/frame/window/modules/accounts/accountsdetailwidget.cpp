@@ -296,36 +296,6 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         });
     }
 
-#if 0
-    auto pwAgeGroup = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-    auto pwSwitch = new SwitchWidget(tr("has password age"));
-    pwAgeGroup->appendItem(pwSwitch);
-    pwAgeGroup->layout()->setMargin(0);
-    layout->addWidget(pwAgeGroup);
-
-    pwSwitch->setChecked(m_curUser->passwordAge() != -1);
-    connect(m_curUser, &User::passwordAgeChanged, this, [pwSwitch](const int age) {
-        pwSwitch->setChecked(age != -1);
-    });
-
-    auto pwDayItem = new SettingsItem();
-    auto pwDVLayout = new QVBoxLayout();
-    pwDayItem->setLayout(pwDVLayout);
-    pwDayItem->setVisible(m_curUser->passwordAge() != -1);
-    pwAgeGroup->appendItem(pwDayItem);
-
-    connect(pwSwitch, &SwitchWidget::checkedChanged, pwDayItem, &QWidget::setVisible);
-    auto lastDay = new DTipLabel("2020/2/15");
-    pwDVLayout->addWidget(lastDay, 0, Qt::AlignBottom | Qt::AlignRight);
-
-    connect(m_curUser, &User::passwordAgeChanged, this, [lastDay](const int age) {
-        lastDay->setText(QString::number(age));
-    });
-    connect(m_curUser, &User::passwordAgeChanged, this, [lastDay](const int age) {
-        lastDay->setText(QString::number(age));
-    });
-#endif
-
     SwitchWidget *autoLogin = new SwitchWidget;
     SwitchWidget *nopasswdLogin = new SwitchWidget;
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);

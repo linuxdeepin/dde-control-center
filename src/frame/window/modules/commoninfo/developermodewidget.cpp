@@ -54,7 +54,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
                                                  QDBusConnection::systemBus(), this);
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
     m_devBtn = new QPushButton(tr("Request Root Access"));
-    auto dtip = new DTipLabel(tr("Developer mode enables using root privilege, installing and running unsigned Apps, but you may also damage the integration of your system, please use it carefully."));
+    auto dtip = new DTipLabel(tr("Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully."));
     dtip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     dtip->setWordWrap(true);
 
@@ -83,16 +83,6 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
         devDlg->deleteLater();
     });
 
-
-    m_offlineBtn = new QPushButton(tr("Request Root Access") + QString("(%1)").arg(tr("offline")));
-    connect(m_offlineBtn, &QPushButton::clicked, this, [this]{
-        QProcess *pro = new QProcess;
-        int code = pro->execute("pkexec", {"/usr/lib/dde-control-center/develop-tool"});
-        if (0 != code)
-            return;
-        updateDeveloperModeState(true);
-    });
-
     vBoxLayout->setMargin(0);
     vBoxLayout->setSpacing(10);
     vBoxLayout->setContentsMargins(6, 0, 6, 0);
@@ -100,7 +90,6 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     vBoxLayout->addWidget(dtip);
 //    vBoxLayout->addWidget(utip);
     vBoxLayout->addStretch();
-//    vBoxLayout->addWidget(m_offlineBtn, 0, Qt::AlignBottom);
     setLayout(vBoxLayout);
 
 }
