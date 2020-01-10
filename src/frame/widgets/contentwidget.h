@@ -54,6 +54,7 @@ public:
     void sendBackSignal();
     QWidget *content() const { return m_content; }
     QWidget *setContent(QWidget * const w);
+    void scrollTo(int dy);
 
 Q_SIGNALS:
     void back() const;

@@ -45,7 +45,7 @@ using namespace dcc::widgets;
 KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     : QWidget(parent)
     , m_bEdit(false)
-    , m_kbLayoutListView(new DListView())
+    , m_kbLayoutListView(new MyListView())
     , m_switchLayoutListView(new DListView())
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
@@ -108,12 +108,12 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     QWidget *widget = new QWidget(this);
     widget->setLayout(mainLayout);
-    ContentWidget *contentWidget = new ContentWidget(this);
-    contentWidget->setContent(widget);
+    m_contentWidget = new ContentWidget(this);
+    m_contentWidget->setContent(widget);
 
     QVBoxLayout *vLayout = new QVBoxLayout();
     vLayout->setMargin(0);//
-    vLayout->addWidget(contentWidget);
+    vLayout->addWidget(m_contentWidget);
 
     DFloatingButton *addLayout = new DFloatingButton(DStyle::SP_IncreaseElement, this);
     QHBoxLayout *btnLayout = new QHBoxLayout;
@@ -128,6 +128,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     connect(m_comboWidget, &ComboxWidget::onIndexChanged, this, &KBLayoutSettingWidget::onSwitchKBLayoutScope);
     connect(m_kbLayoutListView, &DListView::clicked, this, &KBLayoutSettingWidget::onKBLayoutChanged);
     connect(m_switchLayoutListView, &DListView::clicked, this, &KBLayoutSettingWidget::onSwitchKBChanged);
+    connect(m_kbLayoutListView, &MyListView::currentChangedSignal, this, &KBLayoutSettingWidget::onKBCurrentChanged);
 }
 
 void KBLayoutSettingWidget::setModel(KeyboardModel *model)
@@ -178,7 +179,7 @@ void KBLayoutSettingWidget::onEditClicked()
                 DViewItemAction *iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
                 iconAction->setIcon(DStyle::standardIcon(style(), DStyle::SP_DeleteButton));
                 item->setActionList(Qt::RightEdge, {iconAction});
-                connect(iconAction, &DViewItemAction::triggered, this, [this,item] {
+                connect(iconAction, &DViewItemAction::triggered, this, [this, item] {
                     m_kbLangList.removeOne(item->data(KBLangIdRole).toString());
                     int idx = m_kbLayoutModel->indexFromItem(item).row();
                     Q_EMIT delUserLayout(item->text());
@@ -208,6 +209,8 @@ void KBLayoutSettingWidget::onDefault(const QString &value)
         QStandardItem *item = m_kbLayoutModel->item(i, 0);
         if (item && (item->text() == value)) {
             item->setCheckState(Qt::Checked);
+            // 滚动到当前选中项
+            onKBCurrentChanged(m_kbLayoutModel->index(i, 0));
         } else {
             item->setCheckState(Qt::Unchecked);
         }
@@ -231,9 +234,26 @@ void KBLayoutSettingWidget::onKBLayoutChanged(const QModelIndex &index)
     }
 }
 
+void KBLayoutSettingWidget::onKBCurrentChanged(const QModelIndex &current)
+{
+    QSize itemSize = m_kbLayoutListView->itemDelegate()->sizeHint(QStyleOptionViewItem(), current);
+    int top = current.row() * (itemSize.height() + m_kbLayoutModel->span(current).height());
+
+    QRect visibleRect = m_kbLayoutListView->visibleRegion().boundingRect();
+    QRect itemRect(0, top, visibleRect.width(), itemSize.height());
+
+    if (!visibleRect.contains(itemRect)) {
+        if (visibleRect.bottom() < itemRect.bottom()) {
+            m_contentWidget->scrollTo(itemRect.bottom() - visibleRect.bottom());
+        } else {
+            m_contentWidget->scrollTo(itemRect.top() - visibleRect.top());
+        }
+    }
+}
+
 void KBLayoutSettingWidget::onSwitchKBChanged(const QModelIndex &index)
 {
-    QStandardItem *item = m_switchLayoutModel->item(index.row() ,index.column());
+    QStandardItem *item = m_switchLayoutModel->item(index.row(), index.column());
     Qt::CheckState state = item->checkState();
     if (state == Qt::Checked) {
         item->setCheckState(Qt::Unchecked);

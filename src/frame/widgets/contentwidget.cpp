@@ -112,7 +112,7 @@ void ContentWidget::sendBackSignal()
     Q_EMIT back();
 }
 
-QWidget *ContentWidget::setContent(QWidget * const w)
+QWidget *ContentWidget::setContent(QWidget *const w)
 {
     QWidget *lastWidget = m_content;
 
@@ -124,6 +124,11 @@ QWidget *ContentWidget::setContent(QWidget * const w)
     m_contentArea->setWidget(m_content);
 
     return lastWidget;
+}
+
+void ContentWidget::scrollTo(int dy)
+{
+    m_contentArea->verticalScrollBar()->setValue(m_contentArea->verticalScrollBar()->value() + dy);
 }
 
 void ContentWidget::resizeEvent(QResizeEvent *event)

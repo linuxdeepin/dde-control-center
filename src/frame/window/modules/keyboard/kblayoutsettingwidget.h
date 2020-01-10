@@ -47,6 +47,25 @@ class ComboxWidget;
 namespace DCC_NAMESPACE {
 namespace keyboard {
 class CheckItem;
+
+class MyListView : public DListView
+{
+    Q_OBJECT
+public:
+    explicit MyListView(QWidget *parent = nullptr): DListView(parent) {}
+
+Q_SIGNALS:
+    void currentChangedSignal(const QModelIndex &current);
+
+    // QAbstractItemView interface
+protected:
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous)
+    {
+        DListView::currentChanged(current, previous);
+        Q_EMIT currentChangedSignal(current);
+    }
+};
+
 class KBLayoutSettingWidget : public QWidget
 {
     Q_OBJECT
@@ -67,6 +86,7 @@ public Q_SLOTS:
     void onEditClicked();
     void onDefault(const QString &value);
     void onKBLayoutChanged(const QModelIndex &index);
+    void onKBCurrentChanged(const QModelIndex &current);
     void onSwitchKBChanged(const QModelIndex &index);
     void onSwitchKB(int kbSwitch);
     void onLayoutAdded();
@@ -80,11 +100,12 @@ private:
     dcc::keyboard::KeyboardModel *m_model;
     dcc::widgets::ComboxWidget *m_comboWidget;
     QLabel *m_switchTitle;
-    DListView *m_kbLayoutListView;
+    MyListView *m_kbLayoutListView;
     DListView *m_switchLayoutListView;
     DCommandLinkButton *m_editKBLayout;
     QStandardItemModel *m_kbLayoutModel;
     QStandardItemModel *m_switchLayoutModel;
+    dcc::ContentWidget *m_contentWidget;
 private:
     enum {
         SwitchValueRole = Dtk::UserRole + 1,
