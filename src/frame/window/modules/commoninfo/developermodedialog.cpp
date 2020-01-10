@@ -28,6 +28,7 @@
 #include <DTipLabel>
 #include <DTitlebar>
 #include <DWindowCloseButton>
+#include <DTextBrowser>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -81,8 +82,11 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
     contentVBoxLayout->addWidget(hw, 0, Qt::AlignTop | Qt::AlignHCenter);
 
     //在线激活模式提示
-    auto chooseModeCommonts = new DTipLabel("");
-    chooseModeCommonts->setWordWrap(true);
+    auto chooseModeCommonts = new DTextBrowser();
+    auto mpalette=this->palette();
+    mpalette.setBrush(QPalette::Base, QBrush(Qt::NoBrush));
+    chooseModeCommonts->setPalette(mpalette);
+    chooseModeCommonts->setFrameStyle(QFrame::NoFrame);
     chooseModeCommonts->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     chooseModeCommonts->setText(tr("Please sign in to your cloud account first and continue"));
 
