@@ -99,6 +99,7 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
 
 CreateAccountPage::~CreateAccountPage()
 {
+    m_repeatpasswdEdit->hideAlertMessage();
 }
 
 void CreateAccountPage::resizeEvent(QResizeEvent *e)
