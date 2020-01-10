@@ -170,7 +170,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     QLabel *repeatpasswdLabel = new QLabel(tr("Repeat Password") + ':');
     layout->addWidget(repeatpasswdLabel);
     layout->addWidget(m_repeatpasswdEdit);
-    layout->addSpacing(33);
+    layout->addSpacing(7);
 
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
             m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
@@ -358,7 +358,7 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
     if (edit == m_repeatpasswdEdit) {
         if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
             m_repeatpasswdEdit->setAlert(true);
-            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), -1);
+            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), -1);
             return false;
         }
     }

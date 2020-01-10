@@ -266,8 +266,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
         pwHLayout->addWidget(new QLabel(tr("Validity Days")), 0, Qt::AlignLeft);
         auto ageEdit = new DLineEdit();
-        ageEdit->lineEdit()->setPlaceholderText("Always");
-        ageEdit->setText(QString::number(m_curUser->passwordAge()) == "99999" ? "Always" : QString::number(m_curUser->passwordAge()));
+        ageEdit->lineEdit()->setPlaceholderText(tr("Always"));
+        ageEdit->setText(m_curUser->passwordAge() == 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
         ageEdit->setMaximumWidth(120);
         ageEdit->setClearButtonEnabled(false);
         pwHLayout->addWidget(ageEdit, 0, Qt::AlignRight);
@@ -292,7 +292,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             Q_EMIT requsetSetPassWordAge(m_curUser, ageEdit->text().toInt());
         });
         connect(m_curUser, &User::passwordAgeChanged, this, [ageEdit](const int age) {
-            ageEdit->setText(QString::number(age) == "99999" ? "Always" : QString::number(age));
+            ageEdit->setText(age == 99999 ? tr("Always") : QString::number(age));
         });
     }
 
