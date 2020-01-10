@@ -163,7 +163,9 @@ void DatetimeModule::updateSystemTimezone(const QString &timezone)
         m_timezonelist->getTimezoneContentListPtr()->updateTimezones(m_model->userTimeZones());
     }
 
-    m_widget->setCurrentTimeZone(m_model->currentTimeZone());
+    if (!m_widget.isNull()) {
+        m_widget->setCurrentTimeZone(m_model->currentTimeZone());
+    }
 }
 
 void DatetimeModule::ensureZoneChooserDialog()
