@@ -284,8 +284,6 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
             if (w->isError()) {
                 Q_EMIT m_commomModel->developerModeStateChanged(false);
-            }else {
-                Q_EMIT m_commomModel->developerModeStateChanged(true);
             }
             w->deleteLater();
         });
