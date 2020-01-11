@@ -198,10 +198,12 @@ void AvatarListWidget::addItemFromDefaultDir()
 
         DStandardItem *item = new DStandardItem();
         auto ratio = devicePixelRatioF();
+
+        auto pxPath = iconpath;
         if (ratio > 1.0) {
-            iconpath.replace("icons/", "icons/bigger/");
+            pxPath.replace("icons/", "icons/bigger/");
         }
-        auto px = QPixmap(iconpath).scaled(QSize(74, 74) * ratio,
+        auto px = QPixmap(pxPath).scaled(QSize(74, 74) * ratio,
                                            Qt::KeepAspectRatio, Qt::FastTransformation);
         px.setDevicePixelRatio(ratio);
 
