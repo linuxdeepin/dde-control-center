@@ -356,7 +356,7 @@ void ConnectionEditPage::updateConnection()
 
     if (m_settingsWidget->isAutoConnect()) {
         if (m_connType == ConnectionEditPage::WiredConnection) {
-            Q_EMIT activateWiredConnection(m_connection->path());
+            Q_EMIT activateWiredConnection(m_connection->path(), m_connectionUuid);
         } else {
             reply = activateConnection(m_connection->path(), DevicePath, "");
             reply.waitForFinished();
@@ -400,7 +400,8 @@ void ConnectionEditPage::createConnSettings()
     if (!connName.isEmpty()) {
         m_connectionSettings->setId(connName.arg(connectionSuffixNum(connName)));
     }
-    m_connectionSettings->setUuid(m_connectionSettings->createNewUuid());
+    m_connectionUuid = m_connectionSettings->createNewUuid();
+    m_connectionSettings->setUuid(m_connectionUuid);
 }
 
 int ConnectionEditPage::connectionSuffixNum(const QString &matchConnName)

@@ -78,6 +78,7 @@ private Q_SLOTS:
     void editConnection(const QString &connectionPath);
     void createNewConnection();
     void activateConnection(const QString &connectionPath);
+    void activateEditConnection(const QString &connectPath, const QString &uuid);
     void checkActivatedConnection();
     void onDeviceStatusChanged(const dde::network::WiredDevice::DeviceStatus stat);
     void onDeviceRemoved();

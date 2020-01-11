@@ -69,7 +69,7 @@ Q_SIGNALS:
     void requestNextPage(ContentWidget *const page);
     void requestFrameAutoHide(const bool autoHide) const;
     void requestWiredDeviceEnabled(const QString &devPath, const bool enabled) const;
-    void activateWiredConnection(const QString &connString);
+    void activateWiredConnection(const QString &connString, const QString &uuid);
     // private signals
     void saveSettingsDone();
     void prepareConnectionDone();

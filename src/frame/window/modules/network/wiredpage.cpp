@@ -195,7 +195,7 @@ void WiredPage::editConnection(const QString &connectionPath)
                                         m_device->path(), m_model->connectionUuidByPath(connectionPath));
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestWiredDeviceEnabled, this, &WiredPage::requestDeviceEnabled);
-    connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateConnection);
+    connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateEditConnection);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
@@ -206,7 +206,7 @@ void WiredPage::createNewConnection()
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path());
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestWiredDeviceEnabled, this, &WiredPage::requestDeviceEnabled);
-    connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateConnection);
+    connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateEditConnection);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
@@ -216,6 +216,11 @@ void WiredPage::activateConnection(const QString &connectionPath)
 {
     qDebug() << "devPath:" << m_device->path() << ", uuid:" << m_model->connectionUuidByPath(connectionPath);
     Q_EMIT requestActiveConnection(m_device->path(), m_model->connectionUuidByPath(connectionPath));
+}
+
+void WiredPage::activateEditConnection(const QString &connectPath, const QString &uuid)
+{
+    Q_EMIT requestActiveConnection(m_device->path(), uuid);
 }
 
 void WiredPage::checkActivatedConnection()
