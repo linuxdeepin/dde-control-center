@@ -39,7 +39,7 @@
 #include <QStandardPaths>
 #include <QDateTime>
 
-const int AvatarSize = 14;
+const int MaxAvatarSize = 14;
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -90,14 +90,14 @@ void AvatarListWidget::refreshCustomAvatar(const QString& str)
 
     qDebug() << QString("find custom avatar path %1 whit user name %2.").arg(customPicPath, str);
 
-    QStandardItem *item = m_avatarItemModel->item(AvatarSize);;
+    QStandardItem *item = m_avatarItemModel->item(MaxAvatarSize);;
     if (!item || item->data(SaveAvatarRole).toString().isEmpty()) {
         item = new QStandardItem();
         qDebug() << "add avatar item with path :" << customPicPath;
         item->setCheckState(Qt::Checked);
-        m_avatarItemModel->insertRow(AvatarSize, item);
+        m_avatarItemModel->insertRow(MaxAvatarSize, item);
     } else {
-        item = m_avatarItemModel->item(AvatarSize);
+        item = m_avatarItemModel->item(MaxAvatarSize);
     }
 
     item->setData(QVariant::fromValue(QPixmap(customPicPath)), Qt::DecorationRole);
@@ -189,7 +189,7 @@ void AvatarListWidget::addItemFromDefaultDir()
         return fileinfo1.baseName() < fileinfo2.baseName();
     });
 
-    for (int i = 0; i < AvatarSize && i < list.size(); ++i) {
+    for (int i = 0; i < MaxAvatarSize && i < list.size(); ++i) {
         if (hideList.contains(list.at(i).fileName())) {
             continue;
         }
