@@ -225,6 +225,7 @@ void UpdateWorker::checkForUpdates()
 {
     if (checkDbusIsValid()) {
         qDebug() << " checkDbusIsValid . do nothing";
+        m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
         return;
     }
 
