@@ -8894,6 +8894,11 @@ If no operation, the display will be restored after %1s.</source>
         <translation>升级成功</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="80"/>
+        <source>Your system is not authorized, please activate first</source>
+        <translation>当前系统未授权，请激活后再更新</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
         <source>Failed to update</source>
         <translation>更新失败</translation>
