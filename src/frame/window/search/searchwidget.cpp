@@ -77,6 +77,8 @@ SearchWidget::SearchWidget(QWidget *parent)
         {tr("Developer Mode"), false},
         {tr("User Experience Program"), false},
         {tr("Join User Experience Program"), false},
+        {tr("Cloud Account"), false},
+        {tr("Display Scaling"), false},
     };
 
     //first : 可移除设备名称
