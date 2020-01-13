@@ -79,6 +79,9 @@ void SpeakerPage::initSlider()
     outputSlider->setVisible(m_model->speakerOn());
     DCCSlider *slider = outputSlider->slider();
 
+    QStringList annotions;
+    annotions << " " << " " << "100" << " ";
+    outputSlider->setAnnotations(annotions);
     //初始化音量设置滚动条
     slider->setRange(0, 150);
     slider->setType(DCCSlider::Vernier);
