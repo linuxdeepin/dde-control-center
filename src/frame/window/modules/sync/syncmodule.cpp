@@ -51,7 +51,7 @@ void SyncModule::preInitialize(bool sync)
     m_model = new dcc::cloudsync::SyncModel;
     m_worker = new dcc::cloudsync::SyncWorker(m_model);
 
-    m_frameProxy->setModuleVisible(this, m_model->syncIsValid() && !isServerSystem());
+    m_frameProxy->setModuleVisible(this, m_model->syncIsValid() && !IsServerSystem);
 }
 
 QStringList SyncModule::availPage() const

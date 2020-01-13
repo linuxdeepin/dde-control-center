@@ -129,7 +129,7 @@ QStringList DisplayModule::availPage() const
         sl << "Multiple Displays";
     }
 
-    if (isServerSystem()) {
+    if (IsServerSystem) {
         sl << "Display Scaling";
     }
 

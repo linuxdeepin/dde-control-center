@@ -64,9 +64,9 @@ void NativeInfoWidget::initWidget()
     logo->setDescription(true); //显示文字描述
     logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
     auto defIcon = ":/icons/deepin/builtin/icons/dcc_deepin_logo_164px.svg";
-    if (DCC_NAMESPACE::isDesktopSystem()) {
+    if (DCC_NAMESPACE::IsDesktopSystem) {
         logo->setLogo(QIcon(defIcon), 156, 46);
-    } else if (DCC_NAMESPACE::isProfessionalSystem()) {
+    } else if (DCC_NAMESPACE::IsProfessionalSystem) {
         logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logo.svg"), 156, 46);
     } else {
         logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal, defIcon));
@@ -193,7 +193,7 @@ const QString NativeInfoWidget::systemCopyright() const
     const QString oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
 
     if (oem_copyright.isEmpty()) {
-        if(DCC_NAMESPACE::isDesktopSystem())
+        if(DCC_NAMESPACE::IsDesktopSystem)
             return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Deepin Community")).arg(2019);
         else
             return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-2020 UnionTech Software Technology Co., LTD")).arg(2019);

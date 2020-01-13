@@ -52,7 +52,7 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
 {
-    m_isServerSystem = isServerSystem();
+    m_isServerSystem = IsServerSystem;
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     mainContentLayout->setMargin(0);

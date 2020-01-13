@@ -38,7 +38,7 @@ DatetimeModel::DatetimeModel(QObject *parent)
     , m_ntp(true)
     , m_bUse24HourType(true)
 {
-    m_bSystemIsServer = DCC_NAMESPACE::isServerSystem();
+    m_bSystemIsServer = DCC_NAMESPACE::IsServerSystem;
 }
 
 void DatetimeModel::setNTP(bool ntp)

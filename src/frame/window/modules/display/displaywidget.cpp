@@ -131,7 +131,7 @@ void DisplayWidget::initMenuUI()
         {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
         {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)}
     };
-    if (!isServerSystem()) {
+    if (!IsServerSystem) {
         //~ contents_path /display/Display Scaling
         MenuMethod scaleMenu = {tr("Display Scaling"), "dcc_screen",
                           QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)};

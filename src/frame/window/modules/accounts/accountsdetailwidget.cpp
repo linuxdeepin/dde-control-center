@@ -55,7 +55,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
 {
-    m_isServerSystem = isServerSystem();
+    m_isServerSystem = IsServerSystem;
     //整体布局
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
@@ -262,7 +262,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
 
-    if (isServerSystem()) {
+    if (IsServerSystem) {
         auto pwHLayout = new QHBoxLayout;
         auto pwWidget = new SettingsItem;
         pwWidget->addBackground();
@@ -332,8 +332,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     nopasswdLogin->setEnabled(isCurUser);
 
     //服务器版本不显示自动登录，无密码登录
-    autoLogin->setVisible(!isServerSystem());
-    nopasswdLogin->setVisible(!isServerSystem());
+    autoLogin->setVisible(!IsServerSystem);
+    nopasswdLogin->setVisible(!IsServerSystem);
 
     //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));

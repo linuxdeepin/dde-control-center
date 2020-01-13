@@ -95,7 +95,7 @@ void AccountsWorker::getAllGroupsResult(QDBusPendingCallWatcher *watch)
 
 void AccountsWorker::getPresetGroups()
 {
-    int userType = DCC_NAMESPACE::isServerSystem() ? 0 : 1;
+    int userType = DCC_NAMESPACE::IsServerSystem ? 0 : 1;
     QDBusPendingReply<QStringList> reply = m_accountsInter->GetPresetGroups(userType);
     QDBusPendingCallWatcher *presetGroupsResult = new QDBusPendingCallWatcher(reply, this);
     connect(presetGroupsResult, &QDBusPendingCallWatcher::finished, this, &AccountsWorker::getPresetGroupsResult);
@@ -482,7 +482,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     }
 
     // default FullName is empty string
-    auto type = isServerSystem() ? 0 : 1;
+    auto type = IsServerSystem ? 0 : 1;
     QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->fullname(), type);
 
     const QString userPath = path.path();
@@ -504,7 +504,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     bool sifResult = !userDBus->SetIconFile(user->currentAvatar()).isError();
     bool spResult = !userDBus->SetPassword(cryptUserPassword(user->password())).isError();
     bool groupResult = true;
-    if (isServerSystem()) {
+    if (IsServerSystem) {
         groupResult = !userDBus->SetGroups(user->groups()).isError();
     }
 

@@ -65,7 +65,7 @@ void SystemInfoWidget::initData()
         {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
     };
 
-    if(DCC_NAMESPACE::isDesktopSystem())
+    if(DCC_NAMESPACE::IsDesktopSystem)
         m_itemList.removeLast();
 
     for (auto m : m_itemList) {

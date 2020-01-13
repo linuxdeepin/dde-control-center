@@ -133,7 +133,7 @@ void ShortcutModel::delInfo(ShortcutInfo *info)
 void ShortcutModel::onParseInfo(const QString &info)
 {
     QStringList systemShortKeys;
-    if (DCC_NAMESPACE::isServerSystem()) {
+    if (DCC_NAMESPACE::IsServerSystem) {
         QStringList systemFilterServer = systemFilter;
         systemFilterServer.removeOne("screenshot");
         systemFilterServer.removeOne("screenshot-delayed");

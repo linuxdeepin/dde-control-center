@@ -67,7 +67,7 @@ DateSettings::DateSettings(QWidget *parent)
     , m_syncSettingTimer(new QTimer)
     , m_timeSec(0)
 {
-    m_bSystemIsServer = isServerSystem();
+    m_bSystemIsServer = IsServerSystem;
 
     if (m_bSystemIsServer) {
         m_ntpServerList = new datetimeCombox;

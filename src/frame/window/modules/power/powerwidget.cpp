@@ -52,7 +52,7 @@ void PowerWidget::initialize(bool hasBattery)
 {
     m_bhasBattery = hasBattery;
 
-    if (!isServerSystem()) {
+    if (!IsServerSystem) {
         m_menuIconText = {
             //~ contents_path /power/General
             { QIcon::fromTheme("dcc_general_purpose"), tr("General"), QMetaMethod::fromSignal(&PowerWidget::requestShowGeneral)},
@@ -81,7 +81,7 @@ void PowerWidget::initialize(bool hasBattery)
     m_listview->setModel(model);
     m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    if (!isServerSystem())
+    if (!IsServerSystem)
         m_listview->setRowHidden(2, !hasBattery);
     else {
         m_listview->setRowHidden(1, !hasBattery);

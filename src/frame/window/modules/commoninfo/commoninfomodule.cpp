@@ -43,7 +43,7 @@ CommonInfoModule::CommonInfoModule(dccV20::FrameProxyInterface *frame, QObject *
 
 #ifdef DCC_DISABLE_GRUB
     //如果服务器版本，且不显示GRUB(arm),则整个模块不显示
-    if (isServerSystem())
+    if (IsServerSystem)
         m_frameProxy->setModuleVisible(this, false);
 #endif
 }
@@ -115,7 +115,7 @@ int CommonInfoModule::load(QString path)
         indexRow = 0;
     }
 
-    if (!isServerSystem()) {
+    if (!IsServerSystem) {
         if (path == "Developer Mode") {
             // 为开发者模式的search预留
             indexRow = 1;
@@ -145,7 +145,7 @@ QStringList CommonInfoModule::availPage() const
     QStringList sl;
     sl << "Boot Menu";
 
-    if (!isServerSystem()) {
+    if (!IsServerSystem) {
         sl << "User Experience Program" << "Developer mode";
     }
 

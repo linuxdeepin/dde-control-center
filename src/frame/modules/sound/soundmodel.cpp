@@ -94,7 +94,7 @@ SoundModel::SoundModel(QObject *parent)
         { tr("Error"), DDesktopServices::SSE_Error },
     };
 
-    if(isServerSystem()) {
+    if(IsServerSystem) {
         m_soundEffectMapBattery.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
         m_soundEffectMapPower.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
     }

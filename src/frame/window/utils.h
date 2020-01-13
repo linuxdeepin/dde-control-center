@@ -28,6 +28,9 @@
 #include <QSize>
 #include <QVariant>
 #include <QSettings>
+#include <DSysInfo>
+
+DCORE_USE_NAMESPACE
 
 Q_DECLARE_METATYPE(QMargins)
 
@@ -50,29 +53,12 @@ const qint32 ListViweRightSubscriptItemDis=qMax(ActionIconSize,ActionListSize)+1
 const int List_Interval = 10;
 const QMargins ArrowEnterClickMargin(8, 8, 8, 8);
 
-static QString getSystemTypeName() {
-    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
-    setting.beginGroup("Release");
-    return setting.value("Type").toString();
-}
+const QString SystemTypeName = DSysInfo::deepinTypeDisplayName(QLocale::c());
 
-static bool isServerSystem() {
-    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
-    setting.beginGroup("Release");
-    return (setting.value("Type").toString() == "Server");
-}
-
-static bool isDesktopSystem() {
-    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
-    setting.beginGroup("Release");
-    return (setting.value("Type").toString() == "Desktop");
-}
-
-static bool isProfessionalSystem() {
-    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
-    setting.beginGroup("Release");
-    return (setting.value("Type").toString() == "Professional");
-}
+const DSysInfo::DeepinType DeepinType = DSysInfo::deepinType();
+const bool IsServerSystem = (DSysInfo::DeepinServer == DeepinType);
+const bool IsDesktopSystem = (DSysInfo::DeepinDesktop == DeepinType);
+const bool IsProfessionalSystem = (DSysInfo::DeepinProfessional == DeepinType);
 
 }
 

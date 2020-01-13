@@ -98,7 +98,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     infoit->setIcon(QIcon::fromTheme("dcc_network"));
     m_modelpages->appendRow(infoit);
     m_centralLayout->addWidget(m_lvnmpages);
-    if (isServerSystem()) {
+    if (IsServerSystem) {
         handleNMEditor();
     }
     connect(m_lvnmpages, &QListView::clicked, this, [this](const QModelIndex &idx) {

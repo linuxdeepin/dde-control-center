@@ -99,7 +99,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     m_centralLayout->addWidget(m_bgWidget);
 
-    m_bSystemIsServer = isServerSystem();
+    m_bSystemIsServer = IsServerSystem;
 
     if (!m_bSystemIsServer) {
         //sw switch

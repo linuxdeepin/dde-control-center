@@ -60,7 +60,7 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     SettingsGroup *powerSettingsGrp = new SettingsGroup;
     powerSettingsGrp->setSpacing(List_Interval);
     powerSettingsGrp->appendItem(m_monitorSleepOnPower);
-    if (!isServerSystem()){
+    if (!IsServerSystem){
         m_computerSleepOnPower = new TitledSliderItem(tr("Computer will suspend after"));
         //~ contents_path /power/Plugged In
         //~ child_page Plugged In
@@ -85,7 +85,7 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
 
     QStringList annos;
     annos << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
-    if (!isServerSystem()) {
+    if (!IsServerSystem) {
         m_computerSleepOnPower->setAnnotations(annos);
     }
 
@@ -120,7 +120,7 @@ void UseElectricWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::powerLockScreenDelayChanged, this, &UseElectricWidget::setLockScreenAfter);
 
     setScreenBlackDelayOnPower(model->screenBlackDelayOnPower());
-    if (!isServerSystem()) {
+    if (!IsServerSystem) {
         connect(model, &PowerModel::sleepDelayChangedOnPower, this, &UseElectricWidget::setSleepDelayOnPower);
         setSleepDelayOnPower(model->sleepDelayOnPower());
     }
