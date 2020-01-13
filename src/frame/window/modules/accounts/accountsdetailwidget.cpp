@@ -191,6 +191,12 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         m_avatarListWidget->setVisible(avatar->arrowed());
     });
 
+    connect(m_avatarListWidget, &AvatarListWidget::requesRetract, this, [ = ] {
+        if (avatar->arrowed()) {
+            avatar->setArrowed(!avatar->arrowed());
+            m_avatarListWidget->setVisible(avatar->arrowed());
+        }
+    });
 
     connect(m_curUser, &User::currentAvatarChanged, avatar, &AvatarWidget::setAvatarPath);
     //用户名发生变化

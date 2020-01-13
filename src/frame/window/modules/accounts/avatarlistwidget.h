@@ -64,6 +64,7 @@ public:
 Q_SIGNALS:
     void requestSetAvatar(const QString &avatarPath);
     void requestAddNewAvatar(dcc::accounts::User *user, const QString &file);
+    void requesRetract();
 
 public Q_SLOTS:
     void setCurrentAvatarChecked(const QString &avatar);
