@@ -108,6 +108,7 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
     //加入布局
     vBoxLayout->addLayout(titleHBoxLayout);
     vBoxLayout->addLayout(contentVBoxLayout);
+    vBoxLayout->setMargin(0);
     setLayout(vBoxLayout);
 
     //选择激活在线模式或离线模式
