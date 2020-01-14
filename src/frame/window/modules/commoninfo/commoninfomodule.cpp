@@ -28,6 +28,7 @@
 #include "window/modules/commoninfo/userexperienceprogramwidget.h"
 #include "window/modules/commoninfo/developermodewidget.h"
 #include "window/utils.h"
+#include "window/mainwindow.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::commoninfo;
@@ -195,6 +196,8 @@ void CommonInfoModule::initUeProgramWidget()
     m_ueProgramWidget = new UserExperienceProgramWidget();
     m_ueProgramWidget->setModel(m_commonModel);
     m_ueProgramWidget->setDefaultUeProgram(m_commonWork->defaultUeProgram());
-    connect(m_ueProgramWidget, &UserExperienceProgramWidget::enableUeProgram,
-            m_commonWork, &CommonInfoWork::setUeProgram);
+    connect(m_ueProgramWidget, &UserExperienceProgramWidget::enableUeProgram, this, [=](bool enabled) {
+        MainWindow *pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+        m_commonWork->setUeProgram(enabled, pMainWindow);
+    });
 }

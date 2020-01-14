@@ -36,6 +36,7 @@ using UeProgramDbus = com::deepin::userexperience::Daemon;
 using GrubDevelopMode = com::deepin::deepinid;
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace commoninfo {
 class CommonInfoModel;
 
@@ -59,7 +60,7 @@ public Q_SLOTS:
     void grubServerFinished();
     void onBackgroundChanged();
     void setBackground(const QString &path);
-    void setUeProgram(bool enabled);
+    void setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMainWindow);
     void setEnableDeveloperMode(bool enabled);
     void login();
 
@@ -70,9 +71,10 @@ private:
 private:
     CommonInfoModel *m_commomModel;
     GrubDbus *m_dBusGrub;
+    QFile *m_licenseFile = nullptr;
     GrubThemeDbus *m_dBusGrubTheme;
     UeProgramDbus *m_dBusUeProgram; // for user experience program
-    QProcess *m_process{nullptr};
+    QProcess *m_process = nullptr;
     GrubDevelopMode *m_dBusdeepinIdInter;
 };
 } // namespace commoninfo

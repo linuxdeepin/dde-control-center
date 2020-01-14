@@ -20,6 +20,7 @@
  */
 
 #include "commoninfowork.h"
+#include "window/mainwindow.h"
 #include "window/modules/commoninfo/commoninfomodel.h"
 #include "window/utils.h"
 
@@ -182,7 +183,7 @@ void CommonInfoWork::setBackground(const QString &path)
     });
 }
 
-void CommonInfoWork::setUeProgram(bool enabled)
+void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMainWindow)
 {
     if (enabled && (m_dBusUeProgram->IsEnabled() != enabled)) {
         qInfo("suser opened experience project switch.");
@@ -193,17 +194,17 @@ void CommonInfoWork::setUeProgram(bool enabled)
         // license内容
         QString content = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "");
         QString contentPath("/tmp/tempLic.txt"); // 临时存储路径
-        QFile file(contentPath);
+        m_licenseFile = new QFile(contentPath);
         // 如果文件不存在，则创建文件
-        if (!file.exists()) {
-            file.open(QIODevice::WriteOnly);
-            file.close();
+        if (!m_licenseFile->exists()) {
+            m_licenseFile->open(QIODevice::WriteOnly);
+            m_licenseFile->close();
         }
         // 写入文件内容
-        if (!file.open(QFile::ReadWrite | QIODevice::Text | QIODevice::Truncate))
+        if (!m_licenseFile->open(QFile::ReadWrite | QIODevice::Text | QIODevice::Truncate))
             return;
-        file.write(content.toLocal8Bit());
-        file.close();
+        m_licenseFile->write(content.toLocal8Bit());
+        m_licenseFile->close();
 
         m_process = new QProcess(this);
 
@@ -212,23 +213,32 @@ void CommonInfoWork::setUeProgram(bool enabled)
         sl << "zh_CN" << "zh_TW";
         if (!sl.contains(QLocale::system().name()))
             pathType = "-e";
-        int result = m_process->execute("dde-license-dialog",
+        m_process->start("dde-license-dialog",
                                       QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent);
-
-        m_process->deleteLater();
-        m_process = nullptr;
-
-        if (96 == result) {
-            if (!m_commomModel->ueProgram()) {
-                m_commomModel->setUeProgram(enabled);          
-                qInfo("user agreed experience project.");
+        connect(m_process, &QProcess::stateChanged, this, [pMainWindow](QProcess::ProcessState state) {
+            if (pMainWindow) {
+                pMainWindow->setEnabled(state != QProcess::Running);
+            } else {
+                qDebug() << "setUeProgram pMainWindow is nullptr";
             }
-            m_dBusUeProgram->Enable(enabled);
-        } else {
-            m_commomModel->setUeProgram(m_dBusUeProgram->IsEnabled());
-            qInfo("user closed experience project switch");
-        }
-        file.remove();
+        });
+        connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int result) {
+            if (96 == result) {
+                if (!m_commomModel->ueProgram()) {
+                    m_commomModel->setUeProgram(enabled);
+                    qInfo("user agreed experience project.");
+                }
+                m_dBusUeProgram->Enable(enabled);
+            } else {
+                m_commomModel->setUeProgram(m_dBusUeProgram->IsEnabled());
+                qInfo("user closed experience project switch");
+            }
+            m_licenseFile->remove();
+            m_licenseFile->deleteLater();
+            m_licenseFile = nullptr;
+            m_process->deleteLater();
+            m_process = nullptr;
+        });
     } else {
         if (m_dBusUeProgram->IsEnabled() != enabled) {
             m_dBusUeProgram->Enable(enabled);
