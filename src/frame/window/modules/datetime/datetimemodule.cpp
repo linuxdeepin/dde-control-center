@@ -71,6 +71,7 @@ void DatetimeModule::active()
     connect(m_widget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
     connect(m_widget, &DatetimeWidget::requestSetHourType, m_work, &DatetimeWork::set24HourType);
     connect(m_model,  &DatetimeModel::hourTypeChanged, m_widget, &DatetimeWidget::onHourTypeChanged);
+    connect(m_widget, &DatetimeWidget::requestCloseWidget, this, &DatetimeModule::closeDialog);
     m_widget->setModel(m_model);
     m_work->activate(); //refresh data
     m_widget->setCurrentTimeZone(m_model->currentTimeZone());
@@ -299,4 +300,11 @@ void DatetimeModule::onPopWidget()
     QModelIndex index = list->model()->index(ETimezoneList, 0);
     list->setCurrentIndex(index);
     list->clicked(index);
+}
+
+void DatetimeModule::closeDialog()
+{
+    if (!m_dialog.isNull()) {
+        m_dialog->close();
+    }
 }

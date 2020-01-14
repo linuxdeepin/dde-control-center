@@ -51,7 +51,7 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
 
 DatetimeWidget::~DatetimeWidget()
 {
-
+    requestCloseWidget();
 }
 
 void DatetimeWidget::init()

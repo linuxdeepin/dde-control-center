@@ -67,6 +67,7 @@ public:
 Q_SIGNALS:
     void requestSetHourType(const bool &type);
     void requestPushWidget(const int &page);
+    void requestCloseWidget();
 
 public Q_SLOTS:
     void onItemClieck(const QModelIndex &index);

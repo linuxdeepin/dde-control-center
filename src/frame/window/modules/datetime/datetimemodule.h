@@ -72,6 +72,7 @@ public Q_SLOTS:
     void onPopWidget();
     void updateSystemTimezone(const QString &timezone);
     void showSystemTimezone();
+    void closeDialog();
 
 private:
     void showTimezoneList();
