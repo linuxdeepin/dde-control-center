@@ -24,6 +24,7 @@
  */
 
 #include "shortcutmodel.h"
+#include "window/utils.h"
 #include <QDBusInterface>
 #include <QDebug>
 #include <QJsonArray>
@@ -131,6 +132,19 @@ void ShortcutModel::delInfo(ShortcutInfo *info)
 
 void ShortcutModel::onParseInfo(const QString &info)
 {
+    QStringList systemShortKeys;
+    if (DCC_NAMESPACE::isServerSystem()) {
+        QStringList systemFilterServer = systemFilter;
+        systemFilterServer.removeOne("screenshot");
+        systemFilterServer.removeOne("screenshot-delayed");
+        systemFilterServer.removeOne("screenshot-fullscreen");
+        systemFilterServer.removeOne("screenshot-window");
+        systemFilterServer.removeOne("deepin-screen-recorder");
+        systemFilterServer.removeOne("wm-switcher");
+        systemShortKeys = systemFilterServer;
+    } else {
+        systemShortKeys = systemFilter;
+    }
     qDeleteAll(m_infos);
 
     m_infos.clear();
@@ -156,7 +170,7 @@ void ShortcutModel::onParseInfo(const QString &info)
         m_infos << info;
 
         if (type != MEDIAKEY) {
-            if (systemFilter.contains(info->id)) {
+            if (systemShortKeys.contains(info->id)) {
                 m_systemInfos << info;
                 continue;
             }
@@ -179,7 +193,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     }
 
     qSort(m_systemInfos.begin(), m_systemInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
-        return systemFilter.indexOf(s1->id) < systemFilter.indexOf(s2->id);
+        return systemShortKeys.indexOf(s1->id) < systemShortKeys.indexOf(s2->id);
     });
 
     qSort(m_windowInfos.begin(), m_windowInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
