@@ -71,15 +71,21 @@ IndexPage::IndexPage(QWidget *parent)
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     scrollArea->setContentsMargins(0, 0, 0, 0);
+    scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);//暂时没效果,最好还是加上
 
     QWidget *backgroundWidget = new QWidget;
     backgroundWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     backgroundWidget->setFixedWidth(340);
-    scrollArea->setFixedWidth(360);
     QVBoxLayout *backgroundLayout = new QVBoxLayout;
     backgroundWidget->setLayout(backgroundLayout);
 
-    scrollArea->setWidget(backgroundWidget);
+    //加一个新的布局
+    auto hwidget = new QWidget();
+    auto hBoxlayout = new QHBoxLayout();
+    hwidget->setLayout(hBoxlayout);
+    hBoxlayout->addWidget(backgroundWidget, 0, Qt::AlignHCenter);
+
+    scrollArea->setWidget(hwidget);
 
     backgroundLayout->setMargin(0);
     backgroundLayout->setSpacing(0);
@@ -87,6 +93,7 @@ IndexPage::IndexPage(QWidget *parent)
     DWarningButton *logoutBtn = new DWarningButton;
     logoutBtn->setText(tr("Sign Out"));
 
+    auto bottomWidget = new QWidget();
     QHBoxLayout *bottomLayout = new QHBoxLayout;
     bottomLayout->setSpacing(0);
     bottomLayout->setMargin(0);
@@ -95,6 +102,8 @@ IndexPage::IndexPage(QWidget *parent)
     bottomLayout->addWidget(m_stateLbl, 0, Qt::AlignCenter);
     bottomLayout->addWidget(m_lastSyncTimeLbl, 0, Qt::AlignCenter);
     bottomLayout->addWidget(logoutBtn, 0, Qt::AlignRight);
+    bottomWidget->setMaximumHeight(120);
+    bottomWidget->setLayout(bottomLayout);
 
     backgroundLayout->addSpacing(141);
     backgroundLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
@@ -112,8 +121,8 @@ IndexPage::IndexPage(QWidget *parent)
     tipLayout->addWidget(m_networkTip);
     backgroundLayout->addLayout(tipLayout);
 
-    m_mainLayout->addWidget(scrollArea, 9, Qt::AlignHCenter);
-    m_mainLayout->addLayout(bottomLayout, 1);
+    m_mainLayout->addWidget(scrollArea);
+    m_mainLayout->addWidget(bottomWidget);
 
     m_listView->setModel(m_listModel);
 

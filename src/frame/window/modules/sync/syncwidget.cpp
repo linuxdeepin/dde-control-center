@@ -24,6 +24,7 @@ SyncWidget::SyncWidget(QWidget *parent)
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
+    m_indexPage->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_mainLayout->addWidget(m_loginPage);
     m_mainLayout->addWidget(m_indexPage);
     m_mainLayout->addWidget(m_cnonlyPage);
