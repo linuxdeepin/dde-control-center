@@ -63,7 +63,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setScreenBlackDelayOnPower(const int delay);
     void setSleepDelayOnPower(const int delay);
-    void setAutoLockScreenOnBattery(const int delay);
+    void setAutoLockScreenOnPower(const int delay);
     void setLockScreenAfter(const int delay);
 
 private:

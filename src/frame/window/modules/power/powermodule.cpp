@@ -150,18 +150,18 @@ void PowerModule::showUseElectric()
 
     UseElectricWidget *electric = new UseElectricWidget(m_widget);
     electric->setModel(m_model);
-    m_frameProxy->pushWidget(this, electric);
 
     //When use power : false -> hide (default : show)
     if (!m_widget->getIsUseBattety()) {
         electric->setLidClose(m_widget->getIsUseBattety());
     }
 
-    electric->setAutoLockScreenOnBattery(m_nPowerLockScreenDelay);
+    electric->setAutoLockScreenOnPower(m_model->getPowerLockScreenDelay());
     connect(electric, &UseElectricWidget::requestSetScreenBlackDelayOnPower, m_work, &PowerWorker::setScreenBlackDelayOnPower);
     connect(electric, &UseElectricWidget::requestSetSleepDelayOnPower, m_work, &PowerWorker::setSleepDelayOnPower);
     connect(electric, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed, m_work, &PowerWorker::setSleepOnLidOnPowerClosed);//Suspend on lid close
     connect(electric, &UseElectricWidget::requestSetAutoLockScreenOnPower, m_work, &PowerWorker::setLockScreenDelayOnPower);
+    m_frameProxy->pushWidget(this, electric);
 }
 
 void PowerModule::showUseBattery()

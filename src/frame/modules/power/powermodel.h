@@ -68,10 +68,10 @@ public:
     inline bool sleepOnLidOnBatteryClose() const { return m_sleepOnLidOnBatteryClose; }
     void setSleepOnLidOnBatteryClose(bool sleepOnLidOnBatteryClose);
 
-    inline bool getBatteryLockScreenDelay() const { return m_batteryLockScreenDelay; }
+    inline int getBatteryLockScreenDelay() const { return m_batteryLockScreenDelay; }
     void setBatteryLockScreenDelay(const int value);
 
-    inline bool getPowerLockScreenDelay() const { return m_powerLockScreenDelay; }
+    inline int getPowerLockScreenDelay() const { return m_powerLockScreenDelay; }
     void setPowerLockScreenDelay(const int value);
 
 #ifndef DCC_DISABLE_POWERSAVE

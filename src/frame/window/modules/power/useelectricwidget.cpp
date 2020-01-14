@@ -158,7 +158,7 @@ void UseElectricWidget::setLockScreenAfter(const int delay)
     m_autoLockScreen->slider()->blockSignals(false);
 }
 
-void UseElectricWidget::setAutoLockScreenOnBattery(const int delay)
+void UseElectricWidget::setAutoLockScreenOnPower(const int delay)
 {
     m_autoLockScreen->slider()->blockSignals(true);
     m_autoLockScreen->slider()->setValue(delay);
