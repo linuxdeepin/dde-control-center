@@ -348,7 +348,7 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
 
         infos.prepend(ddeUpdateInfo);
     }
-
+    qDebug() << " UpdateWorker::setAppUpdateInfo: infos.count()" << infos.count();
     DownloadInfo *result = calculateDownloadInfo(infos);
     m_model->setDownloadInfo(result);
 
@@ -356,9 +356,11 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
     qDebug() << "total download size:" << formatCap(result->downloadSize());
     m_downloadSize = result->downloadSize();
 
+    qDebug() << "UpdateWorker::setAppUpdateInfo:result->appInfos().length() = " << result->appInfos().length();
     if (result->appInfos().length() == 0) {
         m_model->setStatus(UpdatesStatus::Updated, __LINE__);
     } else {
+        qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << result->downloadSize();
         if (result->downloadSize()) {
             qDebug() << "[wubw download] get download process from DBus (0 : UpdatesAvailable), m_downloadProcess : " << m_downloadProcess;
             if (!compareDouble(m_downloadProcess, 0.0)) {
@@ -369,6 +371,7 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
             }
         } else {
             if (getNotUpdateState()) {
+                qDebug() << "UpdateWorker::setAppUpdateInfo: UpdatesStatus::Downloaded";
                 m_model->setStatus(UpdatesStatus::Downloaded, __LINE__);
             }
         }
@@ -853,6 +856,7 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
 
 void UpdateWorker::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
 {
+    qDebug() << "onAppUpdateInfoFinished";
     QDBusPendingReply<AppUpdateInfoList> reply = *w;
 
     if (reply.isError()) {
@@ -895,11 +899,14 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
         m_downloadJob->deleteLater();
 
         // install the updates immediately.
-        if (!m_model->autoDownloadUpdates())
+        if (!m_model->autoDownloadUpdates()) {
+            qDebug() << "m_model->autoDownloadUpdates()=" << m_model->autoDownloadUpdates();
             distUpgradeInstallUpdates();
-        else {
+        } else {
             // lastore not have download dbus
+            qDebug() << "autoDownloadUpdates is open";
             QTimer::singleShot(0, this, [ = ] {
+                qDebug() << "m_model->downloadInfo()->downloadSize()=" << m_model->downloadInfo()->downloadSize();
                 if (m_model->downloadInfo()->downloadSize()) {
                     checkForUpdates();
                 } else {
