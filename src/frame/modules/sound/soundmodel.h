@@ -126,6 +126,10 @@ public:
 
     QString audioCards() const;
     void setAudioCards(const QString &audioCards);
+
+    inline double MaxUIVolume() const { return m_maxUIVolume; }
+    void setMaxUIVolume(double value);
+
     SoundEffectList soundEffectMap() const;
 
     void setEffectData(DDesktopServices::SystemSoundEffect effect, const bool enable);
@@ -156,6 +160,7 @@ Q_SIGNALS:
     void defaultSourceChanged(const QDBusObjectPath &defaultSource) const;
     void defaultSinkChanged(const QDBusObjectPath &defaultSink) const;
     void audioCardsChanged(const QString &audioCards) const;
+    void maxUIVolumeChanged(double value) const;
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
@@ -174,6 +179,7 @@ private:
     double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;
+    double m_maxUIVolume;
 
 #ifndef DCC_DISABLE_FEEDBACK
     double m_microphoneFeedback;

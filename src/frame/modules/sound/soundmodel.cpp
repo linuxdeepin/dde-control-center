@@ -201,6 +201,15 @@ void SoundModel::setSpeakerVolume(double speakerVolume)
     }
 }
 
+void SoundModel::setMaxUIVolume(double value)
+{
+     double val = qRound(value * 10) / 10.0;
+     if (!qFuzzyCompare(val, m_maxUIVolume)) {
+        m_maxUIVolume = val;
+        Q_EMIT maxUIVolumeChanged(val);
+    }
+}
+
 QDBusObjectPath SoundModel::defaultSource() const
 {
     return m_defaultSource;

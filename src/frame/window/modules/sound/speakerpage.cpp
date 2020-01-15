@@ -21,10 +21,7 @@
 
 #include "speakerpage.h"
 #include "modules/sound/soundmodel.h"
-
 #include "widgets/switchwidget.h"
-#include "widgets/titledslideritem.h"
-#include "widgets/dccslider.h"
 #include "window/utils.h"
 #include "widgets/titlelabel.h"
 
@@ -74,28 +71,40 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 void SpeakerPage::initSlider()
 {
     //~ contents_path /sound/Speaker
-    auto outputSlider = new TitledSliderItem(tr("Output Volume"), this);
-    outputSlider->addBackground();
-    outputSlider->setVisible(m_model->speakerOn());
-    DCCSlider *slider = outputSlider->slider();
+    m_outputSlider = new TitledSliderItem(tr("Output Volume"), this);
+    m_outputSlider->addBackground();
+    m_outputSlider->setVisible(m_model->speakerOn());
+    m_speakSlider = m_outputSlider->slider();
 
-    QStringList annotions;
-    annotions << " " << " " << "100" << " ";
-    outputSlider->setAnnotations(annotions);
+//    if (m_model->MaxUIVolume() > 1.0) {
+//        QStringList annotions;
+//        annotions << " " << " " << "100" << " ";
+//        m_outputSlider->setAnnotations(annotions);
+//     }
+
     //初始化音量设置滚动条
-    slider->setRange(0, 150);
-    slider->setType(DCCSlider::Vernier);
-    slider->setTickPosition(QSlider::NoTicks);
+    qDebug() << "max volume:" << m_model->MaxUIVolume();
+    int maxRange = static_cast<int>(m_model->MaxUIVolume() * 100.0f);
+    m_speakSlider->setRange(0, maxRange);
+    m_speakSlider->setType(DCCSlider::Vernier);
+    m_speakSlider->setTickPosition(QSlider::NoTicks);
     //从DStyle 中获取标准图标
     auto icon_low = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement);
-    outputSlider->setLeftIcon(icon_low);
+    m_outputSlider->setLeftIcon(icon_low);
     //从DStyle 中获取标准图标
     auto icon_high = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeHighElement);
-    outputSlider->setRightIcon(icon_high);
-    outputSlider->setIconSize(QSize(24, 24));
-    slider->setTickInterval(1);
-    slider->setValue(static_cast<int>(m_model->speakerVolume() * 100.0));
-    slider->setPageStep(1);
+    m_outputSlider->setRightIcon(icon_high);
+    m_outputSlider->setIconSize(QSize(24, 24));
+
+    m_speakSlider->setTickInterval(1);
+    qDebug() << "speaker volume:" << m_model->speakerVolume();
+    int val = static_cast<int>(m_model->speakerVolume() * 100.0f);
+    if (val > maxRange) {
+        val = maxRange;
+    }
+    m_speakSlider->setValue(val);
+    m_outputSlider->setValueLiteral(QString::number(int(val)) + "%");
+    m_speakSlider->setPageStep(1);
 
     //处理滑块位置变化的槽
     auto slotfunc1 = [ = ](int pos) {
@@ -103,22 +112,36 @@ void SpeakerPage::initSlider()
         //滑块位置改变时，发送设置音量的信号
         Q_EMIT requestSetSpeakerVolume(val);
     };
-    outputSlider->setValueLiteral(QString::number(int(m_model->speakerVolume() * 100)) + "%");
     //当点击滑槽时不会有，sliderMoved消息，用这个补
-    connect(slider, &DCCSlider::valueChanged, slotfunc1);
+    connect(m_speakSlider, &DCCSlider::valueChanged, slotfunc1);
     //滑块移动消息处理
-    connect(slider, &DCCSlider::sliderMoved, slotfunc1);
+    connect(m_speakSlider, &DCCSlider::sliderMoved, slotfunc1);
     //当扬声器开/关时，显示/隐藏控件
-    connect(m_model, &SoundModel::speakerOnChanged, outputSlider, &TitledSliderItem::setVisible);
+    connect(m_model, &SoundModel::speakerOnChanged, m_outputSlider, &TitledSliderItem::setVisible);
     //当底层数据改变后，更新滑动条显示的数据
     connect(m_model, &SoundModel::speakerVolumeChanged, this, [ = ](double v) {
-        slider->blockSignals(true);
-        slider->setValue(static_cast<int>(v * 100));
-        slider->blockSignals(false);
-        outputSlider->setValueLiteral(QString::number(int(v * 100)) + "%");
+        m_speakSlider->blockSignals(true);
+        m_speakSlider->setValue(static_cast<int>(v * 100));
+        m_speakSlider->blockSignals(false);
+        m_outputSlider->setValueLiteral(QString::number(int(v * 100)) + "%");
     });
 
-    m_layout->insertWidget(1, outputSlider);
+    connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
+        m_speakSlider->setRange(0, static_cast<int>(maxvalue * 100));
+//        if (maxvalue > 1.0) {
+//            QStringList annotions;
+//            annotions << " " << " " << "100" << " ";
+//            qDebug() << m_outputSlider << annotions;
+//            m_outputSlider->slider()->setRightTicks(annotions);
+//        }
+
+        m_speakSlider->blockSignals(true);
+        m_speakSlider->setValue(static_cast<int>(m_model->speakerVolume() * 100));
+        m_speakSlider->blockSignals(false);
+        m_outputSlider->setValueLiteral(QString::number(m_model->speakerVolume() * 100) + "%");
+    });
+
+    m_layout->insertWidget(1, m_outputSlider);
 
     //~ contents_path /sound/Speaker
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);

@@ -23,7 +23,8 @@
 #define SPEAKERPAGE_H_V20
 
 #include "window/namespace.h"
-
+#include "widgets/titledslideritem.h"
+#include "widgets/dccslider.h"
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -81,6 +82,8 @@ private:
     dcc::widgets::SwitchWidget *m_sw{nullptr};
     //界面的主layout
     QVBoxLayout *m_layout{nullptr};
+    dcc::widgets::TitledSliderItem *m_outputSlider;
+    dcc::widgets::DCCSlider *m_speakSlider;
 };
 
 }
