@@ -72,8 +72,10 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
 
 void ResolutionDetailPage::initResoList()
 {
-    if (m_resoList)
+    if (m_resoList) {
         m_resoList->deleteLater();
+        m_resoList = nullptr;
+    }
 
     auto monitors = m_model->monitorList();
     if(!monitors.size()) {
