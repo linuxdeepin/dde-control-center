@@ -88,6 +88,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
+    void onClickCurrentListIndex(const QModelIndex &idx);
 
 private:
     QStandardItem *createDeviceGroup(dde::network::NetworkDevice *dev, const int number, const bool multiple);

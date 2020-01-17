@@ -101,35 +101,40 @@ NetworkModuleWidget::NetworkModuleWidget()
     if (IsServerSystem) {
         handleNMEditor();
     }
-    connect(m_lvnmpages, &QListView::clicked, this, [this](const QModelIndex &idx) {
-        PageType type = idx.data(SectionRole).value<PageType>();
-        switch (type) {
-        case DSLPage:
-            Q_EMIT requestShowPppPage(idx.data(SearchPath).toString());
-            break;
-        case VPNPage:
-            Q_EMIT requestShowVpnPage(idx.data(SearchPath).toString());
-            break;
-        case SysProxyPage:
-            Q_EMIT requestShowProxyPage();
-            break;
-        case AppProxyPage:
-            Q_EMIT requestShowChainsPage();
-            break;
-        case HotspotPage:
-            Q_EMIT requestHotspotPage();
-            break;
-        case NetworkInfoPage:
-            Q_EMIT requestShowInfomation();
-            break;
-        case WiredPage:
-        case WirelessPage:
-            Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice *>(), idx.data(SearchPath).toString());
-            break;
-        default:
-            break;
-        }
-    });
+    connect(m_lvnmpages, &QListView::entered, this, &NetworkModuleWidget::onClickCurrentListIndex);
+    connect(m_lvnmpages, &QListView::clicked, this, &NetworkModuleWidget::onClickCurrentListIndex);
+}
+
+void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
+{
+    PageType type = idx.data(SectionRole).value<PageType>();
+    m_lvnmpages->setCurrentIndex(idx);
+    switch (type) {
+    case DSLPage:
+        Q_EMIT requestShowPppPage(idx.data(SearchPath).toString());
+        break;
+    case VPNPage:
+        Q_EMIT requestShowVpnPage(idx.data(SearchPath).toString());
+        break;
+    case SysProxyPage:
+        Q_EMIT requestShowProxyPage();
+        break;
+    case AppProxyPage:
+        Q_EMIT requestShowChainsPage();
+        break;
+    case HotspotPage:
+        Q_EMIT requestHotspotPage();
+        break;
+    case NetworkInfoPage:
+        Q_EMIT requestShowInfomation();
+        break;
+    case WiredPage:
+    case WirelessPage:
+        Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice *>(), idx.data(SearchPath).toString());
+        break;
+    default:
+        break;
+    }
 }
 
 bool NetworkModuleWidget::handleNMEditor()
