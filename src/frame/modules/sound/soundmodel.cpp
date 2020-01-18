@@ -316,6 +316,19 @@ void SoundModel::setIsLaptop(bool isLaptop) {
     Q_EMIT isLaptopChanged(isLaptop);
 }
 
+bool SoundModel::isIncreaseVolume() const
+{
+    return m_increaseVolume;
+}
+
+void SoundModel::setIncreaseVolume(bool value)
+{
+    if(m_increaseVolume != value){
+        m_increaseVolume = value;
+        Q_EMIT increaseVolumeChanged(value);
+    }
+}
+
 void Port::setId(const QString &id)
 {
     if (id != m_id) {

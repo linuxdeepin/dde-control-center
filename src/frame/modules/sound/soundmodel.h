@@ -150,6 +150,8 @@ public:
     bool isLaptop() const;
     void setIsLaptop(bool isLaptop);
 
+    bool isIncreaseVolume() const;
+    void setIncreaseVolume(bool value);
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -161,6 +163,7 @@ Q_SIGNALS:
     void defaultSinkChanged(const QDBusObjectPath &defaultSink) const;
     void audioCardsChanged(const QString &audioCards) const;
     void maxUIVolumeChanged(double value) const;
+    void increaseVolumeChanged(bool value) const;
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
@@ -176,6 +179,7 @@ private:
     bool m_microphoneOn;
     bool m_enableSoundEffect;
     bool m_isLaptop;
+    bool m_increaseVolume{false};
     double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;

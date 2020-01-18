@@ -92,6 +92,7 @@ void SoundModule::showSpeakerPage()
     connect(w, &SpeakerPage::requestSwitchSpeaker, m_worker, &SoundWorker::switchSpeaker);
     connect(w, &SpeakerPage::requestSetSpeakerBalance, m_worker, &SoundWorker::setSinkBalance);
     connect(w, &SpeakerPage::requestSetSpeakerVolume, m_worker, &SoundWorker::setSinkVolume);
+    connect(w, &SpeakerPage::requestIncreaseVolume, m_worker, &SoundWorker::setIncreaseVolume);
 
     m_frameProxy->pushWidget(this, w);
 }

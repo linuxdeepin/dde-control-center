@@ -25,6 +25,7 @@
 #include "window/namespace.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -70,6 +71,8 @@ Q_SIGNALS:
     void requestSetSpeakerVolume(double val);
     //请求改变左右平衡 0-1.5
     void requestSetSpeakerBalance(double val);
+    //请求改变音量增强
+    void requestIncreaseVolume(bool value);
 
 private:
     //初始化使用到的 slider 控件

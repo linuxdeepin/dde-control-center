@@ -26,12 +26,14 @@
 #include "widgets/titlelabel.h"
 
 #include <DStyle>
+#include <DTipLabel>
 
 #include <QAction>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
+#include <QVBoxLayout>
 
 using namespace dcc::sound;
 using namespace dcc::widgets;
@@ -45,7 +47,6 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     m_sw = new SwitchWidget(nullptr, new TitleLabel(tr("Speaker")));
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);
-    m_layout->setSpacing(25);
     m_layout->addWidget(m_sw);
     m_layout->addStretch(1);
     setLayout(m_layout);
@@ -76,11 +77,14 @@ void SpeakerPage::initSlider()
     m_outputSlider->setVisible(m_model->speakerOn());
     m_speakSlider = m_outputSlider->slider();
 
-//    if (m_model->MaxUIVolume() > 1.0) {
-//        QStringList annotions;
-//        annotions << " " << " " << "100" << " ";
-//        m_outputSlider->setAnnotations(annotions);
-//     }
+    QStringList annotions;
+    if (m_model->MaxUIVolume() > 1.0) {
+        annotions << "0" << " " << "100" << "150";
+        m_speakSlider->setAnnotations(annotions);
+    }else {
+        annotions << "0" << " " << "100";
+        m_speakSlider->setAnnotations(annotions);
+    }
 
     //初始化音量设置滚动条
     qDebug() << "max volume:" << m_model->MaxUIVolume();
@@ -128,12 +132,16 @@ void SpeakerPage::initSlider()
 
     connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
         m_speakSlider->setRange(0, static_cast<int>(maxvalue * 100));
-//        if (maxvalue > 1.0) {
-//            QStringList annotions;
-//            annotions << " " << " " << "100" << " ";
-//            qDebug() << m_outputSlider << annotions;
-//            m_outputSlider->slider()->setRightTicks(annotions);
-//        }
+        QStringList annotions;
+        if (maxvalue > 1.0) {
+            annotions << "0 " << "" << "100" << "150 ";
+            qDebug() << m_outputSlider << annotions;
+            m_outputSlider->slider()->setRightTicks(annotions);
+        }else{
+            annotions << "0 " << "" << "100";
+            m_outputSlider->slider()->setRightTicks(annotions);
+        }
+        m_outputSlider->update();
 
         m_speakSlider->blockSignals(true);
         m_speakSlider->setValue(static_cast<int>(m_model->speakerVolume() * 100));
@@ -142,6 +150,25 @@ void SpeakerPage::initSlider()
     });
 
     m_layout->insertWidget(1, m_outputSlider);
+
+    //音量增强
+    auto hlayout = new QVBoxLayout(this);
+    auto volumeBoost = new SwitchWidget(this);
+    volumeBoost->setChecked(m_model->isIncreaseVolume());
+    volumeBoost->setTitle(tr("Volume Boost"));
+    volumeBoost->addBackground();
+    connect(m_model, &SoundModel::speakerOnChanged, volumeBoost, &SwitchWidget::setVisible);
+    connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoost, &SwitchWidget::setChecked);
+    connect(volumeBoost, &SwitchWidget::checkedChanged, this, &SpeakerPage::requestIncreaseVolume);
+    hlayout->addWidget(volumeBoost);
+
+    //下方提示
+    auto volumeBoostTip = new DTipLabel(tr("If the volume is louder than 100%, it may distort audio and be harmful to your speaker"), this);
+    volumeBoostTip->setWordWrap(true);
+    volumeBoostTip->setMargin(0);
+    hlayout->addWidget(volumeBoostTip);
+    m_layout->insertLayout(2, hlayout);
+    connect(volumeBoost, &SwitchWidget::checkedChanged, volumeBoostTip, &DTipLabel::setVisible);
 
     //~ contents_path /sound/Speaker
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
@@ -174,5 +201,5 @@ void SpeakerPage::initSlider()
         slider2->blockSignals(false);
     });
 
-    m_layout->insertWidget(2, balanceSlider);
+    m_layout->insertWidget(3, balanceSlider);
 }

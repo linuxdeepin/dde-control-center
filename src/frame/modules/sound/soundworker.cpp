@@ -66,7 +66,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     connect(m_audioInter, &Audio::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
     connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
     connect(m_audioInter, &Audio::MaxUIVolumeChanged, m_model, &SoundModel::setMaxUIVolume);
-
+    connect(m_audioInter, &Audio::IncreaseVolumeChanged, model, &SoundModel::setIncreaseVolume);
 
     connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);
 
@@ -79,6 +79,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     m_model->setAudioCards(m_audioInter->cards());
     m_model->setIsLaptop(m_powerInter->lidIsPresent());
     m_model->setMaxUIVolume(m_audioInter->maxUIVolume());
+    m_model->setIncreaseVolume(m_audioInter->increaseVolume());
 }
 
 void SoundWorker::activate()
@@ -150,6 +151,11 @@ void SoundWorker::setSinkVolume(double volume)
         m_defaultSink->SetVolume(volume, true);
         qDebug() << "set sink volume to " << volume;
     }
+}
+
+void SoundWorker::setIncreaseVolume(bool value)
+{
+    m_audioInter->setIncreaseVolume(value);
 }
 
 void SoundWorker::setPort(const Port *port)
