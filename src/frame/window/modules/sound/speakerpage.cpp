@@ -33,7 +33,6 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
-#include <QVBoxLayout>
 
 using namespace dcc::sound;
 using namespace dcc::widgets;
@@ -169,6 +168,7 @@ void SpeakerPage::initSlider()
     hlayout->addWidget(volumeBoostTip);
     m_layout->insertLayout(2, hlayout);
     connect(volumeBoost, &SwitchWidget::checkedChanged, volumeBoostTip, &DTipLabel::setVisible);
+    connect(m_model, &SoundModel::speakerOnChanged, volumeBoostTip, &DTipLabel::setVisible);
 
     //~ contents_path /sound/Speaker
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
