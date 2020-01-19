@@ -64,6 +64,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     , m_transparentSlider(nullptr)
     , m_Themes(new PerssonalizationThemeWidget())
     , m_bgWidget(new QWidget)
+    , m_switchWidget(new QWidget)
 {
     m_centralLayout->setMargin(0);
     //appearance
@@ -103,6 +104,9 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     if (!m_bSystemIsServer) {
         //sw switch
+        QVBoxLayout *winEffectVLayout = new QVBoxLayout();
+        m_switchWidget->setLayout(winEffectVLayout);
+
         m_wmSwitch = new DSwitchButton();
         QHBoxLayout *swswitchLayout = new QHBoxLayout();
         SettingsItem *switem = new dcc::widgets::SettingsItem;
@@ -113,7 +117,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
         swswitchLayout->addStretch();
         swswitchLayout->addWidget(m_wmSwitch);
-        m_centralLayout->addWidget(switem);
+        winEffectVLayout->addWidget(switem);
 
         //~ contents_path /personalization/General
         m_transparentSlider = new dcc::widgets::TitledSliderItem(tr("Transparency"));
@@ -137,7 +141,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         slider->setTickPosition(QSlider::TicksBelow);
         slider->setTickInterval(1);
         slider->setPageStep(1);
-        m_centralLayout->addWidget(m_transparentSlider);
+        winEffectVLayout->addWidget(m_transparentSlider);
 
         connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
                 &PersonalizationGeneral::requestSetOpacity);
@@ -146,6 +150,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this,
                 &PersonalizationGeneral::requestSwitchWM);
     }
+    m_centralLayout->addWidget(m_switchWidget);
     m_centralLayout->setSpacing(20);
     m_centralLayout->addStretch();
     setLayout(m_centralLayout);
@@ -174,6 +179,10 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
     connect(model, &dcc::personalization::PersonalizationModel::onActiveColorChanged, this,
             &PersonalizationGeneral::onActiveColorChanged);
     onActiveColorChanged(model->getActiveColor());
+
+    connect(m_model, &dcc::personalization::PersonalizationModel::onCompositingAllowSwitch, this,
+            &PersonalizationGeneral::onCompositingAllowSwitchChanged);
+    onCompositingAllowSwitchChanged(m_model->getAllowSwitch());
 }
 
 void PersonalizationGeneral::paintEvent(QPaintEvent *event)
@@ -208,6 +217,15 @@ void PersonalizationGeneral::updateWMSwitcher(bool checked)
     }
     if (m_transparentSlider) {
         m_transparentSlider->setVisible(checked);
+    }
+}
+
+void PersonalizationGeneral::onCompositingAllowSwitchChanged(bool value)
+{
+    if (!m_bSystemIsServer && value) {
+        m_switchWidget->setVisible(true);
+    } else {
+        m_switchWidget->setVisible(false);
     }
 }
 

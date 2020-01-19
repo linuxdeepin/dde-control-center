@@ -35,9 +35,11 @@
 #include <QJsonObject>
 #include <com_deepin_daemon_appearance.h>
 #include <com_deepin_wmswitcher.h>
+#include <com_deepin_wm.h>
 
 using Appearance = com::deepin::daemon::Appearance;
 using WMSwitcher = com::deepin::WMSwitcher;
+using WM = com::deepin::wm;
 
 namespace dcc
 {
@@ -72,6 +74,7 @@ private Q_SLOTS:
     void onToggleWM(const QString &wm);
     void onGetCurrentWMFinished(QDBusPendingCallWatcher *w);
     void setFontList(FontModel* model, const QString &type, const QString &list);
+    void onCompositingAllowSwitch(bool value);
 
 private:
     int sizeToSliderValue(const double value) const;
@@ -93,6 +96,7 @@ private:
     PersonalizationModel *m_model;
     Appearance           *m_dbus;
     WMSwitcher *m_wmSwitcher;
+    WM *m_wm;
     QMap<QString, ThemeModel*> m_themeModels;
     QMap<QString, FontModel*> m_fontModels;
 };

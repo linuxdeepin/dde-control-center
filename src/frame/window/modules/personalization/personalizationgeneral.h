@@ -78,6 +78,7 @@ private:
     void onOpacityChanged(std::pair<int, double> value);
     void onActiveColorChanged(const QString &newColor);
     void onActiveColorClicked();
+    void onCompositingAllowSwitchChanged(bool value);
 
 private:
     QVBoxLayout *m_centralLayout;             //主布局
@@ -87,6 +88,7 @@ private:
     PerssonalizationThemeWidget *m_Themes;
     QList<RoundColorWidget *> m_activeColorsList;
     QWidget *m_bgWidget;
+    QWidget *m_switchWidget;
     bool m_bSystemIsServer;
 };
 }

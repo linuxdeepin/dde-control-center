@@ -80,3 +80,12 @@ void PersonalizationModel::setActiveColor(const QString &color)
 
     Q_EMIT onActiveColorChanged(color);
 }
+
+void PersonalizationModel::setCompositingAllowSwitch(bool value)
+{
+    if (m_allowSwitch == value)
+        return;
+    m_allowSwitch = value;
+
+    Q_EMIT onCompositingAllowSwitch(value);
+}

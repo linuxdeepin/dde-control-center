@@ -58,10 +58,14 @@ public:
     inline QString getActiveColor() {return m_activeColor;}
     void setActiveColor(const QString &color);
 
+    inline bool getAllowSwitch() {return m_allowSwitch;}
+    void setCompositingAllowSwitch(bool value);
+
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void onOpacityChanged(std::pair<int, double> opacity);
     void onActiveColorChanged(const QString &color);
+    void onCompositingAllowSwitch(bool value);
 
 private:
     ThemeModel    *m_windowModel;
@@ -73,6 +77,7 @@ private:
     bool m_is3DWm;
     std::pair<int, double> m_opacity;
     QString m_activeColor;
+    bool m_allowSwitch;
 };
 }
 }

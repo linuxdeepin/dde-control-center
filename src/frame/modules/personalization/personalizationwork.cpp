@@ -56,7 +56,8 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     : QObject(parent),
       m_model(model),
       m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this)),
-      m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this))
+      m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this)),
+      m_wm(new WM("com.deepin.WM", "/com/deepin/WM", QDBusConnection::sessionBus(), this))
 {
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
@@ -75,6 +76,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_wmSwitcher, &WMSwitcher::WMChanged, this, &PersonalizationWork::onToggleWM);
     connect(m_dbus, &Appearance::OpacityChanged, this, &PersonalizationWork::refreshOpacity);
     connect(m_dbus, &Appearance::QtActiveColorChanged, this, &PersonalizationWork::refreshActiveColor);
+    connect(m_wm, &WM::CompositingAllowSwitchChanged, this, &PersonalizationWork::onCompositingAllowSwitch);
 
     m_themeModels["gtk"]           = windowTheme;
     m_themeModels["icon"]          = iconTheme;
@@ -94,6 +96,7 @@ void PersonalizationWork::active()
     refreshWMState();
     refreshOpacity(m_dbus->opacity());
     refreshActiveColor(m_dbus->qtActiveColor());
+    onCompositingAllowSwitch(m_wm->compositingAllowSwitch());
 
     m_model->getWindowModel()->setDefault(m_dbus->gtkTheme());
     m_model->getIconModel()->setDefault(m_dbus->iconTheme());
@@ -239,6 +242,11 @@ void PersonalizationWork::onRefreshedChanged(const QString &type)
 void PersonalizationWork::onToggleWM(const QString &wm)
 {
     m_model->setIs3DWm(wm == "deepin wm");
+}
+
+void PersonalizationWork::onCompositingAllowSwitch(bool value)
+{
+    m_model->setCompositingAllowSwitch(value);
 }
 
 void PersonalizationWork::onGetCurrentWMFinished(QDBusPendingCallWatcher *w)
