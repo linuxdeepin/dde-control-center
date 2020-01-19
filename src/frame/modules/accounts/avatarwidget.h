@@ -71,8 +71,6 @@ private:
 
     QPixmap m_avatar;
     QString m_avatarPath;
-
-    AvatarDel *m_delBtn;
 };
 
 }   // namespace accounts

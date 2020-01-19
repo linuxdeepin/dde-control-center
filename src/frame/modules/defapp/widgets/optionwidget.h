@@ -34,7 +34,7 @@
 #include <QLabel>
 #include <QMouseEvent>
 #include <QDebug>
-#include <dimagebutton.h>
+#include <DIconButton>
 #include <QJsonObject>
 #include <QObject>
 
@@ -66,7 +66,7 @@ private:
     QHBoxLayout  *m_mainlayout;
     QLabel       *m_optionIcon;
     QLabel       *m_execPath;
-    DImageButton *m_delete;
+    DIconButton *m_delete;
     QLabel       *m_checkedIconLabel;
     widgets::NormalLabel  *m_displayName;
     bool          m_checked           = false;

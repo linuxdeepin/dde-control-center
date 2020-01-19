@@ -39,7 +39,7 @@ PinCodeDialog::PinCodeDialog(const QString &pinCode, const bool &cancelable) :
     m_pinCodeLabel(new dcc::widgets::LargeLabel)
 {
     setTitle(tr("The PIN for connecting to the Bluetooth device is:"));
-    setIcon(QIcon::fromTheme("notification-bluetooth-connected"), QSize(64, 64));
+    setIcon(QIcon::fromTheme("notification-bluetooth-connected"));
 
     m_pinCodeLabel->setObjectName("PinCodeText");
     addContent(m_pinCodeLabel, Qt::AlignTop | Qt::AlignCenter);

@@ -33,7 +33,7 @@ namespace widgets {
 NextButton::NextButton(QWidget *parent) :
     TranslucentFrame(parent)
 {
-    DImageButton *btn = new DImageButton(this);
+    DIconButton *btn = new DIconButton(this);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addWidget(btn);
@@ -41,7 +41,7 @@ NextButton::NextButton(QWidget *parent) :
 
     setLayout(centralLayout);
 
-    connect(btn, &DImageButton::clicked, this, &NextButton::clicked);
+    connect(btn, &DIconButton::clicked, this, &NextButton::clicked);
 }
 
 } // namespace widgets

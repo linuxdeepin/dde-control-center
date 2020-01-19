@@ -26,7 +26,7 @@
 #ifndef DCC_WIDGETS_NEXTBUTTON_H
 #define DCC_WIDGETS_NEXTBUTTON_H
 
-#include <dimagebutton.h>
+#include <DIconButton>
 
 #include "widgets/translucentframe.h"
 

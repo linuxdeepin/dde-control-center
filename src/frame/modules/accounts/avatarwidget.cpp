@@ -38,27 +38,18 @@ using namespace dcc::accounts;
 
 AvatarWidget::AvatarWidget(QWidget *parent)
     : QLabel(parent),
-
       m_hover(false),
       m_deleable(false),
       m_selected(false),
-      m_arrowed(false),
-
-      m_delBtn(new AvatarDel)
+      m_arrowed(false)
 {
-    m_delBtn->setVisible(false);
-
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
-    mainLayout->addWidget(m_delBtn);
-    mainLayout->setAlignment(m_delBtn, Qt::AlignCenter);
 
     setLayout(mainLayout);
     setFixedSize(PIX_SIZE, PIX_SIZE);
     setObjectName("AvatarWidget");
-
-    connect(m_delBtn, &AvatarDel::click, [ = ] { Q_EMIT requestDelete(m_avatarPath); });
 }
 
 AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
@@ -204,14 +195,12 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
 void AvatarWidget::enterEvent(QEvent *)
 {
     m_hover = true;
-    m_delBtn->setVisible(m_deleable);
     update();
 }
 
 void AvatarWidget::leaveEvent(QEvent *)
 {
     m_hover = false;
-    m_delBtn->setVisible(false);
     update();
 }
 

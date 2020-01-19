@@ -28,7 +28,6 @@
 #include <QListView>
 #include <QList>
 
-#include <DSegmentedControl>
 #include <DButtonBox>
 
 class AppUpdateInfo;

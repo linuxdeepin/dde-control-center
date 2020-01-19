@@ -322,7 +322,7 @@ void VpnPage::importVPN()
         dialog.setTitle(tr("Import Error"));
         dialog.setMessage(error.replace(QRegularExpression("[:：]\\s+"), ":\n"));
         dialog.addButton(tr("OK"));
-        dialog.setIcon(icon, QSize(64, 64));
+        dialog.setIcon(icon);
         dialog.exec();
 
         return;

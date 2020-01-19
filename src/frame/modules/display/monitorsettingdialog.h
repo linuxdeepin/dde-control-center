@@ -34,7 +34,7 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <ddialog.h>
-#include <dimagebutton.h>
+#include <DIconButton>
 #include <memory>
 
 DWIDGET_USE_NAMESPACE
@@ -106,7 +106,7 @@ private:
     widgets::BasicListModel *m_resolutionsModel;
 
 #ifndef DCC_DISABLE_ROTATE
-    Dtk::Widget::DImageButton *m_rotateBtn;
+    Dtk::Widget::DIconButton *m_rotateBtn;
 #endif
     SettingsListWidget *m_primarySettingsWidget;
     MonitorControlWidget *m_ctrlWidget;

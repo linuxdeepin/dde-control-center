@@ -39,8 +39,8 @@ EditableNextPageWidget::EditableNextPageWidget(QWidget *parent)
       m_name(new QLabel),
       m_selectIcon(new QLabel),
       m_edit(new QLineEdit),
-      m_editButton(new DImageButton),
-      m_nextButton(new DImageButton)
+      m_editButton(new DIconButton(this)),
+      m_nextButton(new DIconButton(this))
 {
     QHBoxLayout *centralLayout = new QHBoxLayout;
 
@@ -60,8 +60,8 @@ EditableNextPageWidget::EditableNextPageWidget(QWidget *parent)
     centralLayout->setSpacing(0);
     centralLayout->setContentsMargins(20, 8, 10, 8);
 
-    connect(m_nextButton, &DImageButton::clicked, this, &EditableNextPageWidget::acceptNextPage);
-    connect(m_editButton, &DImageButton::clicked, this, &EditableNextPageWidget::toEditMode, Qt::QueuedConnection);
+    connect(m_nextButton, &DIconButton::clicked, this, &EditableNextPageWidget::acceptNextPage);
+    connect(m_editButton, &DIconButton::clicked, this, &EditableNextPageWidget::toEditMode, Qt::QueuedConnection);
     connect(m_edit, &QLineEdit::editingFinished, this, &EditableNextPageWidget::toEchoMode, Qt::QueuedConnection);
 
     setLayout(centralLayout);

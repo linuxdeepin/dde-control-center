@@ -28,7 +28,7 @@
 
 #include <QFrame>
 
-#include <dimagebutton.h>
+#include <DIconButton>
 
 #include "widgets/labels/normallabel.h"
 #include "widgets/labels/tipslabel.h"
@@ -61,7 +61,7 @@ private:
     QLabel *m_icon;
     NormalLabel *m_title;
     TipsLabel *m_content;
-    DImageButton *m_closeButton;
+    DIconButton *m_closeButton;
 
     QSettings *m_settings;
 

@@ -32,7 +32,7 @@
 #include <QLabel>
 #include <QLineEdit>
 
-#include <dimagebutton.h>
+#include <DIconButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -67,8 +67,8 @@ private:
     QLabel *m_name;
     QLabel *m_selectIcon;
     QLineEdit *m_edit;
-    DImageButton *m_editButton;
-    DImageButton *m_nextButton;
+    DIconButton *m_editButton;
+    DIconButton *m_nextButton;
 };
 
 }

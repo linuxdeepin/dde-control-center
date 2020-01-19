@@ -62,7 +62,7 @@ RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent) :
     const QPixmap pix = QPixmap(iconFile).scaled(48 * ratio, 48 * ratio, Qt::IgnoreAspectRatio, Qt::FastTransformation);
     QPixmap p = RoundPixmap(pix);
     p.setDevicePixelRatio(ratio);
-    setIconPixmap(p);
+    setIcon(p);
 
     QCheckBox *box = new QCheckBox(tr("Delete account directory"));
     box->setChecked(true);

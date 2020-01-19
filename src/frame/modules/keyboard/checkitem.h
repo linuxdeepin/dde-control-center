@@ -27,7 +27,7 @@
 #define CHECKITEM_H
 
 #include "widgets/settingsitem.h"
-#include <dimagebutton.h>
+#include <DIconButton>
 #include <QPushButton>
 #include <QLabel>
 
@@ -63,8 +63,8 @@ protected:
 private:
     bool m_checked;
     bool m_bEdit;
-    QLabel* m_title;
-    DImageButton* m_checkBtn;
+    QLabel *m_title;
+    DIconButton *m_checkBtn;
     int m_circle;
     bool m_multiple;
 };

@@ -32,9 +32,9 @@ BackButton::BackButton(QWidget *parent) :
     TranslucentFrame(parent)
 {
     setFixedSize(24, 24);
-    DImageButton * btn = new DImageButton(this);
+    DIconButton *btn = new DIconButton(this);
 
-    connect(btn, &DImageButton::clicked, this, &BackButton::clicked);
+    connect(btn, &DIconButton::clicked, this, &BackButton::clicked);
 }
 
 } // namespace widgets

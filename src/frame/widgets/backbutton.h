@@ -26,7 +26,7 @@
 #ifndef DCC_WIDGETS_BACKBUTTON_H
 #define DCC_WIDGETS_BACKBUTTON_H
 
-#include <dimagebutton.h>
+#include <DIconButton>
 
 #include "widgets/translucentframe.h"
 

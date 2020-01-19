@@ -308,7 +308,7 @@ set(MODULE_FILES
 # load accounts
 set(ACCOUNTS_FILES
 #                modules/accounts/accountsmodule.cpp
-                modules/accounts/avatardel.cpp
+#                modules/accounts/avatardel.cpp
                 modules/accounts/creationresult.cpp
 #                modules/accounts/creationresult.h
                 modules/accounts/removeuserdialog.cpp

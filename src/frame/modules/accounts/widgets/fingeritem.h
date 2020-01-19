@@ -29,7 +29,9 @@
 #include "widgets/settingsitem.h"
 #include <QWidget>
 #include <QHBoxLayout>
-#include <dimagebutton.h>
+#include <QLabel>
+
+#include <DIconButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -48,8 +50,8 @@ public:
 private:
     QHBoxLayout *m_layout;
     bool m_editMode;
-    DImageButton *m_editBtn;
-    DImageButton *m_removeBtn;
+    DIconButton *m_editBtn;
+    DIconButton *m_removeBtn;
     QLabel *m_title;
 };
 }

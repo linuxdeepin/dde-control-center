@@ -36,7 +36,7 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
       m_icon(new QLabel),
       m_title(new NormalLabel(tr("Updates"))),
       m_content(new TipsLabel()),
-      m_closeButton(new DImageButton(this)),
+      m_closeButton(new DIconButton(this)),
       m_settings(new QSettings("deepin", "dcc-update-notifier")),
       m_updaterInter(new com::deepin::lastore::Updater("com.deepin.lastore",
                                                        "/com/deepin/lastore",
@@ -81,7 +81,7 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
         updatablePkgsChanged(m_updaterInter->updatablePackages());
     }, Qt::QueuedConnection);
 
-    connect(m_closeButton, &DImageButton::clicked, this, &UpdateNotifier::ignoreUpdates);
+    connect(m_closeButton, &DIconButton::clicked, this, &UpdateNotifier::ignoreUpdates);
 
     updatablePkgsChanged(m_updaterInter->updatablePackages());
 }

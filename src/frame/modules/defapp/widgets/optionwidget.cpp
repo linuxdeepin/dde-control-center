@@ -32,7 +32,7 @@ using namespace dcc::defapp;
 using namespace dcc::widgets;
 OptionWidget::OptionWidget(const bool state, QWidget *parent)
     :SettingsItem(parent),
-      m_delete(new DImageButton)
+      m_delete(new DIconButton(this))
 {
     m_checkedIconLabel = new QLabel;
     m_checkedIconLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
