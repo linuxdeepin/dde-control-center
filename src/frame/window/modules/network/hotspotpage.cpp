@@ -53,10 +53,10 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     : QWidget(parent)
     , m_wdev(wdev)
     , m_hotspotSwitch(new SwitchWidget)
-    , m_createBtn(new QPushButton)
-    , m_refreshActiveTimer(new QTimer)
     , m_lvprofiles(new DListView)
     , m_modelprofiles(new QStandardItemModel)
+    , m_createBtn(new QPushButton)
+    , m_refreshActiveTimer(new QTimer)
 {
     Q_ASSERT(m_wdev->supportHotspot());
 
@@ -287,7 +287,7 @@ void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> d
     m_listdevw.clear();
 
     QLayoutItem *childItem = nullptr;
-    while (childItem = m_vScrollLayout->layout()->takeAt(0)) {
+    while ((childItem = m_vScrollLayout->layout()->takeAt(0)) != nullptr) {
         delete childItem;
         childItem = nullptr;
     }

@@ -177,7 +177,7 @@ void PersonalizationFontsWidget::setList(const QList<QJsonObject> &list, dcc::pe
 
 void PersonalizationFontsWidget::setCommboxItemFontSize()
 {
-    auto setCommboxSize = [this](QComboBox *cb){
+    auto setCommboxSize = [=](QComboBox *cb){
         auto model = qobject_cast<QStandardItemModel *>(cb->model());
         for (auto i = 0; i < model->rowCount(); ++i) {
             auto item = model->item(i);

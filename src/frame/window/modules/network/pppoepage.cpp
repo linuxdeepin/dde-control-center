@@ -49,9 +49,9 @@ using namespace dde::network;
 
 PppoePage::PppoePage(QWidget *parent)
     : ContentWidget(parent)
-    , m_createBtn(new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement))
     , m_lvsettings(new DListView)
     , m_modelSettings(new QStandardItemModel)
+    , m_createBtn(new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement))
 {
     m_createBtn->setMinimumSize(QSize(47, 47));
     m_createBtn->setToolTip(tr("Create PPPoE Connection"));

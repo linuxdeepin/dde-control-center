@@ -30,7 +30,8 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QFileDialog>
-#include <dimagebutton.h>
+
+#include <DIconButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -58,10 +59,10 @@ keyboard::CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     buttonlayout->setSpacing(1);
 
     m_command->setPlaceholderText(tr("Required"));
-    DImageButton *pushbutton = new DImageButton;
-    pushbutton->setNormalPic(":/keyboard/themes/dark/icons/loadfile_normal.svg");
-    pushbutton->setHoverPic(":/keyboard/themes/dark/icons/loadfile_hover.svg");
-    pushbutton->setPressPic(":/keyboard/themes/dark/icons/loadfile_press.svg");
+    DIconButton *pushbutton = new DIconButton(this);
+    pushbutton->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_SelectElement, nullptr));
+    pushbutton->setBackgroundRole(QPalette::ColorRole::Highlight);
+    pushbutton->setIconSize(QSize(24, 24));
     m_command->addRightWidget(pushbutton);
 
     m_commandGroup->appendItem(m_name);
@@ -86,7 +87,7 @@ keyboard::CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     setContent(widget);
 
     connect(cancelButton, &QPushButton::clicked, this, &CustomEdit::back);
-    connect(pushbutton, &DImageButton::clicked, this, &CustomEdit::onOpenFile);
+    connect(pushbutton, &DIconButton::clicked, this, &CustomEdit::onOpenFile);
     connect(m_short, &CustomItem::requestUpdateKey, this, &CustomEdit::onUpdateKey);
     connect(okButton, &QPushButton::clicked, this, &CustomEdit::onSaveAccels);
 

@@ -31,12 +31,12 @@ using namespace DCC_NAMESPACE::accounts;
 
 AddFingeDialog::AddFingeDialog(const QString &thumb, QDialog *parent)
     : QDialog(parent)
-    , m_thumb(thumb)
     , m_mainContentLayout(new QVBoxLayout)
     , m_cancleaddLayout(new QHBoxLayout)
     , m_fingeWidget(new FingerWidget)
     , m_scanBtn(new QPushButton)
     , m_doneBtn(new DSuggestButton)
+    , m_thumb(thumb)
 {
     initWidget();
     initData();

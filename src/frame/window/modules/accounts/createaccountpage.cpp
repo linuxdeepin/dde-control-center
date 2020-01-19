@@ -44,11 +44,11 @@ using namespace DCC_NAMESPACE::accounts;
 CreateAccountPage::CreateAccountPage(QWidget *parent)
     : QWidget(parent)
     , m_newUser{nullptr}
+    , m_avatarListWidget(nullptr)
     , m_nameEdit(new DLineEdit)
     , m_fullnameEdit(new DLineEdit)
     , m_passwdEdit(new DPasswordEdit)
     , m_repeatpasswdEdit(new DPasswordEdit)
-    , m_avatarListWidget(nullptr)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
 {
@@ -353,7 +353,7 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
     bool result = validatePassword(userpassword);
     if (!result) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"), -1);
+        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
         return false;
     }
 

@@ -35,10 +35,10 @@ using namespace dcc::widgets;
 
 SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     : SettingsItem(parent)
+    , m_defaultVal(0)
     , m_title(new QLabel)
     , m_spinBox(new QSpinBox)
     , m_resetBtn(new DIconButton(this))
-    , m_defaultVal(0)
 {
     m_spinBox->setContextMenuPolicy(Qt::NoContextMenu);
     m_spinBox->setButtonSymbols(QAbstractSpinBox::PlusMinus);

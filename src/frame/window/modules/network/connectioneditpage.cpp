@@ -302,7 +302,7 @@ void ConnectionEditPage::saveConnSettings()
     }
 
     if (m_settingsWidget->isAutoConnect()) {
-        if (m_connType == ConnectionEditPage::WiredConnection) {
+        if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WiredConnection)) {
             Q_EMIT requestWiredDeviceEnabled(DevicePath, true);
         }
         // deactivate this device's ActiveConnection
@@ -355,7 +355,7 @@ void ConnectionEditPage::updateConnection()
     }
 
     if (m_settingsWidget->isAutoConnect()) {
-        if (m_connType == ConnectionEditPage::WiredConnection) {
+        if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WiredConnection)) {
             Q_EMIT activateWiredConnection(m_connection->path(), m_connectionUuid);
         } else {
             reply = activateConnection(m_connection->path(), DevicePath, "");

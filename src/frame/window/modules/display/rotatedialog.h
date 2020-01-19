@@ -64,7 +64,7 @@ protected:
     //mouseMove消息中固定鼠标位置确保可以继续操作
     void mouseMoveEvent(QMouseEvent *e) override;
 
-    void leaveEvent(QEvent *e);
+    void leaveEvent(QEvent *e) override;
 
 
 private:
