@@ -119,12 +119,15 @@ void MicrophonePage::initSlider()
         double val = pos / 100.0;
         Q_EMIT requestSetMicrophoneVolume(val);
     };
+    int val = static_cast<int>(m_model->microphoneVolume() * 100.0f);
+    slider->setValue(val);
     m_inputSlider->setValueLiteral(QString::number(m_model->microphoneVolume() * 100) + "%");
     connect(slider, &DCCSlider::valueChanged, this, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, this, slotfunc1);
     connect(m_model, &SoundModel::microphoneOnChanged, m_inputSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::microphoneVolumeChanged, this, [ = ](double v) {
         slider->blockSignals(true);
+        slider->setValue(static_cast<int>(v * 100));
         slider->setSliderPosition(static_cast<int>(v * 100));
         slider->blockSignals(false);
         m_inputSlider->setValueLiteral(QString::number(v * 100) + "%");
