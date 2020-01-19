@@ -57,7 +57,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
       m_model(model),
       m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this)),
       m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this)),
-      m_wm(new WM("com.deepin.WM", "/com/deepin/WM", QDBusConnection::sessionBus(), this))
+      m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
 {
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
