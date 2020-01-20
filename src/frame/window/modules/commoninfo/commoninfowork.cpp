@@ -185,6 +185,8 @@ void CommonInfoWork::setBackground(const QString &path)
 
 void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMainWindow)
 {
+    QDateTime current_date_time = QDateTime::currentDateTime();
+    QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
     if (enabled && (m_dBusUeProgram->IsEnabled() != enabled)) {
         qInfo("suser opened experience project switch.");
         // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
@@ -226,12 +228,12 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
             if (96 == result) {
                 if (!m_commomModel->ueProgram()) {
                     m_commomModel->setUeProgram(enabled);
-                    qInfo("user agreed experience project.");
+                    qInfo() << QString("On %1, users open the switch to join the user experience program!").arg(current_date);
                 }
                 m_dBusUeProgram->Enable(enabled);
             } else {
                 m_commomModel->setUeProgram(m_dBusUeProgram->IsEnabled());
-                qInfo("user closed experience project switch");
+                qInfo() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
             }
             m_licenseFile->remove();
             m_licenseFile->deleteLater();
@@ -242,17 +244,20 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
     } else {
         if (m_dBusUeProgram->IsEnabled() != enabled) {
             m_dBusUeProgram->Enable(enabled);
-            qInfo("user closed experience project switch.");
+            qDebug() << QString("On %1, users close the switch to join the user experience program!").arg(current_date);
         }
         if (m_commomModel->ueProgram() != enabled) {
             m_commomModel->setUeProgram(enabled);
-            qInfo("user cancelled experience project.");
+            qDebug() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
         }
     }
 }
 
 void CommonInfoWork::setEnableDeveloperMode(bool enabled)
 {
+    QDateTime current_date_time = QDateTime::currentDateTime();
+    QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
+
     if (!enabled)
         return;
 
@@ -293,11 +298,16 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
             if (w->isError()) {
+                qDebug() << "developer mode enter fail info:" << w->error();
                 Q_EMIT m_commomModel->developerModeStateChanged(false);
+            }
+            if (w->isValid()) {
+                qInfo() << QString("On %1, Agree to enter the developer mode!").arg(current_date);
             }
             w->deleteLater();
         });
     } else {
+        qInfo() << QString("On %1, Remove developer mode Disclaimer!").arg(current_date);
         Q_EMIT m_commomModel->developerModeStateChanged(false);
     }
     file.remove();
