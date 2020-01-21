@@ -113,19 +113,21 @@ void DatetimeWork::setNTP(bool ntp)
 void DatetimeWork::setDatetime(const QDateTime &datetime)
 {
     Q_EMIT requestSetAutoHide(false);
-
+    qDebug() << "start setDatetime";
     QDBusPendingCall call = m_timedateInter->SetNTP(false);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
         if (!call.isError()) {
             const QDate date = datetime.date();
             const QTime time = datetime.time();
-
+            qWarning() << "set ntp success, m_timedateInter->SetDate";
             QDBusPendingCall call1 = m_timedateInter->SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), 0, 0);
             QDBusPendingCallWatcher *watcher1 = new QDBusPendingCallWatcher(call1, this);
             connect(watcher1, &QDBusPendingCallWatcher::finished, this, [ = ] {
                 if (!call1.isError()) {
                     Q_EMIT m_model->systemTimeChanged();
+                } else {
+                    qWarning() << "m_timedateInter->SetDate failed : " << call.error().message();
                 }
                 watcher1->deleteLater();
             });

@@ -211,9 +211,10 @@ void DateSettings::onConfirmButtonClicked()
             qWarning() << "The customize address is nullptr.";
             return;
         }
-
+        qDebug() << "ok clicked, requestNTPServer";
         Q_EMIT requestNTPServer(m_addressContent->text());
     } else {
+        qDebug() << "ok clicked, requestSetTime";
         Q_EMIT requestSetTime(getDatetime());
     }
 }
