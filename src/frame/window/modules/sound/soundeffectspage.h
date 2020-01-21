@@ -23,6 +23,7 @@
 #define SOUNDEFFECTSPAGE_H_V20
 
 #include "window/namespace.h"
+#include "widgets/contentwidget.h"
 
 #include <DDesktopServices>
 #include <DListView>
@@ -50,7 +51,7 @@ namespace DCC_NAMESPACE {
 
 namespace sound {
 
-class SoundEffectsPage : public QWidget
+class SoundEffectsPage : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
