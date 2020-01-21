@@ -43,25 +43,26 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
 {
     m_ignoreButton = new QPushButton(tr("Ignore this device"));
     m_disconnectButton = new QPushButton(tr("Disconnect"));
+    m_connectButton = new QPushButton(tr("Connect"));
     setTitle(device->name());
     dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setSpacing(0);
     layout->setMargin(0);
-    DIconButton *backWidgetBtn;
-    backWidgetBtn = new DIconButton(this);
+    DIconButton *backWidgetBtn = new DIconButton(this);
     backWidgetBtn->setFlat(true);
     backWidgetBtn->setFixedSize(30, 48);
     backWidgetBtn->setIcon(QStyle::SP_ArrowBack);
     layout->addWidget(backWidgetBtn, Qt::AlignLeft);
-    m_devNameLabel = new TitleLabel(tr("Change Name"));
+    m_devNameLabel = new TitleLabel(device->name());
     layout->addWidget(m_devNameLabel, 0, Qt::AlignCenter);
     layout->addSpacing(10);
-    m_editDevName = new QLineEdit;
-    m_editDevName->setPlaceholderText(device->name());
-    layout->addWidget(m_editDevName);
+    m_editDevAlias = new QLineEdit;
+    m_editDevAlias->setPlaceholderText(device->alias().isEmpty() ? device->name() : device->alias());
+    layout->addWidget(m_editDevAlias);
     layout->addSpacing(10);
     layout->addWidget(m_disconnectButton);
+    layout->addWidget(m_connectButton);
     layout->addSpacing(10);
     layout->addWidget(m_ignoreButton);
     layout->addStretch();
@@ -73,7 +74,11 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     connect(m_disconnectButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestDisconnectDevice(m_device);
     });
-    connect(m_device, &Device::nameChanged, m_editDevName, &QLineEdit::setText);
+    connect(m_connectButton, &QPushButton::clicked, this, [this] {
+        Q_EMIT requestConnectDevice(m_device);
+    });
+    connect(m_device, &Device::nameChanged, m_devNameLabel, &QLabel::setText);
+    connect(m_device, &Device::aliasChanged, m_editDevAlias, &QLineEdit::setText);
     connect(m_device, &Device::stateChanged, this, [this] {
         onDeviceStatusChanged();
     });
@@ -87,24 +92,37 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
             Q_EMIT back();
         }
     });
-    connect(m_editDevName, &QLineEdit::editingFinished, this, &DetailPage::onDeviceNameChanged);
+    connect(m_editDevAlias, &QLineEdit::editingFinished, this, &DetailPage::onDeviceAliasChanged);
     connect(adapter, &Adapter::destroyed, this, &DetailPage::back);
     connect(backWidgetBtn, &DIconButton::clicked, this, &DetailPage::back);
 }
 
 void DetailPage::onDeviceStatusChanged()
 {
-    m_device->state() == Device::StateConnected ? m_disconnectButton->show() : m_disconnectButton->hide();
-    m_device->state() == Device::StateConnected ? m_devNameLabel->show() : m_devNameLabel->hide();
-    m_device->state() == Device::StateConnected ? m_editDevName->show() : m_editDevName->hide();
+    if (m_device->state() == Device::StateConnected) {
+        m_disconnectButton->show();
+        m_connectButton->hide();
+    } else if (m_device->state() == Device::StateAvailable) {
+        m_connectButton->show();
+        m_connectButton->setText(tr("Connection..."));
+        m_connectButton->setDisabled(true);
+        m_disconnectButton->hide();
+    } else {
+        m_connectButton->show();
+        m_connectButton->setText(tr("Connect"));
+        m_connectButton->setEnabled(true);
+        m_disconnectButton->hide();
+    }
 }
 
-void DetailPage::onDeviceNameChanged()
+void DetailPage::onDeviceAliasChanged()
 {
-    QString devAlias = m_editDevName->text();
+    QString devAlias = m_editDevAlias->text();
+    QString devName(m_device->name());
     if (devAlias.isEmpty()) {
-        m_editDevName->setPlaceholderText(m_device->name());
-        return;
+        m_editDevAlias->setPlaceholderText(m_device->name());
+        Q_EMIT requestSetDevAlias(m_device, devName);
+    } else if (devAlias != m_device->alias()) {
+        Q_EMIT requestSetDevAlias(m_device, devAlias);
     }
-    Q_EMIT requestSetDevAlias(m_device, devAlias);
 }

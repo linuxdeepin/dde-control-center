@@ -52,17 +52,19 @@ public:
 Q_SIGNALS:
     void requestIgnoreDevice(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
     void requestDisconnectDevice(const dcc::bluetooth::Device *device);
+    void requestConnectDevice(const dcc::bluetooth::Device *device);
     void requestSetDevAlias(const dcc::bluetooth::Device *device, QString &devAlias);
 
 private Q_SLOTS:
-    void onDeviceNameChanged();
+    void onDeviceAliasChanged();
     void onDeviceStatusChanged();
 private:
     const dcc::bluetooth::Adapter *m_adapter;
     const dcc::bluetooth::Device *m_device;
     QPushButton *m_ignoreButton;
     QPushButton *m_disconnectButton;
-    QLineEdit *m_editDevName;
+    QPushButton *m_connectButton;
+    QLineEdit *m_editDevAlias;
     TitleLabel *m_devNameLabel;
 };
 }

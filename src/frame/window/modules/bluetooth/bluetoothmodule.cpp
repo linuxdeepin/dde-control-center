@@ -113,8 +113,8 @@ void BluetoothModule::showDeviceDetail(const Adapter *adapter, const Device *dev
 
     connect(page, &DetailPage::requestIgnoreDevice, m_bluetoothWorker, &BluetoothWorker::ignoreDevice);
     connect(page, &DetailPage::requestDisconnectDevice, m_bluetoothWorker, &BluetoothWorker::disconnectDevice);
+    connect(page, &DetailPage::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
     connect(page, &DetailPage::requestIgnoreDevice, this, &BluetoothModule::popPage);
-    connect(page, &DetailPage::requestDisconnectDevice, this, &BluetoothModule::popPage);
     connect(page, &DetailPage::back, this, &BluetoothModule::popPage);
     connect(page, &DetailPage::requestSetDevAlias, m_bluetoothWorker, &BluetoothWorker::setDeviceAlias);
 

@@ -54,11 +54,16 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
 {
     //~ contents_path /bluetooth/My Devices
     m_myDevicesGroup = new TitleLabel(tr("My devices"));
+    m_myDevicesGroup->setVisible(false);
 
     //~ contents_path /bluetooth/Other Devices
     m_otherDevicesGroup = new TitleLabel(tr("Other devices"));
-
-    m_myDevicesGroup->setVisible(false);
+    m_spinner = new DSpinner();
+    m_spinner->setFixedSize(24, 24);
+    m_spinner->start();
+    QHBoxLayout *phlayout = new QHBoxLayout;
+    phlayout->addWidget(m_otherDevicesGroup);
+    phlayout->addWidget(m_spinner);
 
     m_switch->addBackground();
     m_switch->setContentsMargins(0, 0, 20, 0);
@@ -101,10 +106,11 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     layout->addWidget(m_myDevicesGroup);
     layout->addWidget(m_myDeviceListView);
     layout->addSpacing(10);
-    layout->addWidget(m_otherDevicesGroup);
+    layout->addLayout(phlayout);
     layout->addWidget(m_otherDeviceListView);
     layout->addSpacing(interval);
     layout->addStretch();
+    layout->setContentsMargins(0,0,15,0);
 
     connect(m_switch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleSwitch);
 
@@ -113,6 +119,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     });
 
     connect(m_myDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
+        m_otherDeviceListView->clearSelection();
         const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(idx.model());
         if (!deviceModel) {
             return;
@@ -134,6 +141,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     connect(m_myDeviceListView, &DListView::activated, m_myDeviceListView, &DListView::clicked);
 
     connect(m_otherDeviceListView, &DListView::clicked, this, [this](const QModelIndex & idx) {
+        m_myDeviceListView->clearSelection();
         const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(idx.model());
         if (!deviceModel) {
             return;
@@ -197,6 +205,7 @@ void AdapterWidget::onPowerStatus(bool bPower)
     m_tip->setVisible(!bPower);
     m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(bPower);
+    m_spinner->setVisible(bPower);
     m_myDeviceListView->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDeviceListView->setVisible(bPower);
     Q_EMIT notifyLoadFinished();

@@ -40,7 +40,7 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     , m_style(style)
 {
     initItemActionList();
-    m_deviceItem->setText(m_device->name());
+    m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
 }
 
@@ -98,14 +98,28 @@ void DeviceSettingsItem::setDevice(const Device *device)
     connect(device, &Device::pairedChanged, this, &DeviceSettingsItem::onDevicePairedChanged);
 
     connect(m_textAction, &QAction::triggered, this, [this] {
-        Q_EMIT requestConnectDevice(m_device);
+        for (int i = 0; i < m_parentDListView->count(); ++i) {
+            const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(m_parentDListView->model());
+            if (!deviceModel) {
+                return;
+            }
+            DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(i));
+            if (!item) {
+                return;
+            }
+            if (m_deviceItem == item) {
+                m_parentDListView->setCurrentIndex(m_parentDListView->model()->index(i, 0));
+                m_parentDListView->clicked(m_parentDListView->model()->index(i, 0));
+                break;
+            }
+        }
     });
 
     connect(m_iconAction, &QAction::triggered, this, [this] {
         Q_EMIT requestShowDetail(m_device);
     });
-    connect(device, &Device::nameChanged, this, [this](const QString &name) {
-        m_deviceItem->setText(name);
+    connect(device, &Device::aliasChanged, this, [this](const QString &alias) {
+        m_deviceItem->setText(alias);
     });
 
     onDeviceStateChanged(device->state());
@@ -131,7 +145,7 @@ DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
         setDevice(m_device);
     }
     m_deviceItem = new DStandardItem;
-    m_deviceItem->setText(m_device->name());
+    m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
     return m_deviceItem;
 }

@@ -53,6 +53,9 @@ public:
     inline QString name() const { return m_name; }
     void setName(const QString &name);
 
+    inline QString alias() const { return m_alias; }
+    void setAlias(const QString &alias);
+
     inline bool paired() const { return m_paired; }
     void setPaired(bool paired);
 
@@ -67,6 +70,7 @@ public:
 
 Q_SIGNALS:
     void nameChanged(const QString &name) const;
+    void aliasChanged(const QString &alias) const;
     void pairedChanged(const bool &paired) const;
     void stateChanged(const State &state) const;
     void trustedChanged(const bool trusted) const;
@@ -75,6 +79,7 @@ Q_SIGNALS:
 private:
     QString m_id;
     QString m_name;
+    QString m_alias;
     bool m_paired;
     bool m_trusted;
     bool m_connecting;

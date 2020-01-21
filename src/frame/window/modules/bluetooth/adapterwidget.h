@@ -24,6 +24,7 @@
 #include "window/namespace.h"
 
 #include <DListView>
+#include <DSpinner>
 
 #include <QWidget>
 
@@ -95,6 +96,7 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_myDeviceListView;
     QStandardItemModel *m_myDeviceModel;
     TitleLabel *m_otherDevicesGroup;
+    DTK_WIDGET_NAMESPACE::DSpinner *m_spinner;
     DTK_WIDGET_NAMESPACE::DListView *m_otherDeviceListView;
     QStandardItemModel *m_otherDeviceModel;
 };

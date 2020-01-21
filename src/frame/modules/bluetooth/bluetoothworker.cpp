@@ -230,12 +230,14 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
 void BluetoothWorker::inflateDevice(Device *device, const QJsonObject &deviceObj)
 {
     const QString id = deviceObj["Path"].toString();
-    const QString name = deviceObj["Alias"].toString();
+    const QString alias = deviceObj["Alias"].toString();
+    const QString name = deviceObj["Name"].toString();
     const bool paired = deviceObj["Paired"].toBool();
     const Device::State state = Device::State(deviceObj["State"].toInt());
 
     device->setId(id);
     device->setName(name);
+    device->setAlias(alias);
     device->setPaired(paired);
     device->setState(state);
 }
