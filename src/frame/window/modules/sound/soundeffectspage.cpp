@@ -24,7 +24,6 @@
 
 #include "modules/sound/soundmodel.h"
 #include "widgets/switchwidget.h"
-#include <widgets/translucentframe.h>
 
 #include <DIconButton>
 
@@ -44,21 +43,18 @@ DWIDGET_USE_NAMESPACE
 const int AnimationDuration = 5000;
 
 SoundEffectsPage::SoundEffectsPage(QWidget *parent)
-    : ContentWidget(parent)
+    : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_sw(new SwitchWidget(tr("Sound Effects")))
     , m_effectList(new DListView)
     , m_sound(nullptr)
 {
-    QWidget *container = new dcc::widgets::TranslucentFrame;
-    container->setLayout(m_layout);
-    setContent(container);
+    m_layout->setContentsMargins(ThirdPageContentsMargins);
+    m_layout->setSpacing(0);
 
     m_sw->addBackground();
-    m_layout->setSpacing(0);
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
     m_layout->addSpacing(20);
-    m_layout->setContentsMargins(0, 0, 20, 0);
 
 //    auto tlabe = new QLabel(tr("Customize"));
 //    tlabe->setAlignment(Qt::AlignCenter);
@@ -66,13 +62,9 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
 //    m_layout->addSpacing(10);
 
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_effectList->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);
     m_effectList->setEditTriggers(DListView::NoEditTriggers);
     m_effectList->setFrameShape(DListView::NoFrame);
-    m_effectList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_effectList->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
     m_layout->addWidget(m_effectList, 1);
     m_layout->addStretch();
 
