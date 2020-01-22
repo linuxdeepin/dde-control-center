@@ -96,7 +96,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     //vlayout->addSpacing(10);
 
     m_layout = new QVBoxLayout;
-    m_layout->setMargin(0);
+    m_layout->setContentsMargins(ScrollAreaMargins);
     m_layout->addWidget(m_systemGroup);
     m_layout->addSpacing(List_Interval);
     m_layout->addWidget(m_windowGroup);

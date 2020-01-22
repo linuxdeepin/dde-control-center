@@ -23,6 +23,7 @@
 #include "widgets/translucentframe.h"
 #include "widgets/labels/tipslabel.h"
 #include "widgets/utils.h"
+#include "window/utils.h"
 
 #include <QVBoxLayout>
 #include <QLocale>
@@ -48,8 +49,7 @@ UserLicenseWidget::UserLicenseWidget(QWidget *parent)
     m_body = new TipsLabel;
     m_body->setWordWrap(true);
 
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->setMargin(0);
+    layout->setContentsMargins(ScrollAreaMargins);
     layout->addWidget(m_body);
     layout->addStretch();
 

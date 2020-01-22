@@ -65,7 +65,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);
     m_effectList->setEditTriggers(DListView::NoEditTriggers);
     m_effectList->setFrameShape(DListView::NoFrame);
-    m_effectList->setViewportMargins(QMargins(0, 0, 15, 0));
+    m_effectList->setViewportMargins(ScrollAreaMargins);
     m_layout->addWidget(m_effectList, 1);
     m_layout->addStretch();
 

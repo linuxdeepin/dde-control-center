@@ -23,6 +23,7 @@
 #include "widgets/translucentframe.h"
 #include "widgets/labels/tipslabel.h"
 #include "widgets/utils.h"
+#include "window/utils.h"
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -50,8 +51,7 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
 
     TranslucentFrame *widget = new TranslucentFrame;
 
-    m_mainLayout->setContentsMargins(0, 0, 0, 0);
-    m_mainLayout->setMargin(0);
+    m_mainLayout->setContentsMargins(ScrollAreaMargins);
     m_mainLayout->addSpacing(15);
     m_mainLayout->addWidget(m_title, 0, Qt::AlignCenter);
     m_mainLayout->addSpacing(20);
