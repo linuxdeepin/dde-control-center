@@ -396,7 +396,8 @@ void MainWindow::popWidget()
         m_lastThirdPage.second->setVisible(true);
         pushWidget(m_lastThirdPage.first, m_lastThirdPage.second);
         //only set two pointer to nullptr , but not delete memory
-        memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
+        m_lastThirdPage.first = nullptr;
+        m_lastThirdPage.second = nullptr;
     }
 
     if (m_contentStack.isEmpty())
@@ -830,7 +831,8 @@ void MainWindow::replaceThirdWidget(ModuleInterface *const inter, QWidget *const
         return;
 
     if (m_lastThirdPage.second) {
-        memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
+        m_lastThirdPage.first = nullptr;
+        m_lastThirdPage.second = nullptr;
     }
 
     QPair<ModuleInterface *, QWidget *>widget = m_contentStack.pop();

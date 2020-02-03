@@ -102,7 +102,8 @@ NetworkModuleWidget::NetworkModuleWidget()
         handleNMEditor();
     }
     connect(m_lvnmpages, &QListView::entered, this, &NetworkModuleWidget::onClickCurrentListIndex);
-    connect(m_lvnmpages, &QListView::clicked, this, &NetworkModuleWidget::onClickCurrentListIndex);
+    connect(m_lvnmpages, &DListView::activated, this, &NetworkModuleWidget::onClickCurrentListIndex);
+    connect(m_lvnmpages, &DListView::clicked, m_lvnmpages, &DListView::activated);
 }
 
 void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)

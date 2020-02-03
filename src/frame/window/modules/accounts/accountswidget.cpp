@@ -64,6 +64,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     mainContentLayout->addWidget(m_createBtn, 0, Qt::AlignHCenter);
 
     m_userlistView->setFrameShape(QFrame::NoFrame);
+    m_userlistView->setViewportMargins(ScrollAreaMargins);
     m_userlistView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_userlistView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_userlistView->setEditTriggers(QListView::NoEditTriggers);
