@@ -98,4 +98,6 @@ void CommonInfoWidget::initData()
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
         m_itemList[index.row()].itemSignal.invoke(this);
     });
+    connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
+
 }

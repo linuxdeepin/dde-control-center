@@ -76,6 +76,7 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     m_mouseListView->setRowHidden(3, !redPointExist);
     m_mouseListView->setViewportMargins(ScrollAreaMargins);
     connect(m_mouseListView, &DListView::clicked, this, &MouseWidget::onItemClieck);
+    connect(m_mouseListView, &DListView::activated, m_mouseListView, &QListView::clicked);
     connect(this, &MouseWidget::tpadExistChanged, this, [this](bool bExist) {
         m_mouseListView->setRowHidden(2, !bExist);
         qDebug() << "tpadExistChanged: " << bExist;

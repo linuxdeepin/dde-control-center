@@ -79,6 +79,7 @@ void SystemInfoWidget::initData()
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
         m_itemList[index.row()].method.invoke(this);
     });
+    connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
 }
 
 void SystemInfoWidget::setCurrentIndex(int index)

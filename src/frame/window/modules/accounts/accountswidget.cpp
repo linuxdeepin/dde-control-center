@@ -76,6 +76,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     setLayout(mainContentLayout);
 
     connect(m_userlistView, &QListView::clicked, this, &AccountsWidget::onItemClicked);
+    connect(m_userlistView, &DListView::activated, m_userlistView, &QListView::clicked);
     connect(m_createBtn, &QPushButton::clicked, this, &AccountsWidget::requestCreateAccount);
 }
 

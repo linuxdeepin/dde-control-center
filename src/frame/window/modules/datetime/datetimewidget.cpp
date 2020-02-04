@@ -93,6 +93,7 @@ void DatetimeWidget::init()
     setLayout(layout);
 
     connect(m_listview, &DListView::clicked, this, &DatetimeWidget::onItemClieck);
+    connect(m_listview, &DListView::activated, m_listview, &QListView::clicked);
     // true : 24 hour type  ,  false : 12 hour type ; All use the system time can recive DatetimeWidget::requestSetHourType signal
     connect(m_hourTypeSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetHourType);
 }

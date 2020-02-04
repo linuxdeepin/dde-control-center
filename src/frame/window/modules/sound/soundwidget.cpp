@@ -99,4 +99,5 @@ void SoundWidget::initMenuUI()
         m_currentIdx = idx;
         m_menuMethod[idx.row()].method.invoke(this);
     });
+    connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);
 }

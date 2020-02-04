@@ -161,8 +161,10 @@ void DisplayWidget::initMenuUI()
 
     m_menuList->setEditTriggers(DListView::NoEditTriggers);
     m_menuList->setFrameShape(QFrame::NoFrame);
+    m_menuList->setViewportMargins(ScrollAreaMargins);
     m_centralLayout->addWidget(m_menuList, 1);
     connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
+    connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);
 
   //  m_centralLayout->addStretch(1);
     m_rotate->setIcon(QIcon::fromTheme("dcc_rotate"));

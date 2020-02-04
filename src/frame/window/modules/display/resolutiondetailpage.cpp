@@ -141,6 +141,7 @@ void ResolutionDetailPage::initResoList()
 
         requestSetResolution(moni, itemModel->itemData(idx)[IdRole].toInt());
     });
+    connect(rlist, &DListView::activated, rlist, &QListView::clicked);
     connect(moni, &Monitor::currentModeChanged, this, [ = ](const Resolution & r) {
         for(int i = 0; i < itemModel->rowCount(); ++i) {
             auto tItem = itemModel->item(i);

@@ -161,6 +161,7 @@ void SoundEffectsPage::initList()
     }
 
     connect(m_effectList, &DListView::clicked, this, &SoundEffectsPage::startPlay);
+    connect(m_effectList, &DListView::activated, m_effectList, &QListView::clicked);
     connect(m_model, &SoundModel::soundEffectDataChanged, this,
     [ = ](DDesktopServices::SystemSoundEffect effect, const bool enable) {
         for (int idx = 0; idx < m_model->soundEffectMap().size(); ++idx) {

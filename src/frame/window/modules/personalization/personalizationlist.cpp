@@ -73,6 +73,7 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     m_centralLayout->addWidget(m_categoryListView);
     setLayout(m_centralLayout);
     connect(m_categoryListView, &QListView::clicked, this, &PersonalizationList::onCategoryClicked);
+    connect(m_categoryListView, &DListView::activated, m_categoryListView, &QListView::clicked);
     //set default show page
     m_categoryListView->setCurrentIndex(m_model->indexFromItem(m_model->item(0)));
 }

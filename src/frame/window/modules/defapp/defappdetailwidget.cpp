@@ -231,6 +231,7 @@ void DefappDetailWidget::AppsItemChanged(const QList<dcc::defapp::App> &list)
     }
 
     connect(m_defApps, &DListView::clicked, this, &DefappDetailWidget::onListViewClicked);
+    connect(m_defApps, &DListView::activated, m_defApps, &QListView::clicked);
 }
 
 void DefappDetailWidget::onListViewClicked(const QModelIndex& index) {

@@ -69,6 +69,7 @@ void KeyboardWidget::init()
     m_keyboardListView->setCurrentIndex(m_listviewModel->index(0, 0));
     m_keyboardListView->setViewportMargins(ScrollAreaMargins);
     connect(m_keyboardListView, &DListView::clicked, this, &KeyboardWidget::onItemClick);
+    connect(m_keyboardListView, &DListView::activated, m_keyboardListView, &QListView::clicked);
 }
 
 void KeyboardWidget::initSetting(const int settingIndex)

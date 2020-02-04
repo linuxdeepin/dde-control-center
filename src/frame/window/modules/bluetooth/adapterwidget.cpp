@@ -131,6 +131,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
             }
         }
     });
+    connect(m_myDeviceListView, &DListView::activated, m_myDeviceListView, &DListView::clicked);
 
     connect(m_otherDeviceListView, &DListView::clicked, this, [this](const QModelIndex & idx) {
         const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(idx.model());
@@ -148,6 +149,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
             }
         }
     });
+    connect(m_otherDeviceListView, &DListView::activated, m_otherDeviceListView, &DListView::clicked);
 
     setLayout(layout);
     QTimer::singleShot(0, this, [this] {

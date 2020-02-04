@@ -43,6 +43,7 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     m_defAppCatView->setMovement(QListView::Static);
     m_defAppCatView->setFrameShape(QFrame::NoFrame);
     m_defAppCatView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_defAppCatView->setViewportMargins(ScrollAreaMargins);
 
     QStringList titles;
     //~ contents_path /defapp/Webpage
@@ -87,6 +88,7 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     m_centralLayout->addWidget(m_defAppCatView);
 
     connect(m_defAppCatView, &QListView::clicked, this, &DefaultAppsWidget::onCategoryClicked);
+    connect(m_defAppCatView, &DListView::activated, m_defAppCatView, &QListView::clicked);
 
     setAccessibleName(tr("Default Applications"));
 }
