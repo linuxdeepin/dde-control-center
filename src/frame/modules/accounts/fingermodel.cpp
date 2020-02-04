@@ -89,3 +89,17 @@ QList<FingerModel::UserThumbs> FingerModel::thumbsList() const
 {
     return m_thumbsList;
 }
+
+QList<FingerModel::UserThumbs> FingerModel::createTestThumbsbList() const
+{
+    QList<FingerModel::UserThumbs> testThumbsList;
+
+    FingerModel::UserThumbs userThumbs;
+    userThumbs.username = "test";
+    QStringList testList;
+    testList.append("1");
+    testList.append("2");
+    userThumbs.userThumbs = testList;
+    testThumbsList.append(userThumbs);
+    return testThumbsList;
+}
