@@ -65,6 +65,7 @@ void WiredSettings::initSections()
     m_sectionsLayout->addWidget(ipv4Section);
     m_sectionsLayout->addWidget(ipv6Section);
     m_sectionsLayout->addWidget(etherNetSection);
+    m_sectionsLayout->addStretch();
 
     m_settingSections.append(genericSection);
     m_settingSections.append(secretSection);

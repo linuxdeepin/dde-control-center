@@ -77,6 +77,7 @@ void WirelessSettings::initSections()
     m_sectionsLayout->addWidget(ipv4Section);
     m_sectionsLayout->addWidget(ipv6Section);
     m_sectionsLayout->addWidget(wirelessSection);
+    m_sectionsLayout->addStretch();
 
     m_settingSections.append(genericSection);
     m_settingSections.append(secretSection);
