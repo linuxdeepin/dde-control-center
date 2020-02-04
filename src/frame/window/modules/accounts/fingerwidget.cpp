@@ -33,6 +33,8 @@ using namespace dcc::accounts;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::accounts;
 
+#define test true
+
 FingerWidget::FingerWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
@@ -80,7 +82,10 @@ void FingerWidget::setFingerModel(FingerModel *model)
 {
     m_model = model;
     connect(model, &FingerModel::thumbsListChanged, this, &FingerWidget::onThumbsListChanged);
-    onThumbsListChanged(model->thumbsList());
+    if(!test)
+        onThumbsListChanged(model->thumbsList());
+    else
+       onThumbsListChanged(model->createTestThumbsbList());
 }
 
 void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs)
@@ -88,11 +93,12 @@ void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::U
     QStringList thumb = thumbsLists;
     bool isAddFingeBtn = true;
     m_listGrp->clear();
-
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
         auto u = thumbs.at(n);
-        if (u.username != m_curUser->name()) {
-            continue;
+        if(!test){
+            if (u.username != m_curUser->name()) {
+                continue;
+            }
         }
 
         int i = 1; // 记录指纹列表项编号
@@ -116,9 +122,10 @@ void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::U
             isAddFingeBtn = false;
         }
     }
-
-    m_clearBtn -> setVisible(m_listGrp->itemCount());
-
+    if(!test)
+        m_clearBtn -> setVisible(m_listGrp->itemCount());
+    else
+        m_clearBtn->setVisible(true);
     if (!thumb.isEmpty()) {
         m_notUseThumb = thumb.first();
     }

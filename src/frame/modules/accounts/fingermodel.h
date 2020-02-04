@@ -66,6 +66,7 @@ public:
     void addUserThumbs(const UserThumbs &thumbs);
     void cleanUserThumbs(const QString &user);
     QList<UserThumbs> thumbsList() const;
+    QList<UserThumbs> createTestThumbsbList() const;
 
 Q_SIGNALS:
     void vaildChanged(const bool isVaild);

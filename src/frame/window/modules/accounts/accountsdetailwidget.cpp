@@ -99,7 +99,7 @@ void AccountsDetailWidget::setFingerModel(FingerModel *model)
     });
 
     if (m_curUser->isCurrentUser()) {
-        m_fingerWidget->setVisible(model->isVaild());
+//        m_fingerWidget->setVisible(model->isVaild());
     }
 }
 
@@ -365,7 +365,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_fingerWidget = new FingerWidget(m_curUser, this);
     m_fingerWidget->setContentsMargins(0, 0, 0, 0);
     m_fingerWidget->layout()->setMargin(0);
-    m_fingerWidget->setVisible(false);
+    m_fingerWidget->setVisible(true);
     layout->addSpacing(30);
     layout->addWidget(m_fingerWidget);
 
