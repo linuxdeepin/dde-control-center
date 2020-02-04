@@ -52,6 +52,7 @@ DListView *CommonInfoWidget::getCommonListView()
 
 void CommonInfoWidget::initWidget()
 {
+    m_listView->setViewportMargins(ScrollAreaMargins);
     m_listView->setFrameShape(QFrame::NoFrame);
     m_listView->setEditTriggers(QListView::NoEditTriggers);
     m_listView->setModel(m_itemModel);

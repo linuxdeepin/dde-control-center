@@ -30,6 +30,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/titlelabel.h"
+#include "window/utils.h"
 
 #include <DListView>
 
@@ -80,6 +81,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_myDeviceListView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     m_myDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_myDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_myDeviceListView->setViewportMargins(ScrollAreaMargins);
 
     m_otherDeviceListView = new DListView(this);
     m_otherDeviceModel = new QStandardItemModel(m_otherDeviceListView);
@@ -90,6 +92,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_otherDeviceListView->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     m_otherDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_otherDeviceListView->setViewportMargins(ScrollAreaMargins);
 
     layout->addSpacing(10);
     layout->addWidget(m_switch);

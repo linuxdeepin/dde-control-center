@@ -67,6 +67,7 @@ void KeyboardWidget::init()
     m_keyboardListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_keyboardListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_keyboardListView->setCurrentIndex(m_listviewModel->index(0, 0));
+    m_keyboardListView->setViewportMargins(ScrollAreaMargins);
     connect(m_keyboardListView, &DListView::clicked, this, &KeyboardWidget::onItemClick);
 }
 

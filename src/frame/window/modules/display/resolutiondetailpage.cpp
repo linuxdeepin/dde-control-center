@@ -96,6 +96,7 @@ void ResolutionDetailPage::initResoList()
     rlist->setEditTriggers(DListView::NoEditTriggers);
     rlist->setSelectionMode(DListView::NoSelection);
     rlist->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    rlist->setViewportMargins(ScrollAreaMargins);
 
     auto itemModel = new QStandardItemModel(this);
     rlist->setModel(itemModel);

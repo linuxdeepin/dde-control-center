@@ -45,6 +45,7 @@ SoundWidget::SoundWidget(QWidget *parent)
 
     m_menuList->setEditTriggers(DListView::NoEditTriggers);
     m_menuList->setFrameShape(QFrame::NoFrame);
+    m_menuList->setViewportMargins(ScrollAreaMargins);
     layout->addWidget(m_menuList, 1);
     initMenuUI();
 
