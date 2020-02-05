@@ -33,15 +33,51 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
     : SettingsItem(parent)
     , m_layout(new QHBoxLayout)
     , m_title(new QLabel)
+    , m_removeBtn(new DIconButton(this))
+    , m_editBtn(new DIconButton(this))
+    , m_editTitle(new DLineEdit(this))
 {
     setFixedHeight(36);
 
+    m_editBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    m_editBtn->setFlat(true);//设置背景透明
+
+    m_editTitle->setClearButtonEnabled(false);
+    m_editTitle->setVisible(false);
+    m_editTitle->lineEdit()->setFrame(false);
+
+    m_removeBtn->setFlat(true);
+    m_removeBtn->setIcon(DStyle::StandardPixmap::SP_DeleteButton);
+    m_removeBtn->setFixedSize(QSize(48, 48));
+    m_removeBtn->setIconSize(QSize(24, 24));
+    m_removeBtn->setVisible(false);
+
     m_layout->setContentsMargins(20, 0, 10, 0);
     m_layout->addWidget(m_title, 0, Qt::AlignLeft);
-
+    m_layout->addWidget(m_editBtn, 0, Qt::AlignLeft);
+    m_layout->addWidget(m_editTitle, 0 , Qt::AlignLeft);
+    m_layout->addStretch();
+    m_layout->addWidget(m_removeBtn);
     setLayout(m_layout);
-}
 
+    connect(m_removeBtn, &DIconButton::clicked, this, &AccounntFingeItem::removeClicked);
+    connect(m_editBtn, &DIconButton::clicked, this, [this] {
+        setEditTitle(true);
+        m_editTitle->lineEdit()->selectAll();
+        m_editTitle->lineEdit()->setFocus();
+    });
+    connect(m_editTitle->lineEdit(), &QLineEdit::textChanged, this, [this] {
+        m_editTitle->setAlert(false);
+        m_editTitle->hideAlertMessage();
+    });
+    connect(m_editTitle->lineEdit(), &QLineEdit::editingFinished, this, [this] {
+        if(onNameEditFinished(m_editTitle)) {
+            setEditTitle(false);
+            m_editTitle->lineEdit()->clearFocus();
+            Q_EMIT editTextFinished(m_editTitle->text());
+        }
+    });
+}
 
 void AccounntFingeItem::setTitle(const QString &title)
 {
@@ -55,4 +91,41 @@ void AccounntFingeItem::setTitle(const QString &title)
 void AccounntFingeItem::appendItem(QWidget *widget)
 {
     m_layout->addWidget(widget, 0, Qt::AlignLeft);
+}
+
+void AccounntFingeItem::setShowIcon(bool state)
+{
+    m_removeBtn->setVisible(state);
+}
+
+void AccounntFingeItem::setEditTitle(bool state)
+{
+    m_title->setVisible(!state);
+    m_editBtn->setVisible(!state);
+    m_editTitle->setVisible(state);
+}
+
+void AccounntFingeItem::setHideTitle(bool state)
+{
+    m_title->setVisible(state);
+    m_editBtn->setVisible(state);
+    m_editTitle->setVisible(state);
+}
+
+bool AccounntFingeItem::onNameEditFinished(DLineEdit *edit)
+{
+    QString editName = edit->lineEdit()->text();
+    if(editName.isEmpty()) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("该名称不能为空"), parentWidget());
+        edit->lineEdit()->selectAll();
+        return false;
+    }
+    if(editName.size() >15 ) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("该名称不符合规范，请输入字母、数字、中文、下划线，不超过15个字符"), parentWidget());
+        edit->lineEdit()->selectAll();
+        return false;
+    }
+    return true;
 }
