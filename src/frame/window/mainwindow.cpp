@@ -152,13 +152,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     auto action = new QAction(tr("Help"));
     menu->addAction(action);
-    connect(action, &QAction::triggered, this, [] {
+    connect(action, &QAction::triggered, this, [=] {
+        QString helpTitle = m_moduleName;
+        if(helpTitle.isEmpty()) {
+            helpTitle = "controlcenter";
+        }
         const QString dmanInterface = "com.deepin.Manual.Open";
         QDBusInterface *inter = new QDBusInterface(dmanInterface,
                                                    "/com/deepin/Manual/Open",
                                                    dmanInterface,
                                                    QDBusConnection::sessionBus());
-        inter->call("ShowManual", "dde");
+        inter->call("OpenTitle", "dde", helpTitle);
         inter->deleteLater();
     });
 
@@ -175,6 +179,7 @@ MainWindow::MainWindow(QWidget *parent)
         } else {
             popWidget();
         }
+        m_moduleName = "";
         resetNavList(m_contentStack.isEmpty());
     });
     setMinimumSize(QSize(WidgetMinimumWidget, WidgetMinimumHeight));
@@ -539,12 +544,16 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         }
         break;
     case Qt::Key_F1: {
+        QString helpTitle = m_moduleName;
+        if(helpTitle.isEmpty()) {
+            helpTitle = "controlcenter";
+        }
         const QString dmanInterface = "com.deepin.Manual.Open";
         QDBusInterface *inter = new QDBusInterface(dmanInterface,
                                                    "/com/deepin/Manual/Open",
                                                    dmanInterface,
                                                    QDBusConnection::sessionBus());
-        inter->call("ShowManual", "dde");
+        inter->call("OpenTitle", "dde", helpTitle);
         inter->deleteLater();
         break;
     }
@@ -980,6 +989,7 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         inter->initialize();
         m_initList << inter;
     }
+    m_moduleName = inter->name();
     setCurrModule(inter);
     inter->active();
 }

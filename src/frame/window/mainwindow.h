@@ -138,6 +138,7 @@ private:
     DCC_NAMESPACE::search::SearchWidget *m_searchWidget;
     int m_firstCount;
     QString m_widgetName;
+    QString m_moduleName;
     DIconButton *m_backwardBtn;
     struct CornerItemGroup {
         QString m_name;
