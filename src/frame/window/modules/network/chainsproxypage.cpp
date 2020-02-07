@@ -152,14 +152,16 @@ void ChainsProxyPage::onCheckValue()
 
     const QString &addr = m_addr->text();
     if (addr.isEmpty() || !isIPV4(addr)) {
-        m_addr->setIsErr();
+        m_addr->setIsErr(true);
+        m_addr->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
         return;
     }
 
     bool ok = true;
     const uint port = m_port->text().toUInt(&ok);
     if (!ok) {
-        m_port->setIsErr();
+        m_port->setIsErr(true);
+        m_port->dTextEdit()->showAlertMessage(tr("Invalid port"), this, 2000);
         return;
     }
 
