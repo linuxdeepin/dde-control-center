@@ -609,16 +609,26 @@ void UpdateWorker::testMirrorSpeed()
 void UpdateWorker::checkNetselect()
 {
     QProcess *process = new QProcess;
-
-    const bool isNetselectExist = process->execute("netselect", QStringList() << "127.0.0.1") == 0;
-
-    if (!isNetselectExist) {
-        qWarning() << "[wubw UpdateWorker] netselect 127.0.0.1 : " << isNetselectExist;
-    }
-
-    m_model->setNetselectExist(isNetselectExist);
-
-    process->deleteLater();
+    process->start("netselect", QStringList() << "127.0.0.1");
+    connect(process, &QProcess::errorOccurred, this, [this, process](QProcess::ProcessError error) {
+        if ((error == QProcess::FailedToStart) || (error == QProcess::Crashed)) {
+            m_model->setNetselectExist(false);
+            process->deleteLater();
+        }
+    });
+    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [this, process](int result) {
+        bool isNetselectExist = false;
+        if (result == 0) {
+            isNetselectExist = true;
+        } else {
+            isNetselectExist = false;
+        }
+        if (!isNetselectExist) {
+            qWarning() << "[wubw UpdateWorker] netselect 127.0.0.1 : " << isNetselectExist;
+        }
+        m_model->setNetselectExist(isNetselectExist);
+        process->deleteLater();
+    });
 }
 
 void UpdateWorker::setSmartMirror(bool enable)
