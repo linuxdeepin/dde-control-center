@@ -43,7 +43,6 @@ SettingsItem::SettingsItem(QWidget *parent)
 {
 }
 
-
 bool SettingsItem::isErr() const
 {
     return m_isErr;
@@ -60,26 +59,16 @@ void SettingsItem::setIsErr(const bool err)
 
 void SettingsItem::addBackground()
 {
-    //当 SettingsItem 被　appendItem　加入　SettingsGroup　时被调用
-    QMargins mg(0, 0, 0, 0);
-
-    //因为需要SettingsItem 整体为一个圆角，所有用一个　widget　当背景
-    auto bgWidget = new QWidget();
-
-    //将　widget　加入到一个新建的　DBackgroundGroup中
-    auto bglayout = new QVBoxLayout;
-    bglayout->setContentsMargins(mg);
+    //加入一个 DFrame 作为圆角背景
     if (m_bgGroup)
         m_bgGroup->deleteLater();
     m_bgGroup = new DFrame(this);
     m_bgGroup->setContentsMargins(0, 0, 0, 0);
     m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
     m_bgGroup->setLineWidth(0);
-    bglayout->addWidget(bgWidget);
 
     //将 m_bgGroup 沉底
     m_bgGroup->lower();
-
     //设置m_bgGroup 的大小
     m_bgGroup->setFixedSize(size());
 }
