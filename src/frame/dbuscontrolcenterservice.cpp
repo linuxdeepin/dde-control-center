@@ -158,6 +158,11 @@ void DBusControlCenterService::ShowHome()
     parent()->popWidget();
 }
 
+void DBusControlCenterService::ShowTouchPanelOSD()
+{
+    qDebug() << "ShowTouchPanelOSD";
+}
+
 void DBusControlCenterService::ShowModule(const QString &module)
 {
     ShowPage(module, "");
