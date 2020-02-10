@@ -67,6 +67,7 @@ SearchWidget::SearchWidget(QWidget *parent)
 
     //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
     m_bIsServerType = IsServerSystem;
+    m_bIsIsDesktopType = IsDesktopSystem;
 
     //first存储和服务器/桌面版有关的文言
     //second : true 用于记录"服务器"才有的搜索数据
@@ -405,6 +406,13 @@ void SearchWidget::loadxml()
                             if (isLoadText(m_searchBoxStruct.translateContent)) {
                                 clearSearchData();
                                 continue;
+                            }
+
+                            if(m_bIsIsDesktopType) {
+                                if ((tr("Developer Mode") == m_searchBoxStruct.translateContent) || (tr("End User License Agreement") == m_searchBoxStruct.translateContent)) {
+                                    clearSearchData();
+                                    continue;
+                                }
                             }
 
                             m_EnterNewPagelist.append(m_searchBoxStruct);

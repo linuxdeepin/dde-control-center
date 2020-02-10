@@ -24,7 +24,7 @@
  */
 
 #include "updatework.h"
-
+#include "window/utils.h"
 #include <QtConcurrent>
 #include <QFuture>
 #include <QFutureWatcher>
@@ -343,8 +343,11 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
             ddeUpdateInfo.m_avilableVersion = tr("Patches");
             ddeUpdateInfo.m_changelog = tr("System patches");
         }
-        //app updates are not displayed
-        infos.clear();
+
+        if(!DCC_NAMESPACE::IsDesktopSystem) {
+            //app updates are not displayed
+            infos.clear();
+        }
 
         infos.prepend(ddeUpdateInfo);
     }
