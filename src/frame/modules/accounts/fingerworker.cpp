@@ -122,6 +122,11 @@ void FingerWorker::stopEnroll()
     watcher.setFuture(future);
 }
 
+void FingerWorker::testEnrollStart(const QString &name, const QString &thumb)
+{
+    Q_EMIT requestShowAddThumb(name, thumb);
+}
+
 void FingerWorker::onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QDBusObjectPath> reply = w->reply();
