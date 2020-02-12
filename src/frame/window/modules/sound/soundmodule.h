@@ -22,8 +22,8 @@
 #ifndef SOUNDMODULE_H_V20
 #define SOUNDMODULE_H_V20
 
-#include "window/namespace.h"
-#include "window/interface/moduleinterface.h"
+#include "namespace.h"
+#include "moduleinterface.h"
 
 #include <QObject>
 
@@ -50,6 +50,7 @@ public:
 public:
     void initialize() override;
     const QString name() const override;
+    const QString displayName() const override;
     void active() override;
     int load(QString path) override;
     QStringList availPage() const override;

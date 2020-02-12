@@ -77,6 +77,11 @@ const QString DefaultAppsModule::name() const
     return QStringLiteral("defapp");
 }
 
+const QString DefaultAppsModule::displayName() const
+{
+    return tr("Default Applications");
+}
+
 void DefaultAppsModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);

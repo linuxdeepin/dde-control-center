@@ -21,7 +21,7 @@
 #ifndef MOUSESETTINGWIDGET_H
 #define MOUSESETTINGWIDGET_H
 
-#include "window/namespace.h"
+#include "namespace.h"
 #include "widgets/contentwidget.h"
 
 namespace dcc {

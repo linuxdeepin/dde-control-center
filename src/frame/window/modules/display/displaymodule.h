@@ -22,8 +22,8 @@
 #ifndef DISPLAYMODULE_H_V20
 #define DISPLAYMODULE_H_V20
 
-#include "window/interface/moduleinterface.h"
-#include "window/namespace.h"
+#include "moduleinterface.h"
+#include "namespace.h"
 #include "customsettingdialog.h"
 
 class Resolution;
@@ -54,6 +54,7 @@ public:
 public:
     void initialize() override;
     const QString name() const override;
+    const QString displayName() const override;
     void active() override;
     int load(QString path) override;
     void preInitialize(bool sync = false) override;

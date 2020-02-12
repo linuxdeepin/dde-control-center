@@ -25,7 +25,7 @@
 
 #pragma once
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <com_deepin_daemon_inputdevice_wacom.h>
 #include <QObject>

@@ -67,6 +67,7 @@ DTK_USE_NAMESPACE
 const QByteArray ControlCenterGSettings = "com.deepin.dde.control-center";
 const QString GSettinsWindowWidth = "window-width";
 const QString GSettinsWindowHeight = "window-height";
+const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
 
 const int WidgetMinimumWidget = 820;
 const int WidgetMinimumHeight = 634;
@@ -309,6 +310,8 @@ void MainWindow::initAllModule(QString m)
         { new CommonInfoModule(this), tr("General Settings")},
     };
 
+    loadModules();
+
     //通过gsetting设置某模块是否显示,默认都显示
     m_moduleSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
 
@@ -364,6 +367,35 @@ void MainWindow::initAllModule(QString m)
         m_searchWidget->setLanguage(QLocale::system().name());
         qDebug() << QString("load search info with %1ms").arg(et.elapsed());
     });
+}
+
+void MainWindow::loadModules()
+{
+    QDir moduleDir(ModuleDirectory);
+    if (!moduleDir.exists()) {
+        qWarning() << "module directory not exists";
+    }
+
+    auto moduleList = moduleDir.entryInfoList();
+    for (auto i : moduleList) {
+        QString path = i.absoluteFilePath();
+
+        if (!QLibrary::isLibrary(path)) continue;
+
+        qDebug() << "loading module: " << i;
+
+        QPluginLoader loader(path);
+        QObject* instance = loader.instance();
+        if (!instance) {
+            qWarning() << loader.errorString();
+            continue;
+        }
+
+        auto *module = qobject_cast<ModuleInterface *>(instance);
+        module->setFrameProxy(this);
+
+        m_modules.append({module, module->displayName()});
+    }
 }
 
 void MainWindow::modulePreInitialize(QString m)

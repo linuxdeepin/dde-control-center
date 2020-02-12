@@ -20,7 +20,7 @@
  */
 #pragma once
 
-#include "window/interface/moduleinterface.h"
+#include "moduleinterface.h"
 
 #include <QObject>
 
@@ -58,6 +58,7 @@ public:
 
     virtual void initialize() override;
     virtual const QString name() const override;
+    virtual const QString displayName() const override;
     virtual void active() override;
     virtual int load(QString path) override;
     QStringList availPage() const override;

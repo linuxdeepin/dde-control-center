@@ -75,6 +75,11 @@ const QString AccountsModule::name() const
     return QStringLiteral("accounts");
 }
 
+const QString AccountsModule::displayName() const
+{
+    return tr("Account");
+}
+
 void AccountsModule::showPage(const QString &pageName)
 {
     Q_UNUSED(pageName);

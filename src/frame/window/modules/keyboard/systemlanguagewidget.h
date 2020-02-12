@@ -21,7 +21,7 @@
 #ifndef SYSTEMLANGUAGEWIDGET_H
 #define SYSTEMLANGUAGEWIDGET_H
 
-#include "window/namespace.h"
+#include "namespace.h"
 #include "widgets/contentwidget.h"
 
 #include <DCommandLinkButton>

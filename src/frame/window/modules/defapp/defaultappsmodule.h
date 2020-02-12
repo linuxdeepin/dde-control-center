@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "window/interface/moduleinterface.h"
+#include "moduleinterface.h"
 #include "modules/defapp/defappworker.h"
 
 namespace dcc {
@@ -42,6 +42,7 @@ public:
 
     virtual void initialize() override;
     virtual const QString name() const override;
+    virtual const QString displayName() const override;
     virtual void active() override;
     virtual void contentPopped(QWidget *const w) override;
     virtual int load(QString path) override;

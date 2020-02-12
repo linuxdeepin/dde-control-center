@@ -75,6 +75,11 @@ const QString CommonInfoModule::name() const
     return QStringLiteral("commoninfo");
 }
 
+const QString CommonInfoModule::displayName() const
+{
+    return tr("General Settings");
+}
+
 void CommonInfoModule::active()
 {
     //    mCommonWork->activate();

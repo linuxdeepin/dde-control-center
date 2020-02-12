@@ -141,6 +141,11 @@ const QString MouseModule::name() const
     return QStringLiteral("mouse");
 }
 
+const QString MouseModule::displayName() const
+{
+    return tr("Mouse");
+}
+
 int MouseModule::load(QString path)
 {
     int hasPage = -1;

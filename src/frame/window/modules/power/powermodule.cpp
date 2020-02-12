@@ -73,6 +73,11 @@ const QString PowerModule::name() const
     return QStringLiteral("power");
 }
 
+const QString PowerModule::displayName() const
+{
+    return tr("Power");
+}
+
 void PowerModule::active()
 {
     m_widget = new PowerWidget;

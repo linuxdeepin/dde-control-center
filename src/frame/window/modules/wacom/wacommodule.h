@@ -21,10 +21,10 @@
 
 #ifndef WACOMMODULE_H_V20
 #define WACOMMODULE_H_V20
-#include "window/namespace.h"
+#include "namespace.h"
 
-#include "window/interface/moduleinterface.h"
-#include "window/interface/frameproxyinterface.h"
+#include "moduleinterface.h"
+#include "frameproxyinterface.h"
 
 #include <QObject>
 
@@ -47,6 +47,7 @@ public:
     virtual void active() override;
     virtual void deactive() override;
     virtual const QString name() const override;
+    virtual const QString displayName() const override;
     QStringList availPage() const override;
 private:
     WacomWidget *m_wacomWidget;

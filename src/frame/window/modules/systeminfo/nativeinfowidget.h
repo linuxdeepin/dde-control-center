@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "window/namespace.h"
+#include "namespace.h"
 #include "modules/systeminfo/systeminfomodel.h"
 #include "widgets/titlevalueitem.h"
 #include "widgets/contentwidget.h"

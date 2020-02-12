@@ -63,6 +63,11 @@ const QString DisplayModule::name() const
     return QStringLiteral("display");
 }
 
+const QString DisplayModule::displayName() const
+{
+    return tr("Display");
+}
+
 void DisplayModule::active()
 {
     m_displayWidget = new DisplayWidget;

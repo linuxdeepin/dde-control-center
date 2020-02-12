@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "window/namespace.h"
+#include "namespace.h"
 #include "modules/accounts/user.h"
 #include "modules/accounts/usermodel.h"
 #include "modules/accounts/creationresult.h"

@@ -58,6 +58,11 @@ const QString PersonalizationModule::name() const
     return QStringLiteral("personalization");
 }
 
+const QString PersonalizationModule::displayName() const
+{
+    return tr("Personalization");
+}
+
 void PersonalizationModule::active()
 {
     PersonalizationList *firstWidget = new PersonalizationList();

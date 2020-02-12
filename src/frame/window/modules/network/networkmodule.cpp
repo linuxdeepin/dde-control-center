@@ -259,6 +259,11 @@ const QString NetworkModule::name() const
     return QStringLiteral("network");
 }
 
+const QString NetworkModule::displayName() const
+{
+    return tr("Network");
+}
+
 void NetworkModule::popPage()
 {
     m_frameProxy->popWidget(this);

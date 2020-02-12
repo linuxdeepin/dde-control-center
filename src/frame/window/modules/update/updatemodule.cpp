@@ -88,6 +88,11 @@ const QString UpdateModule::name() const
     return QStringLiteral("update");
 }
 
+const QString UpdateModule::displayName() const
+{
+    return tr("Update");
+}
+
 void UpdateModule::active()
 {
     UpdateWidget *mainWidget = new UpdateWidget;

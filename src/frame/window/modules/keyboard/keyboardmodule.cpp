@@ -117,6 +117,11 @@ const QString KeyboardModule::name() const
     return QStringLiteral("keyboard");
 }
 
+const QString KeyboardModule::displayName() const
+{
+    return tr("Keyboard and Language");
+}
+
 void KeyboardModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);

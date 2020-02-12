@@ -20,7 +20,7 @@
  */
 #pragma once
 
-#include "window/namespace.h"
+#include "namespace.h"
 #include "modules/sync/utils.h"
 #include "loginedin.h"
 

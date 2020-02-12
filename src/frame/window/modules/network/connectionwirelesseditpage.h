@@ -22,7 +22,7 @@
 #ifndef CONNECTIONWIRELESSEDITPAGE_H
 #define CONNECTIONWIRELESSEDITPAGE_H
 
-#include "window/namespace.h"
+#include "namespace.h"
 #include "connectioneditpage.h"
 
 #include <networkmanagerqt/accesspoint.h>

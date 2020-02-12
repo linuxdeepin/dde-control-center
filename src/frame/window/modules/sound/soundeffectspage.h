@@ -22,7 +22,7 @@
 #ifndef SOUNDEFFECTSPAGE_H_V20
 #define SOUNDEFFECTSPAGE_H_V20
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <DDesktopServices>
 #include <DListView>

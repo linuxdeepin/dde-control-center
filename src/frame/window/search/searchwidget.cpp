@@ -20,7 +20,7 @@
  */
 #include "searchwidget.h"
 #include "window/utils.h"
-#include "window/interface/moduleinterface.h"
+#include "moduleinterface.h"
 
 #include <DPinyin>
 
@@ -420,10 +420,10 @@ void SearchWidget::loadxml()
                             //Add search result content
                             if (!m_bIsChinese) {
                                 if ("" == m_searchBoxStruct.childPageName) {
-                                    m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.fullPagePath.section('/', 1, 1)),
+                                    m_model->appendRow(new QStandardItem(getInternalModuleIcon(m_searchBoxStruct.fullPagePath.section('/', 1, 1)),
                                                                          QString("%1 --> %2").arg(m_searchBoxStruct.actualModuleName).arg(m_searchBoxStruct.translateContent)));
                                 } else {
-                                    m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.fullPagePath.section('/', 1, 1)),
+                                    m_model->appendRow(new QStandardItem(getInternalModuleIcon(m_searchBoxStruct.fullPagePath.section('/', 1, 1)),
                                                                          QString("%1 --> %2 / %3").arg(m_searchBoxStruct.actualModuleName).arg(m_searchBoxStruct.childPageName).arg(m_searchBoxStruct.translateContent)));
                                 }
                             } else {
@@ -569,7 +569,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
         //Qt::EditRole数据用于显示搜索到的结果(汉字)
         //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
         //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
-        m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(data.fullPagePath.section('/', 1, 1)),
+        m_model->appendRow(new QStandardItem(getInternalModuleIcon(data.fullPagePath.section('/', 1, 1)),
                                              QString("%1 --> %2").arg(data.actualModuleName).arg(data.translateContent)));
 
         //设置汉字的Qt::UserRole数据
@@ -594,7 +594,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
 
         //添加显示的汉字(用于拼音搜索显示)
-        m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(data.fullPagePath.section('/', 1, 1)), hanziTxt));
+        m_model->appendRow(new QStandardItem(getInternalModuleIcon(data.fullPagePath.section('/', 1, 1)), hanziTxt));
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
         m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
 
@@ -609,7 +609,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
         //Qt::EditRole数据用于显示搜索到的结果(汉字)
         //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
         //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
-        m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(data.fullPagePath.section('/', 1, 1)),
+        m_model->appendRow(new QStandardItem(getInternalModuleIcon(data.fullPagePath.section('/', 1, 1)),
                                              QString("%1 --> %2 / %3").arg(data.actualModuleName).arg(data.childPageName).arg(data.translateContent)));
 
         //设置汉字的Qt::UserRole数据
@@ -627,7 +627,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
 
         //添加显示的汉字(用于拼音搜索显示)
-        m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(data.fullPagePath.section('/', 1, 1)), hanziTxt));
+        m_model->appendRow(new QStandardItem(getInternalModuleIcon(data.fullPagePath.section('/', 1, 1)), hanziTxt));
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
         m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
 
@@ -666,6 +666,11 @@ bool SearchWidget::isLoadText(QString txt)
     }
 
     return false;
+}
+
+QIcon SearchWidget::getInternalModuleIcon(const QString &moduleName)
+{
+    return QIcon::fromTheme(QString("dcc_nav_%1").arg(moduleName));
 }
 
 void SearchWidget::setLanguage(QString type)

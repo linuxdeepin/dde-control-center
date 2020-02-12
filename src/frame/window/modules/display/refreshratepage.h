@@ -22,7 +22,7 @@
 #ifndef REFRESHRATEPAGE_H
 #define REFRESHRATEPAGE_H
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <QWidget>
 #include <QVBoxLayout>

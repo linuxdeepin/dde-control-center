@@ -21,9 +21,9 @@
 
 #pragma once
 
-#include "window/namespace.h"
+#include "namespace.h"
 
-#include "window/interface/moduleinterface.h"
+#include "moduleinterface.h"
 
 QT_BEGIN_NAMESPACE
 #include <QObject>
@@ -50,6 +50,7 @@ public:
     virtual void initialize() override;
     // 返回模块名
     virtual const QString name() const override;
+    virtual const QString displayName() const override;
     // 当模块第一次被点击时会被调用
     virtual void active() override;
     virtual void deactive() override;

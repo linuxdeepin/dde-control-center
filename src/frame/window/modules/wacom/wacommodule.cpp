@@ -95,6 +95,11 @@ const QString WacomModule::name() const
     return QStringLiteral("wacom");
 }
 
+const QString WacomModule::displayName() const
+{
+    return tr("Drawing Tablet");
+}
+
 QStringList WacomModule::availPage() const
 {
     QStringList sl;

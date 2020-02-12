@@ -20,7 +20,7 @@
  */
 #pragma once
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include "dsearchedit.h"
 
@@ -98,6 +98,7 @@ private:
     void appendChineseData(SearchBoxStruct data);
     void clearSearchData();
     bool isLoadText(QString txt);
+    static QIcon getInternalModuleIcon(const QString &moduleName);
 
 private:
     QStandardItemModel *m_model;

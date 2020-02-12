@@ -21,7 +21,7 @@
 #ifndef DeveloperModeDialog_H
 #define DeveloperModeDialog_H
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <DAbstractDialog>
 #include <DRadioButton>

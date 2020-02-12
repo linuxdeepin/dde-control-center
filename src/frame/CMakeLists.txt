@@ -214,9 +214,8 @@ set(INTERFACES_FILES
                 interfaces/moduleinterface.h
                 interfaces/plugininterface.h
 
-                window/interface/moduleinterface.h
-                window/interface/moduleinterface.cpp
-                window/interface/frameproxyinterface.h
+                ../../interface/moduleinterface.h
+                ../../interface/frameproxyinterface.h
 )
 
 # load widgets
@@ -1262,6 +1261,7 @@ endforeach()
 
 add_executable(${BIN_NAME} ${SRCS} ${QRC})
 target_include_directories(${BIN_NAME} PUBLIC
+    ../../interface
     ${DtkWidget_INCLUDE_DIRS}
     ${XCB_EWMH_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}

@@ -90,6 +90,11 @@ const QString BluetoothModule::name() const
     return QStringLiteral("bluetooth");
 }
 
+const QString BluetoothModule::displayName() const
+{
+    return tr("Bluetooth");
+}
+
 int BluetoothModule::load(QString path)
 {
     if ((path == QStringLiteral("Ignore this device"))

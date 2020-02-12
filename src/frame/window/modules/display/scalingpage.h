@@ -25,7 +25,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/titledslideritem.h"
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <DTipLabel>
 

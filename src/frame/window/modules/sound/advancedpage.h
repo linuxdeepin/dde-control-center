@@ -22,7 +22,7 @@
 #ifndef ADVANCEDPAGE_H_V20
 #define ADVANCEDPAGE_H_V20
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <QWidget>
 #include <DListView>

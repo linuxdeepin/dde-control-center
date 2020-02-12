@@ -20,7 +20,7 @@
  */
 #pragma once
 
-#include "window/namespace.h"
+#include "namespace.h"
 #include "widgets/settingsitem.h"
 #include "timesetedit.h"
 

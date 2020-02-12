@@ -22,7 +22,7 @@
 #ifndef CUSTOMSETTINGDIALOG_H
 #define CUSTOMSETTINGDIALOG_H
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <DListView>
 #include <DButtonBox>

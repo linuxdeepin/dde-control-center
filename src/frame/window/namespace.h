@@ -1,1 +1,1 @@
-#define DCC_NAMESPACE dccV20
+#include <namespace.h>

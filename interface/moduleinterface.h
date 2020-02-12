@@ -22,9 +22,10 @@
 #pragma once
 
 #include "frameproxyinterface.h"
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <QtCore>
+#include <QIcon>
 
 //struct ModuleMetadata {
 //    QString icon;
@@ -37,8 +38,11 @@ namespace DCC_NAMESPACE {
 class ModuleInterface
 {
 public:
+    ModuleInterface() = default;
     ModuleInterface(FrameProxyInterface *frameProxy) : m_frameProxy(frameProxy) {}
     virtual ~ModuleInterface() {}
+
+    void setFrameProxy(FrameProxyInterface *frameProxy) { m_frameProxy = frameProxy; }
 
     // preInitialize会在模块初始化时被调用，用于模块在准备阶段进行资源的初始化；
     // preInitialize不允许进行高资源的操作；
@@ -60,12 +64,20 @@ public:
     virtual const QString name() const = 0;
 
     ///
-    /// \brief getIconPath
+    /// \brief name
+    /// 模块名，用于显示
+    /// \return
+    ///
+    virtual const QString displayName() const = 0;
+
+    ///
+    /// \brief icon
     /// get module icon path
     /// \return
     ///
-    static QIcon getIcon(const QString &moduleName);
-    virtual QIcon icon() const;
+    virtual QIcon icon() const {
+        return QIcon::fromTheme(QString("dcc_nav_%1").arg(name()));
+    };
 
     // 应该暂时不需要finalize；
     // virtual void finalize();
@@ -94,12 +106,12 @@ public:
     ///
     /// \brief active
     /// 当模块第一次被点击进入时，active会被调用
-    virtual void active();
+    virtual void active() {}
 
     ///
     /// \brief active
     /// 当模块被销毁时，deactive会被调用
-    virtual void deactive();
+    virtual void deactive() {}
 
     ///
     /// \brief load
@@ -117,8 +129,11 @@ public:
     inline bool isAvailable() const { return m_available; }
 
 protected:
-    FrameProxyInterface *m_frameProxy = nullptr;
+    FrameProxyInterface *m_frameProxy{nullptr};
     bool m_available{true};
 };
 
 }
+
+#define ModuleInterface_iid "com.deepin.dde.ControlCenter.module/1.0"
+Q_DECLARE_INTERFACE(DCC_NAMESPACE::ModuleInterface, ModuleInterface_iid)

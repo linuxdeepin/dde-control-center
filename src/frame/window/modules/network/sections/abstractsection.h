@@ -24,7 +24,7 @@
 
 #include "widgets/settingsgroup.h"
 #include "widgets/contentwidget.h"
-#include "window/namespace.h"
+#include "namespace.h"
 
 namespace DCC_NAMESPACE {
 namespace network {

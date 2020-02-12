@@ -22,7 +22,7 @@
 #ifndef MICROPHONEPAGE_H_V20
 #define MICROPHONEPAGE_H_V20
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <QWidget>
 

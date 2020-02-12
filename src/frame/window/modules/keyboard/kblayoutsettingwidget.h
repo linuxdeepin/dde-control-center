@@ -21,7 +21,7 @@
 #ifndef KBLAYOUTSETTINGWIDGET_H
 #define KBLAYOUTSETTINGWIDGET_H
 
-#include "window/namespace.h"
+#include "namespace.h"
 #include "widgets/contentwidget.h"
 
 #include <DCommandLinkButton>

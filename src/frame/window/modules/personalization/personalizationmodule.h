@@ -21,8 +21,8 @@
 
 #pragma once
 
-#include "window/namespace.h"
-#include "window/interface/moduleinterface.h"
+#include "namespace.h"
+#include "moduleinterface.h"
 
 #include <QObject>
 
@@ -47,6 +47,7 @@ public:
 
     virtual void initialize() override;
     virtual const QString name() const override;
+    virtual const QString displayName() const override;
     virtual void active() override;
     virtual void contentPopped(QWidget *const w) override;
     virtual int load(QString path) override;

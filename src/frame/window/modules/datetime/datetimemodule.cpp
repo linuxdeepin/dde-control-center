@@ -65,6 +65,11 @@ const QString DatetimeModule::name() const
     return QStringLiteral("datetime");
 }
 
+const QString DatetimeModule::displayName() const
+{
+    return tr("Date and Time");
+}
+
 void DatetimeModule::active()
 {
     m_widget = new DatetimeWidget;

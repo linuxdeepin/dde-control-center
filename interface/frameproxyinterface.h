@@ -1,6 +1,6 @@
 #pragma once
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 class QWidget;
 class QString;

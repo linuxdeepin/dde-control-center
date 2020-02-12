@@ -27,6 +27,11 @@ const QString SyncModule::name() const
     return QStringLiteral("cloudsync");
 }
 
+const QString SyncModule::displayName() const
+{
+    return tr("Cloud Account");
+}
+
 void SyncModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);

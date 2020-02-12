@@ -27,7 +27,7 @@
 #define HOTSPOTPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <DListView>
 #include <DFloatingButton>

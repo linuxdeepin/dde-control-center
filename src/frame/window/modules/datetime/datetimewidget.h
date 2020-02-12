@@ -20,7 +20,7 @@
  */
 #pragma once
 
-#include "window/namespace.h"
+#include "namespace.h"
 
 #include <types/zoneinfo.h>
 #include <DListView>

@@ -76,6 +76,11 @@ const QString SystemInfoModule::name() const
     return QStringLiteral("systeminfo");
 }
 
+const QString SystemInfoModule::displayName() const
+{
+    return tr("System Info");
+}
+
 int SystemInfoModule::load(QString path)
 {
     if (!m_sysinfoWidget) {

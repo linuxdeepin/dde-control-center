@@ -27,8 +27,8 @@
 #ifndef NETWORKMODULE_H
 #define NETWORKMODULE_H
 
-#include "window/interface/moduleinterface.h"
-#include "window/namespace.h"
+#include "moduleinterface.h"
+#include "namespace.h"
 
 namespace dde {
 namespace network {
@@ -57,6 +57,7 @@ private:
     void preInitialize(bool sync = false) override;
     void initialize() override;
     const QString name() const override;
+    const QString displayName() const override;
 public:
     void active() override;
     int load(QString path) override;

@@ -22,8 +22,8 @@
 #define MAINWINDOW_H
 
 #include "navigation/navmodel.h"
-#include "interface/frameproxyinterface.h"
-#include "interface/moduleinterface.h"
+#include "frameproxyinterface.h"
+#include "moduleinterface.h"
 
 #include <DMainWindow>
 #include <DBackgroundGroup>
@@ -120,6 +120,7 @@ private:
     void pushFinalWidget(ModuleInterface *const inter, QWidget *const w);  //Insert after the finalWidget
     void judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w);
     void updateViewBackground();
+    void loadModules();
 
 private:
     bool m_bInit{false};

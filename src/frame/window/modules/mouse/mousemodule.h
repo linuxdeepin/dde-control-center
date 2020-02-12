@@ -21,8 +21,9 @@
 
 #pragma once
 
-#include "window/namespace.h"
-#include "window/interface/moduleinterface.h"
+#include "namespace.h"
+#include "moduleinterface.h"
+
 #include <QObject>
 
 namespace dcc {
@@ -43,14 +44,18 @@ class TrackPointSettingWidget;
 class MouseModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
+    Q_PLUGIN_METADATA(IID ModuleInterface_iid)
+    Q_INTERFACES(DCC_NAMESPACE::ModuleInterface)
 
 public:
+    explicit MouseModule() = default;
     explicit MouseModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     void preInitialize(bool sync = false) override;
     void initialize() override;
     void reset() override;
     void active() override;
     const QString name() const override;
+    const QString displayName() const override;
     void contentPopped(QWidget *const w) override;
     int load(QString path) override;
     QStringList availPage() const override;

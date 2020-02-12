@@ -54,6 +54,11 @@ const QString SoundModule::name() const
     return "sound";
 }
 
+const QString SoundModule::displayName() const
+{
+    return tr("Sound");
+}
+
 void SoundModule::active()
 {
     m_worker->activate();

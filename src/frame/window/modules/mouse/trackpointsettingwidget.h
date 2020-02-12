@@ -21,7 +21,7 @@
 #ifndef TRACKPOINTSETTINGWIDGET_H
 #define TRACKPOINTSETTINGWIDGET_H
 
-#include "window/namespace.h"
+#include "namespace.h"
 #include "widgets/contentwidget.h"
 
 namespace dcc {

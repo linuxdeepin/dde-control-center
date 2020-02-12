@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "window/interface/moduleinterface.h"
+#include "moduleinterface.h"
 
 #include <com_deepin_daemon_accounts.h>
 
@@ -49,6 +49,7 @@ public:
     void initialize() override;
     void reset() override;
     const QString name() const override;
+    const QString displayName() const override;
     void showPage(const QString &pageName) override;
     void contentPopped(QWidget *const w) override;
     void active() override;

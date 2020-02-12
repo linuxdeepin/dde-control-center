@@ -21,8 +21,8 @@
 
 #pragma once
 
-#include "window/namespace.h"
-#include "window/interface/moduleinterface.h"
+#include "namespace.h"
+#include "moduleinterface.h"
 
 QT_BEGIN_NAMESPACE
 #include <QObject>
@@ -48,6 +48,7 @@ public:
     void initialize() override;
     void reset() override;
     const QString name() const override;
+    const QString displayName() const override;
     void contentPopped(QWidget *const w) override;
     void active() override;
     int load(QString path) override;

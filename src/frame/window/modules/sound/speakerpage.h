@@ -22,7 +22,7 @@
 #ifndef SPEAKERPAGE_H_V20
 #define SPEAKERPAGE_H_V20
 
-#include "window/namespace.h"
+#include "namespace.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
 
