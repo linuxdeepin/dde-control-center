@@ -98,6 +98,7 @@ public:
     void toggle();
     void popWidget();
     void initAllModule(QString m = "");
+
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
 

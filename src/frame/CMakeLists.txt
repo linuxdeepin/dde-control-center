@@ -100,7 +100,7 @@ set(WINDOW_FILES
     window/modules/display/refreshratepage.cpp
     window/modules/display/multiscreensettingpage.cpp
     window/modules/display/customsettingdialog.cpp
-    window/modules/display/touchpanel/screensetting.cpp
+    window/modules/display/touchscreenpage.cpp
     window/modules/power/powermodule.cpp
     window/modules/power/powerwidget.cpp
     window/modules/power/generalwidget.cpp

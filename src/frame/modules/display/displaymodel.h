@@ -30,6 +30,8 @@
 
 #include "monitor.h"
 #include "types/brightnessmap.h"
+#include "types/touchscreeninfolist.h"
+#include "types/touchscreenmap.h"
 
 #define CUSTOM_MODE     0
 #define MERGE_MODE      1
@@ -84,6 +86,12 @@ public:
     inline BrightnessMap brightnessMap() const { return m_brightnessMap; }
     void setBrightnessMap(const BrightnessMap &brightnessMap);
 
+    inline TouchscreenInfoList touchscreenList() const { return m_touchscreenList; }
+    void setTouchscreenList(const TouchscreenInfoList &touchscreenList);
+
+    inline TouchscreenMap touchMap() const { return m_touchMap; }
+    void setTouchMap(const TouchscreenMap &touchMap);
+
     inline std::pair<int, QString> lastConfig() const { return m_lastConfig; }
     void setLastConfig(const std::pair<int, QString> &lastConfig);
 
@@ -116,6 +124,8 @@ Q_SIGNALS:
     void autoLightAdjustSettingChanged(bool setting) const;
     void autoLightAdjustVaildChanged(bool isvalid) const;
     void mouseLeftHandChanged(bool isLeft) const;
+    void touchscreenListChanged() const;
+    void touchscreenMapChanged() const;
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -152,6 +162,8 @@ private:
     bool m_mouseLeftHand{false};
     bool m_isMerged;
     BrightnessMap m_brightnessMap;
+    TouchscreenInfoList m_touchscreenList;
+    TouchscreenMap m_touchMap;
     std::pair<int, QString> m_lastConfig;
 };
 

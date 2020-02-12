@@ -61,6 +61,8 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     model->setPrimary(m_displayInter.primary());
     onMonitorListChanged(m_displayInter.monitors());
     model->setDisplayMode(m_displayInter.displayMode());
+    model->setTouchscreenList(m_displayInter.touchscreens());
+    model->setTouchMap(m_displayInter.touchMap());
 
     m_displayInter.setSync(false);
     m_appearanceInter->setSync(false);
@@ -68,6 +70,8 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
     connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
     connect(&m_displayInter, &DisplayInter::BrightnessChanged, model, &DisplayModel::setBrightnessMap);
+    connect(&m_displayInter, &DisplayInter::TouchscreensChanged, model, &DisplayModel::setTouchscreenList);
+    connect(&m_displayInter, &DisplayInter::TouchMapChanged, model, &DisplayModel::setTouchMap);
     connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
     connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
     connect(&m_displayInter, &DisplayInter::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
@@ -770,8 +774,12 @@ void DisplayWorker::restore()
     }
 }
 
-
 void DisplayWorker::setAmbientLightAdjustBrightness(bool able)
 {
     m_powerInter->setAmbientLightAdjustBrightness(able);
+}
+
+void DisplayWorker::setTouchScreenAssociation(const QString &touchscreenSerial, const QString &monitor)
+{
+    m_displayInter.AssociateTouch(touchscreenSerial, monitor);
 }
