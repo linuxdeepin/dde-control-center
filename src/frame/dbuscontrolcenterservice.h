@@ -89,7 +89,6 @@ public Q_SLOTS: // METHODS
     void Show();
     void ShowImmediately();
     void ShowHome();
-    void ShowTouchPanelOSD();
     void ShowModule(const QString &module);
     void ShowPage(const QString &module, const QString &page);
     void SetAutoHide(const bool autoHide);

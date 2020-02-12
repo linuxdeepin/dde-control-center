@@ -27,6 +27,7 @@
 #include "scalingpage.h"
 #include "multiscreensettingpage.h"
 #include "refreshratepage.h"
+#include "touchscreenpage.h"
 #include "window/utils.h"
 
 #include "widgets/timeoutdialog.h"
@@ -97,6 +98,8 @@ void DisplayModule::active()
             this, &DisplayModule::showMultiScreenSettingPage);
     connect(m_displayWidget, &DisplayWidget::requestShowCustomConfigPage,
             this, &DisplayModule::showCustomSettingDialog);
+    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
+            this, &DisplayModule::showTouchScreenPage);
 
     m_frameProxy->pushWidget(this, m_displayWidget);
     if (m_displayWidget->isMultiMode()) {
@@ -145,6 +148,10 @@ QStringList DisplayModule::availPage() const
 
     if (IsServerSystem) {
         sl << "Display Scaling";
+    }
+
+    if (m_displayModel && !m_displayModel->touchscreenList().isEmpty()) {
+        sl << "Touch Screen";
     }
 
     return sl;
@@ -278,6 +285,16 @@ void DisplayModule::showRefreshRotePage()
 
     m_frameProxy->pushWidget(this, page);
 
+}
+
+void DisplayModule::showTouchScreenPage()
+{
+    auto page = new TouchscreenPage();
+    page->setModel(m_displayModel);
+
+    connect(page, &TouchscreenPage::requestAssociateTouch, m_displayWorker, &DisplayWorker::setTouchScreenAssociation);
+
+    m_frameProxy->pushWidget(this, page);
 }
 
 void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mode)

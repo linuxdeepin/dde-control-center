@@ -79,6 +79,7 @@ Q_SIGNALS:
     void requestShowBrightnessPage() const;
     void requestShowScalingPage() const;
     void requestShowCustomConfigPage() const;
+    void requestShowTouchscreenPage() const;
     void requestRotate() const;
     void requestShowRefreshRatePage() const;
 

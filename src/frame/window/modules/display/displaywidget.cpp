@@ -70,9 +70,8 @@ void DisplayWidget::setModel(DisplayModel *model)
 
 int DisplayWidget::showPath(const QString &path)
 {
-    if (((path == "Resolution" || path == "Refresh Rate")
-            && m_model->monitorList().size() > 1)
-            || path == "Customize") {
+    if (((path == "Resolution" || path == "Refresh Rate") && m_model->monitorList().size() > 1) ||
+        path == "Customize") {
         Q_EMIT this->requestShowCustomConfigPage();
         m_currentIdx = m_menuList->model()->index(0, 0);
         m_menuList->setCurrentIndex(m_currentIdx);
@@ -132,14 +131,14 @@ void DisplayWidget::initMenuUI()
         //~ contents_path /display/Multiple Displays
         {tr("Multiple Displays"), "dcc_display", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
         //~ contents_path /display/Brightness
-        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)}
+        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
     };
-
     m_singleMenuList = {
         //~ contents_path /display/Resolution
         {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
-        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)}
+        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
     };
+
     if (!IsServerSystem) {
         //~ contents_path /display/Display Scaling
         MenuMethod scaleMenu = {tr("Display Scaling"), "dcc_screen",
@@ -152,6 +151,16 @@ void DisplayWidget::initMenuUI()
     MenuMethod refreshMenu = {tr("Refresh Rate"), "dcc_refresh_rate",
                               QMetaMethod::fromSignal(&DisplayWidget::requestShowRefreshRatePage)};
     m_singleMenuList << refreshMenu;
+
+    //if (m_model && !m_model->touchscreenList().isEmpty()) {
+    if (true) {
+        //~ contents_path /display/Touch Screen
+        MenuMethod touchscreenMenu = {tr("Touch Screen"),
+                                      "dcc_touchscreen",
+                                      QMetaMethod::fromSignal(&DisplayWidget::requestShowTouchscreenPage)};
+        m_multMenuList << touchscreenMenu;
+        m_singleMenuList << touchscreenMenu;
+    }
 
     DStandardItem *btn{nullptr};
     for (auto menu : m_multMenuList) {
@@ -188,8 +197,7 @@ void DisplayWidget::initMenuUI()
 
 void DisplayWidget::onMenuClicked(const QModelIndex &idx)
 {
-    if (idx == m_currentIdx)
-        return;
+    if (idx == m_currentIdx) return;
 
     m_currentIdx = idx;
     m_menuList->setCurrentIndex(m_currentIdx);

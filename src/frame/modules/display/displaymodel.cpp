@@ -193,6 +193,24 @@ void DisplayModel::setBrightnessMap(const BrightnessMap &brightnessMap)
     m_brightnessMap = brightnessMap;
 }
 
+void DisplayModel::setTouchscreenList(const TouchscreenInfoList &touchscreenList)
+{
+    if (touchscreenList == m_touchscreenList) return;
+
+    m_touchscreenList = touchscreenList;
+
+    Q_EMIT touchscreenListChanged();
+}
+
+void DisplayModel::setTouchMap(const TouchscreenMap &touchMap)
+{
+    if (touchMap == m_touchMap) return;
+
+    m_touchMap = touchMap;
+
+    Q_EMIT touchscreenMapChanged();
+}
+
 void DisplayModel::setRedshiftSetting(bool redshiftSetting)
 {
     if (m_redshiftSetting == redshiftSetting) return;

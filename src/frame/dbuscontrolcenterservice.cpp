@@ -38,6 +38,9 @@
 #include "dbuscontrolcenterservice.h"
 #include "window/mainwindow.h"
 
+#include "modules/display/displaymodel.h"
+#include "modules/display/displayworker.h"
+
 #include <QtCore/QMetaObject>
 #include <QtCore/QByteArray>
 #include <QtCore/QList>
@@ -45,6 +48,7 @@
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
+#include <QtCore/QThread>
 #include <QGuiApplication>
 #include <qpa/qplatformwindow.h>
 #include <QScreen>
@@ -165,11 +169,6 @@ void DBusControlCenterService::ShowImmediately()
 void DBusControlCenterService::ShowHome()
 {
     parent()->popWidget();
-}
-
-void DBusControlCenterService::ShowTouchPanelOSD()
-{
-    qDebug() << "ShowTouchPanelOSD";
 }
 
 void DBusControlCenterService::ShowModule(const QString &module)
