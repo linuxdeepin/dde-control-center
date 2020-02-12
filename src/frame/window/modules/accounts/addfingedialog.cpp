@@ -28,6 +28,7 @@
 
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
+#define test true
 
 AddFingeDialog::AddFingeDialog(const QString &thumb, QDialog *parent)
     : QDialog(parent)
@@ -78,8 +79,13 @@ void AddFingeDialog::initData()
     m_scanBtn->setText(tr("Scan again"));
     m_doneBtn->setText(tr("Done"));
 
-    m_scanBtn->setVisible(false);
-    m_doneBtn->setVisible(false);
+    if(test) {
+        m_scanBtn->setVisible(true);
+        m_doneBtn->setVisible(true);
+    } else {
+        m_scanBtn->setVisible(false);
+        m_doneBtn->setVisible(false);
+    }
 
     connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::reEnrollStart);
     connect(m_doneBtn, &QPushButton::clicked, this, &AddFingeDialog::saveThumb);
