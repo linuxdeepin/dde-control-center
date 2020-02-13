@@ -128,7 +128,7 @@ void SoundModel::setMicrophoneOn(bool microphoneOn)
 
 void SoundModel::setSpeakerBalance(double speakerBalance)
 {
-    if (speakerBalance != m_speakerBalance) {
+    if (!qFuzzyCompare(speakerBalance, m_speakerBalance)) {
         m_speakerBalance = speakerBalance;
 
         Q_EMIT speakerBalanceChanged(speakerBalance);
@@ -137,7 +137,7 @@ void SoundModel::setSpeakerBalance(double speakerBalance)
 
 void SoundModel::setMicrophoneVolume(double microphoneVolume)
 {
-    if (microphoneVolume != m_microphoneVolume) {
+    if (!qFuzzyCompare(microphoneVolume, m_microphoneVolume)) {
         m_microphoneVolume = microphoneVolume;
 
         Q_EMIT microphoneVolumeChanged(microphoneVolume);
@@ -195,7 +195,7 @@ QList<Port *> SoundModel::ports() const
 
 void SoundModel::setSpeakerVolume(double speakerVolume)
 {
-    if (m_speakerVolume != speakerVolume)  {
+    if (!qFuzzyCompare(m_speakerVolume, speakerVolume)) {
         m_speakerVolume = speakerVolume;
         Q_EMIT speakerVolumeChanged(speakerVolume);
     }

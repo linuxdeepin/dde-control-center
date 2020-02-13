@@ -71,9 +71,11 @@ MicrophonePage::MicrophonePage(QWidget *parent)
 
 MicrophonePage::~MicrophonePage()
 {
+#ifndef DCC_DISABLE_FEEDBACK
     if (m_feedbackSlider)
         m_feedbackSlider->disconnect(m_conn);
     m_feedbackSlider->deleteLater();
+#endif
 }
 
 void MicrophonePage::setModel(SoundModel *model)
@@ -133,7 +135,7 @@ void MicrophonePage::initSlider()
         m_inputSlider->setValueLiteral(QString::number(v * 100) + "%");
     });
 //    connect(slider, &DCCSlider::valueChanged, this, [ = ](double v)
-
+#ifndef DCC_DISABLE_FEEDBACK
     //~ contents_path /sound/Microphone
     m_feedbackSlider = (new TitledSliderItem(tr("Input Level")));
     m_feedbackSlider->addBackground();
@@ -156,4 +158,5 @@ void MicrophonePage::initSlider()
     });
 
     m_layout->insertWidget(2, m_feedbackSlider);
+#endif
 }
