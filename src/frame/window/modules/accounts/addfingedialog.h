@@ -26,6 +26,7 @@
 #include "modules/accounts/widgets/fingerwidget.h"
 
 #include <DSuggestButton>
+#include <DAbstractDialog>
 
 #include <QDialog>
 
@@ -40,11 +41,11 @@ namespace DCC_NAMESPACE {
 namespace accounts {
 
 //添加指纹对话框
-class AddFingeDialog : public QDialog
+class AddFingeDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
 public:
-    explicit AddFingeDialog(const QString &thumb, QDialog *parent = nullptr);
+    explicit AddFingeDialog(const QString &thumb, DAbstractDialog *parent = nullptr);
     void setFingerModel(dcc::accounts::FingerModel *model);
     void setUsername(const QString &name);
 
@@ -68,13 +69,18 @@ public Q_SLOTS:
 
 private:
     dcc::accounts::FingerModel *m_model;
-    QVBoxLayout *m_mainContentLayout;
-    QHBoxLayout *m_cancleaddLayout;
+    QVBoxLayout *m_mainLayout;
+    QHBoxLayout *m_titleHLayout;
+    QVBoxLayout *m_contentVLayout;
+    QVBoxLayout *m_fingerHLayout;
+    QHBoxLayout *m_btnHLayout;
     dcc::accounts::FingerWidget *m_fingeWidget;
     QPushButton *m_scanBtn;
     DTK_WIDGET_NAMESPACE::DSuggestButton *m_doneBtn;
     QString m_thumb;
     QString m_username;
+    QPushButton *m_cancelBtn;
+    DTK_WIDGET_NAMESPACE::DSuggestButton *m_addBtn;
 };
 
 }
