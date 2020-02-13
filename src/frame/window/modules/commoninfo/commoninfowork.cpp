@@ -60,6 +60,45 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     m_dBusGrub->setSync(false, false);
     m_dBusGrubTheme->setSync(false, false);
 
+    //监听开发者在线认证失败的错误接口信息
+    connect(m_dBusdeepinIdInter, &GrubDevelopMode::Error, this, [](int code, const QString &msg) {
+        //系统通知弹窗qdbus 接口
+        QDBusInterface  tInterNotify("com.deepin.dde.Notification",
+                                                "/com/deepin/dde/Notification",
+                                                "com.deepin.dde.Notification",
+                                                QDBusConnection::sessionBus());
+
+        //初始化Notify 七个参数
+        QString in0("");
+        uint in1 = 101;
+        QString in2("");
+        QString in3("");
+        QString in4("");
+        QStringList in5;
+        QVariantMap in6;
+        int in7 = 0;
+
+        //截取error接口 1001:未导入证书 1002:未登录 1003:无法获取硬件信息 1004:网络异常 1005:证书加载失败 1006:签名验证失败 1007:文件保存失败
+        QString msgcode = msg;
+        msgcode = msgcode.split(":").at(0);
+        if (msgcode == "1001") {
+            in3 = tr("Failed to request root access");
+        } else if (msgcode == "1002") {
+            in3 = tr("Please sign in to your cloud account first");
+        } else if (msgcode == "1003") {
+            in3 = tr("Cannot read your PC information");
+        } else if (msgcode == "1004") {
+            in3 = tr("No network connection");
+        } else if (msgcode == "1005") {
+            in3 = tr("Certificate loading failed, unable to get root access");
+        } else if (msgcode == "1006") {
+            in3 = tr("Signature verification failed, unable to get root access");
+        } else if (msgcode == "1007") {
+            in3 = tr("Failed to get root access");
+        }
+        //系统通知 认证失败 无法进入开发模式
+        tInterNotify.call("Notify", in0, in1, in2, in3, in4, in5, in6, in7);
+    });
     connect(m_dBusdeepinIdInter, &GrubDevelopMode::IsLoginChanged, m_commomModel, &CommonInfoModel::setIsLogin);
     connect(m_dBusdeepinIdInter, &GrubDevelopMode::DeviceUnlockedChanged, m_commomModel, &CommonInfoModel::setDeveloperModeState);
     connect(m_dBusGrub, &GrubDbus::DefaultEntryChanged, m_commomModel, &CommonInfoModel::setDefaultEntry);
@@ -294,6 +333,9 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     m_process = nullptr;
 
     if(96 == result) {
+        //删除重复认证
+        m_dBusdeepinIdInter->call("UnlockDevice");
+        /*
         QDBusPendingCall call = m_dBusdeepinIdInter->UnlockDevice();
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
@@ -306,9 +348,10 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
             }
             w->deleteLater();
         });
+        */
     } else {
         qInfo() << QString("On %1, Remove developer mode Disclaimer!").arg(current_date);
-        Q_EMIT m_commomModel->developerModeStateChanged(false);
+        //Q_EMIT m_commomModel->developerModeStateChanged(false);
     }
     file.remove();
 }

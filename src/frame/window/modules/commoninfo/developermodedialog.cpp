@@ -132,7 +132,10 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
 
     connect(m_nextButton, &QPushButton::clicked, this, &DeveloperModeDialog::setLogin);
     connect(this,&DeveloperModeDialog::requestSetNextBtnStatus, [this](bool state){
-        m_nextButton->setEnabled(state);});
+        m_nextButton->setEnabled(state);
+        //关闭窗口
+        close();
+    });
 
     connect(exportBtn, &QPushButton::clicked, [this]{
         auto inter = new GrubDevelopMode("com.deepin.deepinid", "/com/deepin/deepinid",

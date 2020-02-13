@@ -78,6 +78,48 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
             }
             QByteArray data = fFile.readAll();
             QDBusMessage msg =  m_inter->call("EnableDeveloperMode", data);
+
+           //当返回信息为错误接口信息才处理
+           if (msg.type() == QDBusMessage::MessageType::ErrorMessage) {
+                //系统通知弹窗qdbus 接口
+                QDBusInterface  tInterNotify("com.deepin.dde.Notification",
+                                                   "/com/deepin/dde/Notification",
+                                                   "com.deepin.dde.Notification",
+                                                   QDBusConnection::sessionBus());
+
+                //初始化Notify 七个参数
+                QString in0("");
+                uint in1 = 101;
+                QString in2("");
+                QString in3("");
+                QString in4("");
+                QStringList in5;
+                QVariantMap in6;
+                int in7 = 0;
+
+                //截取error接口 1001:未导入证书 1002:未登录 1003:无法获取硬件信息 1004:网络异常 1005:证书加载失败 1006:签名验证失败 1007:文件保存失败
+                QString msgcode = msg.errorMessage();
+                msgcode = msgcode.split(":").at(0);
+                if (msgcode == "1001") {
+                    in3 = tr("Failed to request root access");
+                } else if (msgcode == "1002") {
+                    in3 = tr("Please sign in to your cloud account first");
+                } else if (msgcode == "1003") {
+                    in3 = tr("Cannot read your PC information");
+                } else if (msgcode == "1004") {
+                    in3 = tr("No network connection");
+                } else if (msgcode == "1005") {
+                    in3 = tr("Certificate loading failed, unable to get root access");
+                } else if (msgcode == "1006") {
+                    in3 = tr("Signature verification failed, unable to get root access");
+                } else if (msgcode == "1007") {
+                    in3 = tr("Failed to get root access");
+                }
+
+                //系统通知 认证失败 无法进入开发模式
+                tInterNotify.call("Notify", in0, in1, in2, in3, in4, in5, in6, in7);
+           }
+
         });
         devDlg->exec();
         devDlg->deleteLater();
