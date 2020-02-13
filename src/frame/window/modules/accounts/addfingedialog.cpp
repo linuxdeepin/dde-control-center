@@ -21,6 +21,8 @@
 
 #include "addfingedialog.h"
 
+#include <DTitlebar>
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
@@ -30,14 +32,19 @@ using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 #define test true
 
-AddFingeDialog::AddFingeDialog(const QString &thumb, QDialog *parent)
-    : QDialog(parent)
-    , m_mainContentLayout(new QVBoxLayout)
-    , m_cancleaddLayout(new QHBoxLayout)
+AddFingeDialog::AddFingeDialog(const QString &thumb, DAbstractDialog *parent)
+    : DAbstractDialog(parent)
+    , m_mainLayout(new QVBoxLayout(this))
+    , m_titleHLayout(new QHBoxLayout)
+    , m_contentVLayout(new QVBoxLayout)
+    , m_btnHLayout(new QHBoxLayout)
+    , m_fingerHLayout(new QVBoxLayout)
     , m_fingeWidget(new FingerWidget)
     , m_scanBtn(new QPushButton)
     , m_doneBtn(new DSuggestButton)
     , m_thumb(thumb)
+    , m_cancelBtn(new QPushButton)
+    , m_addBtn(new DSuggestButton)
 {
     initWidget();
     initData();
@@ -45,51 +52,46 @@ AddFingeDialog::AddFingeDialog(const QString &thumb, QDialog *parent)
 
 void AddFingeDialog::initWidget()
 {
-    resize(400, 400);
-    Qt::WindowFlags flags = windowFlags();
-    flags |= Qt::WindowCloseButtonHint;
-    flags |= Qt::WindowMaximizeButtonHint;
-    setWindowFlags(flags);
+    setMinimumSize(QSize(328,391));
+    DTitlebar *titleIcon = new DTitlebar();
+    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
+    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setMenuVisible(false);
+    titleIcon->setTitle("");
+    m_titleHLayout->addWidget(titleIcon, Qt::AlignTop);
+    m_mainLayout->addLayout(m_titleHLayout);
 
-    setAttribute(Qt::WA_DeleteOnClose, true);//destroy this object when this window is closed
+    m_fingerHLayout->addWidget(m_fingeWidget);
+    m_contentVLayout->addLayout(m_fingerHLayout);
 
-    m_mainContentLayout->setMargin(0);
-    m_mainContentLayout->setSpacing(0);
+    m_btnHLayout->addWidget(m_cancelBtn);
+    m_btnHLayout->addWidget(m_addBtn);
+    m_btnHLayout->setContentsMargins(10,0,10,10);
+    m_contentVLayout->addLayout(m_btnHLayout);
+    m_mainLayout->addLayout(m_contentVLayout);
 
-    m_cancleaddLayout->setContentsMargins(10, 0, 5, 10);
-    m_cancleaddLayout->addWidget(m_scanBtn);
-    m_cancleaddLayout->addSpacing(10);
-    m_cancleaddLayout->addWidget(m_doneBtn);
-
-    m_mainContentLayout->addSpacing(20);
-    m_mainContentLayout->addWidget(m_fingeWidget);
-    m_mainContentLayout->addSpacing(50);
-    m_mainContentLayout->addLayout(m_cancleaddLayout);
-    m_mainContentLayout->addSpacing(10);
-
-    setLayout(m_mainContentLayout);
-    m_scanBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    m_doneBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_mainLayout->setMargin(0);
+    setLayout(m_mainLayout);
+    m_cancelBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_addBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
 
 void AddFingeDialog::initData()
 {
-    setWindowTitle(tr("Add Fingerprint"));
+//    setWindowTitle(tr("Add Fingerprint"));
 
-    m_scanBtn->setText(tr("Scan again"));
-    m_doneBtn->setText(tr("Done"));
+//    m_scanBtn->setText(tr("Scan again"));
+//    m_doneBtn->setText(tr("Done"));
 
-    if(test) {
-        m_scanBtn->setVisible(true);
-        m_doneBtn->setVisible(true);
-    } else {
-        m_scanBtn->setVisible(false);
-        m_doneBtn->setVisible(false);
-    }
+//    m_scanBtn->setVisible(false);
+//    m_doneBtn->setVisible(false);
 
-    connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::reEnrollStart);
-    connect(m_doneBtn, &QPushButton::clicked, this, &AddFingeDialog::saveThumb);
-    connect(m_fingeWidget, &FingerWidget::playEnd, this, &AddFingeDialog::onViewPlayEnd);
+    m_cancelBtn->setText((tr("取消")));
+    m_addBtn->setText((tr("添加")));
+//    connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::reEnrollStart);
+//    connect(m_doneBtn, &QPushButton::clicked, this, &AddFingeDialog::saveThumb);
+//    connect(m_fingeWidget, &FingerWidget::playEnd, this, &AddFingeDialog::onViewPlayEnd);
+    connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
 }
 
 void AddFingeDialog::setFingerModel(FingerModel *model)
@@ -144,7 +146,8 @@ void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)
 
 void AddFingeDialog::onViewPlayEnd()
 {
-    m_fingeWidget->setFrequency(tr("Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off"));
+//    m_fingeWidget->setFrequency(tr("Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off"));
+    m_fingeWidget->setFrequency(tr("请以手指按压指纹收集器，然后根据提示抬起"));
 }
 
 void AddFingeDialog::closeEvent(QCloseEvent *event)
