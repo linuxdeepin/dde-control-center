@@ -208,9 +208,9 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     dlg->setFingerModel(m_fingerModel);
     dlg->setUsername(name);
 
-    connect(dlg, &AddFingeDialog::requestSaveThumb, m_fingerWorker, &FingerWorker::saveEnroll);
-    connect(dlg, &AddFingeDialog::requestReEnrollStart, m_fingerWorker, &FingerWorker::reEnrollStart);
-    connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
+//    connect(dlg, &AddFingeDialog::requestSaveThumb, m_fingerWorker, &FingerWorker::saveEnroll);
+//    connect(dlg, &AddFingeDialog::requestReEnrollStart, m_fingerWorker, &FingerWorker::reEnrollStart);
+//    connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
 
     dlg->exec();//Note:destroy this object when this window is closed
 }
