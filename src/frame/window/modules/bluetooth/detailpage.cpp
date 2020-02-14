@@ -104,7 +104,7 @@ void DetailPage::onDeviceStatusChanged()
         m_connectButton->hide();
     } else if (m_device->state() == Device::StateAvailable) {
         m_connectButton->show();
-        m_connectButton->setText(tr("Connection..."));
+        m_connectButton->setText(tr("Connecting"));
         m_connectButton->setDisabled(true);
         m_disconnectButton->hide();
     } else {
