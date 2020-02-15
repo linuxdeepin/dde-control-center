@@ -60,6 +60,40 @@ void FingerModel::setEnrollStatus(const EnrollStatus &enrollStatus)
     Q_EMIT enrollStatusChanged(enrollStatus);
 }
 
+void FingerModel::setTestEnrollStatus(int code, const QString& msg)
+{
+    if (code == 1)
+        m_testEnrollStatus = TestEnrollStatus::Default;
+    if (code == 2)
+        m_testEnrollStatus = TestEnrollStatus::Normal;
+    if (code == 3) {
+        m_testEnrollStatus = TestEnrollStatus::Exception;
+        if (msg == '1')
+            m_testException = TestException::error01;
+        if (msg == '2')
+            m_testException = TestException::error02;
+        if (msg == '3')
+            m_testException = TestException::error03;
+        if (msg == '4')
+            m_testException = TestException::error04;
+        if (msg == '5')
+            m_testException = TestException::error05;
+    }
+    Q_EMIT testEnrollStatusChange(m_testEnrollStatus, m_testException);
+
+
+}
+
+FingerModel::TestEnrollStatus FingerModel::testEnrollStatus() const
+{
+    return m_testEnrollStatus;
+}
+
+FingerModel::TestException FingerModel::testException() const
+{
+    return m_testException;
+}
+
 void FingerModel::addUserThumbs(const FingerModel::UserThumbs &thumbs)
 {
     for (int i(0); i != m_thumbsList.size(); ++i) {

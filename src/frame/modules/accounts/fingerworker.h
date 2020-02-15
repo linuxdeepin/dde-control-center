@@ -31,11 +31,14 @@
 
 #include <com_deepin_daemon_fprintd.h>
 #include <com_deepin_daemon_fprintd_device.h>
+#include <com_deepin_daemon_authenticate_fingerprint.h>
 
 #include <QObject>
 
 using com::deepin::daemon::Fprintd;
 using com::deepin::daemon::fprintd::Device;
+using com::deepin::daemon::authenticate::Fingerprint;
+
 
 namespace dcc {
 namespace accounts {
@@ -73,6 +76,7 @@ private:
     FingerModel *m_model;
     Fprintd *m_fprintdInter;
     Device *m_fprDefaultInter;
+    Fingerprint *m_fingerPrintInter;
 };
 
 }
