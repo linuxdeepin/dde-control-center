@@ -162,6 +162,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     });
     connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
     connect(w, &AccountsDetailWidget::requestShowFullnameSettings, m_accountsWorker, &AccountsWorker::setFullname);
+    connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
 //    connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
 //    connect(w, &AccountsDetailWidget::requestCleanThumbs, m_fingerWorker, &FingerWorker::cleanEnroll);
     connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::testEnrollStart);
@@ -207,6 +208,7 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
     dlg->setFingerModel(m_fingerModel);
     dlg->setUsername(name);
+//    connect(dlg, &AddFingeDialog::)
 
 //    connect(dlg, &AddFingeDialog::requestSaveThumb, m_fingerWorker, &FingerWorker::saveEnroll);
 //    connect(dlg, &AddFingeDialog::requestReEnrollStart, m_fingerWorker, &FingerWorker::reEnrollStart);

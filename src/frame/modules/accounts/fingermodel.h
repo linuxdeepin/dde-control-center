@@ -57,11 +57,27 @@ public:
         Finished
     };
 
+    enum TestEnrollStatus{
+        Default,
+        Normal,
+        Exception
+    };
+    enum TestException{
+        error01,
+        error02,
+        error03,
+        error04,
+        error05,
+    };
+
     bool isVaild() const;
     void setIsVaild(bool isVaild);
 
     EnrollStatus enrollStatus() const;
     void setEnrollStatus(const EnrollStatus &enrollStatus);
+    void setTestEnrollStatus(int code, const QString& msg);
+    TestEnrollStatus testEnrollStatus() const;
+    TestException testException() const;
 
     void addUserThumbs(const UserThumbs &thumbs);
     void cleanUserThumbs(const QString &user);
@@ -72,11 +88,16 @@ Q_SIGNALS:
     void vaildChanged(const bool isVaild);
     void enrollStatusChanged(EnrollStatus status);
     void thumbsListChanged(const QList<UserThumbs> &thumbs);
+    void testEnrollStatus(const QString &id, int code, const QString &msg);
+    void testEnrollTouch(const QString &id, bool pressed);
+    void testEnrollStatusChange(TestEnrollStatus status, TestException exception);
 
 private:
     bool m_isVaild;
     EnrollStatus m_enrollStatus;
     QList<UserThumbs> m_thumbsList;
+    TestEnrollStatus m_testEnrollStatus{TestEnrollStatus::Default};
+    TestException m_testException{error01};
 };
 }
 }
