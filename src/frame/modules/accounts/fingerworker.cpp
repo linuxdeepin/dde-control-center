@@ -33,23 +33,30 @@ using namespace dcc;
 using namespace dcc::accounts;
 
 const QString FprintService("com.deepin.daemon.Fprintd");
+const QString FingerPrintService("com.deepin.daemon.Authenticate.FingerPrint");
 
 FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_fprintdInter(new Fprintd(FprintService, "/com/deepin/daemon/Fprintd", QDBusConnection::systemBus(), this))
     , m_fprDefaultInter(nullptr)
+    , m_fingerPrintInter(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate.FingerPrint",
+                                         QDBusConnection::systemBus(), this))
 {
     m_fprintdInter->setSync(false);
+
 }
 
 void FingerWorker::refreshDevice()
 {
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprintdInter->GetDefaultDevice(), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &FingerWorker::onGetFprDefaultDevFinished);
+//    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprintdInter->GetDefaultDevice(), this);
+//    connect(watcher, &QDBusPendingCallWatcher::finished, this, &FingerWorker::onGetFprDefaultDevFinished);
 
-    //监测指纹设备插入或拔出操作
-    connect(m_fprintdInter, &Fprintd::DevicesChanged, this, &FingerWorker::onHandleDevicesChanged);
+//    //监测指纹设备插入或拔出操作
+//    connect(m_fprintdInter, &Fprintd::DevicesChanged, this, &FingerWorker::onHandleDevicesChanged);
+//    if (!m_fingerPrintInter->devices().isEmpty()) {
+//        m_fingerPrintInter->Claim("id", true);
+//    }
 }
 
 void FingerWorker::refreshUserEnrollList(const QString &name)
@@ -61,18 +68,27 @@ void FingerWorker::refreshUserEnrollList(const QString &name)
 
 void FingerWorker::enrollStart(const QString &name, const QString &thumb)
 {
-    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
-    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, name, thumb] {
-        if (watcher->result()) {
-            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-            Q_EMIT requestShowAddThumb(name, thumb);
-        }
-
-        watcher->deleteLater();
+    if (!m_fingerPrintInter->devices().isEmpty()) {
+        m_fingerPrintInter->Claim("id", true);
+        m_fingerPrintInter->Enroll("id", thumb);
+        Q_EMIT requestShowAddThumb(name, thumb);
+    }
+    connect(m_fingerPrintInter, &Fingerprint::EnrollStatus, m_model, [this](const QString &id, int code, const QString &msg) {
+      m_model->setTestEnrollStatus(code, msg);
     });
+    connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::testEnrollTouch);
+//    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
+//    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, name, thumb] {
+//        if (watcher->result()) {
+//            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
+//            Q_EMIT requestShowAddThumb(name, thumb);
+//        }
 
-    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::recordFinger, name, thumb);
-    watcher->setFuture(future);
+//        watcher->deleteLater();
+//    });
+
+//    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::recordFinger, name, thumb);
+//    watcher->setFuture(future);
 }
 
 void FingerWorker::reEnrollStart(const QString &thumb)
@@ -124,6 +140,7 @@ void FingerWorker::stopEnroll()
 
 void FingerWorker::testEnrollStart(const QString &name, const QString &thumb)
 {
+//    m_fingerPrintInter->Enroll(1,)
     Q_EMIT requestShowAddThumb(name, thumb);
 }
 

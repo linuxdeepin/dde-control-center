@@ -27,6 +27,7 @@
 
 #include <DSuggestButton>
 #include <DAbstractDialog>
+#include <DTipLabel>
 
 #include <QDialog>
 
@@ -48,6 +49,10 @@ public:
     explicit AddFingeDialog(const QString &thumb, DAbstractDialog *parent = nullptr);
     void setFingerModel(dcc::accounts::FingerModel *model);
     void setUsername(const QString &name);
+    void testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestEnrollStatus status,
+                                   dcc::accounts::FingerModel::TestException msg);
+    void setDefaultTitleTip();
+    void setDefaultMsgTip();
 
 private:
     void initWidget();
@@ -75,12 +80,15 @@ private:
     QVBoxLayout *m_fingerHLayout;
     QHBoxLayout *m_btnHLayout;
     dcc::accounts::FingerWidget *m_fingeWidget;
-    QPushButton *m_scanBtn;
+    DTK_WIDGET_NAMESPACE::DSuggestButton *m_scanBtn;
     DTK_WIDGET_NAMESPACE::DSuggestButton *m_doneBtn;
     QString m_thumb;
     QString m_username;
     QPushButton *m_cancelBtn;
     DTK_WIDGET_NAMESPACE::DSuggestButton *m_addBtn;
+    DTipLabel *m_titleTip;
+    QTimer *m_qtimerTitleTip;
+    QTimer *m_qtimerMsgTip;
 };
 
 }
