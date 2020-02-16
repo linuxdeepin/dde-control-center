@@ -75,6 +75,7 @@ void AddFingeDialog::initWidget()
     m_btnHLayout->addWidget(m_cancelBtn);
     m_btnHLayout->addWidget(m_addBtn);
     m_btnHLayout->addWidget(m_scanBtn);
+    m_btnHLayout->addWidget(m_doneBtn);
     m_btnHLayout->setContentsMargins(10,0,10,10);
     m_contentVLayout->addLayout(m_btnHLayout);
     m_mainLayout->addLayout(m_contentVLayout);
@@ -90,10 +91,10 @@ void AddFingeDialog::initData()
 //    setWindowTitle(tr("Add Fingerprint"));
 
     m_scanBtn->setText(tr("Scan again"));
-//    m_doneBtn->setText(tr("Done"));
+    m_doneBtn->setText(tr("Done"));
 
     m_scanBtn->setVisible(false);
-//    m_doneBtn->setVisible(false);
+    m_doneBtn->setVisible(false);
 
     m_cancelBtn->setText((tr("取消")));
     m_addBtn->setText((tr("添加")));
@@ -164,48 +165,72 @@ void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)
 void AddFingeDialog::testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestEnrollStatus status,
                                                dcc::accounts::FingerModel::TestException msg)
 {
-    auto test_status  = FingerModel::TestEnrollStatus::Exception;
-    auto test_msg = FingerModel::TestException::error03;
+    auto test_status  = FingerModel::TestEnrollStatus::Normal;
+    auto test_msg = FingerModel::TestException::progress02finished;
     switch (test_status) {
     //初始状态
     case FingerModel::TestEnrollStatus::Default:
         setDefaultMsgTip();
         break;
-    //正常采集状态， 此时msg代表采集进度
+        //正常采集状态， 此时msg代表采集进度
     case FingerModel::TestEnrollStatus::Normal:
-        m_titleTip->setVisible(false);
-        m_fingeWidget->setFrequency(tr("请抬起手指，再次按压"));
+        switch (test_msg) {
+        //第一阶段
+        case FingerModel::TestException::progress01:
+            m_titleTip->setVisible(false);
+            m_fingeWidget->setFrequency(tr("请抬起手指，再次按压"));
+            break;
+            //第一阶段完成
+        case FingerModel::TestException::progress01finished:
+            m_fingeWidget->setFrequency(tr("请抬起手指，调整按压区域，继续录入边缘指纹"));
+            break;
+            //第二阶段
+        case FingerModel::TestException::progress02:
+            m_titleTip->setVisible(true);
+            setDefaultTitleTip();
+            m_fingeWidget->setFrequency(tr("请以手指边缘区域按压指纹识别器，然后根据提示抬起"));
+            break;
+            //第二阶段完成
+        case FingerModel::TestException::progress02finished:
+            m_titleTip->setText(tr("指纹录入完成！"));
+            m_fingeWidget->setFrequency("");
+            m_addBtn->setVisible(false);
+            m_doneBtn->setVisible(true);
+            connect(m_doneBtn, &DSuggestButton::clicked, this, &AddFingeDialog::close);
+            break;
+        }
         break;
-    //采集状态异常， 此时的msg代表异常信息
+        //采集状态异常， 此时的msg代表异常信息
     case FingerModel::TestEnrollStatus::Exception:
-        m_qtimerTitleTip->stop();
-        m_qtimerTitleTip->setInterval(1000);
-        m_titleTip->setText(tr("无法识别"));
-        m_titleTip->update();
-        connect(m_qtimerTitleTip, &QTimer::timeout,[this] {setDefaultTitleTip();});
-        m_qtimerTitleTip->start();
-
+        if (test_msg != FingerModel::TestException::error06 ) {
+            m_qtimerTitleTip->stop();
+            m_qtimerTitleTip->setInterval(1000);
+            m_titleTip->setText(tr("无法识别"));
+            m_titleTip->update();
+            connect(m_qtimerTitleTip, &QTimer::timeout,[this] {setDefaultTitleTip();});
+            m_qtimerTitleTip->start();
+        }
         m_qtimerMsgTip->setSingleShot(true);
         m_qtimerMsgTip->setInterval(2000);
         switch (test_msg) {
         //图形不可用
         case FingerModel::TestException::error01:
-//            m_qtimerMsgTip->setInterval(2000);
+            //            m_qtimerMsgTip->setInterval(2000);
             m_fingeWidget->setFrequency(tr("请清洁手指或调整触摸位置，再次按压指纹识别器"));
             break;
-        //接触时间过短
+            //接触时间过短
         case FingerModel::TestException::error02:
             m_fingeWidget->setFrequency(tr("指纹采集间隙，请勿移动手指，直到提示您抬起"));
             break;
-        //检测到某次指纹信号与已收集的信号重复率过高无法达到录入标准
+            //检测到某次指纹信号与已收集的信号重复率过高无法达到录入标准
         case FingerModel::TestException::error03:
             m_fingeWidget->setFrequency(tr("请调整手指按压区域以录入更多指纹"));
             break;
-        //重复手指
+            //重复手指
         case FingerModel::TestException::error04:
             m_fingeWidget->setFrequency(tr("指纹已存在，请使用其他手指录入"));
             break;
-        //断开/超时
+            //断开/超时
         case FingerModel::TestException::error05:
             m_titleTip->setText(tr("录入中断"));
             m_fingeWidget->setFrequency(tr("如需重新录入，请点击重新录入，指纹录入过程会从头开始"));
@@ -218,14 +243,26 @@ void AddFingeDialog::testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestE
                 setDefaultMsgTip();
             });
             break;
+            //重复模板
+        case FingerModel::TestException::error06:
+            m_fingeWidget->setFrequency(tr("指纹已存在，请使用其他手指录入"));
+            m_addBtn->setVisible(false);
+            m_scanBtn->setVisible(true);
+            connect(m_scanBtn, &QPushButton::clicked, [this] {
+                m_addBtn->setVisible(true);
+                m_scanBtn->setVisible(false);
+                setDefaultTitleTip();
+                setDefaultMsgTip();
+            });
+            break;
         }
-        if(test_status != FingerModel::TestException::error05) {
+        if(test_msg != FingerModel::TestException::error05 and test_msg != FingerModel::TestException::error06) {
             connect(m_qtimerMsgTip, &QTimer::timeout, [this] {setDefaultMsgTip();});
             m_qtimerMsgTip->start();
         }
+        break;
     }
 }
-
 void AddFingeDialog::setDefaultMsgTip()
 {
     m_fingeWidget->setFrequency(tr("请以手指按压指纹收集器，然后根据提示抬起"));
