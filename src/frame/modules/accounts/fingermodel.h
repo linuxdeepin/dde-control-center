@@ -68,6 +68,11 @@ public:
         error03,
         error04,
         error05,
+        error06,
+        progress01,//假设为第一阶段
+        progress01finished,//
+        progress02,
+        progress02finished
     };
 
     bool isVaild() const;
