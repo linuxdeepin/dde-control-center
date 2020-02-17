@@ -46,7 +46,7 @@ public:
     enum VpnType {UNSET, L2TP, PPTP, VPNC, OPENVPN, STRONGSWAN, OPENCONNECT};
 
     explicit ConnectionVpnEditPage(const QString &connUuid = QString(), QWidget *parent = nullptr);
-    virtual ~ConnectionVpnEditPage();
+    virtual ~ConnectionVpnEditPage() override;
 
     // one of the following two methods must be called after initialization
     // init Widget using a exists vpn connection(specified by the "connUuid" of the constructor)
@@ -59,6 +59,9 @@ private:
     void resetConnectionIdByType(ConnectionVpnEditPage::VpnType vpnType);
     void exportConnConfig();
     void processConfigCA(const QString &file);
+
+private:
+    QPushButton *m_exportButton;
 };
 
 } /* network */ 

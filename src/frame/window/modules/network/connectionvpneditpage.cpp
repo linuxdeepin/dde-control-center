@@ -50,6 +50,7 @@ const QList<ConnectionVpnEditPage::VpnType> SupportedExportVpnList {
 ConnectionVpnEditPage::ConnectionVpnEditPage(const QString &connUuid, QWidget *parent)
     : ConnectionEditPage(ConnectionEditPage::ConnectionType::VpnConnection, QString(), connUuid, parent)
 {
+    m_exportButton = nullptr;
 }
 
 ConnectionVpnEditPage::~ConnectionVpnEditPage()
@@ -179,10 +180,17 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
 
     // add export button
     if (SupportedExportVpnList.contains(vpnType) && !connectionUuid().isEmpty()) {
-        QPushButton *exportButton = new QPushButton;
-        exportButton->setText(tr("Export"));
-        connect(exportButton, &QPushButton::clicked, this, &ConnectionVpnEditPage::exportConnConfig);
-        addHeaderButton(exportButton);
+        if (!m_exportButton) {
+            m_exportButton = new QPushButton;
+            m_exportButton->setText(tr("Export"));
+            connect(m_exportButton, &QPushButton::clicked, this, &ConnectionVpnEditPage::exportConnConfig);
+            addHeaderButton(m_exportButton);
+        }
+        m_exportButton->setVisible(true);
+    } else {
+        if (m_exportButton) {
+            m_exportButton->setVisible(false);
+        }
     }
 }
 
