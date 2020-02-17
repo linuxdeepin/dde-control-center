@@ -87,7 +87,8 @@ public:
     void addUserThumbs(const UserThumbs &thumbs);
     void cleanUserThumbs(const QString &user);
     QList<UserThumbs> thumbsList() const;
-    QList<UserThumbs> createTestThumbsbList() const;
+    void createTestThumbsbList();
+    void deleteFingerItem(const QString& username, const QString& finger);
 
 Q_SIGNALS:
     void vaildChanged(const bool isVaild);

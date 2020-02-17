@@ -124,16 +124,27 @@ QList<FingerModel::UserThumbs> FingerModel::thumbsList() const
     return m_thumbsList;
 }
 
-QList<FingerModel::UserThumbs> FingerModel::createTestThumbsbList() const
+void FingerModel::createTestThumbsbList()
 {
-    QList<FingerModel::UserThumbs> testThumbsList;
-
-    FingerModel::UserThumbs userThumbs;
-    userThumbs.username = "test";
+    UserThumbs userThumbs;
+    userThumbs.username = "yangyuyin";
     QStringList testList;
-    testList.append("1");
-    testList.append("2");
+    testList.append("A");
+    testList.append("B");
     userThumbs.userThumbs = testList;
-    testThumbsList.append(userThumbs);
-    return testThumbsList;
+    m_thumbsList.append(userThumbs);
+}
+
+void FingerModel::deleteFingerItem(const QString& username, const QString& finger)
+{
+    for (int i(0); i != m_thumbsList.size(); ++i) {
+        if (m_thumbsList[i].username == username) {
+            for(auto fingerName : m_thumbsList[i].userThumbs) {
+                if(fingerName == finger)
+                    m_thumbsList[i].userThumbs.removeOne(fingerName);
+                    Q_EMIT thumbsListChanged(m_thumbsList);
+                    return;
+            }
+        }
+    }
 }

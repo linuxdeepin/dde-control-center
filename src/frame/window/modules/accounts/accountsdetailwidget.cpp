@@ -419,6 +419,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             &AccountsDetailWidget::requestAddThumbs);
     connect(m_fingerWidget, &FingerWidget::requestCleanThumbs, this,
             &AccountsDetailWidget::requestCleanThumbs);
+    connect(m_fingerWidget, &FingerWidget::requestDeleteFingerItem, this, &AccountsDetailWidget::requestDeleteFingerItem);
 
     //图像列表操作
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,

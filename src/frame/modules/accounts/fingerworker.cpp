@@ -144,6 +144,12 @@ void FingerWorker::testEnrollStart(const QString &name, const QString &thumb)
     Q_EMIT requestShowAddThumb(name, thumb);
 }
 
+void FingerWorker::deleteFingerItem(const QString& userName, const QString& finger)
+{
+    m_fingerPrintInter->DeleteFinger(userName, finger);
+    m_model->deleteFingerItem(userName, finger);
+}
+
 void FingerWorker::onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QDBusObjectPath> reply = w->reply();

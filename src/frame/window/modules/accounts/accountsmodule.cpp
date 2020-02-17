@@ -165,6 +165,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
 //    connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
 //    connect(w, &AccountsDetailWidget::requestCleanThumbs, m_fingerWorker, &FingerWorker::cleanEnroll);
+    connect(w, &AccountsDetailWidget::requestDeleteFingerItem, m_fingerWorker, &FingerWorker::deleteFingerItem);
     connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::testEnrollStart);
     connect(w, &AccountsDetailWidget::requsetSetPassWordAge, m_accountsWorker, &AccountsWorker::setMaxPasswordAge);
     m_frameProxy->pushWidget(this, w);
@@ -210,7 +211,7 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     dlg->setUsername(name);
 //    connect(dlg, &AddFingeDialog::)
 
-//    connect(dlg, &AddFingeDialog::requestSaveThumb, m_fingerWorker, &FingerWorker::saveEnroll);
+    connect(dlg, &AddFingeDialog::requestSaveThumb, m_fingerWorker, &FingerWorker::saveEnroll);
 //    connect(dlg, &AddFingeDialog::requestReEnrollStart, m_fingerWorker, &FingerWorker::reEnrollStart);
 //    connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
 

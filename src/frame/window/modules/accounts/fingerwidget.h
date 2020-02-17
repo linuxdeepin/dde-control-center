@@ -48,6 +48,7 @@ public:
 Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(dcc::accounts::User *user);
+    void requestDeleteFingerItem(const QString &userName, const QString& finger);
 
 public Q_SLOTS:
     void onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs);
