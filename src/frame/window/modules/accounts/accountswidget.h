@@ -53,6 +53,7 @@ class AccountsWidget : public QWidget
 
 public:
     explicit AccountsWidget(QWidget *parent = nullptr);
+    virtual ~AccountsWidget();
     void setModel(dcc::accounts::UserModel *model);
     void showDefaultAccountInfo();
     void showLastAccountInfo();

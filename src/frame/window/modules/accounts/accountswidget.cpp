@@ -48,8 +48,8 @@ using namespace DCC_NAMESPACE::accounts;
 AccountsWidget::AccountsWidget(QWidget *parent)
     : QWidget(parent)
     , m_createBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))
-    , m_userlistView(new DListView)
-    , m_userItemModel(new QStandardItemModel)
+    , m_userlistView(new DListView(this))
+    , m_userItemModel(new QStandardItemModel(this))
     , m_saveClickedRow(0)
 {
     setObjectName("Accounts");
@@ -78,6 +78,15 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     connect(m_userlistView, &QListView::clicked, this, &AccountsWidget::onItemClicked);
     connect(m_userlistView, &DListView::activated, m_userlistView, &QListView::clicked);
     connect(m_createBtn, &QPushButton::clicked, this, &AccountsWidget::requestCreateAccount);
+}
+
+AccountsWidget::~AccountsWidget()
+{
+    if (m_userItemModel) {
+        m_userItemModel->clear();
+        m_userItemModel->deleteLater();
+        m_userItemModel = nullptr;
+    }
 }
 
 void AccountsWidget::setModel(UserModel *model)

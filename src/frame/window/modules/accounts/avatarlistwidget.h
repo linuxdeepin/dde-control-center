@@ -53,7 +53,7 @@ public:
 
 public:
     AvatarListWidget(dcc::accounts::User *usr, QWidget *parent = nullptr);
-
+    virtual ~AvatarListWidget();
 public:
     void addItemFromDefaultDir();
     void addLastItem();

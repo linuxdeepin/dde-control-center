@@ -48,13 +48,26 @@ using namespace DCC_NAMESPACE::accounts;
 AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
     : DListView(parent)
     , m_curUser(usr)
-    , m_avatarItemModel(new QStandardItemModel())
-    , m_avatarItemDelegate(new AvatarItemDelegate())
+    , m_avatarItemModel(new QStandardItemModel(this))
+    , m_avatarItemDelegate(new AvatarItemDelegate(this))
     , m_avatarSize(QSize(74, 74))
 {
     initWidgets();
 
     connect(this, &DListView::clicked, this, &AvatarListWidget::onItemClicked);
+}
+
+AvatarListWidget::~AvatarListWidget()
+{
+    if (m_avatarItemModel) {
+        m_avatarItemModel->clear();
+        m_avatarItemModel->deleteLater();
+        m_avatarItemModel = nullptr;
+    }
+    if (m_avatarItemDelegate) {
+        m_avatarItemDelegate->deleteLater();
+        m_avatarItemDelegate = nullptr;
+    }
 }
 
 void AvatarListWidget::initWidgets()
