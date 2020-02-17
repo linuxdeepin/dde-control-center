@@ -179,6 +179,7 @@ void AddFingeDialog::testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestE
         case FingerModel::TestException::progress01:
             m_titleTip->setVisible(false);
             m_fingeWidget->setFrequency(tr("请抬起手指，再次按压"));
+            m_fingeWidget->next();
             break;
             //第一阶段完成
         case FingerModel::TestException::progress01finished:
@@ -194,6 +195,7 @@ void AddFingeDialog::testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestE
         case FingerModel::TestException::progress02finished:
             m_titleTip->setText(tr("指纹录入完成！"));
             m_fingeWidget->setFrequency("");
+            m_fingeWidget->finished();
             m_addBtn->setVisible(false);
             m_doneBtn->setVisible(true);
             connect(m_doneBtn, &DSuggestButton::clicked, this, &AddFingeDialog::close);

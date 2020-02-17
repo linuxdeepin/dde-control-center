@@ -81,6 +81,7 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
         }
         Q_EMIT requestCleanThumbs(m_curUser);
     });
+//    connect(m_curUser)
 }
 
 FingerWidget::~FingerWidget()
@@ -91,12 +92,9 @@ FingerWidget::~FingerWidget()
 void FingerWidget::setFingerModel(FingerModel *model)
 {
     m_model = model;
+    m_model->createTestThumbsbList();
     connect(model, &FingerModel::thumbsListChanged, this, &FingerWidget::onThumbsListChanged);
-    if (!test) {
-        onThumbsListChanged(model->thumbsList());
-    } else {
-       onThumbsListChanged(model->createTestThumbsbList());
-    }
+    onThumbsListChanged(model->thumbsList());
 }
 
 void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs)
@@ -114,20 +112,25 @@ void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::U
 
         int i = 1; // 记录指纹列表项编号
         qDebug() << "user thumb count: " << u.userThumbs.size();
+        if(!m_vecItem.empty())
+            m_vecItem.clear();
         for (const QString &title : u.userThumbs) {
-            QString finger = tr("Fingerprint") + QString::number(i++);
+            QString number = QString::number(i++);
+            QString finger = tr("Fingerprint") + number;
             auto item = new AccounntFingeItem(this);
             item->setTitle(finger);
             item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
             DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
             m_listGrp->appendItem(item);
-            connect(item, &AccounntFingeItem::removeClicked, this, [] {
-                qDebug()<<"xxxxxxxxx";
+            connect(item, &AccounntFingeItem::removeClicked, this, [this, finger, title] {
+                Q_EMIT requestDeleteFingerItem(m_curUser->name(), title);
             });
             connect(item, &AccounntFingeItem::editTextFinished, this, [item](QString finger) {
                item->setTitle(finger);
 
             });
+            if(m_clearBtn->isChecked())
+                item->setShowIcon(true);
             m_vecItem.append(item);
             thumb.removeOne(title);
             qDebug() << "onThumbsListChanged: " << finger;

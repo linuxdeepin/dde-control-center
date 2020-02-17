@@ -62,6 +62,7 @@ public Q_SLOTS:
     void saveEnroll(const QString &name);
     void stopEnroll();
     void testEnrollStart(const QString &name, const QString &thumb);
+    void deleteFingerItem(const QString& userName, const QString& finger);
 private Q_SLOTS:
     void onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w);
     void onGetListEnrolledFinished(QDBusPendingCallWatcher *w);
