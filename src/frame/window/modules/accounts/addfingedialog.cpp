@@ -99,9 +99,9 @@ void AddFingeDialog::initData()
     m_cancelBtn->setText((tr("取消")));
     m_addBtn->setText((tr("添加")));
 //    connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::reEnrollStart);
-//    connect(m_doneBtn, &QPushButton::clicked, this, &AddFingeDialog::saveThumb);
 //    connect(m_fingeWidget, &FingerWidget::playEnd, this, &AddFingeDialog::onViewPlayEnd);
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
+    connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::requestReEnrollThumb);//重新录入后，界面变化还需要再确认
 }
 
 void AddFingeDialog::setFingerModel(FingerModel *model)
@@ -111,12 +111,7 @@ void AddFingeDialog::setFingerModel(FingerModel *model)
 //    connect(model, &FingerModel::testEnrollTouch, this, [this](const QString str1, bool pressed) {
 //        m_tip->setVisible(pressed);
 //    });
-
     testOnEnrollStatusChanged(m_model->testEnrollStatus(), m_model->testException());
-
-//    connect(model, &FingerModel::enrollStatusChanged, this, &AddFingeDialog::onEnrollStatusChanged);
-//    onEnrollStatusChanged(model->enrollStatus());
-
 }
 
 void AddFingeDialog::setUsername(const QString &name)
@@ -132,12 +127,6 @@ void AddFingeDialog::reEnrollStart()
     Q_EMIT requestReEnrollStart(m_thumb);
 
     m_fingeWidget->reEnter();
-}
-
-void AddFingeDialog::saveThumb()
-{
-    Q_EMIT requestSaveThumb(m_username);
-    this->close();
 }
 
 void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)

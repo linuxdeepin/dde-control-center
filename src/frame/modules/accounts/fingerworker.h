@@ -59,9 +59,8 @@ public Q_SLOTS:
     void enrollStart(const QString &name, const QString &thumb);
     void reEnrollStart(const QString &thumb);
     void cleanEnroll(User *user);
-    void saveEnroll(const QString &name);
     void stopEnroll();
-    void testEnrollStart(const QString &name, const QString &thumb);
+//    void testEnrollStart(const QString &name, const QString &thumb);
     void deleteFingerItem(const QString& userName, const QString& finger);
 private Q_SLOTS:
     void onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w);
@@ -72,6 +71,7 @@ private Q_SLOTS:
     void releaseEnroll();
     bool cleanFinger(const QString &name);
     void onHandleDevicesChanged(const QList<QDBusObjectPath> &value);
+    void requestShowAddThumbsaveEnroll(const QString &name);
 
 private:
     FingerModel *m_model;
