@@ -35,6 +35,8 @@ using namespace dcc::accounts;
 const QString FprintService("com.deepin.daemon.Fprintd");
 const QString FingerPrintService("com.deepin.daemon.Authenticate.FingerPrint");
 
+#define TEST true
+
 FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
@@ -47,48 +49,33 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
 
 }
 
-void FingerWorker::refreshDevice()
-{
-//    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprintdInter->GetDefaultDevice(), this);
-//    connect(watcher, &QDBusPendingCallWatcher::finished, this, &FingerWorker::onGetFprDefaultDevFinished);
-
-//    //监测指纹设备插入或拔出操作
-//    connect(m_fprintdInter, &Fprintd::DevicesChanged, this, &FingerWorker::onHandleDevicesChanged);
-//    if (!m_fingerPrintInter->devices().isEmpty()) {
-//        m_fingerPrintInter->Claim("id", true);
-//    }
-}
-
 void FingerWorker::refreshUserEnrollList(const QString &name)
 {
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprDefaultInter->ListEnrolledFingers(name), this);
-    watcher->setProperty("user", name);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &FingerWorker::onGetListEnrolledFinished);
+    QList<QString> listFingers = m_fingerPrintInter->ListFingers(name);
+    m_model->setThumbsList(name, listFingers);
 }
 
 void FingerWorker::enrollStart(const QString &name, const QString &thumb)
 {
-    if (!m_fingerPrintInter->devices().isEmpty()) {
-        m_fingerPrintInter->Claim("id", true);
-        m_fingerPrintInter->Enroll("id", thumb);
-        Q_EMIT requestShowAddThumb(name, thumb);
+    if(TEST) {
+        refreshUserEnrollList(name);
+    } else {
+        if (!m_fingerPrintInter->devices().isEmpty()) {
+            //后端接口需要传id不是用户名，需要改
+            m_fingerPrintInter->Claim(name, true);
+            m_fingerPrintInter->Enroll(name, thumb);
+            refreshUserEnrollList(name);
+        }
     }
     connect(m_fingerPrintInter, &Fingerprint::EnrollStatus, m_model, [this](const QString &id, int code, const QString &msg) {
       m_model->setTestEnrollStatus(code, msg);
     });
-    connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::testEnrollTouch);
-//    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
-//    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, name, thumb] {
-//        if (watcher->result()) {
-//            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-//            Q_EMIT requestShowAddThumb(name, thumb);
-//        }
-
-//        watcher->deleteLater();
-//    });
-
-//    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::recordFinger, name, thumb);
-//    watcher->setFuture(future);
+    connect(m_model, &FingerModel::enrollSuccessed, this, [this, name] {
+        QTimer time;
+        time.setInterval(100);
+        connect(&time, &QTimer::timeout, this, [this, name] {refreshUserEnrollList(name);});
+    });
+//    connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::testEnrollTouch);//目前不提供识别手指抬起功能
 }
 
 void FingerWorker::reEnrollStart(const QString &thumb)
@@ -122,7 +109,7 @@ void FingerWorker::cleanEnroll(User *user)
     watcher->setFuture(future);
 }
 
-void FingerWorker::saveEnroll(const QString &name)
+void FingerWorker::requestShowAddThumbsaveEnroll(const QString &name)
 {
     //当指纹输入完成后，点击完成然后刷新列表，不用停止和释放，会在closeEvent事件中操作
     qDebug() << "saveEnroll: " << name;
@@ -136,12 +123,6 @@ void FingerWorker::stopEnroll()
 
     QFuture<void> future = QtConcurrent::run(this, &FingerWorker::releaseEnroll);
     watcher.setFuture(future);
-}
-
-void FingerWorker::testEnrollStart(const QString &name, const QString &thumb)
-{
-//    m_fingerPrintInter->Enroll(1,)
-    Q_EMIT requestShowAddThumb(name, thumb);
 }
 
 void FingerWorker::deleteFingerItem(const QString& userName, const QString& finger)

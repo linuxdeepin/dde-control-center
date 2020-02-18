@@ -66,6 +66,8 @@ void FingerModel::setTestEnrollStatus(int code, const QString& msg)
         m_testEnrollStatus = TestEnrollStatus::Default;
     if (code == 2)
         m_testEnrollStatus = TestEnrollStatus::Normal;
+        if(m_testException == progress02finished)
+            Q_EMIT enrollSuccessed();
     if (code == 3) {
         m_testEnrollStatus = TestEnrollStatus::Exception;
         if (msg == '1')
@@ -135,11 +137,23 @@ void FingerModel::createTestThumbsbList()
     m_thumbsList.append(userThumbs);
 }
 
+void FingerModel::setThumbsList(QString userName, QList<QString> listFingers)
+{
+    m_thumbsList.clear();
+    UserThumbs thumb;
+    thumb.username = userName;
+    for (auto finger : listFingers){
+        thumb.userThumbs.append(finger);
+    }
+    m_thumbsList.append(thumb);
+    Q_EMIT thumbsListChanged(m_thumbsList);
+}
+
 void FingerModel::deleteFingerItem(const QString& username, const QString& finger)
 {
     for (int i(0); i != m_thumbsList.size(); ++i) {
         if (m_thumbsList[i].username == username) {
-            for(auto fingerName : m_thumbsList[i].userThumbs) {
+            for (auto fingerName : m_thumbsList[i].userThumbs) {
                 if(fingerName == finger)
                     m_thumbsList[i].userThumbs.removeOne(fingerName);
                     Q_EMIT thumbsListChanged(m_thumbsList);

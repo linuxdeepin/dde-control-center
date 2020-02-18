@@ -65,9 +65,9 @@ Q_SIGNALS:
     void requestSaveThumb(const QString &name);
     void requestReEnrollStart(const QString &thumb);
     void requestStopEnroll();
+    void requestReEnrollThumb();
 
 public Q_SLOTS:
-    void saveThumb();
     void reEnrollStart();
     void onEnrollStatusChanged(dcc::accounts::FingerModel::EnrollStatus status);
     void onViewPlayEnd();

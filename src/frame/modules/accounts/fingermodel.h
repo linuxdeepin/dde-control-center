@@ -88,6 +88,7 @@ public:
     void cleanUserThumbs(const QString &user);
     QList<UserThumbs> thumbsList() const;
     void createTestThumbsbList();
+    void setThumbsList(QString userName, QList<QString> listFingers);
     void deleteFingerItem(const QString& username, const QString& finger);
 
 Q_SIGNALS:
@@ -97,6 +98,7 @@ Q_SIGNALS:
     void testEnrollStatus(const QString &id, int code, const QString &msg);
     void testEnrollTouch(const QString &id, bool pressed);
     void testEnrollStatusChange(TestEnrollStatus status, TestException exception);
+    void enrollSuccessed();
 
 private:
     bool m_isVaild;
