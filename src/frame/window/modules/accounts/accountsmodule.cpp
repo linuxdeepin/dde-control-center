@@ -60,7 +60,6 @@ void AccountsModule::initialize()
     m_fingerWorker->moveToThread(qApp->thread());
 
     m_accountsWorker->active();
-    m_fingerWorker->refreshDevice();
     connect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
     connect(m_fingerWorker, &FingerWorker::requestShowAddThumb, this, &AccountsModule::onShowAddThumb);
 }
@@ -162,11 +161,10 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     });
     connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
     connect(w, &AccountsDetailWidget::requestShowFullnameSettings, m_accountsWorker, &AccountsWorker::setFullname);
-    connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
+    connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::requestShowAddThumb);
 //    connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
 //    connect(w, &AccountsDetailWidget::requestCleanThumbs, m_fingerWorker, &FingerWorker::cleanEnroll);
     connect(w, &AccountsDetailWidget::requestDeleteFingerItem, m_fingerWorker, &FingerWorker::deleteFingerItem);
-    connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::testEnrollStart);
     connect(w, &AccountsDetailWidget::requsetSetPassWordAge, m_accountsWorker, &AccountsWorker::setMaxPasswordAge);
     m_frameProxy->pushWidget(this, w);
 }
@@ -209,9 +207,8 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
     dlg->setFingerModel(m_fingerModel);
     dlg->setUsername(name);
-//    connect(dlg, &AddFingeDialog::)
 
-    connect(dlg, &AddFingeDialog::requestSaveThumb, m_fingerWorker, &FingerWorker::saveEnroll);
+    connect(dlg, &AddFingeDialog::requestReEnrollThumb, m_fingerWorker,[=]{m_fingerWorker->enrollStart(name, thumb);});
 //    connect(dlg, &AddFingeDialog::requestReEnrollStart, m_fingerWorker, &FingerWorker::reEnrollStart);
 //    connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
 
