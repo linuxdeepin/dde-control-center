@@ -274,7 +274,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         auto ageEdit = new DLineEdit();
         ageEdit->lineEdit()->setPlaceholderText(tr("Always"));
         ageEdit->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
-        ageEdit->setMaximumWidth(120);
+        ageEdit->setMinimumWidth(270);
         ageEdit->setClearButtonEnabled(false);
         pwHLayout->addWidget(ageEdit, 0, Qt::AlignRight);
 
@@ -311,7 +311,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
                 ageEdit->lineEdit()->blockSignals(false);
             }
         });
-        connect(ageEdit, &DLineEdit::editingFinished, this, [this, ageEdit](){
+        connect(ageEdit, &DLineEdit::editingFinished, this, [this, pwWidget, ageEdit](){
             if (ageEdit->text().isEmpty()) {
                 ageEdit->lineEdit()->setText(QString::number(m_curUser->passwordAge()));
                 return;
@@ -329,7 +329,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
             if(age <= 0) {
                 ageEdit->setAlert(true);
-                ageEdit->showAlertMessage(tr("Please input a number between 1-99999"), this, 2000);
+                ageEdit->showAlertMessage(tr("Please input a number between 1-99999"), pwWidget, 2000);
                 return;
             }
 
@@ -367,8 +367,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     nopasswdLogin->setEnabled(isCurUser);
 
     //服务器版本不显示自动登录，无密码登录
-    autoLogin->setVisible(!IsServerSystem);
-    nopasswdLogin->setVisible(!IsServerSystem);
+    loginGrp->setVisible(!IsServerSystem);
 
     //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
