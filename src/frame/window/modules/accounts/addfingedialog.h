@@ -50,7 +50,8 @@ public:
     void setFingerModel(dcc::accounts::FingerModel *model);
     void setUsername(const QString &name);
     void testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestEnrollStatus status,
-                                   dcc::accounts::FingerModel::TestException msg);
+                                   dcc::accounts::FingerModel::TestMsg msg,
+                                   int process = 0);
     void setDefaultTitleTip();
     void setDefaultMsgTip();
 
@@ -66,6 +67,8 @@ Q_SIGNALS:
     void requestReEnrollStart(const QString &thumb);
     void requestStopEnroll();
     void requestReEnrollThumb();
+    void requestEnrollThumb();
+    void enrollFailed();
 
 public Q_SLOTS:
     void reEnrollStart();
