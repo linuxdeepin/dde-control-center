@@ -35,25 +35,39 @@
 using namespace dcc;
 using namespace dcc::accounts;
 
-const QString FingerPrintService("com.deepin.daemon.Authenticate.FingerPrint");
+const QString FingerPrintService("com.deepin.daemon.Authenticate");
 
 #define TEST false
 
 FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
-    , m_fingerPrintInter(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate.FingerPrint",
+    , m_fingerPrintInter(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/FingerPrint",
                                          QDBusConnection::systemBus(), this))
 {
 //    m_fingerPrintInter->setSync(false);
 
     //处理指纹后端的录入状态信号
     connect(m_fingerPrintInter, &Fingerprint::EnrollStatus, m_model, [this](const QString &id, int code, const QString &msg) {
-        m_model->setTestEnrollStatus(code, msg);
+        auto userId = QString::number(getuid());
+        if (id != userId) {
+            return;
+        }
     });
     //当前此信号末实现
-    connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::testEnrollTouch);
+    connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::onTouch);
 
+    QDBusInterface *inter = new QDBusInterface(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint",
+                                               "com.deepin.daemon.Authenticate.FingerPrint",
+                                               QDBusConnection::systemBus(), this);
+    auto req = inter->call("Claim", "", true);
+    if (req.type() == QDBusMessage::ErrorMessage) {
+        qDebug() << "error call!";
+        qDebug() << "error name :" << req.errorName() << " \t error message :" << req.errorMessage();
+    }
+    auto call = m_fingerPrintInter->Claim("", true);
+    call.waitForFinished();
+    qDebug() << call.error();
     auto defualtDevice = m_fingerPrintInter->defaultDevice();
     m_model->setIsVaild(!defualtDevice.isEmpty());
 }
@@ -62,7 +76,7 @@ void FingerWorker::refreshUserEnrollList(const QString &name)
 {
     auto call = m_fingerPrintInter->ListFingers(name);
     call.waitForFinished();
-    m_model->setThumbsList(name, call.value());
+    m_model->setThumbsList(call.value());
 }
 
 void FingerWorker::enrollStart(const QString &name, const QString &thumb)
@@ -70,7 +84,6 @@ void FingerWorker::enrollStart(const QString &name, const QString &thumb)
 
     if(TEST) {
         refreshUserEnrollList(name);
-        m_model->setTestEnrollStatus(1,"1");
     } else {
         if (!m_fingerPrintInter->devices().isEmpty()) {
             //后端接口需要传id不是用户名，需要改
@@ -79,21 +92,6 @@ void FingerWorker::enrollStart(const QString &name, const QString &thumb)
             refreshUserEnrollList(name);
         }
     }
-}
-
-void FingerWorker::reEnrollStart(const QString &thumb)
-{
-    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
-    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher] {
-        if (watcher->result()) {
-            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-        }
-
-        watcher->deleteLater();
-    });
-
-    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::reRecordFinger, thumb);
-    watcher->setFuture(future);
 }
 
 void FingerWorker::stopEnroll()
@@ -109,22 +107,6 @@ void FingerWorker::deleteFingerItem(const QString& userName, const QString& fing
 {
     m_fingerPrintInter->DeleteFinger(userName, finger);
     refreshUserEnrollList(userName);
-}
-
-void FingerWorker::onEnrollStatus(const QString &value, const bool status)
-{
-    qDebug() << "onEnrollStatus: " << value << "," << status;
-    if (value == "enroll-completed" && status == 1) {
-        m_model->setEnrollStatus(FingerModel::EnrollStatus::Finished);
-        return;
-    }
-
-    if (value == "enroll-retry-scan") {
-        m_model->setEnrollStatus(FingerModel::EnrollStatus::Retry);
-        return;
-    }
-
-    m_model->setEnrollStatus(FingerModel::EnrollStatus::Next);
 }
 
 bool FingerWorker::recordFinger(const QString &name, const QString &thumb)

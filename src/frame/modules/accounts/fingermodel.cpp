@@ -28,6 +28,31 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
+enum EnrollStatusType {
+    ET_Complated = 0,
+    ET_Failed,
+    ET_StagePass,
+    ET_Retry,
+    ET_Disconnect
+};
+
+enum EnrollFailedCode {
+    FC_UnkownError = 1,
+    FC_RepeatTemplet,
+    FC_EnrollBroken,
+    FC_DataFull
+};
+
+enum EnrollRetryCode {
+    RC_TouchTooShort = 1,
+    RC_ErrorFigure,
+    RC_RepeatTouchData,
+    RC_RepeatFingerData,
+    RC_SwipeTooShort,
+    RC_FingerNotCenter,
+    RC_RemoveAndRetry
+};
+
 using namespace dcc;
 using namespace dcc::accounts;
 
@@ -51,21 +76,8 @@ void FingerModel::setIsVaild(bool isVaild)
     Q_EMIT vaildChanged(isVaild);
 }
 
-FingerModel::EnrollStatus FingerModel::enrollStatus() const
+void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
 {
-    return m_enrollStatus;
-}
-
-void FingerModel::setEnrollStatus(const EnrollStatus &enrollStatus)
-{
-    m_enrollStatus = enrollStatus;
-
-    Q_EMIT enrollStatusChanged(enrollStatus);
-}
-
-void FingerModel::setTestEnrollStatus(int code, const QString& msg)
-{
-    int process = 0;
 //    QString testJson = "{\"process\":\"50\", \"subcode\":{\"1\":\"error01\",\"2\":\"error02\"}}"; //测试代码
     QJsonDocument jsonDocument;
     QJsonObject jsonObject;
@@ -74,151 +86,113 @@ void FingerModel::setTestEnrollStatus(int code, const QString& msg)
         jsonDocument = QJsonDocument::fromJson(msg.toLocal8Bit().data());
         jsonObject = jsonDocument.object();
     }
-    //成功完成，之后应该结束录入，msg为空
-    if (code == 0) {
-        m_testEnrollStatus = TestEnrollStatus::completed;
-        Q_EMIT enrollSuccessed();
-        Q_EMIT enrollStoped();
-    }
-    //录入失败
-    if (code == 1) {
-        m_testEnrollStatus = enrollFailed;
-        if (!msg.isEmpty()) {
-            QStringList strList = jsonObject.keys();
-            for (int i = 0; i < jsonObject.size(); i++) {
-                QJsonValue val = jsonObject.value(strList.at(i));
-                if ("subcode" == strList.at(i) && val.isObject()) {
-                    for (auto item : val.toObject().keys()) {
-                        if (item == '1')
-                            m_testMsg = unknown_error;
-                        if (item == '2')
-                            m_testMsg = repeated_template;
-                        if (item == '3')
-                            m_testMsg = enroll_interrupted;
-                        if (item == '4')
-                            m_testMsg = data_full;
-                    }
-                }
+
+    switch(code) {
+    case ET_Complated:
+        Q_EMIT enrollComplated();
+        break;
+    case ET_Failed: {
+        QString msg = "Enroll Failed!";
+        do {
+            if (msg.isEmpty()) {
+                break;
             }
-        }
-        Q_EMIT enrollStoped();
-    }
-    if (code == 2) {
-        m_testEnrollStatus = TestEnrollStatus::StagePassed;
-        QStringList strList = jsonObject.keys();
-        for (int i = 0; i < jsonObject.size(); i++) {
-            QJsonValue val = jsonObject.value(strList.at(i));
-           if ("progress" == strList.at(i))
-               process = val.toInt();
-        }
-    }
-    //重试，之后重新录入
-    if (code == 3) {
-        m_testEnrollStatus = TestEnrollStatus::retry;
-        //接触时间过短
-        if (!msg.isEmpty()) {
-            QStringList strList = jsonObject.keys();
-            for (int i = 0; i < jsonObject.size(); i++) {
-                QJsonValue val = jsonObject.value(strList.at(i));
-                if ("subcode" == strList.at(i) && val.isObject()) {
-                    for (auto item : val.toObject().keys()) {
-                        if (item == '1')
-                            m_testMsg = time_short;
-                        if (item == '2')
-                            m_testMsg = graphics_unuse;
-                        if (item == '3')
-                            m_testMsg = high_repetition_rate;
-                        if (item == '4')
-                            m_testMsg = thumb_repeated;
-                        if (item == '5')
-                            m_testMsg = swipe_too_short;
-                        if (item == '6')
-                            m_testMsg = finger_not_centered;
-                        if (item == '7')
-                            m_testMsg = remove_and_retry;
-                    }
-                }
+            QStringList keys = jsonObject.keys();
+            if (!keys.contains("subcode")) {
+                break;
             }
-        }
+            auto errCode = jsonObject.value("subcode").toInt();
+            switch(errCode) {
+            case FC_DataFull:
+                msg = "Unkown Error!";
+                break;
+            case FC_EnrollBroken:
+                msg = "Unkown Error!";
+                break;
+            case FC_RepeatTemplet:
+                msg = "Unkown Error!";
+                break;
+            case FC_UnkownError:
+                msg = "Unkown Error!";
+            }
+            break;
+        } while(0);
+        Q_EMIT enrollFailed(msg);
+        break;
     }
-    Q_EMIT testEnrollStatusChange(m_testEnrollStatus, m_testMsg, process);
-
-
-}
-
-FingerModel::TestEnrollStatus FingerModel::testEnrollStatus() const
-{
-    return m_testEnrollStatus;
-}
-
-FingerModel::TestMsg FingerModel::testMsg() const
-{
-    return m_testMsg;
-}
-
-void FingerModel::addUserThumbs(const FingerModel::UserThumbs &thumbs)
-{
-    for (int i(0); i != m_thumbsList.size(); ++i) {
-        if (m_thumbsList.at(i).username == thumbs.username) {
-            m_thumbsList.removeAt(i);
+    case ET_StagePass: {
+        if (msg.isEmpty()) {
             break;
         }
+        QStringList keys = jsonObject.keys();
+        if (!keys.contains("subcode")) {
+            break;
+        }
+        auto pro = jsonObject.value("subcode").toInt();
+        Q_EMIT enrollStagePass(pro);
+        break;
     }
+    case ET_Retry: {
+        QString msg = "";
+        do {
+            if (msg.isEmpty()) {
+                break;
+            }
+            QStringList keys = jsonObject.keys();
+            if (!keys.contains("subcode")) {
+                break;
+            }
+            auto errCode = jsonObject.value("subcode").toInt();
+            switch(errCode) {
+            case RC_ErrorFigure:
+                msg = "请清洁手指或调整触摸位置，再次按压指纹识别器";
+                break;
+            case RC_SwipeTooShort:
+                msg = "请调整手指按压区域以录入更多指纹";
+                break;
+            case RC_TouchTooShort:
+                msg = "指纹采集间隙，请勿移动手指，直到提示您抬起";
+                break;
+            case RC_RemoveAndRetry:
+                msg = "请清洁手指或调整触摸位置，再次按压指纹识别器";
+                break;
+            case RC_RepeatTouchData:
+                msg = "请调整手指按压区域以录入更多指纹";
+                break;
+            case RC_FingerNotCenter:
+                msg = "请调整手指按压区域以录入更多指纹";
+                break;
+            case RC_RepeatFingerData:
+                msg = "请调整手指按压区域以录入更多指纹";
+                break;
+            }
+            break;
+        } while(0);
+        Q_EMIT enrollRetry(msg);
+        break;
+    }
+    case ET_Disconnect:
+        Q_EMIT enrollDisconnected();
+        break;
+    default:
+        break;
+    }
+}
 
+void FingerModel::onTouch(const QString &id, bool pressed)
+{
+
+}
+
+void FingerModel::setThumbsList(const QStringList &thumbs)
+{
+    m_thumbsList.clear();
     m_thumbsList << thumbs;
 
     Q_EMIT thumbsListChanged(m_thumbsList);
 }
 
-void FingerModel::cleanUserThumbs(const QString &user)
-{
-    for (int i(0); i != m_thumbsList.size(); ++i) {
-        if (m_thumbsList[i].username == user) {
-            m_thumbsList.removeAt(i);
-            Q_EMIT thumbsListChanged(m_thumbsList);
-            return;
-        }
-    }
-}
-
-QList<FingerModel::UserThumbs> FingerModel::thumbsList() const
+QStringList FingerModel::thumbsList() const
 {
     return m_thumbsList;
-}
-
-void FingerModel::createTestThumbsbList()
-{
-    UserThumbs userThumbs;
-    userThumbs.username = "yangyuyin";
-    QStringList testList;
-    testList.append("A");
-    testList.append("B");
-    userThumbs.userThumbs = testList;
-    m_thumbsList.append(userThumbs);
-}
-
-void FingerModel::setThumbsList(QString userName, QList<QString> listFingers)
-{
-    m_thumbsList.clear();
-    UserThumbs thumb;
-    thumb.username = userName;
-    for (auto finger : listFingers){
-        thumb.userThumbs.append(finger);
-    }
-    m_thumbsList.append(thumb);
-    Q_EMIT thumbsListChanged(m_thumbsList);
-}
-
-void FingerModel::deleteFingerItem(const QString& username, const QString& finger)
-{
-    for (int i(0); i != m_thumbsList.size(); ++i) {
-        if (m_thumbsList[i].username == username) {
-            for (auto fingerName : m_thumbsList[i].userThumbs) {
-                if(fingerName == finger)
-                    m_thumbsList[i].userThumbs.removeOne(fingerName);
-                    Q_EMIT thumbsListChanged(m_thumbsList);
-                    return;
-            }
-        }
-    }
 }
