@@ -53,14 +53,11 @@ Q_SIGNALS:
 public Q_SLOTS:
     void refreshUserEnrollList(const QString &name);
     void enrollStart(const QString &name, const QString &thumb);
-    void cleanEnroll(User *user);
     void stopEnroll();
-//    void testEnrollStart(const QString &name, const QString &thumb);
     void deleteFingerItem(const QString& userName, const QString& finger);
     bool reRecordFinger(const QString &thumb);
+
 private Q_SLOTS:
-    void onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w);
-    void onEnrollStatus(const QString &value, const bool status);
     bool recordFinger(const QString &name, const QString &thumb);
     void releaseEnroll();
     bool cleanFinger(const QString &name);

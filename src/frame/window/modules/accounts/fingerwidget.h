@@ -51,7 +51,7 @@ Q_SIGNALS:
     void requestDeleteFingerItem(const QString &userName, const QString& finger);
 
 public Q_SLOTS:
-    void onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs);
+    void onThumbsListChanged(const QStringList &thumbs);
 
 private:
     dcc::accounts::User *m_curUser;

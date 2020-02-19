@@ -97,51 +97,34 @@ void FingerWidget::setFingerModel(FingerModel *model)
     onThumbsListChanged(model->thumbsList());
 }
 
-void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs)
+void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 {
     QStringList thumb = thumbsLists;
-    bool isAddFingeBtn = true;
     m_listGrp->clear();
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
-        auto u = thumbs.at(n);
-        if (!TEST) {
-            if (u.username != m_curUser->name()) {
-                continue;
-            }
-        }
+        QString finger = thumbs.at(n);
+        auto item = new AccounntFingeItem(this);
+        item->setTitle(finger);
+        item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
+        m_listGrp->appendItem(item);
+        connect(item, &AccounntFingeItem::removeClicked, this, [this, finger] {
+            Q_EMIT requestDeleteFingerItem(m_curUser->name(), finger);
+        });
+        connect(item, &AccounntFingeItem::editTextFinished, this, [item](QString finger) {
+           item->setTitle(finger);
 
-        int i = 1; // 记录指纹列表项编号
-        qDebug() << "user thumb count: " << u.userThumbs.size();
-        if(!m_vecItem.empty())
-            m_vecItem.clear();
-        for (const QString &title : u.userThumbs) {
-            QString number = QString::number(i++);
-            QString finger = tr("Fingerprint") + number;
-            auto item = new AccounntFingeItem(this);
-            item->setTitle(finger);
-            item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-            DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
-            m_listGrp->appendItem(item);
-            connect(item, &AccounntFingeItem::removeClicked, this, [this, finger, title] {
-                Q_EMIT requestDeleteFingerItem(m_curUser->name(), title);
-            });
-            connect(item, &AccounntFingeItem::editTextFinished, this, [item](QString finger) {
-               item->setTitle(finger);
+        });
 
-            });
-            if(m_clearBtn->isChecked())
-                item->setShowIcon(true);
-            m_vecItem.append(item);
-            thumb.removeOne(title);
-            qDebug() << "onThumbsListChanged: " << finger;
-        }
+        if(m_clearBtn->isChecked())
+            item->setShowIcon(true);
+
+        m_vecItem.append(item);
+        thumb.removeOne(finger);
+        qDebug() << "onThumbsListChanged: " << finger;
 
         if (!thumb.isEmpty()) {
             m_notUseThumb = thumb.first();
-        }
-
-        if (i == 11) {
-            isAddFingeBtn = false;
         }
     }
     if(!TEST)
@@ -151,7 +134,7 @@ void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::U
     if (!thumb.isEmpty()) {
         m_notUseThumb = thumb.first();
     }
-    if (isAddFingeBtn) {
+    if (10 > thumbs.size()) {
         addFingerButton();
     }
 }

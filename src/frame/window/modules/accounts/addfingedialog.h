@@ -49,9 +49,6 @@ public:
     explicit AddFingeDialog(const QString &thumb, DAbstractDialog *parent = nullptr);
     void setFingerModel(dcc::accounts::FingerModel *model);
     void setUsername(const QString &name);
-    void testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestEnrollStatus status,
-                                   dcc::accounts::FingerModel::TestMsg msg,
-                                   int process = 0);
     void setDefaultTitleTip();
     void setDefaultMsgTip();
 
@@ -71,8 +68,6 @@ Q_SIGNALS:
     void enrollFailed();
 
 public Q_SLOTS:
-//    void reEnrollStart();
-    void onEnrollStatusChanged(dcc::accounts::FingerModel::EnrollStatus status);
     void onViewPlayEnd();
 
 private:
