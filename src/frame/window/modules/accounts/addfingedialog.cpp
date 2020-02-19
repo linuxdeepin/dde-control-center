@@ -31,7 +31,7 @@
 
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
-#define test true
+#define test false
 
 AddFingeDialog::AddFingeDialog(const QString &thumb, DAbstractDialog *parent)
     : DAbstractDialog(parent)
@@ -102,6 +102,7 @@ void AddFingeDialog::initData()
 //    connect(m_fingeWidget, &FingerWidget::playEnd, this, &AddFingeDialog::onViewPlayEnd);
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
     connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::requestReEnrollThumb);//重新录入后，界面变化还需要再确认
+    connect(m_addBtn, &QPushButton::clicked, this, &AddFingeDialog::requestEnrollThumb);
 }
 
 void AddFingeDialog::setFingerModel(FingerModel *model)
@@ -111,7 +112,7 @@ void AddFingeDialog::setFingerModel(FingerModel *model)
 //    connect(model, &FingerModel::testEnrollTouch, this, [this](const QString str1, bool pressed) {
 //        m_tip->setVisible(pressed);
 //    });
-    testOnEnrollStatusChanged(m_model->testEnrollStatus(), m_model->testException());
+    testOnEnrollStatusChanged(m_model->testEnrollStatus(), m_model->testMsg());
 }
 
 void AddFingeDialog::setUsername(const QString &name)
@@ -152,36 +153,29 @@ void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)
 }
 
 void AddFingeDialog::testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestEnrollStatus status,
-                                               dcc::accounts::FingerModel::TestException msg)
+                                               dcc::accounts::FingerModel::TestMsg msg, int process)
 {
-    auto test_status  = FingerModel::TestEnrollStatus::Normal;
-    auto test_msg = FingerModel::TestException::progress02finished;
-    switch (test_status) {
+//    auto test_status  = FingerModel::TestEnrollStatus::Default;
+//    auto test_msg = FingerModel::TestMsg::unknown_error;
+    switch (status) {
     //初始状态
     case FingerModel::TestEnrollStatus::Default:
         setDefaultMsgTip();
         break;
+        //录入失败，是否需要提示？
+    case FingerModel::TestEnrollStatus::enrollFailed:
+        Q_EMIT enrollFailed();
+        break;
         //正常采集状态， 此时msg代表采集进度
-    case FingerModel::TestEnrollStatus::Normal:
-        switch (test_msg) {
-        //第一阶段
-        case FingerModel::TestException::progress01:
+    case FingerModel::TestEnrollStatus::StagePassed:
+        if (process < 35) {
             m_titleTip->setVisible(false);
             m_fingeWidget->setFrequency(tr("请抬起手指，再次按压"));
-            m_fingeWidget->next();
-            break;
-            //第一阶段完成
-        case FingerModel::TestException::progress01finished:
+        }
+        if (process >= 35 && process <100) {
             m_fingeWidget->setFrequency(tr("请抬起手指，调整按压区域，继续录入边缘指纹"));
-            break;
-            //第二阶段
-        case FingerModel::TestException::progress02:
-            m_titleTip->setVisible(true);
-            setDefaultTitleTip();
-            m_fingeWidget->setFrequency(tr("请以手指边缘区域按压指纹识别器，然后根据提示抬起"));
-            break;
-            //第二阶段完成
-        case FingerModel::TestException::progress02finished:
+        }
+        if (process == 100) {
             m_titleTip->setText(tr("指纹录入完成！"));
             m_fingeWidget->setFrequency("");
             m_fingeWidget->finished();
@@ -191,9 +185,9 @@ void AddFingeDialog::testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestE
             break;
         }
         break;
-        //采集状态异常， 此时的msg代表异常信息
-    case FingerModel::TestEnrollStatus::Exception:
-        if (test_msg != FingerModel::TestException::error06 ) {
+        //重新采集
+    case FingerModel::TestEnrollStatus::retry:
+        if (msg != FingerModel::TestMsg::thumb_repeated ) {
             m_qtimerTitleTip->stop();
             m_qtimerTitleTip->setInterval(1000);
             m_titleTip->setText(tr("无法识别"));
@@ -203,39 +197,34 @@ void AddFingeDialog::testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestE
         }
         m_qtimerMsgTip->setSingleShot(true);
         m_qtimerMsgTip->setInterval(2000);
-        switch (test_msg) {
+        switch (msg) {
         //图形不可用
-        case FingerModel::TestException::error01:
+        case FingerModel::TestMsg::graphics_unuse:
             //            m_qtimerMsgTip->setInterval(2000);
             m_fingeWidget->setFrequency(tr("请清洁手指或调整触摸位置，再次按压指纹识别器"));
             break;
             //接触时间过短
-        case FingerModel::TestException::error02:
+        case FingerModel::TestMsg::time_short:
             m_fingeWidget->setFrequency(tr("指纹采集间隙，请勿移动手指，直到提示您抬起"));
             break;
             //检测到某次指纹信号与已收集的信号重复率过高无法达到录入标准
-        case FingerModel::TestException::error03:
+        case FingerModel::TestMsg::high_repetition_rate:
             m_fingeWidget->setFrequency(tr("请调整手指按压区域以录入更多指纹"));
             break;
-            //重复手指
-        case FingerModel::TestException::error04:
-            m_fingeWidget->setFrequency(tr("指纹已存在，请使用其他手指录入"));
-            break;
-            //断开/超时
-        case FingerModel::TestException::error05:
-            m_titleTip->setText(tr("录入中断"));
-            m_fingeWidget->setFrequency(tr("如需重新录入，请点击重新录入，指纹录入过程会从头开始"));
-            m_addBtn->setVisible(false);
-            m_scanBtn->setVisible(true);
-            connect(m_scanBtn, &QPushButton::clicked, [this] {
-                m_addBtn->setVisible(true);
-                m_scanBtn->setVisible(false);
-                setDefaultTitleTip();
-                setDefaultMsgTip();
-            });
-            break;
-            //重复模板
-        case FingerModel::TestException::error06:
+            //断开,超时,这个信号没有？
+            //        case FingerModel::TestMsg::error05:
+            //            m_titleTip->setText(tr("录入中断"));
+            //            m_fingeWidget->setFrequency(tr("如需重新录入，请点击重新录入，指纹录入过程会从头开始"));
+            //            m_addBtn->setVisible(false);
+            //            m_scanBtn->setVisible(true);
+            //            connect(m_scanBtn, &QPushButton::clicked, [this] {
+            //                m_addBtn->setVisible(true);
+            //                m_scanBtn->setVisible(false);
+            //                setDefaultTitleTip();
+            //                setDefaultMsgTip();
+            //            });
+            //            break;
+        case FingerModel::TestMsg::thumb_repeated:
             m_fingeWidget->setFrequency(tr("指纹已存在，请使用其他手指录入"));
             m_addBtn->setVisible(false);
             m_scanBtn->setVisible(true);
@@ -247,7 +236,7 @@ void AddFingeDialog::testOnEnrollStatusChanged(dcc::accounts::FingerModel::TestE
             });
             break;
         }
-        if(test_msg != FingerModel::TestException::error05 and test_msg != FingerModel::TestException::error06) {
+        if(msg != FingerModel::TestMsg::thumb_repeated) {
             connect(m_qtimerMsgTip, &QTimer::timeout, [this] {setDefaultMsgTip();});
             m_qtimerMsgTip->start();
         }

@@ -58,21 +58,25 @@ public:
     };
 
     enum TestEnrollStatus{
+        completed,
         Default,
-        Normal,
-        Exception
+        StagePassed,
+        enrollFinished,
+        enrollFailed,
+        retry
     };
-    enum TestException{
-        error01,
-        error02,
-        error03,
-        error04,
-        error05,
-        error06,
-        progress01,//假设为第一阶段
-        progress01finished,//
-        progress02,
-        progress02finished
+    enum TestMsg{
+        unknown_error,              //未知错误
+        repeated_template,          //重复模板
+        enroll_interrupted,         //录入中断
+        data_full,                  //数据满了
+        time_short,                 //接触时间太短
+        graphics_unuse,             //图形不可用
+        high_repetition_rate,       //两次触摸的指纹重复率过高
+        thumb_repeated,             //当前指纹已存在
+        swipe_too_short,            //滑动太短
+        finger_not_centered,        //手指不在中间
+        remove_and_retry,           //拿开手指再重新扫描
     };
 
     bool isVaild() const;
@@ -82,7 +86,7 @@ public:
     void setEnrollStatus(const EnrollStatus &enrollStatus);
     void setTestEnrollStatus(int code, const QString& msg);
     TestEnrollStatus testEnrollStatus() const;
-    TestException testException() const;
+    TestMsg testMsg() const;
 
     void addUserThumbs(const UserThumbs &thumbs);
     void cleanUserThumbs(const QString &user);
@@ -97,15 +101,16 @@ Q_SIGNALS:
     void thumbsListChanged(const QList<UserThumbs> &thumbs);
     void testEnrollStatus(const QString &id, int code, const QString &msg);
     void testEnrollTouch(const QString &id, bool pressed);
-    void testEnrollStatusChange(TestEnrollStatus status, TestException exception);
+    void testEnrollStatusChange(TestEnrollStatus status, TestMsg msg, int process = 0);
     void enrollSuccessed();
+    void enrollStoped();
 
 private:
     bool m_isVaild;
     EnrollStatus m_enrollStatus;
     QList<UserThumbs> m_thumbsList;
     TestEnrollStatus m_testEnrollStatus{TestEnrollStatus::Default};
-    TestException m_testException{error01};
+    TestMsg m_testMsg;
 };
 }
 }

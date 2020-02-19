@@ -92,7 +92,7 @@ FingerWidget::~FingerWidget()
 void FingerWidget::setFingerModel(FingerModel *model)
 {
     m_model = model;
-    m_model->createTestThumbsbList();
+//    m_model->createTestThumbsbList();
     connect(model, &FingerModel::thumbsListChanged, this, &FingerWidget::onThumbsListChanged);
     onThumbsListChanged(model->thumbsList());
 }
