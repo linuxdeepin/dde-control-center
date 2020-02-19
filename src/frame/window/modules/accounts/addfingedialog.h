@@ -71,7 +71,7 @@ Q_SIGNALS:
     void enrollFailed();
 
 public Q_SLOTS:
-    void reEnrollStart();
+//    void reEnrollStart();
     void onEnrollStatusChanged(dcc::accounts::FingerModel::EnrollStatus status);
     void onViewPlayEnd();
 
