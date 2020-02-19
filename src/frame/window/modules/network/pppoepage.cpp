@@ -50,7 +50,7 @@ using namespace dde::network;
 PppoePage::PppoePage(QWidget *parent)
     : ContentWidget(parent)
     , m_lvsettings(new DListView)
-    , m_modelSettings(new QStandardItemModel)
+    , m_modelSettings(new QStandardItemModel(this))
     , m_createBtn(new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement))
 {
     m_createBtn->setMinimumSize(QSize(47, 47));

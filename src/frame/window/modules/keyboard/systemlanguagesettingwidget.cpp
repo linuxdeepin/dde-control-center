@@ -47,7 +47,7 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     layout->setMargin(0);
     layout->setSpacing(0);
 
-    m_model = new QStandardItemModel();
+    m_model = new QStandardItemModel(this);
     m_view = new DListView();
     m_view->setFrameShape(QFrame::NoFrame);
     m_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -100,7 +100,7 @@ void SystemLanguageSettingWidget::onSearch(const QString &text)
         m_view->setModel(m_model);
     } else {
         m_searchStatus = true;
-        m_searchModel = new QStandardItemModel;
+        m_searchModel = new QStandardItemModel(this);
 
         for (auto md : m_datas) {
             if (md.text().contains(text, Qt::CaseInsensitive)) {

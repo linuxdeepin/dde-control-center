@@ -58,7 +58,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     , m_lvProfiles(new DListView())
 {
     //有线连接
-    m_lvProfiles->setModel(m_modelprofiles = new QStandardItemModel());
+    m_lvProfiles->setModel(m_modelprofiles = new QStandardItemModel(this));
     m_lvProfiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvProfiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvProfiles->setSelectionMode(QAbstractItemView::NoSelection);

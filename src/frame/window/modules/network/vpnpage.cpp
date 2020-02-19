@@ -80,7 +80,7 @@ VpnPage::VpnPage(QWidget *parent)
     : QWidget(parent)
     , m_vpnSwitch(new SwitchWidget)
     , m_lvprofiles(new DListView)
-    , m_modelprofiles(new QStandardItemModel)
+    , m_modelprofiles(new QStandardItemModel(this))
 {
     m_lvprofiles->setModel(m_modelprofiles);
     m_lvprofiles->setEditTriggers(QAbstractItemView::NoEditTriggers);

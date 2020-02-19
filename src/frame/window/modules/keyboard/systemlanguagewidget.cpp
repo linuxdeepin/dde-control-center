@@ -74,7 +74,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     m_langListview->setSelectionMode(QAbstractItemView::NoSelection);
     m_langListview->setContentsMargins(ListViweItemMargin);
 
-    m_langItemModel = new QStandardItemModel();
+    m_langItemModel = new QStandardItemModel(this);
     m_langListview->setModel(m_langItemModel);
 
     layout->addWidget(m_langListview);

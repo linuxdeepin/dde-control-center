@@ -112,7 +112,7 @@ void CreateAccountPage::resizeEvent(QResizeEvent *e)
 void CreateAccountPage::initUsrGroup(QVBoxLayout *layout)
 {
     m_groupListView = new DListView(this);
-    m_groupItemModel = new QStandardItemModel();
+    m_groupItemModel = new QStandardItemModel(this);
     m_groupListView->setModel(m_groupItemModel);
     m_groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_groupListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);

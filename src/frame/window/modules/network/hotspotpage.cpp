@@ -54,7 +54,7 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     , m_wdev(wdev)
     , m_hotspotSwitch(new SwitchWidget)
     , m_lvprofiles(new DListView)
-    , m_modelprofiles(new QStandardItemModel)
+    , m_modelprofiles(new QStandardItemModel(this))
     , m_createBtn(new QPushButton)
     , m_refreshActiveTimer(new QTimer)
 {

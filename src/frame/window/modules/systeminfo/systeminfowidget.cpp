@@ -36,7 +36,7 @@ SystemInfoWidget::SystemInfoWidget(QWidget *parent)
     : QWidget(parent)
     , m_mainContentLayout(new QVBoxLayout)
     , m_listView(new DListView)
-    , m_itemModel(new QStandardItemModel)
+    , m_itemModel(new QStandardItemModel(this))
 {
     initWidget();
     initData();

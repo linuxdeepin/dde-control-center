@@ -58,7 +58,7 @@ void RefreshRatePage::initRateList()
     list->setFrameShape(QFrame::NoFrame);
     list->setSelectionMode(DListView::NoSelection);
     list->setEditTriggers(DListView::NoEditTriggers);
-    auto listModel = new QStandardItemModel();
+    auto listModel = new QStandardItemModel(this);
     list->setModel(listModel);
 
     auto moni = m_model->monitorList().first();

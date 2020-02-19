@@ -42,7 +42,7 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
     m_modeList->setEditTriggers(DListView::NoEditTriggers);
     m_modeList->setSelectionMode(DListView::NoSelection);
     m_modeList->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
-    m_listModel = new QStandardItemModel();
+    m_listModel = new QStandardItemModel(this);
     m_modeList->setModel(m_listModel);
 
     mainLayout->addWidget(m_modeList);

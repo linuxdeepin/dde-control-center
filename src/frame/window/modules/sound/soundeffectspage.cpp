@@ -137,7 +137,7 @@ void SoundEffectsPage::initList()
 {
     m_sw->setChecked(m_model->enableSoundEffect());
 
-    m_listModel = new QStandardItemModel();
+    m_listModel = new QStandardItemModel(this);
     m_effectList->setModel(m_listModel);
 
     DStandardItem *item = nullptr;

@@ -287,7 +287,7 @@ void CustomSettingDialog::initResolutionList()
     if (m_resolutionListModel)
         m_resolutionListModel->clear();
     else
-        m_resolutionListModel = new QStandardItemModel();
+        m_resolutionListModel = new QStandardItemModel(this);
     m_resolutionList->setModel(m_resolutionListModel);
 
     bool first = true;

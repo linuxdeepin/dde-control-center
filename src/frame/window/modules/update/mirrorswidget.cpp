@@ -70,7 +70,7 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     layout->addSpacing(5);
 
     m_view = new DListView();
-    m_model = new QStandardItemModel;
+    m_model = new QStandardItemModel(this);
     m_view->setBackgroundType(DStyledItemDelegate::BackgroundType::RoundedBackground);
     m_view->setSelectionMode(DListView::NoSelection);
     m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

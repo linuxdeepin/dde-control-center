@@ -47,7 +47,7 @@ using namespace dde::network;
 NetworkModuleWidget::NetworkModuleWidget()
     : QWidget()
     , m_lvnmpages(new DListView(this))
-    , m_modelpages(new QStandardItemModel)
+    , m_modelpages(new QStandardItemModel(this))
 {
     setObjectName("Network");
     m_lvnmpages->setFrameShape(QFrame::NoFrame);

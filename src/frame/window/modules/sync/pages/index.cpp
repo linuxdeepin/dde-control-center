@@ -39,7 +39,7 @@ IndexPage::IndexPage(QWidget *parent)
     , m_listView(new DListView)
     , m_stateIcon(new SyncStateIcon)
     , m_lastSyncTimeLbl(new QLabel)
-    , m_listModel(new QStandardItemModel)
+    , m_listModel(new QStandardItemModel(this))
 {
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
     m_autoSyncSwitch->layout()->setContentsMargins(10, 6, 11, 6);
