@@ -98,8 +98,6 @@ void AddFingeDialog::initData()
 
     m_cancelBtn->setText((tr("取消")));
     m_addBtn->setText((tr("添加")));
-//    connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::reEnrollStart);
-//    connect(m_fingeWidget, &FingerWidget::playEnd, this, &AddFingeDialog::onViewPlayEnd);
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
     connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::requestReEnrollThumb);//重新录入后，界面变化还需要再确认
     connect(m_addBtn, &QPushButton::clicked, this, &AddFingeDialog::requestEnrollThumb);
@@ -120,15 +118,15 @@ void AddFingeDialog::setUsername(const QString &name)
     m_username = name;
 }
 
-void AddFingeDialog::reEnrollStart()
-{
-    m_scanBtn->setVisible(false);
-    m_doneBtn->setVisible(false);
+//void AddFingeDialog::reEnrollStart()
+//{
+//    m_scanBtn->setVisible(false);
+//    m_doneBtn->setVisible(false);
 
-    Q_EMIT requestReEnrollStart(m_thumb);
+//    Q_EMIT requestReEnrollStart(m_thumb);
 
-    m_fingeWidget->reEnter();
-}
+//    m_fingeWidget->reEnter();
+//}
 
 void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)
 {
