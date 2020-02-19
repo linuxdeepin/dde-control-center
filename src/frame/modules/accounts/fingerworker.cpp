@@ -35,7 +35,7 @@ using namespace dcc::accounts;
 const QString FprintService("com.deepin.daemon.Fprintd");
 const QString FingerPrintService("com.deepin.daemon.Authenticate.FingerPrint");
 
-#define TEST true
+#define TEST false
 
 FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     : QObject(parent)
@@ -57,8 +57,10 @@ void FingerWorker::refreshUserEnrollList(const QString &name)
 
 void FingerWorker::enrollStart(const QString &name, const QString &thumb)
 {
+
     if(TEST) {
         refreshUserEnrollList(name);
+        m_model->setTestEnrollStatus(1,"1");
     } else {
         if (!m_fingerPrintInter->devices().isEmpty()) {
             //后端接口需要传id不是用户名，需要改
@@ -74,6 +76,9 @@ void FingerWorker::enrollStart(const QString &name, const QString &thumb)
         QTimer time;
         time.setInterval(100);
         connect(&time, &QTimer::timeout, this, [this, name] {refreshUserEnrollList(name);});
+    });
+    connect(m_model, &FingerModel::enrollStoped, [this] {
+       m_fingerPrintInter->StopEnroll();
     });
 //    connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::testEnrollTouch);//目前不提供识别手指抬起功能
 }
