@@ -281,9 +281,41 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         connect(ageEdit, &DLineEdit::textChanged, this, [ageEdit](){
             ageEdit->setAlert(false);
         });
-        connect(ageEdit, &DLineEdit::editingFinished, this, [this, ageEdit](){
+        connect(ageEdit, &DLineEdit::textEdited, this, [ageEdit](){
             if (ageEdit->text().isEmpty())
                 return;
+
+            bool isInt(false);
+            auto age = ageEdit->text().toInt(&isInt);
+            if (!isInt) {
+                QString strText(ageEdit->text());
+                QString strTemp;
+                int idx;
+                for (idx = 0; idx < strText.size(); ++idx) {
+                    if (strText[idx] >= '0' && strText[idx] <= '9') {
+                        strTemp.append(strText[idx]);
+                    } else {
+                        break;
+                    }
+                }
+
+                ageEdit->lineEdit()->blockSignals(true);
+                ageEdit->lineEdit()->setText(strTemp);
+                ageEdit->lineEdit()->setCursorPosition(idx);
+                ageEdit->lineEdit()->blockSignals(false);
+            } else if (age > 99999) {
+                auto idx = ageEdit->lineEdit()->cursorPosition();
+                ageEdit->lineEdit()->blockSignals(true);
+                ageEdit->lineEdit()->setText(ageEdit->text().left(ageEdit->text().length() - 1));
+                ageEdit->lineEdit()->setCursorPosition(idx - 1);
+                ageEdit->lineEdit()->blockSignals(false);
+            }
+        });
+        connect(ageEdit, &DLineEdit::editingFinished, this, [this, ageEdit](){
+            if (ageEdit->text().isEmpty()) {
+                ageEdit->lineEdit()->setText(QString::number(m_curUser->passwordAge()));
+                return;
+            }
 
             bool isInt = false;
             auto age = ageEdit->text().toInt(&isInt);
@@ -297,6 +329,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
             if(age <= 0) {
                 ageEdit->setAlert(true);
+                ageEdit->showAlertMessage(tr("Please input a number between 1-99999"), this, 2000);
                 return;
             }
 
@@ -315,7 +348,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     loginGrp->layout()->setMargin(0);
     loginGrp->appendItem(autoLogin);
     loginGrp->appendItem(nopasswdLogin);
-    layout->addSpacing(20);
+    if (!IsServerSystem) {
+        layout->addSpacing(20);
+    }
     layout->addWidget(loginGrp);
 
     m_fingerWidget = new FingerWidget(m_curUser, this);
