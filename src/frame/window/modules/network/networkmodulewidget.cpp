@@ -228,14 +228,24 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
 
 void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
+    bool bRemoveCurrentDevice = false;
+    QModelIndex currentIndex = m_lvnmpages->currentIndex();
+    PageType currentType = currentIndex.data(SectionRole).value<PageType>();
+
     while ((m_modelpages->item(0)->data(SectionRole).value<PageType>() == WiredPage)
             || (m_modelpages->item(0)->data(SectionRole).value<PageType>() == WirelessPage)) {
         m_modelpages->removeRow(0);
+        if ((currentType == WiredPage) || (currentType == WirelessPage)) {
+            bRemoveCurrentDevice = true;
+        }
     }
 
     for (int i = 0; i < m_modelpages->rowCount(); ++i) {
         if (m_modelpages->item(i)->data(SectionRole).value<PageType>() == HotspotPage) {
             m_modelpages->removeRow(i);
+            if (currentType == HotspotPage) {
+                bRemoveCurrentDevice = true;
+            }
             break;
         }
     }
@@ -291,6 +301,10 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         hotspotit->setData(QVariant::fromValue(HotspotPage), SectionRole);
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));
         m_modelpages->insertRow(m_modelpages->rowCount() - 1, hotspotit);
+    }
+
+    if (bRemoveCurrentDevice) {
+        initSetting(0, "");
     }
 }
 
