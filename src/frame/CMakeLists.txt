@@ -340,8 +340,8 @@ set(ACCOUNTS_FILES
 #                modules/accounts/createpage.h
                 modules/accounts/fingermodel.cpp
                 modules/accounts/fingermodel.h
-                modules/accounts/fingerpage.cpp
-                modules/accounts/fingerpage.h
+#                modules/accounts/fingerpage.cpp
+#                modules/accounts/fingerpage.h
                 modules/accounts/fingerworker.cpp
                 modules/accounts/fingerworker.h
 #                modules/accounts/modifyavatarpage.cpp
