@@ -29,14 +29,10 @@
 #include "fingermodel.h"
 #include "user.h"
 
-#include <com_deepin_daemon_fprintd.h>
-#include <com_deepin_daemon_fprintd_device.h>
 #include <com_deepin_daemon_authenticate_fingerprint.h>
 
 #include <QObject>
 
-using com::deepin::daemon::Fprintd;
-using com::deepin::daemon::fprintd::Device;
 using com::deepin::daemon::authenticate::Fingerprint;
 
 
@@ -57,26 +53,20 @@ Q_SIGNALS:
 public Q_SLOTS:
     void refreshUserEnrollList(const QString &name);
     void enrollStart(const QString &name, const QString &thumb);
-    void reEnrollStart(const QString &thumb);
     void cleanEnroll(User *user);
     void stopEnroll();
 //    void testEnrollStart(const QString &name, const QString &thumb);
     void deleteFingerItem(const QString& userName, const QString& finger);
+    bool reRecordFinger(const QString &thumb);
 private Q_SLOTS:
     void onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w);
-    void onGetListEnrolledFinished(QDBusPendingCallWatcher *w);
     void onEnrollStatus(const QString &value, const bool status);
     bool recordFinger(const QString &name, const QString &thumb);
-    bool reRecordFinger(const QString &thumb);
     void releaseEnroll();
     bool cleanFinger(const QString &name);
-    void onHandleDevicesChanged(const QList<QDBusObjectPath> &value);
-    void requestShowAddThumbsaveEnroll(const QString &name);
 
 private:
     FingerModel *m_model;
-    Fprintd *m_fprintdInter;
-    Device *m_fprDefaultInter;
     Fingerprint *m_fingerPrintInter;
 };
 

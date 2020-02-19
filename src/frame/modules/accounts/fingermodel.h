@@ -106,7 +106,7 @@ Q_SIGNALS:
     void enrollStoped();
 
 private:
-    bool m_isVaild;
+    bool m_isVaild{false};
     EnrollStatus m_enrollStatus;
     QList<UserThumbs> m_thumbsList;
     TestEnrollStatus m_testEnrollStatus{TestEnrollStatus::Default};

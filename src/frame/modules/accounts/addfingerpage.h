@@ -50,7 +50,6 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void saveThumb();
-    void reEnrollStart();
     void onEnrollStatusChanged(FingerModel::EnrollStatus status);
     void onViewPlayEnd();
 
