@@ -36,6 +36,7 @@
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QPushButton;
+class QScroller;
 QT_END_NAMESPACE
 
 class Resolution;
@@ -63,6 +64,7 @@ class ResolutionDetailPage : public dcc::ContentWidget
     Q_OBJECT
 public:
     explicit ResolutionDetailPage(QWidget *parent = nullptr);
+    ~ResolutionDetailPage();
 
     enum ResolutionRole {
         IdRole = Dtk::UserRole,
@@ -88,6 +90,9 @@ private:
 
     DListView *m_resoList{nullptr};
     QModelIndex m_curIdxs;
+    QScroller *m_scroller{nullptr};
+
+    void stopScroller();
 };
 
 }   // namespace dcc

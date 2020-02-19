@@ -45,6 +45,8 @@ class PerssonalizationThemeList : public QWidget
     Q_OBJECT
 public:
     explicit PerssonalizationThemeList(QWidget *parent = nullptr);
+    ~PerssonalizationThemeList();
+
     void setModel(dcc::personalization::ThemeModel *const model);
 
 Q_SIGNALS:

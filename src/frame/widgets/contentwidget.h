@@ -49,6 +49,7 @@ class ContentWidget : public QWidget
 
 public:
     explicit ContentWidget(QWidget *parent = 0);
+    ~ContentWidget();
 
     void setTitle(const QString &title);
     void sendBackSignal();

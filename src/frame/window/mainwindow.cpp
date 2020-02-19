@@ -58,6 +58,7 @@
 #include <QLocale>
 #include <QLinearGradient>
 #include <QGSettings>
+#include <QScroller>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -119,6 +120,12 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setEditTriggers(QListView::NoEditTriggers);
     m_navView->setResizeMode(QListView::Adjust);
     m_navView->setAutoScroll(true);
+
+    QScroller::grabGesture(m_navView, QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_navView);
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
 
     m_contentLayout->addWidget(m_navView, 1);
     m_contentLayout->addWidget(m_rightView, 5);
@@ -198,6 +205,11 @@ MainWindow::~MainWindow()
         if (m.first) {
             delete m.first;
         }
+    }
+
+    QScroller *scroller = QScroller::scroller(m_navView);
+    if (scroller) {
+        scroller->stop();
     }
 }
 

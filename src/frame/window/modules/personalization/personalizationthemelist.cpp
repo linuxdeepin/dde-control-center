@@ -24,6 +24,7 @@
 #include <DListView>
 
 #include <QVBoxLayout>
+#include <QScroller>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -44,6 +45,20 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     layout->addWidget(m_listview);
     this->setLayout(layout);
     connect(m_listview, &DListView::clicked, this, &PerssonalizationThemeList::onClicked);
+
+    QScroller::grabGesture(m_listview, QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_listview);
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
+}
+
+PerssonalizationThemeList::~PerssonalizationThemeList()
+{
+    QScroller *scroller = QScroller::scroller(m_listview);
+    if (scroller) {
+        scroller->stop();
+    }
 }
 
 void PerssonalizationThemeList::setModel(dcc::personalization::ThemeModel *const model)

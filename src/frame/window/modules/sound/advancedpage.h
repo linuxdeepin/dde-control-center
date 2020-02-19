@@ -29,6 +29,7 @@
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
+class QScrollArea;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -68,7 +69,8 @@ private:
     void initList();
 
 private:
-    QVBoxLayout *m_layout;
+    QScrollArea *m_contentArea{nullptr};
+    QVBoxLayout *m_layout{nullptr};
     dcc::sound::SoundModel *m_model{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_inputList{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_outputList{nullptr};

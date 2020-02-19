@@ -76,6 +76,12 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     m_contentArea->setContentsMargins(0, 0, 0, 0);
 
+    QScroller::grabGesture(m_contentArea, QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_contentArea);
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
+
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(m_backBtn);
     titleLayout->addWidget(m_title);
@@ -98,6 +104,14 @@ ContentWidget::ContentWidget(QWidget *parent)
     setObjectName("ContentWidget");
 
     setBackgroundRole(QPalette::Base);
+}
+
+ContentWidget::~ContentWidget()
+{
+    QScroller *scroller = QScroller::scroller(m_contentArea);
+    if (scroller) {
+        scroller->stop();
+    }
 }
 
 void ContentWidget::setTitle(const QString &title)

@@ -28,6 +28,7 @@
 #include "modules/sound/soundmodel.h"
 
 #include <QScrollArea>
+#include <QScroller>
 
 using namespace dcc::sound;
 using namespace dcc::widgets;
@@ -38,29 +39,35 @@ Q_DECLARE_METATYPE(const dcc::sound::Port *)
 
 AdvancedPage::AdvancedPage(QWidget *parent)
     : QWidget(parent)
+    , m_contentArea(new QScrollArea)
     , m_layout(new QVBoxLayout)
 {
     m_layout->setMargin(0);
 
-    auto scrollarea = new QScrollArea;
-    scrollarea->setWidgetResizable(true);
-    scrollarea->setFrameStyle(QFrame::NoFrame);
-    scrollarea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollarea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    scrollarea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
-    scrollarea->setContentsMargins(ThirdPageContentsMargins);
+    m_contentArea->setWidgetResizable(true);
+    m_contentArea->setFrameStyle(QFrame::NoFrame);
+    m_contentArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_contentArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_contentArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+    m_contentArea->setContentsMargins(ThirdPageContentsMargins);
+    
+    QScroller::grabGesture(m_contentArea, QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_contentArea);
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
 
     auto contentWidget = new QWidget;
     auto contentLayout = new QVBoxLayout;
     contentLayout->setMargin(0);
     contentWidget->setLayout(contentLayout);
-    scrollarea->setWidget(contentWidget);
+    m_contentArea->setWidget(contentWidget);
 
-    m_layout->addWidget(scrollarea);
+    m_layout->addWidget(m_contentArea);
     setLayout(m_layout);
 
     const int titleLeftMargin = 15;
-///    //~ contents_path /sound/Advanced
+    //~ contents_path /sound/Advanced
     TitleLabel *label = new TitleLabel(tr("Output"));
     label->setContentsMargins(titleLeftMargin, 0, 0, 0);
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
@@ -83,7 +90,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     contentLayout->addWidget(m_outputList);
     contentLayout->addSpacing(10);
 
-///    //~ contents_path /sound/Advanced
+    //~ contents_path /sound/Advanced
     label = new TitleLabel(tr("Input"));
     label->setContentsMargins(titleLeftMargin, 0, 0, 0);
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
@@ -102,6 +109,10 @@ AdvancedPage::AdvancedPage(QWidget *parent)
 
 AdvancedPage::~AdvancedPage()
 {
+    QScroller *scroller = QScroller::scroller(m_contentArea);
+    if (scroller) {
+        scroller->stop();
+    }
 }
 
 void AdvancedPage::setModel(dcc::sound::SoundModel *model)

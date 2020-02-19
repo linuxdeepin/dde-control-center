@@ -35,6 +35,7 @@
 #include <QHBoxLayout>
 #include <QListView>
 #include <QLabel>
+#include <QScroller>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -52,6 +53,13 @@ ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
 
     layout()->setMargin(0);
     setContent(centralWidget);
+}
+
+ResolutionDetailPage::~ResolutionDetailPage()
+{
+    if (m_resoList) {
+        stopScroller();
+    }
 }
 
 void ResolutionDetailPage::setModel(DisplayModel *model)
@@ -73,6 +81,8 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
 void ResolutionDetailPage::initResoList()
 {
     if (m_resoList) {
+        stopScroller();
+
         m_resoList->deleteLater();
         m_resoList = nullptr;
     }
@@ -101,6 +111,14 @@ void ResolutionDetailPage::initResoList()
     auto itemModel = new QStandardItemModel(this);
     rlist->setModel(itemModel);
 
+    QScroller::grabGesture(rlist, QScroller::LeftMouseButtonGesture);
+
+    // 关闭滚动越过边界以减少异常触发的概率
+    QScroller *scroller = QScroller::scroller(rlist);
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
+
     bool first = true;
     DStandardItem *curIdx{nullptr};
     const auto &modes = moni->modeList();
@@ -115,7 +133,7 @@ void ResolutionDetailPage::initResoList()
         DStandardItem *item = new DStandardItem();
         if (first) {
             first = false;
-///            //~ contents_path /display/Resolution
+            //~ contents_path /display/Resolution
             item->setText(QString("%1 (%2)").arg(res).arg(tr("Recommended")));
         } else {
             item->setText(res);
@@ -158,4 +176,14 @@ void ResolutionDetailPage::initResoList()
 
     m_mainLayout->addWidget(rlist, 0);
     m_resoList = rlist;
+}
+
+void ResolutionDetailPage::stopScroller()
+{
+    // 若正在滚动中的对象被析构，会导致下次 QScroller 触发时 Segmentation Fault
+    // 故析构时停止滚动
+    QScroller *scroller = QScroller::scroller(m_resoList);
+    if (scroller) {
+        scroller->stop();
+    }
 }

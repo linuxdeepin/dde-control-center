@@ -34,6 +34,7 @@
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QSound>
+#include <QScroller>
 
 using namespace dcc::sound;
 using namespace dcc::widgets;
@@ -69,10 +70,25 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_layout->addWidget(m_effectList, 1);
     m_layout->addStretch();
 
+    m_effectList->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+    QScroller::grabGesture(m_effectList, QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_effectList);
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
+
     m_aniTimer = new QTimer(this);
     m_aniTimer->setSingleShot(false);
 
     setLayout(m_layout);
+}
+
+SoundEffectsPage::~SoundEffectsPage()
+{
+    QScroller *scroller = QScroller::scroller(m_effectList);
+    if (scroller) {
+        scroller->stop();
+    }
 }
 
 void SoundEffectsPage::setModel(dcc::sound::SoundModel *model)

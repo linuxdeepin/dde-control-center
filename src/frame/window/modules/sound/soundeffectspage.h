@@ -55,6 +55,7 @@ class SoundEffectsPage : public QWidget
     Q_OBJECT
 public:
     SoundEffectsPage(QWidget *parent = nullptr);
+    ~SoundEffectsPage();
 
 public:
     void setModel(dcc::sound::SoundModel *model);

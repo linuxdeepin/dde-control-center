@@ -49,6 +49,7 @@
 #include <QStandardItem>
 #include <QStandardItemModel>
 #include <QThread>
+#include <QScroller>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
@@ -231,8 +232,13 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_lvAP->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_lvAP->setSelectionMode(QAbstractItemView::NoSelection);
-
     m_lvAP->setSpacing(1);
+
+    QScroller::grabGesture(m_lvAP, QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_lvAP);
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
 
     m_modelAP->setSortRole(APItem::SortRole);
     m_sortDelayTimer->setInterval(100);
@@ -338,6 +344,10 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
 WirelessPage::~WirelessPage()
 {
+    QScroller *scroller = QScroller::scroller(m_lvAP);
+    if (scroller) {
+        scroller->stop();
+    }
 }
 
 void WirelessPage::updateLayout(bool enabled)
