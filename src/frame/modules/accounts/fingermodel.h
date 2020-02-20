@@ -54,7 +54,7 @@ Q_SIGNALS:
     void thumbsListChanged(const QStringList &thumbs);
 
     void enrollFailed(QString msg);
-    void enrollComplated();
+    void enrollCompleted();
     void enrollStagePass(int pro);
     void enrollRetry(QString msg);
     void enrollDisconnected();

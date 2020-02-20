@@ -29,7 +29,7 @@
 #include <QJsonObject>
 
 enum EnrollStatusType {
-    ET_Complated = 0,
+    ET_Completed = 0,
     ET_Failed,
     ET_StagePass,
     ET_Retry,
@@ -88,8 +88,8 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
     }
 
     switch(code) {
-    case ET_Complated:
-        Q_EMIT enrollComplated();
+    case ET_Completed:
+        Q_EMIT enrollCompleted();
         break;
     case ET_Failed: {
         QString msg = "Enroll Failed!";
@@ -101,19 +101,19 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
             if (!keys.contains("subcode")) {
                 break;
             }
-            auto errCode = jsonObject.value("subcode").toInt();
+            auto errCode = jsonObject.value("subcode").toObject().keys()[0].toInt();
             switch(errCode) {
             case FC_DataFull:
-                msg = "Unkown Error!";
+                msg = "数据满了，不能再录制更多指纹";
                 break;
             case FC_EnrollBroken:
-                msg = "Unkown Error!";
+                msg = "录入中断，请重新录入";
                 break;
             case FC_RepeatTemplet:
-                msg = "Unkown Error!";
+                msg = "指纹已存在，请使用其他手指重新录入";
                 break;
             case FC_UnkownError:
-                msg = "Unkown Error!";
+                msg = "未知错误，请重新录入";
             }
             break;
         } while(0);
@@ -125,24 +125,21 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
             break;
         }
         QStringList keys = jsonObject.keys();
-        if (!keys.contains("subcode")) {
+        if (!keys.contains("progress")) {
             break;
         }
-        auto pro = jsonObject.value("subcode").toInt();
+        auto pro = jsonObject.value("progress").toInt();
         Q_EMIT enrollStagePass(pro);
         break;
     }
     case ET_Retry: {
         QString msg = "";
         do {
-            if (msg.isEmpty()) {
-                break;
-            }
             QStringList keys = jsonObject.keys();
             if (!keys.contains("subcode")) {
                 break;
             }
-            auto errCode = jsonObject.value("subcode").toInt();
+            auto errCode = jsonObject.value("subcode").toObject().keys()[0].toInt();
             switch(errCode) {
             case RC_ErrorFigure:
                 msg = "请清洁手指或调整触摸位置，再次按压指纹识别器";

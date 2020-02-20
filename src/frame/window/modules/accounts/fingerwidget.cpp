@@ -79,7 +79,7 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
         for (auto &item : m_vecItem) {
             item->setShowIcon(checked);
         }
-        Q_EMIT requestCleanThumbs(m_curUser);
+//        Q_EMIT requestCleanThumbs(m_curUser);
     });
 //    connect(m_curUser)
 }
@@ -100,6 +100,7 @@ void FingerWidget::setFingerModel(FingerModel *model)
 void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 {
     QStringList thumb = thumbsLists;
+    m_vecItem.clear();
     m_listGrp->clear();
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
         QString finger = thumbs.at(n);

@@ -51,6 +51,12 @@ public:
     void setUsername(const QString &name);
     void setDefaultTitleTip();
     void setDefaultMsgTip();
+    void enrollCompleted();
+    void enrollStagePass(int pro);
+    void enrollFailed(QString msg);
+    void setInitStatus();
+    void enrollDisconnected();
+    void enrollRetry(QString msg);
 
 private:
     void initWidget();
@@ -65,7 +71,6 @@ Q_SIGNALS:
     void requestStopEnroll();
     void requestReEnrollThumb();
     void requestEnrollThumb();
-    void enrollFailed();
 
 public Q_SLOTS:
     void onViewPlayEnd();
