@@ -369,6 +369,11 @@ void DisplayWorker::setPrimary(const int index)
     m_displayInter.SetPrimary(m_model->monitorList()[index]->name());
 }
 
+void DisplayWorker::setPrimaryByName(const QString name)
+{
+    m_displayInter.SetPrimary(name);
+}
+
 void DisplayWorker::setMonitorEnable(Monitor *mon, const bool enabled)
 {
     MonitorInter *inter = m_monitors.value(mon);

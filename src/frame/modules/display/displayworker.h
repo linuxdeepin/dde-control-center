@@ -71,6 +71,7 @@ public Q_SLOTS:
     void modifyConfigName(const QString &oldName, const QString &newName);
     void switchMode(const int mode, const QString &name = QString());
     void setPrimary(const int index);
+    void setPrimaryByName(const QString name);
     void setMonitorEnable(Monitor *mon, const bool enabled);
     void applyChanges();
 #ifndef DCC_DISABLE_ROTATE
