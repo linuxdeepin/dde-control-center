@@ -26,6 +26,7 @@
 #include "accountsworker.h"
 #include "user.h"
 #include "window/utils.h"
+#include "widgets/utils.h"
 
 #include <QFileDialog>
 #include <QtConcurrent>
@@ -73,6 +74,9 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     updateUserOnlineStatus(m_dmInter->sessions());
     getAllGroups();
     getPresetGroups();
+
+    auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
+    m_userModel->setAutoLoginValid(req.value() && valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showAutologin", false));
 }
 
 void AccountsWorker::getAllGroups()

@@ -112,6 +112,7 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_groupListView;
     QStandardItemModel *m_groupItemModel;
     bool m_isServerSystem;
+    dcc::widgets::SwitchWidget *m_autoLogin;
 };
 
 }   // namespace accounts

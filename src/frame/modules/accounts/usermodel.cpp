@@ -78,6 +78,14 @@ bool UserModel::contains(const QString &id)
     return m_userList.contains(id);
 }
 
+void UserModel::setAutoLoginValid(bool bValid)
+{
+    if (m_bAutoLoginValid == bValid)
+        return;
+
+    m_bAutoLoginValid = bValid;
+}
+
 QStringList UserModel::getAllGroups()
 {
     return m_allGroups;

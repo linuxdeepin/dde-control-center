@@ -340,13 +340,13 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         });
     }
 
-    SwitchWidget *autoLogin = new SwitchWidget;
+    m_autoLogin = new SwitchWidget;
     SwitchWidget *nopasswdLogin = new SwitchWidget;
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
 
     loginGrp->setContentsMargins(0, 0, 0, 0);
     loginGrp->layout()->setMargin(0);
-    loginGrp->appendItem(autoLogin);
+    loginGrp->appendItem(m_autoLogin);
     loginGrp->appendItem(nopasswdLogin);
     if (!IsServerSystem) {
         layout->addSpacing(20);
@@ -363,7 +363,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //非当前用户不显示修改密码，自动登录，无密码登录
     bool isCurUser = m_curUser->isCurrentUser();
     modifyPassword->setEnabled(isCurUser);
-    autoLogin->setEnabled(isCurUser);
+    m_autoLogin->setEnabled(isCurUser);
     nopasswdLogin->setEnabled(isCurUser);
 
     //服务器版本不显示自动登录，无密码登录
@@ -375,8 +375,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     deleteAccount->setText(tr("Delete Account"));
 
     //~ contents_path /accounts/Accounts Detail
-    autoLogin->setTitle(tr("Auto Login"));
-    autoLogin->setChecked(m_curUser->autoLogin());
+    m_autoLogin->setTitle(tr("Auto Login"));
+    m_autoLogin->setChecked(m_curUser->autoLogin());
 
     //~ contents_path /accounts/Accounts Detail
     nopasswdLogin->setTitle(tr("Login Without Password"));
@@ -393,10 +393,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(deleteAccount, &DWarningButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
 
     //自动登录，无密码登录操作
-    connect(m_curUser, &User::autoLoginChanged, autoLogin, &SwitchWidget::setChecked);
+    connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::nopasswdLoginChanged,
             nopasswdLogin, &SwitchWidget::setChecked);
-    connect(autoLogin, &SwitchWidget::checkedChanged,
+    connect(m_autoLogin, &SwitchWidget::checkedChanged,
     this, [ = ](const bool autoLogin) {
         Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
     });
@@ -424,6 +424,8 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         return;
     }
     m_userModel = model;
+    m_autoLogin->setVisible(m_userModel->isAutoLoginValid() && !IsServerSystem);
+
     if (!m_groupItemModel)
         return;
     m_groupItemModel->clear();

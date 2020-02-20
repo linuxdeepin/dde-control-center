@@ -47,6 +47,8 @@ public:
     void removeUser(const QString &id);
     bool contains(const QString &id);
 
+    inline bool isAutoLoginValid() const { return m_bAutoLoginValid; }
+    void setAutoLoginValid(bool bValid);
 #ifdef DCC_ENABLE_ADDOMAIN
     bool isJoinADDomain() const { return m_isJoinADDomain; }
     void setIsJoinADDomain(bool isJoinADDomain);
@@ -68,6 +70,7 @@ Q_SIGNALS:
     void deleteUserSuccess();
 
 private:
+    bool m_bAutoLoginValid;
     QMap<QString, User *> m_userList;
     QStringList m_allGroups;
     QStringList m_presetGroups;
