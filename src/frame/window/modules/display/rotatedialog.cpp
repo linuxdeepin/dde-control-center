@@ -111,8 +111,8 @@ void RotateDialog::keyPressEvent(QKeyEvent *event)
         reject();
         return;
     }
-
     if (event->matches(QKeySequence::StandardKey::Save)) {
+        qDebug() << "QKeySequence::StandardKey::Save accept()";
         accept();
     }
 }
@@ -130,7 +130,7 @@ void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
         m_changed = true;
         break;
     default:
-        break;;
+        break;
     }
 }
 
