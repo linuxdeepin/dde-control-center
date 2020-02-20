@@ -51,7 +51,7 @@ Q_SIGNALS:
     void requestShowAddThumb(const QString &name, const QString &thumb);
 
 public Q_SLOTS:
-    void refreshUserEnrollList(const QString &name);
+    void refreshUserEnrollList(const QString &id);
     void enrollStart(const QString &name, const QString &thumb);
     void stopEnroll();
     void deleteFingerItem(const QString& userName, const QString& finger);
