@@ -33,8 +33,6 @@ using namespace dcc::accounts;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::accounts;
 
-#define TEST true
-
 FingerWidget::FingerWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
@@ -128,10 +126,7 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
             m_notUseThumb = thumb.first();
         }
     }
-    if(!TEST)
-        m_clearBtn -> setVisible(m_listGrp->itemCount());
-    else
-        m_clearBtn->setVisible(m_listGrp->itemCount());
+    m_clearBtn->setVisible(m_listGrp->itemCount());
     if (!thumb.isEmpty()) {
         m_notUseThumb = thumb.first();
     }
