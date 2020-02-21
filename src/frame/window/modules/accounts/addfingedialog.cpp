@@ -37,16 +37,11 @@ AddFingeDialog::AddFingeDialog(const QString &thumb, DAbstractDialog *parent)
     : DAbstractDialog(parent)
     , m_mainLayout(new QVBoxLayout(this))
     , m_titleHLayout(new QHBoxLayout)
-    , m_contentVLayout(new QVBoxLayout)
     , m_btnHLayout(new QHBoxLayout)
-    , m_fingerHLayout(new QVBoxLayout)
     , m_fingeWidget(new FingerWidget)
     , m_thumb(thumb)
     , m_cancelBtn(new QPushButton)
     , m_addBtn(new DSuggestButton)
-    , m_titleTip(new DTipLabel)
-    , m_qtimerTitleTip(new QTimer())
-    , m_qtimerMsgTip(new QTimer())
 {
     initWidget();
     initData();
@@ -55,38 +50,33 @@ AddFingeDialog::AddFingeDialog(const QString &thumb, DAbstractDialog *parent)
 void AddFingeDialog::initWidget()
 {
     setMinimumSize(QSize(328,391));
+    m_mainLayout->setAlignment(Qt::AlignHCenter);
+
     DTitlebar *titleIcon = new DTitlebar();
     titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
     titleIcon->setBackgroundTransparent(true);//透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle("");
-    m_titleHLayout->addWidget(titleIcon, Qt::AlignTop);
+    m_titleHLayout->addWidget(titleIcon, Qt::AlignTop | Qt::AlignRight);
     m_mainLayout->addLayout(m_titleHLayout);
-    QFont font;
-    font.setBold(true);
-    m_titleTip->setFont(font);
-    m_titleTip->setText(tr("Place your finger"));
-    m_fingerHLayout->addWidget(m_titleTip);
-    m_fingerHLayout->addWidget(m_fingeWidget);
-    m_contentVLayout->addLayout(m_fingerHLayout);
+    m_mainLayout->addWidget(m_fingeWidget,1);
 
     m_btnHLayout->addWidget(m_cancelBtn);
     m_btnHLayout->addWidget(m_addBtn);
     m_btnHLayout->setContentsMargins(10, 0, 10, 10);
-    m_contentVLayout->addLayout(m_btnHLayout);
-    m_mainLayout->addLayout(m_contentVLayout);
+    m_mainLayout->addLayout(m_btnHLayout);
 
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
-    m_cancelBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    m_addBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+//    m_cancelBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+//    m_addBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
 
 void AddFingeDialog::initData()
 {
-//    setWindowTitle(tr("Add Fingerprint"));
     m_cancelBtn->setText((tr("Cancel")));
     m_addBtn->setText((tr("add")));
+    m_addBtn->setEnabled(false);
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
     connect(m_addBtn, &QPushButton::clicked, this, &AddFingeDialog::requestEnrollThumb);
     connect(m_addBtn, &DSuggestButton::clicked, this, [=] {
@@ -95,7 +85,8 @@ void AddFingeDialog::initData()
             this->close();
         }
         if (text == tr("add")) {
-            requestEnrollThumb();
+            this->close();
+//            requestEnrollThumb();
         }
         if (text == tr("Scan again")) {
             setInitStatus();
@@ -119,100 +110,72 @@ void AddFingeDialog::setUsername(const QString &name)
     m_username = name;
 }
 
-void AddFingeDialog::setDefaultMsgTip()
-{
-    if (m_enrollStage == enrollStage::enrollFirstStage) {
-        m_fingeWidget->setFrequency(tr("Place your finger firmly on the sensor until you're asked to lift it"));
-    } else {
-        m_fingeWidget->setFrequency(tr("Place the edges of your fingerprint on the sensor"));
-    }
-
-}
-
 void AddFingeDialog::enrollCompleted()
 {
-    m_titleTip->setText(tr("Fingerprint added"));
-    m_fingeWidget->setFrequency("");
+    if (!m_isEnrolling) {
+        return;
+    }
+
+    m_isEnrolling = false;
     m_fingeWidget->finished();
     m_addBtn->setText(tr("Done"));
+    m_addBtn->setEnabled(true);
+    Q_EMIT requestStopEnroll(m_username);
 }
 
 void AddFingeDialog::enrollStagePass(int pro)
 {
+    if (!m_isEnrolling) {
+        return;
+    }
+
     m_addBtn->setEnabled(false);
-    if (pro < 35) {
-        m_enrollStage = enrollStage::enrollFirstStage;
-        m_fingeWidget->setFrequency(tr("Lift your finger and place it on the sensor again"));
-        m_fingeWidget->next();
-    }
-    if (pro >= 35 && pro <100) {
-       m_enrollStage = enrollStage::enrollSecondStage;
-       m_fingeWidget->setFrequency(tr("Lift your finger and do that again"));
-    }
-    if(pro == 100) {
-        m_titleTip->setText(tr("Fingerprint added"));
-        m_fingeWidget->setFrequency("");
-    }
+    m_fingeWidget->setProsses(pro);
 }
 
 void AddFingeDialog::enrollFailed(QString msg)
 {
-    m_titleTip->setText("Scan Suspended");
-    m_fingeWidget->setFrequency(msg);
+    if (!m_isEnrolling) {
+        return;
+    }
+
+    m_isEnrolling = false;
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), msg, false);
     m_addBtn->setText(tr("Scan again"));
-}
-
-void AddFingeDialog::setInitStatus()
-{
-    m_cancelBtn->setVisible(true);
-    m_addBtn->setVisible(true);
     m_addBtn->setEnabled(true);
-    m_addBtn->setText(tr("add"));
-    m_titleTip->setText(tr("Place your finger"));
-    m_fingeWidget->setFrequency(tr("Place your finger firmly on the sensor until you're asked to lift it"));
-}
 
+    Q_EMIT requestStopEnroll(m_username);
+}
 void AddFingeDialog::enrollDisconnected()
 {
-    m_titleTip->setText(tr("Scan Suspended"));
-    m_fingeWidget->setFrequency(tr("Scan Suspended"));
+    Q_EMIT requestStopEnroll(m_username);
+
+    m_isEnrolling = false;
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Suspended"), false);
     m_addBtn->setText(tr("Scan again"));
+    m_addBtn->setEnabled(true);
 }
 
 void AddFingeDialog::enrollRetry(QString msg)
 {
-    m_addBtn->setEnabled(false);
-    if (msg != tr("The fingerprint already exists, please scan other fingers")) {
-        m_qtimerTitleTip->stop();
-        m_qtimerTitleTip->setInterval(1000);
-        m_titleTip->setText(tr("Cannot recognize your fingerprint"));
-        connect(m_qtimerTitleTip, &QTimer::timeout, this, [this] {
-            setDefaultTitleTip();
-        });
-        m_qtimerTitleTip->start();
+    if (!m_isEnrolling) {
+        return;
     }
-    m_qtimerMsgTip->setSingleShot(true);
-    m_fingeWidget->setFrequency(msg);
-    m_qtimerMsgTip->setInterval(2000);
-    connect(m_qtimerMsgTip, &QTimer::timeout, [this] {setDefaultMsgTip();});
-    m_qtimerMsgTip->start();
 
-
+    m_addBtn->setEnabled(false);
+    m_fingeWidget->setStatueMsg(tr("Cannot recognize your fingerprint"), msg);
 }
 
-void AddFingeDialog::onViewPlayEnd()
+void AddFingeDialog::setInitStatus()
 {
-    m_fingeWidget->setFrequency(tr("Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off"));
-
-}
-
-void AddFingeDialog::setDefaultTitleTip()
-{
-    m_titleTip->setText(tr("Place your finger"));
+    m_isEnrolling = true;
+    m_addBtn->setEnabled(false);
+    m_addBtn->setText(tr("add"));
+    m_fingeWidget->reEnter();
 }
 
 void AddFingeDialog::closeEvent(QCloseEvent *event)
 {
-    Q_EMIT requestStopEnroll();
+    Q_EMIT requestStopEnroll(m_username);
     event->accept();
 }
