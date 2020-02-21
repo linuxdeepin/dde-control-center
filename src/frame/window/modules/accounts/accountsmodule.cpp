@@ -209,13 +209,17 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     dlg->setUsername(name);
 
     connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [ = ] {
-        m_fingerWorker->enrollStart(name, thumb);
+        m_fingerWorker->startEnroll(name, thumb);
     });
     connect(dlg, &AddFingeDialog::requestReEnrollThumb, m_fingerWorker, [ = ] {
         m_fingerWorker->reRecordFinger(thumb);
     });
+    connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
 
-    dlg->exec();//Note:destroy this object when this window is closed
+    if (m_fingerWorker->tryEnroll(name, thumb)) {
+        dlg->exec();
+    }
+    dlg->deleteLater();
 }
 
 void AccountsModule::onHandleVaildChanged(const bool isVaild)

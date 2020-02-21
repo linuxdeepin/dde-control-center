@@ -50,17 +50,15 @@ public:
 Q_SIGNALS:
     void requestShowAddThumb(const QString &name, const QString &thumb);
 
-public Q_SLOTS:
-    void refreshUserEnrollList(const QString &id);
-    void enrollStart(const QString &name, const QString &thumb);
-    void stopEnroll();
-    void deleteFingerItem(const QString& userName, const QString& finger);
+public:
+    bool tryEnroll(const QString &name, const QString &thumb);
     bool reRecordFinger(const QString &thumb);
 
-private Q_SLOTS:
-    bool recordFinger(const QString &name, const QString &thumb);
-    void releaseEnroll();
-    bool cleanFinger(const QString &name);
+public Q_SLOTS:
+    void refreshUserEnrollList(const QString &id);
+    void startEnroll(const QString &name, const QString &thumb);
+    void stopEnroll(const QString& userName);
+    void deleteFingerItem(const QString& userName, const QString& finger);
 
 private:
     FingerModel *m_model;
