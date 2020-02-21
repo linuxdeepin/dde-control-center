@@ -269,8 +269,10 @@ void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mod
 
     if (showTimeoutDialog(mon) == QDialog::Accepted) {
         m_displayWorker->saveChanges();
+        qDebug() << "showTimeoutDialog:Accepted()";
     } else {
         m_displayWorker->setMonitorResolution(mon, lastMode);
+        qDebug() << "showTimeoutDialog:reject()";
     }
 }
 
@@ -322,7 +324,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
 int DisplayModule::showTimeoutDialog(Monitor *mon)
 {
     TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
-
+    qDebug() << "new TimeoutDialog";
     qreal radio = qApp->devicePixelRatio();
     connect(mon, &Monitor::geometryChanged, timeoutDialog, [ = ] {
         if (timeoutDialog)
@@ -356,7 +358,7 @@ void DisplayModule::showRotate(Monitor *mon)
         qDebug() << "monitor size: " << m_displayModel->monitorList().size() <<
                     ", displayMode is " << m_displayModel->displayMode();
         if (m_displayModel->monitorList().size() == 1 || m_displayModel->displayMode() != CUSTOM_MODE) {
-            qDebug() << "m_displayWorker->saveChanges()";
+            qDebug() << "m_displayWorker->saveChanges()" << "rotate:" << m_displayModel->monitorList()[0]->rotate();
             m_displayWorker->saveChanges();
         }
     } else {

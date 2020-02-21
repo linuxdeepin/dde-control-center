@@ -222,10 +222,13 @@ void RotateDialog::rotate()
                               ? rotates[(rotates.indexOf(rotate) - 1 + s) % s]
                               : rotates[(rotates.indexOf(rotate) + 1) % s];
 
-    if (m_mon)
+    if (m_mon) {
+        qDebug() << "requestRotate(m_mon," << nextValue << ")";
         Q_EMIT RotateDialog::requestRotate(m_mon, nextValue);
-    else
+    } else {
+        qDebug() << "requestRotate(" << nextValue << ")";
         Q_EMIT RotateDialog::requestRotateAll(nextValue);
+    }
 
     m_resetOperationTimer->stop();
     m_resetTimeout = 15;

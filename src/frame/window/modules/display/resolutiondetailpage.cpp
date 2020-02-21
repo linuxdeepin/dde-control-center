@@ -149,6 +149,7 @@ void ResolutionDetailPage::initResoList()
             auto h = tItem->data(HeightRole).toInt();
             if(w == r.width() && h == r.height()) {
                 tItem->setData(Qt::CheckState::Checked, Qt::CheckStateRole);
+                qDebug() << "w:" << w << "h:" << h << " CheckState::Checked";
             } else {
                 tItem->setData(Qt::CheckState::Unchecked, Qt::CheckStateRole);
             }
