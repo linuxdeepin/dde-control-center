@@ -28,6 +28,7 @@
 #include <DSuggestButton>
 #include <DAbstractDialog>
 #include <DTipLabel>
+#include "widgets/titlelabel.h"
 
 #include <QDialog>
 
