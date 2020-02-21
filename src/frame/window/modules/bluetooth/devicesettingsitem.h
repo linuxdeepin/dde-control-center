@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "namespace.h"
+#include "interface/namespace.h"
 #include "modules/bluetooth/device.h"
 
 #include <DListView>

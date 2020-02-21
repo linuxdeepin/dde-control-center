@@ -39,7 +39,7 @@
 #ifndef DBUSCONTROLCENTER_H_1439447183
 #define DBUSCONTROLCENTER_H_1439447183
 
-#include "namespace.h"
+#include "interface/namespace.h"
 
 #include <QtCore/QObject>
 #include <QtDBus/QtDBus>

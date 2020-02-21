@@ -20,7 +20,7 @@
  */
 #pragma once
 
-#include "moduleinterface.h"
+#include "interface/moduleinterface.h"
 #include "widgets/contentwidget.h"
 
 namespace dcc {

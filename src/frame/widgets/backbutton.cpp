@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "backbutton.h"
+#include "widgets/backbutton.h"
 
 namespace dcc {
 namespace widgets {

@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "namespace.h"
+#include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 #include "modules/accounts/user.h"
 #include "modules/accounts/avatarwidget.h"

@@ -22,7 +22,7 @@
 #ifndef BRIGHTNESSPAGE_H_V20
 #define BRIGHTNESSPAGE_H_V20
 
-#include "namespace.h"
+#include "interface/namespace.h"
 
 #include <DTipLabel>
 

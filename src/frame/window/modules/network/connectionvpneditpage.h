@@ -25,7 +25,7 @@
 #include "connectioneditpage.h"
 
 #include <networkmanagerqt/accesspoint.h>
-#include "namespace.h"
+#include "interface/namespace.h"
 
 #define ServiceTypeL2TP "org.freedesktop.NetworkManager.l2tp"
 #define ServiceTypePPTP "org.freedesktop.NetworkManager.pptp"

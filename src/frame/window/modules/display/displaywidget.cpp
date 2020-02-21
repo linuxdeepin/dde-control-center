@@ -20,7 +20,7 @@
  */
 
 #include "displaywidget.h"
-#include "namespace.h"
+#include "interface/namespace.h"
 #include "window/utils.h"
 
 #include "modules/display/displaymodel.h"

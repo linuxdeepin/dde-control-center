@@ -26,7 +26,7 @@
 #ifndef RESOLUTIONDETAILPAGE_H_V20
 #define RESOLUTIONDETAILPAGE_H_V20
 
-#include "namespace.h"
+#include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 
 #include <DListView>

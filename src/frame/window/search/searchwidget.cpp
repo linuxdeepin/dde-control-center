@@ -20,7 +20,7 @@
  */
 #include "searchwidget.h"
 #include "window/utils.h"
-#include "moduleinterface.h"
+#include "interface/moduleinterface.h"
 
 #include <DPinyin>
 

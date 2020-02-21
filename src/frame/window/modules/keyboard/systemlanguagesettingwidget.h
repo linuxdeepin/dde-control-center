@@ -21,7 +21,7 @@
 #ifndef SYSTEMLANGUAGESETTINGWIDGET_H
 #define SYSTEMLANGUAGESETTINGWIDGET_H
 
-#include "namespace.h"
+#include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 #include "widgets/buttontuple.h"
 

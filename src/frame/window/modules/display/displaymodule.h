@@ -22,8 +22,8 @@
 #ifndef DISPLAYMODULE_H_V20
 #define DISPLAYMODULE_H_V20
 
-#include "moduleinterface.h"
-#include "namespace.h"
+#include "interface/moduleinterface.h"
+#include "interface/namespace.h"
 #include "customsettingdialog.h"
 
 class Resolution;

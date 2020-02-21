@@ -22,8 +22,8 @@
 #define MAINWINDOW_H
 
 #include "navigation/navmodel.h"
-#include "frameproxyinterface.h"
-#include "moduleinterface.h"
+#include "interface/frameproxyinterface.h"
+#include "interface/moduleinterface.h"
 
 #include <DMainWindow>
 #include <DBackgroundGroup>

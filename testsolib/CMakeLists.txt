@@ -11,6 +11,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_FLAGS "-g -Wall")
 
+add_definitions(-DWINDOW_MODE)
+
 # Find the library
 find_package(PkgConfig REQUIRED)
 find_package(DtkWidget REQUIRED)
@@ -21,8 +23,6 @@ find_package(Qt5 COMPONENTS
     Widgets
     DBus
 REQUIRED)
-
-pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
 set(Qt_LIBS
     Qt5::Core
@@ -38,10 +38,18 @@ add_library(${BIN_NAME} MODULE
     testsowidget.h
     thirdpage1.cpp
     thirdpage1.h
+
+    shortcutitem.cpp
+    shortcutitem.h
+    shortcutkey.cpp
+    shortcutkey.h
+    keylabel.cpp
+    keylabel.h
+
     resources/testmodule.qrc
 )
 target_include_directories(${BIN_NAME} PUBLIC
-    ../interface
+    ../include
     ${DtkWidget_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}

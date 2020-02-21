@@ -51,11 +51,11 @@ void TestsoModule::active()
 {
     TestsoWidget *soWidget = new TestsoWidget;
     soWidget->initUI();
-    connect(soWidget, &TestsoWidget::showPage1, this, [this] {
-        ThirdPage1 *thirdPage = new ThirdPage1();
-        m_frameProxy->pushWidget(this, thirdPage);
-    });
+
+    connect(soWidget, &TestsoWidget::showPage1, this, &TestsoModule::showGeneralSetting);
+
     m_frameProxy->pushWidget(this, soWidget);
+    showGeneralSetting();
 }
 
 const QString TestsoModule::name() const
@@ -84,4 +84,10 @@ QStringList TestsoModule::availPage() const
 void TestsoModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);
+}
+
+void TestsoModule::showGeneralSetting()
+{
+    ThirdPage1 *thirdPage = new ThirdPage1();
+    m_frameProxy->pushWidget(this, thirdPage);
 }

@@ -22,7 +22,7 @@
 #ifndef V20_DISPLAY_UTILS_H
 #define V20_DISPLAY_UTILS_H
 
-#include "namespace.h"
+#include "interface/namespace.h"
 
 #include <QMargins>
 #include <QSize>

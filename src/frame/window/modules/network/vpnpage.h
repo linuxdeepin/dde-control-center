@@ -27,7 +27,7 @@
 #ifndef VPNPAGE_H
 #define VPNPAGE_H
 
-#include "namespace.h"
+#include "interface/namespace.h"
 
 #include <DListView>
 

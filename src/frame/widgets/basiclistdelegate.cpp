@@ -24,7 +24,7 @@
  */
 
 #include "widgets/basiclistdelegate.h"
-#include "basiclistmodel.h"
+#include "widgets/basiclistmodel.h"
 
 #include <QPainter>
 

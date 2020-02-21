@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "spinboxwidget.h"
+#include "widgets/spinboxwidget.h"
 
 #include <QSpinBox>
 #include <QLabel>

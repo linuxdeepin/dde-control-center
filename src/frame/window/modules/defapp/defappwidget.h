@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "namespace.h"
+#include "interface/namespace.h"
 #include "modules/defapp/defappworker.h"
 
 #include <dtkwidget_global.h>
