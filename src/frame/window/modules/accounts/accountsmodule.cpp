@@ -77,7 +77,7 @@ const QString AccountsModule::name() const
 
 const QString AccountsModule::displayName() const
 {
-    return tr("Account");
+    return tr("Accounts");
 }
 
 void AccountsModule::showPage(const QString &pageName)

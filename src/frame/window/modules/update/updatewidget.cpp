@@ -55,7 +55,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     , m_mainLayout(new QStackedLayout)
 {
     //~ contents_path /update/Update
-    DButtonBoxButton *btnUpdate = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topupdate"), tr("Update"));
+    DButtonBoxButton *btnUpdate = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topupdate"), tr("Updates"));
     btnUpdate->setIconSize(QSize(24, 24));
     //~ contents_path /update/Update Settings
     DButtonBoxButton *btnSetting = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topsettings"), tr("Update Settings"));

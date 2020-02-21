@@ -95,7 +95,7 @@ const QString UpdateModule::name() const
 
 const QString UpdateModule::displayName() const
 {
-    return tr("Update");
+    return tr("Updates");
 }
 
 void UpdateModule::active()

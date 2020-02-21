@@ -291,7 +291,7 @@ void MainWindow::initAllModule(QString m)
     using namespace commoninfo;
 
     m_modules = {
-        { new AccountsModule(this), tr("Account")},
+        { new AccountsModule(this), tr("Accounts")},
         //~ contents_path /cloudsync/Cloud Sync
         { new SyncModule(this), tr("Cloud Account")},
         { new DisplayModule(this), tr("Display")},
@@ -305,7 +305,7 @@ void MainWindow::initAllModule(QString m)
         { new MouseModule(this), tr("Mouse")},
         { new WacomModule(this), tr("Drawing Tablet")},
         { new KeyboardModule(this), tr("Keyboard and Language")},
-        { new UpdateModule(this), tr("Update")},
+        { new UpdateModule(this), tr("Updates")},
         { new SystemInfoModule(this), tr("System Info")},
         { new CommonInfoModule(this), tr("General Settings")},
     };

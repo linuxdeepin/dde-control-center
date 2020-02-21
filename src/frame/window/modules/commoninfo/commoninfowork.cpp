@@ -82,7 +82,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
         QString msgcode = msg;
         msgcode = msgcode.split(":").at(0);
         if (msgcode == "1001") {
-            in3 = tr("Failed to request root access");
+            in3 = tr("Failed to get root access");
         } else if (msgcode == "1002") {
             in3 = tr("Please sign in to your cloud account first");
         } else if (msgcode == "1003") {
