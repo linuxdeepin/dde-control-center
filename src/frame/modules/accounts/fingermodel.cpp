@@ -101,7 +101,7 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
             if (!keys.contains("subcode")) {
                 break;
             }
-            auto errCode = jsonObject.value("subcode").toObject().keys()[0].toInt();
+            auto errCode = jsonObject.value("subcode").toInt();
             switch(errCode) {
             case FC_DataFull:
                 msg = "数据满了，不能再录制更多指纹";
@@ -110,7 +110,7 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
                 msg = "录入中断，请重新录入";
                 break;
             case FC_RepeatTemplet:
-                msg = "指纹已存在，请使用其他手指重新录入";
+                msg = tr("The fingerprint already exists, please scan other fingers");
                 break;
             case FC_UnkownError:
                 msg = "未知错误，请重新录入";
@@ -139,28 +139,29 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
             if (!keys.contains("subcode")) {
                 break;
             }
-            auto errCode = jsonObject.value("subcode").toObject().keys()[0].toInt();
+            auto errCode = jsonObject.value("subcode").toInt();
             switch(errCode) {
-            case RC_ErrorFigure:
-                msg = "请清洁手指或调整触摸位置，再次按压指纹识别器";
+            case RC_TouchTooShort: //接触时间过短
+                msg = tr("Finger moved too fast. Please do not lift until prompted");
                 break;
-            case RC_SwipeTooShort:
-                msg = "请调整手指按压区域以录入更多指纹";
+            case RC_ErrorFigure: //图形不可用
+                msg = tr("Clean your finger or adjust the finger position, and try again");
                 break;
-            case RC_TouchTooShort:
-                msg = "指纹采集间隙，请勿移动手指，直到提示您抬起";
+            case RC_RepeatTouchData: //重复率过高
+                msg = tr("Adjust the finger position to scan your fingerprint fully");
                 break;
-            case RC_RemoveAndRetry:
-                msg = "请清洁手指或调整触摸位置，再次按压指纹识别器";
+            case RC_RepeatFingerData: //重复手指
+                msg = tr("The fingerprint already exists, please scan other fingers");
+                Q_EMIT
                 break;
-            case RC_RepeatTouchData:
-                msg = "请调整手指按压区域以录入更多指纹";
+            case RC_SwipeTooShort: //滑动太短
+                msg = tr("Finger moved too fast. Please do not lift until prompted");
                 break;
-            case RC_FingerNotCenter:
-                msg = "请调整手指按压区域以录入更多指纹";
+            case RC_FingerNotCenter: //手指不在中间
+                msg = tr("Adjust the finger position to scan your fingerprint fully");
                 break;
-            case RC_RepeatFingerData:
-                msg = "请调整手指按压区域以录入更多指纹";
+            case RC_RemoveAndRetry: // 拿开手指从新扫描
+                msg = tr("Clean your finger or adjust the finger position, and try again");
                 break;
             }
             break;
