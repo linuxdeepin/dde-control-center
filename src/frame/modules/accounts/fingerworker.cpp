@@ -51,6 +51,7 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     connect(m_fingerPrintInter, &Fingerprint::EnrollStatus, m_model, [this](const QString &id, int code, const QString &msg) {
         auto userId = QString::number(getuid());
         if (id != userId) {
+            qDebug()<<"不是当前用户";
             return;
         } else {
             m_model->onEnrollStatusChanged(code, msg);
@@ -62,15 +63,8 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     QDBusInterface *inter = new QDBusInterface(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint",
                                                "com.deepin.daemon.Authenticate.Fingerprint",
                                                QDBusConnection::systemBus(), this);
-    auto req = inter->call("Claim", "", true);
-    if (req.type() == QDBusMessage::ErrorMessage) {
-        qDebug() << "error call!";
-        qDebug() << "error name :" << req.errorName() << " \t error message :" << req.errorMessage();
-    }
-    auto call = m_fingerPrintInter->Claim("", true);
-    call.waitForFinished();
-    qDebug() << call.error();
     auto defualtDevice = m_fingerPrintInter->defaultDevice();
+    qDebug() << "defaultDevice:" << defualtDevice;
     m_model->setIsVaild(!defualtDevice.isEmpty());
 
     connect(m_model, &FingerModel::enrollFailed, this, &FingerWorker::stopEnroll);
@@ -80,54 +74,80 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
 
 void FingerWorker::refreshUserEnrollList(const QString &id)
 {
+    qDebug() << "refreshUserEnrollList" << "id:" << id;
     auto call = m_fingerPrintInter->ListFingers(id);
     call.waitForFinished();
+    if (call.isError()) {
+        qDebug() << "call ListFingers Error : " << call.error();
+    } else {
+        qDebug() << "ListFingers  : " << call.value();
+    }
     m_model->setThumbsList(call.value());
 }
 
 void FingerWorker::enrollStart(const QString &name, const QString &thumb)
 {
+    qDebug() << "enrollStart";
     auto userId = QString::number(getuid());
     if (m_model->isVaild()) {
-         m_fingerPrintInter->Claim(userId, true);
-        auto error =  m_fingerPrintInter->Enroll(userId);
-         refreshUserEnrollList(userId);
+        qDebug() << "isvalid" << true;
+        auto callClaim = m_fingerPrintInter->Claim(userId, true);
+        callClaim.waitForFinished();
+        if (callClaim.isError()) {
+            qDebug() << "call DeleteFinger Error : " << callClaim.error();
+        }
+
+        auto callEnroll =  m_fingerPrintInter->Enroll(userId);
+        callEnroll.waitForFinished();
+        if (callEnroll.isError()) {
+            qDebug() << "call Enroll Error : " << callClaim.error();
+        }
+        refreshUserEnrollList(userId);
     }
 }
 
 void FingerWorker::stopEnroll()
 {
+    qDebug() << "stopEnroll";
     auto call = m_fingerPrintInter->StopEnroll();
     call.waitForFinished();
-
+    if (call.isError()) {
+        qDebug() << "call StopEnroll Error : " << call.error();
+    }
     auto id = QString::number(getuid());
-    m_fingerPrintInter->Claim(id, false);
+    auto callClaim = m_fingerPrintInter->Claim(id, false);
+    callClaim.waitForFinished();
+    if (callClaim.isError()) {
+        qDebug() << "call Claim Error : " << callClaim.error();
+    }
 }
 
 void FingerWorker::deleteFingerItem(const QString& userName, const QString& finger)
 {
     auto userId = QString::number(getuid());
-    m_fingerPrintInter->DeleteFinger(userId, finger);
+    auto call = m_fingerPrintInter->DeleteFinger(userId, finger);
+    call.waitForFinished();
+    if (call.isError()) {
+        qDebug() << "call DeleteFinger Error : " << call.error();
+    }
     refreshUserEnrollList(userId);
 }
 
 bool FingerWorker::recordFinger(const QString &name, const QString &thumb)
 {
+    qDebug() << "recordFinger";
     //1, 判断设备是否可用，如果不可用，返回error
     //2, 调用Claim
     auto id = QString::number(getuid());
     auto call = m_fingerPrintInter->Claim(id, true);
     call.waitForFinished();
-
     if (call.isError()) {
-        qDebug() << call.error();
         qDebug() << "call Claim Error : " << call.error();
         return false;
     }
 
     call = m_fingerPrintInter->Enroll(id);
     call.waitForFinished();
-
     if (call.isError()) {
         qDebug() << "call Enroll Error : " << call.error();
         return false;
@@ -138,6 +158,7 @@ bool FingerWorker::recordFinger(const QString &name, const QString &thumb)
 
 bool FingerWorker::reRecordFinger(const QString &thumb)
 {
+    qDebug() << "recordFinger";
     //1, 判断设备是否可用, 如果非独占，返回error
     //2, 调用StopEnroll
     auto id = QString::number(getuid());
