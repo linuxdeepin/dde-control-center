@@ -99,7 +99,7 @@ void AccountsDetailWidget::setFingerModel(FingerModel *model)
     });
 
     if (m_curUser->isCurrentUser()) {
-//        m_fingerWidget->setVisible(model->isVaild());
+        m_fingerWidget->setVisible(model->isVaild());
     }
 }
 

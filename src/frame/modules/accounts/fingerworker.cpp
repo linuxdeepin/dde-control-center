@@ -50,12 +50,13 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     //处理指纹后端的录入状态信号
     connect(m_fingerPrintInter, &Fingerprint::EnrollStatus, m_model, [this](const QString &id, int code, const QString &msg) {
         auto userId = QString::number(getuid());
-        if (id != userId) {
-            qDebug()<<"不是当前用户";
-            return;
-        } else {
-            m_model->onEnrollStatusChanged(code, msg);
-        }
+//        if (id != userId) {
+//            qDebug()<<"不是当前用户";
+//            return;
+//        } else {
+//            m_model->onEnrollStatusChanged(code, msg);
+//        }
+        m_model->onEnrollStatusChanged(code, msg);
     });
     //当前此信号末实现
     connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::onTouch);
