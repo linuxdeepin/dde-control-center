@@ -31,7 +31,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
-        <source>Account</source>
+        <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -101,7 +101,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
-        <source>Update</source>
+        <source>Updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -195,7 +195,7 @@
     <name>dccV20::accounts::AccountsModule</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="80"/>
-        <source>Account</source>
+        <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -584,7 +584,8 @@
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
-        <source>Failed to request root access</source>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
+        <source>Failed to get root access</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -610,11 +611,6 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
-        <source>Failed to get root access</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -707,7 +703,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="104"/>
-        <source>Failed to request root access</source>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="116"/>
+        <source>Failed to get root access</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -733,11 +730,6 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="114"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="116"/>
-        <source>Failed to get root access</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4676,7 +4668,7 @@
     <name>dccV20::update::UpdateModule</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="98"/>
-        <source>Update</source>
+        <source>Updates</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4743,7 +4735,7 @@
     <name>dccV20::update::UpdateWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
-        <source>Update</source>
+        <source>Updates</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
