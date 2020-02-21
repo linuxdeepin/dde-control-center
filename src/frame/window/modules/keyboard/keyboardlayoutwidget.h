@@ -26,7 +26,7 @@
 #ifndef KEYBOARDLAYOUTWIDGET_H
 #define KEYBOARDLAYOUTWIDGET_H
 
-#include "namespace.h"
+#include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 #include "modules/keyboard/indexmodel.h"
 #include "modules/keyboard/indexview.h"

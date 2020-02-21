@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "comboboxwidget.h"
+#include "widgets/comboboxwidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/optionitem.h"

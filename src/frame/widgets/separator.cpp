@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "separator.h"
+#include "widgets/separator.h"
 
 namespace dcc {
 namespace widgets {

@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #pragma once
-#include "namespace.h"
+#include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 
 namespace DCC_NAMESPACE {

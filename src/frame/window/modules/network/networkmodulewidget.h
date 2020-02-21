@@ -26,7 +26,7 @@
 #ifndef NETWORKMODULEWIDGET_H
 #define NETWORKMODULEWIDGET_H
 
-#include "namespace.h"
+#include "interface/namespace.h"
 
 #include <DStyleOption>
 #include <DListView>

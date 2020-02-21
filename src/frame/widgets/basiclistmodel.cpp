@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "basiclistmodel.h"
+#include "widgets/basiclistmodel.h"
 
 #include <QSize>
 #include <QDebug>

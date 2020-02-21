@@ -21,7 +21,7 @@
 #ifndef SHORTCUTSETTINGWIDGET_H
 #define SHORTCUTSETTINGWIDGET_H
 
-#include "namespace.h"
+#include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 #include "modules/keyboard/shortcutmodel.h"
 

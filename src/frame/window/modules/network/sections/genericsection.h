@@ -21,7 +21,7 @@
 
 #ifndef GENERICSECTION_H
 #define GENERICSECTION_H
-#include "namespace.h"
+#include "interface/namespace.h"
 
 #include "window/modules/network/netswitchwidget.h"
 #include "window/modules/network/sections/abstractsection.h"

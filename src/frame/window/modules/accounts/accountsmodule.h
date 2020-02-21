@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "moduleinterface.h"
+#include "interface/moduleinterface.h"
 
 #include <com_deepin_daemon_accounts.h>
 

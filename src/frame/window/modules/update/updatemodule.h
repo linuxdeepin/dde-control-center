@@ -20,7 +20,7 @@
  */
 #pragma once
 
-#include "moduleinterface.h"
+#include "interface/moduleinterface.h"
 #include "modules/update/common.h"
 
 #include <QObject>

@@ -23,7 +23,7 @@
 #define CONNECTIONHOTSPOTEDITPAGE_H
 
 #include "connectioneditpage.h"
-#include "namespace.h"
+#include "interface/namespace.h"
 
 namespace DCC_NAMESPACE {
 namespace network {

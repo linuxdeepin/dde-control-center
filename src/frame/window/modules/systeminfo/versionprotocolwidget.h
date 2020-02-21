@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "namespace.h"
+#include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 
 #include <QWidget>

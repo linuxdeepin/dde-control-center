@@ -22,7 +22,7 @@
 #ifndef DISPLAYWIDGET_H_V20
 #define DISPLAYWIDGET_H_V20
 
-#include "namespace.h"
+#include "interface/namespace.h"
 
 #include <DFloatingButton>
 #include <DListView>

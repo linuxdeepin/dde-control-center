@@ -3,16 +3,18 @@
 
 #include <QVBoxLayout>
 #include <QStandardItemModel>
-#include <QListView>
+
+#include <DListView>
 
 using namespace DCC_NAMESPACE;
+DWIDGET_USE_NAMESPACE 
 
 TestsoWidget::TestsoWidget(QWidget *parent)
     : QWidget(parent)
 {
     setObjectName("Testso");
     QVBoxLayout *contentLayout = new QVBoxLayout(this);
-    m_listView = new QListView(this);
+    m_listView = new DListView(this);
     contentLayout->setMargin(0);
     contentLayout->addWidget(m_listView);
     setLayout(contentLayout);
@@ -24,11 +26,8 @@ void TestsoWidget::initUI()
     QList<QPair<QIcon, QString>> menuIconText;
     menuIconText = {
         { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
-        //~ contents_path /mouse/Mouse
         { QIcon::fromTheme("dcc_mouse"), tr("Mouse")},
-        //~ contents_path /mouse/Touchpad
         { QIcon::fromTheme("dcc_touchpad"), tr("Touchpad")},
-        //~ contents_path /mouse/TrackPoint
         { QIcon::fromTheme("dcc_trackpoint"), tr("TrackPoint")}
     };
     QStandardItem *testSoItem = nullptr;
@@ -41,8 +40,8 @@ void TestsoWidget::initUI()
     m_listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_listView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_listView->setCurrentIndex(listviewModel->index(0, 0));
-    connect(m_listView, &QListView::clicked, this, &TestsoWidget::onItemClieck);
-    connect(m_listView, &QListView::activated, m_listView, &QListView::clicked);
+    connect(m_listView, &DListView::clicked, this, &TestsoWidget::onItemClieck);
+    connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
 }
 
 void TestsoWidget::onItemClieck(const QModelIndex &index)
