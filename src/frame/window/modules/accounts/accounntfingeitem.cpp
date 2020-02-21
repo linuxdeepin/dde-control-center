@@ -115,15 +115,9 @@ void AccounntFingeItem::setHideTitle(bool state)
 bool AccounntFingeItem::onNameEditFinished(DLineEdit *edit)
 {
     QString editName = edit->lineEdit()->text();
-    if(editName.isEmpty()) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("该名称不能为空"), parentWidget());
-        edit->lineEdit()->selectAll();
-        return false;
-    }
     if(editName.size() >15 ) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("该名称不符合规范，请输入字母、数字、中文、下划线，不超过15个字符"), parentWidget());
+        edit->showAlertMessage(tr("The name must only contain letters, numbers and underline, and no more than 15 characters."), parentWidget());
         edit->lineEdit()->selectAll();
         return false;
     }

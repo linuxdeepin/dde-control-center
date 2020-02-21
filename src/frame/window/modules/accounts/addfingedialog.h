@@ -41,6 +41,10 @@ QT_END_NAMESPACE
 namespace DCC_NAMESPACE {
 namespace accounts {
 
+enum enrollStage{
+  enrollFirstStage = 1,
+  enrollSecondStage
+};
 //添加指纹对话框
 class AddFingeDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
@@ -92,6 +96,7 @@ private:
     DTipLabel *m_titleTip;
     QTimer *m_qtimerTitleTip;
     QTimer *m_qtimerMsgTip;
+    enrollStage m_enrollStage{enrollStage::enrollFirstStage};
 };
 
 }

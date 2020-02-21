@@ -77,9 +77,7 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
         for (auto &item : m_vecItem) {
             item->setShowIcon(checked);
         }
-//        Q_EMIT requestCleanThumbs(m_curUser);
     });
-//    connect(m_curUser)
 }
 
 FingerWidget::~FingerWidget()
@@ -90,7 +88,6 @@ FingerWidget::~FingerWidget()
 void FingerWidget::setFingerModel(FingerModel *model)
 {
     m_model = model;
-//    m_model->createTestThumbsbList();
     connect(model, &FingerModel::thumbsListChanged, this, &FingerWidget::onThumbsListChanged);
     onThumbsListChanged(model->thumbsList());
 }
