@@ -59,7 +59,7 @@ void AddFingeDialog::initWidget()
     titleIcon->setTitle("");
     m_titleHLayout->addWidget(titleIcon, Qt::AlignTop | Qt::AlignRight);
     m_mainLayout->addLayout(m_titleHLayout);
-    m_mainLayout->addWidget(m_fingeWidget,1);
+    m_mainLayout->addWidget(m_fingeWidget, 1);
 
     m_btnHLayout->addWidget(m_cancelBtn);
     m_btnHLayout->addWidget(m_addBtn);
@@ -75,7 +75,7 @@ void AddFingeDialog::initWidget()
 void AddFingeDialog::initData()
 {
     m_cancelBtn->setText((tr("Cancel")));
-    m_addBtn->setText((tr("add")));
+    m_addBtn->setText((tr("Add fingerprint")));
     m_addBtn->setEnabled(false);
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
     connect(m_addBtn, &QPushButton::clicked, this, &AddFingeDialog::requestEnrollThumb);
@@ -84,11 +84,11 @@ void AddFingeDialog::initData()
         if (text == tr("Done")) {
             this->close();
         }
-        if (text == tr("add")) {
+        if (text == tr("Add fingerprint")) {
             this->close();
 //            requestEnrollThumb();
         }
-        if (text == tr("Scan again")) {
+        if (text == tr("Scan Again")) {
             setInitStatus();
             requestReEnrollThumb();
         }
@@ -138,10 +138,9 @@ void AddFingeDialog::enrollFailed(QString msg)
     if (!m_isEnrolling) {
         return;
     }
-
     m_isEnrolling = false;
     m_fingeWidget->setStatueMsg(tr("Scan Suspended"), msg, false);
-    m_addBtn->setText(tr("Scan again"));
+    m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
 
     Q_EMIT requestStopEnroll(m_username);
@@ -152,7 +151,7 @@ void AddFingeDialog::enrollDisconnected()
 
     m_isEnrolling = false;
     m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Suspended"), false);
-    m_addBtn->setText(tr("Scan again"));
+    m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
 }
 
@@ -170,7 +169,7 @@ void AddFingeDialog::setInitStatus()
 {
     m_isEnrolling = true;
     m_addBtn->setEnabled(false);
-    m_addBtn->setText(tr("add"));
+    m_addBtn->setText(tr("Add fingerprint"));
     m_fingeWidget->reEnter();
 }
 
@@ -179,3 +178,4 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
     Q_EMIT requestStopEnroll(m_username);
     event->accept();
 }
+
