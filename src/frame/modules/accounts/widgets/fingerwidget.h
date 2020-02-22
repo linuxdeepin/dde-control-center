@@ -73,6 +73,8 @@ private:
     int m_pro{0};
     QTimer *m_titleTimer;
     QTimer *m_msgTimer;
+    QString m_theme;
+    bool m_reset{true};
 };
 }
 }
