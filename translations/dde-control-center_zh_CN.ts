@@ -23,115 +23,118 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="154"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
         <source>Accounts</source>
-        <translation>帐户</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
         <source>Cloud Account</source>
         <translation>网络帐户</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="297"/>
         <source>Display</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="298"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="299"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="300"/>
         <source>Network</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="301"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="820"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="822"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="302"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="801"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="803"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="303"/>
         <source>Date and Time</source>
         <translation>时间日期</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="304"/>
         <source>Power</source>
         <translation>电源管理</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="832"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="834"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
         <source>Drawing Tablet</source>
         <translation>数位板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Updates</source>
-        <translation>更新</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>System Info</source>
         <translation>系统信息</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>General Settings</source>
         <translation>通用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
         <source>Touchpad</source>
         <translation>触控板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
         <source>TrackPoint</source>
         <translation>指点杆</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
-        <source>Assistive Tools</source>
-        <translation>辅助功能</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="844"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="846"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Cloud Sync</source>
         <translation>云同步</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccounntFingeItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="120"/>
+        <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -155,41 +158,41 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="339"/>
         <source>Always</source>
         <translation>长期有效</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="332"/>
         <source>Please input a number between 1-99999</source>
         <translation>请输入1到99999之间的数字</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="375"/>
         <source>Delete Account</source>
         <translation>删除帐户</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="378"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="382"/>
         <source>Login Without Password</source>
         <translation>无密码登录</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
         <source>Group</source>
         <translation>用户组</translation>
     </message>
@@ -197,9 +200,9 @@
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="79"/>
         <source>Accounts</source>
-        <translation>帐户</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -211,14 +214,13 @@
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="138"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="150"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="152"/>
         <source>Standard User</source>
         <translation>普通用户</translation>
     </message>
@@ -226,41 +228,46 @@
 <context>
     <name>dccV20::accounts::AddFingeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
-        <source>Add Fingerprint</source>
-        <translation>添加指纹</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="77"/>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
-        <source>Scan again</source>
-        <translation>重新录入</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="173"/>
+        <source>add</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="121"/>
         <source>Done</source>
         <translation>完成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
-        <source>Identifying fingerprint</source>
-        <translation> 正在识别指纹</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="155"/>
+        <source>Scan again</source>
+        <translation>重新录入</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
-        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation>请将手指按在指纹录入器上，或上下移动，然后松开来录入您的指纹</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="154"/>
+        <source>Scan Suspended</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
-        <source>Fingerprint added</source>
-        <translation>成功添加指纹</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="166"/>
+        <source>Cannot recognize your fingerprint</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="172"/>
         <source>Images</source>
         <translation>图片</translation>
     </message>
@@ -332,8 +339,8 @@
         <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="393"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
     </message>
     <message>
@@ -366,21 +373,22 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
-        <source>Delete fingerprint</source>
-        <translation>清除指纹</translation>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
+        <source>Edit</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
         <source>Fingerprint Password</source>
         <translation>指纹密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
-        <source>Fingerprint</source>
-        <translation>指纹</translation>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="138"/>
         <source>Add fingerprint</source>
         <translation>添加指纹</translation>
     </message>
@@ -441,8 +449,13 @@
         <translation>密码不一致</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+=======
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+>>>>>>> 8df960a5d... feat: update translate file
         <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
     </message>
     <message>
@@ -479,7 +492,11 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
+=======
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="95"/>
+>>>>>>> 8df960a5d... feat: update translate file
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -498,12 +515,20 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="113"/>
+=======
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="112"/>
+>>>>>>> 8df960a5d... feat: update translate file
         <source>Connect</source>
         <translation>连接</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="108"/>
+=======
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="107"/>
+>>>>>>> 8df960a5d... feat: update translate file
         <source>Connecting</source>
         <translation>正在连接</translation>
     </message>
@@ -945,49 +970,49 @@
 <context>
     <name>dccV20::defapp::DefaultAppsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="50"/>
         <source>Webpage</source>
         <translation>网页</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="52"/>
         <source>Mail</source>
         <translation>邮件</translation>
         <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="54"/>
         <source>Text</source>
         <translation>文本</translation>
         <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="56"/>
         <source>Music</source>
         <translation>音乐</translation>
         <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="58"/>
         <source>Video</source>
         <translation>视频</translation>
         <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="60"/>
         <source>Picture</source>
         <translation>图片</translation>
         <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="62"/>
         <source>Terminal</source>
         <translation>终端</translation>
         <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="93"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
@@ -1109,7 +1134,7 @@
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="172"/>
         <source>Rotate Screen</source>
         <translation>旋转屏幕</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
@@ -1179,7 +1204,7 @@
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="119"/>
         <source>Recommended</source>
         <translation>推荐</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
@@ -1698,12 +1723,12 @@
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="156"/>
         <source>Invalid IP address</source>
         <translation>无效的IP地址</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="164"/>
         <source>Invalid port</source>
         <translation>无效的端口</translation>
     </message>
@@ -1972,8 +1997,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
@@ -1983,45 +2007,45 @@
         <translation>网关</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
         <source>Primary DNS</source>
         <translation>首选DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>Secondary DNS</source>
         <translation>备用DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
         <source>Only applied in corresponding resources</source>
         <translation>仅用于相对应的网络上的资源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="248"/>
         <source>Method</source>
         <translation>方法</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="304"/>
         <source>Netmask</source>
         <translation>子网掩码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="315"/>
         <source>Prefix</source>
         <translation>前缀</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="445"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="466"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="476"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="485"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="513"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="529"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="539"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="456"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="484"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="512"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="528"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="538"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="547"/>
         <source>Invalid IP address</source>
         <translation>无效的IP地址</translation>
     </message>
@@ -2157,48 +2181,48 @@
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="146"/>
         <source>Configure by Network Manager</source>
         <translation>用网络管理器配置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="300"/>
         <source>Personal Hotspot</source>
         <translation>个人热点</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="319"/>
         <source>Wired Network %1</source>
         <translation>有线网络 %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="322"/>
         <source>Wired Network</source>
         <translation>有线网络</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="326"/>
         <source>Wireless Network %1</source>
         <translation>无线网络%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="329"/>
         <source>Wireless Network</source>
         <translation>无线网络</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="346"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="353"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="362"/>
         <source>Disabled</source>
         <translation>已禁用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="373"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="378"/>
         <source>Disconnected</source>
         <translation>已断开</translation>
     </message>
@@ -3885,17 +3909,17 @@
         <translation>使用电池</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="78"/>
         <source>Power</source>
         <translation>电源管理</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="210"/>
         <source>Battery low, please plug in</source>
         <translation>电池电量低，请连接电源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="212"/>
         <source>Battery critically low</source>
         <translation>电池电量耗尽</translation>
     </message>
@@ -4046,85 +4070,80 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
         <source>Server</source>
         <translation>服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
         <source>Window Effect</source>
         <translation>窗口特效</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="422"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
         <source>Developer Mode</source>
         <translation>开发者模式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
         <source>User Experience Program</source>
         <translation>用户体验计划</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
         <source>Join User Experience Program</source>
         <translation>加入用户体验计划</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
+        <source>Cloud Account</source>
+        <translation>网络帐户</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
         <source>Display Scaling</source>
         <translation>屏幕缩放</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
-        <source>Night Shift</source>
-        <translation>自动调节色温</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
         <source>Touchpad</source>
         <translation>触控板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
         <source>TrackPoint</source>
         <translation>指点杆</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
         <source>Personal Hotspot</source>
         <translation>个人热点</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
         <source>On Battery</source>
         <translation>使用电池</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
         <source>Wired Network</source>
         <translation>有线网络</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
         <source>Wireless Network</source>
         <translation>无线网络</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="95"/>
         <source>Multiple Displays</source>
         <translation>多屏显示模式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="423"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
         <source>End User License Agreement</source>
         <translation>最终用户许可协议</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="430"/>
-        <source>Cloud Account</source>
-        <translation>网络帐户</translation>
     </message>
 </context>
 <context>
@@ -4136,13 +4155,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="87"/>
         <source>Input</source>
         <translation>输入</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="139"/>
         <source>Sound Card:</source>
         <translation>声卡：</translation>
     </message>
@@ -4155,13 +4174,13 @@
         <translation>麦克风</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="102"/>
         <source>Input Volume</source>
         <translation>输入音量</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="140"/>
         <source>Input Level</source>
         <translation>反馈音量</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
@@ -4378,104 +4397,6 @@
     </message>
 </context>
 <context>
-    <name>dccV20::systeminfo::ManualBackup</name>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="17"/>
-        <source>Invalid path</source>
-        <translation>此路径无效</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="115"/>
-        <source>Tool execution error</source>
-        <translation>工具执行错误</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="18"/>
-        <source>Backup</source>
-        <translation>备份</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="29"/>
-        <source>Set backup directory</source>
-        <translation>设置备份目录</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::systeminfo::ManualRestore</name>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="92"/>
-        <source>Restore</source>
-        <translation>还原</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="120"/>
-        <source>Save User Data</source>
-        <translation>保存用户数据</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="122"/>
-        <source>Reset All Settings</source>
-        <translation>还原所有设置</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="142"/>
-        <source>Select restore directory</source>
-        <translation>选择还原目录</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="150"/>
-        <source>Manual Restore</source>
-        <translation>手动还原</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="205"/>
-        <source>Backup file is invalid</source>
-        <translation>备份文件无效</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="228"/>
-        <source>Tool execution error</source>
-        <translation>工具执行错误</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
-        <source>Grub authentication failed</source>
-        <translation>Grub认证失败</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="215"/>
-        <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
-        <translation>还原所有设置会将系统盘恢复到您安装系统时的状态，您的数据将保留而用户名和密码会清空，请确认后操作</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="219"/>
-        <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
-        <translation>还原所有数据和设置会彻底抹掉您的所有数据，系统会被重新安装，并清空所有用户数据。此操作非常危险，请确认后再操作</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="223"/>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="241"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="243"/>
-        <source>Confirm</source>
-        <translation>确定还原</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="235"/>
-        <source>You should reboot the computer to erase all content and settings, reboot now?</source>
-        <translation>重启系统才能还原所有数据和设置，是否现在重启?</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="238"/>
-        <source>You should reboot the computer to reset all settings, reboot now?</source>
-        <translation>重启系统才能还原所有设置，是否现在重启?</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="77"/>
@@ -4561,7 +4482,7 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="81"/>
         <source>System Info</source>
         <translation>系统信息</translation>
     </message>
@@ -4569,19 +4490,19 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="62"/>
         <source>About This PC</source>
         <translation>关于本机</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="64"/>
         <source>Edition License</source>
         <translation>版本协议</translation>
         <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="66"/>
         <source>End User License Agreement</source>
         <translation>最终用户许可协议</translation>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
@@ -4790,9 +4711,9 @@
 <context>
     <name>dccV20::update::UpdateModule</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="98"/>
         <source>Updates</source>
-        <translation>更新</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4859,7 +4780,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
         <source>Updates</source>
-        <translation>检查更新</translation>
+        <translation type="unfinished"/>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -5056,53 +4977,53 @@
         <translation>控制中心</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="237"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
         <source>On Battery</source>
         <translation>使用电池</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
         <source>Plugged In</source>
         <translation>使用电源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
         <source>General</source>
         <translation>通用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
         <source>Touchpad</source>
         <translation>触控板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
         <source>TrackPoint</source>
         <translation>指点杆</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
         <source>Application Proxy</source>
         <translation>应用代理</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="248"/>
         <source>System Proxy</source>
         <translation>系统代理</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
         <source>Time Settings</source>
         <translation>时间设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
         <source>Change System Timezone</source>
         <translation>修改系统时区</translation>
     </message>
@@ -5478,32 +5399,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="391"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="388"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>您的主机成功退出了域服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="392"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="389"/>
         <source>Your host joins the domain server successfully</source>
         <translation>您的主机成功加入了域服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="414"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="411"/>
         <source>Your host failed to leave the domain server</source>
         <translation>您的主机退出域服务器失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="412"/>
         <source>Your host failed to join the domain server</source>
         <translation>您的主机加入域服务器失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="418"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
         <source>AD domain settings</source>
         <translation>AD域设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="487"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="484"/>
         <source>Password not match</source>
         <translation>密码不一致</translation>
     </message>
@@ -5608,6 +5529,33 @@ If no operation, the display will be restored after %1s.</source>
     </message>
 </context>
 <context>
+    <name>dcc::accounts::FingerModel</name>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
+        <source>The fingerprint already exists, please scan other fingers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="158"/>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
+        <source>Adjust the finger position to scan your fingerprint fully</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::FingerPage</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
@@ -5638,6 +5586,29 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
         <translation>指纹</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::FingerWidget</name>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="49"/>
+        <source>Place your finger</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="128"/>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="130"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="160"/>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9500,7 +9471,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation>系统补丁</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1049"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1042"/>
         <source>System</source>
         <translation>系统</translation>
     </message>
