@@ -115,7 +115,7 @@ void FingerWidget::setStatueMsg(const QString &title, const QString &msg, bool r
     m_titleLbl->setText(title);
     m_tipLbl->setText(msg);
 
-    if (reset) {
+    if (!m_reset) {
         m_msgTimer->start();
         m_titleTimer->start();
          m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/finished/success_00.png").arg(m_theme));
