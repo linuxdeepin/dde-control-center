@@ -24,6 +24,7 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QDebug>
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -72,10 +73,10 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
     });
     connect(m_editTitle->lineEdit(), &QLineEdit::editingFinished, this, [this] {
         if(onNameEditFinished(m_editTitle)) {
-            setEditTitle(false);
-            m_editTitle->lineEdit()->clearFocus();
             Q_EMIT editTextFinished(m_editTitle->text());
         }
+        setEditTitle(false);
+        m_editTitle->lineEdit()->clearFocus();
     });
 }
 
@@ -115,6 +116,8 @@ void AccounntFingeItem::setHideTitle(bool state)
 bool AccounntFingeItem::onNameEditFinished(DLineEdit *edit)
 {
     QString editName = edit->lineEdit()->text();
+    if (editName.isEmpty())
+        return false;
     if(editName.size() >15 ) {
         edit->setAlert(true);
         edit->showAlertMessage(tr("The name must only contain letters, numbers and underline, and no more than 15 characters."), parentWidget());
