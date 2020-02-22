@@ -410,7 +410,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_fingerWidget, &FingerWidget::requestCleanThumbs, this,
             &AccountsDetailWidget::requestCleanThumbs);
     connect(m_fingerWidget, &FingerWidget::requestDeleteFingerItem, this, &AccountsDetailWidget::requestDeleteFingerItem);
-
+    connect(m_fingerWidget, &FingerWidget::noticeEnrollCompleted, this, &AccountsDetailWidget::noticeEnrollCompleted);
     //图像列表操作
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
     this, [ = ](const QString &avatarPath) {
