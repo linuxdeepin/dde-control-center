@@ -88,6 +88,9 @@ FingerWidget::~FingerWidget()
 void FingerWidget::setFingerModel(FingerModel *model)
 {
     m_model = model;
+    connect(m_model, &FingerModel::enrollCompleted, this, [this] {
+       Q_EMIT noticeEnrollCompleted(m_curUser->name());
+    });
     connect(model, &FingerModel::thumbsListChanged, this, &FingerWidget::onThumbsListChanged);
     onThumbsListChanged(model->thumbsList());
 }
