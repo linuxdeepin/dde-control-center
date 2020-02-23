@@ -67,9 +67,6 @@ install(FILES data/timezone.db DESTINATION share/dde-control-center)
 # conf file
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION share/dde-control-center)
 
-# dev files
-install(DIRECTORY ${HEADERS} DESTINATION include/dde-control-center)
-
 # polkit policy file
 install(FILES com.deepin.controlcenter.develop.policy DESTINATION share/polkit-1/actions)
 if (OS_DEEPIN_PROFESSIONAL)
@@ -77,3 +74,17 @@ if (OS_DEEPIN_PROFESSIONAL)
         install(FILES com.deepin.controlcenter.addomain.policy DESTINATION share/polkit-1/actions)
     endif()
 endif()
+
+# dev files
+set(INCLUDE_INSTALL_DIR include/dde-control-center)
+install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
+
+include(CMakePackageConfigHelpers)
+configure_package_config_file(DdeControlCenterConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
+    PATH_VARS INCLUDE_INSTALL_DIR)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
+
