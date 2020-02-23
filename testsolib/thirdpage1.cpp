@@ -2,9 +2,9 @@
 
 #include "shortcutitem.h"
 
-#include "widgets/labels/tipslabel.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/switchwidget.h"
+#include <widgets/labels/tipslabel.h>
+#include <widgets/settingsgroup.h>
+#include <widgets/switchwidget.h>
 
 #include <DListView>
 

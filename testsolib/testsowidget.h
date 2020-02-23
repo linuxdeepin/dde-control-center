@@ -1,8 +1,8 @@
 #ifndef TESTSOWIDGET_H
 #define TESTSOWIDGET_H
 
-#include "interface/namespace.h"
-#include "interface/moduleinterface.h"
+#include <interface/namespace.h>
+#include <interface/moduleinterface.h>
 
 #include <QWidget>
 
