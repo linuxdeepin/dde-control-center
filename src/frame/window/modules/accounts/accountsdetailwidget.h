@@ -102,6 +102,7 @@ private Q_SLOTS:
     void deleteUserClicked();
     void changeUserGroup(const QStringList &groups);
     void userGroupClicked(const QModelIndex &index);
+
 private:
     dcc::accounts::User *m_curUser;
     dcc::accounts::UserModel *m_userModel;
