@@ -52,7 +52,6 @@ Q_SIGNALS:
 
 public:
     bool tryEnroll(const QString &name, const QString &thumb);
-    bool reRecordFinger(const QString &thumb);
 
 public Q_SLOTS:
     void refreshUserEnrollList(const QString &id);

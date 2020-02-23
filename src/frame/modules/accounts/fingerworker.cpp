@@ -45,15 +45,12 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
 //    m_fingerPrintInter->setSync(false);
 
     //处理指纹后端的录入状态信号
-    connect(m_fingerPrintInter, &Fingerprint::EnrollStatus, m_model, [this](const QString &userName, int code, const QString &msg) {
+    connect(m_fingerPrintInter, &Fingerprint::EnrollStatus, m_model, [this](const QString &, int code, const QString &msg) {
         m_model->onEnrollStatusChanged(code, msg);
     });
     //当前此信号末实现
     connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::onTouch);
 
-    QDBusInterface *inter = new QDBusInterface(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint",
-                                               "com.deepin.daemon.Authenticate.Fingerprint",
-                                               QDBusConnection::systemBus(), this);
     auto defualtDevice = m_fingerPrintInter->defaultDevice();
     qDebug() << "defaultDevice:" << defualtDevice;
     m_model->setIsVaild(!defualtDevice.isEmpty());
@@ -65,7 +62,6 @@ bool FingerWorker::tryEnroll(const QString &name, const QString &thumb)
     callClaim.waitForFinished();
     if (callClaim.isError()) {
         qDebug() << "call Claim Error : " << callClaim.error();
-        return false;
     }
 
     auto callEnroll =  m_fingerPrintInter->Enroll(thumb);
@@ -120,28 +116,4 @@ void FingerWorker::deleteFingerItem(const QString& userName, const QString& fing
         qDebug() << "call DeleteFinger Error : " << call.error();
     }
     refreshUserEnrollList(userName);
-}
-
-bool FingerWorker::reRecordFinger(const QString &thumb)
-{
-    qDebug() << "recordFinger";
-    //1, 判断设备是否可用, 如果非独占，返回error
-    //2, 调用StopEnroll
-    QDBusPendingCall call = m_fingerPrintInter->StopEnroll();
-    call.waitForFinished();
-
-    if (call.isError()) {
-        qDebug() << "call StopEnroll Error : " << call.error();
-        return false;
-    }
-
-    call = m_fingerPrintInter->Enroll(thumb);
-    call.waitForFinished();
-
-    if (call.isError()) {
-        qDebug() << "call Enroll Error : " << call.error();
-        return false;
-    }
-
-    return true;
 }

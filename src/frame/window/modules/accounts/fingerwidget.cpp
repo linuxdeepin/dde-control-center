@@ -142,7 +142,7 @@ void FingerWidget::addFingerButton()
 
     DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
-        qDebug() << m_curUser->name() << m_notUseThumb;
+        qDebug() << "try add finger :" <<  m_curUser->name() << m_notUseThumb;
         Q_EMIT requestAddThumbs(m_curUser->name(), m_notUseThumb);
     });
 }

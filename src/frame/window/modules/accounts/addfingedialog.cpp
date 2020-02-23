@@ -47,6 +47,10 @@ AddFingeDialog::AddFingeDialog(const QString &thumb, DAbstractDialog *parent)
     initData();
 }
 
+AddFingeDialog::~AddFingeDialog()
+{
+}
+
 void AddFingeDialog::initWidget()
 {
     setMinimumSize(QSize(328,391));
@@ -82,7 +86,7 @@ void AddFingeDialog::initData()
             this->close();
         } else if (text == tr("Scan Again")) {
             setInitStatus();
-            requestReEnrollThumb();
+            Q_EMIT requestEnrollThumb();
         }
     });
 }
@@ -112,7 +116,7 @@ void AddFingeDialog::enrollCompleted()
     m_fingeWidget->finished();
     m_addBtn->setText(tr("Done"));
     m_addBtn->setEnabled(true);
-//    Q_EMIT requestStopEnroll(m_username);
+    Q_EMIT requestStopEnroll(m_username);
 }
 
 void AddFingeDialog::enrollStagePass(int pro)
@@ -145,6 +149,9 @@ void AddFingeDialog::enrollDisconnected()
     m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Suspended"), false);
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
+
+    //会出现末知情况，需要与后端确认中断时是否可以停止
+    Q_EMIT requestStopEnroll(m_username);
 }
 
 void AddFingeDialog::enrollRetry(QString msg)
@@ -167,7 +174,9 @@ void AddFingeDialog::setInitStatus()
 
 void AddFingeDialog::closeEvent(QCloseEvent *event)
 {
-    Q_EMIT requestStopEnroll(m_username);
-    event->accept();
+    if (m_isEnrolling) {
+        Q_EMIT requestStopEnroll(m_username);
+    }
+    QDialog::closeEvent(event);
 }
 

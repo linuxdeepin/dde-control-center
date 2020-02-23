@@ -48,6 +48,8 @@ class AddFingeDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
     Q_OBJECT
 public:
     explicit AddFingeDialog(const QString &thumb, DAbstractDialog *parent = nullptr);
+    ~AddFingeDialog() override;
+
     void setFingerModel(dcc::accounts::FingerModel *model);
     void setUsername(const QString &name);
     void enrollCompleted();
@@ -66,7 +68,6 @@ protected:
 
 Q_SIGNALS:
     void requestSaveThumb(const QString &name);
-    void requestReEnrollStart(const QString &thumb);
     void requestStopEnroll(const QString &thumb);
     void requestReEnrollThumb();
     void requestEnrollThumb();
