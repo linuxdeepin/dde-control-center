@@ -139,7 +139,7 @@
 <context>
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -211,7 +211,7 @@
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="78"/>
         <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -240,38 +240,38 @@
 <context>
     <name>dccV20::accounts::AddFingeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="173"/>
-        <source>add</source>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="171"/>
+        <source>Add fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="117"/>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="144"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="155"/>
-        <source>Scan again</source>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="150"/>
+        <source>Scan Again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="143"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="149"/>
         <source>Scan Suspended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="164"/>
         <source>Cannot recognize your fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
@@ -390,7 +390,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
         <source>Add fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5685,17 +5685,17 @@ If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="128"/>
-        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="130"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
         <source>Place the edges of your fingerprint on the sensor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="160"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="164"/>
         <source>Fingerprint added</source>
         <translation type="unfinished"></translation>
     </message>

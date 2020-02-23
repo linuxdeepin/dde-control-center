@@ -133,7 +133,7 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 void FingerWidget::addFingerButton()
 {
     SettingsItem* addfingerItem = new SettingsItem(this);
-    DCommandLinkButton *addBtn = new DCommandLinkButton(tr("Add fingerprint"));
+    DCommandLinkButton *addBtn = new DCommandLinkButton(tr("Add Fingerprint"));
     QHBoxLayout *fingerLayout = new QHBoxLayout(this);
     fingerLayout->addWidget(addBtn);
     addfingerItem->setLayout(fingerLayout);
