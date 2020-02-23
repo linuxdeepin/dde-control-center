@@ -54,6 +54,7 @@ class SystemLanguageSettingWidget : public dcc::ContentWidget
     Q_OBJECT
 public:
     explicit SystemLanguageSettingWidget(dcc::keyboard::KeyboardModel *model, QWidget *parent = nullptr);
+    ~SystemLanguageSettingWidget();
 
     void updateDataModel(QStandardItemModel *model, QModelIndex &selectedIndex, const QModelIndex &index);
 

@@ -30,6 +30,7 @@
 
 #include <QVBoxLayout>
 #include <QEvent>
+#include <QScroller>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::keyboard;
@@ -54,6 +55,12 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_view->setBackgroundType(DStyledItemDelegate::ClipCornerBackground);
     m_view->setSelectionMode(QAbstractItemView::NoSelection);
+
+    QScroller::grabGesture(m_view, QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_view);
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
 
     QPushButton *cancel = m_buttonTuple->leftButton();
     cancel->setText(tr("Cancel"));
@@ -91,6 +98,14 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     connect(m_view, &DListView::clicked, this, &SystemLanguageSettingWidget::onLangSelect);
 
     setModelData(m_keyboardModel->langLists());
+}
+
+SystemLanguageSettingWidget::~SystemLanguageSettingWidget()
+{
+    QScroller *scroller = QScroller::scroller(m_view);
+    if (scroller) {
+        scroller->stop();
+    }
 }
 
 void SystemLanguageSettingWidget::onSearch(const QString &text)
