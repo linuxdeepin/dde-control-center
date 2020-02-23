@@ -46,12 +46,6 @@ namespace accounts {
 class AddFingeDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
-
-    enum EnrollState {
-        EnrollComplate = 1,
-        Enrolling,
-        EnrollFailed
-    };
 public:
     explicit AddFingeDialog(const QString &thumb, DAbstractDialog *parent = nullptr);
     void setFingerModel(dcc::accounts::FingerModel *model);
@@ -68,7 +62,7 @@ private:
     void initData();
 
 protected:
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) override;
 
 Q_SIGNALS:
     void requestSaveThumb(const QString &name);

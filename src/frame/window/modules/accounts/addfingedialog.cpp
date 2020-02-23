@@ -68,8 +68,6 @@ void AddFingeDialog::initWidget()
 
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
-//    m_cancelBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-//    m_addBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
 
 void AddFingeDialog::initData()
@@ -77,18 +75,12 @@ void AddFingeDialog::initData()
     m_cancelBtn->setText((tr("Cancel")));
     m_addBtn->setText((tr("Add fingerprint")));
     m_addBtn->setEnabled(false);
-    connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
-    connect(m_addBtn, &QPushButton::clicked, this, &AddFingeDialog::requestEnrollThumb);
+    connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::reject);
     connect(m_addBtn, &DSuggestButton::clicked, this, [=] {
         auto text = m_addBtn->text();
-        if (text == tr("Done")) {
+        if (text == tr("Done") || text == tr("Add fingerprint")) {
             this->close();
-        }
-        if (text == tr("Add fingerprint")) {
-            this->close();
-//            requestEnrollThumb();
-        }
-        if (text == tr("Scan Again")) {
+        } else if (text == tr("Scan Again")) {
             setInitStatus();
             requestReEnrollThumb();
         }
@@ -120,7 +112,7 @@ void AddFingeDialog::enrollCompleted()
     m_fingeWidget->finished();
     m_addBtn->setText(tr("Done"));
     m_addBtn->setEnabled(true);
-    Q_EMIT requestStopEnroll(m_username);
+//    Q_EMIT requestStopEnroll(m_username);
 }
 
 void AddFingeDialog::enrollStagePass(int pro)
