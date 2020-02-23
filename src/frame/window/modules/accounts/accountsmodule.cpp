@@ -144,11 +144,9 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
     w->setAccountModel(m_userModel);
+    m_fingerWorker->refreshUserEnrollList(account->name());
     w->setFingerModel(m_fingerModel);
 
-    if (m_fingerModel->isVaild()) {
-        initFingerData();
-    }
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
@@ -208,13 +206,11 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [ = ] {
         m_fingerWorker->startEnroll(name, thumb);
     });
-    connect(dlg, &AddFingeDialog::requestReEnrollThumb, m_fingerWorker, [ = ] {
-        m_fingerWorker->reRecordFinger(thumb);
-    });
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
 
     if (m_fingerWorker->tryEnroll(name, thumb)) {
         dlg->exec();
+        m_fingerWorker->refreshUserEnrollList(name);
     }
     dlg->deleteLater();
 }
