@@ -77,12 +77,12 @@ void AddFingeDialog::initWidget()
 void AddFingeDialog::initData()
 {
     m_cancelBtn->setText((tr("Cancel")));
-    m_addBtn->setText((tr("Add fingerprint")));
+    m_addBtn->setText((tr("Add Fingerprint")));
     m_addBtn->setEnabled(false);
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::reject);
     connect(m_addBtn, &DSuggestButton::clicked, this, [=] {
         auto text = m_addBtn->text();
-        if (text == tr("Done") || text == tr("Add fingerprint")) {
+        if (text == tr("Done") || text == tr("Add Fingerprint")) {
             this->close();
         } else if (text == tr("Scan Again")) {
             setInitStatus();
@@ -168,7 +168,7 @@ void AddFingeDialog::setInitStatus()
 {
     m_isEnrolling = true;
     m_addBtn->setEnabled(false);
-    m_addBtn->setText(tr("Add fingerprint"));
+    m_addBtn->setText(tr("Add Fingerprint"));
     m_fingeWidget->reEnter();
 }
 
