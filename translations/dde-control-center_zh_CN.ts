@@ -32,7 +32,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
         <source>Accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
@@ -204,7 +204,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="79"/>
         <source>Accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>用户</translation>
     </message>
 </context>
 <context>
@@ -242,6 +242,13 @@
         <translation>添加</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="171"/>
+        <source>Add Fingerprint</source>
+        <translation>添加指纹</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="121"/>
         <source>Done</source>
@@ -251,7 +258,7 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="144"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="155"/>
-        <source>Scan again</source>
+        <source>Scan Again</source>
         <translation>重新录入</translation>
     </message>
     <message>
@@ -391,7 +398,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="138"/>
-        <source>Add fingerprint</source>
+        <source>Add Fingerprint</source>
         <translation>添加指纹</translation>
     </message>
 </context>
@@ -4719,7 +4726,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="98"/>
         <source>Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
 </context>
 <context>
@@ -4786,7 +4793,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
         <source>Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
