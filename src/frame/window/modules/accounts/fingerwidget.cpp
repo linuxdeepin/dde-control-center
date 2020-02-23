@@ -121,16 +121,11 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
         m_vecItem.append(item);
         thumb.removeOne(finger);
         qDebug() << "onThumbsListChanged: " << finger;
-
-        if (!thumb.isEmpty()) {
-            m_notUseThumb = thumb.first();
-        }
     }
+
     m_clearBtn->setVisible(m_listGrp->itemCount());
     if (!thumb.isEmpty()) {
         m_notUseThumb = thumb.first();
-    }
-    if (10 > thumbs.size()) {
         addFingerButton();
     }
 }
