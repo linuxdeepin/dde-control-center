@@ -129,9 +129,9 @@ void FingerWidget::setProsses(int pro)
                                .arg(m_theme).arg(m_pro/3, 2, 10, QChar('0')));
 
     if (pro > 35) {
-        m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
-    } else {
         m_defTip = tr("Place the edges of your fingerprint on the sensor");
+    } else {
+        m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
     }
     m_msgTimer->stop();
     m_titleTimer->stop();
