@@ -341,13 +341,13 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     }
 
     m_autoLogin = new SwitchWidget;
-    SwitchWidget *nopasswdLogin = new SwitchWidget;
+    m_nopasswdLogin = new SwitchWidget;
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
 
     loginGrp->setContentsMargins(0, 0, 0, 0);
     loginGrp->layout()->setMargin(0);
     loginGrp->appendItem(m_autoLogin);
-    loginGrp->appendItem(nopasswdLogin);
+    loginGrp->appendItem(m_nopasswdLogin);
     if (!IsServerSystem) {
         layout->addSpacing(20);
     }
@@ -364,7 +364,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     bool isCurUser = m_curUser->isCurrentUser();
     modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
-    nopasswdLogin->setEnabled(isCurUser);
+    m_nopasswdLogin->setEnabled(isCurUser);
 
     //服务器版本不显示自动登录，无密码登录
     loginGrp->setVisible(!IsServerSystem);
@@ -379,8 +379,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_autoLogin->setChecked(m_curUser->autoLogin());
 
     //~ contents_path /accounts/Accounts Detail
-    nopasswdLogin->setTitle(tr("Login Without Password"));
-    nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
+    m_nopasswdLogin->setTitle(tr("Login Without Password"));
+    m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     //当前用户禁止使用删除按钮
     const bool isOnline = m_curUser->online();
@@ -395,12 +395,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //自动登录，无密码登录操作
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::nopasswdLoginChanged,
-            nopasswdLogin, &SwitchWidget::setChecked);
+            m_nopasswdLogin, &SwitchWidget::setChecked);
     connect(m_autoLogin, &SwitchWidget::checkedChanged,
     this, [ = ](const bool autoLogin) {
         Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
     });
-    connect(nopasswdLogin, &SwitchWidget::checkedChanged,
+    connect(m_nopasswdLogin, &SwitchWidget::checkedChanged,
     this, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
@@ -425,6 +425,7 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
     }
     m_userModel = model;
     m_autoLogin->setVisible(m_userModel->isAutoLoginValid() && !IsServerSystem);
+    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginValid() && !IsServerSystem);
 
     if (!m_groupItemModel)
         return;

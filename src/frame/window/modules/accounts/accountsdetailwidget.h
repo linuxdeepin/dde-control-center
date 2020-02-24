@@ -113,6 +113,7 @@ private:
     QStandardItemModel *m_groupItemModel;
     bool m_isServerSystem;
     dcc::widgets::SwitchWidget *m_autoLogin;
+    dcc::widgets::SwitchWidget *m_nopasswdLogin;
 };
 
 }   // namespace accounts

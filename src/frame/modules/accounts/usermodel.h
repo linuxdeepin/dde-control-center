@@ -49,6 +49,9 @@ public:
 
     inline bool isAutoLoginValid() const { return m_bAutoLoginValid; }
     void setAutoLoginValid(bool bValid);
+
+    inline bool isNoPassWordLoginValid() const { return m_bNoPassWordLoginValid; }
+    void setNoPassWordLoginValid(bool bValid);
 #ifdef DCC_ENABLE_ADDOMAIN
     bool isJoinADDomain() const { return m_isJoinADDomain; }
     void setIsJoinADDomain(bool isJoinADDomain);
@@ -71,6 +74,7 @@ Q_SIGNALS:
 
 private:
     bool m_bAutoLoginValid;
+    bool m_bNoPassWordLoginValid;
     QMap<QString, User *> m_userList;
     QStringList m_allGroups;
     QStringList m_presetGroups;

@@ -86,6 +86,14 @@ void UserModel::setAutoLoginValid(bool bValid)
     m_bAutoLoginValid = bValid;
 }
 
+void UserModel::setNoPassWordLoginValid(bool bValid)
+{
+    if (m_bNoPassWordLoginValid == bValid)
+        return;
+
+    m_bNoPassWordLoginValid = bValid;
+}
+
 QStringList UserModel::getAllGroups()
 {
     return m_allGroups;
