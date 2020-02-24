@@ -25,7 +25,6 @@
 #include "mirrorswidget.h"
 #include "modules/systeminfo/systeminfomodel.h"
 #include "modules/systeminfo/systeminfowork.h"
-#include "widgets/utils.h"
 
 #include <QVBoxLayout>
 
@@ -77,10 +76,6 @@ void UpdateModule::preInitialize(bool sync)
     });
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateModule::notifyDisplayReminder);
     notifyDisplayReminder(m_model->status());
-
-    auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
-    bool bShowUpdate = req.value() && valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showUpdate", false);
-    m_frameProxy->setModuleVisible(this, bShowUpdate);
 }
 
 void UpdateModule::initialize()
