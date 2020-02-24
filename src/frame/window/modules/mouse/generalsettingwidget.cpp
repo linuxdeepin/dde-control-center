@@ -65,12 +65,12 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_scrollSpeedSlider->setAnnotations(speedList);
 
     QStringList doublelist;
-    doublelist << tr("Slow") << "" << "" << "" << "" << ""<< "";
+    doublelist << tr("Slow") << "" << "" << "" << "" << "";
     doublelist << tr("Fast");
     DCCSlider *doubleSlider = m_doubleSlider->slider();
     doubleSlider->setType(DCCSlider::Vernier);
     doubleSlider->setTickPosition(QSlider::TicksBelow);
-    doubleSlider->setRange(0, 7);
+    doubleSlider->setRange(0, 6);
     doubleSlider->setTickInterval(1);
     doubleSlider->setPageStep(1);
     m_doubleSlider->setAnnotations(doublelist);
@@ -116,7 +116,8 @@ void GeneralSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 
 void GeneralSettingWidget::onDoubleClickSpeedChanged(int speed)
 {
-    m_doubleSlider->slider()->blockSignals(true);
+    speed = qBound(0, speed, 6);
+    m_doubleSlider->slider()->blockSignals(true);   
     m_doubleSlider->slider()->setValue(speed);
     m_doubleSlider->slider()->blockSignals(false);
 }
