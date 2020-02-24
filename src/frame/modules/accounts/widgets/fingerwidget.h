@@ -71,7 +71,7 @@ private:
     QTimer *m_titleTimer;
     QTimer *m_msgTimer;
     QString m_theme;
-    bool m_reset{true};
+    bool m_reset{false};
 };
 }
 }
