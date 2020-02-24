@@ -448,7 +448,6 @@ void AccountsDetailWidget::initGroups(QVBoxLayout *layout)
     m_groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_groupListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_groupListView->setSelectionMode(QAbstractItemView::NoSelection);
-    m_groupListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
     m_groupListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_groupListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_groupListView->setSpacing(1);
