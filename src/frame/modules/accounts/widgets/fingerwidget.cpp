@@ -98,11 +98,11 @@ void FingerWidget::setStatueMsg(const QString &title, const QString &msg, bool r
     if (!m_reset) {
         m_msgTimer->start();
         m_titleTimer->start();
-         m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
+        m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
     } else {
         m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_50.svg")
                                    .arg(m_theme));
-}
+    }
 }
 
 void FingerWidget::setProsses(int pro)
@@ -110,10 +110,11 @@ void FingerWidget::setProsses(int pro)
     m_pro = pro;
     if(m_pro == 0) {
         m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
-
     } else {
-        m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%50.svg")
-                                   .arg(m_theme).arg(m_pro/2));
+        int idx = m_pro/2;
+        idx = idx > 50 ? 50 : idx;
+        m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%2.svg")
+                                   .arg(m_theme).arg(idx));
     }
 
     if (pro > 35) {

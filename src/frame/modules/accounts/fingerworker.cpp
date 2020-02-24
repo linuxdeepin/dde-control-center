@@ -58,6 +58,12 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
 
 bool FingerWorker::tryEnroll(const QString &name, const QString &thumb)
 {
+    auto call = m_fingerPrintInter->PreAuthEnroll();
+    call.waitForFinished();
+    if (call.isError()) {
+        qDebug() << "call PreAuthEnroll Error : " << call.error();
+        return false;
+    }
     auto callClaim = m_fingerPrintInter->Claim(name, true);
     callClaim.waitForFinished();
     if (callClaim.isError()) {
