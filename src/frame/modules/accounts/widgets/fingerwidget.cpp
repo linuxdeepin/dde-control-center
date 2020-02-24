@@ -58,7 +58,6 @@ FingerWidget::FingerWidget(QWidget *parent)
         m_tipLbl->setText(m_defTip);
     });
 
-//    QString theme;
     DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
     switch (type) {
     case DGuiApplicationHelper::UnknownType:
@@ -71,19 +70,6 @@ FingerWidget::FingerWidget(QWidget *parent)
         break;
     }
 
-    for(uint i = 0; i != 58; i++)
-    {
-        QString path = QString(":/accounts/themes/%1/icons/finger/entering/fingerprint_%2.png").arg(m_theme).arg(i, 2, 10, QChar('0'));
-        m_enteringList << path;
-    }
-
-    for(uint i = 0; i != 30; i++)
-    {
-        QString path = QString(":/accounts/themes/%1/icons/finger/finished/success_%2.png").arg(m_theme).arg(i, 2, 10, QChar('0'));
-        m_finishedList << path;
-    }
-
-    m_view->setPictureSequence(m_enteringList);
     m_view->setSingleShot(true);
 
     m_tipLbl->setWordWrap(true);
@@ -97,12 +83,6 @@ FingerWidget::FingerWidget(QWidget *parent)
     layout->addWidget(m_tipLbl, 0, Qt::AlignHCenter);
     setLayout(layout);
 
-    connect(m_view, &DPictureSequenceView::playEnd, this, [=] {
-        if (m_isFinished)
-            m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/finished/success_30.png").arg(m_theme));
-        else
-            Q_EMIT playEnd();
-    });
     setProsses(0);
 }
 
@@ -118,15 +98,23 @@ void FingerWidget::setStatueMsg(const QString &title, const QString &msg, bool r
     if (!m_reset) {
         m_msgTimer->start();
         m_titleTimer->start();
-         m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/finished/success_00.png").arg(m_theme));
-    }
+         m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
+    } else {
+        m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_50.svg")
+                                   .arg(m_theme));
+}
 }
 
 void FingerWidget::setProsses(int pro)
 {
     m_pro = pro;
-    m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/finished/success_%2.png")
-                               .arg(m_theme).arg(m_pro/3, 2, 10, QChar('0')));
+    if(m_pro == 0) {
+        m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
+
+    } else {
+        m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%50.svg")
+                                   .arg(m_theme).arg(m_pro/2));
+    }
 
     if (pro > 35) {
         m_defTip = tr("Place the edges of your fingerprint on the sensor");
@@ -137,9 +125,6 @@ void FingerWidget::setProsses(int pro)
     m_titleTimer->stop();
     m_titleLbl->setText(m_defTitle);
     m_tipLbl->setText(m_defTip);
-
-    if(m_pro == 0)
-        next();
 }
 
 void FingerWidget::reEnter()
@@ -147,14 +132,6 @@ void FingerWidget::reEnter()
     m_isFinished = false;
 
     setProsses(0);
-    m_view->setPictureSequence(m_enteringList);
-}
-
-void FingerWidget::next()
-{
-    m_isFinished = false;
-    m_view->setPictureSequence(m_enteringList);
-    m_view->play();
 }
 
 void FingerWidget::finished()
@@ -162,8 +139,6 @@ void FingerWidget::finished()
     m_isFinished = true;
 
     setStatueMsg(tr("Fingerprint added"), tr(""));
-    m_view->setPictureSequence(m_finishedList);
-    m_view->play();
 }
 
 void FingerWidget::paintEvent(QPaintEvent *event)

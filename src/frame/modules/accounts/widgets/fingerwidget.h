@@ -51,7 +51,6 @@ public:
 
     void setProsses(int pro);
     void reEnter();
-    void next();
     void finished();
 
 Q_SIGNALS:
@@ -64,8 +63,6 @@ private:
     DPictureSequenceView *m_view;
     QLabel *m_tipLbl;
     TitleLabel *m_titleLbl;
-    QStringList m_enteringList;
-    QStringList m_finishedList;
     bool m_isFinished;
 
     QString m_defTip{""};
