@@ -98,10 +98,10 @@ void FingerWidget::setStatueMsg(const QString &title, const QString &msg, bool r
     if (!m_reset) {
         m_msgTimer->start();
         m_titleTimer->start();
-        m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
+        m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%2.svg")
+                                   .arg(m_theme).arg(m_pro/2));
     } else {
-        m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_50.svg")
-                                   .arg(m_theme));
+        m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
     }
 }
 
@@ -116,7 +116,8 @@ void FingerWidget::setProsses(int pro)
         m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%2.svg")
                                    .arg(m_theme).arg(idx));
     }
-
+    if (pro == 100)
+        return;
     if (pro > 35) {
         m_defTip = tr("Place the edges of your fingerprint on the sensor");
     } else {
@@ -138,8 +139,9 @@ void FingerWidget::reEnter()
 void FingerWidget::finished()
 {
     m_isFinished = true;
-
-    setStatueMsg(tr("Fingerprint added"), tr(""));
+    m_titleLbl->setText(tr("Fingerprint added"));
+    m_tipLbl->setText("");
+    setProsses(100);
 }
 
 void FingerWidget::paintEvent(QPaintEvent *event)

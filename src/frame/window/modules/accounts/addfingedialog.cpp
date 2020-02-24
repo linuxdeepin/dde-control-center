@@ -135,7 +135,7 @@ void AddFingeDialog::enrollFailed(QString msg)
         return;
     }
     m_isEnrolling = false;
-    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), msg, false);
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), msg, true);
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
 
@@ -146,7 +146,7 @@ void AddFingeDialog::enrollDisconnected()
     Q_EMIT requestStopEnroll(m_username);
 
     m_isEnrolling = false;
-    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Suspended"), false);
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Suspended"), true);
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
 
@@ -161,7 +161,7 @@ void AddFingeDialog::enrollRetry(QString msg)
     }
 
     m_addBtn->setEnabled(false);
-    m_fingeWidget->setStatueMsg(tr("Cannot recognize your fingerprint"), msg);
+    m_fingeWidget->setStatueMsg(tr("Cannot recognize your fingerprint"), msg, false);
 }
 
 void AddFingeDialog::setInitStatus()
