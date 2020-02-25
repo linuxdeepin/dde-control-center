@@ -1009,6 +1009,10 @@ set(SYSTEMINFO_FILES
                 window/modules/systeminfo/userlicensewidget.cpp
                 window/modules/systeminfo/systemrestore.h
                 window/modules/systeminfo/systemrestore.cpp
+                window/modules/systeminfo/manualbackup.h
+                window/modules/systeminfo/manualbackup.cpp
+                window/modules/systeminfo/manualrestore.h
+                window/modules/systeminfo/manualrestore.cpp
 )
 
 # load update

@@ -35,13 +35,14 @@
 #include <udisks2-qt5/dblockpartition.h>
 #include <com_deepin_daemon_accounts.h>
 #include <com_deepin_daemon_accounts_user.h>
-#include <com_deepin_daemon_grub2.h>
 #include <QScopedPointer>
 #include <QLocale>
+#include <QTextStream>
+#include <QDate>
+#include <QDateTime>
 
 using AccountsInter = com::deepin::daemon::Accounts;
 using UserInter = com::deepin::daemon::accounts::User;
-using GrubInter = com::deepin::daemon::Grub2;
 
 QStringList userList() {
     QScopedPointer<AccountsInter> accountsInter(new AccountsInter("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", QDBusConnection::systemBus()));
@@ -58,6 +59,15 @@ QStringList userList() {
     return userList;
 }
 
+enum class ActionType {
+    Null,
+    ManualBackup,
+    ManualRestore,
+    SystemRestore,
+};
+
+static ActionType actionType = ActionType::Null;
+
 int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
@@ -71,9 +81,29 @@ int main(int argc, char *argv[])
     QCommandLineOption fData("formatData", "formatData");
     parser.addOption(fData);
 
+    QCommandLineOption actionTypeOption("actionType", "action type", "type");
+    parser.addOption(actionTypeOption);
+
+    QCommandLineOption realtivePathOption("path", "realtive path", "directory");
+    parser.addOption(realtivePathOption);
+
     parser.process(app);
 
     bool formatData = parser.isSet(fData);
+    const QString& absolutePath = parser.value(realtivePathOption);
+
+    const QMap<QString, ActionType> typeMap {
+        {"manual_backup", ActionType::ManualBackup},
+        {"manual_restore", ActionType::ManualRestore},
+        {"system_restore", ActionType::SystemRestore}
+    };
+
+    actionType = typeMap.value(parser.value(actionTypeOption), ActionType::Null);
+
+    if (!parser.isSet(actionTypeOption) || actionType == ActionType::Null) {
+        qWarning() << "not set Action Type";
+        return -2;
+    }
 
     const QString &recoveryPath{ "/etc/deepin/system-recovery.conf" };
     QSettings settings(recoveryPath, QSettings::IniFormat);
@@ -83,7 +113,45 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+    QString bootUUID;
+    QString rootUUID;
+    QString dataUUID;
     QString mountPoint;
+    QString realtiveUUID;
+    QString realtivePath;
+
+    auto getUUID = [=] (const QString& path) -> QString {
+        QProcess* findRealtive = new QProcess;
+        findRealtive->setProgram("mount");
+        findRealtive->start();
+        findRealtive->waitForFinished();
+        QTextStream steam(findRealtive->readAllStandardOutput());
+        findRealtive->deleteLater();
+        QString line;
+        QMap<QString, QString> mountMap;
+        while (steam.readLineInto(&line)) {
+            const QStringList& list = line.split(" ");
+            mountMap[list[2]] = list.first();
+        }
+
+        const QString& mountP = mountMap[path];
+        if (!mountP.isEmpty()) {
+            QProcess* p = new QProcess;
+            p->setProgram("/sbin/blkid");
+            p->setArguments({"-s", "UUID", "-o", "value", mountP});
+            p->start();
+            p->waitForFinished();
+            return p->readAll().simplified();
+        }
+
+        QFile file(path);
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            return file.readAll().simplified();
+        }
+
+        return QString();
+    };
+
     const QStringList &devices = DDiskManager().blockDevices();
     for (const QString &path : devices) {
         QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
@@ -99,18 +167,50 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    auto getUUID = [=] (const QString& path) -> QString {
-        QFile file(path);
-        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            return file.readAll().simplified();
+    if (actionType == ActionType::SystemRestore) {
+        bootUUID = getUUID(QString("%1/backup/boot.info").arg(mountPoint));
+        rootUUID = getUUID(QString("%1/backup/system.info").arg(mountPoint));
+        dataUUID = getUUID(QString("%1/backup/_dde_data.info").arg(mountPoint));
+    }
+
+    if (actionType == ActionType::ManualBackup || actionType == ActionType::ManualRestore) {
+        QProcess* findRealtive = new QProcess;
+        findRealtive->setProgram("mount");
+        findRealtive->setArguments({"-f"});
+        findRealtive->start();
+        findRealtive->waitForFinished();
+        QTextStream steam(findRealtive->readAllStandardOutput());
+        findRealtive->deleteLater();
+        QString line;
+        QStringList mountList;
+
+        while (steam.readLineInto(&line)) {
+            const QStringList& list = line.split(" ");
+            mountList << list[2];
         }
 
-        return QString();
-    };
+        std::sort(mountList.begin(), mountList.end(), [=] (const QString& v1, const QString& v2) {
+            return v1.length() > v2.length();
+        });
 
-    const QString& bootUUID{ getUUID(QString("%1/backup/boot.info").arg(mountPoint)) };
-    const QString& rootUUID{ getUUID(QString("%1/backup/system.info").arg(mountPoint)) };
-    const QString& dataUUID{ getUUID(QString("%1/backup/_dde_data.info").arg(mountPoint)) };
+        realtivePath = absolutePath;
+        // FIXME(justforlxz): 这里特殊处理一下，因为/home和/data/home是bind关系
+        if (realtivePath.startsWith("/home")) {
+            realtivePath = "/data" + realtivePath;
+        }
+
+        for (const QString& mount : mountList) {
+            if (QString(realtivePath).startsWith(mount)) {
+                realtiveUUID = getUUID(mount);
+                realtivePath.remove(0, mount.length());
+                break;
+            }
+        }
+
+
+        rootUUID = getUUID("/");
+        bootUUID = getUUID("/boot");
+    }
 
     QJsonObject fstabObj{ { "boot", QString("UUID:%1").arg(bootUUID) },
                           { "root", QString("UUID:%1").arg(rootUUID) },
@@ -120,14 +220,28 @@ int main(int argc, char *argv[])
         fstabObj["efi"] = QString("UUID:%1").arg(getUUID(QString("%1/backup/efi.info").arg(mountPoint)));
     }
 
+    const QDateTime& currentTime = QDateTime::currentDateTime();
+    const QString& timeDirectory = currentTime.toString("yyyy-MM-dd-hh-mm-ss");
+    const QString& type = [=]() -> QString {
+        if (actionType == ActionType::SystemRestore || actionType == ActionType::ManualRestore) {
+            return "Restore";
+        }
+
+        if (actionType == ActionType::ManualBackup) {
+            return "Backup";
+        }
+
+        Q_UNREACHABLE();
+    }();
+
     QJsonObject object{
         { "name", "restore" },
         { "message", "restore boot and root partition" },
         { "total", 7 },
         { "ask", true },
         { "locale", QLocale::system().name() },
-        {
-            "tasks",
+        { "type", type },
+        { "tasks",
             QJsonArray{
                 QJsonObject{ { "message", "save user info" },
                              { "progress", true },
@@ -138,18 +252,52 @@ int main(int argc, char *argv[])
                                                                    rootUUID) } } } },
                 QJsonObject{ { "message", "starting restore boot partition" },
                              { "progress", true },
-                             { "enable", true },
+                             { "enable", actionType == ActionType::SystemRestore },
                              { "command", "restore-partitions" },
                              { "args", QJsonArray{ QString("UUID:%1").arg(UUID),
                                                    "backup/boot.dim",
                                                    QString("UUID:%1").arg(bootUUID) } } },
                 QJsonObject{ { "message", "starting restore root partition" },
                              { "progress", true },
-                             { "enable", true },
+                             { "enable", actionType == ActionType::SystemRestore },
                              { "command", "restore-partitions" },
                              { "args", QJsonArray{ QString("UUID:%1").arg(UUID),
                                                    "backup/system.dim",
                                                    QString("UUID:%1").arg(rootUUID) } } },
+                QJsonObject{ { "message", "starting backup boot partition" },
+                             { "progress", true },
+                             { "enable", actionType == ActionType::ManualBackup },
+                             { "command", "create-backup-image" },
+                             { "args", QJsonArray{ QString("UUID:%1").arg(bootUUID),
+                                                   QString("UUID:%1").arg(realtiveUUID),
+                                                   QString("%1/%2").arg(realtivePath).arg(timeDirectory),
+                                                   "boot.dim"
+                                                  } } },
+                QJsonObject{ { "message", "starting backup root partition" },
+                             { "progress", true },
+                             { "enable", actionType == ActionType::ManualBackup },
+                             { "command", "create-backup-image" },
+                             { "args", QJsonArray{ QString("UUID:%1").arg(rootUUID),
+                                                   QString("UUID:%1").arg(realtiveUUID),
+                                                   QString("%1/%2").arg(realtivePath).arg(timeDirectory),
+                                                   "system.dim"
+                                                  } } },
+                QJsonObject{ { "message", "starting backup boot partition" },
+                             { "progress", true },
+                             { "enable", actionType == ActionType::ManualRestore },
+                             { "command", "restore-partitions" },
+                             { "args", QJsonArray{ QString("UUID:%1").arg(realtiveUUID),
+                                                   QString("%1/boot.dim").arg(realtivePath),
+                                                   QString("UUID:%1").arg(bootUUID)
+                                                  } } },
+                QJsonObject{ { "message", "starting backup root partition" },
+                             { "progress", true },
+                             { "enable", actionType == ActionType::ManualRestore },
+                             { "command", "restore-partitions" },
+                             { "args", QJsonArray{ QString("UUID:%1").arg(realtiveUUID),
+                                                   QString("%1/system.dim").arg(realtivePath),
+                                                   QString("UUID:%1").arg(rootUUID)
+                                                  } } },
                 QJsonObject{ { "message", "restore user info" },
                              { "progress", true },
                              { "enable", false },
@@ -211,9 +359,6 @@ int main(int argc, char *argv[])
     file.open(QIODevice::WriteOnly | QIODevice::Text);
     file.write(doc.toJson());
     file.commit();
-
-    GrubInter* grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
-    grubInter->SetDefaultEntry("Deepin Recovery").waitForFinished();
 
     return 0;
 }

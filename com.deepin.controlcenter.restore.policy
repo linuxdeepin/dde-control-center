@@ -11,8 +11,8 @@
             <allow_inactive>yes</allow_inactive>
             <allow_active>auth_admin_keep</allow_active>
         </defaults>
-        <message>Authentication is required to reset all settings</message>
-        <message xml:lang="zh_CN">还原所有设置需要认证</message>
+        <message>Authentication is required to Backup and Restore</message>
+        <message xml:lang="zh_CN">备份或还原所有设置需要认证</message>
         <annotate key="org.freedesktop.policykit.exec.path">/bin/restore-tool</annotate>
         <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
     </action>
@@ -23,8 +23,8 @@
             <allow_inactive>yes</allow_inactive>
             <allow_active>yes</allow_active>
         </defaults>
-        <message>Authentication is required to reset all settings</message>
-        <message xml:lang="zh_CN">还原所有设置需要认证</message>
+        <message>Authentication is required to Backup and Restore</message>
+        <message xml:lang="zh_CN">备份或还原所有设置需要认证</message>
         <annotate key="org.freedesktop.policykit.exec.path">/sbin/grub-reboot</annotate>
         <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
     </action>

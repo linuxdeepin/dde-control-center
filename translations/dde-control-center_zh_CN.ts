@@ -4474,9 +4474,9 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="86"/>
-        <source>System Restore</source>
+        <source>Backup and Restore</source>
         <translation>系统还原</translation>
-        <extra-contents_path>/systeminfo/System Restore</extra-contents_path>
+        <extra-contents_path>/systeminfo/Backup and Restore</extra-contents_path>
     </message>
 </context>
 <context>

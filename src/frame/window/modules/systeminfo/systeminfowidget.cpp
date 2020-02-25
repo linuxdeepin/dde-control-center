@@ -81,11 +81,11 @@ void SystemInfoWidget::initData()
             QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
             if (device->idUUID() == UUID) {
 #endif
-              m_itemList << ListMethod{
-                              "dcc_system_restore",
-                              tr("System Restore"),
-                              QMetaMethod::fromSignal(&SystemInfoWidget::requestShowRestore)
-                };
+            m_itemList << ListMethod{
+                "dcc_system_restore",
+                tr("Backup and Restore"),
+                QMetaMethod::fromSignal(&SystemInfoWidget::requestShowRestore)
+            };
 #ifndef QT_DEBUG
                 break;
             }
