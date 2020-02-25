@@ -52,6 +52,8 @@ public:
 
     void loadGrubSettings();
 
+    void updateMemory();
+
 Q_SIGNALS:
     void requestSetAutoHideDCC(const bool visible) const;
 

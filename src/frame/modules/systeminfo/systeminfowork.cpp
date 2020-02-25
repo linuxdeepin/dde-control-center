@@ -140,6 +140,11 @@ void SystemInfoWork::loadGrubSettings()
     }
 }
 
+ void SystemInfoWork::updateMemory()
+ {
+     m_model->setMemory(DSysInfo::memoryTotalSize());
+ }
+
 void SystemInfoWork::setBootDelay(bool value)
 {
     Q_EMIT requestSetAutoHideDCC(false);

@@ -107,6 +107,7 @@ QStringList SystemInfoModule::availPage() const
 
 void SystemInfoModule::onShowAboutNativePage()
 {
+    m_work->updateMemory();
     NativeInfoWidget *w = new NativeInfoWidget(m_model);
     m_frameProxy->pushWidget(this, w);
     //showActivatorDialog
