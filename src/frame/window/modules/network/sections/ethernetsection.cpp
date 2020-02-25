@@ -48,8 +48,13 @@ EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting,
         }
         NetworkManager::WiredDevice::Ptr wDevice = device.staticCast<NetworkManager::WiredDevice>();
         /* Alt:  permanentHardwareAddress to get real hardware address which is connot be changed */
-        const QString &macStr = wDevice->permanentHardwareAddress() + " (" + wDevice->interfaceName() + ")";
-        m_macStrMap.insert(macStr, wDevice->permanentHardwareAddress().remove(":"));
+        QString mac = wDevice->permanentHardwareAddress();
+        if (mac.isEmpty()) {
+            qDebug() << wDevice->interfaceName() << ": empty permanentHardwareAddress";
+            mac = wDevice->hardwareAddress();
+        }
+        const QString &macStr = mac + " (" + wDevice->interfaceName() + ")";
+        m_macStrMap.insert(macStr, mac.remove(":"));
     }
     m_macStrMap.insert(tr("Not Bind"), NotBindValue);
 
