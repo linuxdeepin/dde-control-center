@@ -60,6 +60,7 @@ private:
 
 Q_SIGNALS:
     void requestConnectDevice(const dcc::bluetooth::Device *device) const;
+    void requestDisconnectDevice(const dcc::bluetooth::Device *device) const;
     void requestShowDetail(const dcc::bluetooth::Device *device) const;
 
 private Q_SLOTS:

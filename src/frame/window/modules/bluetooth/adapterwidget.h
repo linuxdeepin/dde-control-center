@@ -75,6 +75,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void requestSetToggleAdapter(const dcc::bluetooth::Adapter *adapter, const bool &toggled);
     void requestConnectDevice(const dcc::bluetooth::Device *device);
+    void requestDisconnectDevice(const dcc::bluetooth::Device *device);
     void requestShowDetail(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
     void requestSetAlias(const dcc::bluetooth::Adapter *adapter, const QString &alias);
     void notifyLoadFinished();
