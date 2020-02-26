@@ -26,10 +26,17 @@
 #include "widgets/lineeditwidget.h"
 #include "accountswidget.h"
 
+#include <ddialog.h>
 #include <dpasswordedit.h>
 #include <DSuggestButton>
 
 #include <QWidget>
+
+#include "com_deepin_defender_hmiscreen.h"
+#include "com_deepin_defender_daemonservice.h"
+
+using Defender = com::deepin::defender::hmiscreen;
+using DaemonService = com::deepin::defender::daemonservice;
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;

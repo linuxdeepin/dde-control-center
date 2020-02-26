@@ -139,12 +139,35 @@ void ModifyPasswdPage::clickSaveBtn()
         return;
     }
 
-    Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
+    DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",
+                                                     "/com/deepin/defender/daemonservice",
+                                                     QDBusConnection::sessionBus(), this);
+    QString strResult = daemonservice->notifySendPassword(m_newPasswordEdit->lineEdit()->text());
+    if (strResult == "true") {
+        Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
+    } else {
+        DDialog dlg("", strResult);
+        dlg.addButtons({tr("Go to Settings"), tr("OK")});
+        connect(&dlg, &DDialog::buttonClicked, this, [this](int idx){
+            if (idx == 0) {
+                Defender *defender = new Defender("com.deepin.defender.hmiscreen",
+                                                  "/com/deepin/defender/hmiscreen",
+                                                  QDBusConnection::sessionBus(), this);
+                defender->ShowModule("systemsafety");
+            }
+        });
+        dlg.exec();
+    }
 }
 
 void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
 {
     if (exitCode == ModifyPasswdPage::ModifyNewPwdSuccess) {
+        DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",
+                                                         "/com/deepin/defender/daemonservice",
+                                                         QDBusConnection::sessionBus(), this);
+        daemonservice->PasswordUpdate();
+
         Q_EMIT requestBack(AccountsWidget::ModifyPwdSuccess);
         return;
     } if (exitCode == ModifyPasswdPage::InputOldPwdError) {
