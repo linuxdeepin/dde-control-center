@@ -204,7 +204,7 @@ void ConnectionEditPage::initConnection()
         DDialog dialog(this);
         dialog.setTitle(tr("Are you sure you want to delete this configuration?"));
         QStringList btns;
-        btns << tr("Cancel") ;
+        btns << tr("Cancel");
         btns << tr("Delete");
         dialog.addButtons(btns);
         int ret = dialog.exec();
