@@ -287,7 +287,25 @@ void CreateAccountPage::createUser()
         m_newUser->setGroups(usrGroups);
     }
 
-    Q_EMIT requestCreateUser(m_newUser);
+    DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",
+                                                     "/com/deepin/defender/daemonservice",
+                                                     QDBusConnection::sessionBus(), this);
+    QString strPwd = m_passwdEdit->lineEdit()->text();
+    if (strPwd.length() >= daemonservice->GetPwdLen() && m_newUser->charactertypes(strPwd) >= daemonservice->GetPwdTypeLen()) {
+        Q_EMIT requestCreateUser(m_newUser);
+    } else {
+        DDialog dlg("", daemonservice->GetPwdError());
+        dlg.addButtons({tr("Go to Settings"), tr("OK")});
+        connect(&dlg, &DDialog::buttonClicked, this, [this](int idx){
+            if (idx == 0) {
+                Defender *defender = new Defender("com.deepin.defender.hmiscreen",
+                                                  "/com/deepin/defender/hmiscreen",
+                                                  QDBusConnection::sessionBus(), this);
+                defender->ShowModule("systemsafety");
+            }
+        });
+        dlg.exec();
+    }
 }
 
 bool CreateAccountPage::validatePassword(const QString &password)

@@ -142,11 +142,11 @@ void ModifyPasswdPage::clickSaveBtn()
     DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",
                                                      "/com/deepin/defender/daemonservice",
                                                      QDBusConnection::sessionBus(), this);
-    QString strResult = daemonservice->notifySendPassword(m_newPasswordEdit->lineEdit()->text());
-    if (strResult == "true") {
+    QString strPwd = m_newPasswordEdit->lineEdit()->text();
+    if (strPwd.length() >= daemonservice->GetPwdLen() && m_curUser->charactertypes(strPwd) >= daemonservice->GetPwdTypeLen()) {
         Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
     } else {
-        DDialog dlg("", strResult);
+        DDialog dlg("", daemonservice->GetPwdError());
         dlg.addButtons({tr("Go to Settings"), tr("OK")});
         connect(&dlg, &DDialog::buttonClicked, this, [this](int idx){
             if (idx == 0) {

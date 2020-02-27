@@ -94,6 +94,8 @@ public:
     inline int passwordAge() const { return m_pwAge; }
     void setPasswordAge(const int age);
 
+    int charactertypes(QString password);
+
 Q_SIGNALS:
     void passwordModifyFinished(const int exitCode) const;
     void nameChanged(const QString &name) const;

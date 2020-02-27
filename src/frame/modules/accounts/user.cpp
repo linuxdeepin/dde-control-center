@@ -185,3 +185,27 @@ void User::setPasswordAge(const int age)
     m_pwAge = age;
     Q_EMIT passwordAgeChanged(age);
 }
+
+int User::charactertypes(QString password)
+{
+    int Number_flag = 0;
+    int Capital_flag = 0;
+    int Small_flag = 0;
+    int Symbol_flag = 0;
+    QByteArray ba = password.toLatin1();
+    const char *s = ba.data();
+
+    while (*s) {
+        if ('0' <= *s && '9' >= *s) {
+            Number_flag = 1 ;
+        } else if ('A' <= *s && 'Z' >= *s) {
+            Capital_flag = 1;
+        } else if ('a' <= *s && 'z' >= *s) {
+            Small_flag = 1;
+        } else {
+            Symbol_flag = 1;
+        }
+        s++;
+    }
+    return Number_flag + Capital_flag + Small_flag + Symbol_flag;
+}
