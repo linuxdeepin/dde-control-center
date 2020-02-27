@@ -14,7 +14,6 @@ set(CMAKE_CXX_FLAGS "-g -Wall")
 add_definitions(-DWINDOW_MODE)
 
 # Find the library
-find_package(DdeControlCenter REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(DtkWidget REQUIRED)
 find_package(DtkGui REQUIRED)
@@ -50,7 +49,7 @@ add_library(${BIN_NAME} MODULE
     resources/testmodule.qrc
 )
 target_include_directories(${BIN_NAME} PUBLIC
-    ${DdeControlCenter_INCLUDE_DIR}
+    ../include
     ${DtkWidget_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}

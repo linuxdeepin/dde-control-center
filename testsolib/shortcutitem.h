@@ -26,7 +26,7 @@
 #ifndef SHORTCUTITEM_H
 #define SHORTCUTITEM_H
 
-#include <widgets/settingsitem.h>
+#include "widgets/settingsitem.h"
 #include "shortcutkey.h"
 
 #include <DIconButton>
