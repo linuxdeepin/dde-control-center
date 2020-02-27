@@ -353,7 +353,7 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
     bool result = validatePassword(userpassword);
     if (!result) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"), -1);
         return false;
     }
 
