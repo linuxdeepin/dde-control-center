@@ -26,8 +26,8 @@
 #include "sections/abstractsection.h"
 #include "settings/abstractsettings.h"
 #include "widgets/buttontuple.h"
-#include "interface/moduleinterface.h"
-#include "interface/namespace.h"
+#include "moduleinterface.h"
+#include "namespace.h"
 
 #include <QPointer>
 #include <QPushButton>

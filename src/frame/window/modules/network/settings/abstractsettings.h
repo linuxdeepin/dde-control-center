@@ -24,7 +24,7 @@
 
 #include "widgets/contentwidget.h"
 #include "../sections/abstractsection.h"
-#include "interface/namespace.h"
+#include "namespace.h"
 
 #include <KF5/NetworkManagerQt/networkmanagerqt/connectionsettings.h>
 

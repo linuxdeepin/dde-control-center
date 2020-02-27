@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "widgets/editablenextpagewidget.h"
+#include "editablenextpagewidget.h"
 
 #include <QHBoxLayout>
 #include <QMouseEvent>

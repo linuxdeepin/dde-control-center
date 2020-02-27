@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "interface/namespace.h"
+#include "namespace.h"
 #include "widgets/settingsitem.h"
 
 QT_BEGIN_NAMESPACE

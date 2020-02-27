@@ -21,7 +21,7 @@
 #ifndef GENERALKBSETTINGWIDGET_H
 #define GENERALKBSETTINGWIDGET_H
 
-#include "interface/namespace.h"
+#include "namespace.h"
 #include "widgets/contentwidget.h"
 
 namespace dcc {

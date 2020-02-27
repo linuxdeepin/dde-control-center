@@ -27,7 +27,7 @@
 #define CHAINSTYPEPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "interface/namespace.h"
+#include "namespace.h"
 
 namespace dcc {
 class ContentWidget;

@@ -24,7 +24,7 @@
  */
 
 #include "widgets/dccslider.h"
-#include "widgets/dccsliderannotated.h"
+#include "dccsliderannotated.h"
 
 #include <QStylePainter>
 #include <QStyleOption>

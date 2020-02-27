@@ -27,7 +27,7 @@
 #define PROXYPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "interface/namespace.h"
+#include "namespace.h"
 
 #include <DButtonBox>
 #include <DTextEdit>

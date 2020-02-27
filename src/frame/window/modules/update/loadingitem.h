@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #pragma once
-#include "interface/namespace.h"
+#include "namespace.h"
 #include "widgets/settingsitem.h"
 
 #include <QProgressBar>

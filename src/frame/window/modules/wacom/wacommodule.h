@@ -21,10 +21,10 @@
 
 #ifndef WACOMMODULE_H_V20
 #define WACOMMODULE_H_V20
-#include "interface/namespace.h"
+#include "namespace.h"
 
-#include "interface/moduleinterface.h"
-#include "interface/frameproxyinterface.h"
+#include "moduleinterface.h"
+#include "frameproxyinterface.h"
 
 #include <QObject>
 

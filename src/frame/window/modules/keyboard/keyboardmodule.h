@@ -22,8 +22,8 @@
 
 #pragma once
 
-#include "interface/namespace.h"
-#include "interface/moduleinterface.h"
+#include "namespace.h"
+#include "moduleinterface.h"
 
 #include <QObject>
 

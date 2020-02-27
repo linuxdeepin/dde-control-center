@@ -20,7 +20,7 @@
  */
 #pragma once
 
-#include "interface/moduleinterface.h"
+#include "moduleinterface.h"
 
 #include <QObject>
 #include <types/zoneinfo.h>

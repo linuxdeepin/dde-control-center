@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "widgets/filechoosewidget.h"
+#include "filechoosewidget.h"
 
 #include <dfilechooseredit.h>
 

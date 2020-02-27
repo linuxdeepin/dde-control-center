@@ -5,8 +5,7 @@
 #include "interface/moduleinterface.h"
 
 #include <QWidget>
-
-#include <DListView>
+#include <QListView>
 
 class TestsoWidget : public QWidget
 {
@@ -23,7 +22,7 @@ Q_SIGNALS:
     void showPage4();
 private:
     DCC_NAMESPACE::FrameProxyInterface *m_frameProxy;
-    DTK_WIDGET_NAMESPACE::DListView *m_listView;
+    QListView *m_listView;
 };
 
 #endif // TESTSOWIDGET_H

@@ -21,7 +21,7 @@
 #ifndef TOUCHPADSETTINGWIDGET_H
 #define TOUCHPADSETTINGWIDGET_H
 
-#include "interface/namespace.h"
+#include "namespace.h"
 #include "widgets/contentwidget.h"
 
 namespace dcc {

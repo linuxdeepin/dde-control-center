@@ -21,7 +21,7 @@
 #ifndef GROUPITEM_H
 #define GROUPITEM_H
 
-#include "interface/namespace.h"
+#include "namespace.h"
 
 #include <DStyleOption>
 #include <DStyleHelper>

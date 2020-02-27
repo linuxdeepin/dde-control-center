@@ -27,7 +27,7 @@
 #define NETWORKDETAILPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "interface/namespace.h"
+#include "namespace.h"
 
 namespace dde {
 namespace network {

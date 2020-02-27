@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "interface/moduleinterface.h"
+#include "moduleinterface.h"
 #include "modules/defapp/defappworker.h"
 
 namespace dcc {

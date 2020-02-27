@@ -23,8 +23,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "widgets/themeitem.h"
-#include "widgets/themeitempic.h"
+#include "themeitem.h"
+#include "themeitempic.h"
 #include "widgets/basiclistdelegate.h"
 
 #include <QHBoxLayout>

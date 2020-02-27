@@ -22,7 +22,7 @@
 #ifndef SoundWidget_H_V20
 #define SoundWidget_H_V20
 
-#include "interface/namespace.h"
+#include "namespace.h"
 
 #include <DListView>
 

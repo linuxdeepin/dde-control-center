@@ -21,9 +21,9 @@
 
 #pragma once
 
-#include "interface/namespace.h"
+#include "namespace.h"
 
-#include "interface/moduleinterface.h"
+#include "moduleinterface.h"
 
 QT_BEGIN_NAMESPACE
 #include <QObject>

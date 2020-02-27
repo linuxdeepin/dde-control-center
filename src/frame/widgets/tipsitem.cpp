@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "widgets/tipsitem.h"
+#include "tipsitem.h"
 #include "widgets/labels/normallabel.h"
 
 #include <QVBoxLayout>

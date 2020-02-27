@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "interface/namespace.h"
+#include "namespace.h"
 #include "modules/accounts/fingermodel.h"
 #include "modules/accounts/widgets/fingerwidget.h"
 

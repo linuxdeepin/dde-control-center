@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "widgets/titlevalueitem.h"
+#include "titlevalueitem.h"
 #include "widgets/labels/tipslabel.h"
 
 #include <DApplicationHelper>

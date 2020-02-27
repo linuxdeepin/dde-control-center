@@ -46,7 +46,7 @@ add_subdirectory("src/develop-tool")
 add_subdirectory("abrecovery")
 
 file(GLOB DOCS_FILES "docs/*")
-file(GLOB HEADERS "include/*")
+file(GLOB INTERFACE "interface/*")
 
 ## qm files
 file(GLOB QM_FILES "translations/*.qm")
@@ -68,7 +68,7 @@ install(FILES data/timezone.db DESTINATION share/dde-control-center)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION share/dde-control-center)
 
 # dev files
-install(DIRECTORY ${HEADERS} DESTINATION include/dde-control-center)
+install(FILES ${INTERFACE} DESTINATION include/dde-control-center)
 
 # polkit policy file
 install(FILES com.deepin.controlcenter.develop.policy DESTINATION share/polkit-1/actions)

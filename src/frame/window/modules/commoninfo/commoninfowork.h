@@ -20,7 +20,7 @@
  */
 
 #pragma once
-#include "interface/namespace.h"
+#include "namespace.h"
 
 #include <com_deepin_daemon_systeminfo.h>
 #include <com_deepin_daemon_grub2.h>

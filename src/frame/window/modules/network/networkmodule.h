@@ -27,8 +27,8 @@
 #ifndef NETWORKMODULE_H
 #define NETWORKMODULE_H
 
-#include "interface/moduleinterface.h"
-#include "interface/namespace.h"
+#include "moduleinterface.h"
+#include "namespace.h"
 
 namespace dde {
 namespace network {

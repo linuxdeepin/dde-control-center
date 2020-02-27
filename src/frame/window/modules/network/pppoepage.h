@@ -27,7 +27,7 @@
 #define PPPOEPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "interface/namespace.h"
+#include "namespace.h"
 
 #include <DListView>
 #include <DFloatingButton>

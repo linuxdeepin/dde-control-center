@@ -22,7 +22,7 @@
 #ifndef WACOMWIDGET_H_V20
 #define WACOMWIDGET_H_V20
 
-#include "interface/namespace.h"
+#include "namespace.h"
 
 #include <QVBoxLayout>
 #include <QWidget>

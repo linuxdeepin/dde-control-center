@@ -39,8 +39,8 @@
 
 #include "widgets/labels/tipslabel.h"
 
-#include "widgets/separator.h"
-#include "widgets/backbutton.h"
+#include "separator.h"
+#include "backbutton.h"
 
 DWIDGET_USE_NAMESPACE
 

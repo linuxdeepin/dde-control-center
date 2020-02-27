@@ -22,7 +22,7 @@
 #ifndef MULTISCREENSETTINGPAGE_H
 #define MULTISCREENSETTINGPAGE_H
 
-#include "interface/namespace.h"
+#include "namespace.h"
 
 #include <DListView>
 

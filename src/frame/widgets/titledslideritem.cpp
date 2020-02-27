@@ -37,7 +37,7 @@
 
 #include "widgets/labels/normallabel.h"
 #include "widgets/dccslider.h"
-#include "widgets/dccsliderannotated.h"
+#include "dccsliderannotated.h"
 #include "widgets/basiclistdelegate.h"
 
 namespace dcc {

@@ -214,89 +214,86 @@ set(INTERFACES_FILES
                 interfaces/moduleinterface.h
                 interfaces/plugininterface.h
 
-                ../../include/interface/moduleinterface.h
-                ../../include/interface/frameproxyinterface.h
+                ../../interface/moduleinterface.h
+                ../../interface/frameproxyinterface.h
 )
 
 # load widgets
 set(WIDGETS_FILES
                 widgets/backbutton.cpp
                 widgets/basiclistdelegate.cpp
-                ../../include/widgets/basiclistdelegate.h
+                widgets/basiclistdelegate.h
                 widgets/buttontuple.cpp
                 widgets/dccslider.cpp
-                ../../include/widgets/dccslider.h
+                widgets/dccslider.h
                 widgets/dccsliderannotated.cpp
-                ../../include/widgets/dccsliderannotated.h
-                ../../include/widgets/labels/largelabel.h
-                ../../include/widgets/labels/normallabel.h
-                ../../include/widgets/labels/smalllabel.h
-                ../../include/widgets/labels/tipslabel.h
+                widgets/dccsliderannotated.h
+                widgets/labels/largelabel.h
+                widgets/labels/normallabel.h
+                widgets/labels/smalllabel.h
+                widgets/labels/tipslabel.h
                 widgets/lineeditwidget.cpp
                 widgets/loadingindicator.cpp
-                ../../include/widgets/loadingindicator.h
+                widgets/loadingindicator.h
                 widgets/loadingnextpagewidget.cpp
                 widgets/nextbutton.cpp
                 widgets/optionlistpage.cpp
                 widgets/searchinput.cpp
-                ../../include/widgets/searchinput.h
+                widgets/searchinput.h
                 widgets/separator.cpp
-                ../../include/widgets/separator.h
+                widgets/separator.h
                 widgets/settingsheaderitem.cpp
-                ../../include/widgets/settingsheaderitem.h
+                widgets/settingsheaderitem.h
                 widgets/settingsitem.cpp
-                ../../include/widgets/settingsitem.h
+                widgets/settingsitem.h
                 widgets/spinboxwidget.cpp
-                ../../include/widgets/spinboxwidget.h
+                widgets/spinboxwidget.h
                 widgets/tipsitem.cpp
-                ../../include/widgets/tipsitem.h
+                widgets/tipsitem.h
                 widgets/titlelabel.cpp
-                ../../include/widgets/titlelabel.h
                 widgets/titlevalueitem.cpp
-                ../../include/widgets/titlevalueitem.h
+                widgets/titlevalueitem.h
                 widgets/translucentframe.cpp
-                ../../include/widgets/translucentframe.h
+                widgets/translucentframe.h
                 widgets/settingsgroup.cpp
                 widgets/switchwidget.cpp
                 widgets/comboxwidget.cpp
-                ../../include/widgets/comboxwidget.h
+                widgets/comboxwidget.h
                 widgets/themeitempic.cpp
-                ../../include/widgets/themeitempic.h
-                ../../include/widgets/utils.h
-                ../../include/widgets/backbutton.h
+                widgets/themeitempic.h
+                widgets/utils.h
+                widgets/backbutton.h
                 widgets/basiclistmodel.cpp
-                ../../include/widgets/basiclistmodel.h
+                widgets/basiclistmodel.h
                 widgets/basiclistview.cpp
-                ../../include/widgets/basiclistview.h
-                ../../include/widgets/buttontuple.h
+                widgets/basiclistview.h
+                widgets/buttontuple.h
                 widgets/comboboxwidget.cpp
-                ../../include/widgets/comboboxwidget.h
+                widgets/comboboxwidget.h
                 widgets/contentwidget.cpp
-                ../../include/widgets/contentwidget.h
+                widgets/contentwidget.h
                 widgets/editablenextpagewidget.cpp
-                ../../include/widgets/editablenextpagewidget.h
+                widgets/editablenextpagewidget.h
                 widgets/filechoosewidget.cpp
-                ../../include/widgets/filechoosewidget.h
-                ../../include/widgets/lineeditwidget.h
-                ../../include/widgets/loadingnextpagewidget.h
-                ../../include/widgets/nextbutton.h
+                widgets/filechoosewidget.h
+                widgets/lineeditwidget.h
+                widgets/loadingnextpagewidget.h
+                widgets/nextbutton.h
                 widgets/nextpagewidget.cpp
-                ../../include/widgets/nextpagewidget.h
+                widgets/nextpagewidget.h
                 widgets/optionitem.cpp
-                ../../include/widgets/optionitem.h
-                ../../include/widgets/optionlistpage.h
-                ../../include/widgets/settingsgroup.h
+                widgets/optionitem.h
+                widgets/optionlistpage.h
+                widgets/settingsgroup.h
                 widgets/settingshead.cpp
-                ../../include/widgets/settingshead.h
-                ../../include/widgets/switchwidget.h
+                widgets/settingshead.h
+                widgets/switchwidget.h
                 widgets/themeitem.cpp
-                ../../include/widgets/themeitem.h
+                widgets/themeitem.h
                 widgets/titledslideritem.cpp
-                ../../include/widgets/titledslideritem.h
+                widgets/titledslideritem.h
                 widgets/timeoutdialog.cpp
-                ../../include/widgets/timeoutdialog.h
-
-                widgets/widgets.qrc
+                widgets/timeoutdialog.h
 )
 
 # load modules
@@ -1098,6 +1095,7 @@ set(SRCS
         ${FRAME_FILES}
         ${WINDOW_FILES}
         ${INTERFACES_FILES}
+        ${WIDGETS_FILES}
         ${ACCOUNTS_FILES}
         ${BLUETOOTH_FILES}
         ${DATETIME_FILES}
@@ -1133,6 +1131,7 @@ set(QRC
         modules/personalization/personalization.qrc
         modules/keyboard/keyboard.qrc
         modules/mouse/mouse.qrc
+        widgets/widgets.qrc
         modules/sync/sync.qrc
         window/search/translator/languages.qrc
         window/icons/dde-control-center-icons.qrc
@@ -1260,22 +1259,9 @@ foreach(LETTER ${BUILD_MACRO})
     add_build_macro(${LETTER})
 endforeach()
 
-add_library(dccwidgets SHARED
-    ${WIDGETS_FILES}
-)
-target_include_directories(dccwidgets PUBLIC
-    ${CMAKE_SOURCE_DIR}/include
-    ${DtkWidget_INCLUDE_DIRS}
-    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
-)
-target_link_libraries(dccwidgets PRIVATE
-    ${DtkWidget_LIBRARIES}
-    ${Qt5Widgets_LIBRARIES}
-)
-
 add_executable(${BIN_NAME} ${SRCS} ${QRC})
 target_include_directories(${BIN_NAME} PUBLIC
-    ${CMAKE_SOURCE_DIR}/include
+    ../../interface
     ${DtkWidget_INCLUDE_DIRS}
     ${XCB_EWMH_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}
@@ -1288,8 +1274,8 @@ target_include_directories(${BIN_NAME} PUBLIC
     ${Qt5X11Extras_INCLUDE_DIRS}
     ${KF5_QT_INCLUDE_DIRS}
 )
+
 target_link_libraries(${BIN_NAME} PRIVATE
-    dccwidgets
     ${XCB_EWMH_LIBRARIES}
     ${DFrameworkDBus_LIBRARIES}
     ${DtkWidget_LIBRARIES}
@@ -1309,7 +1295,6 @@ target_link_libraries(${BIN_NAME} PRIVATE
 
 # bin
 install(TARGETS ${BIN_NAME} DESTINATION bin)
-install(TARGETS dccwidgets LIBRARY DESTINATION lib)
 
 find_package(Qt5 COMPONENTS
 Test
