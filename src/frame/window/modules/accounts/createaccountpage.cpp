@@ -295,7 +295,7 @@ void CreateAccountPage::createUser()
         Q_EMIT requestCreateUser(m_newUser);
     } else {
         DDialog dlg("", daemonservice->GetPwdError());
-        dlg.setIcon(QIcon(":/widgets/themes/dark/icons/display_setting.svg"));
+        dlg.setIcon(QIcon::fromTheme("preferences-system"));
         dlg.addButton(tr("Go to Settings"));
         dlg.addButton(tr("OK"), true, DDialog::ButtonWarning);
         connect(&dlg, &DDialog::buttonClicked, this, [this](int idx){

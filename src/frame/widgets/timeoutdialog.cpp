@@ -33,7 +33,7 @@ TimeoutDialog::TimeoutDialog(const int timeout, QString messageModel, QWidget *p
         m_messageModel = tr("If no operation, the display will be restored after %1s.");
     }
     setMessage(m_messageModel.arg(m_timeout));
-    setIcon(QIcon(":/widgets/themes/dark/icons/display_setting.svg"));
+    setIcon(QIcon::fromTheme("preferences-system"));
 
     addButton(tr("Restore"), true, DDialog::ButtonRecommend);
     addButton(tr("Save"));
