@@ -43,8 +43,6 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
     , m_work(nullptr)
     , m_timer(new QTimer(this))
     , m_widget(nullptr)
-    , m_nPowerLockScreenDelay(0)
-    , m_nBatteryLockScreenDelay(0)
 {
 
 }
@@ -56,9 +54,6 @@ void PowerModule::preInitialize(bool sync)
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
     m_work->active(sync); //refresh data
-
-    connect(m_model, &PowerModel::batteryLockScreenDelayChanged, this, &PowerModule::onSetBatteryDefault);
-    connect(m_model, &PowerModel::powerLockScreenDelayChanged, this, &PowerModule::onSetPowerDefault);
 
     m_frameProxy->setRemoveableDeviceStatus(tr("On Battery"), m_model->haveBettary());
 }
@@ -177,25 +172,10 @@ void PowerModule::showUseBattery()
     battery->setModel(m_model);
     m_frameProxy->pushWidget(this, battery);
 
-    battery->setAutoLockScreenOnBattery(m_nBatteryLockScreenDelay);
     connect(battery, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery, m_work, &PowerWorker::setScreenBlackDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetSleepDelayOnBattery, m_work, &PowerWorker::setSleepDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetAutoLockScreenOnBattery, m_work, &PowerWorker::setLockScreenDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed, m_work, &PowerWorker::setSleepOnLidOnBatteryClosed);//Suspend on lid close
-}
-
-void PowerModule::onSetBatteryDefault(const int value)
-{
-    if (m_nBatteryLockScreenDelay != value) {
-        m_nBatteryLockScreenDelay = value;
-    }
-}
-
-void PowerModule::onSetPowerDefault(const int value)
-{
-    if (m_nPowerLockScreenDelay != value) {
-        m_nPowerLockScreenDelay = value;
-    }
 }
 
 void PowerModule::onBatteryPercentageChanged(const double value)

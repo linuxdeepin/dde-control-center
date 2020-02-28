@@ -62,8 +62,6 @@ public:
 Q_SIGNALS:
 
 public Q_SLOTS:
-    void onSetBatteryDefault(const int value);
-    void onSetPowerDefault(const int value);
     void onBatteryPercentageChanged(const double value);
 
 private:
@@ -77,8 +75,6 @@ private:
     dcc::power::PowerWorker *m_work;
     QTimer *m_timer;
     QPointer<PowerWidget> m_widget;
-    int m_nPowerLockScreenDelay;
-    int m_nBatteryLockScreenDelay;
     double m_nBatteryPercentage;
 };
 

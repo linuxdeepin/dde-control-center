@@ -73,7 +73,6 @@ public Q_SLOTS:
     void setScreenBlackDelayOnBattery(const int delay);
     void setSleepDelayOnBattery(const int delay);
     void setAutoLockScreenOnBattery(const int delay);
-    void setLockScreenAfter(const int delay);
 };
 
 }// namespace datetime
