@@ -112,12 +112,12 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::sleepDelayChangedOnBattery, this, &UseBatteryWidget::setSleepDelayOnBattery);
     connect(model, &PowerModel::screenBlackDelayChangedOnBattery, this, &UseBatteryWidget::setScreenBlackDelayOnBattery);
     connect(model, &PowerModel::sleepOnLidOnBatteryCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
-    connect(model, &PowerModel::batteryLockScreenDelayChanged, this, &UseBatteryWidget::setLockScreenAfter);
+    connect(model, &PowerModel::batteryLockScreenDelayChanged, this, &UseBatteryWidget::setAutoLockScreenOnBattery);
 
     setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
     m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
-    setLockScreenAfter(model->getBatteryLockScreenDelay());
+    setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 }
 
 void UseBatteryWidget::setScreenBlackDelayOnBattery(const int delay)
@@ -126,14 +126,6 @@ void UseBatteryWidget::setScreenBlackDelayOnBattery(const int delay)
     m_monitorSleepOnBattery->slider()->setValue(delay);
     m_monitorSleepOnBattery->setValueLiteral(delayToLiteralString(delay));
     m_monitorSleepOnBattery->slider()->blockSignals(false);
-}
-
-void UseBatteryWidget::setLockScreenAfter(const int delay)
-{
-    m_autoLockScreen->slider()->blockSignals(true);
-    m_autoLockScreen->slider()->setValue(delay);
-    m_autoLockScreen->setValueLiteral(delayToLiteralString(delay));
-    m_autoLockScreen->slider()->blockSignals(false);
 }
 
 void UseBatteryWidget::setSleepDelayOnBattery(const int delay)
