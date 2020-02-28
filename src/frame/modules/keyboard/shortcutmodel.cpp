@@ -141,6 +141,9 @@ void ShortcutModel::onParseInfo(const QString &info)
         systemFilterServer.removeOne("screenshot-window");
         systemFilterServer.removeOne("deepin-screen-recorder");
         systemFilterServer.removeOne("wm-switcher");
+        systemFilterServer.removeOne("preview-workspace");
+        systemFilterServer.removeOne("expose-windows");
+        systemFilterServer.removeOne("expose-all-windows");
         systemShortKeys = systemFilterServer;
     } else {
         systemShortKeys = systemFilter;
