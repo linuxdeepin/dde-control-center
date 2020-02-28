@@ -23,108 +23,108 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="154"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
         <source>Help</source>
         <translation>Súgó</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Accounts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Cloud Account</source>
         <translation type="unfinished"/>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="297"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Display</source>
         <translation>Kijelző</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="298"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Default Applications</source>
         <translation>Alapértelmezett alkalmazások</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="299"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Personalization</source>
         <translation>Személyreszabás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="300"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Network</source>
         <translation>Hálózat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="301"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
         <source>Sound</source>
         <translation>Hang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="302"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="801"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="803"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="303"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Date and Time</source>
         <translation>Dátum és Idő</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="304"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Power</source>
         <translation>Kikapcsolás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
         <source>Mouse</source>
         <translation>Egér</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Drawing Tablet</source>
         <translation>Rajztábla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Keyboard and Language</source>
         <translation>Billentyűzet és Nyelv</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>System Info</source>
         <translation>Rendszerinformáció</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
         <source>General Settings</source>
         <translation>Általános beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>Touchpad</source>
         <translation>Érintőpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Cloud Sync</source>
         <translation>Felhő alapú szinkronizálás</translation>
     </message>
@@ -316,42 +316,52 @@
         <translation>opcionális</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>Go to Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Jelszó nem lehet hosszabb %1 karakternél</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="374"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
         <source>Passwords do not match</source>
         <translation>A jelszavak nem egyeznek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="399"/>
         <source>Username cannot be empty</source>
         <translation>A felhasználónév nem maradhat üres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>A felhasználónév hosszának 3 és 32 karakter között kell lennie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="412"/>
         <source>The first character must be in lower case</source>
         <translation>Az eső karakternek kisbetűnek kell lennie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="418"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>A felhasználónév csak a-z, 0-9, - vagy _ karaktereket tartalmazhat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
         <source>The full name already exists</source>
         <translation type="unfinished"/>
     </message>
@@ -419,27 +429,37 @@
         <translation>Szükséges</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>Go to Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
         <source>Wrong password</source>
         <translation>Helytelen jelszó</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="236"/>
         <source>Passwords do not match</source>
         <translation>A jelszavak nem egyeznek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="249"/>
         <source>New password should differ from the current one</source>
         <translation>Az új jelszónak különböznie kell a jelenlegitől </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="256"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Jelszó nem lehet hosszabb %1 karakternél</translation>
     </message>
@@ -467,7 +487,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
         <source>Bluetooth</source>
         <translation type="unfinished"/>
     </message>
@@ -1167,9 +1187,10 @@
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
         <source>Recommended</source>
         <translation>Ajánlott</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1379,37 +1400,37 @@
 <context>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="54"/>
         <source>System</source>
         <translation>Rendszer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="61"/>
         <source>Window</source>
         <translation>Ablak</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="68"/>
         <source>Workspace</source>
         <translation>Munkaterület</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
         <source>Speech</source>
         <translation>Beszéd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
         <source>Custom Shortcut</source>
         <translation>Egyedi gyorsbillentyű</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="116"/>
         <source>Restore Defaults</source>
         <translation>Alapértelmezések visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="142"/>
         <source>Shortcut</source>
         <translation>Gyorsbillentyű</translation>
     </message>
@@ -1417,17 +1438,17 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="68"/>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="73"/>
         <source>Add System Language</source>
         <translation>Rendszernyelv hozzáadása</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -1839,27 +1860,27 @@
         <translation>Ethernet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="59"/>
         <source>Not Bind</source>
         <translation>Nincs hozzárendelve</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="101"/>
         <source>Device MAC Addr</source>
         <translation>Eszköz MAC-cím</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="117"/>
         <source>Cloned MAC Addr</source>
         <translation>Klónozott MAC-cím</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="130"/>
         <source>Customize MTU</source>
         <translation>MTU testreszabása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="133"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -1959,7 +1980,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
         <source>Required</source>
         <translation>Szükséges</translation>
     </message>
@@ -1969,45 +1991,45 @@
         <translation>Átjáró</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>Primary DNS</source>
         <translation>Elsődleges DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
         <source>Secondary DNS</source>
         <translation>Másodlagos DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
         <source>Only applied in corresponding resources</source>
         <translation>Csak a megfelelő erőforrásban alkalmazható</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="249"/>
         <source>Method</source>
         <translation>Eljárás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Netmask</source>
         <translation>Netmask</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="316"/>
         <source>Prefix</source>
         <translation>Prefix</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="444"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="456"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="465"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="475"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="484"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="512"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="538"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="485"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="548"/>
         <source>Invalid IP address</source>
         <translation type="unfinished"/>
     </message>
@@ -3632,28 +3654,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="250"/>
         <source>Connect to hidden network</source>
         <translation>Kapcsolódás rejtett hálózathoz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="260"/>
         <source>Wireless Network Adapter</source>
         <translation>Vezeték nélküli kártya</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="272"/>
         <source>Close Hotspot</source>
         <translation>Hotspot bezárása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="275"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>A vezeték nélküli hálózat kapcsolódásahoz először kapcsolja ki a hotspot-ot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3786,22 +3808,22 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="100"/>
         <source>Light</source>
         <translation>Lágy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="102"/>
         <source>Dark</source>
         <translation>Sötét</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="104"/>
         <source>Auto</source>
         <translation>Automata</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="109"/>
         <source>Default</source>
         <translation>Alapértelmezett</translation>
     </message>
@@ -4111,17 +4133,19 @@
 <context>
     <name>dccV20::sound::AdvancedPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="71"/>
         <source>Output</source>
         <translation>Kimenet</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
         <source>Input</source>
         <translation>Bemenet</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
         <source>Sound Card:</source>
         <translation>Hangkártya:</translation>
     </message>
@@ -4149,7 +4173,7 @@
 <context>
     <name>dccV20::sound::SoundEffectsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="49"/>
         <source>Sound Effects</source>
         <translation>Hangeffektusok</translation>
     </message>
@@ -5329,32 +5353,32 @@ Ha nem működik, a képernyőbeállítás visszaáll %1 másodperc elteltével.
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="388"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="390"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>A számítógép eltávolítva a domain szerverről</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="389"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="391"/>
         <source>Your host joins the domain server successfully</source>
         <translation>A számítógép csatlakozott a domain szerverhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="411"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="413"/>
         <source>Your host failed to leave the domain server</source>
         <translation>A számítógép nem tudott lecsatlakozni a domain szerverről</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="412"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="414"/>
         <source>Your host failed to join the domain server</source>
         <translation>A számítógép nem tudott csatlakozni a domain szerverhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="417"/>
         <source>AD domain settings</source>
         <translation>AD domain beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="484"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="486"/>
         <source>Password not match</source>
         <translation>A jelszó nem egyezik</translation>
     </message>
@@ -8984,7 +9008,7 @@ Ha nem működik, a képernyőbeállítás visszaáll %1 másodperc elteltével.
 <context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="173"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="191"/>
         <source>available</source>
         <translation>elérhető</translation>
     </message>
@@ -9418,6 +9442,3831 @@ Ha nem működik, a képernyőbeállítás visszaáll %1 másodperc elteltével.
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
         <translation>Kapcsolódva</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::MainWindow</name>
+    <message>
+        <source>Help</source>
+        <translation type="vanished">Súgó</translation>
+    </message>
+    <message>
+        <source>Accounts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
+    </message>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">Kijelző</translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Alapértelmezett alkalmazások</translation>
+    </message>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">Személyreszabás</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">Hálózat</translation>
+    </message>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">Hang</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">Bluetooth</translation>
+    </message>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">Dátum és Idő</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">Kikapcsolás</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Egér</translation>
+    </message>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">Rajztábla</translation>
+    </message>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">Billentyűzet és Nyelv</translation>
+    </message>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">Rendszerinformáció</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">Általános beállítások</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Érintőpad</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+    </message>
+    <message>
+        <source>Cloud Sync</source>
+        <translation type="vanished">Felhő alapú szinkronizálás</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">Teljes név</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Validity Days</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please input a number between 1-99999</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">Jelszóváltoztatás</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Delete Account</source>
+        <translation type="vanished">Felhasználói fiók törlése</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation type="vanished">Automatikus belépés</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation type="vanished">Bejelentkezés jelszó nélkül</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">Csoport</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsModule</name>
+    <message>
+        <source>Accounts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsWidget</name>
+    <message>
+        <source>Create Account</source>
+        <translation type="vanished">Felhasználói fiók hozzáadása</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation type="vanished">Adminisztrátor</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation type="vanished">Standard felhasználó</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AddFingeDialog</name>
+    <message>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scan again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Kész</translation>
+    </message>
+    <message>
+        <source>Identifying fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AvatarListWidget</name>
+    <message>
+        <source>Images</source>
+        <translation type="vanished">Képek</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::CreateAccountPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Mégsem</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Létrehozás</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">Csoport</translation>
+    </message>
+    <message>
+        <source>New Account</source>
+        <translation type="vanished">Új felhasználó</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">Teljes név</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">Jelszó ismétlés</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>optional</source>
+        <translation type="vanished">opcionális</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">Jelszó nem lehet hosszabb %1 karakternél</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">A jelszavak nem egyeznek</translation>
+    </message>
+    <message>
+        <source>Username cannot be empty</source>
+        <translation type="vanished">A felhasználónév nem maradhat üres</translation>
+    </message>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation type="vanished">A felhasználónév hosszának 3 és 32 karakter között kell lennie</translation>
+    </message>
+    <message>
+        <source>The first character must be in lower case</source>
+        <translation type="vanished">Az eső karakternek kisbetűnek kell lennie</translation>
+    </message>
+    <message>
+        <source>Username must only contain a~z, 0~9, - or _</source>
+        <translation type="vanished">A felhasználónév csak a-z, 0-9, - vagy _ karaktereket tartalmazhat</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::FingerWidget</name>
+    <message>
+        <source>Delete fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint Password</source>
+        <translation type="vanished">Ujjlenyomathoz tartozó jelszó</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add fingerprint</source>
+        <translation type="vanished">Ujjlenyomat hozzáadása</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">Jelszóváltoztatás</translation>
+    </message>
+    <message>
+        <source>Current Password</source>
+        <translation type="vanished">Jelenlegi Jelszó</translation>
+    </message>
+    <message>
+        <source>New Password</source>
+        <translation type="vanished">Új jelszó</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">Jelszó ismétlés</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Mégsem</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Ment</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="vanished">Helytelen jelszó</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">A jelszavak nem egyeznek</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation type="vanished">Az új jelszónak különböznie kell a jelenlegitől </translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">Jelszó nem lehet hosszabb %1 karakternél</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::AdapterWidget</name>
+    <message>
+        <source>My devices</source>
+        <translation type="vanished">Eszközeim</translation>
+        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Other devices</source>
+        <translation type="vanished">Egyéb eszközök</translation>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation type="vanished">Kapcsolja be a bluetooth-t hogy megtalálja a közeli eszközöket (hangszóró, billentyűzet, egér)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::BluetoothModule</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DetailPage</name>
+    <message>
+        <source>Ignore this device</source>
+        <translation type="vanished">Ne használja az eszközt</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">Szétkapcsolás</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
+    <message>
+        <source>Connected</source>
+        <translation type="vanished">Kapcsolódva</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="vanished">Nincs csatlakozva</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::BootWidget</name>
+    <message>
+        <source>Updating...</source>
+        <translation type="vanished">Frissítés...</translation>
+    </message>
+    <message>
+        <source>Startup Delay</source>
+        <translation type="vanished">Indítás időzítés</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Téma</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
+        <translation type="vanished">A boot menuben beállíthatod és kicserélheted a háttérképet.</translation>
+    </message>
+    <message>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="vanished">A boot-menü téma megváltoztatása</translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">Boot menü</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoModule</name>
+    <message>
+        <source>General Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">Boot menü</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">Fejlesztői mód</translation>
+        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">Felhasználói élmény program</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Tablet Mode</source>
+        <translation type="vanished">Táblagép mód</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWork</name>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UOS Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="vanished">Egyetértés és csatlakozás a Felhasználói Élmény Programhoz</translation>
+    </message>
+    <message>
+        <source>The Disclaimer of Developer Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree and Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeDialog</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first and continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export PC Info</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Certificate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1. Export your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>3. Import the certificate</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeWidget</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To make some features effective, a restart is required. Restart now?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Mégsem</translation>
+    </message>
+    <message>
+        <source>Restart Now</source>
+        <translation type="vanished">Újraindítás most</translation>
+    </message>
+    <message>
+        <source>Root Access Allowed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">Csatlakozás a felhasználói élmény javítása programjához</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://openapi.chinauos.com/agreement/).</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::ClockItem</name>
+    <message>
+        <source>AM</source>
+        <translation type="vanished">Délelőtt</translation>
+    </message>
+    <message>
+        <source>PM</source>
+        <translation type="vanished">Délután</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateSettings</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">Automata szinkronizálás</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Mégsem</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">Megerősítés</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Szerver</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="vanished">Cím</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">Testreszabás</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateWidget</name>
+    <message>
+        <source>Year</source>
+        <translation type="vanished">Év</translation>
+    </message>
+    <message>
+        <source>Month</source>
+        <translation type="vanished">Hónap</translation>
+    </message>
+    <message>
+        <source>Day</source>
+        <translation type="vanished">Nap</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeModule</name>
+    <message>
+        <source>Date and Time</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeWidget</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">Időzóna lista</translation>
+    </message>
+    <message>
+        <source>Time Settings</source>
+        <translation type="vanished">Idő beállítás</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="vanished">24 órás formátum</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::SystemTimezone</name>
+    <message>
+        <source>Change System Timezone</source>
+        <translation type="vanished">Időzóna beállítása</translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+    </message>
+    <message>
+        <source>System Timezone</source>
+        <translation type="vanished">Rendszeridő</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::TimezoneList</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">Időzóna lista</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Timezone</source>
+        <translation type="vanished">Időzóna hozzáadása</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefappDetailWidget</name>
+    <message>
+        <source>Add Application</source>
+        <translation type="vanished">Alkalmazás hozzáadása</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Open Desktop file</source>
+        <translation type="vanished">Az asztalon levő fájl megnyitása</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation type="vanished">Érvénytelen</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsModule</name>
+    <message>
+        <source>Default Applications</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="vanished">Weboldal</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="vanished">E-mail</translation>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="vanished">Szöveg</translation>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="vanished">Zene</translation>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="vanished">Videó</translation>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="vanished">Fénykép</translation>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="vanished">Terminál</translation>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Alapértelmezett alkalmazások</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::BrightnessPage</name>
+    <message>
+        <source>Night Shift</source>
+        <translation type="vanished">Éjjeli üzemmód</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>The screen hue will be auto adjusted according to your location</source>
+        <translation type="vanished">A képernyő fényereje automatikusan beállítódik a számítógép környezete alapján</translation>
+    </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="vanished">Automata fényerő</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::CustomSettingDialog</name>
+    <message>
+        <source>Main Screen</source>
+        <translation type="vanished">Főképernyő</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">Felbontás</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">Frissítési arány</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Mégsem</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Ment</translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">Hz</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Ajánlott</translation>
+    </message>
+    <message>
+        <source>inch</source>
+        <translation type="vanished">inch</translation>
+    </message>
+    <message>
+        <source>Resolution %1x%2</source>
+        <translation type="vanished">Felbontás  %1x%2</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayModule</name>
+    <message>
+        <source>Display</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Többképernyős mód</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayWidget</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Többképernyős mód</translation>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="vanished">Fényerősség</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">Felbontás</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">Képernyő átméretezés</translation>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">Frissítési arány</translation>
+        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+    </message>
+    <message>
+        <source>Rotate Screen</source>
+        <translation type="vanished">Képernyő elforgatása</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenSettingPage</name>
+    <message>
+        <source>Custom Settings</source>
+        <translation type="vanished">Egyén beállítások</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="vanished">Megkettőzés</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="vanished">Kiterjeszt</translation>
+    </message>
+    <message>
+        <source>Show the same image on other screens</source>
+        <translation type="vanished">Ugyanazt a képet mutassa a többi kijelzőn</translation>
+    </message>
+    <message>
+        <source>Expand the desktop across the screens</source>
+        <translation type="vanished">Képernyő kiterjesztése a többi képernyőre</translation>
+    </message>
+    <message>
+        <source>%1 only</source>
+        <translation type="vanished">Csak %1</translation>
+    </message>
+    <message>
+        <source>Show the screen content only on %1</source>
+        <translation type="vanished">Csak az %1 mutassa a képernyő tartalmát</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">Testreszabás</translation>
+    </message>
+    <message>
+        <source>Configure the display according to your needs</source>
+        <translation type="vanished">Állítsa be a kijelzőt úgy, ahogy szeretné</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RefreshRatePage</name>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">Hz</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Ajánlott</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ResolutionDetailPage</name>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Ajánlott</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RotateDialog</name>
+    <message>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">Bal kattintás a forgatáshoz, jobb kattintás a visszaállításhoz és kilépéshez, Ctrl+S a mentéshez.</translation>
+    </message>
+    <message>
+        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">Bal kattintás a forgatáshoz, jobb kattintás a visszaállításhoz és kilépéshez, Ctrl+S a mentéshez.</translation>
+    </message>
+    <message>
+        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
+        <translation type="vanished">Elmenti a képernyőbeállításokat? Tétlenség esetén a képernyő előző beállításai lesznek visszaállítva %1s múlva.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ScalingPage</name>
+    <message>
+        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
+        <translation type="vanished">Bizonyos alkalmazások nem támogatják ezt a felbontást többképernyős környezetben.</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation type="vanished">A képernyő csak a 100%-os képskálázást támogatja</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::CustomContent</name>
+    <message>
+        <source>Add Custom Shortcut</source>
+        <translation type="vanished">Gyorsbillentyű hozzáadása</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Név</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="vanished">Parancs</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Mégsem</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">Hozzáadás</translation>
+    </message>
+    <message>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation type="vanished">A parancsikon ütközik ezzel: %1. Hozz létre egy másik parancsikont.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
+    <message>
+        <source>Repeat Delay</source>
+        <translation type="vanished">Ismétlés késleltetése</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Short</source>
+        <translation type="vanished">Rövid</translation>
+    </message>
+    <message>
+        <source>Long</source>
+        <translation type="vanished">Hosszú</translation>
+    </message>
+    <message>
+        <source>Repeat Rate</source>
+        <translation type="vanished">Ismétlés arány</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lassú</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Gyors</translation>
+    </message>
+    <message>
+        <source>Test here</source>
+        <translation type="vanished">Tesztelés</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Numeric Keypad</source>
+        <translation type="vanished">Számbillentyűzet</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Caps Lock Prompt</source>
+        <translation type="vanished">Caps lock figyelmeztető </translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">Billentyűzetkiosztás</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Szerkesztés</translation>
+    </message>
+    <message>
+        <source>Switch Layouts (Multiple)</source>
+        <translation type="vanished">Kiosztás választás (Több)</translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="vanished">Alkalmazva ehhez:</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="vanished">Rendszer</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">Alkalmazás</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Kész</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardModule</name>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">Egyedi gyorsbillentyű</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Általános</translation>
+    </message>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">Billentyűzetkiosztás</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System Language</source>
+        <translation type="vanished">Rendszer nyelv</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="vanished">Parancsikonok</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
+    <message>
+        <source>System</source>
+        <translation type="vanished">Rendszer</translation>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation type="vanished">Ablak</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="vanished">Munkaterület</translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation type="vanished">Beszéd</translation>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">Egyedi gyorsbillentyű</translation>
+    </message>
+    <message>
+        <source>Restore Defaults</source>
+        <translation type="vanished">Alapértelmezések visszaállítása</translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="vanished">Gyorsbillentyű</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Mégsem</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">Hozzáadás</translation>
+    </message>
+    <message>
+        <source>Add System Language</source>
+        <translation type="vanished">Rendszernyelv hozzáadása</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
+    <message>
+        <source>Language List</source>
+        <translation type="vanished">Elérhető nyelvek listája</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Szerkesztés</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Kész</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
+    <message>
+        <source>Left Hand</source>
+        <translation type="vanished">Bal kéz</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad while typing</source>
+        <translation type="vanished">Érintőpad kikapcsolása gépelés közben</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="vanished">Görgetési sebesség</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Double-click Speed</source>
+        <translation type="vanished">Dupla-kattintás sebesség</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lassú</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Gyors</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseModule</name>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Tapipad</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Mutató sebessége</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation type="vanished">Egérmutató sebessége</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation type="vanished">Érintőpad kikapcsolása gépelés közben</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">Természetes görgetés</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lassú</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Gyors</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Általános</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Egér</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Tapipad</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Mutató sebessége</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="vanished">Érintésre kattintás</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">Természetes görgetés</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lassú</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Gyors</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Mutató sebessége</translation>
+        <extra-child_page>TrackPoint</extra-child_page>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lassú</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Gyors</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsProxyPage</name>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">Alkalmazás proxy</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Proxy típus </translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">IP-cím</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">Tetszőleges</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+    <message>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="vanished">Jelöld be a &quot;Proxy használata&quot; pontot az Indító alkalmazás környezeti menüjében miután beállítottad</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Mégsem</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Ment</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid port</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsTypePage</name>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Proxy típus </translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionEditPage</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">Szétkapcsolás</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">Törlés</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Mégsem</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Ment</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this configuration?</source>
+        <translation type="vanished">Biztosan törli ezt a beállítást?</translation>
+    </message>
+    <message>
+        <source>Wired Connection %1</source>
+        <translation type="vanished">Vezetékes csatlakozás %1</translation>
+    </message>
+    <message>
+        <source>hotspot</source>
+        <translation type="vanished">Hotspot</translation>
+    </message>
+    <message>
+        <source>Wireless Connection %1</source>
+        <translation type="vanished">Vezetéknélküli csatlakozás %1</translation>
+    </message>
+    <message>
+        <source>PPPoE Connection %1</source>
+        <translation type="vanished">PPPoE csatlakozás %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
+    <message>
+        <source>New VPN</source>
+        <translation type="vanished">Új VPN</translation>
+    </message>
+    <message>
+        <source>VPN Type</source>
+        <translation type="vanished">VPN típus</translation>
+    </message>
+    <message>
+        <source>L2TP</source>
+        <translation type="vanished">L2TP</translation>
+    </message>
+    <message>
+        <source>PPTP</source>
+        <translation type="vanished">PPTP</translation>
+    </message>
+    <message>
+        <source>VPNC</source>
+        <translation type="vanished">VPNC</translation>
+    </message>
+    <message>
+        <source>OpenVPN</source>
+        <translation type="vanished">OpenVPN</translation>
+    </message>
+    <message>
+        <source>StrongSwan</source>
+        <translation type="vanished">StrongSwan</translation>
+    </message>
+    <message>
+        <source>OpenConnect</source>
+        <translation type="vanished">OpenConnect</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="vanished">Exportálás</translation>
+    </message>
+    <message>
+        <source>VPN L2TP %1</source>
+        <translation type="vanished">VPN L2TP %1</translation>
+    </message>
+    <message>
+        <source>VPN PPTP %1</source>
+        <translation type="vanished">VPN PPTP %1</translation>
+    </message>
+    <message>
+        <source>VPN VPNC %1</source>
+        <translation type="vanished">VPN VPNC %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenVPN %1</source>
+        <translation type="vanished">VPN OpenVPN %1</translation>
+    </message>
+    <message>
+        <source>VPN StrongSwan %1</source>
+        <translation type="vanished">VPN StrongSwan %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenConnect %1</source>
+        <translation type="vanished">VPN OpenConnect %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::EthernetSection</name>
+    <message>
+        <source>Ethernet</source>
+        <translation type="vanished">Ethernet</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">Nincs hozzárendelve</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">Eszköz MAC-cím</translation>
+    </message>
+    <message>
+        <source>Cloned MAC Addr</source>
+        <translation type="vanished">Klónozott MAC-cím</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">MTU testreszabása</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericHotspotSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Általános</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Név</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Általános</translation>
+    </message>
+    <message>
+        <source>The name already exists</source>
+        <translation type="vanished">Létező név</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Név</translation>
+    </message>
+    <message>
+        <source>Auto Connect</source>
+        <translation type="vanished">Automata csatlakozás</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotDeviceWidget</name>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">Hotspot</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Settings</source>
+        <translation type="vanished">Beállítások hozzáadása</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotPage</name>
+    <message>
+        <source>Create Hotspot</source>
+        <translation type="vanished">Hotspot létrehozása</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::IpvxSection</name>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automata</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">Manuális</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="vanished">Kihagy</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">IP-cím</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Átjáró</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">Elsődleges DNS</translation>
+    </message>
+    <message>
+        <source>Secondary DNS</source>
+        <translation type="vanished">Másodlagos DNS</translation>
+    </message>
+    <message>
+        <source>Only applied in corresponding resources</source>
+        <translation type="vanished">Csak a megfelelő erőforrásban alkalmazható</translation>
+    </message>
+    <message>
+        <source>Method</source>
+        <translation type="vanished">Eljárás</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Netmask</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">Prefix</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkDetailPage</name>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">Hálózati adatok</translation>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">Hotspot</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Biztonság</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation type="vanished">Felület</translation>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation type="vanished">MAC cím</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation type="vanished">Sáv</translation>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Átjáró</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">Elsődleges DNS</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Netmask</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">Prefix</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Sebesség</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModule</name>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Vezetékes hálózat </translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Vezeték nélküli hálózat</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Személyes hotspot</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModuleWidget</name>
+    <message>
+        <source>DSL</source>
+        <translation type="vanished">DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">Rendszer proxy</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">Alkalmazás proxy</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">Hálózati adatok</translation>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Configure by Network Manager</source>
+        <translation type="vanished">Network Manager általi beállítás</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Személyes hotspot</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network %1</source>
+        <translation type="vanished">Vezetékes hálózat %1</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Vezetékes hálózat </translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network %1</source>
+        <translation type="vanished">Vezeték nélküli Hálózat %1 </translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Vezeték nélküli hálózat</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Letiltva</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="vanished">Szétkapcsolva</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPOESection</name>
+    <message>
+        <source>PPPoE</source>
+        <translation type="vanished">PPPoE</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation type="vanished">Szolgáltatás</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPSection</name>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">EAP hitelesítés visszautasítása</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">PAP hitelesítés visszautasítása</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">CHAP hitelesítés visszautasítása</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">MSCHAP hitelesítés visszautasítása</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">MSCHAPv2 hitelesítés visszautasítása</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">Nincs BSD Adattömörítés</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">Nincs Delflate adattömörítés </translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">Nincs TCP fejléc tömörítés</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">Nincs protokoll mező tömörítés</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">Nincs cím/vezérlés tömörítés</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">PPP Echo csomagok küldése</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">MPPE használata</translation>
+    </message>
+    <message>
+        <source>128-bit MPPE</source>
+        <translation type="vanished">128 bites MPPE</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Állapotfüggő MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PppoePage</name>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation type="vanished">PPPoE kapcsolat létrehozása</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
+    </message>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ProxyPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Mégsem</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Ment</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nincs</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">Manuális</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automata</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">Tetszőleges</translation>
+    </message>
+    <message>
+        <source>HTTP Proxy</source>
+        <translation type="vanished">HTTP Proxy</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+    </message>
+    <message>
+        <source>HTTPS Proxy</source>
+        <translation type="vanished">HTTPS Proxy</translation>
+    </message>
+    <message>
+        <source>FTP Proxy</source>
+        <translation type="vanished">FTP Proxy</translation>
+    </message>
+    <message>
+        <source>SOCKS Proxy</source>
+        <translation type="vanished">SOCKS Proxy</translation>
+    </message>
+    <message>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation type="vanished">A következő proxy konfigurációk figyelmen kívül hagyása a fenti kiszolgálókra és tartományokra</translation>
+    </message>
+    <message>
+        <source>Configuration URL</source>
+        <translation type="vanished">Beállítások URL</translation>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">Rendszer proxy</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::Secret8021xSection</name>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Biztonság</translation>
+    </message>
+    <message>
+        <source>TLS</source>
+        <translation type="vanished">TLS</translation>
+    </message>
+    <message>
+        <source>MD5</source>
+        <translation type="vanished">MD5</translation>
+    </message>
+    <message>
+        <source>LEAP</source>
+        <translation type="vanished">LEAP</translation>
+    </message>
+    <message>
+        <source>FAST</source>
+        <translation type="vanished">FAST</translation>
+    </message>
+    <message>
+        <source>Tunneled TLS</source>
+        <translation type="vanished">Elrejtett TLS</translation>
+    </message>
+    <message>
+        <source>Protected EAP</source>
+        <translation type="vanished">Protected EAP</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Elmentve</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Kérdés</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Nem szükséges</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Letiltva</translation>
+    </message>
+    <message>
+        <source>Anonymous</source>
+        <translation type="vanished">Anonim</translation>
+    </message>
+    <message>
+        <source>Authenticated</source>
+        <translation type="vanished">Hitelesítve</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="vanished">Mindkettő</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="vanished">Automatikus</translation>
+    </message>
+    <message>
+        <source>Version 0</source>
+        <translation type="vanished">0 verzió</translation>
+    </message>
+    <message>
+        <source>Version 1</source>
+        <translation type="vanished">1 verzió</translation>
+    </message>
+    <message>
+        <source>EAP Auth</source>
+        <translation type="vanished">EAP hitelesítés</translation>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="vanished">Identitás</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Jelszóopciók</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privát kulcs</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA tanúsítvány</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Felhasználói tanúsítvány</translation>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
+        <translation type="vanished">Névtelen ID</translation>
+    </message>
+    <message>
+        <source>Provisioning</source>
+        <translation type="vanished">Készenlét</translation>
+    </message>
+    <message>
+        <source>PAC file</source>
+        <translation type="vanished">PAC fájl</translation>
+    </message>
+    <message>
+        <source>Inner Auth</source>
+        <translation type="vanished">Belső hitelesítés</translation>
+    </message>
+    <message>
+        <source>PEAP Version</source>
+        <translation type="vanished">PEAP verzió</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">Privát jelszó</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretHotspotSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Érvénytelen jelszó</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nincs</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 Személyes</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Biztonság</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">Kulcs</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWiredSection</name>
+    <message>
+        <source>Security Required</source>
+        <translation type="vanished">Szükséges biztonság</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWirelessSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Érvénytelen jelszó</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nincs</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 Személyes</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation type="vanished">WPA/WPA2 vállalati</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Biztonság</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">Kulcs</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">Bövitett VPN</translation>
+    </message>
+    <message>
+        <source>Customize Gateway Port</source>
+        <translation type="vanished">Átjáró Port testreszabása</translation>
+    </message>
+    <message>
+        <source>Gateway Port</source>
+        <translation type="vanished">Átjáró port</translation>
+    </message>
+    <message>
+        <source>Customize Renegotiation Interval</source>
+        <translation type="vanished">Egyedi újratárgyalási idő használata</translation>
+    </message>
+    <message>
+        <source>Renegotiation Interval</source>
+        <translation type="vanished">Újratárgyalási idő</translation>
+    </message>
+    <message>
+        <source>Use LZO Data Compression</source>
+        <translation type="vanished">LZO adattömörítés használata</translation>
+    </message>
+    <message>
+        <source>Use TCP Connection</source>
+        <translation type="vanished">TCP kapcsolat használata</translation>
+    </message>
+    <message>
+        <source>Use TAP Device</source>
+        <translation type="vanished">TAP eszköz használata</translation>
+    </message>
+    <message>
+        <source>Customize Tunnel MTU</source>
+        <translation type="vanished">MTU csatorna testreszabása</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+    <message>
+        <source>Customize UDP Fragment Size</source>
+        <translation type="vanished">UDP töredékméret testreszabása </translation>
+    </message>
+    <message>
+        <source>UDP Fragment Size</source>
+        <translation type="vanished">UDP töredék mérete</translation>
+    </message>
+    <message>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation type="vanished">Korlátozza a TCP MSS tunnelt </translation>
+    </message>
+    <message>
+        <source>Randomize Remote Hosts</source>
+        <translation type="vanished">Hosztok véletlenszerű elrendezése</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">Bövitett VPN</translation>
+    </message>
+    <message>
+        <source>Cisco (default)</source>
+        <translation type="vanished">Cisco (alapértelmezett)</translation>
+    </message>
+    <message>
+        <source>Netscreen</source>
+        <translation type="vanished">Netscreen</translation>
+    </message>
+    <message>
+        <source>Secure (default)</source>
+        <translation type="vanished">Biztonságos (alap)</translation>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation type="vanished">Gyenge</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nincs</translation>
+    </message>
+    <message>
+        <source>NAT-T When Available (default)</source>
+        <translation type="vanished">NAT-T Amikor Elérhető (alapértelmezett)</translation>
+    </message>
+    <message>
+        <source>NAT-T Always</source>
+        <translation type="vanished">NAT-T Mindig</translation>
+    </message>
+    <message>
+        <source>Cisco UDP</source>
+        <translation type="vanished">Cisco UDP</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Letiltva</translation>
+    </message>
+    <message>
+        <source>DH Group 1</source>
+        <translation type="vanished">DH csoport 1</translation>
+    </message>
+    <message>
+        <source>DH Group 2 (default)</source>
+        <translation type="vanished">DH csoport 2 (alapértelmezett)</translation>
+    </message>
+    <message>
+        <source>DH Group 5</source>
+        <translation type="vanished">DH Csoport 5</translation>
+    </message>
+    <message>
+        <source>Server (default)</source>
+        <translation type="vanished">Szerver (alapértelmezett)</translation>
+    </message>
+    <message>
+        <source>DH Group 2</source>
+        <translation type="vanished">DH csoport 2</translation>
+    </message>
+    <message>
+        <source>Domain</source>
+        <translation type="vanished">Domain</translation>
+    </message>
+    <message>
+        <source>Vendor</source>
+        <translation type="vanished">Előálltó</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="vanished">Verzió</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="vanished">Titkosítás</translation>
+    </message>
+    <message>
+        <source>NAT Traversal Mode</source>
+        <translation type="vanished">NAT átjáró mód</translation>
+    </message>
+    <message>
+        <source>IKE DH Group</source>
+        <translation type="vanished">IKE DH csoport</translation>
+    </message>
+    <message>
+        <source>Forward Secrecy</source>
+        <translation type="vanished">Elő titkosítás</translation>
+    </message>
+    <message>
+        <source>Local Port</source>
+        <translation type="vanished">Helyi port</translation>
+    </message>
+    <message>
+        <source>Disable Dead Peer Detection</source>
+        <translation type="vanished">Halott peer észlelés letiltása</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnIpsecSection</name>
+    <message>
+        <source>VPN IPsec</source>
+        <translation type="vanished">VPN IPsec</translation>
+    </message>
+    <message>
+        <source>Enable IPsec</source>
+        <translation type="vanished">IPsec engedélyezése</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">Csoportnév</translation>
+    </message>
+    <message>
+        <source>Group ID</source>
+        <translation type="vanished">Csoport azonosító</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Előre megosztott kulcs </translation>
+    </message>
+    <message>
+        <source>Phase1 Algorithms</source>
+        <translation type="vanished">Phase1 Algoritmusok</translation>
+    </message>
+    <message>
+        <source>Phase2 Algorithms</source>
+        <translation type="vanished">Phase2 Algoritmusok</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenConnectSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Átjáró</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA tanúsítvány</translation>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="vanished">Proxy</translation>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="vanished">Cisco trójai védelem engedélyezése</translation>
+    </message>
+    <message>
+        <source>CSD Script</source>
+        <translation type="vanished">CSD szkript</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Felhasználói tanúsítvány</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privát kulcs</translation>
+    </message>
+    <message>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="vanished">FSID azonosítókulcs használata </translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenVPNSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Certificates (TLS)</source>
+        <translation type="vanished">Tanúsítványok (TLS)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+    <message>
+        <source>Certificates with Password (TLS)</source>
+        <translation type="vanished">Tanúsítványok jelszóval (TLS)</translation>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="vanished">Statikus kulcs</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Elmentve</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Kérdés</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Nem szükséges</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Átjáró</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">Hitelesítés típusa</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA tanúsítvány</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Felhasználói tanúsítvány</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privát kulcs</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Jelszóopciók</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">Privát jelszó</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">Kulcs irány testreszabása</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">Kulcs irány</translation>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="vanished">Távoli IP-cím</translation>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="vanished">Helyi IP-cím</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPPPSection</name>
+    <message>
+        <source>VPN PPP</source>
+        <translation type="vanished">VPN PPP</translation>
+    </message>
+    <message>
+        <source>All Available (default)</source>
+        <translation type="vanished">Minden elérhető (alap)</translation>
+    </message>
+    <message>
+        <source>40-bit (less secure)</source>
+        <translation type="vanished">40-bit (Kevésbé biztonságos)</translation>
+    </message>
+    <message>
+        <source>128-bit (most secure)</source>
+        <translation type="vanished">128-bit (Legbiztonságosabb)</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">EAP hitelesítés visszautasítása</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">PAP hitelesítés visszautasítása</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">CHAP hitelesítés visszautasítása</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">MSCHAP hitelesítés visszautasítása</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">MSCHAPv2 hitelesítés visszautasítása</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">Nincs BSD Adattömörítés</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">Nincs Delflate adattömörítés </translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">Nincs TCP fejléc tömörítés</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">Nincs protokoll mező tömörítés</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">Nincs cím/vezérlés tömörítés</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">PPP Echo csomagok küldése</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">MPPE használata</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Biztonság</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Állapotfüggő MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPage</name>
+    <message>
+        <source>VPN Status</source>
+        <translation type="vanished">VPN állapot</translation>
+    </message>
+    <message>
+        <source>Create VPN</source>
+        <translation type="vanished">VPN létrehozás</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import VPN</source>
+        <translation type="vanished">VPN beállítások betöltése</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="vanished">Importálási hiba</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">OK</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN proxy</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Nem szükséges</translation>
+    </message>
+    <message>
+        <source>HTTP</source>
+        <translation type="vanished">HTTP</translation>
+    </message>
+    <message>
+        <source>SOCKS</source>
+        <translation type="vanished">SOCKS</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Proxy típus </translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Szerver IP-cím</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+    </message>
+    <message>
+        <source>Retry Indefinitely When Failed</source>
+        <translation type="vanished">Sikertelen próbálkozásoknál újra próbálkozás</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSSTPSection</name>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">CA fájl</translation>
+    </message>
+    <message>
+        <source>Ignore Certificate Warnings</source>
+        <translation type="vanished">Tanúsítvánnyal kapcsolatos figyelmeztetések figyelmen kívül hagyása</translation>
+    </message>
+    <message>
+        <source>Use TLS Hostname Extensions</source>
+        <translation type="vanished">TLS kiszolgálónév kiterjesztések használata</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <message>
+        <source>VPN Security</source>
+        <translation type="vanished">VPN biztonság</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Alapértelmezett</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nincs</translation>
+    </message>
+    <message>
+        <source>Cipher</source>
+        <translation type="vanished">Titkosírás</translation>
+    </message>
+    <message>
+        <source>HMAC Auth</source>
+        <translation type="vanished">HMAC Hitelesítés</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Elmentve</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Kérdés</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Nem szükséges</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Átjáró</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Jelszóopciók</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+    <message>
+        <source>NT Domain</source>
+        <translation type="vanished">NT Domain</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSstpProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN proxy</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Szerver IP-cím</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnStrongSwanSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privát kulcs</translation>
+    </message>
+    <message>
+        <source>SSH Agent</source>
+        <translation type="vanished">SSH Ügynök</translation>
+    </message>
+    <message>
+        <source>Smart Card</source>
+        <translation type="vanished">Smart Card</translation>
+    </message>
+    <message>
+        <source>EAP</source>
+        <translation type="vanished">EAP</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Előre megosztott kulcs </translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Átjáró</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA tanúsítvány</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">Hitelesítés típusa</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Felhasználói tanúsítvány</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+    <message>
+        <source>Request an Inner IP Address</source>
+        <translation type="vanished">Belső IP cím Igénylése</translation>
+    </message>
+    <message>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="vanished">UDP Beágyazás Végrehajtása</translation>
+    </message>
+    <message>
+        <source>Use IP Compression</source>
+        <translation type="vanished">IP Tömörítés Használata</translation>
+    </message>
+    <message>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation type="vanished">Egyedi rejtjelező kulcs javaslat engedése</translation>
+    </message>
+    <message>
+        <source>IKE</source>
+        <translation type="vanished">IKE</translation>
+    </message>
+    <message>
+        <source>ESP</source>
+        <translation type="vanished">ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnTLSSection</name>
+    <message>
+        <source>VPN TLS Authentication</source>
+        <translation type="vanished">VPN TLS hitelesítés</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Alapértelmezett</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="vanished">Szolgáltatás</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Szerver</translation>
+    </message>
+    <message>
+        <source>Subject Match</source>
+        <translation type="vanished">Téma egyezés</translation>
+    </message>
+    <message>
+        <source>Remote Cert Type</source>
+        <translation type="vanished">Távoli tanúsítvány típusa</translation>
+    </message>
+    <message>
+        <source>Key File</source>
+        <translation type="vanished">Kulcs fájl</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">Kulcs irány testreszabása</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">Kulcs irány</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnVPNCSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Elmentve</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Kérdés</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Nem szükséges</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Átjáró</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Jelszóopciók</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Jelszó</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">Csoportnév</translation>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="vanished">Csoport jelszó</translation>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="vanished">Hibrid hitelesítés használata</translation>
+    </message>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">CA fájl</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WiredPage</name>
+    <message>
+        <source>Plug in the network cable first</source>
+        <translation type="vanished">Először a hálózati kábelt csatlakoztasd.</translation>
+    </message>
+    <message>
+        <source>Wired Network Adapter</source>
+        <translation type="vanished">Vezetékes hálózati kártya</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Network Connection</source>
+        <translation type="vanished">Hálózat hozzáadása</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
+    </message>
+    <message>
+        <source>Select Settings</source>
+        <translation type="vanished">Beállítások kiválasztása</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessPage</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation type="vanished">Kapcsolódás rejtett hálózathoz</translation>
+    </message>
+    <message>
+        <source>Wireless Network Adapter</source>
+        <translation type="vanished">Vezeték nélküli kártya</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Close Hotspot</source>
+        <translation type="vanished">Hotspot bezárása</translation>
+    </message>
+    <message>
+        <source>Disable hotspot first if you want to connect to a wireless network</source>
+        <translation type="vanished">A vezeték nélküli hálózat kapcsolódásahoz először kapcsolja ki a hotspot-ot</translation>
+    </message>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">WLAN</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessSection</name>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">WLAN</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">Nincs hozzárendelve</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Szükséges</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">Eszköz MAC-cím</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">MTU testreszabása</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">Méret</translation>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation type="vanished">Általános betűtípus</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation type="vanished">Állandó szélességű betűtípus</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source> (Unsupported font)</source>
+        <translation type="vanished">(Nem használható ez a betűtípus)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Téma</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Accent Color</source>
+        <translation type="vanished">Színárnyalat</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">Ablak effekt</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="vanished">Áttetszőség</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationList</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Általános</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation type="vanished">Ikontéma</translation>
+        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Cursor Theme</source>
+        <translation type="vanished">Kurzorsablon</translation>
+        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="vanished">Betűtípus</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationModule</name>
+    <message>
+        <source>Personalization</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Lágy</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">Sötét</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automata</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Alapértelmezett</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Lágy</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">Sötét</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automata</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Alapértelmezett</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::GeneralWidget</name>
+    <message>
+        <source>Power Saving Mode</source>
+        <translation type="vanished">Energiatakarékos mód</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Mode Switch</source>
+        <translation type="vanished">Automatikus módváltás</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation type="vanished">Jelszó szükséges a számítógép felébresztéséhez</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation type="vanished">Jelszó szükséges a monitor felébresztéséhez</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerModule</name>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">Akkumulátoron</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Battery low, please plug in</source>
+        <translation type="vanished">Akkutöltöttség alacsony, kérem csatlakoztassa a töltőt</translation>
+    </message>
+    <message>
+        <source>Battery critically low</source>
+        <translation type="vanished">Az akkumlátor töltöttsége kritikusan alacsony</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Általános</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="vanished">Csatlakoztatva</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">Akkumulátoron</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseBatteryWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">A monitor alvó állapotba kerül utána</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">A számítógép alvó állapotba kerül utána</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">Későbbi zárolási képernyő</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">Alvó állapot a notebook fedelének lehajtásakor</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">Soha</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 perc</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 perc</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 óra</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseElectricWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">A monitor alvó állapotba kerül utána</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">Későbbi zárolási képernyő</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">Alvó állapot a notebook fedelének lehajtásakor</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">A számítógép alvó állapotba kerül utána</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">Soha</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 perc</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 perc</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 óra</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::search::SearchWidget</name>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Szerver</translation>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">Ablak effekt</translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">Fejlesztői mód</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">Felhasználói élmény program</translation>
+    </message>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">Csatlakozás a felhasználói élmény javítása programjához</translation>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Tapipad</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Személyes hotspot</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">Akkumulátoron</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Vezetékes hálózat </translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Vezeték nélküli hálózat</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Többképernyős mód</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::AdvancedPage</name>
+    <message>
+        <source>Output</source>
+        <translation type="vanished">Kimenet</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="vanished">Bemenet</translation>
+    </message>
+    <message>
+        <source>Sound Card:</source>
+        <translation type="vanished">Hangkártya:</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::MicrophonePage</name>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">Mikrofon</translation>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation type="vanished">Bemeneti Hangerő</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation type="vanished">Bemeneti szint</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">Hangeffektusok</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundModule</name>
+    <message>
+        <source>Sound</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundWidget</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">Hangszóró</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">Mikrofon</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">Részletes</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">Hangeffektusok</translation>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SpeakerPage</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">Hangszóró</translation>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation type="vanished">Kimeneti hangerő</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Volume Boost</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Left/Right Balance</source>
+        <translation type="vanished">Bal/Jobb Balansz</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="vanished">Bal</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="vanished">Jobb</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::IndexPage</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">Automata szinkronizálás</translation>
+    </message>
+    <message>
+        <source>Syncing...</source>
+        <translation type="vanished">Szinkronizálás...</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">Kijelentkezés</translation>
+    </message>
+    <message>
+        <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
+        <translation type="vanished">Az Ön wifi jelszava akkor lesz szinkronizálva, ha az be van kapcsolva a hálózati beállításokban</translation>
+    </message>
+    <message>
+        <source>Network Settings</source>
+        <translation type="vanished">Hálózati beállítások</translation>
+    </message>
+    <message>
+        <source>Sound Settings</source>
+        <translation type="vanished">Hangbeállítások</translation>
+    </message>
+    <message>
+        <source>Mouse Settings</source>
+        <translation type="vanished">Egérbeállítások</translation>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Frissítési beállítások</translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="vanished">Kitűzés a Dokkra</translation>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation type="vanished">Indító</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="vanished">Háttérkép</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Téma</translation>
+    </message>
+    <message>
+        <source>Power Settings</source>
+        <translation type="vanished">Energiagazdálkodási beállítások</translation>
+    </message>
+    <message>
+        <source>Corner Settings</source>
+        <translation type="vanished">Sarkok beállítása</translation>
+    </message>
+    <message>
+        <source>Last Sync: %1</source>
+        <translation type="vanished">Utolsó szinkronizálás: %1</translation>
+    </message>
+    <message>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="vanished">éééé-HH-nn óó:pp</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LoginPage</name>
+    <message>
+        <source>Sign In</source>
+        <translation type="vanished">Bejelentkezés</translation>
+        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud Account Sign In</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="vanished">Jelenleg csak kontinentális Kína területén érhető el</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LogoutPage</name>
+    <message>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="vanished">Sajnáljuk, ez a régióban jelenleg nem támogatott, hamarosan.</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">Kijelentkezés</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::SyncModule</name>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <message>
+        <source>Edition:</source>
+        <translation type="vanished">Kiadás:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="vanished">Típus:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To be activated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel:</source>
+        <translation type="vanished">Kernel:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Processor:</source>
+        <translation type="vanished">Processzor:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Memory:</source>
+        <translation type="vanished">Memória:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Disk:</source>
+        <translation type="vanished">Lemez:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>%1-bit</source>
+        <translation type="vanished">%1-bit</translation>
+    </message>
+    <message>
+        <source>Activated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="vanished">Megtekintés</translation>
+    </message>
+    <message>
+        <source>Expired</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>In trial period</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Trial expired</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoModule</name>
+    <message>
+        <source>System Info</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
+    <message>
+        <source>About This PC</source>
+        <translation type="vanished">Ez a számítógép</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Edition License</source>
+        <translation type="vanished">Kiadási licenc</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="vanished">Végfelhasználói Szerződés</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorSourceItem</name>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">Nem tesztelt</translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="vanished">Időtullépés</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lassú</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="vanished">Közepes</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Gyors</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorsWidget</name>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">Források listája</translation>
+    </message>
+    <message>
+        <source>Test Speed</source>
+        <translation type="vanished">Sebesség tesztelése</translation>
+    </message>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">Nem tesztelt</translation>
+    </message>
+    <message>
+        <source>Retest</source>
+        <translation type="vanished">Újratesztelés</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateCtrlWidget</name>
+    <message>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="vanished">Frissítés után újraindítás szükséges az alkalmazások és a rendszer problémamentes használatához.</translation>
+    </message>
+    <message>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="vanished">Hálózat lecsatlakoztatva, próbáld meg újra a csatlakozás után.</translation>
+    </message>
+    <message>
+        <source>Your system is not authorized, please activate first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation type="vanished">A frissítés sokáig tarthat, kérlek ez alatt ne kapcsold ki, és ne indítsd újra a számítógépet.</translation>
+    </message>
+    <message>
+        <source>Checking for updates, please wait...</source>
+        <translation type="vanished">Frissítések keresése, kérlek várj...</translation>
+    </message>
+    <message>
+        <source>Download and install updates</source>
+        <translation type="vanished">Frissítések letöltése és telepítése</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="vanished">%1% letöltve (Kattints a megállításhoz)</translation>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="vanished">%1% letöltve (Kattints a folytatáshoz)</translation>
+    </message>
+    <message>
+        <source>Install updates</source>
+        <translation type="vanished">Frissítések telepítése</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation type="vanished">A rendszer frissítésre került</translation>
+    </message>
+    <message>
+        <source>Updating, please wait...</source>
+        <translation type="vanished">Frissítés, kérlek várj...</translation>
+    </message>
+    <message>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="vanished">A legfrissebb rendszer telepítve, újraindítás szükséges a befejezéshez</translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="vanished">Frissítés sikertelen: nincs elegendő lemezterület</translation>
+    </message>
+    <message>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="vanished">Függőségi hiba, a frissítések keresése sikertelen</translation>
+    </message>
+    <message>
+        <source>Backing up, please wait...</source>
+        <translation type="vanished">Biztonsági mentés készítése folyamatban, kérem várjon...</translation>
+    </message>
+    <message>
+        <source>System backup failed</source>
+        <translation type="vanished">Biztonsági mentés készítése meghiúsult</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n application update(s) available</source>
+        <translation type="vanished"><numerusform>%n alkalmazásfrissítés elérhető</numerusform><numerusform>%n alkalmazásfrissítés elérhető</numerusform></translation>
+    </message>
+    <message>
+        <source>New system edition available</source>
+        <translation type="vanished">Új rendszer verzió érhető el</translation>
+    </message>
+    <message numerus="yes">
+        <source>New system edition and %n application update(s) available</source>
+        <translation type="vanished"><numerusform>Új rendszerverzió és %n alkalmazásfrissítés elérhető</numerusform><numerusform>Új rendszerverzió és %n alkalmazásfrissítés elérhető</numerusform></translation>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="vanished">Letöltve</translation>
+    </message>
+    <message>
+        <source>Size: %1</source>
+        <translation type="vanished">méret: %1</translation>
+    </message>
+    <message>
+        <source>Your battery is lower than 50%, please plug in to continue</source>
+        <translation type="vanished">Az akkumulátor töltöttsége 50% alatt van, csatlakoztasd a töltőre a készüléket.</translation>
+    </message>
+    <message>
+        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
+        <translation type="vanished">Ellenőrizd az akkumulátor töltöttségét és ne vedd le a töltőről a készüléket.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateHistoryButton</name>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">Frissítési előzmények</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateModule</name>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateSettings</name>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Frissítési beállítások</translation>
+    </message>
+    <message>
+        <source>Auto Clear Package Cache</source>
+        <translation type="vanished">Automatikus átmeneti-tároló törlés</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Updates Notification</source>
+        <translation type="vanished">Frissítések értesítés</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Download Updates</source>
+        <translation type="vanished">Frissítések automatikus letöltése</translation>
+    </message>
+    <message>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="vanished">Frissítések automatikus letöltése vezeték nélküli vagy vezetékes hálózati kapcsolat esetén</translation>
+    </message>
+    <message>
+        <source>System Repository Detection</source>
+        <translation type="vanished">Tükörszerver érzékelés</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation type="vanished">Értesítés, ha a rendszerfrissítés tükörszervere módosult</translation>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="vanished">Automatikus tükörszerver választó</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="vanished">Automatikus tökörszerver választás.</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">Források listája</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateWidget</name>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Frissítési beállítások</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="vanished">Utolsó frissítés</translation>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="vanished">Vissza</translation>
+    </message>
+    <message>
+        <source>Current Edition</source>
+        <translation type="vanished">Jelenlegi verzió</translation>
+    </message>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">Frissítési előzmények</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::PressureSettings</name>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="vanished">Nyomásérzékenység</translation>
+        <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Lágy</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="vanished">Erős</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomModule</name>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomWidget</name>
+    <message>
+        <source>Pen</source>
+        <translation type="vanished">Toll</translation>
+        <extra-contents_path>/wacom/Pen</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Egér</translation>
+        <extra-contents_path>/wacom/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="vanished">Mód</translation>
     </message>
 </context>
 <context>

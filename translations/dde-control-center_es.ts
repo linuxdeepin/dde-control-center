@@ -12,7 +12,7 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>Haga clic en el icono para activar Bluetooth</translation>
+        <translation>Haga clic en el ícono para activar Bluetooth</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
@@ -23,110 +23,110 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="154"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
         <source>Help</source>
         <translation>Ayuda</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Accounts</source>
         <translation>Cuentas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Cloud Account</source>
-        <translation>Cuenta en la Nube</translation>
+        <translation>Cuenta en la nube</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="297"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Display</source>
         <translation>Pantalla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="298"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Default Applications</source>
-        <translation>Aplicaciones por Defecto</translation>
+        <translation>Aplicaciones por defecto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="299"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Personalization</source>
         <translation>Personalización</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="300"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Network</source>
         <translation>Red</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="301"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
         <source>Sound</source>
         <translation>Sonido</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="302"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="801"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="803"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="303"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Date and Time</source>
-        <translation>Fecha y Hora</translation>
+        <translation>Fecha y hora</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="304"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Power</source>
         <translation>Energía</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
         <source>Mouse</source>
         <translation>Ratón</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Drawing Tablet</source>
-        <translation>Tableta de Dibujo</translation>
+        <translation>Tableta de dibujo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Keyboard and Language</source>
-        <translation>Idioma y Teclado</translation>
+        <translation>Idioma y teclado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>Updates</source>
         <translation>Actualizaciones</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>System Info</source>
-        <translation>Información del Sistema</translation>
+        <translation>Información del sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
         <source>General Settings</source>
-        <translation>Ajustes Generales</translation>
+        <translation>Ajustes generales</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>Touchpad</source>
-        <translation>Panel Táctil</translation>
+        <translation>Panel táctil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>TrackPoint</source>
         <translation>Punto de apuntado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Cloud Sync</source>
-        <translation>Sincronización en la Nube</translation>
+        <translation>Sincronización en la nube</translation>
     </message>
 </context>
 <context>
@@ -135,7 +135,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="148"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="208"/>
         <source>Full Name</source>
-        <translation>Nombre Completo</translation>
+        <translation>Nombre completo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="233"/>
@@ -145,7 +145,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="273"/>
         <source>Validity Days</source>
-        <translation>Días de Validez</translation>
+        <translation>Días vigente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
@@ -157,18 +157,18 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="332"/>
         <source>Please input a number between 1-99999</source>
-        <translation>Por favor introudce un número entre 1-99999</translation>
+        <translation>Por favor ingrese un número entre 1-99999</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
         <source>Change Password</source>
-        <translation>Cambiar Contraseña</translation>
+        <translation>Cambiar contraseña</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="375"/>
         <source>Delete Account</source>
-        <translation>Borrar Cuenta</translation>
+        <translation>Borrar cuenta</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
@@ -202,7 +202,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="59"/>
         <source>Create Account</source>
-        <translation>Crear Cuenta</translation>
+        <translation>Crear cuenta</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
@@ -215,7 +215,7 @@
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="142"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="152"/>
         <source>Standard User</source>
-        <translation>Usuario Estándar</translation>
+        <translation>Usuario estándar</translation>
     </message>
 </context>
 <context>
@@ -244,7 +244,7 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation>Coloque su dedo en el lector de huella dactilar, o deslice hacia arriba o abajo, y luego levántelo.</translation>
+        <translation>Coloque su dedo en el lector de huella dactilar, o deslice hacia arriba o abajo, y luego levántelo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
@@ -291,7 +291,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="162"/>
         <source>Full Name</source>
-        <translation>Nombre Completo</translation>
+        <translation>Nombre completo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="167"/>
@@ -316,42 +316,52 @@
         <translation>opcional</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>Go to Settings</source>
+        <translation>Ir a ajustes</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>OK</source>
+        <translation>Aceptar</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
         <source>Password must be no more than %1 characters</source>
         <translation>La contraseña no debe tener más de %1 de caracteres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>La contraseña debe contener letras (sensible a mayúsculas), números o símbolos especiales  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="374"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>La contraseña debe contener letras sin acento (sensible a mayúsculas), números o símbolos especiales (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
         <source>Passwords do not match</source>
         <translation>La contraseñas no coinciden</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="399"/>
         <source>Username cannot be empty</source>
         <translation>El nombre de usuario no puede estar vacío</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>El nombre de usuario debe tener entre 3 y 32 caracteres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="412"/>
         <source>The first character must be in lower case</source>
         <translation>El primer carácter debe estar en minúscula</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="418"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
-        <translation>El nombre de usuario solo contiene a~z, 0~9, - o _</translation>
+        <translation>El nombre de usuario sólo contiene a~z, 0~9, - o _</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
         <source>The full name already exists</source>
         <translation>El nombre completo ya existe</translation>
     </message>
@@ -419,27 +429,37 @@
         <translation>Requerido</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>Go to Settings</source>
+        <translation>Ir a ajustes</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>OK</source>
+        <translation>Aceptar</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
         <source>Wrong password</source>
         <translation>Contraseña incorrecta </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="236"/>
         <source>Passwords do not match</source>
         <translation>La contraseñas no coinciden</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>La contraseña debe contener letras (sensible a mayúsculas), números o símbolos especiales  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>La contraseña debe contener letras sin acento (sensible a mayúsculas), números o símbolos especiales (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="249"/>
         <source>New password should differ from the current one</source>
         <translation>La nueva contraseña debe ser diferente a la actual</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="256"/>
         <source>Password must be no more than %1 characters</source>
         <translation>La contraseña no debe tener más de %1 de caracteres</translation>
     </message>
@@ -461,13 +481,13 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="75"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation>Activa Bluetooth para encontrar dispositivos (altavoz, teclado, ratón)</translation>
+        <translation>Active Bluetooth para encontrar dispositivos (altavoz, teclado, ratón)</translation>
     </message>
 </context>
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -514,7 +534,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="78"/>
         <source>Updating...</source>
-        <translation>Actualizando...</translation>
+        <translation>Actualizando…</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
@@ -549,7 +569,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="80"/>
         <source>General Settings</source>
-        <translation>Ajustes Generales</translation>
+        <translation>Ajustes generales</translation>
     </message>
 </context>
 <context>
@@ -563,7 +583,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="79"/>
         <source>Developer Mode</source>
-        <translation>Modo Desarrollador</translation>
+        <translation>Modo desarrollador</translation>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
@@ -575,7 +595,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="87"/>
         <source>Tablet Mode</source>
-        <translation>Modo Tablet</translation>
+        <translation>Modo tableta</translation>
     </message>
 </context>
 <context>
@@ -584,7 +604,7 @@
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
         <source>Failed to get root access</source>
-        <translation>Eror al conceder permisos root</translation>
+        <translation>Error al obtener acceso root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
@@ -594,7 +614,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
         <source>Cannot read your PC information</source>
-        <translation>No podemos leer su información de PC</translation>
+        <translation>No podemos leer su información del PC</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
@@ -619,7 +639,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
         <source>Agree and Join User Experience Program</source>
-        <translation>Acepte y únase al Programa de Experiencia de Usuario</translation>
+        <translation>Aceptar y unirse al programa de experiencia de usuario</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
@@ -629,7 +649,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
         <source>Agree and Request Root Access</source>
-        <translation>Aceptar y Solicitar el Acceso Root</translation>
+        <translation>Aceptar y solicitar el acceso root</translation>
     </message>
 </context>
 <context>
@@ -637,7 +657,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="65"/>
         <source>Request Root Access</source>
-        <translation>Solicitar acceso Root</translation>
+        <translation>Solicitar acceso root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="74"/>
@@ -663,12 +683,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="100"/>
         <source>Export PC Info</source>
-        <translation>Exportar información de PC</translation>
+        <translation>Exportar información del PC</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="101"/>
         <source>Import Certificate</source>
-        <translation>Importar Certificado</translation>
+        <translation>Importar certificado</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="127"/>
@@ -692,18 +712,18 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="190"/>
         <source>Request Root Access</source>
-        <translation>Solicitar acceso Root</translation>
+        <translation>Solicitar acceso root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
-        <translation>El modo de desarrollador le permite conceder privilegios de root, instalar y ejecutar aplicaciones sin firmar no disponibles en la tienda de aplicaciones, pero la integración de su sistema podría dañarse, por favor úselo con cuidado.</translation>
+        <translation>El modo de desarrollador le permite activar los privilegios de root, instalar y ejecutar aplicaciones sin firmar no disponibles en la tienda de aplicaciones, pero la integridad de su sistema podría dañarse, por favor úselo con cuidado.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="104"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="116"/>
         <source>Failed to get root access</source>
-        <translation>Eror al conceder permisos root</translation>
+        <translation>Error al conceder permisos root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="106"/>
@@ -713,7 +733,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
         <source>Cannot read your PC information</source>
-        <translation>No podemos leer su información de PC</translation>
+        <translation>No podemos leer su información del PC</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
@@ -748,7 +768,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="183"/>
         <source>Root Access Allowed</source>
-        <translation>Acceso de Root Permitido</translation>
+        <translation>Acceso de root permitido</translation>
     </message>
 </context>
 <context>
@@ -756,13 +776,13 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="46"/>
         <source>Join User Experience Program</source>
-        <translation>Únase al Programa de Experiencia de Usuario</translation>
+        <translation>Únase al programa de experiencia de usuario</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://openapi.chinauos.com/agreement/).</source>
-        <translation>Unirse al Programa de experiencia del usuario significa que usted nos otorga y autoriza a recopilar y utilizar la información de su dispositivo, sistema y aplicaciones. Si rechaza nuestra recopilación y uso de la información antes mencionada, no se una al Programa de Experiencia del Usuario. Para obtener más información, consulte la Política de privacidad de UOS (https://openapi.chinauos.com/agreement/).</translation>
+        <translation>Unirse al programa de experiencia del usuario significa que usted nos otorga y autoriza a recopilar y utilizar la información de su dispositivo, sistema y aplicaciones. Si rechaza nuestra recopilación y uso de la información antes mencionada, no se una al Programa de Experiencia del Usuario. Para obtener más información, consulte la Política de privacidad de UOS (https://openapi.chinauos.com/agreement/).</translation>
     </message>
 </context>
 <context>
@@ -850,7 +870,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="70"/>
         <source>Date and Time</source>
-        <translation>Fecha y Hora</translation>
+        <translation>Fecha y hora</translation>
     </message>
 </context>
 <context>
@@ -899,7 +919,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="67"/>
         <source>Add Timezone</source>
-        <translation>Añadir Zona Horaria</translation>
+        <translation>Añadir zona horaria</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -908,7 +928,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="74"/>
         <source>Add Application</source>
-        <translation>Añadir Aplicación</translation>
+        <translation>Añadir aplicación</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -1060,7 +1080,7 @@
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="119"/>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="122"/>
         <source>Multiple Displays</source>
-        <translation>Múltiples Pantallas</translation>
+        <translation>Múltiples pantallas</translation>
     </message>
 </context>
 <context>
@@ -1099,7 +1119,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="172"/>
         <source>Rotate Screen</source>
-        <translation>Rotar Pantalla</translation>
+        <translation>Rotar pantalla</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -1113,12 +1133,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="128"/>
         <source>Duplicate</source>
-        <translation>Duplicado</translation>
+        <translation>Duplicada</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="128"/>
         <source>Extend</source>
-        <translation>Extender</translation>
+        <translation>Extendida</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="131"/>
@@ -1133,12 +1153,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
         <source>%1 only</source>
-        <translation>solo %1</translation>
+        <translation>sólo %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
         <source>Show the screen content only on %1</source>
-        <translation>Mostrar solo contenido de la pantalla en %1</translation>
+        <translation>Mostrar sólo contenido de la pantalla en %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
@@ -1167,9 +1187,10 @@
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
         <source>Recommended</source>
         <translation> Recomendado</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1293,7 +1314,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="103"/>
         <source>Caps Lock Prompt</source>
-        <translation>Indicador para Bloquear Mayúsculas</translation>
+        <translation>Indicador para bloquear mayúsculas</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
@@ -1313,7 +1334,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="74"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Cambiar teclados (Múltiple)</translation>
+        <translation>Cambiar teclados (múltiple)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="102"/>
@@ -1379,37 +1400,37 @@
 <context>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="54"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="61"/>
         <source>Window</source>
         <translation>Ventana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="68"/>
         <source>Workspace</source>
         <translation>Espacio de trabajo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
         <source>Speech</source>
         <translation>Habla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
         <source>Custom Shortcut</source>
         <translation>Atajo de teclado personalizado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="116"/>
         <source>Restore Defaults</source>
         <translation>Restaurar valores predeterminados</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="142"/>
         <source>Shortcut</source>
         <translation>Atajo</translation>
     </message>
@@ -1417,19 +1438,19 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="68"/>
         <source>Add</source>
         <translation>Añadir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="73"/>
         <source>Add System Language</source>
-        <translation>Agregar Idioma del Sistema</translation>
+        <translation>Agregar idioma del sistema</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
@@ -1438,7 +1459,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
-        <translation>Lista de Idiomas</translation>
+        <translation>Lista de idiomas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
@@ -1494,7 +1515,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="57"/>
         <source>Touchpad</source>
-        <translation>Panel Táctil</translation>
+        <translation>Panel táctil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="61"/>
@@ -1562,7 +1583,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="60"/>
         <source>Touchpad</source>
-        <translation>Panel Táctil</translation>
+        <translation>Panel táctil</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
@@ -1672,7 +1693,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="92"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Marque &quot;Usar un proxy&quot; en el menú contextual de la aplicación en el Lanzador después de configurar</translation>
+        <translation>Marque «Usar un proxy» en el menú contextual de la aplicación en el Lanzador después de configurar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="98"/>
@@ -1740,7 +1761,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="386"/>
         <source>hotspot</source>
-        <translation>Punto de Acceso</translation>
+        <translation>compartir conexión</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="388"/>
@@ -1839,27 +1860,27 @@
         <translation>Ethernet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="59"/>
         <source>Not Bind</source>
         <translation>Sin enlazar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="101"/>
         <source>Device MAC Addr</source>
         <translation>Dirección MAC del dispositivo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="117"/>
         <source>Cloned MAC Addr</source>
         <translation>Dirección MAC clonada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="130"/>
         <source>Customize MTU</source>
         <translation>Personalizar el MTU</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="133"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -1897,7 +1918,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
-        <translation>Conectar Automáticamente</translation>
+        <translation>Conectar automáticamente</translation>
     </message>
 </context>
 <context>
@@ -1905,13 +1926,13 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="68"/>
         <source>Hotspot</source>
-        <translation>Conexión compartida</translation>
+        <translation>Compartir conexión</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation>Añadir Ajustes</translation>
+        <translation>Añadir ajustes</translation>
     </message>
 </context>
 <context>
@@ -1919,7 +1940,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="263"/>
         <source>Create Hotspot</source>
-        <translation>Crear Hotspot</translation>
+        <translation>Crear conexión compartida</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
@@ -1959,7 +1980,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
         <source>Required</source>
         <translation>Requerido</translation>
     </message>
@@ -1969,45 +1991,45 @@
         <translation>Puerta de enlace</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>Primary DNS</source>
         <translation>DNS primario</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
         <source>Secondary DNS</source>
         <translation>DNS secundario</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
         <source>Only applied in corresponding resources</source>
-        <translation>Solo aplicable en los recursos correspondientes</translation>
+        <translation>Sólo aplicable en los recursos correspondientes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="249"/>
         <source>Method</source>
         <translation>Método</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Netmask</source>
         <translation>Máscara de red</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="316"/>
         <source>Prefix</source>
         <translation>Prefijo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="444"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="456"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="465"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="475"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="484"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="512"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="538"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="485"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="548"/>
         <source>Invalid IP address</source>
         <translation>Dirección IP inválida</translation>
     </message>
@@ -2022,7 +2044,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="131"/>
         <source>Hotspot</source>
-        <translation>Conexión compartida</translation>
+        <translation>Compartir conexión</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="137"/>
@@ -2092,17 +2114,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="158"/>
         <source>Wired Network</source>
-        <translation>Red Cableada</translation>
+        <translation>Red cableada</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="159"/>
         <source>Wireless Network</source>
-        <translation>Red Inalámbrica</translation>
+        <translation>Red inalámbrica</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="160"/>
         <source>Personal Hotspot</source>
-        <translation>Hotspot personal</translation>
+        <translation>Compartir conexión personal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="264"/>
@@ -2145,12 +2167,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="146"/>
         <source>Configure by Network Manager</source>
-        <translation>Configurar Administrador de Red</translation>
+        <translation>Configurar administrador de red</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="300"/>
         <source>Personal Hotspot</source>
-        <translation>Hotspot personal</translation>
+        <translation>Compartir conexión personal</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
@@ -2243,7 +2265,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Refuse MSCHAP Authentication</translation>
+        <translation>Negar autenticación MSCHAP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="90"/>
@@ -2542,7 +2564,7 @@
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="424"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="467"/>
         <source>Inner Auth</source>
-        <translation>Autenticación Interna</translation>
+        <translation>Autenticación interna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="456"/>
@@ -2552,7 +2574,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="546"/>
         <source>Private Pwd</source>
-        <translation>Contraseña Privada</translation>
+        <translation>Contraseña privada</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="548"/>
@@ -2928,7 +2950,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Permitir el troyano &apos;Cisco Secure Desktop&apos;</translation>
+        <translation>Permitir el troyano Cisco Secure Desktop</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
@@ -3039,7 +3061,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="201"/>
         <source>Private Pwd</source>
-        <translation>Contraseña Privada</translation>
+        <translation>Contraseña privada</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="229"/>
@@ -3107,7 +3129,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Refuse MSCHAP Authentication</translation>
+        <translation>Negar autenticación MSCHAP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
@@ -3184,7 +3206,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="322"/>
         <source>Import Error</source>
-        <translation>Error al Importar</translation>
+        <translation>Error al importar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="324"/>
@@ -3404,7 +3426,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smart Card</source>
-        <translation>Tarjeta Inteligente</translation>
+        <translation>Tarjeta inteligente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
@@ -3590,12 +3612,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="206"/>
         <source>Group Pwd</source>
-        <translation>Contraseña de Grupo</translation>
+        <translation>Contraseña de grupo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="210"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Usar Autenticación Híbrida</translation>
+        <translation>Usar autenticación híbrida</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="213"/>
@@ -3632,28 +3654,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="250"/>
         <source>Connect to hidden network</source>
         <translation>Conectar a red oculta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="260"/>
         <source>Wireless Network Adapter</source>
-        <translation>Tarjeta de red cableada</translation>
+        <translation>Tarjeta de red inalámbrica</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="272"/>
         <source>Close Hotspot</source>
-        <translation> Cerrar «Conexión compartida» </translation>
+        <translation> Cerrar conexión compartida </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="275"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation>Deshabilite primero hotspot si desea conectarse a una red inalámbrica.</translation>
+        <translation>Primero desactive la conexión compartida si desea conectarse a una red inalámbrica.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3759,7 +3781,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="50"/>
         <source>Icon Theme</source>
-        <translation>Tema de icono</translation>
+        <translation>Tema de íconos</translation>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
@@ -3786,22 +3808,22 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="100"/>
         <source>Light</source>
         <translation>Claro</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="102"/>
         <source>Dark</source>
         <translation>Oscuro</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="104"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="109"/>
         <source>Default</source>
         <translation>Por defecto</translation>
     </message>
@@ -4039,13 +4061,13 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
         <source>Window Effect</source>
-        <translation>Efectos de Ventana</translation>
+        <translation>Efectos de ventana</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
         <source>Developer Mode</source>
-        <translation>Modo Desarrollador</translation>
+        <translation>Modo desarrollador</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
@@ -4055,22 +4077,22 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
         <source>Join User Experience Program</source>
-        <translation>Únase al Programa de Experiencia de Usuario</translation>
+        <translation>Únase al programa de experiencia de usuario</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
         <source>Cloud Account</source>
-        <translation>Cuenta en la Nube</translation>
+        <translation>Cuenta en la nube</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
         <source>Display Scaling</source>
-        <translation>Escalado de Pantalla</translation>
+        <translation>Escalado de pantalla</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
         <source>Touchpad</source>
-        <translation>Panel Táctil</translation>
+        <translation>Panel táctil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
@@ -4080,7 +4102,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
         <source>Personal Hotspot</source>
-        <translation>Hotspot personal</translation>
+        <translation>Compartir conexión personal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
@@ -4090,17 +4112,17 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
         <source>Wired Network</source>
-        <translation>Red Cableada</translation>
+        <translation>Red cableada</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
         <source>Wireless Network</source>
-        <translation>Red Inalámbrica</translation>
+        <translation>Red inalámbrica</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="95"/>
         <source>Multiple Displays</source>
-        <translation>Múltiples Pantallas</translation>
+        <translation>Múltiples pantallas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
@@ -4111,19 +4133,21 @@
 <context>
     <name>dccV20::sound::AdvancedPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="71"/>
         <source>Output</source>
         <translation>Salida</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
         <source>Input</source>
         <translation>Entrada</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
         <source>Sound Card:</source>
-        <translation>Tarjeta de Sonido:</translation>
+        <translation>Tarjeta de sonido:</translation>
     </message>
 </context>
 <context>
@@ -4149,7 +4173,7 @@
 <context>
     <name>dccV20::sound::SoundEffectsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="49"/>
         <source>Sound Effects</source>
         <translation>Efectos de sonido</translation>
     </message>
@@ -4204,7 +4228,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="157"/>
         <source>Volume Boost</source>
-        <translation>Incrementar el Volumen</translation>
+        <translation>Amplificar el volumen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="165"/>
@@ -4238,7 +4262,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="47"/>
         <source>Syncing...</source>
-        <translation>Sincronizando...</translation>
+        <translation>Sincronizando…</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="94"/>
@@ -4253,22 +4277,22 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
         <source>Network Settings</source>
-        <translation>Ajustes de Red</translation>
+        <translation>Ajustes de red</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
         <source>Sound Settings</source>
-        <translation>Ajustes de Sonido</translation>
+        <translation>Ajustes de sonido</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="151"/>
         <source>Mouse Settings</source>
-        <translation>Ajustes del Ratón</translation>
+        <translation>Ajustes del ratón</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="152"/>
         <source>Update Settings</source>
-        <translation>Ajustes de Actualización</translation>
+        <translation>Ajustes de actualización</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="153"/>
@@ -4293,17 +4317,17 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="157"/>
         <source>Power Settings</source>
-        <translation>Ajustes de Energía</translation>
+        <translation>Ajustes de energía</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
         <source>Corner Settings</source>
-        <translation>Ajustes de Esquinas</translation>
+        <translation>Ajustes de esquinas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="256"/>
         <source>Last Sync: %1</source>
-        <translation>Última Sincronización: %1</translation>
+        <translation>Última sincronización: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="258"/>
@@ -4327,12 +4351,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Cloud Account Sign In</source>
-        <translation>Inicio de Sesión de la Cuenta en la Nube</translation>
+        <translation>Inicio de sesión de la cuenta en la nube</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
         <source>Only supported in Mainland China at present</source>
-        <translation>Actualmente solo disponible para China continental</translation>
+        <translation>Actualmente sólo disponible para China continental</translation>
     </message>
 </context>
 <context>
@@ -4353,7 +4377,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
         <source>Cloud Account</source>
-        <translation>Cuenta en la Nube</translation>
+        <translation>Cuenta en la nube</translation>
     </message>
 </context>
 <context>
@@ -4541,7 +4565,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="80"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation>Su sistema no está autorizado, por favor active primero</translation>
+        <translation>Su sistema no está autorizado, por favor actívelo primero</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="101"/>
@@ -4551,7 +4575,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="232"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Comprobando actualizaciones, por favor espere...</translation>
+        <translation>Comprobando actualizaciones, por favor espere…</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="240"/>
@@ -4585,7 +4609,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Updating, please wait...</source>
-        <translation>Actualizando, por favor espere...</translation>
+        <translation>Actualizando, por favor espere…</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="291"/>
@@ -4605,7 +4629,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>Backing up, please wait...</source>
-        <translation>Copia de seguridad, por favor espere...</translation>
+        <translation>Respaldando, por favor espere…</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="318"/>
@@ -4691,7 +4715,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Activarlo para descargar automáticamente las actualizaciones en una red inalámbrica o cableada</translation>
+        <translation>Actívelo para descargar automáticamente las actualizaciones en una red inalámbrica o cableada</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="79"/>
@@ -4713,7 +4737,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="117"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Activarlo para auto-conectarse al sitio espejo más veloz</translation>
+        <translation>Actívelo para auto-conectarse al sitio espejo más veloz</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
@@ -4734,7 +4758,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
         <source>Update Settings</source>
-        <translation>Ajustes de Actualización</translation>
+        <translation>Ajustes de actualización</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
@@ -4819,13 +4843,13 @@
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="89"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
-        <translation>Extender</translation>
+        <translation>Extendida</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="91"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
-        <translation>Solo mostrada en %1</translation>
+        <translation>Sólo mostrada en %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="99"/>
@@ -4837,13 +4861,13 @@
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="101"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>Amplía el alcance de imagen para mostrar distinto contenido en varias pantallas</translation>
+        <translation>Extiende el contenido para mostrarlo en múltiples pantallas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="103"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation>El contenido de la pantalla solo se muestra en %1</translation>
+        <translation>El contenido de la pantalla sólo se muestra en %1</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
@@ -4922,7 +4946,7 @@
     <message>
         <location filename="../src/frame/main.cpp" line="76"/>
         <source>Control Center</source>
-        <translation>Centro de Control</translation>
+        <translation>Centro de control</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
@@ -4947,7 +4971,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
         <source>Touchpad</source>
-        <translation>Panel Táctil</translation>
+        <translation>Panel táctil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
@@ -5102,7 +5126,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar icono del Lanzador al Escritorio</translation>
+        <translation>Enviar ícono del Lanzador al Escritorio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
@@ -5186,7 +5210,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation>Haga clic en el icono para habilitar VPN</translation>
+        <translation>Haga clic en el ícono para activar VPN</translation>
     </message>
 </context>
 <context>
@@ -5199,7 +5223,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
         <source>Loading weather...</source>
-        <translation>Cargando el pronóstico...</translation>
+        <translation>Cargando el pronóstico…</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
@@ -5212,7 +5236,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
-        <translation>Haga clic en el icono para habilitar WIFI</translation>
+        <translation>Haga clic en el ícono para activar WiFi</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
@@ -5329,32 +5353,32 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="388"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="390"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Tu host fue retirado del servidor de dominio exitosamente</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="389"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="391"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Tu host se unió al servidor de dominio exitosamente</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="411"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="413"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Tu host no pudo retirar del servidor de dominio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="412"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="414"/>
         <source>Your host failed to join the domain server</source>
         <translation>Tu host no pudo unirse al servidor de dominio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="417"/>
         <source>AD domain settings</source>
         <translation>Ajustes de dominio AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="484"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="486"/>
         <source>Password not match</source>
         <translation>La contraseña no coincide</translation>
     </message>
@@ -5394,7 +5418,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation>Ponga su dedo en el sensor de huella dactilar, mueva hacia arriba desde abajo y suelte, luego repita el paso</translation>
+        <translation>Coloque su dedo en el sensor de huella dactilar, mueva hacia arriba desde abajo y suelte, luego repita el paso</translation>
     </message>
 </context>
 <context>
@@ -5684,7 +5708,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
         <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
-        <translation>Enciéndalo para sincronizar automáticamente parte de la configuración del Centro de Control, Lanzador y Muelle.</translation>
+        <translation>Enciéndalo para sincronizar automáticamente parte de la configuración del Centro de control, Lanzador y Muelle.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
@@ -5763,7 +5787,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
         <source>Only supported in Mainland China at present</source>
-        <translation>Actualmente solo disponible para China continental</translation>
+        <translation>Actualmente sólo disponible para China continental</translation>
     </message>
 </context>
 <context>
@@ -6066,7 +6090,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation>Escaneando dispositivos, por favor espere...</translation>
+        <translation>Escaneando dispositivos, por favor espere…</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="44"/>
@@ -6285,7 +6309,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Cambiar teclados (Múltiple)</translation>
+        <translation>Cambiar teclados (múltiple)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
@@ -6364,7 +6388,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation>Indicador para Bloquear Mayúsculas</translation>
+        <translation>Indicador para bloquear mayúsculas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="103"/>
@@ -6635,7 +6659,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Marque &quot;Usar un proxy&quot; en el menú contextual de la aplicación en el Lanzador después de configurar</translation>
+        <translation>Marque «Usar un proxy» en el menú contextual de la aplicación en el Lanzador después de configurar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -6699,7 +6723,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
-        <translation>conexión compartida</translation>
+        <translation>compartir conexión</translation>
     </message>
 </context>
 <context>
@@ -6815,12 +6839,12 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="61"/>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="83"/>
         <source>Hotspot</source>
-        <translation>Conexión compartida</translation>
+        <translation>Compartir conexión</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="62"/>
         <source>Add Settings</source>
-        <translation>Añadir Ajustes</translation>
+        <translation>Añadir ajustes</translation>
     </message>
 </context>
 <context>
@@ -6886,7 +6910,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
         <source>Only applied in corresponding resources</source>
-        <translation>Solo aplicable en los recursos correspondientes</translation>
+        <translation>Sólo aplicable en los recursos correspondientes</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
@@ -6909,7 +6933,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="139"/>
         <source>Hotspot</source>
-        <translation>Conexión compartida</translation>
+        <translation>Compartir conexión</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="144"/>
@@ -7031,7 +7055,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="252"/>
         <source>Hotspot</source>
-        <translation>Conexión compartida</translation>
+        <translation>Compartir conexión</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="257"/>
@@ -7397,7 +7421,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="391"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="438"/>
         <source>Inner Auth</source>
-        <translation>Autenticación Interna</translation>
+        <translation>Autenticación interna</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="427"/>
@@ -7407,7 +7431,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="523"/>
         <source>Private Pwd</source>
-        <translation>Contraseña Privada</translation>
+        <translation>Contraseña privada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="525"/>
@@ -7771,7 +7795,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Permitir el troyano &apos;Cisco Secure Desktop&apos;</translation>
+        <translation>Permitir el troyano Cisco Secure Desktop</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
@@ -7881,7 +7905,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
         <source>Private Pwd</source>
-        <translation>Contraseña Privada</translation>
+        <translation>Contraseña privada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="227"/>
@@ -8027,7 +8051,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="242"/>
         <source>Import Error</source>
-        <translation>Error al Importar</translation>
+        <translation>Error al importar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="244"/>
@@ -8248,7 +8272,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
         <source>Server IP</source>
-        <translation>IP del Servidor</translation>
+        <translation>IP del servidor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
@@ -8258,7 +8282,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
         <source>Username</source>
-        <translation>Nombre de Usuario</translation>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
@@ -8473,12 +8497,12 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
         <source>Group Pwd</source>
-        <translation>Contraseña de Grupo</translation>
+        <translation>Contraseña de grupo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Usar Autenticación Híbrida</translation>
+        <translation>Usar autenticación híbrida</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
@@ -8519,12 +8543,12 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
-        <translation> Cerrar «Conexión compartida» </translation>
+        <translation> Cerrar conexión compartida </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation>Por favor, deshabilite primero &quot;Conexión compartida&quot; si quiere conectarse y usar la función de conexión inalámbrica</translation>
+        <translation>Por favor, primero desactive la conexión compartida si desea conectarse a una red inalámbrica</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
@@ -8669,7 +8693,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
         <source>Icon Theme</source>
-        <translation>Tema de icono</translation>
+        <translation>Tema de íconos</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
@@ -8814,7 +8838,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="69"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="86"/>
         <source>Log out</source>
-        <translation>Cerrar Sesión</translation>
+        <translation>Cerrar sesión</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="70"/>
@@ -8845,13 +8869,13 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="74"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="90"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar icono del Lanzador al Escritorio</translation>
+        <translation>Enviar ícono del Lanzador al Escritorio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="75"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="91"/>
         <source>Empty Trash</source>
-        <translation>Papelera Vacía</translation>
+        <translation>Papelera vacía</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="76"/>
@@ -8945,7 +8969,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="62"/>
         <source>Updating...</source>
-        <translation>Actualizando...</translation>
+        <translation>Actualizando…</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
@@ -8984,7 +9008,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
 <context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="173"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="191"/>
         <source>available</source>
         <translation>disponible</translation>
     </message>
@@ -9168,12 +9192,12 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Esta actualización tomaría mucho tiempo, por favor no apague ni reinicie durante el procedimiento.</translation>
+        <translation>Esta actualización tomaría mucho tiempo, por favor no apague ni reinicie durante el procedimiento</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Comprobando actualizaciones, por favor espere...</translation>
+        <translation>Comprobando actualizaciones, por favor espere…</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="181"/>
@@ -9204,7 +9228,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="213"/>
         <source>Updating, please wait...</source>
-        <translation>Actualizando, por favor espere...</translation>
+        <translation>Actualizando, por favor espere…</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="227"/>
@@ -9296,7 +9320,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Activarlo para descargar automáticamente las actualizaciones en una red inalámbrica o cableada</translation>
+        <translation>Actívelo para descargar automáticamente las actualizaciones en una red inalámbrica o cableada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
@@ -9316,7 +9340,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Activarlo para auto-conectarse al sitio espejo más veloz</translation>
+        <translation>Actívelo para auto-conectarse al sitio espejo más veloz</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="114"/>
@@ -9418,6 +9442,3831 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
         <translation>Conectado</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::MainWindow</name>
+    <message>
+        <source>Help</source>
+        <translation type="vanished">Ayuda</translation>
+    </message>
+    <message>
+        <source>Accounts</source>
+        <translation type="vanished">Cuentas</translation>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="vanished">Cuenta en la nube</translation>
+        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
+    </message>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">Pantalla</translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Aplicaciones por defecto</translation>
+    </message>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">Personalización</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">Red</translation>
+    </message>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">Sonido</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">Bluetooth</translation>
+    </message>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">Fecha y hora</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">Energía</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Ratón</translation>
+    </message>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">Tableta de dibujo</translation>
+    </message>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">Idioma y teclado</translation>
+    </message>
+    <message>
+        <source>Updates</source>
+        <translation type="vanished">Actualizaciones</translation>
+    </message>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">Información del sistema</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">Ajustes generales</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Panel táctil</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">Punto de apuntado</translation>
+    </message>
+    <message>
+        <source>Cloud Sync</source>
+        <translation type="vanished">Sincronización en la nube</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">Nombre completo</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="vanished">El nombre completo ya existe</translation>
+    </message>
+    <message>
+        <source>Validity Days</source>
+        <translation type="vanished">Días vigente</translation>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation type="vanished">Siempre</translation>
+    </message>
+    <message>
+        <source>Please input a number between 1-99999</source>
+        <translation type="vanished">Por favor ingrese un número entre 1-99999</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">Cambiar contraseña</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Delete Account</source>
+        <translation type="vanished">Borrar cuenta</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation type="vanished">Inicio de sesión automático</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation type="vanished">Iniciar sesión sin contraseña</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">Grupo</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsModule</name>
+    <message>
+        <source>Accounts</source>
+        <translation type="vanished">Cuentas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsWidget</name>
+    <message>
+        <source>Create Account</source>
+        <translation type="vanished">Crear cuenta</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation type="vanished">Administrador</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation type="vanished">Usuario estándar</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AddFingeDialog</name>
+    <message>
+        <source>Add Fingerprint</source>
+        <translation type="vanished">Añadir huella dactilar</translation>
+    </message>
+    <message>
+        <source>Scan again</source>
+        <translation type="vanished">Escanear nuevamente</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Hecho</translation>
+    </message>
+    <message>
+        <source>Identifying fingerprint</source>
+        <translation type="vanished">Identificando huella dactilar</translation>
+    </message>
+    <message>
+        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
+        <translation type="vanished">Coloque su dedo en el lector de huella dactilar, o deslice hacia arriba o abajo, y luego levántelo</translation>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="vanished">Huella dactilar agregada</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AvatarListWidget</name>
+    <message>
+        <source>Images</source>
+        <translation type="vanished">Imágenes</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::CreateAccountPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Crear</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">Grupo</translation>
+    </message>
+    <message>
+        <source>New Account</source>
+        <translation type="vanished">Nueva cuenta</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">Nombre completo</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">Repita contraseña</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>optional</source>
+        <translation type="vanished">opcional</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">La contraseña no debe tener más de %1 de caracteres</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="vanished">La contraseña debe contener letras sin acento (sensible a mayúsculas), números o símbolos especiales (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">La contraseñas no coinciden</translation>
+    </message>
+    <message>
+        <source>Username cannot be empty</source>
+        <translation type="vanished">El nombre de usuario no puede estar vacío</translation>
+    </message>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation type="vanished">El nombre de usuario debe tener entre 3 y 32 caracteres</translation>
+    </message>
+    <message>
+        <source>The first character must be in lower case</source>
+        <translation type="vanished">El primer carácter debe estar en minúscula</translation>
+    </message>
+    <message>
+        <source>Username must only contain a~z, 0~9, - or _</source>
+        <translation type="vanished">El nombre de usuario sólo contiene a~z, 0~9, - o _</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="vanished">El nombre completo ya existe</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::FingerWidget</name>
+    <message>
+        <source>Delete fingerprint</source>
+        <translation type="vanished">Eliminar huella dactilar</translation>
+    </message>
+    <message>
+        <source>Fingerprint Password</source>
+        <translation type="vanished">Contraseña de huella dactilar</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="vanished">Huella dactilar</translation>
+    </message>
+    <message>
+        <source>Add fingerprint</source>
+        <translation type="vanished">Añadir huella dactilar</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">Cambiar contraseña</translation>
+    </message>
+    <message>
+        <source>Current Password</source>
+        <translation type="vanished">Contraseña actual</translation>
+    </message>
+    <message>
+        <source>New Password</source>
+        <translation type="vanished">Nueva contraseña</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">Repita contraseña</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Guardar</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="vanished">Contraseña incorrecta </translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">La contraseñas no coinciden</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="vanished">La contraseña debe contener letras sin acento (sensible a mayúsculas), números o símbolos especiales (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation type="vanished">La nueva contraseña debe ser diferente a la actual</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">La contraseña no debe tener más de %1 de caracteres</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::AdapterWidget</name>
+    <message>
+        <source>My devices</source>
+        <translation type="vanished">Mis dispositivos</translation>
+        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Other devices</source>
+        <translation type="vanished">Otros dispositivos</translation>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation type="vanished">Active Bluetooth para encontrar dispositivos (altavoz, teclado, ratón)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::BluetoothModule</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">Bluetooth</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DetailPage</name>
+    <message>
+        <source>Ignore this device</source>
+        <translation type="vanished">Ignorar este dispositivo</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">Desconectar</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation type="vanished">Conectar</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="vanished">Conectando</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
+    <message>
+        <source>Connected</source>
+        <translation type="vanished">Conectado</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="vanished">No conectado</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::BootWidget</name>
+    <message>
+        <source>Updating...</source>
+        <translation type="vanished">Actualizando…</translation>
+    </message>
+    <message>
+        <source>Startup Delay</source>
+        <translation type="vanished">Prolongar pantalla de inicio</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Tema</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
+        <translation type="vanished">Haga clic en la opción del menú de arranque para establecerla como el primer arranque, y arrastre y suelte una imagen para cambiar el fondo.</translation>
+    </message>
+    <message>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="vanished">Active el tema para verlo en el menú de arranque</translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">Menú de arranque</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoModule</name>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">Ajustes generales</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">Menú de arranque</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">Modo desarrollador</translation>
+        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">Programa de experiencia de usuario</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Tablet Mode</source>
+        <translation type="vanished">Modo tableta</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWork</name>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="vanished">Error al obtener acceso root</translation>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="vanished">Por favor ingrese su cuenta de la nube</translation>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="vanished">No podemos leer su información del PC</translation>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="vanished">Sin conexión a red</translation>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="vanished">Carga de certificado fallida, no es posible obtener acceso root</translation>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="vanished">Verificación de forma fallida, no es posible obtener acceso root</translation>
+    </message>
+    <message>
+        <source>UOS Privacy Policy</source>
+        <translation type="vanished">Política de Privacidad de UOS</translation>
+    </message>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="vanished">Aceptar y unirse al programa de experiencia de usuario</translation>
+    </message>
+    <message>
+        <source>The Disclaimer of Developer Mode</source>
+        <translation type="vanished">Descargo de responsabilidad del modo para desarrollador</translation>
+    </message>
+    <message>
+        <source>Agree and Request Root Access</source>
+        <translation type="vanished">Aceptar y solicitar el acceso root</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeDialog</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="vanished">Solicitar acceso root</translation>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation type="vanished">En línea</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation type="vanished">Fuera de línea</translation>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first and continue</source>
+        <translation type="vanished">Por favor, ingrese su cuenta de la nube y continúe</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">Siguiente</translation>
+    </message>
+    <message>
+        <source>Export PC Info</source>
+        <translation type="vanished">Exportar información del PC</translation>
+    </message>
+    <message>
+        <source>Import Certificate</source>
+        <translation type="vanished">Importar certificado</translation>
+    </message>
+    <message>
+        <source>1. Export your PC information</source>
+        <translation type="vanished">1. Exporte la información de su PC</translation>
+    </message>
+    <message>
+        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
+        <translation type="vanished">2. Vaya a https://www.chinauos.com/developMode para descargar un certificado sin conexión</translation>
+    </message>
+    <message>
+        <source>3. Import the certificate</source>
+        <translation type="vanished">3. Importe el certificado</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeWidget</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="vanished">Solicitar acceso root</translation>
+    </message>
+    <message>
+        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
+        <translation type="vanished">El modo de desarrollador le permite activar los privilegios de root, instalar y ejecutar aplicaciones sin firmar no disponibles en la tienda de aplicaciones, pero la integridad de su sistema podría dañarse, por favor úselo con cuidado.</translation>
+    </message>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="vanished">Error al conceder permisos root</translation>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="vanished">Por favor, ingrese su cuenta de la nube primero</translation>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="vanished">No podemos leer su información del PC</translation>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="vanished">Sin conexión a red</translation>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="vanished">Carga de certificado fallida, no es posible obtener acceso root</translation>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="vanished">Verificación de forma fallida, no es posible obtener acceso root</translation>
+    </message>
+    <message>
+        <source>To make some features effective, a restart is required. Restart now?</source>
+        <translation type="vanished">Para que algunas características sean efectivas, se requiere un reinicio. ¿Reiniciar ahora?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Restart Now</source>
+        <translation type="vanished">Reinicar ahora</translation>
+    </message>
+    <message>
+        <source>Root Access Allowed</source>
+        <translation type="vanished">Acceso de root permitido</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">Únase al programa de experiencia de usuario</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://openapi.chinauos.com/agreement/).</source>
+        <translation type="vanished">Unirse al programa de experiencia del usuario significa que usted nos otorga y autoriza a recopilar y utilizar la información de su dispositivo, sistema y aplicaciones. Si rechaza nuestra recopilación y uso de la información antes mencionada, no se una al Programa de Experiencia del Usuario. Para obtener más información, consulte la Política de privacidad de UOS (https://openapi.chinauos.com/agreement/).</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::ClockItem</name>
+    <message>
+        <source>AM</source>
+        <translation type="vanished">AM</translation>
+    </message>
+    <message>
+        <source>PM</source>
+        <translation type="vanished">PM</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateSettings</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">Autosincronizar</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">Confirmar</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Servidor</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="vanished">Dirección</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">Personailzar</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateWidget</name>
+    <message>
+        <source>Year</source>
+        <translation type="vanished">Año</translation>
+    </message>
+    <message>
+        <source>Month</source>
+        <translation type="vanished">Mes</translation>
+    </message>
+    <message>
+        <source>Day</source>
+        <translation type="vanished">Día</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeModule</name>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">Fecha y hora</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeWidget</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">Lista de zona horaria</translation>
+    </message>
+    <message>
+        <source>Time Settings</source>
+        <translation type="vanished">Ajustes de hora</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="vanished">Horario de 24 horas</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::SystemTimezone</name>
+    <message>
+        <source>Change System Timezone</source>
+        <translation type="vanished">Cambiar zona horaria</translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+    </message>
+    <message>
+        <source>System Timezone</source>
+        <translation type="vanished">Zona horaria del sistema</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::TimezoneList</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">Lista de zona horaria</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Timezone</source>
+        <translation type="vanished">Añadir zona horaria</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefappDetailWidget</name>
+    <message>
+        <source>Add Application</source>
+        <translation type="vanished">Añadir aplicación</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Open Desktop file</source>
+        <translation type="vanished">Abrir un archivo del escritorio</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation type="vanished">Inválido</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsModule</name>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Aplicaciones predeterminadas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="vanished">Página web</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="vanished">Correo</translation>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="vanished">Texto</translation>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="vanished">Música</translation>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="vanished">Vídeo</translation>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="vanished">Imagen </translation>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="vanished">Terminal </translation>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Aplicaciones por defecto</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::BrightnessPage</name>
+    <message>
+        <source>Night Shift</source>
+        <translation type="vanished">Modo nocturno</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>The screen hue will be auto adjusted according to your location</source>
+        <translation type="vanished">El tono de la pantalla se ajustará automáticamente de acuerdo con su ubicación</translation>
+    </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="vanished">Brillo automático</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::CustomSettingDialog</name>
+    <message>
+        <source>Main Screen</source>
+        <translation type="vanished">Pantalla principal</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">Resolución</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">Tasa de refresco</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Guardar</translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">Hz</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished"> Recomendado</translation>
+    </message>
+    <message>
+        <source>inch</source>
+        <translation type="vanished">pulgada</translation>
+    </message>
+    <message>
+        <source>Resolution %1x%2</source>
+        <translation type="vanished">Resolución %1x%2</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayModule</name>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">Pantalla</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Múltiples pantallas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayWidget</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Múltiples pantallas</translation>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="vanished">Brillo</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">Resolución</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">Escalado de pantalla</translation>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">Tasa de refresco</translation>
+        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+    </message>
+    <message>
+        <source>Rotate Screen</source>
+        <translation type="vanished">Rotar pantalla</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenSettingPage</name>
+    <message>
+        <source>Custom Settings</source>
+        <translation type="vanished">Ajustes personalizados</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="vanished">Duplicada</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="vanished">Extendida</translation>
+    </message>
+    <message>
+        <source>Show the same image on other screens</source>
+        <translation type="vanished">Mostrar la misma imagen en otras pantallas</translation>
+    </message>
+    <message>
+        <source>Expand the desktop across the screens</source>
+        <translation type="vanished">Expandir el escritorio sobre las pantallas</translation>
+    </message>
+    <message>
+        <source>%1 only</source>
+        <translation type="vanished">sólo %1</translation>
+    </message>
+    <message>
+        <source>Show the screen content only on %1</source>
+        <translation type="vanished">Mostrar sólo contenido de la pantalla en %1</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">Personailzar</translation>
+    </message>
+    <message>
+        <source>Configure the display according to your needs</source>
+        <translation type="vanished">Configurar la pantalla según sus necesidades</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RefreshRatePage</name>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">Hz</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished"> Recomendado</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ResolutionDetailPage</name>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished"> Recomendado</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RotateDialog</name>
+    <message>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">Clic izquierdo para girar, clic derecho para restaurar y salir, pulse Ctrl+S para guardar</translation>
+    </message>
+    <message>
+        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">Haga clic con el botón derecho para rotar, haga clic con el botón izquierdo para restaurar y salir, presione Ctrl+S para guardar.</translation>
+    </message>
+    <message>
+        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
+        <translation type="vanished">¿Guardar la configuración de la pantalla? Si no se produce ninguna operación, la pantalla se restaurará en %1s.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ScalingPage</name>
+    <message>
+        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
+        <translation type="vanished">Algunas aplicaciones no pueden estar escaladas con los ajustes especificados en el entorno multi-pantalla.</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation type="vanished">El monitor sólo soporta una escala de visualización del 100%</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::CustomContent</name>
+    <message>
+        <source>Add Custom Shortcut</source>
+        <translation type="vanished">Añadir atajo de teclado personalizado</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Nombre</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="vanished">Comando</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">Añadir</translation>
+    </message>
+    <message>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation type="vanished">Este atajo de teclado entra en conflicto con %1, haga clic en Añadir para aplicarlo inmediatamente</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
+    <message>
+        <source>Repeat Delay</source>
+        <translation type="vanished">Intervalo de repetición</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Short</source>
+        <translation type="vanished">Corto</translation>
+    </message>
+    <message>
+        <source>Long</source>
+        <translation type="vanished">Largo</translation>
+    </message>
+    <message>
+        <source>Repeat Rate</source>
+        <translation type="vanished">Tasa de repetición</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lento</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Rápido</translation>
+    </message>
+    <message>
+        <source>Test here</source>
+        <translation type="vanished">Pruebe aquí</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Numeric Keypad</source>
+        <translation type="vanished">Teclado numérico</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Caps Lock Prompt</source>
+        <translation type="vanished">Indicador para bloquear mayúsculas</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">Distribución del teclado</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Editar</translation>
+    </message>
+    <message>
+        <source>Switch Layouts (Multiple)</source>
+        <translation type="vanished">Cambiar teclados (múltiple)</translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="vanished">Aplica a</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="vanished">Sistema</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">Aplicación</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Hecho</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardModule</name>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">Idioma y teclado</translation>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">Atajo de teclado personalizado</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+    </message>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">Distribución del teclado</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System Language</source>
+        <translation type="vanished">Idioma del sistema</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="vanished">Atajos de teclado</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
+    <message>
+        <source>System</source>
+        <translation type="vanished">Sistema</translation>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation type="vanished">Ventana</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="vanished">Espacio de trabajo</translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation type="vanished">Habla</translation>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">Atajo de teclado personalizado</translation>
+    </message>
+    <message>
+        <source>Restore Defaults</source>
+        <translation type="vanished">Restaurar valores predeterminados</translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="vanished">Atajo</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">Añadir</translation>
+    </message>
+    <message>
+        <source>Add System Language</source>
+        <translation type="vanished">Agregar idioma del sistema</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
+    <message>
+        <source>Language List</source>
+        <translation type="vanished">Lista de idiomas</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Editar</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Hecho</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
+    <message>
+        <source>Left Hand</source>
+        <translation type="vanished">Mano zurda</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad while typing</source>
+        <translation type="vanished">Desactivar el panel táctil mientras escribe</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="vanished">Velocidad de desplazamiento</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Double-click Speed</source>
+        <translation type="vanished">Velocidad de doble clic</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lento</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Rápido</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseModule</name>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Panel táctil</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">Punto de apuntado</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Ratón</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Velocidad del puntero</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation type="vanished">Acceleración del ratón</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation type="vanished">Desactivar el panel táctil cuando el ratón está conectado</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">Desplazamiento natural</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lento</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Rápido</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Ratón</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Panel táctil</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">Punto de apuntado</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Velocidad del puntero</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="vanished">Toque como clic</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">Desplazamiento natural</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lento</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Rápido</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Velocidad del puntero</translation>
+        <extra-child_page>TrackPoint</extra-child_page>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lento</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Rápido</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsProxyPage</name>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">Proxy para la aplicación</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Tipo de proxy</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">Dirección IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Puerto</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">Opcional</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+    <message>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="vanished">Marque «Usar un proxy» en el menú contextual de la aplicación en el Lanzador después de configurar</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Guardar</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="vanished">Dirección IP inválida</translation>
+    </message>
+    <message>
+        <source>Invalid port</source>
+        <translation type="vanished">Puerto inválido</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsTypePage</name>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Tipo de proxy</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionEditPage</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">Desconectar</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">Eliminar</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Guardar</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this configuration?</source>
+        <translation type="vanished">¿Estás seguro que deseas eliminar la configuración?</translation>
+    </message>
+    <message>
+        <source>Wired Connection %1</source>
+        <translation type="vanished">Conexión cableada %1</translation>
+    </message>
+    <message>
+        <source>hotspot</source>
+        <translation type="vanished">compartir conexión</translation>
+    </message>
+    <message>
+        <source>Wireless Connection %1</source>
+        <translation type="vanished">Conexión inalámbrica %1</translation>
+    </message>
+    <message>
+        <source>PPPoE Connection %1</source>
+        <translation type="vanished">Conexión PPPoE %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
+    <message>
+        <source>New VPN</source>
+        <translation type="vanished">Nueva VPN</translation>
+    </message>
+    <message>
+        <source>VPN Type</source>
+        <translation type="vanished">Tipo de VPN</translation>
+    </message>
+    <message>
+        <source>L2TP</source>
+        <translation type="vanished">L2TP</translation>
+    </message>
+    <message>
+        <source>PPTP</source>
+        <translation type="vanished">PPTP</translation>
+    </message>
+    <message>
+        <source>VPNC</source>
+        <translation type="vanished">VPNC</translation>
+    </message>
+    <message>
+        <source>OpenVPN</source>
+        <translation type="vanished">OpenVPN</translation>
+    </message>
+    <message>
+        <source>StrongSwan</source>
+        <translation type="vanished">StrongSwan</translation>
+    </message>
+    <message>
+        <source>OpenConnect</source>
+        <translation type="vanished">OpenConnect</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="vanished">Exportar</translation>
+    </message>
+    <message>
+        <source>VPN L2TP %1</source>
+        <translation type="vanished">VPN L2TP %1</translation>
+    </message>
+    <message>
+        <source>VPN PPTP %1</source>
+        <translation type="vanished">VPN PPTP %1</translation>
+    </message>
+    <message>
+        <source>VPN VPNC %1</source>
+        <translation type="vanished">VPN VPNC %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenVPN %1</source>
+        <translation type="vanished">VPN OpenVPN %1</translation>
+    </message>
+    <message>
+        <source>VPN StrongSwan %1</source>
+        <translation type="vanished">VPN StrongSwan %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenConnect %1</source>
+        <translation type="vanished">VPN OpenConnect %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::EthernetSection</name>
+    <message>
+        <source>Ethernet</source>
+        <translation type="vanished">Ethernet</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">Sin enlazar</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">Dirección MAC del dispositivo</translation>
+    </message>
+    <message>
+        <source>Cloned MAC Addr</source>
+        <translation type="vanished">Dirección MAC clonada</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">Personalizar el MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericHotspotSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Nombre</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+    </message>
+    <message>
+        <source>The name already exists</source>
+        <translation type="vanished">El nombre ya existe</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Nombre</translation>
+    </message>
+    <message>
+        <source>Auto Connect</source>
+        <translation type="vanished">Conectar automáticamente</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotDeviceWidget</name>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">Compartir conexión</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Settings</source>
+        <translation type="vanished">Añadir ajustes</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotPage</name>
+    <message>
+        <source>Create Hotspot</source>
+        <translation type="vanished">Crear conexión compartida</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::IpvxSection</name>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Auto</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">Manual</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="vanished">Ignorar</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">Dirección IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Puerta de enlace</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">DNS primario</translation>
+    </message>
+    <message>
+        <source>Secondary DNS</source>
+        <translation type="vanished">DNS secundario</translation>
+    </message>
+    <message>
+        <source>Only applied in corresponding resources</source>
+        <translation type="vanished">Sólo aplicable en los recursos correspondientes</translation>
+    </message>
+    <message>
+        <source>Method</source>
+        <translation type="vanished">Método</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Máscara de red</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">Prefijo</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="vanished">Dirección IP inválida</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkDetailPage</name>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">Detalles de red</translation>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">Compartir conexión</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Seguridad</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation type="vanished">Interfaz</translation>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation type="vanished">MAC</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation type="vanished">Banda</translation>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Puerta de enlace</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">DNS primario</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Máscara de red</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">Prefijo</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Velocidad</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModule</name>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Red cableada</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Red inalámbrica</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Compartir conexión personal</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">Red</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModuleWidget</name>
+    <message>
+        <source>DSL</source>
+        <translation type="vanished">DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">Proxy del sistema</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">Proxy para la aplicación</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">Detalles de red</translation>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Configure by Network Manager</source>
+        <translation type="vanished">Configurar administrador de red</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Compartir conexión personal</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network %1</source>
+        <translation type="vanished">Red cableada %1</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Red cableada</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network %1</source>
+        <translation type="vanished">Red inalámbrica %1</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Red inalámbrica</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Desactivado</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="vanished">Desconectado</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPOESection</name>
+    <message>
+        <source>PPPoE</source>
+        <translation type="vanished">PPPoE</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation type="vanished">Servicio</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPSection</name>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">Negar autenticación EAP</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">Negar autenticación PAP</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">Negar autenticación CHAP</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">Negar autenticación MSCHAP</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">Negar autenticación MSCHAPv2</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">Sin compresión de datos BSD</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">Sin compresión de datos por deflación</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">Sin compresión en cabecera TCP</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">Sin compresión en el campo de protocolo</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">Sin compresión de dirección y control</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">Enviar paquetes eco PPP</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">Usar MPPE</translation>
+    </message>
+    <message>
+        <source>128-bit MPPE</source>
+        <translation type="vanished">128-bit MPPE</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Estado de MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PppoePage</name>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation type="vanished">Crear conexión PPPoE</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
+    </message>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ProxyPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Guardar</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Ninguno</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">Manual</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Auto</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">Opcional</translation>
+    </message>
+    <message>
+        <source>HTTP Proxy</source>
+        <translation type="vanished">HTTP Proxy</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Puerto</translation>
+    </message>
+    <message>
+        <source>HTTPS Proxy</source>
+        <translation type="vanished">HTTPS Proxy</translation>
+    </message>
+    <message>
+        <source>FTP Proxy</source>
+        <translation type="vanished">FTP Proxy</translation>
+    </message>
+    <message>
+        <source>SOCKS Proxy</source>
+        <translation type="vanished">SOCKS Proxy</translation>
+    </message>
+    <message>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation type="vanished">Ignorar las configuraciones de proxy para los hosts y dominios anteriores</translation>
+    </message>
+    <message>
+        <source>Configuration URL</source>
+        <translation type="vanished">Configurar URL</translation>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">Proxy del sistema</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::Secret8021xSection</name>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Seguridad</translation>
+    </message>
+    <message>
+        <source>TLS</source>
+        <translation type="vanished">TLS</translation>
+    </message>
+    <message>
+        <source>MD5</source>
+        <translation type="vanished">MD5</translation>
+    </message>
+    <message>
+        <source>LEAP</source>
+        <translation type="vanished">LEAP</translation>
+    </message>
+    <message>
+        <source>FAST</source>
+        <translation type="vanished">FAST</translation>
+    </message>
+    <message>
+        <source>Tunneled TLS</source>
+        <translation type="vanished">TLS tunelizado</translation>
+    </message>
+    <message>
+        <source>Protected EAP</source>
+        <translation type="vanished">EAP protegido</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Guardado</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Preguntar</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">No requerido</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Desactivado</translation>
+    </message>
+    <message>
+        <source>Anonymous</source>
+        <translation type="vanished">Anónimo</translation>
+    </message>
+    <message>
+        <source>Authenticated</source>
+        <translation type="vanished">Autenticado</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="vanished">Ambos</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="vanished">Automático </translation>
+    </message>
+    <message>
+        <source>Version 0</source>
+        <translation type="vanished">Versión 0</translation>
+    </message>
+    <message>
+        <source>Version 1</source>
+        <translation type="vanished">Versión 1</translation>
+    </message>
+    <message>
+        <source>EAP Auth</source>
+        <translation type="vanished">Autenticación EAP</translation>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="vanished">Identidad</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Opciones código</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Clave privada</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">Certificado CA</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Certificado de usuario</translation>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
+        <translation type="vanished">ID anónimo</translation>
+    </message>
+    <message>
+        <source>Provisioning</source>
+        <translation type="vanished">Provisionamiento</translation>
+    </message>
+    <message>
+        <source>PAC file</source>
+        <translation type="vanished">Archivo PAC</translation>
+    </message>
+    <message>
+        <source>Inner Auth</source>
+        <translation type="vanished">Autenticación interna</translation>
+    </message>
+    <message>
+        <source>PEAP Version</source>
+        <translation type="vanished">Versión PEAP</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">Contraseña privada</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretHotspotSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Contraseña inválida</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Ninguno</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 Personal</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Seguridad</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">Clave</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWiredSection</name>
+    <message>
+        <source>Security Required</source>
+        <translation type="vanished">Seguridad requerida</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWirelessSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Contraseña inválida</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Ninguno</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 Personal</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation type="vanished">WPA/WPA2 Enterprise</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Seguridad</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">Clave</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN Avanzado</translation>
+    </message>
+    <message>
+        <source>Customize Gateway Port</source>
+        <translation type="vanished">Personalizar puerta de enlace</translation>
+    </message>
+    <message>
+        <source>Gateway Port</source>
+        <translation type="vanished">Puerta de enlace</translation>
+    </message>
+    <message>
+        <source>Customize Renegotiation Interval</source>
+        <translation type="vanished">Personalizar intervalo de renegociación</translation>
+    </message>
+    <message>
+        <source>Renegotiation Interval</source>
+        <translation type="vanished">Intervalo de renegociación</translation>
+    </message>
+    <message>
+        <source>Use LZO Data Compression</source>
+        <translation type="vanished">Utilizar compresión LZO</translation>
+    </message>
+    <message>
+        <source>Use TCP Connection</source>
+        <translation type="vanished">Usar conexión TCP</translation>
+    </message>
+    <message>
+        <source>Use TAP Device</source>
+        <translation type="vanished">Usar dispositivo TAP</translation>
+    </message>
+    <message>
+        <source>Customize Tunnel MTU</source>
+        <translation type="vanished">Personalizar túnel MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+    <message>
+        <source>Customize UDP Fragment Size</source>
+        <translation type="vanished">Personalizar tamaño del fragmento UDP</translation>
+    </message>
+    <message>
+        <source>UDP Fragment Size</source>
+        <translation type="vanished">Tamaño del fragmento UDP</translation>
+    </message>
+    <message>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation type="vanished">Restringir el túnel TCP MSS</translation>
+    </message>
+    <message>
+        <source>Randomize Remote Hosts</source>
+        <translation type="vanished">Aleatorizar hosts remotos</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN Avanzado</translation>
+    </message>
+    <message>
+        <source>Cisco (default)</source>
+        <translation type="vanished">Cisco (por defecto)</translation>
+    </message>
+    <message>
+        <source>Netscreen</source>
+        <translation type="vanished">Netscreen</translation>
+    </message>
+    <message>
+        <source>Secure (default)</source>
+        <translation type="vanished">Seguro (por defecto)</translation>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation type="vanished">Débil</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Ninguno</translation>
+    </message>
+    <message>
+        <source>NAT-T When Available (default)</source>
+        <translation type="vanished">NAT-T si está disponible (por defecto)</translation>
+    </message>
+    <message>
+        <source>NAT-T Always</source>
+        <translation type="vanished">NAT-T siempre</translation>
+    </message>
+    <message>
+        <source>Cisco UDP</source>
+        <translation type="vanished">Cisco UDP</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Desactivado</translation>
+    </message>
+    <message>
+        <source>DH Group 1</source>
+        <translation type="vanished">DH Grupo 1</translation>
+    </message>
+    <message>
+        <source>DH Group 2 (default)</source>
+        <translation type="vanished">DH Grupo 2 (por defecto)</translation>
+    </message>
+    <message>
+        <source>DH Group 5</source>
+        <translation type="vanished">DH Grupo 5</translation>
+    </message>
+    <message>
+        <source>Server (default)</source>
+        <translation type="vanished">Servidor (por defecto)</translation>
+    </message>
+    <message>
+        <source>DH Group 2</source>
+        <translation type="vanished">DH Grupo 2</translation>
+    </message>
+    <message>
+        <source>Domain</source>
+        <translation type="vanished">Dominio</translation>
+    </message>
+    <message>
+        <source>Vendor</source>
+        <translation type="vanished">Proveedor</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="vanished">Versión</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="vanished">Cifrado</translation>
+    </message>
+    <message>
+        <source>NAT Traversal Mode</source>
+        <translation type="vanished">Modo de recorrido NAT</translation>
+    </message>
+    <message>
+        <source>IKE DH Group</source>
+        <translation type="vanished">Grupo IKE DH</translation>
+    </message>
+    <message>
+        <source>Forward Secrecy</source>
+        <translation type="vanished">Reenvío secreto</translation>
+    </message>
+    <message>
+        <source>Local Port</source>
+        <translation type="vanished">Puerto local</translation>
+    </message>
+    <message>
+        <source>Disable Dead Peer Detection</source>
+        <translation type="vanished">Desactivar detección de pares muertos</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnIpsecSection</name>
+    <message>
+        <source>VPN IPsec</source>
+        <translation type="vanished">VPN IPsec</translation>
+    </message>
+    <message>
+        <source>Enable IPsec</source>
+        <translation type="vanished">Habilitar IPsec</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">Nombre del grupo</translation>
+    </message>
+    <message>
+        <source>Group ID</source>
+        <translation type="vanished">ID de grupo</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Clave precompartida</translation>
+    </message>
+    <message>
+        <source>Phase1 Algorithms</source>
+        <translation type="vanished">Algoritmos de Fase1</translation>
+    </message>
+    <message>
+        <source>Phase2 Algorithms</source>
+        <translation type="vanished">Algoritmos de Fase2</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenConnectSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Puerta de enlace</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">Certificado CA</translation>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="vanished">Proxy</translation>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="vanished">Permitir el troyano Cisco Secure Desktop</translation>
+    </message>
+    <message>
+        <source>CSD Script</source>
+        <translation type="vanished">Script CSD</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Certificado de usuario</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Clave privada</translation>
+    </message>
+    <message>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="vanished">Usar FSID para la frase de contraseña</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenVPNSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Certificates (TLS)</source>
+        <translation type="vanished">Certificados (TLS)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+    <message>
+        <source>Certificates with Password (TLS)</source>
+        <translation type="vanished">Certificados con contraseña (TLS)</translation>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="vanished">Clave estática</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Guardado</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Preguntar</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">No requerido</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Puerta de enlace</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">Tipo de autenticación</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">Certificado CA</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Certificado de usuario</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Clave privada</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Opciones código</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">Contraseña privada</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">Personalizar instrucción de claves</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">Instrucción de clave</translation>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="vanished">IP Remota</translation>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="vanished">IP Local</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPPPSection</name>
+    <message>
+        <source>VPN PPP</source>
+        <translation type="vanished">VPN PPP</translation>
+    </message>
+    <message>
+        <source>All Available (default)</source>
+        <translation type="vanished">Todos disponibles (por defecto)</translation>
+    </message>
+    <message>
+        <source>40-bit (less secure)</source>
+        <translation type="vanished">40-bit (menos seguro)</translation>
+    </message>
+    <message>
+        <source>128-bit (most secure)</source>
+        <translation type="vanished">128-bit (más seguro)</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">Negar autenticación EAP</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">Negar autenticación PAP</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">Negar autenticación CHAP</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">Negar autenticación MSCHAP</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">Negar autenticación MSCHAPv2</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">Sin compresión de datos BSD</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">Sin compresión de datos por deflación</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">Sin compresión en cabecera TCP</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">Sin compresión en el campo de protocolo</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">Sin compresión de dirección y control</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">Enviar paquetes eco PPP</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">Usar MPPE</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Seguridad</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Estado de MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPage</name>
+    <message>
+        <source>VPN Status</source>
+        <translation type="vanished">Estado de la VPN</translation>
+    </message>
+    <message>
+        <source>Create VPN</source>
+        <translation type="vanished">Crear VPN</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import VPN</source>
+        <translation type="vanished">Importar VPN</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="vanished">Error al importar</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">Aceptar</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN Proxy</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">No requerido</translation>
+    </message>
+    <message>
+        <source>HTTP</source>
+        <translation type="vanished">HTTP</translation>
+    </message>
+    <message>
+        <source>SOCKS</source>
+        <translation type="vanished">SOCKS</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Tipo de proxy</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Servidor IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Puerto</translation>
+    </message>
+    <message>
+        <source>Retry Indefinitely When Failed</source>
+        <translation type="vanished">Reintentar indefinidamente cuando falle</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSSTPSection</name>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">Archivo CA</translation>
+    </message>
+    <message>
+        <source>Ignore Certificate Warnings</source>
+        <translation type="vanished">Ignorar advertencias de certificado</translation>
+    </message>
+    <message>
+        <source>Use TLS Hostname Extensions</source>
+        <translation type="vanished">Usar extensiones para hostname TLS</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <message>
+        <source>VPN Security</source>
+        <translation type="vanished">Seguridad VPN</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Por defecto</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Ninguno</translation>
+    </message>
+    <message>
+        <source>Cipher</source>
+        <translation type="vanished">Cifrado</translation>
+    </message>
+    <message>
+        <source>HMAC Auth</source>
+        <translation type="vanished">Autenticación HMAC</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Guardado</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Preguntar</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">No requerido</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Puerta de enlace</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Opciones código</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+    <message>
+        <source>NT Domain</source>
+        <translation type="vanished">Dominio NT</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSstpProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN Proxy</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Servidor IP</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Puerto</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnStrongSwanSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Clave privada</translation>
+    </message>
+    <message>
+        <source>SSH Agent</source>
+        <translation type="vanished">Agente SSH</translation>
+    </message>
+    <message>
+        <source>Smart Card</source>
+        <translation type="vanished">Tarjeta inteligente</translation>
+    </message>
+    <message>
+        <source>EAP</source>
+        <translation type="vanished">EAP</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Clave precompartida</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Puerta de enlace</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">Certificado CA</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">Tipo de autenticación</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Certificado de usuario</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+    <message>
+        <source>Request an Inner IP Address</source>
+        <translation type="vanished">Solicitar una dirección IP interna</translation>
+    </message>
+    <message>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="vanished">Forzar encapsulación UDP</translation>
+    </message>
+    <message>
+        <source>Use IP Compression</source>
+        <translation type="vanished">Usar compresión IP</translation>
+    </message>
+    <message>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation type="vanished"> Habilitar propuestas de cifrado personalizadas </translation>
+    </message>
+    <message>
+        <source>IKE</source>
+        <translation type="vanished">IKE</translation>
+    </message>
+    <message>
+        <source>ESP</source>
+        <translation type="vanished">ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnTLSSection</name>
+    <message>
+        <source>VPN TLS Authentication</source>
+        <translation type="vanished">Autenticación TLS VPN</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Por defecto</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="vanished">Cliente</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Servidor</translation>
+    </message>
+    <message>
+        <source>Subject Match</source>
+        <translation type="vanished">Coincidir nombres</translation>
+    </message>
+    <message>
+        <source>Remote Cert Type</source>
+        <translation type="vanished">Tipo de certificado remoto</translation>
+    </message>
+    <message>
+        <source>Key File</source>
+        <translation type="vanished">Archivo de clave</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">Personalizar instrucción de claves</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">Instrucción de clave</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnVPNCSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Guardado</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Preguntar</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">No requerido</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Puerta de enlace</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Opciones código</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contraseña</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">Nombre del grupo</translation>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="vanished">Contraseña de grupo</translation>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="vanished">Usar autenticación híbrida</translation>
+    </message>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">Archivo CA</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WiredPage</name>
+    <message>
+        <source>Plug in the network cable first</source>
+        <translation type="vanished">Conectar en el cable de red primero</translation>
+    </message>
+    <message>
+        <source>Wired Network Adapter</source>
+        <translation type="vanished">Tarjeta de red cableada</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Network Connection</source>
+        <translation type="vanished">Añadir conexión de red</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
+    </message>
+    <message>
+        <source>Select Settings</source>
+        <translation type="vanished">Seleccionar ajustes</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessPage</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation type="vanished">Conectar a red oculta</translation>
+    </message>
+    <message>
+        <source>Wireless Network Adapter</source>
+        <translation type="vanished">Tarjeta de red inalámbrica</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Close Hotspot</source>
+        <translation type="vanished"> Cerrar conexión compartida </translation>
+    </message>
+    <message>
+        <source>Disable hotspot first if you want to connect to a wireless network</source>
+        <translation type="vanished">Primero desactive la conexión compartida si desea conectarse a una red inalámbrica.</translation>
+    </message>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">WLAN</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessSection</name>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">WLAN</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">Sin enlazar</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Requerido</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">Dirección MAC del dispositivo</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">Personalizar el MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">Tamaño</translation>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation type="vanished">Fuente estándar</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation type="vanished">Fuente monoespaciada</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source> (Unsupported font)</source>
+        <translation type="vanished">(Fuente no soportada)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Tema</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Accent Color</source>
+        <translation type="vanished">Color del texto</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">Efectos de ventana</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="vanished">Transparencia</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationList</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation type="vanished">Tema de íconos</translation>
+        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Cursor Theme</source>
+        <translation type="vanished">Tema de cursor</translation>
+        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="vanished">Fuente</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationModule</name>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">Personalización</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Claro</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">Oscuro</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Auto</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Por defecto</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Claro</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">Oscuro</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Auto</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Por defecto</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::GeneralWidget</name>
+    <message>
+        <source>Power Saving Mode</source>
+        <translation type="vanished">Modo de ahorro de energía</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Mode Switch</source>
+        <translation type="vanished">Cambio de modo automático</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation type="vanished">Contraseña requerida para encender el equipo</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation type="vanished">Contraseña requerida para encender el monitor</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerModule</name>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">Con batería</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">Energía</translation>
+    </message>
+    <message>
+        <source>Battery low, please plug in</source>
+        <translation type="vanished">Batería baja; por favor, conéctela</translation>
+    </message>
+    <message>
+        <source>Battery critically low</source>
+        <translation type="vanished">Batería críticamente baja</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="vanished">Enchufado</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">Con batería</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseBatteryWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">Suspender el monitor después de</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">Suspender el equipo después de</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">Bloquear pantalla</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">Suspender al cerrar la tapa</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">Nunca</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 minuto</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 minutos</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 hora</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseElectricWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">Suspender el monitor después de</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">Bloquear pantalla</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">Suspender al cerrar la tapa</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">Suspender el equipo después de</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">Nunca</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 minuto</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 minutos</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 hora</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::search::SearchWidget</name>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Servidor</translation>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">Efectos de ventana</translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">Modo desarrollador</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">Programa de experiencia de usuario</translation>
+    </message>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">Únase al programa de experiencia de usuario</translation>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="vanished">Cuenta en la nube</translation>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">Escalado de pantalla</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Panel táctil</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">Punto de apuntado</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Compartir conexión personal</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">Con batería</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Red cableada</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Red inalámbrica</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Múltiples pantallas</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="vanished">Acuerdo de licencia para el usuario final</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::AdvancedPage</name>
+    <message>
+        <source>Output</source>
+        <translation type="vanished">Salida</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="vanished">Entrada</translation>
+    </message>
+    <message>
+        <source>Sound Card:</source>
+        <translation type="vanished">Tarjeta de sonido:</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::MicrophonePage</name>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">Micrófono  </translation>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation type="vanished">Volumen de entrada</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation type="vanished">Nivel de entrada</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">Efectos de sonido</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundModule</name>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">Sonido</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundWidget</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">Altavoz</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">Micrófono  </translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">Avanzado</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">Efectos de sonido</translation>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SpeakerPage</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">Altavoz</translation>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation type="vanished">Volumen de salida</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Volume Boost</source>
+        <translation type="vanished">Amplificar el volumen</translation>
+    </message>
+    <message>
+        <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
+        <translation type="vanished">Si el volumen es superior al 100%, puede distorsionar el audio y dañar el altavoz.</translation>
+    </message>
+    <message>
+        <source>Left/Right Balance</source>
+        <translation type="vanished">Balance izquierda/derecha</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="vanished">Izquierda</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="vanished">Derecha</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::IndexPage</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">Autosincronizar</translation>
+    </message>
+    <message>
+        <source>Syncing...</source>
+        <translation type="vanished">Sincronizando…</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">Cerrar sesión</translation>
+    </message>
+    <message>
+        <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
+        <translation type="vanished">La contraseña de Wi-Fi se sincronizará si la configuración de red está activada.</translation>
+    </message>
+    <message>
+        <source>Network Settings</source>
+        <translation type="vanished">Ajustes de red</translation>
+    </message>
+    <message>
+        <source>Sound Settings</source>
+        <translation type="vanished">Ajustes de sonido</translation>
+    </message>
+    <message>
+        <source>Mouse Settings</source>
+        <translation type="vanished">Ajustes del ratón</translation>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Ajustes de actualización</translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="vanished">Muelle</translation>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation type="vanished">Lanzador</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="vanished">Fondo de pantalla</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Tema</translation>
+    </message>
+    <message>
+        <source>Power Settings</source>
+        <translation type="vanished">Ajustes de energía</translation>
+    </message>
+    <message>
+        <source>Corner Settings</source>
+        <translation type="vanished">Ajustes de esquinas</translation>
+    </message>
+    <message>
+        <source>Last Sync: %1</source>
+        <translation type="vanished">Última sincronización: %1</translation>
+    </message>
+    <message>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="vanished">yyyy-MM-dd hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LoginPage</name>
+    <message>
+        <source>Sign In</source>
+        <translation type="vanished">Iniciar sesión</translation>
+        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
+        <translation type="vanished">Después de iniciar sesión en la cuenta en la nube, puede utilizar la sincronización en la nube, el almacén de aplicaciones, el cliente de correo electrónico, el navegador y otros servicios en la nube.</translation>
+    </message>
+    <message>
+        <source>Cloud Account Sign In</source>
+        <translation type="vanished">Inicio de sesión de la cuenta en la nube</translation>
+    </message>
+    <message>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="vanished">Actualmente sólo disponible para China continental</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LogoutPage</name>
+    <message>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="vanished">Lo sentimos, aun no está disponible en tu región pero llegará pronto</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">Cerrar sesión</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::SyncModule</name>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="vanished">Cuenta en la nube</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <message>
+        <source>Edition:</source>
+        <translation type="vanished">Edición:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="vanished">Tipo:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation type="vanished">Autorización</translation>
+    </message>
+    <message>
+        <source>To be activated</source>
+        <translation type="vanished">Por ser activado</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation type="vanished">Activar</translation>
+    </message>
+    <message>
+        <source>Kernel:</source>
+        <translation type="vanished">Núcleo:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Processor:</source>
+        <translation type="vanished">Procesador:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Memory:</source>
+        <translation type="vanished">Memoria:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Disk:</source>
+        <translation type="vanished">Disco:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>%1-bit</source>
+        <translation type="vanished">%1-bit</translation>
+    </message>
+    <message>
+        <source>Activated</source>
+        <translation type="vanished">Activado</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="vanished">Ver</translation>
+    </message>
+    <message>
+        <source>Expired</source>
+        <translation type="vanished">Vencido</translation>
+    </message>
+    <message>
+        <source>In trial period</source>
+        <translation type="vanished">En período de evaluación</translation>
+    </message>
+    <message>
+        <source>Trial expired</source>
+        <translation type="vanished">Evaluación vencida</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoModule</name>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">Información del sistema</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
+    <message>
+        <source>About This PC</source>
+        <translation type="vanished">Sobre este PC</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Edition License</source>
+        <translation type="vanished">Licencia:</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="vanished">Acuerdo de licencia para el usuario final</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorSourceItem</name>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">Sin probar</translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="vanished">Tiempo agotado</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lento</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="vanished">Medio</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Rápido</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorsWidget</name>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">Lista de espejos</translation>
+    </message>
+    <message>
+        <source>Test Speed</source>
+        <translation type="vanished">Prueba de velocidad</translation>
+    </message>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">Sin probar</translation>
+    </message>
+    <message>
+        <source>Retest</source>
+        <translation type="vanished">Reintentar</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateCtrlWidget</name>
+    <message>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="vanished">Reinicie la computadora para usar el sistema y las aplicaciones correctamente</translation>
+    </message>
+    <message>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="vanished">Red desconectada, por favor vuelva a intentarlo después de conectado</translation>
+    </message>
+    <message>
+        <source>Your system is not authorized, please activate first</source>
+        <translation type="vanished">Su sistema no está autorizado, por favor actívelo primero</translation>
+    </message>
+    <message>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation type="vanished">Esta actualización tomaría mucho tiempo, por favor no apague ni reinicie durante el procedimiento.</translation>
+    </message>
+    <message>
+        <source>Checking for updates, please wait...</source>
+        <translation type="vanished">Comprobando actualizaciones, por favor espere…</translation>
+    </message>
+    <message>
+        <source>Download and install updates</source>
+        <translation type="vanished">Descargar e instalar actualizaciones</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="vanished">%1% descargado (Clic para pausar)</translation>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="vanished">%1% descargado (Clic para continuar)</translation>
+    </message>
+    <message>
+        <source>Install updates</source>
+        <translation type="vanished">Instalar actualizaciones</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation type="vanished">Su sistema está actualizado</translation>
+    </message>
+    <message>
+        <source>Updating, please wait...</source>
+        <translation type="vanished">Actualizando, por favor espere…</translation>
+    </message>
+    <message>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="vanished">Última versión del sistema instalada, reinicie para realizar los cambios.</translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="vanished">Actualización fallida: espacio de disco insuficiente</translation>
+    </message>
+    <message>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="vanished">Error de dependencias, no se detectaron las actualizaciones.</translation>
+    </message>
+    <message>
+        <source>Backing up, please wait...</source>
+        <translation type="vanished">Respaldando, por favor espere…</translation>
+    </message>
+    <message>
+        <source>System backup failed</source>
+        <translation type="vanished">Respaldo del sistema fallido</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n application update(s) available</source>
+        <translation type="vanished"><numerusform>actualización de %n aplicación detectada</numerusform><numerusform>%n actualizaciones de aplicaciones detectadas</numerusform></translation>
+    </message>
+    <message>
+        <source>New system edition available</source>
+        <translation type="vanished">Nueva edición del sistema disponible</translation>
+    </message>
+    <message numerus="yes">
+        <source>New system edition and %n application update(s) available</source>
+        <translation type="vanished"><numerusform>Nueva edición del sistema y %n actualización de aplicación disponible</numerusform><numerusform>Nueva edición del sistema y %n actualizacion(es) de aplicación disponibles</numerusform></translation>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="vanished">Descargado</translation>
+    </message>
+    <message>
+        <source>Size: %1</source>
+        <translation type="vanished">tamaño: %1</translation>
+    </message>
+    <message>
+        <source>Your battery is lower than 50%, please plug in to continue</source>
+        <translation type="vanished">Tu batería tiene menos del 50% de carga, por favor conecta para continuar. </translation>
+    </message>
+    <message>
+        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
+        <translation type="vanished">Por favor asegúrese de obtener suficiente energía para reiniciar, y no apague ni desconecte su equipo</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateHistoryButton</name>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">Historial de actualizaciones</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateModule</name>
+    <message>
+        <source>Updates</source>
+        <translation type="vanished">Actualizaciones</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateSettings</name>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Ajustes de actualización</translation>
+    </message>
+    <message>
+        <source>Auto Clear Package Cache</source>
+        <translation type="vanished">Autolimpiar caché de paquetes </translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Updates Notification</source>
+        <translation type="vanished">Notificación de actualizaciones</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Download Updates</source>
+        <translation type="vanished">Autodescargar actualizaciones</translation>
+    </message>
+    <message>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="vanished">Actívelo para descargar automáticamente las actualizaciones en una red inalámbrica o cableada</translation>
+    </message>
+    <message>
+        <source>System Repository Detection</source>
+        <translation type="vanished">Detección de repositorios</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation type="vanished">Muestra una notificación si la fuente de actualizaciones del sistema ha sido modificada</translation>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="vanished">Intercambio de espejo inteligente</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="vanished">Actívelo para auto-conectarse al sitio espejo más veloz</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">Lista de espejos</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateWidget</name>
+    <message>
+        <source>Updates</source>
+        <translation type="vanished">Actualizaciones</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Ajustes de actualización</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="vanished">Última actualización</translation>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="vanished">Regresar</translation>
+    </message>
+    <message>
+        <source>Current Edition</source>
+        <translation type="vanished">Edición actual</translation>
+    </message>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">Historial de actualizaciones</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::PressureSettings</name>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="vanished">Sensibilidad a la presión</translation>
+        <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Claro</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="vanished">Intensa</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomModule</name>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">Tableta de dibujo</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomWidget</name>
+    <message>
+        <source>Pen</source>
+        <translation type="vanished">Marcador</translation>
+        <extra-contents_path>/wacom/Pen</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Ratón</translation>
+        <extra-contents_path>/wacom/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="vanished">Modo</translation>
     </message>
 </context>
 <context>

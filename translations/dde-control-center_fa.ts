@@ -23,108 +23,108 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="154"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
         <source>Help</source>
         <translation>راهنما</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Accounts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Cloud Account</source>
         <translation type="unfinished"/>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="297"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Display</source>
         <translation>نمایش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="298"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Default Applications</source>
         <translation>برنامه های پیش فرض</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="299"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Personalization</source>
         <translation>شخصی سازی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="300"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Network</source>
         <translation>شبکه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="301"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
         <source>Sound</source>
         <translation>صدا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="302"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="801"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="803"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
         <source>Bluetooth</source>
         <translation>بلوتوث</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="303"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Date and Time</source>
         <translation>تاریخ  و زمان</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="304"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Power</source>
         <translation>منبع قدرت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
         <source>Mouse</source>
         <translation>ماوس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Drawing Tablet</source>
         <translation>لوح ترسیم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Keyboard and Language</source>
         <translation>صفحه کلید و زبان</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>System Info</source>
         <translation>اطلاعات سیستم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
         <source>General Settings</source>
         <translation>تنظیمات عمومی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>Touchpad</source>
         <translation>صفحه لمسی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>TrackPoint</source>
         <translation>اهرم اشاره ای</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Cloud Sync</source>
         <translation>همگام سازی ابر</translation>
     </message>
@@ -316,42 +316,52 @@
         <translation>اختیاری</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>Go to Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
         <source>Password must be no more than %1 characters</source>
         <translation>رمز عبور  که کمتر از  %1 نویسه نباید باشد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="374"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
         <source>Passwords do not match</source>
         <translation>رمزعبور یکسان نیست.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="399"/>
         <source>Username cannot be empty</source>
         <translation>نام کاربری نمیتواند خالی باشد.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>نام کاربری باید بین 3 تا 32 نویسه باشد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="412"/>
         <source>The first character must be in lower case</source>
         <translation>حرف اول باید با حروف کوچک نوشته شود.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="418"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>نام کاربر باید فقط حاوی  a~z , 0~9 , - یا _ باشد .</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
         <source>The full name already exists</source>
         <translation type="unfinished"/>
     </message>
@@ -419,27 +429,37 @@
         <translation>مورد نیاز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>Go to Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
         <source>Wrong password</source>
         <translation>رمزعبور اشتباه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="236"/>
         <source>Passwords do not match</source>
         <translation>گذرواژه ها یکسان نیستند.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="249"/>
         <source>New password should differ from the current one</source>
         <translation>رمزعبور جدید باید با رمز فعلی متفاوت باشد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="256"/>
         <source>Password must be no more than %1 characters</source>
         <translation>رمز عبور  که کمتر از  %1 نویسه نباید باشد</translation>
     </message>
@@ -467,7 +487,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
         <source>Bluetooth</source>
         <translation type="unfinished"/>
     </message>
@@ -1167,9 +1187,10 @@
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
         <source>Recommended</source>
         <translation>توصیه‌شده</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1379,37 +1400,37 @@
 <context>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="54"/>
         <source>System</source>
         <translation>سیستم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="61"/>
         <source>Window</source>
         <translation>پنجره</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="68"/>
         <source>Workspace</source>
         <translation>فضای کار</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
         <source>Speech</source>
         <translation>صحبت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
         <source>Custom Shortcut</source>
         <translation>میانبر سفارشی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="116"/>
         <source>Restore Defaults</source>
         <translation>بازگرداندن پیش فرض ها</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="142"/>
         <source>Shortcut</source>
         <translation>میانبر</translation>
     </message>
@@ -1417,17 +1438,17 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
         <source>Cancel</source>
         <translation>لغو</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="68"/>
         <source>Add</source>
         <translation>اضافه کردن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="73"/>
         <source>Add System Language</source>
         <translation>اضافه کردن زبان سیستم</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -1839,27 +1860,27 @@
         <translation>اترنت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="59"/>
         <source>Not Bind</source>
         <translation>وصل نشد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="101"/>
         <source>Device MAC Addr</source>
         <translation>آدرس MAC دستگاه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="117"/>
         <source>Cloned MAC Addr</source>
         <translation>آدرس MAC کپی شده</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="130"/>
         <source>Customize MTU</source>
         <translation>شخصی سازی MTU</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="133"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -1959,7 +1980,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
         <source>Required</source>
         <translation>مورد نیاز</translation>
     </message>
@@ -1969,45 +1991,45 @@
         <translation>درگاه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>Primary DNS</source>
         <translation>DNS اولیه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
         <source>Secondary DNS</source>
         <translation>DNS ثانویه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
         <source>Only applied in corresponding resources</source>
         <translation>تنها در منابع مربوطه اعمال می‌شود</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="249"/>
         <source>Method</source>
         <translation>روش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Netmask</source>
         <translation>Netmask</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="316"/>
         <source>Prefix</source>
         <translation>پیشوند</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="444"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="456"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="465"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="475"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="484"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="512"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="538"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="485"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="548"/>
         <source>Invalid IP address</source>
         <translation type="unfinished"/>
     </message>
@@ -3632,28 +3654,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="250"/>
         <source>Connect to hidden network</source>
         <translation>اتصال به شبکه مخفی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="260"/>
         <source>Wireless Network Adapter</source>
         <translation>آداپتور شبکه بی سیم</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="272"/>
         <source>Close Hotspot</source>
         <translation>بستن هات اسپات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="275"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>اگر می خواهید به یک شبکه بی سیم وصل شوید ، هات اسپات را غیرفعال کنید</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3786,22 +3808,22 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="100"/>
         <source>Light</source>
         <translation>روشن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="102"/>
         <source>Dark</source>
         <translation>تیره</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="104"/>
         <source>Auto</source>
         <translation>خودکار</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="109"/>
         <source>Default</source>
         <translation>پیش فرض</translation>
     </message>
@@ -4111,17 +4133,19 @@
 <context>
     <name>dccV20::sound::AdvancedPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="71"/>
         <source>Output</source>
         <translation>خروجی</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
         <source>Input</source>
         <translation>ورودی</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
         <source>Sound Card:</source>
         <translation>کارت صدا:</translation>
     </message>
@@ -4149,7 +4173,7 @@
 <context>
     <name>dccV20::sound::SoundEffectsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="49"/>
         <source>Sound Effects</source>
         <translation>جلوه های صدا</translation>
     </message>
@@ -5328,32 +5352,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="388"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="390"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>میزبان شما با موفقیت از سرور دامنه حذف شد</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="389"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="391"/>
         <source>Your host joins the domain server successfully</source>
         <translation>میزبان با موفقیت به سرور دامنه پیوست</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="411"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="413"/>
         <source>Your host failed to leave the domain server</source>
         <translation>میزبان شما نتوانست سرور دامنه را ترک کند</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="412"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="414"/>
         <source>Your host failed to join the domain server</source>
         <translation>میزبان شما نتوانست به سرور دامنه بپیوندد</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="417"/>
         <source>AD domain settings</source>
         <translation>تنظیمات دامنه AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="484"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="486"/>
         <source>Password not match</source>
         <translation>رمز عبور مطابقت ندارد</translation>
     </message>
@@ -8983,7 +9007,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="173"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="191"/>
         <source>available</source>
         <translation>در دسترس</translation>
     </message>
@@ -9417,6 +9441,3831 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
         <translation>متصل شده</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::MainWindow</name>
+    <message>
+        <source>Help</source>
+        <translation type="vanished">راهنما</translation>
+    </message>
+    <message>
+        <source>Accounts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
+    </message>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">نمایش</translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">برنامه های پیش فرض</translation>
+    </message>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">شخصی سازی</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">شبکه</translation>
+    </message>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">صدا</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">بلوتوث</translation>
+    </message>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">تاریخ  و زمان</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">منبع قدرت</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">ماوس</translation>
+    </message>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">لوح ترسیم</translation>
+    </message>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">صفحه کلید و زبان</translation>
+    </message>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">اطلاعات سیستم</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">تنظیمات عمومی</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">صفحه لمسی</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">اهرم اشاره ای</translation>
+    </message>
+    <message>
+        <source>Cloud Sync</source>
+        <translation type="vanished">همگام سازی ابر</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">نام کامل</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Validity Days</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please input a number between 1-99999</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">تغییر رمز عبور</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Delete Account</source>
+        <translation type="vanished">حذف حساب</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation type="vanished">ورود خودکار</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation type="vanished">ورود بدون رمز</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">گروه</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsModule</name>
+    <message>
+        <source>Accounts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsWidget</name>
+    <message>
+        <source>Create Account</source>
+        <translation type="vanished">ایجاد حساب کاربری</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation type="vanished">مدیر</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AddFingeDialog</name>
+    <message>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scan again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">انجام شد</translation>
+    </message>
+    <message>
+        <source>Identifying fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AvatarListWidget</name>
+    <message>
+        <source>Images</source>
+        <translation type="vanished">تصاویر</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::CreateAccountPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">انصراف</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">ایجاد</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">گروه</translation>
+    </message>
+    <message>
+        <source>New Account</source>
+        <translation type="vanished">حساب کاربری جدید</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">نام کاربری</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">نام کامل</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">پسورد</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">تکرار رمزعبور</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>optional</source>
+        <translation type="vanished">اختیاری</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">رمز عبور  که کمتر از  %1 نویسه نباید باشد</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">رمزعبور یکسان نیست.</translation>
+    </message>
+    <message>
+        <source>Username cannot be empty</source>
+        <translation type="vanished">نام کاربری نمیتواند خالی باشد.</translation>
+    </message>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation type="vanished">نام کاربری باید بین 3 تا 32 نویسه باشد</translation>
+    </message>
+    <message>
+        <source>The first character must be in lower case</source>
+        <translation type="vanished">حرف اول باید با حروف کوچک نوشته شود.</translation>
+    </message>
+    <message>
+        <source>Username must only contain a~z, 0~9, - or _</source>
+        <translation type="vanished">نام کاربر باید فقط حاوی  a~z , 0~9 , - یا _ باشد .</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::FingerWidget</name>
+    <message>
+        <source>Delete fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint Password</source>
+        <translation type="vanished">رمزعبور اثرانگشت</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add fingerprint</source>
+        <translation type="vanished">اضافه کردن اثرانگشت</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">تغییر رمزعبور</translation>
+    </message>
+    <message>
+        <source>Current Password</source>
+        <translation type="vanished">رمزعبور فعلی</translation>
+    </message>
+    <message>
+        <source>New Password</source>
+        <translation type="vanished">رمزعبور جدید</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">تکرار رمز</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">انصراف</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">ذخیره</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="vanished">رمزعبور اشتباه</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">گذرواژه ها یکسان نیستند.</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation type="vanished">رمزعبور جدید باید با رمز فعلی متفاوت باشد</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">رمز عبور  که کمتر از  %1 نویسه نباید باشد</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::AdapterWidget</name>
+    <message>
+        <source>My devices</source>
+        <translation type="vanished">دستگاه های من</translation>
+        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Other devices</source>
+        <translation type="vanished">سایر دستگاه ها</translation>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation type="vanished">به کار انداختن بلوتوث برای پیدا کردن وسایل مجاور ( بلندگو ، صفحه‌کلید ، موش واره )</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::BluetoothModule</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DetailPage</name>
+    <message>
+        <source>Ignore this device</source>
+        <translation type="vanished">نادیده گرفتن این دستگاه</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">قطع اتصال</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
+    <message>
+        <source>Connected</source>
+        <translation type="vanished">متصل شده</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="vanished">متصل نیست</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::BootWidget</name>
+    <message>
+        <source>Updating...</source>
+        <translation type="vanished">به‌روزرسانی...</translation>
+    </message>
+    <message>
+        <source>Startup Delay</source>
+        <translation type="vanished">تأخیر راه اندازی</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">تم</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
+        <translation type="vanished">روی گزینه در منوی بوت کلیک کنید تا آن را به عنوان اولین بوت تنظیم کنید و برای تغییر پس زمینه ، تصویری را بکشید و رها کنید</translation>
+    </message>
+    <message>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="vanished">تعویض تم برای نمایش آن در منوی راه‌اندازی</translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">فهرست بوت</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoModule</name>
+    <message>
+        <source>General Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">فهرست بوت</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">حالت توسعه دهنده</translation>
+        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">برنامه تجربه کاربر</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Tablet Mode</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWork</name>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UOS Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="vanished">موافقت و پیوستن به برنامه تجربه کاربر</translation>
+    </message>
+    <message>
+        <source>The Disclaimer of Developer Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree and Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeDialog</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first and continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export PC Info</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Certificate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1. Export your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>3. Import the certificate</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeWidget</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To make some features effective, a restart is required. Restart now?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">لغو</translation>
+    </message>
+    <message>
+        <source>Restart Now</source>
+        <translation type="vanished">راه اندازی مجدد هم اکنون</translation>
+    </message>
+    <message>
+        <source>Root Access Allowed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished"> پیوستن به برنامه تجربه کاربر</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://openapi.chinauos.com/agreement/).</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::ClockItem</name>
+    <message>
+        <source>AM</source>
+        <translation type="vanished">صبح</translation>
+    </message>
+    <message>
+        <source>PM</source>
+        <translation type="vanished">عصر</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateSettings</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">همگام سازی خودکار</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">انصراف</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">تایید</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">سرور</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="vanished">آدرس</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">شخصی سازی</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateWidget</name>
+    <message>
+        <source>Year</source>
+        <translation type="vanished">سال</translation>
+    </message>
+    <message>
+        <source>Month</source>
+        <translation type="vanished">ماه</translation>
+    </message>
+    <message>
+        <source>Day</source>
+        <translation type="vanished">روز</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeModule</name>
+    <message>
+        <source>Date and Time</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeWidget</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">فهرست منطقه زمانی</translation>
+    </message>
+    <message>
+        <source>Time Settings</source>
+        <translation type="vanished">تنظیمات زمان</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="vanished">زمان 24 ساعته</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::SystemTimezone</name>
+    <message>
+        <source>Change System Timezone</source>
+        <translation type="vanished">منطقه زمانی سیستم را تغییر دهید</translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+    </message>
+    <message>
+        <source>System Timezone</source>
+        <translation type="vanished">منطقه زمانی سیستم</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::TimezoneList</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">فهرست منطقه زمانی</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Timezone</source>
+        <translation type="vanished">اضافه کردن منطقه زمانی</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefappDetailWidget</name>
+    <message>
+        <source>Add Application</source>
+        <translation type="vanished">افزودن برنامه</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Open Desktop file</source>
+        <translation type="vanished">باز کردن فایل دسکتاپ</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation type="vanished">نامعتبر</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsModule</name>
+    <message>
+        <source>Default Applications</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="vanished">صفحه وب</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="vanished">ایمیل</translation>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="vanished">متن</translation>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="vanished">موسیقی</translation>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="vanished">ویدیو</translation>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="vanished">تصویر</translation>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="vanished">ترمینال</translation>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">برنامه های پیش فرض</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::BrightnessPage</name>
+    <message>
+        <source>Night Shift</source>
+        <translation type="vanished">شیفت شب</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>The screen hue will be auto adjusted according to your location</source>
+        <translation type="vanished">رنگ صفحه با توجه به موقعیت مکانی شما تنظیم می شود</translation>
+    </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="vanished">روشنایی خودکار</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::CustomSettingDialog</name>
+    <message>
+        <source>Main Screen</source>
+        <translation type="vanished">صفحه اصلی</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">وضوح تصویر</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">نرخ نوسازی</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">انصراف</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">ذخیره</translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">هرتز</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">توصیه‌شده</translation>
+    </message>
+    <message>
+        <source>inch</source>
+        <translation type="vanished">اینچ</translation>
+    </message>
+    <message>
+        <source>Resolution %1x%2</source>
+        <translation type="vanished">وضوح  %1x%2</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayModule</name>
+    <message>
+        <source>Display</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">نمایشگرهای چندگانه</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayWidget</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">نمایشگرهای چندگانه</translation>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="vanished">روشنایی</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">وضوح تصویر</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">نمایش مقیاس</translation>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">نرخ نوسازی</translation>
+        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+    </message>
+    <message>
+        <source>Rotate Screen</source>
+        <translation type="vanished">چرخش صفحه</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenSettingPage</name>
+    <message>
+        <source>Custom Settings</source>
+        <translation type="vanished">تنظیمات شخصی</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="vanished">تکراری</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="vanished">گسترش</translation>
+    </message>
+    <message>
+        <source>Show the same image on other screens</source>
+        <translation type="vanished">نشان دادن همان تصویر روی صفحات دیگر</translation>
+    </message>
+    <message>
+        <source>Expand the desktop across the screens</source>
+        <translation type="vanished">دسکتاپ را در تمام صفحه ها گسترش بده</translation>
+    </message>
+    <message>
+        <source>%1 only</source>
+        <translation type="vanished">%1 فقط</translation>
+    </message>
+    <message>
+        <source>Show the screen content only on %1</source>
+        <translation type="vanished">محتویات صفحه تنها در %1 نمایش داده می شود</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">شخصی سازی</translation>
+    </message>
+    <message>
+        <source>Configure the display according to your needs</source>
+        <translation type="vanished">نمایشگر را مطابق نیاز خود تنظیم کنید</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RefreshRatePage</name>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">هرتز</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">توصیه‌شده</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ResolutionDetailPage</name>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">توصیه‌شده</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RotateDialog</name>
+    <message>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">برای چرخاندن ، کلیک چپ کنید ،برای بازگرداندن و خروج از آن ، کلیک راست کنید ، برای ذخیره  Ctrl+S فشار دهید</translation>
+    </message>
+    <message>
+        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">برای چرخاندن ، کلیک راست کنید ،برای بازگرداندن و خروج از آن ، کلیک چپ کنید ، برای ذخیره  Ctrl+S فشار دهید</translation>
+    </message>
+    <message>
+        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
+        <translation type="vanished">تنظیمات صفحه نمایش را ذخیره می کنید؟ در صورت عدم بهره برداری ، صفحه نمایش در %1s  بازگردانی می شود.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ScalingPage</name>
+    <message>
+        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
+        <translation type="vanished">برخی از برنامه ها را نمی توان با تنظیمات مشخص شده در محیط چند صفحه ایی نمایش داد.</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation type="vanished">مانیتور فقط از 100% مقیاس گذاری صفحه نمایش پشتیبانی می کند</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::CustomContent</name>
+    <message>
+        <source>Add Custom Shortcut</source>
+        <translation type="vanished">اضافه کردن میانبر سفارشی</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">نام</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="vanished">دستور</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">انصراف</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">اضافه کردن</translation>
+    </message>
+    <message>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation type="vanished">این میان‌بر با  %1  تداخل دارد  روی اضافه کلیک کنید تا این میان‌بر را فورا ً موثر کنید .</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
+    <message>
+        <source>Repeat Delay</source>
+        <translation type="vanished">تاخیر تکرار </translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Short</source>
+        <translation type="vanished">کوتاه</translation>
+    </message>
+    <message>
+        <source>Long</source>
+        <translation type="vanished">بلند</translation>
+    </message>
+    <message>
+        <source>Repeat Rate</source>
+        <translation type="vanished">نرخ تکرار</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">آهسته</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سریع</translation>
+    </message>
+    <message>
+        <source>Test here</source>
+        <translation type="vanished">اینجا تست کنید</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Numeric Keypad</source>
+        <translation type="vanished">صفحه کلید عددی</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Caps Lock Prompt</source>
+        <translation type="vanished">وضعیت کلید Caps Lock</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">طرح بندی صفحه کلید</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">ویرایش</translation>
+    </message>
+    <message>
+        <source>Switch Layouts (Multiple)</source>
+        <translation type="vanished">تغییر صفحه کلید   (چندگانه)</translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="vanished">اعمال می شود</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="vanished">سیستم</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">برنامه</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">انجام شد</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardModule</name>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">میانبر سفارشی</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">کلی</translation>
+    </message>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">طرح بندی صفحه کلید</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System Language</source>
+        <translation type="vanished">زبان سیستم</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="vanished">میانبر</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
+    <message>
+        <source>System</source>
+        <translation type="vanished">سیستم</translation>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation type="vanished">پنجره</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="vanished">فضای کار</translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation type="vanished">صحبت</translation>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">میانبر سفارشی</translation>
+    </message>
+    <message>
+        <source>Restore Defaults</source>
+        <translation type="vanished">بازگرداندن پیش فرض ها</translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="vanished">میانبر</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">لغو</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">اضافه کردن</translation>
+    </message>
+    <message>
+        <source>Add System Language</source>
+        <translation type="vanished">اضافه کردن زبان سیستم</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
+    <message>
+        <source>Language List</source>
+        <translation type="vanished">فهرست زبان‌ها</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">ویرایش</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">انجام شد</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
+    <message>
+        <source>Left Hand</source>
+        <translation type="vanished">چپ دست</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad while typing</source>
+        <translation type="vanished">صفحه لمسی را هنگام تایپ غیرفعال کن</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="vanished">سرعت پیمایش</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Double-click Speed</source>
+        <translation type="vanished">سرعت دوبار-کلیلک</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">آهسته</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سریع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseModule</name>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">صفحه لمسی</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">اهرم اشاره ای</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">سرعت اشاره گر</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation type="vanished">شتاب ماوس</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation type="vanished">صفحه لمسی را هنگام اتصال ماوس غیر فعال کن</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">پیمایش طبیعی</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">آهسته</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سریع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">کلی</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">ماوس</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">صفحه لمسی</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">اهرم اشاره ای</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">سرعت اشاره گر</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="vanished">برای کلیک ضربه بزنید</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">پیمایش طبیعی</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">آهسته</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سریع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">سرعت اشاره گر</translation>
+        <extra-child_page>TrackPoint</extra-child_page>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">آهسته</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سریع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsProxyPage</name>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">برنامه پروکسی</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">نوع پراکسی</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">آدرس IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">پورت</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">نام کاربری</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">اختیاری</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">پسورد</translation>
+    </message>
+    <message>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="vanished">&quot;استفاده از پروکسی&quot; را در فهرست برنامه در لانچر پس از پیکربندی بررسی کنید</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">انصراف</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">ذخیره</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid port</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsTypePage</name>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">نوع پراکسی</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionEditPage</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">قطع اتصال</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">حذف</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">انصراف</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">ذخیره</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this configuration?</source>
+        <translation type="vanished">آیا مطمئن هستید که می خواهید این پیکربندی را حذف کنید؟</translation>
+    </message>
+    <message>
+        <source>Wired Connection %1</source>
+        <translation type="vanished">اتصال سیمی %1</translation>
+    </message>
+    <message>
+        <source>hotspot</source>
+        <translation type="vanished">هات اسپات</translation>
+    </message>
+    <message>
+        <source>Wireless Connection %1</source>
+        <translation type="vanished">اتصال بی سیم %1</translation>
+    </message>
+    <message>
+        <source>PPPoE Connection %1</source>
+        <translation type="vanished">اتصال  PPPoE %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
+    <message>
+        <source>New VPN</source>
+        <translation type="vanished">VPN جدید</translation>
+    </message>
+    <message>
+        <source>VPN Type</source>
+        <translation type="vanished">نوع VPN</translation>
+    </message>
+    <message>
+        <source>L2TP</source>
+        <translation type="vanished">L2TP</translation>
+    </message>
+    <message>
+        <source>PPTP</source>
+        <translation type="vanished">PPTP</translation>
+    </message>
+    <message>
+        <source>VPNC</source>
+        <translation type="vanished">VPNC</translation>
+    </message>
+    <message>
+        <source>OpenVPN</source>
+        <translation type="vanished">OpenVPN</translation>
+    </message>
+    <message>
+        <source>StrongSwan</source>
+        <translation type="vanished">StrongSwan</translation>
+    </message>
+    <message>
+        <source>OpenConnect</source>
+        <translation type="vanished">VPNC</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="vanished">صادر</translation>
+    </message>
+    <message>
+        <source>VPN L2TP %1</source>
+        <translation type="vanished">VPN L2TP %1</translation>
+    </message>
+    <message>
+        <source>VPN PPTP %1</source>
+        <translation type="vanished">VPN PPTP %1</translation>
+    </message>
+    <message>
+        <source>VPN VPNC %1</source>
+        <translation type="vanished">VPN VPNC %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenVPN %1</source>
+        <translation type="vanished">VPN OpenVPN %1</translation>
+    </message>
+    <message>
+        <source>VPN StrongSwan %1</source>
+        <translation type="vanished">VPN StrongSwan %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenConnect %1</source>
+        <translation type="vanished">VPN OpenConnect %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::EthernetSection</name>
+    <message>
+        <source>Ethernet</source>
+        <translation type="vanished">اترنت</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">وصل نشد</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">آدرس MAC دستگاه</translation>
+    </message>
+    <message>
+        <source>Cloned MAC Addr</source>
+        <translation type="vanished">آدرس MAC کپی شده</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">شخصی سازی MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericHotspotSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">کلی</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">نام</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">کلی</translation>
+    </message>
+    <message>
+        <source>The name already exists</source>
+        <translation type="vanished">این نام از قبل وجود دارد</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">نام</translation>
+    </message>
+    <message>
+        <source>Auto Connect</source>
+        <translation type="vanished">اتصال - خودکار</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotDeviceWidget</name>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">هات اسپات</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Settings</source>
+        <translation type="vanished">اضافه کردن تنظیمات</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotPage</name>
+    <message>
+        <source>Create Hotspot</source>
+        <translation type="vanished">ساخت هات اسپات</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::IpvxSection</name>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">خودکار</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">دستی</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="vanished">نادیده گرفتن</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">آدرس IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">درگاه</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">DNS اولیه</translation>
+    </message>
+    <message>
+        <source>Secondary DNS</source>
+        <translation type="vanished">DNS ثانویه</translation>
+    </message>
+    <message>
+        <source>Only applied in corresponding resources</source>
+        <translation type="vanished">تنها در منابع مربوطه اعمال می‌شود</translation>
+    </message>
+    <message>
+        <source>Method</source>
+        <translation type="vanished">روش</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Netmask</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">پیشوند</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkDetailPage</name>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">جزئیات شبکه</translation>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">هات اسپات</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">امنیتی</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation type="vanished">رابط</translation>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation type="vanished">MAC</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation type="vanished">باند</translation>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">درگاه</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">DNS اولیه</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Netmask</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">پیشوند</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">سرعت</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModule</name>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">شبکه کابلی</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">شبکه بیسیم</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">هات اسپات شخصی</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModuleWidget</name>
+    <message>
+        <source>DSL</source>
+        <translation type="vanished">DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">پراکسی سیستم</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">برنامه پروکسی</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">جزئیات شبکه</translation>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Configure by Network Manager</source>
+        <translation type="vanished">پیکربندی توسط مدیر شبکه</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">هات اسپات شخصی</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network %1</source>
+        <translation type="vanished">شبکه سیمی %1</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">شبکه کابلی</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network %1</source>
+        <translation type="vanished">شبکه بی سیم %1</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">شبکه بیسیم</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">غیر فعال</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="vanished">قطع اتصال</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPOESection</name>
+    <message>
+        <source>PPPoE</source>
+        <translation type="vanished">PPPoE</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">نام کاربری</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation type="vanished">خدمات</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">پسورد</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPSection</name>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">از تأیید اعتبار EAP خودداری کن</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">از تأیید اعتبار PAP خودداری کن</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">از تأیید اعتبار CHAP خودداری کن</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">از تأیید اعتبار MSCHAP خودداری کن</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">از تأیید اعتبار MSCHAPv2  خودداری کن</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">فشرده سازی داده BSD وجود ندارد</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">فاقد فشرده سازی تورمی داده ها</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">فشرده سازی هدر TCP وجود ندارد</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">بدون فیلد پروتوکل فشرده سازی</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">بدون آدرس / کنترل فشرده سازی</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">بسته های اکو PPP ارسال کن</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">استفاده از MPPE</translation>
+    </message>
+    <message>
+        <source>128-bit MPPE</source>
+        <translation type="vanished">128-bit MPPE</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Stateful MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PppoePage</name>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation type="vanished">اتصال PPPoE ایجاد کنید</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
+    </message>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ProxyPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">انصراف</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">ذخیره</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">هیچ </translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">دستی</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">خودکار</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">اختیاری</translation>
+    </message>
+    <message>
+        <source>HTTP Proxy</source>
+        <translation type="vanished">پراکسی HTTP</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">پورت</translation>
+    </message>
+    <message>
+        <source>HTTPS Proxy</source>
+        <translation type="vanished">پراکسی HTTPS</translation>
+    </message>
+    <message>
+        <source>FTP Proxy</source>
+        <translation type="vanished">پراکسی FTP</translation>
+    </message>
+    <message>
+        <source>SOCKS Proxy</source>
+        <translation type="vanished">SOCKS Proxy</translation>
+    </message>
+    <message>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation type="vanished">تنظیمات پروکسی را برای میزبان ها و دامنه های فوق نادیده بگیر</translation>
+    </message>
+    <message>
+        <source>Configuration URL</source>
+        <translation type="vanished">پیکربندی URL</translation>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">پراکسی سیستم</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::Secret8021xSection</name>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">امنیتی</translation>
+    </message>
+    <message>
+        <source>TLS</source>
+        <translation type="vanished">TLS</translation>
+    </message>
+    <message>
+        <source>MD5</source>
+        <translation type="vanished">MD5</translation>
+    </message>
+    <message>
+        <source>LEAP</source>
+        <translation type="vanished">LEAP</translation>
+    </message>
+    <message>
+        <source>FAST</source>
+        <translation type="vanished">FAST</translation>
+    </message>
+    <message>
+        <source>Tunneled TLS</source>
+        <translation type="vanished">Tunneled TLS</translation>
+    </message>
+    <message>
+        <source>Protected EAP</source>
+        <translation type="vanished">Protected EAP</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">ذخیره شد</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">پرسیدن</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">نیازی نیست</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">غیر فعال</translation>
+    </message>
+    <message>
+        <source>Anonymous</source>
+        <translation type="vanished">ناشناس</translation>
+    </message>
+    <message>
+        <source>Authenticated</source>
+        <translation type="vanished">احراز هویت شد</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="vanished">هردو</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="vanished">خودکار</translation>
+    </message>
+    <message>
+        <source>Version 0</source>
+        <translation type="vanished">نسخه 0</translation>
+    </message>
+    <message>
+        <source>Version 1</source>
+        <translation type="vanished">نسخه 1</translation>
+    </message>
+    <message>
+        <source>EAP Auth</source>
+        <translation type="vanished">احراز هویت EAP</translation>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="vanished">هویت</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">گزینه های Pwd</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">کلید شخصی</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">مجوز CA</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">مجوز کاربر</translation>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
+        <translation type="vanished">آی دی ناشناس</translation>
+    </message>
+    <message>
+        <source>Provisioning</source>
+        <translation type="vanished">تامین</translation>
+    </message>
+    <message>
+        <source>PAC file</source>
+        <translation type="vanished">فایل PAC</translation>
+    </message>
+    <message>
+        <source>Inner Auth</source>
+        <translation type="vanished">احراز هویت داخلی</translation>
+    </message>
+    <message>
+        <source>PEAP Version</source>
+        <translation type="vanished">نسخه PEAP</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">پسورد شخصی</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">پسورد</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretHotspotSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">رمزعبور نامعتبر</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">هیچ </translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 Personal</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">امنیتی</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">کلید</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">رمزعبور </translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWiredSection</name>
+    <message>
+        <source>Security Required</source>
+        <translation type="vanished">نیازمند مورد امنیتی</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWirelessSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">رمزعبور نامعتبر</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">هیچ </translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 Personal</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation type="vanished">WPA/WPA2 Enterprise</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">امنیتی</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">کلید</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">پسورد</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN پیشرفته</translation>
+    </message>
+    <message>
+        <source>Customize Gateway Port</source>
+        <translation type="vanished">شخصی سازی پورت درگاه</translation>
+    </message>
+    <message>
+        <source>Gateway Port</source>
+        <translation type="vanished">پورت درگاه</translation>
+    </message>
+    <message>
+        <source>Customize Renegotiation Interval</source>
+        <translation type="vanished">فاصله بین مذاکره را سفارشی کنید</translation>
+    </message>
+    <message>
+        <source>Renegotiation Interval</source>
+        <translation type="vanished">بازه مذاکره</translation>
+    </message>
+    <message>
+        <source>Use LZO Data Compression</source>
+        <translation type="vanished">از LZO فشرده سازی داده استفاده کن</translation>
+    </message>
+    <message>
+        <source>Use TCP Connection</source>
+        <translation type="vanished">از اتصال TCP استفاده کن</translation>
+    </message>
+    <message>
+        <source>Use TAP Device</source>
+        <translation type="vanished">استفاده از دستگاه TAP</translation>
+    </message>
+    <message>
+        <source>Customize Tunnel MTU</source>
+        <translation type="vanished">شخصی سازی تونل MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+    <message>
+        <source>Customize UDP Fragment Size</source>
+        <translation type="vanished">سفارشی سازی حجم قطعه UDP</translation>
+    </message>
+    <message>
+        <source>UDP Fragment Size</source>
+        <translation type="vanished">حجم قطعه UDP</translation>
+    </message>
+    <message>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation type="vanished">تونل TCP MSS را محدود کنید</translation>
+    </message>
+    <message>
+        <source>Randomize Remote Hosts</source>
+        <translation type="vanished">انتخاب تصادفی هاست ریموت</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN پیشرفته</translation>
+    </message>
+    <message>
+        <source>Cisco (default)</source>
+        <translation type="vanished">سیسکو (پیش فرض)</translation>
+    </message>
+    <message>
+        <source>Netscreen</source>
+        <translation type="vanished">Netscreen</translation>
+    </message>
+    <message>
+        <source>Secure (default)</source>
+        <translation type="vanished">امن(پیش فرض)</translation>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation type="vanished">ضعیف</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">هیچ </translation>
+    </message>
+    <message>
+        <source>NAT-T When Available (default)</source>
+        <translation type="vanished">NAT-T در صورت وجود (پیش فرض)</translation>
+    </message>
+    <message>
+        <source>NAT-T Always</source>
+        <translation type="vanished">همیشه NAT-T</translation>
+    </message>
+    <message>
+        <source>Cisco UDP</source>
+        <translation type="vanished">Cisco UDP</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">غیر فعال</translation>
+    </message>
+    <message>
+        <source>DH Group 1</source>
+        <translation type="vanished">DH Group 1</translation>
+    </message>
+    <message>
+        <source>DH Group 2 (default)</source>
+        <translation type="vanished">DH Group 2 (پیش فرض)</translation>
+    </message>
+    <message>
+        <source>DH Group 5</source>
+        <translation type="vanished">DH Group 5</translation>
+    </message>
+    <message>
+        <source>Server (default)</source>
+        <translation type="vanished">سرور (پیش فرض)</translation>
+    </message>
+    <message>
+        <source>DH Group 2</source>
+        <translation type="vanished">DH Group 2</translation>
+    </message>
+    <message>
+        <source>Domain</source>
+        <translation type="vanished">دامنه</translation>
+    </message>
+    <message>
+        <source>Vendor</source>
+        <translation type="vanished">فروشنده</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="vanished">نسخه</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="vanished">رمزگذاری</translation>
+    </message>
+    <message>
+        <source>NAT Traversal Mode</source>
+        <translation type="vanished">حالت گذرگاه NAT</translation>
+    </message>
+    <message>
+        <source>IKE DH Group</source>
+        <translation type="vanished">IKE DH Group</translation>
+    </message>
+    <message>
+        <source>Forward Secrecy</source>
+        <translation type="vanished">امنیت پیشرو</translation>
+    </message>
+    <message>
+        <source>Local Port</source>
+        <translation type="vanished">پورت محلی</translation>
+    </message>
+    <message>
+        <source>Disable Dead Peer Detection</source>
+        <translation type="vanished">غیر فعال کردن تشخیص Dead Peer</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnIpsecSection</name>
+    <message>
+        <source>VPN IPsec</source>
+        <translation type="vanished">VPN IPsec</translation>
+    </message>
+    <message>
+        <source>Enable IPsec</source>
+        <translation type="vanished">فعال کردن IPsec</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">نام گروه</translation>
+    </message>
+    <message>
+        <source>Group ID</source>
+        <translation type="vanished">آی دی گروه</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Pre-Shared Key</translation>
+    </message>
+    <message>
+        <source>Phase1 Algorithms</source>
+        <translation type="vanished">الگوریتم های Phase1</translation>
+    </message>
+    <message>
+        <source>Phase2 Algorithms</source>
+        <translation type="vanished">الگوریتم های Phase2</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenConnectSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">درگاه</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">مجوز CA</translation>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="vanished">پراکسی</translation>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="vanished">به برنامه محافظت دربرابر تروجان سیسکو اجازه دهید</translation>
+    </message>
+    <message>
+        <source>CSD Script</source>
+        <translation type="vanished">اسکریپت CSD</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">مجوز کاربر</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">کلید شخصی</translation>
+    </message>
+    <message>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="vanished">از FSID برای کلید پسورد استفاده کن</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenVPNSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Certificates (TLS)</source>
+        <translation type="vanished">گواهینامه ها (TLS)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">رمزعبور</translation>
+    </message>
+    <message>
+        <source>Certificates with Password (TLS)</source>
+        <translation type="vanished">گواهی های دارای رمز عبور (TLS)</translation>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="vanished">کلید استاتیک</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">ذخیره شد</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">پرسیدن</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">نیازی نیست</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">درگاه</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">نوع احراز هویت</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">مجوز CA</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">مجوز کاربر</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">کلید شخصی</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">گزینه های Pwd</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">پسورد شخصی</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">نام کاربری</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">سفارشی سازی جهت کلید</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">جهت کلید</translation>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="vanished">ریموت آی پی</translation>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="vanished">آی پی محلی</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPPPSection</name>
+    <message>
+        <source>VPN PPP</source>
+        <translation type="vanished">VPN PPP</translation>
+    </message>
+    <message>
+        <source>All Available (default)</source>
+        <translation type="vanished">همه موجود (پیش فرض)</translation>
+    </message>
+    <message>
+        <source>40-bit (less secure)</source>
+        <translation type="vanished">40 بیتی (ایمنی کمتر )</translation>
+    </message>
+    <message>
+        <source>128-bit (most secure)</source>
+        <translation type="vanished">128 بیتی (امن ترین)</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">از تأیید اعتبار EAP خودداری کن</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">از تأیید اعتبار PAP خودداری کن</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">از تأیید اعتبار CHAP خودداری کن</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">از تأیید اعتبار MSCHAP خودداری کن</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">از تأیید اعتبار MSCHAPv2  خودداری کن</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">فشرده سازی داده BSD وجود ندارد</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">فاقد فشرده سازی تورمی داده ها</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">فشرده سازی هدر TCP وجود ندارد</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">بدون فیلد پروتکل فشرده سازی</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">بدون آدرس / کنترل فشرده سازی</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">بسته های اکو PPP ارسال کن</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">استفاده از MPPE</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">امنیتی</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Stateful MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPage</name>
+    <message>
+        <source>VPN Status</source>
+        <translation type="vanished">وضعیت VPN</translation>
+    </message>
+    <message>
+        <source>Create VPN</source>
+        <translation type="vanished">ایجاد VPN</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import VPN</source>
+        <translation type="vanished">وارد کردن VPN</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="vanished">خطای وارد کردن</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">تایید</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN Proxy</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">نیازی نیست</translation>
+    </message>
+    <message>
+        <source>HTTP</source>
+        <translation type="vanished">HTTP</translation>
+    </message>
+    <message>
+        <source>SOCKS</source>
+        <translation type="vanished">SOCKS</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">انواع پراکسی</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">IP سرور</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">پورت</translation>
+    </message>
+    <message>
+        <source>Retry Indefinitely When Failed</source>
+        <translation type="vanished">هنگام عدم موفقیت شناسایی را مجددا بررسی کنید</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">نام کاربری</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">پسورد</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSSTPSection</name>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">فایل CA</translation>
+    </message>
+    <message>
+        <source>Ignore Certificate Warnings</source>
+        <translation type="vanished">نادیده گرفتن اخطارهای گواهی</translation>
+    </message>
+    <message>
+        <source>Use TLS Hostname Extensions</source>
+        <translation type="vanished">استفاده از TLS Hostname Extensions</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <message>
+        <source>VPN Security</source>
+        <translation type="vanished">امنیت VPN</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">پیش فرض</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">هیچ </translation>
+    </message>
+    <message>
+        <source>Cipher</source>
+        <translation type="vanished">Cipher</translation>
+    </message>
+    <message>
+        <source>HMAC Auth</source>
+        <translation type="vanished">HMAC Auth</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">ذخیره شد</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">پرسیدن</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">نیازی نیست</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">درگاه</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">نام کاربری</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">گزینه های Pwd</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">رمزعبور</translation>
+    </message>
+    <message>
+        <source>NT Domain</source>
+        <translation type="vanished">دامین NT</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSstpProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN Proxy</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">IP سرور</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">پورت</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">نام کاربری</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">رمزعبور</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnStrongSwanSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">کلید شخصی</translation>
+    </message>
+    <message>
+        <source>SSH Agent</source>
+        <translation type="vanished">SSH Agent</translation>
+    </message>
+    <message>
+        <source>Smart Card</source>
+        <translation type="vanished">Smart Card</translation>
+    </message>
+    <message>
+        <source>EAP</source>
+        <translation type="vanished">EAP</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Pre-Shared Key</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">درگاه</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">مجوز CA</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">نوع احراز هویت</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">مجوز کاربر</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">نام کاربری</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">رمزعبور</translation>
+    </message>
+    <message>
+        <source>Request an Inner IP Address</source>
+        <translation type="vanished">درخواست یک نشانی IP داخلی</translation>
+    </message>
+    <message>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="vanished">اجرای کپسوله کردن udp</translation>
+    </message>
+    <message>
+        <source>Use IP Compression</source>
+        <translation type="vanished">از فشرده سازی IP استفاده کن</translation>
+    </message>
+    <message>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation type="vanished">پیشنهادات رمزگذاری سفارشی را فعال کن</translation>
+    </message>
+    <message>
+        <source>IKE</source>
+        <translation type="vanished">IKE</translation>
+    </message>
+    <message>
+        <source>ESP</source>
+        <translation type="vanished">ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnTLSSection</name>
+    <message>
+        <source>VPN TLS Authentication</source>
+        <translation type="vanished">VPN TLS احراز هویت</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">پیش فرض</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="vanished">کلاینت</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">سرور</translation>
+    </message>
+    <message>
+        <source>Subject Match</source>
+        <translation type="vanished">موضوع متناسب</translation>
+    </message>
+    <message>
+        <source>Remote Cert Type</source>
+        <translation type="vanished">نوع مجوز ریموت</translation>
+    </message>
+    <message>
+        <source>Key File</source>
+        <translation type="vanished">فایل کلید</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">سفارشی سازی جهت کلید</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">جهت کلید</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnVPNCSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">ذخیره شد</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">پرسیدن</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">نیازی نیست</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">درگاه</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">نام کاربری</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">گزینه های Pwd</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">رمزعبور</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">نام گروه</translation>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="vanished">رمزعبور گروه</translation>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="vanished">از احراز هویت ترکیبی استفاده کن</translation>
+    </message>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">فایل CA</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WiredPage</name>
+    <message>
+        <source>Plug in the network cable first</source>
+        <translation type="vanished">ابتدا کابل شبکه را وصل کنید</translation>
+    </message>
+    <message>
+        <source>Wired Network Adapter</source>
+        <translation type="vanished">آداپتور شبکه سیمی</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Network Connection</source>
+        <translation type="vanished">افزودن اتصال شبکه</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
+    </message>
+    <message>
+        <source>Select Settings</source>
+        <translation type="vanished">تنظیمات را انتخاب کنید</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessPage</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation type="vanished">اتصال به شبکه مخفی</translation>
+    </message>
+    <message>
+        <source>Wireless Network Adapter</source>
+        <translation type="vanished">آداپتور شبکه بی سیم</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Close Hotspot</source>
+        <translation type="vanished">بستن هات اسپات</translation>
+    </message>
+    <message>
+        <source>Disable hotspot first if you want to connect to a wireless network</source>
+        <translation type="vanished">اگر می خواهید به یک شبکه بی سیم وصل شوید ، هات اسپات را غیرفعال کنید</translation>
+    </message>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">WLAN</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessSection</name>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">WLAN</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">وصل نشد</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مورد نیاز</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">آدرس MAC دستگاه</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">شخصی سازی MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">حجم</translation>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation type="vanished">قلم استاندارد</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation type="vanished">قلم Monospaced</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source> (Unsupported font)</source>
+        <translation type="vanished">(فونت پشتیبانی نشده)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">ظاهر</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Accent Color</source>
+        <translation type="vanished">لهجه رنگ</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">جلوه های پنجره</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="vanished">شفافیت</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationList</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">کلی</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation type="vanished">تم آیکون</translation>
+        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Cursor Theme</source>
+        <translation type="vanished">تم اشاره گر</translation>
+        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="vanished">فونت</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationModule</name>
+    <message>
+        <source>Personalization</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">روشن</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">تیره</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">خودکار</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">پیش فرض</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">روشن</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">تیره</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">خودکار</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">پیش فرض</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::GeneralWidget</name>
+    <message>
+        <source>Power Saving Mode</source>
+        <translation type="vanished">حالت ذخیره انرژی</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Mode Switch</source>
+        <translation type="vanished">تغییر به حالت خودکار</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation type="vanished">برای بیدار شدن رمزعبور مورد نیاز است</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation type="vanished">برای بیدار شدن نمایشگر ، رمزعبور مورد نیاز است</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerModule</name>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">در باتری</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Battery low, please plug in</source>
+        <translation type="vanished">باتری شما کم است ، لطفاً دستگاه را برق وصل کنید</translation>
+    </message>
+    <message>
+        <source>Battery critically low</source>
+        <translation type="vanished">باتری بسیار کم است</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">کلی</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="vanished">متصل شده به برق</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">در باتری</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseBatteryWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">معلق شدن نمایشگر بعد از</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">معلق شدن رایانه بعد از</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">قفل صفحه بعد از</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">تعلیق سیستم با بسته شدن درب لپ تاپ</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">هرگز</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 دقیقه</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 دقیقه</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">۱ ساعت</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseElectricWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">معلق شدن نمایشگر بعد از</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">قفل صفحه بعد از</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">تعلیق سیستم با بسته شدن درب لپ تاپ</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">معلق شدن رایانه بعد از</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">هرگز</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 دقیقه</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 دقیقه</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">۱ ساعت</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::search::SearchWidget</name>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">سرور</translation>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">جلوه های پنجره</translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">حالت توسعه دهنده</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">برنامه تجربه کاربر</translation>
+    </message>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished"> پیوستن به برنامه تجربه کاربر</translation>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">صفحه لمسی</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">اهرم اشاره ای</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">هات اسپات شخصی</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">در باتری</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">شبکه کابلی</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">شبکه بیسیم</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">نمایشگرهای چندگانه</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::AdvancedPage</name>
+    <message>
+        <source>Output</source>
+        <translation type="vanished">خروجی</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="vanished">ورودی</translation>
+    </message>
+    <message>
+        <source>Sound Card:</source>
+        <translation type="vanished">کارت صدا:</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::MicrophonePage</name>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">میکروفون</translation>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation type="vanished">صدای ورودی</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation type="vanished">سطح ورودی</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">جلوه های صدا</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundModule</name>
+    <message>
+        <source>Sound</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundWidget</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">بلندگو</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">میکروفون</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">پیشرفته</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">جلوه های صدا</translation>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SpeakerPage</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">بلندگو</translation>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation type="vanished">صدای خروجی</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Volume Boost</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Left/Right Balance</source>
+        <translation type="vanished">تعادل چپ/راست </translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="vanished">چپ</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="vanished">راست</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::IndexPage</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">همگام سازی خودکار</translation>
+    </message>
+    <message>
+        <source>Syncing...</source>
+        <translation type="vanished">در حال همگام سازی...</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">خارج شدن از حساب کاربری</translation>
+    </message>
+    <message>
+        <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
+        <translation type="vanished">اگر تنظیمات شبکه روشن باشد ، رمز عبور Wi-Fi شما همگام سازی می شود</translation>
+    </message>
+    <message>
+        <source>Network Settings</source>
+        <translation type="vanished">تنظیمات شبکه</translation>
+    </message>
+    <message>
+        <source>Sound Settings</source>
+        <translation type="vanished">تنظیمات صدا</translation>
+    </message>
+    <message>
+        <source>Mouse Settings</source>
+        <translation type="vanished">تنظیمات ماوس</translation>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">به روز رسانی تنظیمات</translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="vanished">داک</translation>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation type="vanished">لانچر</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="vanished">تصویر زمینه</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">ظاهر</translation>
+    </message>
+    <message>
+        <source>Power Settings</source>
+        <translation type="vanished">تنظیمات برق</translation>
+    </message>
+    <message>
+        <source>Corner Settings</source>
+        <translation type="vanished">تنظیمات گوشه</translation>
+    </message>
+    <message>
+        <source>Last Sync: %1</source>
+        <translation type="vanished">آخرین همگام سازی:٪ 1</translation>
+    </message>
+    <message>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="vanished">yyyy-MM-dd hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LoginPage</name>
+    <message>
+        <source>Sign In</source>
+        <translation type="vanished">وارد شدن به حساب کاربری</translation>
+        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud Account Sign In</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="vanished">در حال حاضر فقط در سرزمین اصلی چین پشتیبانی می شود</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LogoutPage</name>
+    <message>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="vanished">ببخشید ، در حال حاضر در منطقه شما پشتیبانی نمی‌شود ، و بزودی خواهد آمد .</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">خارج شدن از حساب کاربری</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::SyncModule</name>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <message>
+        <source>Edition:</source>
+        <translation type="vanished">ویرایش</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="vanished">نوع:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To be activated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel:</source>
+        <translation type="vanished">کرنل:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Processor:</source>
+        <translation type="vanished">پردازنده:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Memory:</source>
+        <translation type="vanished">حافظه:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Disk:</source>
+        <translation type="vanished">دیسک:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>%1-bit</source>
+        <translation type="vanished">%1-بیت</translation>
+    </message>
+    <message>
+        <source>Activated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="vanished">نما</translation>
+    </message>
+    <message>
+        <source>Expired</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>In trial period</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Trial expired</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoModule</name>
+    <message>
+        <source>System Info</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
+    <message>
+        <source>About This PC</source>
+        <translation type="vanished">درباره این رایانه</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Edition License</source>
+        <translation type="vanished">مجوز نسخه</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="vanished">توافقنامه مجوز کاربر نهایی</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorSourceItem</name>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">آزمایش نشده</translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="vanished">انقضای مدت</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">آهسته</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="vanished">متوسط</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سریع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorsWidget</name>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">لیست میرور</translation>
+    </message>
+    <message>
+        <source>Test Speed</source>
+        <translation type="vanished">تست سرعت</translation>
+    </message>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">آزمایش نشده</translation>
+    </message>
+    <message>
+        <source>Retest</source>
+        <translation type="vanished">امتحان دوباره</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateCtrlWidget</name>
+    <message>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="vanished">لطفاً برای استفاده صحیح از سیستم و برنامه های کاربردی پس از به روزرسانی مجدداً راه اندازی کنید</translation>
+    </message>
+    <message>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="vanished">شبکه قطع شد ، لطفاً پس از اتصال دوباره امتحان کنید</translation>
+    </message>
+    <message>
+        <source>Your system is not authorized, please activate first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation type="vanished">این به‌هنگام‌سازی ممکن است زمان زیادی طول بکشد ، لطفا ً در طول فرآیند دستگاه خاموش  و یا راه اندازی مجدد نشود</translation>
+    </message>
+    <message>
+        <source>Checking for updates, please wait...</source>
+        <translation type="vanished">در حال بررسی بروز رسانی ها لطفا صبر کنید</translation>
+    </message>
+    <message>
+        <source>Download and install updates</source>
+        <translation type="vanished">بروزرسانی ها را دانلود و نصب کن</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="vanished">بارگیری %1% (برای مکث کلیک کنید)</translation>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="vanished">بارگیری %1% (برای ادامه کلیک کنید)</translation>
+    </message>
+    <message>
+        <source>Install updates</source>
+        <translation type="vanished">نصب بروزرسانی ها</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation type="vanished">سیستم شما بروز است</translation>
+    </message>
+    <message>
+        <source>Updating, please wait...</source>
+        <translation type="vanished">در حال بروز رسانی ، لطفا صبر کنید ...</translation>
+    </message>
+    <message>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="vanished">جدیدترین سیستم نصب شده ،  راه اندازی مجدد کنید تا تغییرات اعمال شوند</translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="vanished">بروزرسانی انجام نشد: فضای کافی در دیسک نیست</translation>
+    </message>
+    <message>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="vanished">خطای وابستگی ، شناسایی بروزرسانی ها شکست خورد .</translation>
+    </message>
+    <message>
+        <source>Backing up, please wait...</source>
+        <translation type="vanished">در حال پشتیبان گیری ، لطفا صبر کنید ...</translation>
+    </message>
+    <message>
+        <source>System backup failed</source>
+        <translation type="vanished">پشتیبان سیستم شکست خورد</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n application update(s) available</source>
+        <translation type="vanished"><numerusform>%n</numerusform><numerusform>%n  به روزرسانی برنامه ها موجود است</numerusform></translation>
+    </message>
+    <message>
+        <source>New system edition available</source>
+        <translation type="vanished">نسخه جدید سیستم شناسایی شد</translation>
+    </message>
+    <message numerus="yes">
+        <source>New system edition and %n application update(s) available</source>
+        <translation type="vanished"><numerusform>نسخه جدید سیستم و%n به روزرسانی برنامه ها در دسترس است</numerusform><numerusform>نسخه جدید سیستم و%n به روزرسانی برنامه ها شناسایی شدند</numerusform></translation>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="vanished">دانلود شده</translation>
+    </message>
+    <message>
+        <source>Size: %1</source>
+        <translation type="vanished">سایز 1%</translation>
+    </message>
+    <message>
+        <source>Your battery is lower than 50%, please plug in to continue</source>
+        <translation type="vanished">باتری شما کمتر از 50٪ است ، لطفاً برای ادامه دستگاه را برق وصل کنید</translation>
+    </message>
+    <message>
+        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
+        <translation type="vanished">لطفاً از قدرت کافی برای راه اندازی مجدد اطمینان حاصل کنید ، و دستگاه خود را خاموش  و یا از برق جدا نکنید</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateHistoryButton</name>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">به روز رسانی تاریخ</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateModule</name>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateSettings</name>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">بروزرسانی تنظیمات</translation>
+    </message>
+    <message>
+        <source>Auto Clear Package Cache</source>
+        <translation type="vanished">پاک کردن حافظه نهان بسته به طور خودکار</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Updates Notification</source>
+        <translation type="vanished">به روزرسانی هشدار</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Download Updates</source>
+        <translation type="vanished">دانلود خودکار بروزرسانی ها</translation>
+    </message>
+    <message>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="vanished">این را روشن کنید تا به طور خودکار بروزرسانی ها در شبکه بی سیم یا سیمی بارگیری شود</translation>
+    </message>
+    <message>
+        <source>System Repository Detection</source>
+        <translation type="vanished">تشخیص مخزن سیستم</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation type="vanished">اگر مخزن به روزرسانی سیستم تغییر یافته است ، آن  را اعلان کن</translation>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="vanished">تعویض میرور به صورت هوشمند</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="vanished">این را روشن کنید تا به سریعترین سایت میرور به طور خودکار وصل شوید</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">لیست میرور</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateWidget</name>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">به روز رسانی تنظیمات</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="vanished">آخرین بروزرسانی</translation>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="vanished">برگشت</translation>
+    </message>
+    <message>
+        <source>Current Edition</source>
+        <translation type="vanished">نسخه جاری</translation>
+    </message>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">بروزرسانی تاریخ</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::PressureSettings</name>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="vanished">حساسیت به فشار</translation>
+        <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">سبک</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="vanished">سنگین</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomModule</name>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomWidget</name>
+    <message>
+        <source>Pen</source>
+        <translation type="vanished">قلم</translation>
+        <extra-contents_path>/wacom/Pen</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">ماوس</translation>
+        <extra-contents_path>/wacom/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="vanished">حالت</translation>
     </message>
 </context>
 <context>

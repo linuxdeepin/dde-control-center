@@ -23,108 +23,108 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="154"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
         <source>Help</source>
         <translation>Žinynas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Accounts</source>
         <translation>Paskyros</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Cloud Account</source>
         <translation>Debesijos paskyra</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="297"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Display</source>
         <translation>Ekranas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="298"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Default Applications</source>
         <translation>Numatytosios programos</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="299"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Personalization</source>
         <translation>Personalizacija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="300"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Network</source>
         <translation>Tinklas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="301"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
         <source>Sound</source>
         <translation>Garsas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="302"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="801"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="803"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="303"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Date and Time</source>
         <translation>Laikas ir data</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="304"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Power</source>
         <translation>Energija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
         <source>Mouse</source>
         <translation>Pelė</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Drawing Tablet</source>
         <translation>Piešimo planšetė</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Keyboard and Language</source>
         <translation>Klaviatūra ir kalba</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>Updates</source>
         <translation>Atnaujinimai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>System Info</source>
         <translation>Sistemos informacija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
         <source>General Settings</source>
         <translation>Bendri nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>Touchpad</source>
         <translation>Jutiklinis kilimėlis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Cloud Sync</source>
         <translation>Sinchronizavimas su debesija</translation>
     </message>
@@ -316,42 +316,52 @@
         <translation>nebūtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>Go to Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Slaptažodis privalo būti neilgesnis nei %1 simboliai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="374"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
         <source>Passwords do not match</source>
         <translation>Slaptažodžiai nesutampa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="399"/>
         <source>Username cannot be empty</source>
         <translation>Naudotojo vardas negali būti tuščias</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Naudotojo vardas privalo būti nuo 3 iki 32 simbolių</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="412"/>
         <source>The first character must be in lower case</source>
         <translation>Pirmoji raidė turi būti mažoji</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="418"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>Naudotojo vardas privalo būti sudarytas iš a~z, 0~9, - ar _</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
         <source>The full name already exists</source>
         <translation>Visas vardas jau yra</translation>
     </message>
@@ -419,27 +429,37 @@
         <translation>Būtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>Go to Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
         <source>Wrong password</source>
         <translation>Neteisingas slaptažodis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="236"/>
         <source>Passwords do not match</source>
         <translation>Slaptažodžiai nesutampa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="249"/>
         <source>New password should differ from the current one</source>
         <translation>Naujas slaptažodis turėtų skirtis nuo esamo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="256"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Slaptažodis privalo būti neilgesnis nei %1 simboliai</translation>
     </message>
@@ -467,7 +487,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -1167,9 +1187,10 @@
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
         <source>Recommended</source>
         <translation>Rekomenduojama</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1379,37 +1400,37 @@
 <context>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="54"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="61"/>
         <source>Window</source>
         <translation>Langas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="68"/>
         <source>Workspace</source>
         <translation>Darbo sritis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
         <source>Speech</source>
         <translation>Šneka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
         <source>Custom Shortcut</source>
         <translation>Tinkintas trumpinys</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="116"/>
         <source>Restore Defaults</source>
         <translation>Atkurti numatytuosius</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="142"/>
         <source>Shortcut</source>
         <translation>Trumpinys</translation>
     </message>
@@ -1417,17 +1438,17 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="68"/>
         <source>Add</source>
         <translation>Pridėti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="73"/>
         <source>Add System Language</source>
         <translation>Pridėti sistemos kalbą</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -1839,27 +1860,27 @@
         <translation>Laidinis tinklas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="59"/>
         <source>Not Bind</source>
         <translation>Nesusietas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="101"/>
         <source>Device MAC Addr</source>
         <translation>Įrenginio MAC adresas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="117"/>
         <source>Cloned MAC Addr</source>
         <translation>Klonuotas MAC adresas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="130"/>
         <source>Customize MTU</source>
         <translation>Tinkinti MTU</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="133"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -1959,7 +1980,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
         <source>Required</source>
         <translation>Būtina</translation>
     </message>
@@ -1969,45 +1991,45 @@
         <translation>Tinklų sietuvas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>Primary DNS</source>
         <translation>Pirminis DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
         <source>Secondary DNS</source>
         <translation>Antrinis DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
         <source>Only applied in corresponding resources</source>
         <translation>Taikoma tik atitinkamuose ištekliuose</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="249"/>
         <source>Method</source>
         <translation>Metodas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Netmask</source>
         <translation>Tinklo kaukė</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="316"/>
         <source>Prefix</source>
         <translation>Priešdelis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="444"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="456"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="465"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="475"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="484"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="512"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="538"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="485"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="548"/>
         <source>Invalid IP address</source>
         <translation>Neteisingas IP adresas</translation>
     </message>
@@ -3632,28 +3654,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="250"/>
         <source>Connect to hidden network</source>
         <translation>Prisijungti prie paslėpto tinklo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="260"/>
         <source>Wireless Network Adapter</source>
         <translation>Belaidžio tinklo adapteris</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="272"/>
         <source>Close Hotspot</source>
         <translation>Uždaryti prieigos tašką</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="275"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Norėdami prisijungti prie belaidžio tinklo, iš pradžių, išjunkite prieigos tašką</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
         <source>WLAN</source>
         <translation>Belaidis tinklas</translation>
     </message>
@@ -3786,22 +3808,22 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="100"/>
         <source>Light</source>
         <translation>Silpnas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="102"/>
         <source>Dark</source>
         <translation>Tamsi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="104"/>
         <source>Auto</source>
         <translation>Automatinis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="109"/>
         <source>Default</source>
         <translation>Numatytasis</translation>
     </message>
@@ -4111,17 +4133,19 @@
 <context>
     <name>dccV20::sound::AdvancedPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="71"/>
         <source>Output</source>
         <translation>Išvestis</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
         <source>Input</source>
         <translation>Įvestis</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
         <source>Sound Card:</source>
         <translation>Garso plokštė:</translation>
     </message>
@@ -4149,7 +4173,7 @@
 <context>
     <name>dccV20::sound::SoundEffectsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="49"/>
         <source>Sound Effects</source>
         <translation>Garso efektai</translation>
     </message>
@@ -5331,32 +5355,32 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="388"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="390"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Jūsų serveris buvo sekmingai pašalintas iš srities serverio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="389"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="391"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Jūsų serveris sėkmingai prisijungia prie srities serverio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="411"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="413"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Jūsų serveriui nepavyko išeiti iš srities serverio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="412"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="414"/>
         <source>Your host failed to join the domain server</source>
         <translation>Jūsų serveriui nepavyko prisijungti prie srities serverio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="417"/>
         <source>AD domain settings</source>
         <translation>Aktyvaus katalogo srities nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="484"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="486"/>
         <source>Password not match</source>
         <translation>Slaptažodžiai nesutampa</translation>
     </message>
@@ -8986,7 +9010,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
 <context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="173"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="191"/>
         <source>available</source>
         <translation>prieinama</translation>
     </message>
@@ -9420,6 +9444,3831 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
         <translation>Prisijungta</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::MainWindow</name>
+    <message>
+        <source>Help</source>
+        <translation type="vanished">Žinynas</translation>
+    </message>
+    <message>
+        <source>Accounts</source>
+        <translation type="vanished">Paskyros</translation>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="vanished">Debesijos paskyra</translation>
+        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
+    </message>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">Ekranas</translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Numatytosios programos</translation>
+    </message>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">Personalizacija</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">Tinklas</translation>
+    </message>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">Garsas</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">Bluetooth</translation>
+    </message>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">Laikas ir data</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">Energija</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Pelė</translation>
+    </message>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">Piešimo planšetė</translation>
+    </message>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">Klaviatūra ir kalba</translation>
+    </message>
+    <message>
+        <source>Updates</source>
+        <translation type="vanished">Atnaujinimai</translation>
+    </message>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">Sistemos informacija</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">Bendri nustatymai</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Jutiklinis kilimėlis</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+    </message>
+    <message>
+        <source>Cloud Sync</source>
+        <translation type="vanished">Sinchronizavimas su debesija</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">Visas vardas</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="vanished">Visas vardas jau yra</translation>
+    </message>
+    <message>
+        <source>Validity Days</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation type="vanished">Visada</translation>
+    </message>
+    <message>
+        <source>Please input a number between 1-99999</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">Keisti slaptažodį</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Delete Account</source>
+        <translation type="vanished">Ištrinti paskyrą</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation type="vanished">Automatinis prisijungimas</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation type="vanished">Prisijungti be slaptažodžio</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">Grupė</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsModule</name>
+    <message>
+        <source>Accounts</source>
+        <translation type="vanished">Paskyros</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsWidget</name>
+    <message>
+        <source>Create Account</source>
+        <translation type="vanished">Sukurti paskyrą</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation type="vanished">Administratorius</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation type="vanished">Standartinis naudotojas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AddFingeDialog</name>
+    <message>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scan again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Atlikta</translation>
+    </message>
+    <message>
+        <source>Identifying fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AvatarListWidget</name>
+    <message>
+        <source>Images</source>
+        <translation type="vanished">Paveikslai</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::CreateAccountPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Sukurti</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">Grupė</translation>
+    </message>
+    <message>
+        <source>New Account</source>
+        <translation type="vanished">Nauja paskyra</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Naudotojo vardas</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">Visas vardas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">Pakartokite slaptažodį</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>optional</source>
+        <translation type="vanished">nebūtina</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">Slaptažodis privalo būti neilgesnis nei %1 simboliai</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">Slaptažodžiai nesutampa</translation>
+    </message>
+    <message>
+        <source>Username cannot be empty</source>
+        <translation type="vanished">Naudotojo vardas negali būti tuščias</translation>
+    </message>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation type="vanished">Naudotojo vardas privalo būti nuo 3 iki 32 simbolių</translation>
+    </message>
+    <message>
+        <source>The first character must be in lower case</source>
+        <translation type="vanished">Pirmoji raidė turi būti mažoji</translation>
+    </message>
+    <message>
+        <source>Username must only contain a~z, 0~9, - or _</source>
+        <translation type="vanished">Naudotojo vardas privalo būti sudarytas iš a~z, 0~9, - ar _</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="vanished">Visas vardas jau yra</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::FingerWidget</name>
+    <message>
+        <source>Delete fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint Password</source>
+        <translation type="vanished">Piršto atspaudo slaptažodis</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add fingerprint</source>
+        <translation type="vanished">Pridėti piršto atspaudą</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">Keisti slaptažodį</translation>
+    </message>
+    <message>
+        <source>Current Password</source>
+        <translation type="vanished">Dabartinis slaptažodis</translation>
+    </message>
+    <message>
+        <source>New Password</source>
+        <translation type="vanished">Naujas slaptažodis</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">Pakartokite slaptažodį</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Įrašyti</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="vanished">Neteisingas slaptažodis</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">Slaptažodžiai nesutampa</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation type="vanished">Naujas slaptažodis turėtų skirtis nuo esamo</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">Slaptažodis privalo būti neilgesnis nei %1 simboliai</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::AdapterWidget</name>
+    <message>
+        <source>My devices</source>
+        <translation type="vanished">Mano įrenginiai</translation>
+        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Other devices</source>
+        <translation type="vanished">Kiti įrenginiai</translation>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation type="vanished">Įjunkite Bluetooth, norėdami rasti šalia esančius įrenginius (garsiakalbius, klaviatūrą, pelę)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::BluetoothModule</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">Bluetooth</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DetailPage</name>
+    <message>
+        <source>Ignore this device</source>
+        <translation type="vanished">Nepaisyti šį įrenginį</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">Atsijungti</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation type="vanished">Prisijungti</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="vanished">Jungiamasi</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
+    <message>
+        <source>Connected</source>
+        <translation type="vanished">Prisijungta</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="vanished">Neprijungta</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::BootWidget</name>
+    <message>
+        <source>Updating...</source>
+        <translation type="vanished">Atnaujinama...</translation>
+    </message>
+    <message>
+        <source>Startup Delay</source>
+        <translation type="vanished">Paleisties delsa</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Tema</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
+        <translation type="vanished">Spustelėkite paleidimo meniu ant parametro, kad nustatytumėte jį kaip pirmą paleidžiamą ir vilkite paveikslą, norėdami pakeisti foną</translation>
+    </message>
+    <message>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="vanished">Įjunkite temą, norėdami ją matyti paleidimo meniu</translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">Paleidimo meniu</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoModule</name>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">Bendri nustatymai</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">Paleidimo meniu</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">Plėtotojo veiksena</translation>
+        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">Naudotojo patyrimo programa</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Tablet Mode</source>
+        <translation type="vanished">Planšetės veiksena</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWork</name>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="vanished">Nepavyksta perskaityti jūsų kompiuterio informacijos</translation>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="vanished">Nėra tinklo ryšio</translation>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UOS Privacy Policy</source>
+        <translation type="vanished">UOS privatumo politika</translation>
+    </message>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="vanished">Sutinku ir prisijungiu prie naudotojo patyrimo programos</translation>
+    </message>
+    <message>
+        <source>The Disclaimer of Developer Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree and Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeDialog</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first and continue</source>
+        <translation type="vanished">Iš pradžių, prisijunkite prie savo debesijos paskyros ir tęskite</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">Kitas</translation>
+    </message>
+    <message>
+        <source>Export PC Info</source>
+        <translation type="vanished">Eksportuoti kompiuterio informaciją</translation>
+    </message>
+    <message>
+        <source>Import Certificate</source>
+        <translation type="vanished">Importuoti liudijimą</translation>
+    </message>
+    <message>
+        <source>1. Export your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>3. Import the certificate</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeWidget</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="vanished">Nėra tinklo ryšio</translation>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To make some features effective, a restart is required. Restart now?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Restart Now</source>
+        <translation type="vanished">Paleisti iš naujo dabar</translation>
+    </message>
+    <message>
+        <source>Root Access Allowed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">Dalyvauti naudotojo patyrimo programoje</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://openapi.chinauos.com/agreement/).</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::ClockItem</name>
+    <message>
+        <source>AM</source>
+        <translation type="vanished">AM</translation>
+    </message>
+    <message>
+        <source>PM</source>
+        <translation type="vanished">PM</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateSettings</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">Automatinis sinchronizavimas</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">Patvirtinti</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Serveris</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="vanished">Adresas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">Tinkinti</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateWidget</name>
+    <message>
+        <source>Year</source>
+        <translation type="vanished">Metai</translation>
+    </message>
+    <message>
+        <source>Month</source>
+        <translation type="vanished">Mėnesis</translation>
+    </message>
+    <message>
+        <source>Day</source>
+        <translation type="vanished">Diena</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeModule</name>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">Data ir laikas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeWidget</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">Laiko juostų sąrašas</translation>
+    </message>
+    <message>
+        <source>Time Settings</source>
+        <translation type="vanished">Laiko nustatymai</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="vanished">24 valandų laikas</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::SystemTimezone</name>
+    <message>
+        <source>Change System Timezone</source>
+        <translation type="vanished">Pakeisti sistemos laiko juostą</translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+    </message>
+    <message>
+        <source>System Timezone</source>
+        <translation type="vanished">Sistemos laiko juosta</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::TimezoneList</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">Laiko juostų sąrašas</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Timezone</source>
+        <translation type="vanished">Pridėti laiko juostą</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefappDetailWidget</name>
+    <message>
+        <source>Add Application</source>
+        <translation type="vanished">Pridėti programą</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Open Desktop file</source>
+        <translation type="vanished">Atverti Desktop failą</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation type="vanished">Neteisinga</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsModule</name>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Numatytosios programos</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="vanished">Internetinės svetainės</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="vanished">Paštas</translation>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="vanished">Tekstas</translation>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="vanished">Muzika</translation>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="vanished">Vaizdo įrašai</translation>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="vanished">Paveikslai</translation>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="vanished">Terminalas</translation>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Numatytosios programos</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::BrightnessPage</name>
+    <message>
+        <source>Night Shift</source>
+        <translation type="vanished">Naktinė pamaina</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>The screen hue will be auto adjusted according to your location</source>
+        <translation type="vanished">Ekrano atspalvis bus automatiškai reguliuojamas pagal jūsų buvimo vietą</translation>
+    </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="vanished">Automatinis ryškumas</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::CustomSettingDialog</name>
+    <message>
+        <source>Main Screen</source>
+        <translation type="vanished">Pagrindinis ekranas</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">Raiška</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">Atnaujinimo dažnis</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Įrašyti</translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">Hz</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Rekomenduojama</translation>
+    </message>
+    <message>
+        <source>inch</source>
+        <translation type="vanished">col.</translation>
+    </message>
+    <message>
+        <source>Resolution %1x%2</source>
+        <translation type="vanished">Raiška %1x%2</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayModule</name>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">Ekranas</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Keli ekranai</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayWidget</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Keli ekranai</translation>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="vanished">Ryškumas</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">Raiška</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">Ekrano mastelis</translation>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">Atnaujinimo dažnis</translation>
+        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+    </message>
+    <message>
+        <source>Rotate Screen</source>
+        <translation type="vanished">Pasukti ekraną</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenSettingPage</name>
+    <message>
+        <source>Custom Settings</source>
+        <translation type="vanished">Asmeniniai nustatymai</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="vanished">Dubliuoti</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="vanished">Išplėsti</translation>
+    </message>
+    <message>
+        <source>Show the same image on other screens</source>
+        <translation type="vanished">Rodyti tą patį atvaizdą kituose ekranuose</translation>
+    </message>
+    <message>
+        <source>Expand the desktop across the screens</source>
+        <translation type="vanished">Išplėsti darbalaukį per ekranus</translation>
+    </message>
+    <message>
+        <source>%1 only</source>
+        <translation type="vanished">Tik %1</translation>
+    </message>
+    <message>
+        <source>Show the screen content only on %1</source>
+        <translation type="vanished">Rodyti ekrano turinį tik %1 ekrane</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">Tinkinti</translation>
+    </message>
+    <message>
+        <source>Configure the display according to your needs</source>
+        <translation type="vanished">Konfigūruokite ekranus pagal savo poreikį</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RefreshRatePage</name>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">Hz</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Rekomenduojama</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ResolutionDetailPage</name>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Rekomenduojama</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RotateDialog</name>
+    <message>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">Kairysis spustelėjimas, norint pasukti, dešinysis spustelėjimas, norint atkurti ir išeiti. Norėdami įrašyti, paspauskite Vald+S.</translation>
+    </message>
+    <message>
+        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">Dešinysis spustelėjimas, norint pasukti, kairysis spustelėjimas, norint atkurti ir išeiti. Norėdami įrašyti, paspauskite Vald+S.</translation>
+    </message>
+    <message>
+        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
+        <translation type="vanished">Įrašyti ekrano nustatymus? Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ScalingPage</name>
+    <message>
+        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
+        <translation type="vanished">Kai kurių programų mastelis kelių ekranų aplinkoje negali būti keičiamas pagal nurodytus nustatymus</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation type="vanished">Monitorius palaiko tik 100% ekrano mastelį</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::CustomContent</name>
+    <message>
+        <source>Add Custom Shortcut</source>
+        <translation type="vanished">Pridėti tinkintą trumpinį</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="vanished">Komanda</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">Pridėti</translation>
+    </message>
+    <message>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation type="vanished">Šis trumpinys konfliktuoja su trumpiniu %1, spustelėkite Pridėti, norėdami, kad šis trumpinys nedelsiant įsigaliotų</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
+    <message>
+        <source>Repeat Delay</source>
+        <translation type="vanished">Ženklo kartojimo delsa</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Short</source>
+        <translation type="vanished">Trumpa</translation>
+    </message>
+    <message>
+        <source>Long</source>
+        <translation type="vanished">Ilga</translation>
+    </message>
+    <message>
+        <source>Repeat Rate</source>
+        <translation type="vanished">Ženklo kartojimo dažnis</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lėtas</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Greitas</translation>
+    </message>
+    <message>
+        <source>Test here</source>
+        <translation type="vanished">Išbandykite čia</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Numeric Keypad</source>
+        <translation type="vanished">Skaitmeninė klaviatūra</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Caps Lock Prompt</source>
+        <translation type="vanished">Didžiųjų raidžių užrakto informacija</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">Klaviatūros išdėstymas</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Redaguoti</translation>
+    </message>
+    <message>
+        <source>Switch Layouts (Multiple)</source>
+        <translation type="vanished">Perjungti išdėstymus (Keli išdėstymai)</translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="vanished">Taikoma:</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="vanished">Sistema</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">Programa</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Atlikta</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardModule</name>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">Klaviatūra ir kalba</translation>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">Tinkintas trumpinys</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Bendra</translation>
+    </message>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">Klaviatūros išdėstymas</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System Language</source>
+        <translation type="vanished">Sistemos kalba</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="vanished">Trumpiniai</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
+    <message>
+        <source>System</source>
+        <translation type="vanished">Sistema</translation>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation type="vanished">Langas</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="vanished">Darbo sritis</translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation type="vanished">Šneka</translation>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">Tinkintas trumpinys</translation>
+    </message>
+    <message>
+        <source>Restore Defaults</source>
+        <translation type="vanished">Atkurti numatytuosius</translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="vanished">Trumpinys</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">Pridėti</translation>
+    </message>
+    <message>
+        <source>Add System Language</source>
+        <translation type="vanished">Pridėti sistemos kalbą</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
+    <message>
+        <source>Language List</source>
+        <translation type="vanished">Kalbų sąrašas</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Redaguoti</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Atlikta</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
+    <message>
+        <source>Left Hand</source>
+        <translation type="vanished">Kairė ranka</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad while typing</source>
+        <translation type="vanished">Išjungti jutiklinį kilimėlį, renkant tekstą</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="vanished">Slinkimo greitis</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Double-click Speed</source>
+        <translation type="vanished">Dvikarčio spustelėjimo greitis</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lėtas</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Greitas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseModule</name>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Jutiklinis kilimėlis</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Pelė</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Rodyklės greitis</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation type="vanished">Pelės pagreitis</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation type="vanished">Išjungti jutiklinį kilimėlį, prijungus pelę</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">Natūrali slinktis</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lėtas</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Greitas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Bendra</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Pelė</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Jutiklinis kilimėlis</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Rodyklės greitis</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="vanished">Bakstelėti, norint spustelėti</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">Natūrali slinktis</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lėtas</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Greitas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Rodyklės greitis</translation>
+        <extra-child_page>TrackPoint</extra-child_page>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lėtas</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Greitas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsProxyPage</name>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">Programos įgaliotasis serveris</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Įgaliotojo serverio tipas</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">IP adresas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Prievadas</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Naudotojo vardas</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">Nebūtina</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="vanished">Sukonfigūravę, leistuke, programos kontekstiniame meniu ieškokite &quot;Naudoti įgaliotąjį serverį&quot;</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Įrašyti</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="vanished">Neteisingas IP adresas</translation>
+    </message>
+    <message>
+        <source>Invalid port</source>
+        <translation type="vanished">Neteisingas prievadas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsTypePage</name>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Įgaliotojo serverio tipas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionEditPage</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">Atsijungti</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">Ištrinti</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Įrašyti</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this configuration?</source>
+        <translation type="vanished">Ar tikrai norite ištrinti šią konfigūraciją?</translation>
+    </message>
+    <message>
+        <source>Wired Connection %1</source>
+        <translation type="vanished">Laidinis ryšys %1</translation>
+    </message>
+    <message>
+        <source>hotspot</source>
+        <translation type="vanished">prieigos taškas</translation>
+    </message>
+    <message>
+        <source>Wireless Connection %1</source>
+        <translation type="vanished">Belaidis ryšys %1</translation>
+    </message>
+    <message>
+        <source>PPPoE Connection %1</source>
+        <translation type="vanished">PPPoE ryšys %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
+    <message>
+        <source>New VPN</source>
+        <translation type="vanished">Naujas VPN</translation>
+    </message>
+    <message>
+        <source>VPN Type</source>
+        <translation type="vanished">VPN tipas</translation>
+    </message>
+    <message>
+        <source>L2TP</source>
+        <translation type="vanished">L2TP</translation>
+    </message>
+    <message>
+        <source>PPTP</source>
+        <translation type="vanished">PPTP</translation>
+    </message>
+    <message>
+        <source>VPNC</source>
+        <translation type="vanished">VPNC</translation>
+    </message>
+    <message>
+        <source>OpenVPN</source>
+        <translation type="vanished">OpenVPN</translation>
+    </message>
+    <message>
+        <source>StrongSwan</source>
+        <translation type="vanished">StrongSwan</translation>
+    </message>
+    <message>
+        <source>OpenConnect</source>
+        <translation type="vanished">OpenConnect</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="vanished">Eksportuoti</translation>
+    </message>
+    <message>
+        <source>VPN L2TP %1</source>
+        <translation type="vanished">VPN L2TP %1</translation>
+    </message>
+    <message>
+        <source>VPN PPTP %1</source>
+        <translation type="vanished">VPN PPTP %1</translation>
+    </message>
+    <message>
+        <source>VPN VPNC %1</source>
+        <translation type="vanished">VPN VPNC %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenVPN %1</source>
+        <translation type="vanished">VPN OpenVPN %1</translation>
+    </message>
+    <message>
+        <source>VPN StrongSwan %1</source>
+        <translation type="vanished">VPN StrongSwan %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenConnect %1</source>
+        <translation type="vanished">VPN OpenConnect %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::EthernetSection</name>
+    <message>
+        <source>Ethernet</source>
+        <translation type="vanished">Laidinis tinklas</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">Nesusietas</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">Įrenginio MAC adresas</translation>
+    </message>
+    <message>
+        <source>Cloned MAC Addr</source>
+        <translation type="vanished">Klonuotas MAC adresas</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">Tinkinti MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericHotspotSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Bendra</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Pavadinimas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Bendra</translation>
+    </message>
+    <message>
+        <source>The name already exists</source>
+        <translation type="vanished">Pavadinimas jau yra</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Auto Connect</source>
+        <translation type="vanished">Automatiškai prisijungti</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotDeviceWidget</name>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">Prieigos taškas</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Settings</source>
+        <translation type="vanished">Pridėti nustatymus</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotPage</name>
+    <message>
+        <source>Create Hotspot</source>
+        <translation type="vanished">Sukurti prieigos tašką</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::IpvxSection</name>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automatinis</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">Rankinis</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="vanished">Nepaisyti</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">IP adresas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Tinklų sietuvas</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">Pirminis DNS</translation>
+    </message>
+    <message>
+        <source>Secondary DNS</source>
+        <translation type="vanished">Antrinis DNS</translation>
+    </message>
+    <message>
+        <source>Only applied in corresponding resources</source>
+        <translation type="vanished">Taikoma tik atitinkamuose ištekliuose</translation>
+    </message>
+    <message>
+        <source>Method</source>
+        <translation type="vanished">Metodas</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Tinklo kaukė</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">Priešdelis</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="vanished">Neteisingas IP adresas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkDetailPage</name>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">Išsamesnė tinklo informacija</translation>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">Prieigos taškas</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Saugumas</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation type="vanished">Sąsaja</translation>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation type="vanished">MAC</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation type="vanished">Juosta</translation>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Tinklų sietuvas</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">Pirminis DNS</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Tinklo kaukė</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">Priešdelis</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Greitis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModule</name>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Laidinis tinklas</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Belaidis tinklas</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Asmeninis prieigos taškas</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">Tinklas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModuleWidget</name>
+    <message>
+        <source>DSL</source>
+        <translation type="vanished">DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">Sistemos įgaliotasis serveris</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">Programos įgaliotasis serveris</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">Išsamesnė tinklo informacija</translation>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Configure by Network Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Asmeninis prieigos taškas</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network %1</source>
+        <translation type="vanished">Laidinis tinklas %1</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Laidinis tinklas</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network %1</source>
+        <translation type="vanished">Belaidis tinklas %1</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Belaidis tinklas</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Išjungta</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="vanished">Atsijungta</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPOESection</name>
+    <message>
+        <source>PPPoE</source>
+        <translation type="vanished">PPPoE</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Naudotojo vardas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation type="vanished">Servisas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPSection</name>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">Atsisakyti EAP tapatybės nustatymo</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">Atsisakyti PAP tapatybės nustatymo</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">Atsisakyti CHAP tapatybės nustatymo</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">Atsisakyti MSCHAP tapatybės nustatymo</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">Atsisakyti MSCHAPv2 tapatybės nustatymo</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">Be BSD duomenų glaudinimo</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">Be nuostolingojo duomenų glaudinimo</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">Be TCP antraštės glaudinimo</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">Be protokolo lauko glaudinimo</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">Be adreso/valdymo glaudinimo</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">Siųsti PPP aido paketus</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">Naudoti MPPE</translation>
+    </message>
+    <message>
+        <source>128-bit MPPE</source>
+        <translation type="vanished">128-bitų MPPE</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Įsimenamoji MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PppoePage</name>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation type="vanished">Sukurti PPPoE ryšį</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
+    </message>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ProxyPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Įrašyti</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nėra</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">Rankinis</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automatinis</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">Nebūtina</translation>
+    </message>
+    <message>
+        <source>HTTP Proxy</source>
+        <translation type="vanished">HTTP įgaliotasis serveris</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Prievadas</translation>
+    </message>
+    <message>
+        <source>HTTPS Proxy</source>
+        <translation type="vanished">HTTPS įgaliotasis serveris</translation>
+    </message>
+    <message>
+        <source>FTP Proxy</source>
+        <translation type="vanished">FTP įgaliotasis serveris</translation>
+    </message>
+    <message>
+        <source>SOCKS Proxy</source>
+        <translation type="vanished">SOCKS įgaliotasis serveris</translation>
+    </message>
+    <message>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation type="vanished">Nepaisyti įgaliotojo serverio konfigūracijų aukščiau esantiems serveriams ir sritims</translation>
+    </message>
+    <message>
+        <source>Configuration URL</source>
+        <translation type="vanished">Konfigūracijos URL</translation>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">Sistemos įgaliotasis serveris</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::Secret8021xSection</name>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Saugumas</translation>
+    </message>
+    <message>
+        <source>TLS</source>
+        <translation type="vanished">TLS</translation>
+    </message>
+    <message>
+        <source>MD5</source>
+        <translation type="vanished">MD5</translation>
+    </message>
+    <message>
+        <source>LEAP</source>
+        <translation type="vanished">LEAP</translation>
+    </message>
+    <message>
+        <source>FAST</source>
+        <translation type="vanished">FAST</translation>
+    </message>
+    <message>
+        <source>Tunneled TLS</source>
+        <translation type="vanished">Tuneliuotas TLS</translation>
+    </message>
+    <message>
+        <source>Protected EAP</source>
+        <translation type="vanished">Apsaugota EAP</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Įrašytas</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Klausti</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Nebūtina</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Išjungta</translation>
+    </message>
+    <message>
+        <source>Anonymous</source>
+        <translation type="vanished">Anonimas</translation>
+    </message>
+    <message>
+        <source>Authenticated</source>
+        <translation type="vanished">Tapatybė nustatyta</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="vanished">Abu</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="vanished">Automatiškai</translation>
+    </message>
+    <message>
+        <source>Version 0</source>
+        <translation type="vanished">Versija 0</translation>
+    </message>
+    <message>
+        <source>Version 1</source>
+        <translation type="vanished">Versija 1</translation>
+    </message>
+    <message>
+        <source>EAP Auth</source>
+        <translation type="vanished">EAP patvirtinimas</translation>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="vanished">Tapatybė</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Slaptažodžio parametrai</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privatusis raktas</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">LĮ liudijimas</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Naudotojo liudijimas</translation>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
+        <translation type="vanished">Anoniminis ID</translation>
+    </message>
+    <message>
+        <source>Provisioning</source>
+        <translation type="vanished">Aprūpinimas</translation>
+    </message>
+    <message>
+        <source>PAC file</source>
+        <translation type="vanished">PAC failas</translation>
+    </message>
+    <message>
+        <source>Inner Auth</source>
+        <translation type="vanished">Vidinė autentifikacija</translation>
+    </message>
+    <message>
+        <source>PEAP Version</source>
+        <translation type="vanished">PEAP versija</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">Privatusis slaptažodis</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretHotspotSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Neteisingas slaptažodis</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nėra</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bitų</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 asmeninis</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Saugumas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">Raktas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWiredSection</name>
+    <message>
+        <source>Security Required</source>
+        <translation type="vanished">Privalomas saugumas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWirelessSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Neteisingas slaptažodis</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nėra</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bitų</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 asmeninis</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation type="vanished">WPA/WPA2 verslo</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Saugumas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">Raktas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN sudėtingiau</translation>
+    </message>
+    <message>
+        <source>Customize Gateway Port</source>
+        <translation type="vanished">Tinkinti tinklų sietuvo prievadą</translation>
+    </message>
+    <message>
+        <source>Gateway Port</source>
+        <translation type="vanished">Tinklų sietuvo prievadas</translation>
+    </message>
+    <message>
+        <source>Customize Renegotiation Interval</source>
+        <translation type="vanished">Tinkinti pakartotinių derybų intervalą</translation>
+    </message>
+    <message>
+        <source>Renegotiation Interval</source>
+        <translation type="vanished">Pakartotinių derybų intervalas</translation>
+    </message>
+    <message>
+        <source>Use LZO Data Compression</source>
+        <translation type="vanished">Naudoti LZO duomenų glaudinimą</translation>
+    </message>
+    <message>
+        <source>Use TCP Connection</source>
+        <translation type="vanished">Naudoti TCP ryšį</translation>
+    </message>
+    <message>
+        <source>Use TAP Device</source>
+        <translation type="vanished">Naudoti TAP įrenginį</translation>
+    </message>
+    <message>
+        <source>Customize Tunnel MTU</source>
+        <translation type="vanished">Tinkinti tunelio MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+    <message>
+        <source>Customize UDP Fragment Size</source>
+        <translation type="vanished">Tinkinti UDP fragmento dydį</translation>
+    </message>
+    <message>
+        <source>UDP Fragment Size</source>
+        <translation type="vanished">UDP fragmento dydis</translation>
+    </message>
+    <message>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation type="vanished">Apriboti tunelio TCP MSS</translation>
+    </message>
+    <message>
+        <source>Randomize Remote Hosts</source>
+        <translation type="vanished">Atsitiktinai išdėstyti nuotolinius serverius</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN sudėtingiau</translation>
+    </message>
+    <message>
+        <source>Cisco (default)</source>
+        <translation type="vanished">Cisco (pagal numatymą)</translation>
+    </message>
+    <message>
+        <source>Netscreen</source>
+        <translation type="vanished">Netscreen</translation>
+    </message>
+    <message>
+        <source>Secure (default)</source>
+        <translation type="vanished">Saugus (numatytas)</translation>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation type="vanished">Silpnas</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nėra</translation>
+    </message>
+    <message>
+        <source>NAT-T When Available (default)</source>
+        <translation type="vanished">NAT-T kai prieinama (pagal numatymą)</translation>
+    </message>
+    <message>
+        <source>NAT-T Always</source>
+        <translation type="vanished">NAT-T visada</translation>
+    </message>
+    <message>
+        <source>Cisco UDP</source>
+        <translation type="vanished">Cisco UDP</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Išjungta</translation>
+    </message>
+    <message>
+        <source>DH Group 1</source>
+        <translation type="vanished">DH grupė 1</translation>
+    </message>
+    <message>
+        <source>DH Group 2 (default)</source>
+        <translation type="vanished">DH grupė 2 (numatytas)</translation>
+    </message>
+    <message>
+        <source>DH Group 5</source>
+        <translation type="vanished">DH grupė 5</translation>
+    </message>
+    <message>
+        <source>Server (default)</source>
+        <translation type="vanished">Serveris (numatytas)</translation>
+    </message>
+    <message>
+        <source>DH Group 2</source>
+        <translation type="vanished">DH grupė 2</translation>
+    </message>
+    <message>
+        <source>Domain</source>
+        <translation type="vanished">Sritis</translation>
+    </message>
+    <message>
+        <source>Vendor</source>
+        <translation type="vanished">Gamintojas</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="vanished">Versija</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="vanished">Šifravimas</translation>
+    </message>
+    <message>
+        <source>NAT Traversal Mode</source>
+        <translation type="vanished">NAT apėjimo veiksena</translation>
+    </message>
+    <message>
+        <source>IKE DH Group</source>
+        <translation type="vanished">IKE DH grupė</translation>
+    </message>
+    <message>
+        <source>Forward Secrecy</source>
+        <translation type="vanished">Pažangus slaptumas</translation>
+    </message>
+    <message>
+        <source>Local Port</source>
+        <translation type="vanished">Vietinis prievadas</translation>
+    </message>
+    <message>
+        <source>Disable Dead Peer Detection</source>
+        <translation type="vanished">Išjungti neveikiančių lygiarangių aptikimą</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnIpsecSection</name>
+    <message>
+        <source>VPN IPsec</source>
+        <translation type="vanished">VPN IPsec</translation>
+    </message>
+    <message>
+        <source>Enable IPsec</source>
+        <translation type="vanished">Įjungti IPsec</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">Grupės pavadinimas</translation>
+    </message>
+    <message>
+        <source>Group ID</source>
+        <translation type="vanished">Grupės ID</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Iš anksto padalintas raktas</translation>
+    </message>
+    <message>
+        <source>Phase1 Algorithms</source>
+        <translation type="vanished">Phase1 algoritmai</translation>
+    </message>
+    <message>
+        <source>Phase2 Algorithms</source>
+        <translation type="vanished">Phase2 algoritmai</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenConnectSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Tinklų sietuvas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">LĮ liudijimas</translation>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="vanished">Įgaliotasis serveris</translation>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="vanished">Leisti Cisco saugų darbalaukio Trojos arklį</translation>
+    </message>
+    <message>
+        <source>CSD Script</source>
+        <translation type="vanished">CSD scenarijus</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Naudotojo liudijimas</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privatusis raktas</translation>
+    </message>
+    <message>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="vanished">Naudoti FSID kaip raktinį kodą</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenVPNSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Certificates (TLS)</source>
+        <translation type="vanished">Liudijimai (TLS)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Certificates with Password (TLS)</source>
+        <translation type="vanished">Liudijimai su slaptažodžiu (TLS)</translation>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="vanished">Statinis raktas</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Įrašytas</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Klausti</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Nebūtina</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Tinklų sietuvas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">Autentifikacijos tipas</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">LĮ liudijimas</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Naudotojo liudijimas</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privatusis raktas</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Slaptažodžio parametrai</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">Privatusis slaptažodis</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Naudotojo vardas</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">Tinkinti rakto kryptį</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">Rakto kryptis</translation>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="vanished">Nuotolinis IP</translation>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="vanished">Vietinis IP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPPPSection</name>
+    <message>
+        <source>VPN PPP</source>
+        <translation type="vanished">VPN PPP</translation>
+    </message>
+    <message>
+        <source>All Available (default)</source>
+        <translation type="vanished">Leidžiami visi (numatytas)</translation>
+    </message>
+    <message>
+        <source>40-bit (less secure)</source>
+        <translation type="vanished">40-bit (mažiau saugus)</translation>
+    </message>
+    <message>
+        <source>128-bit (most secure)</source>
+        <translation type="vanished">128-bit (saugiausias)</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">Atsisakyti EAP tapatybės nustatymo</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">Atsisakyti PAP tapatybės nustatymo</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">Atsisakyti CHAP tapatybės nustatymo</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">Atsisakyti MSCHAP tapatybės nustatymo</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">Atsisakyti MSCHAPv2 tapatybės nustatymo</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">Be BSD duomenų glaudinimo</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">Be nuostolingojo duomenų glaudinimo</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">Be TCP antraštės glaudinimo</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">Be protokolo lauko glaudinimo</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">Be adreso/valdymo glaudinimo</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">Siųsti PPP aido paketus</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">Naudoti MPPE</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Saugumas</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Įsimenamoji MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPage</name>
+    <message>
+        <source>VPN Status</source>
+        <translation type="vanished">VPN būsena</translation>
+    </message>
+    <message>
+        <source>Create VPN</source>
+        <translation type="vanished">Sukurti VPN</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import VPN</source>
+        <translation type="vanished">Importuoti VPN</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="vanished">Importavimo klaida</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">Gerai</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN įgaliotasis serveris</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Nebūtina</translation>
+    </message>
+    <message>
+        <source>HTTP</source>
+        <translation type="vanished">HTTP</translation>
+    </message>
+    <message>
+        <source>SOCKS</source>
+        <translation type="vanished">SOCKS</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Įgaliotojo serverio tipas</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Serverio IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Prievadas</translation>
+    </message>
+    <message>
+        <source>Retry Indefinitely When Failed</source>
+        <translation type="vanished">Nepavykus, be perstojo bandyti vėl</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Naudotojo vardas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSSTPSection</name>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">LĮ failas</translation>
+    </message>
+    <message>
+        <source>Ignore Certificate Warnings</source>
+        <translation type="vanished">Nepaisyti liudijimų įspėjimų</translation>
+    </message>
+    <message>
+        <source>Use TLS Hostname Extensions</source>
+        <translation type="vanished">Naudoti TLS kompiuterių vardų plėtinius</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <message>
+        <source>VPN Security</source>
+        <translation type="vanished">VPN saugumas</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Numatytasis</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nėra</translation>
+    </message>
+    <message>
+        <source>Cipher</source>
+        <translation type="vanished">Šifras</translation>
+    </message>
+    <message>
+        <source>HMAC Auth</source>
+        <translation type="vanished">HMAC autentifikacija</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Įrašytas</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Klausti</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Nebūtina</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Tinklų sietuvas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Naudotojo vardas</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Slaptažodžio parametrai</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+    <message>
+        <source>NT Domain</source>
+        <translation type="vanished">NT sritis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSstpProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN įgaliotasis serveris</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Serverio IP</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Prievadas</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Naudotojo vardas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnStrongSwanSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privatusis raktas</translation>
+    </message>
+    <message>
+        <source>SSH Agent</source>
+        <translation type="vanished">SSH agentas</translation>
+    </message>
+    <message>
+        <source>Smart Card</source>
+        <translation type="vanished">Lustinė kortelė</translation>
+    </message>
+    <message>
+        <source>EAP</source>
+        <translation type="vanished">EAP</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Iš anksto padalintas raktas</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Tinklų sietuvas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">LĮ liudijimas</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">Autentifikacijos tipas</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Naudotojo liudijimas</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Naudotojo vardas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Request an Inner IP Address</source>
+        <translation type="vanished">Užklausti vidinį IP adresą</translation>
+    </message>
+    <message>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="vanished">Versti vykdyti UDP sandarinimą</translation>
+    </message>
+    <message>
+        <source>Use IP Compression</source>
+        <translation type="vanished">Naudoti IP glaudinimą</translation>
+    </message>
+    <message>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation type="vanished">Įjungti tinkintus šifro pasiūlymus</translation>
+    </message>
+    <message>
+        <source>IKE</source>
+        <translation type="vanished">IKE</translation>
+    </message>
+    <message>
+        <source>ESP</source>
+        <translation type="vanished">ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnTLSSection</name>
+    <message>
+        <source>VPN TLS Authentication</source>
+        <translation type="vanished">VPN TLS tapatybės nustatymas</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Numatytasis</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="vanished">Klientas</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Serveris</translation>
+    </message>
+    <message>
+        <source>Subject Match</source>
+        <translation type="vanished">Temos atitikimas</translation>
+    </message>
+    <message>
+        <source>Remote Cert Type</source>
+        <translation type="vanished">Nuotolinio certifikato tipas</translation>
+    </message>
+    <message>
+        <source>Key File</source>
+        <translation type="vanished">Rakto failas</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">Tinkinti rakto kryptį</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">Rakto kryptis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnVPNCSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Įrašytas</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Klausti</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Nebūtina</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Tinklų sietuvas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Naudotojo vardas</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Slaptažodžio parametrai</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">Grupės pavadinimas</translation>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="vanished">Grupės slaptažodis</translation>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="vanished">Naudoti hibridinį tapatybės nustatymą</translation>
+    </message>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">LĮ failas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WiredPage</name>
+    <message>
+        <source>Plug in the network cable first</source>
+        <translation type="vanished">Iš pradžių, prijunkite tinklo laidą</translation>
+    </message>
+    <message>
+        <source>Wired Network Adapter</source>
+        <translation type="vanished">Laidinio tinklo adapteris</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Network Connection</source>
+        <translation type="vanished">Pridėti tinklo ryšį</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
+    </message>
+    <message>
+        <source>Select Settings</source>
+        <translation type="vanished">Pasirinkti nustatymus</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessPage</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation type="vanished">Prisijungti prie paslėpto tinklo</translation>
+    </message>
+    <message>
+        <source>Wireless Network Adapter</source>
+        <translation type="vanished">Belaidžio tinklo adapteris</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Close Hotspot</source>
+        <translation type="vanished">Uždaryti prieigos tašką</translation>
+    </message>
+    <message>
+        <source>Disable hotspot first if you want to connect to a wireless network</source>
+        <translation type="vanished">Norėdami prisijungti prie belaidžio tinklo, iš pradžių, išjunkite prieigos tašką</translation>
+    </message>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">Belaidis tinklas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessSection</name>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">Belaidis tinklas</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">Nesusietas</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Būtina</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">Įrenginio MAC adresas</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">Tinkinti MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">Dydis</translation>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation type="vanished">Standartinis šriftas</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation type="vanished">Lygiaplotis šriftas</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source> (Unsupported font)</source>
+        <translation type="vanished"> (Nepalaikomas šriftas)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Tema</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Accent Color</source>
+        <translation type="vanished">Pabrėžimo spalva</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">Langų efektai</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="vanished">Permatomumas</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationList</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Bendra</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation type="vanished">Piktogramų tema</translation>
+        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Cursor Theme</source>
+        <translation type="vanished">Žymeklio tema</translation>
+        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="vanished">Šriftas</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationModule</name>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">Personalizacija</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Silpnas</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">Tamsi</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automatinis</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Numatytasis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Silpnas</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">Tamsi</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automatinis</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Numatytasis</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::GeneralWidget</name>
+    <message>
+        <source>Power Saving Mode</source>
+        <translation type="vanished">Energijos taupymo veiksena</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Mode Switch</source>
+        <translation type="vanished">Automatinis veiksenos perjungimas</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation type="vanished">Po kompiuterio pristabdymo reikalauti slaptažodžio</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation type="vanished">Išsijungus monitoriui reikalauti slaptažodžio</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerModule</name>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">Baterijos energija</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">Energija</translation>
+    </message>
+    <message>
+        <source>Battery low, please plug in</source>
+        <translation type="vanished">Baterija baigia išsikrauti, prijunkite maitinimą</translation>
+    </message>
+    <message>
+        <source>Battery critically low</source>
+        <translation type="vanished">Kritiškai žema baterijos įkrova</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Bendra</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="vanished">Elektros maitinimas</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">Baterijos energija</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseBatteryWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">Monitorius išsijungs po</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">Kompiuteris bus pristabdytas po</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">Užrakinti ekraną po</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">Pristabdyti, uždarius dangtį</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">Niekada</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 minutės</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 minučių</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 valandos</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseElectricWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">Monitorius išsijungs po</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">Užrakinti ekraną po</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">Pristabdyti, uždarius dangtį</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">Kompiuteris bus pristabdytas po</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">Niekada</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 minutės</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 minučių</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 valandos</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::search::SearchWidget</name>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Serveris</translation>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">Langų efektai</translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">Plėtotojo veiksena</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">Naudotojo patyrimo programa</translation>
+    </message>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">Dalyvauti naudotojo patyrimo programoje</translation>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="vanished">Debesijos paskyra</translation>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">Ekrano mastelis</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Jutiklinis kilimėlis</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Asmeninis prieigos taškas</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">Baterijos energija</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Laidinis tinklas</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Belaidis tinklas</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Keli ekranai</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="vanished">Galutinio naudotojo licencijos sutikimas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::AdvancedPage</name>
+    <message>
+        <source>Output</source>
+        <translation type="vanished">Išvestis</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="vanished">Įvestis</translation>
+    </message>
+    <message>
+        <source>Sound Card:</source>
+        <translation type="vanished">Garso plokštė:</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::MicrophonePage</name>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">Mikrofonas</translation>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation type="vanished">Įvesties garsis</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation type="vanished">Įvesties lygis</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">Garso efektai</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundModule</name>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">Garsas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundWidget</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">Garsiakalbis</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">Mikrofonas</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">Išplėstinės</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">Garso efektai</translation>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SpeakerPage</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">Garsiakalbis</translation>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation type="vanished">Išvesties garsis</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Volume Boost</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Left/Right Balance</source>
+        <translation type="vanished">Kairės/Dešinės balansas</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="vanished">Kairė</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="vanished">Dešinė</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::IndexPage</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">Automatinis sinchronizavimas</translation>
+    </message>
+    <message>
+        <source>Syncing...</source>
+        <translation type="vanished">Sinchronizuojama...</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">Atsijungti</translation>
+    </message>
+    <message>
+        <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
+        <translation type="vanished">Jei tinklo nustatymai yra įjungti, jūsų belaidžio (Wi-Fi) slaptažodis bus sinchronizuotas</translation>
+    </message>
+    <message>
+        <source>Network Settings</source>
+        <translation type="vanished">Tinklo nustatymai</translation>
+    </message>
+    <message>
+        <source>Sound Settings</source>
+        <translation type="vanished">Garso nustatymai</translation>
+    </message>
+    <message>
+        <source>Mouse Settings</source>
+        <translation type="vanished">Pelės nustatymai</translation>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Atnaujinimų nustatymai</translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="vanished">Dokas</translation>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation type="vanished">Leistukas</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="vanished">Darbalaukio fonas</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Tema</translation>
+    </message>
+    <message>
+        <source>Power Settings</source>
+        <translation type="vanished">Energijos nustatymai</translation>
+    </message>
+    <message>
+        <source>Corner Settings</source>
+        <translation type="vanished">Kampų nustatymai</translation>
+    </message>
+    <message>
+        <source>Last Sync: %1</source>
+        <translation type="vanished">Paskutinis sinchronizavimas: %1</translation>
+    </message>
+    <message>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="vanished">yyyy-MM-dd hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LoginPage</name>
+    <message>
+        <source>Sign In</source>
+        <translation type="vanished">Prisijungti</translation>
+        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud Account Sign In</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="vanished">Šiuo metu palaikoma tik pagrindinėje Kinijos teritorijoje</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LogoutPage</name>
+    <message>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="vanished">Atleiskite, šiuo metu tai nėra palaikoma jūsų regione, tačiau greitu metu bus</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">Atsijungti</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::SyncModule</name>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="vanished">Debesijos paskyra</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <message>
+        <source>Edition:</source>
+        <translation type="vanished">Laida:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="vanished">Tipas:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To be activated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation type="vanished">Aktyvuoti</translation>
+    </message>
+    <message>
+        <source>Kernel:</source>
+        <translation type="vanished">Branduolys:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Processor:</source>
+        <translation type="vanished">Procesorius:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Memory:</source>
+        <translation type="vanished">Atmintis:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Disk:</source>
+        <translation type="vanished">Diskas:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>%1-bit</source>
+        <translation type="vanished">%1 bitų</translation>
+    </message>
+    <message>
+        <source>Activated</source>
+        <translation type="vanished">Aktyvuotas</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="vanished">Žiūrėti</translation>
+    </message>
+    <message>
+        <source>Expired</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>In trial period</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Trial expired</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoModule</name>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">Sistemos informacija</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
+    <message>
+        <source>About This PC</source>
+        <translation type="vanished">Apie šį kompiuterį</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Edition License</source>
+        <translation type="vanished">Laidos licencija</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="vanished">Galutinio naudotojo licencijos sutikimas</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorSourceItem</name>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">Nepatikrinta</translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="vanished">Baigėsi laikas</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Lėtas</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="vanished">Vidutinė</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Greitas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorsWidget</name>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">Tinklaviečių sąrašas</translation>
+    </message>
+    <message>
+        <source>Test Speed</source>
+        <translation type="vanished">Tikrinti spartą</translation>
+    </message>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">Nepatikrinta</translation>
+    </message>
+    <message>
+        <source>Retest</source>
+        <translation type="vanished">Tikrinti iš naujo</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateCtrlWidget</name>
+    <message>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="vanished">Norėdami tinkamai naudotis sistema ir programomis, paleiskite kompiuterį iš naujo</translation>
+    </message>
+    <message>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="vanished">Tinklas atjungtas, prisijungę prie tinklo bandykite dar kartą</translation>
+    </message>
+    <message>
+        <source>Your system is not authorized, please activate first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation type="vanished">Šis atnaujinimas gali užimti daug laiko, prašome proceso metu neišjungti ir nepaleisti kompiuterio iš naujo.</translation>
+    </message>
+    <message>
+        <source>Checking for updates, please wait...</source>
+        <translation type="vanished">Tikrinami atnaujinimai, prašome palaukti...</translation>
+    </message>
+    <message>
+        <source>Download and install updates</source>
+        <translation type="vanished">Atsisiųsti ir įdiegti atnaujinimus</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="vanished">%1% atsisiųsta (Spustelėkite, norėdami pristabdyti)</translation>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="vanished">%1% atsisiųsta (Spustelėkite, norėdami tęsti)</translation>
+    </message>
+    <message>
+        <source>Install updates</source>
+        <translation type="vanished">Įdiegti atnaujinimus</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation type="vanished">Jūsų sistemoje yra įdiegti visi atnaujinimai</translation>
+    </message>
+    <message>
+        <source>Updating, please wait...</source>
+        <translation type="vanished">Atnaujinama, prašome palaukti...</translation>
+    </message>
+    <message>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="vanished">Naujausia sistema įdiegta, paleiskite iš naujo, kad įsigaliotų pakeitimai</translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="vanished">Atnaujinimas nepavyko: trūksta vietos diske</translation>
+    </message>
+    <message>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="vanished">Priklausomybių klaida, nepavyko aptikti atnaujinimų</translation>
+    </message>
+    <message>
+        <source>Backing up, please wait...</source>
+        <translation type="vanished">Daroma atsarginė kopija, palaukite...</translation>
+    </message>
+    <message>
+        <source>System backup failed</source>
+        <translation type="vanished">Sistemos atsarginė kopija patyrė nesėkmę</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n application update(s) available</source>
+        <translation type="vanished"><numerusform>Yra prieinamas %n programų atnaujinimas</numerusform><numerusform>Yra prieinami %n programų atnaujinimai</numerusform><numerusform>Yra prieinama %n programų atnaujinimų</numerusform><numerusform>Yra prieinamas %n programų atnaujinimas</numerusform></translation>
+    </message>
+    <message>
+        <source>New system edition available</source>
+        <translation type="vanished">Yra prieinama nauja sistemos laida</translation>
+    </message>
+    <message numerus="yes">
+        <source>New system edition and %n application update(s) available</source>
+        <translation type="vanished"><numerusform>Yra prieinama nauja sistemos laida ir %n programų atnaujinimas</numerusform><numerusform>Yra prieinama nauja sistemos laida ir %n programų atnaujinimai</numerusform><numerusform>Yra prieinama nauja sistemos laida ir %n programų atnaujinimų</numerusform><numerusform>Yra prieinama nauja sistemos laida ir %n programų atnaujinimas</numerusform></translation>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="vanished">Atsisiųsta</translation>
+    </message>
+    <message>
+        <source>Size: %1</source>
+        <translation type="vanished">Dydis: %1</translation>
+    </message>
+    <message>
+        <source>Your battery is lower than 50%, please plug in to continue</source>
+        <translation type="vanished">Jūsų baterijos įkrova yra žemiau 50%, norėdami tęsti prijunkite prie maitinimo šaltinio</translation>
+    </message>
+    <message>
+        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
+        <translation type="vanished">Prašome užtikrinti, kad pakaks energijos kompiuterio paleidimui iš naujo bei neišjungti kompiuterio ir neištraukti kištuko</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateHistoryButton</name>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">Atnaujinimų istorija</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateModule</name>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateSettings</name>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Atnaujinimų nustatymai</translation>
+    </message>
+    <message>
+        <source>Auto Clear Package Cache</source>
+        <translation type="vanished">Automatiškai išvalyti paketų podėlį</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Updates Notification</source>
+        <translation type="vanished">Pranešimas apie atnaujinimus</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Download Updates</source>
+        <translation type="vanished">Automatiškai atsisiųsti atnaujinimus</translation>
+    </message>
+    <message>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="vanished">Įjunkite, norėdami automatiškai atsisiųsti atnaujinimus, kai naudojamas laidinis ar belaidis tinklas</translation>
+    </message>
+    <message>
+        <source>System Repository Detection</source>
+        <translation type="vanished">Sistemos saugyklų aptikimas</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation type="vanished">Rodyti pranešimą, jei sistemos atnaujinimų saugykla buvo modifikuota</translation>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="vanished">Išmanusis tinklavietės perjungimas</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="vanished">Įjunkite, norėdami automatiškai jungtis prie greičiausios tinklavietės</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">Tinklaviečių sąrašas</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateWidget</name>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Atnaujinimų nustatymai</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="vanished">Paskutinis atnaujinimas</translation>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="vanished">Grįžti</translation>
+    </message>
+    <message>
+        <source>Current Edition</source>
+        <translation type="vanished">Dabartinė laida</translation>
+    </message>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">Atnaujinimų istorija</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::PressureSettings</name>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="vanished">Spaudimo jautrumas</translation>
+        <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Silpnas</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="vanished">Stiprus</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomModule</name>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">Piešimo planšetė</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomWidget</name>
+    <message>
+        <source>Pen</source>
+        <translation type="vanished">Rašiklis</translation>
+        <extra-contents_path>/wacom/Pen</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Pelė</translation>
+        <extra-contents_path>/wacom/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="vanished">Veiksena</translation>
     </message>
 </context>
 <context>

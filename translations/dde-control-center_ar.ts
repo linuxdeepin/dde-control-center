@@ -23,108 +23,108 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="154"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
         <source>Help</source>
         <translation>مساعدة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Accounts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Cloud Account</source>
         <translation type="unfinished"/>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="297"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Display</source>
         <translation>عرض</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="298"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Default Applications</source>
         <translation>التطبيقات الافتراضية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="299"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Personalization</source>
         <translation>التخصيص</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="300"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Network</source>
         <translation>الشبكة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="301"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
         <source>Sound</source>
         <translation>الصوت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="302"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="801"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="803"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
         <source>Bluetooth</source>
         <translation>بلوتوث</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="303"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Date and Time</source>
         <translation>التاريخ والوقت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="304"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Power</source>
         <translation>الطاقة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
         <source>Mouse</source>
         <translation>الفأرة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Drawing Tablet</source>
         <translation>لوح الرسم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Keyboard and Language</source>
         <translation>اللغة ولوحة المفاتيح</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>System Info</source>
         <translation>معلومات النظام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
         <source>General Settings</source>
         <translation>الإعدادات العامة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>Touchpad</source>
         <translation>لوحة اللمس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Cloud Sync</source>
         <translation>مزامنة مع السحابة</translation>
     </message>
@@ -316,42 +316,52 @@
         <translation>اختياري</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>Go to Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
         <source>Password must be no more than %1 characters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="374"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
         <source>Passwords do not match</source>
         <translation>كلممتا المرور غير متطابقتان</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="399"/>
         <source>Username cannot be empty</source>
         <translation>اسم المستخدم لا يمكن أن يكون فارغاً</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>يجب أن يكون اسم المستخدم بين 3-32 محرفاً</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="412"/>
         <source>The first character must be in lower case</source>
         <translation>الحرف الأول يجب أن يكون صغيراً</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="418"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>اسم المستخدم يجب أن يحتوي على المحارف : a~z, 0~9</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
         <source>The full name already exists</source>
         <translation type="unfinished"/>
     </message>
@@ -419,27 +429,37 @@
         <translation>مطلوب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>Go to Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
         <source>Wrong password</source>
         <translation>كلمة المرور خاطئة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="236"/>
         <source>Passwords do not match</source>
         <translation>كلممتا المرور غير متطابقتان</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="249"/>
         <source>New password should differ from the current one</source>
         <translation>كلمة المرور الجديدة يجب أن تختلف عن الحالية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="256"/>
         <source>Password must be no more than %1 characters</source>
         <translation type="unfinished"/>
     </message>
@@ -467,7 +487,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
         <source>Bluetooth</source>
         <translation type="unfinished"/>
     </message>
@@ -1167,9 +1187,10 @@
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
         <source>Recommended</source>
         <translation>مستحسن</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1379,37 +1400,37 @@
 <context>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="54"/>
         <source>System</source>
         <translation>النظام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="61"/>
         <source>Window</source>
         <translation>النافذة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="68"/>
         <source>Workspace</source>
         <translation>مساحة العمل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
         <source>Speech</source>
         <translation>الكلام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
         <source>Custom Shortcut</source>
         <translation>اختصار مخصص</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="116"/>
         <source>Restore Defaults</source>
         <translation>استعادة الافتراضيات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="142"/>
         <source>Shortcut</source>
         <translation>إختصار</translation>
     </message>
@@ -1417,17 +1438,17 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="68"/>
         <source>Add</source>
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="73"/>
         <source>Add System Language</source>
         <translation>إضافة لغة النظام</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -1839,27 +1860,27 @@
         <translation>إيثرنت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="59"/>
         <source>Not Bind</source>
         <translation>لا يوجد جهاز مرتبط بعنوان ال MAC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="101"/>
         <source>Device MAC Addr</source>
         <translation>عنوان MAC الجهاز </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="117"/>
         <source>Cloned MAC Addr</source>
         <translation>عنوان MAC المستنسخ </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="130"/>
         <source>Customize MTU</source>
         <translation>تخصيص MTU</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="133"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -1959,7 +1980,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
@@ -1969,45 +1991,45 @@
         <translation>البوابة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>Primary DNS</source>
         <translation>DNS رئيسي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
         <source>Secondary DNS</source>
         <translation>DNS ثانوي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
         <source>Only applied in corresponding resources</source>
         <translation>يطبق فقط في الموارد المتطابقة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="249"/>
         <source>Method</source>
         <translation>اﻷسلوب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Netmask</source>
         <translation>قناع الشبكة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="316"/>
         <source>Prefix</source>
         <translation>البادئة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="444"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="456"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="465"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="475"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="484"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="512"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="538"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="485"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="548"/>
         <source>Invalid IP address</source>
         <translation type="unfinished"/>
     </message>
@@ -3632,28 +3654,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="250"/>
         <source>Connect to hidden network</source>
         <translation>الإتصال بشبكة مخفية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="260"/>
         <source>Wireless Network Adapter</source>
         <translation>كرت الشبكة اللاسلكية</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="272"/>
         <source>Close Hotspot</source>
         <translation>أغلق نقطة الاتصال</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="275"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
         <source>WLAN</source>
         <translation>الشبكة المحلية اللاسلكية</translation>
     </message>
@@ -3786,22 +3808,22 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="100"/>
         <source>Light</source>
         <translation>إضاءة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="102"/>
         <source>Dark</source>
         <translation>مظلم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="104"/>
         <source>Auto</source>
         <translation>تلقائي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="109"/>
         <source>Default</source>
         <translation>افتراضي</translation>
     </message>
@@ -4111,17 +4133,19 @@
 <context>
     <name>dccV20::sound::AdvancedPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="71"/>
         <source>Output</source>
         <translation>الإخراج</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
         <source>Input</source>
         <translation>الإدخال</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
         <source>Sound Card:</source>
         <translation>كارت الصوت:</translation>
     </message>
@@ -4149,7 +4173,7 @@
 <context>
     <name>dccV20::sound::SoundEffectsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="49"/>
         <source>Sound Effects</source>
         <translation>مؤثرات الصوت</translation>
     </message>
@@ -5329,32 +5353,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="388"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="390"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>أزيل مضيفك من خادوم النطاقات بنجاح.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="389"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="391"/>
         <source>Your host joins the domain server successfully</source>
         <translation>انضم مضيفك إلى خادوم النطاقات بنجاح.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="411"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="413"/>
         <source>Your host failed to leave the domain server</source>
         <translation>فشلت إزالة مضيفك من خادوم النطاقات.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="412"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="414"/>
         <source>Your host failed to join the domain server</source>
         <translation>فشل انضمام مضيفك إلى خادوم النطاقات.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="417"/>
         <source>AD domain settings</source>
         <translation>إعدادات نطاق الدليل النشط</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="484"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="486"/>
         <source>Password not match</source>
         <translation>كلممتا المرور غير متطابقتان</translation>
     </message>
@@ -8984,7 +9008,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="173"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="191"/>
         <source>available</source>
         <translation>متاح</translation>
     </message>
@@ -9418,6 +9442,3831 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
         <translation>متصل</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::MainWindow</name>
+    <message>
+        <source>Help</source>
+        <translation type="vanished">مساعدة</translation>
+    </message>
+    <message>
+        <source>Accounts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
+    </message>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">عرض</translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">التطبيقات الافتراضية</translation>
+    </message>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">التخصيص</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">الشبكة</translation>
+    </message>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">الصوت</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">بلوتوث</translation>
+    </message>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">التاريخ والوقت</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">الطاقة</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">الفأرة</translation>
+    </message>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">لوح الرسم</translation>
+    </message>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">اللغة ولوحة المفاتيح</translation>
+    </message>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">معلومات النظام</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">الإعدادات العامة</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">لوحة اللمس</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+    </message>
+    <message>
+        <source>Cloud Sync</source>
+        <translation type="vanished">مزامنة مع السحابة</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">الاسم بالكامل</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Validity Days</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please input a number between 1-99999</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">تغيير كلمة المرور</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Delete Account</source>
+        <translation type="vanished">حذف الحساب</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation type="vanished">دخول تلقائي</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation type="vanished">تسجيل الدخول دون كلمة مرور</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">مجموعة</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsModule</name>
+    <message>
+        <source>Accounts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsWidget</name>
+    <message>
+        <source>Create Account</source>
+        <translation type="vanished">إنشاء حساب</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation type="vanished">مسؤول</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AddFingeDialog</name>
+    <message>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scan again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">تم</translation>
+    </message>
+    <message>
+        <source>Identifying fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AvatarListWidget</name>
+    <message>
+        <source>Images</source>
+        <translation type="vanished">صور</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::CreateAccountPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">إنشاء</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">مجموعة</translation>
+    </message>
+    <message>
+        <source>New Account</source>
+        <translation type="vanished">حساب جديد</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">اسم المستخدم</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">الاسم بالكامل</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">إعادة كلمة المرور</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>optional</source>
+        <translation type="vanished">اختياري</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">كلممتا المرور غير متطابقتان</translation>
+    </message>
+    <message>
+        <source>Username cannot be empty</source>
+        <translation type="vanished">اسم المستخدم لا يمكن أن يكون فارغاً</translation>
+    </message>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation type="vanished">يجب أن يكون اسم المستخدم بين 3-32 محرفاً</translation>
+    </message>
+    <message>
+        <source>The first character must be in lower case</source>
+        <translation type="vanished">الحرف الأول يجب أن يكون صغيراً</translation>
+    </message>
+    <message>
+        <source>Username must only contain a~z, 0~9, - or _</source>
+        <translation type="vanished">اسم المستخدم يجب أن يحتوي على المحارف : a~z, 0~9</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::FingerWidget</name>
+    <message>
+        <source>Delete fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint Password</source>
+        <translation type="vanished">كلمة المرور ببصمة الأصبع</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add fingerprint</source>
+        <translation type="vanished">أضف بصمة الإصبع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">تغيير كلمة المرور</translation>
+    </message>
+    <message>
+        <source>Current Password</source>
+        <translation type="vanished">كلمة المرور الحالية</translation>
+    </message>
+    <message>
+        <source>New Password</source>
+        <translation type="vanished">كلمة المرور الجديدة</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">إعادة كلمة المرور</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">حفظ</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="vanished">كلمة المرور خاطئة</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">كلممتا المرور غير متطابقتان</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation type="vanished">كلمة المرور الجديدة يجب أن تختلف عن الحالية</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::AdapterWidget</name>
+    <message>
+        <source>My devices</source>
+        <translation type="vanished">أجهزتي</translation>
+        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Other devices</source>
+        <translation type="vanished">أجهزة أخرى</translation>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::BluetoothModule</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DetailPage</name>
+    <message>
+        <source>Ignore this device</source>
+        <translation type="vanished">تجاهل هذا الجهاز</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">قطع الاتصال</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
+    <message>
+        <source>Connected</source>
+        <translation type="vanished">متصل</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="vanished">غير متصل</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::BootWidget</name>
+    <message>
+        <source>Updating...</source>
+        <translation type="vanished">يتم التحديث...</translation>
+    </message>
+    <message>
+        <source>Startup Delay</source>
+        <translation type="vanished">تأخير بدء التشغيل</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">السمة</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="vanished">غير السمة لتراها في قائمة التشغيل</translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">قائمة الإقلاع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoModule</name>
+    <message>
+        <source>General Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">قائمة الإقلاع</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">وضع المطور</translation>
+        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">برنامج تجربة المستخدم</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Tablet Mode</source>
+        <translation type="vanished">وضح الجهاز اللوحى</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWork</name>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UOS Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The Disclaimer of Developer Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree and Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeDialog</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first and continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export PC Info</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Certificate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1. Export your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>3. Import the certificate</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeWidget</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To make some features effective, a restart is required. Restart now?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء</translation>
+    </message>
+    <message>
+        <source>Restart Now</source>
+        <translation type="vanished">إعادة التشغيل الآن</translation>
+    </message>
+    <message>
+        <source>Root Access Allowed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">الانضمام إلى برنامج تجربة المستخدم</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://openapi.chinauos.com/agreement/).</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::ClockItem</name>
+    <message>
+        <source>AM</source>
+        <translation type="vanished">ص</translation>
+    </message>
+    <message>
+        <source>PM</source>
+        <translation type="vanished">م</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateSettings</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">مزامنة تلقائية</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">تأكيد</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">الخادم</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="vanished">عنوان</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">تخصيص</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateWidget</name>
+    <message>
+        <source>Year</source>
+        <translation type="vanished">سنة</translation>
+    </message>
+    <message>
+        <source>Month</source>
+        <translation type="vanished">شهر</translation>
+    </message>
+    <message>
+        <source>Day</source>
+        <translation type="vanished">يوم</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeModule</name>
+    <message>
+        <source>Date and Time</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeWidget</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">قائمة المنطقة الزمنية</translation>
+    </message>
+    <message>
+        <source>Time Settings</source>
+        <translation type="vanished">إعدادات الوقت</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="vanished">توقيت الـ 24 ساعة</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::SystemTimezone</name>
+    <message>
+        <source>Change System Timezone</source>
+        <translation type="vanished">تغيير المنطقة الزمنية للنظام</translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+    </message>
+    <message>
+        <source>System Timezone</source>
+        <translation type="vanished">المنطقة الزمنية للنظام</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::TimezoneList</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">قائمة المنطقة الزمنية</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Timezone</source>
+        <translation type="vanished">إضافة المنطقة الزمنية</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefappDetailWidget</name>
+    <message>
+        <source>Add Application</source>
+        <translation type="vanished">إضافة تطبيق</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Open Desktop file</source>
+        <translation type="vanished">فتح ملف سطح المكتب</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation type="vanished">غير صالح</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsModule</name>
+    <message>
+        <source>Default Applications</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="vanished">صفحة الويب</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="vanished">البريد</translation>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="vanished">نص</translation>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="vanished">موسيقى</translation>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="vanished">الفيديو</translation>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="vanished">صورة</translation>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="vanished">الطرفية</translation>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">التطبيقات الافتراضية</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::BrightnessPage</name>
+    <message>
+        <source>Night Shift</source>
+        <translation type="vanished">الوضع الليلي</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>The screen hue will be auto adjusted according to your location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="vanished">سطوع تلقائى</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::CustomSettingDialog</name>
+    <message>
+        <source>Main Screen</source>
+        <translation type="vanished">الشاشة الرئيسية</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">الدقة</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">معدل التحديث</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">حفظ</translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">هرتز</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">مستحسن</translation>
+    </message>
+    <message>
+        <source>inch</source>
+        <translation type="vanished">بوصة</translation>
+    </message>
+    <message>
+        <source>Resolution %1x%2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayModule</name>
+    <message>
+        <source>Display</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">شاشات متعددة</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayWidget</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">شاشات متعددة</translation>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="vanished">السطوع</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">الدقة</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">عرض الشاشة</translation>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">معدل التحديث</translation>
+        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+    </message>
+    <message>
+        <source>Rotate Screen</source>
+        <translation type="vanished">تدوير الشاشة</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenSettingPage</name>
+    <message>
+        <source>Custom Settings</source>
+        <translation type="vanished">إعدادات مخصصة</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="vanished">مكرر</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="vanished">توسعة</translation>
+    </message>
+    <message>
+        <source>Show the same image on other screens</source>
+        <translation type="vanished">إظهار نفس الصورة على الشاشات الأخرى</translation>
+    </message>
+    <message>
+        <source>Expand the desktop across the screens</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 only</source>
+        <translation type="vanished">%1 فقط</translation>
+    </message>
+    <message>
+        <source>Show the screen content only on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">تخصيص</translation>
+    </message>
+    <message>
+        <source>Configure the display according to your needs</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RefreshRatePage</name>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">هرتز</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">مستحسن</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ResolutionDetailPage</name>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">مستحسن</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RotateDialog</name>
+    <message>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ScalingPage</name>
+    <message>
+        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::CustomContent</name>
+    <message>
+        <source>Add Custom Shortcut</source>
+        <translation type="vanished">إضافة اختصار مخصص</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">الاسم</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="vanished">أمر</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">إضافة</translation>
+    </message>
+    <message>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation type="vanished">هذا الإختصار يتعارض مع %1، انقر على إضافة لجعل هذا الإختصار فعال على الفور</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
+    <message>
+        <source>Repeat Delay</source>
+        <translation type="vanished">مهلة التأخير</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Short</source>
+        <translation type="vanished">قصير</translation>
+    </message>
+    <message>
+        <source>Long</source>
+        <translation type="vanished">طويل</translation>
+    </message>
+    <message>
+        <source>Repeat Rate</source>
+        <translation type="vanished">معدل التكرار</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">بطيء</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سريع</translation>
+    </message>
+    <message>
+        <source>Test here</source>
+        <translation type="vanished">تجربة هنا</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Numeric Keypad</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Caps Lock Prompt</source>
+        <translation type="vanished">تفعيل مفتاح &quot;Caps Lock&quot;</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">تخطيط لوحة المفاتيح</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">تحرير</translation>
+    </message>
+    <message>
+        <source>Switch Layouts (Multiple)</source>
+        <translation type="vanished">تبديل التخطيط (متعدد)</translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="vanished">النظام</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">تطبيق</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">تم</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardModule</name>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">اختصار مخصص</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">عام</translation>
+    </message>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">تخطيط لوحة المفاتيح</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System Language</source>
+        <translation type="vanished">لغة النظام</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="vanished">الإختصارات</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
+    <message>
+        <source>System</source>
+        <translation type="vanished">النظام</translation>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation type="vanished">النافذة</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="vanished">مساحة العمل</translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation type="vanished">الكلام</translation>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">اختصار مخصص</translation>
+    </message>
+    <message>
+        <source>Restore Defaults</source>
+        <translation type="vanished">استعادة الافتراضيات</translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="vanished">إختصار</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">إضافة</translation>
+    </message>
+    <message>
+        <source>Add System Language</source>
+        <translation type="vanished">إضافة لغة النظام</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
+    <message>
+        <source>Language List</source>
+        <translation type="vanished">قائمة اللغات</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">تحرير</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">تم</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
+    <message>
+        <source>Left Hand</source>
+        <translation type="vanished">اليد اليسرى</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad while typing</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Double-click Speed</source>
+        <translation type="vanished">سرعة النقر المزدوج</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">بطيء</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سريع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseModule</name>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">لوحة اللمس</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">سرعة المؤشر</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation type="vanished">تسارع الفأرة</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">تمرير طبيعي</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">بطيء</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سريع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">عام</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">الفأرة</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">لوحة اللمس</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">سرعة المؤشر</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="vanished">إضغط للنقر</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">تمرير طبيعي</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">بطيء</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سريع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">سرعة المؤشر</translation>
+        <extra-child_page>TrackPoint</extra-child_page>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">بطيء</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سريع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsProxyPage</name>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">تطبيقات البروكسي</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">نوع الوكيل</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">عنوان IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">المنفذ</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">اسم المستخدم</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">اختياري</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+    <message>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="vanished">تحقق من &quot;فتح بواسطة بروكسي&quot; من قائمة سياق التطبيق في المشغل لاستخدامها بعد الإعداد</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">حفظ</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid port</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsTypePage</name>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">نوع الوكيل</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionEditPage</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">قطع الاتصال</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">حذف</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">حفظ</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this configuration?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wired Connection %1</source>
+        <translation type="vanished">اتصال سلكي %1</translation>
+    </message>
+    <message>
+        <source>hotspot</source>
+        <translation type="vanished">نقطة الإتصال</translation>
+    </message>
+    <message>
+        <source>Wireless Connection %1</source>
+        <translation type="vanished">اتصال لاسلكي  %1</translation>
+    </message>
+    <message>
+        <source>PPPoE Connection %1</source>
+        <translation type="vanished">اتصال PPPoE %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
+    <message>
+        <source>New VPN</source>
+        <translation type="vanished">VPN جديد</translation>
+    </message>
+    <message>
+        <source>VPN Type</source>
+        <translation type="vanished">نوع الشبكة الخاصة VPN</translation>
+    </message>
+    <message>
+        <source>L2TP</source>
+        <translation type="vanished">L2TP</translation>
+    </message>
+    <message>
+        <source>PPTP</source>
+        <translation type="vanished">PPTP</translation>
+    </message>
+    <message>
+        <source>VPNC</source>
+        <translation type="vanished">VPNC</translation>
+    </message>
+    <message>
+        <source>OpenVPN</source>
+        <translation type="vanished">OpenVPN </translation>
+    </message>
+    <message>
+        <source>StrongSwan</source>
+        <translation type="vanished">StrongSwan</translation>
+    </message>
+    <message>
+        <source>OpenConnect</source>
+        <translation type="vanished">OpenConnect</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="vanished">تصدير</translation>
+    </message>
+    <message>
+        <source>VPN L2TP %1</source>
+        <translation type="vanished">VPN L2TP %1</translation>
+    </message>
+    <message>
+        <source>VPN PPTP %1</source>
+        <translation type="vanished">VPN PPTP %1</translation>
+    </message>
+    <message>
+        <source>VPN VPNC %1</source>
+        <translation type="vanished">VPN VPNC %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenVPN %1</source>
+        <translation type="vanished">VPN OpenVPN %1</translation>
+    </message>
+    <message>
+        <source>VPN StrongSwan %1</source>
+        <translation type="vanished">VPN StrongSwan %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenConnect %1</source>
+        <translation type="vanished">VPN OpenConnect %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::EthernetSection</name>
+    <message>
+        <source>Ethernet</source>
+        <translation type="vanished">إيثرنت</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">لا يوجد جهاز مرتبط بعنوان ال MAC</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">عنوان MAC الجهاز </translation>
+    </message>
+    <message>
+        <source>Cloned MAC Addr</source>
+        <translation type="vanished">عنوان MAC المستنسخ </translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">تخصيص MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericHotspotSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">عام</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">الاسم</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">عام</translation>
+    </message>
+    <message>
+        <source>The name already exists</source>
+        <translation type="vanished">الاسم موجود بالفعل</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">الاسم</translation>
+    </message>
+    <message>
+        <source>Auto Connect</source>
+        <translation type="vanished">اتصال تلقائي</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotDeviceWidget</name>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">نقطة الإتصال</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Settings</source>
+        <translation type="vanished">إضافة إعدادات</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotPage</name>
+    <message>
+        <source>Create Hotspot</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::IpvxSection</name>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">تلقائي</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">يدوي</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="vanished">تجاهل</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">عنوان IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">البوابة</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">DNS رئيسي</translation>
+    </message>
+    <message>
+        <source>Secondary DNS</source>
+        <translation type="vanished">DNS ثانوي</translation>
+    </message>
+    <message>
+        <source>Only applied in corresponding resources</source>
+        <translation type="vanished">يطبق فقط في الموارد المتطابقة</translation>
+    </message>
+    <message>
+        <source>Method</source>
+        <translation type="vanished">اﻷسلوب</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">قناع الشبكة</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">البادئة</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkDetailPage</name>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">تفاصيل الشبكة</translation>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">نقطة الإتصال</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID </translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">الأمان</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation type="vanished">الواجهة</translation>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation type="vanished">ماك</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation type="vanished">الحزمة</translation>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">البوابة</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">DNS رئيسي</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">قناع الشبكة</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">البادئة</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">السرعة</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModule</name>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">شبكة سلكية</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">شبكة لاسلكية</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModuleWidget</name>
+    <message>
+        <source>DSL</source>
+        <translation type="vanished">DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">وكيل النظام</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">تطبيقات البروكسي</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">تفاصيل الشبكة</translation>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Configure by Network Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">شبكة سلكية</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network %1</source>
+        <translation type="vanished">الشبكة اللاسلكية : %1</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">شبكة لاسلكية</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">معطل</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="vanished">غير متصل</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPOESection</name>
+    <message>
+        <source>PPPoE</source>
+        <translation type="vanished">PPPoE</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">اسم المستخدم</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation type="vanished">خدمة</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPSection</name>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">رفض مصادقة الـ EAP</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">رفض مصادقة الـ PAP</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">رفض مصادقة الـ CHAP</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">رفض مصادقة الـ MSCHAP</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">رفض مصادقة الـ MSCHAPv2</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">عدم ضغط بيانات  BSD</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">عدم ضغط البيانات الضئيلة</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">عدم ضغط بيانات  TCP الرأسية</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">عدم ضغط حقل البروتوكول</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">لا يوجد  ضغط عنوا ن\تحكم     </translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">إرسال حزم صدى PPP  </translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">استخدام MPPE  </translation>
+    </message>
+    <message>
+        <source>128-bit MPPE</source>
+        <translation type="vanished">128-bit MPPE</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Stateful MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PppoePage</name>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation type="vanished">إنشاء اتصال PPPoE</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
+    </message>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ProxyPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">حفظ</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">لا شيء</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">يدوي</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">تلقائي</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">اختياري</translation>
+    </message>
+    <message>
+        <source>HTTP Proxy</source>
+        <translation type="vanished">وكيل HTTP </translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">المنفذ</translation>
+    </message>
+    <message>
+        <source>HTTPS Proxy</source>
+        <translation type="vanished">وكيل HTTPS</translation>
+    </message>
+    <message>
+        <source>FTP Proxy</source>
+        <translation type="vanished">وكيل FTP</translation>
+    </message>
+    <message>
+        <source>SOCKS Proxy</source>
+        <translation type="vanished">وكيل Socks</translation>
+    </message>
+    <message>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation type="vanished">تجاهل إعدادات الوكيل من أجل الإستضافات و النطاقات أعلاه</translation>
+    </message>
+    <message>
+        <source>Configuration URL</source>
+        <translation type="vanished">إعداد الرابط</translation>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">وكيل النظام</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::Secret8021xSection</name>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">الأمان</translation>
+    </message>
+    <message>
+        <source>TLS</source>
+        <translation type="vanished">TLS</translation>
+    </message>
+    <message>
+        <source>MD5</source>
+        <translation type="vanished">MD5 </translation>
+    </message>
+    <message>
+        <source>LEAP</source>
+        <translation type="vanished">LEAP</translation>
+    </message>
+    <message>
+        <source>FAST</source>
+        <translation type="vanished">FAST</translation>
+    </message>
+    <message>
+        <source>Tunneled TLS</source>
+        <translation type="vanished">نفق TLS</translation>
+    </message>
+    <message>
+        <source>Protected EAP</source>
+        <translation type="vanished">EAP محمي</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">تم الحفظ</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">اسأل</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">غير مطلوب</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">معطل</translation>
+    </message>
+    <message>
+        <source>Anonymous</source>
+        <translation type="vanished">مجهول</translation>
+    </message>
+    <message>
+        <source>Authenticated</source>
+        <translation type="vanished">موثوق</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="vanished">المسار</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="vanished">تلقائي</translation>
+    </message>
+    <message>
+        <source>Version 0</source>
+        <translation type="vanished">الاصدار 0</translation>
+    </message>
+    <message>
+        <source>Version 1</source>
+        <translation type="vanished">الاصدار 1</translation>
+    </message>
+    <message>
+        <source>EAP Auth</source>
+        <translation type="vanished">مصادقة EAP</translation>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="vanished">الهوية</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">خيارات Pwd</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">مفتاح خاص</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">شهادة CA</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">رخصة المستخدم</translation>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
+        <translation type="vanished">هوية مجهولة</translation>
+    </message>
+    <message>
+        <source>Provisioning</source>
+        <translation type="vanished">تجهيز</translation>
+    </message>
+    <message>
+        <source>PAC file</source>
+        <translation type="vanished">ملف إعداد الوكيل PAC</translation>
+    </message>
+    <message>
+        <source>Inner Auth</source>
+        <translation type="vanished">مصادقة داخلية</translation>
+    </message>
+    <message>
+        <source>PEAP Version</source>
+        <translation type="vanished">إصدار PEAP</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">خاص Pwd</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretHotspotSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">كلمة المرور غير صحيحة</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">لا شيء</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 Personal</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">الأمان</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">المفتاح</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWiredSection</name>
+    <message>
+        <source>Security Required</source>
+        <translation type="vanished">الحماية مطلوبة</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWirelessSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">كلمة المرور غير صحيحة</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">لا شيء</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 Personal</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation type="vanished">WPA/WPA2 Enterprise</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">الأمان</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">المفتاح</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN متقدم </translation>
+    </message>
+    <message>
+        <source>Customize Gateway Port</source>
+        <translation type="vanished">تخصيص منفذ البوابة</translation>
+    </message>
+    <message>
+        <source>Gateway Port</source>
+        <translation type="vanished">منفذ البوابة</translation>
+    </message>
+    <message>
+        <source>Customize Renegotiation Interval</source>
+        <translation type="vanished">تخصيص إعادة التفاوض</translation>
+    </message>
+    <message>
+        <source>Renegotiation Interval</source>
+        <translation type="vanished">  فاصل  إعادة تفاوض </translation>
+    </message>
+    <message>
+        <source>Use LZO Data Compression</source>
+        <translation type="vanished">استخدام ضغط بيانات الـ LZO</translation>
+    </message>
+    <message>
+        <source>Use TCP Connection</source>
+        <translation type="vanished">استخدام اتصال TCP</translation>
+    </message>
+    <message>
+        <source>Use TAP Device</source>
+        <translation type="vanished">استخدام جهاز TAP</translation>
+    </message>
+    <message>
+        <source>Customize Tunnel MTU</source>
+        <translation type="vanished">تخصيص نفق MTU </translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+    <message>
+        <source>Customize UDP Fragment Size</source>
+        <translation type="vanished">تخصيص حجم الجزء UDP</translation>
+    </message>
+    <message>
+        <source>UDP Fragment Size</source>
+        <translation type="vanished">حجم جزء UDP </translation>
+    </message>
+    <message>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation type="vanished">تقييد نفق TCP MSS</translation>
+    </message>
+    <message>
+        <source>Randomize Remote Hosts</source>
+        <translation type="vanished">المضيفون البعيدون عشوائياً</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN متقدم </translation>
+    </message>
+    <message>
+        <source>Cisco (default)</source>
+        <translation type="vanished">سيسكو (افتراضي)</translation>
+    </message>
+    <message>
+        <source>Netscreen</source>
+        <translation type="vanished">Netscreen</translation>
+    </message>
+    <message>
+        <source>Secure (default)</source>
+        <translation type="vanished">محمي (افتراضي)</translation>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation type="vanished">ضعيف</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">لا شيء</translation>
+    </message>
+    <message>
+        <source>NAT-T When Available (default)</source>
+        <translation type="vanished">NAT-T عندما تكون متوفرة (افتراضي)</translation>
+    </message>
+    <message>
+        <source>NAT-T Always</source>
+        <translation type="vanished">NAT-T دائماً</translation>
+    </message>
+    <message>
+        <source>Cisco UDP</source>
+        <translation type="vanished">سيسكو UDP</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">معطل</translation>
+    </message>
+    <message>
+        <source>DH Group 1</source>
+        <translation type="vanished">DH Group 1</translation>
+    </message>
+    <message>
+        <source>DH Group 2 (default)</source>
+        <translation type="vanished">DH مجموعة2 (افتراضي)</translation>
+    </message>
+    <message>
+        <source>DH Group 5</source>
+        <translation type="vanished">DH Group 5</translation>
+    </message>
+    <message>
+        <source>Server (default)</source>
+        <translation type="vanished">الخادم (افتراضي)</translation>
+    </message>
+    <message>
+        <source>DH Group 2</source>
+        <translation type="vanished">DH Group 2</translation>
+    </message>
+    <message>
+        <source>Domain</source>
+        <translation type="vanished">النطاق</translation>
+    </message>
+    <message>
+        <source>Vendor</source>
+        <translation type="vanished">المورّد</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="vanished">الإصدار</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="vanished">التشفير</translation>
+    </message>
+    <message>
+        <source>NAT Traversal Mode</source>
+        <translation type="vanished">وضع اجتيار NAT</translation>
+    </message>
+    <message>
+        <source>IKE DH Group</source>
+        <translation type="vanished">IKE DH مجموعة </translation>
+    </message>
+    <message>
+        <source>Forward Secrecy</source>
+        <translation type="vanished">التقدم المحمي</translation>
+    </message>
+    <message>
+        <source>Local Port</source>
+        <translation type="vanished">منفذ محلي</translation>
+    </message>
+    <message>
+        <source>Disable Dead Peer Detection</source>
+        <translation type="vanished">تعطيل كشف النظير المفقود</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnIpsecSection</name>
+    <message>
+        <source>VPN IPsec</source>
+        <translation type="vanished">VPN IPsec</translation>
+    </message>
+    <message>
+        <source>Enable IPsec</source>
+        <translation type="vanished">تمكين IPsec </translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">اسم المجموعة </translation>
+    </message>
+    <message>
+        <source>Group ID</source>
+        <translation type="vanished">هوية المجموعة</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">مفتاح مشترك مسبقاً</translation>
+    </message>
+    <message>
+        <source>Phase1 Algorithms</source>
+        <translation type="vanished">خوارزميات المرحلة 1</translation>
+    </message>
+    <message>
+        <source>Phase2 Algorithms</source>
+        <translation type="vanished">خوارزميات المرحلة 2</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenConnectSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">البوابة</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">شهادة CA</translation>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="vanished">الوكيل</translation>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="vanished">السماح لـ Cisco Secure Desktop Trojan</translation>
+    </message>
+    <message>
+        <source>CSD Script</source>
+        <translation type="vanished">CSD Script</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">رخصة المستخدم</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">مفتاح خاص</translation>
+    </message>
+    <message>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="vanished">استخدام &quot;FSID&quot; لمفتاح العبور</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenVPNSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Certificates (TLS)</source>
+        <translation type="vanished">شهادات (TLS)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+    <message>
+        <source>Certificates with Password (TLS)</source>
+        <translation type="vanished">الشهادات مع كلمة سر (TLS)</translation>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="vanished">مفتاح ثابت</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">تم الحفظ</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">اسأل</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">غير مطلوب</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">البوابة</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">نوع المصادقة</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">شهادة CA</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">رخصة المستخدم</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">مفتاح خاص</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">خيارات Pwd</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">خاص Pwd</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">اسم المستخدم</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">تخصيص توجيه المفاتيح</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">اتجاه المفتاح</translation>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="vanished">IP بعيد</translation>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="vanished">IP محلي</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPPPSection</name>
+    <message>
+        <source>VPN PPP</source>
+        <translation type="vanished">VPN PPP</translation>
+    </message>
+    <message>
+        <source>All Available (default)</source>
+        <translation type="vanished">كل ماهو متاح  (افتراضي)</translation>
+    </message>
+    <message>
+        <source>40-bit (less secure)</source>
+        <translation type="vanished">40-بت (أقل أمناً)</translation>
+    </message>
+    <message>
+        <source>128-bit (most secure)</source>
+        <translation type="vanished">128-بت (الأكثر أماناً)</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">رفض مصادقة الـ EAP</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">رفض مصادقة الـ PAP</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">رفض مصادقة الـ CHAP</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">رفض مصادقة الـ MSCHAP</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">رفض مصادقة الـ MSCHAPv2</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">عدم ضغط بيانات  BSD</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">عدم ضغط البيانات الضئيلة</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">عدم ضغط بيانات  TCP الرأسية</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">عدم ضغط حقل البروتوكول</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">لا يوجد  ضغط عنوا ن\تحكم     </translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">إرسال حزم صدى PPP  </translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">استخدام MPPE  </translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">الأمان</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Stateful MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPage</name>
+    <message>
+        <source>VPN Status</source>
+        <translation type="vanished">حالة VPN</translation>
+    </message>
+    <message>
+        <source>Create VPN</source>
+        <translation type="vanished">إنشاء VPN</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import VPN</source>
+        <translation type="vanished">إستيراد شبكة خاصة إفتراضية</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="vanished">خطأ في الإستيراد</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">موافق</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">وكلاء شبكة VPN</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">غير مطلوب</translation>
+    </message>
+    <message>
+        <source>HTTP</source>
+        <translation type="vanished">HTTP</translation>
+    </message>
+    <message>
+        <source>SOCKS</source>
+        <translation type="vanished">SOCKS</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">نوع الوكيل</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Server IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">المنفذ</translation>
+    </message>
+    <message>
+        <source>Retry Indefinitely When Failed</source>
+        <translation type="vanished">إعادة محاولات غير محددة وعند الفشل</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">اسم المستخدم</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSSTPSection</name>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">CA ملف </translation>
+    </message>
+    <message>
+        <source>Ignore Certificate Warnings</source>
+        <translation type="vanished">تجاهل تحذيرات الشهادات</translation>
+    </message>
+    <message>
+        <source>Use TLS Hostname Extensions</source>
+        <translation type="vanished">استخدم TLS Hostname Extensions</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <message>
+        <source>VPN Security</source>
+        <translation type="vanished">حماية vpn</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">افتراضي</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">لا شيء</translation>
+    </message>
+    <message>
+        <source>Cipher</source>
+        <translation type="vanished">الشيفرة</translation>
+    </message>
+    <message>
+        <source>HMAC Auth</source>
+        <translation type="vanished">HMAC مصادقة</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">تم الحفظ</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">اسأل</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">غير مطلوب</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">البوابة</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">اسم المستخدم</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">خيارات Pwd</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+    <message>
+        <source>NT Domain</source>
+        <translation type="vanished">NT Domain</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSstpProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">وكلاء شبكة VPN</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Server IP</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">المنفذ</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">اسم المستخدم</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnStrongSwanSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">مفتاح خاص</translation>
+    </message>
+    <message>
+        <source>SSH Agent</source>
+        <translation type="vanished">وكيل SSH</translation>
+    </message>
+    <message>
+        <source>Smart Card</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>EAP</source>
+        <translation type="vanished">EAP</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">مفتاح مشترك مسبقاً</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">البوابة</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">شهادة CA</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">نوع المصادقة</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">رخصة المستخدم</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">اسم المستخدم</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+    <message>
+        <source>Request an Inner IP Address</source>
+        <translation type="vanished">مطلوب عنوان IP داخلي</translation>
+    </message>
+    <message>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="vanished">فرض تغليف UDP</translation>
+    </message>
+    <message>
+        <source>Use IP Compression</source>
+        <translation type="vanished">استخدام ضغط عناوين  IP </translation>
+    </message>
+    <message>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation type="vanished">تشغيل Custom Cipher Proposals</translation>
+    </message>
+    <message>
+        <source>IKE</source>
+        <translation type="vanished">IKE</translation>
+    </message>
+    <message>
+        <source>ESP</source>
+        <translation type="vanished">ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnTLSSection</name>
+    <message>
+        <source>VPN TLS Authentication</source>
+        <translation type="vanished"> مصادقة VPN  TLS</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">افتراضي</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="vanished">عميل</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">الخادم</translation>
+    </message>
+    <message>
+        <source>Subject Match</source>
+        <translation type="vanished">مطابقة الموضوع</translation>
+    </message>
+    <message>
+        <source>Remote Cert Type</source>
+        <translation type="vanished">نوع الشهادة البعيدة</translation>
+    </message>
+    <message>
+        <source>Key File</source>
+        <translation type="vanished">مفتاح الملف</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">تخصيص توجيه المفاتيح</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">اتجاه المفتاح</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnVPNCSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">تم الحفظ</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">اسأل</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">غير مطلوب</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">البوابة</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">اسم المستخدم</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">خيارات Pwd</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">كلمة المرور</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">اسم المجموعة </translation>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="vanished">مجموعة Pwd</translation>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="vanished">استخدام المصادقة الهجينة</translation>
+    </message>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">CA ملف </translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WiredPage</name>
+    <message>
+        <source>Plug in the network cable first</source>
+        <translation type="vanished">قم بتوصيل سلك الشبكة أولًا</translation>
+    </message>
+    <message>
+        <source>Wired Network Adapter</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Network Connection</source>
+        <translation type="vanished">إضافة اتصال شبكة</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
+    </message>
+    <message>
+        <source>Select Settings</source>
+        <translation type="vanished">تحديد الإعدادات</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessPage</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation type="vanished">الإتصال بشبكة مخفية</translation>
+    </message>
+    <message>
+        <source>Wireless Network Adapter</source>
+        <translation type="vanished">كرت الشبكة اللاسلكية</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Close Hotspot</source>
+        <translation type="vanished">أغلق نقطة الاتصال</translation>
+    </message>
+    <message>
+        <source>Disable hotspot first if you want to connect to a wireless network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">الشبكة المحلية اللاسلكية</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessSection</name>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">الشبكة المحلية اللاسلكية</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">لا يوجد جهاز مرتبط بعنوان ال MAC</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID </translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">مطلوب</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">عنوان MAC الجهاز </translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">تخصيص MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">الحجم</translation>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation type="vanished">خط قياسي</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation type="vanished">خط أحادي المسافة</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source> (Unsupported font)</source>
+        <translation type="vanished">(الخط غير مدعوم)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">السمة</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Accent Color</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">تأثيرات النوافذ</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="vanished">الشفافية</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationList</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">عام</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation type="vanished">سمة الأيقونات</translation>
+        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Cursor Theme</source>
+        <translation type="vanished">سمة المؤشر</translation>
+        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="vanished">الخط</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationModule</name>
+    <message>
+        <source>Personalization</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">إضاءة</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">مظلم</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">تلقائي</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">افتراضي</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">إضاءة</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">مظلم</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">تلقائي</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">افتراضي</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::GeneralWidget</name>
+    <message>
+        <source>Power Saving Mode</source>
+        <translation type="vanished">وضع توفير الطاقة</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Mode Switch</source>
+        <translation type="vanished">تبديل الوضع تلقائيا</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerModule</name>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">على البطارية</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Battery low, please plug in</source>
+        <translation type="vanished">البطارية منخفضة، رجاءً اشبك السلك الكهربائي</translation>
+    </message>
+    <message>
+        <source>Battery critically low</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">عام</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="vanished">وضع الطاقة</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">على البطارية</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseBatteryWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">الشاشة ستدخل في وضع السبات بعد</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">الحاسوب سيدخل وضع الإسبات بعد</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">قفل الشاشة بعد</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">تعليق على غطاء قريب</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">أبداً</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished"> دقيقة واحدة</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 دقائق</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished"> ساعة 1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseElectricWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">الشاشة ستدخل في وضع السبات بعد</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">قفل الشاشة بعد</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">تعليق على غطاء قريب</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">الحاسوب سيدخل وضع الإسبات بعد</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">أبداً</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished"> دقيقة واحدة</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 دقائق</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished"> ساعة 1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::search::SearchWidget</name>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">الخادم</translation>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">تأثيرات النوافذ</translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">وضع المطور</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">برنامج تجربة المستخدم</translation>
+    </message>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">الانضمام إلى برنامج تجربة المستخدم</translation>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">لوحة اللمس</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">على البطارية</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">شبكة سلكية</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">شبكة لاسلكية</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">شاشات متعددة</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::AdvancedPage</name>
+    <message>
+        <source>Output</source>
+        <translation type="vanished">الإخراج</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="vanished">الإدخال</translation>
+    </message>
+    <message>
+        <source>Sound Card:</source>
+        <translation type="vanished">كارت الصوت:</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::MicrophonePage</name>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">المايكروفون</translation>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation type="vanished">حجم الإدخال</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">مؤثرات الصوت</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundModule</name>
+    <message>
+        <source>Sound</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundWidget</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">مكبر الصوت</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">المايكروفون</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">متقدم</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">مؤثرات الصوت</translation>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SpeakerPage</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">مكبر الصوت</translation>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation type="vanished">حجم اﻹخراج</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Volume Boost</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Left/Right Balance</source>
+        <translation type="vanished">تبديل يمين/يسار</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="vanished">يسار</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="vanished">يمين</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::IndexPage</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">مزامنة تلقائية</translation>
+    </message>
+    <message>
+        <source>Syncing...</source>
+        <translation type="vanished">جاري المزامنة...</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">تسجيل الخروج</translation>
+    </message>
+    <message>
+        <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network Settings</source>
+        <translation type="vanished">إعدادات الشبكة</translation>
+    </message>
+    <message>
+        <source>Sound Settings</source>
+        <translation type="vanished">إعدادات الصوت</translation>
+    </message>
+    <message>
+        <source>Mouse Settings</source>
+        <translation type="vanished">إعدادات الفأرة</translation>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">إعدادات التحديث</translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="vanished">الرف</translation>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation type="vanished">المُطلق</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="vanished">خلفية</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">السمة</translation>
+    </message>
+    <message>
+        <source>Power Settings</source>
+        <translation type="vanished">إعدادت الطاقة</translation>
+    </message>
+    <message>
+        <source>Corner Settings</source>
+        <translation type="vanished">إعدادات الزاوية</translation>
+    </message>
+    <message>
+        <source>Last Sync: %1</source>
+        <translation type="vanished">آخر مزامنة: 1%</translation>
+    </message>
+    <message>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="vanished">yyyy-MM-dd hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LoginPage</name>
+    <message>
+        <source>Sign In</source>
+        <translation type="vanished">تسجيل الدخول</translation>
+        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud Account Sign In</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="vanished">مدعوم في الصين حاليًا</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LogoutPage</name>
+    <message>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="vanished">عذرًا، هذا في الوقت الحالي غير مدعوم في منطقتك، سيأتي قريبًا</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">تسجيل الخروج</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::SyncModule</name>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <message>
+        <source>Edition:</source>
+        <translation type="vanished">إصدار:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="vanished">النوع:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To be activated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel:</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Processor:</source>
+        <translation type="vanished">المعالج :</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Memory:</source>
+        <translation type="vanished">الذاكرة :</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Disk:</source>
+        <translation type="vanished">القرص :</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>%1-bit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="vanished">عرض</translation>
+    </message>
+    <message>
+        <source>Expired</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>In trial period</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Trial expired</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoModule</name>
+    <message>
+        <source>System Info</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
+    <message>
+        <source>About This PC</source>
+        <translation type="vanished">عن هذا الجهاز</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Edition License</source>
+        <translation type="vanished">رخصة النسخة</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="vanished">اتفاقية ترخيص المستخدم النهائي</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorSourceItem</name>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">غير مختبر</translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="vanished">خارج الخدمة</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">بطيء</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="vanished">متوسط</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">سريع</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorsWidget</name>
+    <message>
+        <source>Mirror List</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Test Speed</source>
+        <translation type="vanished">سرعه الاختبار</translation>
+    </message>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">غير مختبر</translation>
+    </message>
+    <message>
+        <source>Retest</source>
+        <translation type="vanished">إعادة الاختبار</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateCtrlWidget</name>
+    <message>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="vanished">أعد تشغيل الحاسوب كي يشتغل النظام و البرامج كم ينبغي</translation>
+    </message>
+    <message>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="vanished">قُطع الاتصال الشبكي، يُرجى إعادة المحاولة بعد إعادة الاتصال.</translation>
+    </message>
+    <message>
+        <source>Your system is not authorized, please activate first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation type="vanished">هذا التحديث قد يأخذ وقتًا طويًا، رجاءً لا تقم بإلغاء أو إعادة التشغيل خلال هذه العملية</translation>
+    </message>
+    <message>
+        <source>Checking for updates, please wait...</source>
+        <translation type="vanished">التحقق من وجود تحديثات، يرجى الانتظار ...</translation>
+    </message>
+    <message>
+        <source>Download and install updates</source>
+        <translation type="vanished">تنزيل وتثبيت التحديثات</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="vanished">%1% تم تحميله (انقر للإيقاف)</translation>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="vanished">%1% تم تحميله (أنقر للإستمرار)</translation>
+    </message>
+    <message>
+        <source>Install updates</source>
+        <translation type="vanished">تثبيت التحديثات</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation type="vanished">نظامك محدث حتى الآن</translation>
+    </message>
+    <message>
+        <source>Updating, please wait...</source>
+        <translation type="vanished">يتم التحديث ، يرجى الانتظار ..</translation>
+    </message>
+    <message>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="vanished">النظام الأحدث مثبت الآن ، إعادة التشغيل </translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="vanished">خطأ في الملفات المعتمد عليها، فشل في تحديد التحديثات</translation>
+    </message>
+    <message>
+        <source>Backing up, please wait...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System backup failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n application update(s) available</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>New system edition available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>New system edition and %n application update(s) available</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="vanished">تم التنزيل</translation>
+    </message>
+    <message>
+        <source>Size: %1</source>
+        <translation type="vanished">الحجم: %1</translation>
+    </message>
+    <message>
+        <source>Your battery is lower than 50%, please plug in to continue</source>
+        <translation type="vanished">البطارية أقل من 50٪، يرجى التوصيل للمتابعة</translation>
+    </message>
+    <message>
+        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
+        <translation type="vanished">الرجاء التأكد من أن الطاقة كافية لإعادة التشغيل، وعدم فصل الجهاز من الطاقة</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateHistoryButton</name>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">سجل التحديثات</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateModule</name>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateSettings</name>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">إعدادات التحديث</translation>
+    </message>
+    <message>
+        <source>Auto Clear Package Cache</source>
+        <translation type="vanished">مسح تلقائي لذاكرة الحزم المؤقتة</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Updates Notification</source>
+        <translation type="vanished">الإشعارات الخاصة بالتحديثات</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Download Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="vanished">فعله ليتم تنزيل التحديثات تلقائيًا من خلال الشبكة السلكية أو اللاسلكية</translation>
+    </message>
+    <message>
+        <source>System Repository Detection</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="vanished">التبديل الذكي للسيرفر</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="vanished">فعله للاتصال بأسرع سيرفر تلقائيًا</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateWidget</name>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">إعدادات التحديث</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="vanished">آخر التحديثات</translation>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="vanished">عودة</translation>
+    </message>
+    <message>
+        <source>Current Edition</source>
+        <translation type="vanished">الإصدار الحالي</translation>
+    </message>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">سجل التحديثات</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::PressureSettings</name>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="vanished">حساسية الضغط</translation>
+        <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">إضاءة</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="vanished">ثقيل</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomModule</name>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomWidget</name>
+    <message>
+        <source>Pen</source>
+        <translation type="vanished">القلم</translation>
+        <extra-contents_path>/wacom/Pen</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">الفأرة</translation>
+        <extra-contents_path>/wacom/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="vanished">النمط</translation>
     </message>
 </context>
 <context>

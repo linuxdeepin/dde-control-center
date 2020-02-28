@@ -23,108 +23,108 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="154"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
         <source>Help</source>
         <translation>Hjælp</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Accounts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Cloud Account</source>
         <translation>Skykonto</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="297"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Display</source>
         <translation>Skærm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="298"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Default Applications</source>
         <translation>Standardprogrammer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="299"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Personalization</source>
         <translation>Personlig tilpasning</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="300"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Network</source>
         <translation>Netværk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="301"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
         <source>Sound</source>
         <translation>Lyd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="302"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="801"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="803"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="303"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Date and Time</source>
         <translation>Dato og tid</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="304"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Power</source>
         <translation>Strøm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
         <source>Mouse</source>
         <translation>Mus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Drawing Tablet</source>
         <translation>Tegneplade</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Keyboard and Language</source>
         <translation>Tastatur og sprog</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>System Info</source>
         <translation>Systeminfo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
         <source>General Settings</source>
         <translation>Generelle indstillinger</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>TrackPoint</source>
         <translation>Trackpoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Cloud Sync</source>
         <translation>Skysynkronisering</translation>
     </message>
@@ -316,42 +316,52 @@
         <translation>valgfri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>Go to Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Adgangskoden må højst være %1 tegn langt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="374"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
         <source>Passwords do not match</source>
         <translation>Adgangskoderne er ikke ens</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="399"/>
         <source>Username cannot be empty</source>
         <translation>Brugernavnet må ikke være tomt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Brugernavnet skal være mellem 3-32 tegn langt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="412"/>
         <source>The first character must be in lower case</source>
         <translation>Det første tegn skal være med småt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="418"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>Brugernavnet må kun indeholde a~z, 0~9, - eller _</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
         <source>The full name already exists</source>
         <translation>Det fulde navn findes allerede</translation>
     </message>
@@ -419,27 +429,37 @@
         <translation>Påkrævet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>Go to Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
         <source>Wrong password</source>
         <translation>Forkert password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="236"/>
         <source>Passwords do not match</source>
         <translation>Adgangskoderne er ikke ens</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="249"/>
         <source>New password should differ from the current one</source>
         <translation>Ny adgangskode bør afvige fra den nuværende</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="256"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Adgangskoden må højst være %1 tegn langt</translation>
     </message>
@@ -467,7 +487,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
         <source>Bluetooth</source>
         <translation type="unfinished"/>
     </message>
@@ -1167,9 +1187,10 @@
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
         <source>Recommended</source>
         <translation>Anbefalet</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1379,37 +1400,37 @@
 <context>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="54"/>
         <source>System</source>
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="61"/>
         <source>Window</source>
         <translation>Vindue</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="68"/>
         <source>Workspace</source>
         <translation>Arbejdsområde</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
         <source>Speech</source>
         <translation>Tale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
         <source>Custom Shortcut</source>
         <translation>Brugerdefineret genvej</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="116"/>
         <source>Restore Defaults</source>
         <translation>Gendan standarder</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="142"/>
         <source>Shortcut</source>
         <translation>Genvej</translation>
     </message>
@@ -1417,17 +1438,17 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
         <source>Cancel</source>
         <translation>Annuller</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="68"/>
         <source>Add</source>
         <translation>Tilføj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="73"/>
         <source>Add System Language</source>
         <translation>Tilføj systemsprog</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -1839,27 +1860,27 @@
         <translation>Ethernet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="59"/>
         <source>Not Bind</source>
         <translation>Ikke bundet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="101"/>
         <source>Device MAC Addr</source>
         <translation>Enhedens MAC-adresse</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="117"/>
         <source>Cloned MAC Addr</source>
         <translation>Klonet MAC-adresse</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="130"/>
         <source>Customize MTU</source>
         <translation>Brugerdefineret MTU</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="133"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -1959,7 +1980,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
         <source>Required</source>
         <translation>Påkrævet</translation>
     </message>
@@ -1969,45 +1991,45 @@
         <translation>Gateway</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>Primary DNS</source>
         <translation>Primær DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
         <source>Secondary DNS</source>
         <translation>Sekundær DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
         <source>Only applied in corresponding resources</source>
         <translation>Kun anvendt i tilsvarende ressourcer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="249"/>
         <source>Method</source>
         <translation>Metode</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Netmask</source>
         <translation>Netmaske</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="316"/>
         <source>Prefix</source>
         <translation>Præfiks</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="444"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="456"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="465"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="475"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="484"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="512"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="538"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="485"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="548"/>
         <source>Invalid IP address</source>
         <translation type="unfinished"/>
     </message>
@@ -3632,28 +3654,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="250"/>
         <source>Connect to hidden network</source>
         <translation>Opret forbindelse til skjult netværk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="260"/>
         <source>Wireless Network Adapter</source>
         <translation>Trådløst netværkskort</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="272"/>
         <source>Close Hotspot</source>
         <translation>Luk hotspot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="275"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Deaktivér først hotspottet hvis du vil oprette forbindelse og bruger trådløst netværk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3786,22 +3808,22 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="100"/>
         <source>Light</source>
         <translation>Let</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="102"/>
         <source>Dark</source>
         <translation>Mørkt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="104"/>
         <source>Auto</source>
         <translation>Automatisk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="109"/>
         <source>Default</source>
         <translation>Standard</translation>
     </message>
@@ -4111,17 +4133,19 @@
 <context>
     <name>dccV20::sound::AdvancedPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="71"/>
         <source>Output</source>
         <translation>Output</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
         <source>Input</source>
         <translation>Input</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
         <source>Sound Card:</source>
         <translation>Lydkort:</translation>
     </message>
@@ -4149,7 +4173,7 @@
 <context>
     <name>dccV20::sound::SoundEffectsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="49"/>
         <source>Sound Effects</source>
         <translation>Lydeffekter</translation>
     </message>
@@ -5329,32 +5353,32 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="388"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="390"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Din vært forlod domæneserveren</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="389"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="391"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Din vært deltager i domæneserveren</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="411"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="413"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Din vært kunne ikke forlade domæneserveren</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="412"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="414"/>
         <source>Your host failed to join the domain server</source>
         <translation>Din værk kunne ikke deltage i domæneserveren</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="417"/>
         <source>AD domain settings</source>
         <translation>AD-domæneindstillinger</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="484"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="486"/>
         <source>Password not match</source>
         <translation>Adgangskode passer ikke</translation>
     </message>
@@ -8984,7 +9008,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
 <context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="173"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="191"/>
         <source>available</source>
         <translation>tilgængelig</translation>
     </message>
@@ -9418,6 +9442,3831 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
         <translation>Tilsluttet</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::MainWindow</name>
+    <message>
+        <source>Help</source>
+        <translation type="vanished">Hjælp</translation>
+    </message>
+    <message>
+        <source>Accounts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="vanished">Skykonto</translation>
+        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
+    </message>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">Skærm</translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Standardprogrammer</translation>
+    </message>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">Personlig tilpasning</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">Netværk</translation>
+    </message>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">Lyd</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">Bluetooth</translation>
+    </message>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">Dato og tid</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">Strøm</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Mus</translation>
+    </message>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">Tegneplade</translation>
+    </message>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">Tastatur og sprog</translation>
+    </message>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">Systeminfo</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">Generelle indstillinger</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Touchpad</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">Trackpoint</translation>
+    </message>
+    <message>
+        <source>Cloud Sync</source>
+        <translation type="vanished">Skysynkronisering</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">Fulde navn</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="vanished">Det fulde navn findes allerede</translation>
+    </message>
+    <message>
+        <source>Validity Days</source>
+        <translation type="vanished">Dage for gyldighed</translation>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation type="vanished">Altid</translation>
+    </message>
+    <message>
+        <source>Please input a number between 1-99999</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">Skift adgangskode</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Delete Account</source>
+        <translation type="vanished">Slet konto</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation type="vanished">Automatisk login</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation type="vanished">Log ind uden adgangskode</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">Gruppe</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsModule</name>
+    <message>
+        <source>Accounts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsWidget</name>
+    <message>
+        <source>Create Account</source>
+        <translation type="vanished">Opret konto</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation type="vanished">Administrator</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation type="vanished">Standardbruger</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AddFingeDialog</name>
+    <message>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scan again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Færdig</translation>
+    </message>
+    <message>
+        <source>Identifying fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AvatarListWidget</name>
+    <message>
+        <source>Images</source>
+        <translation type="vanished">Billeder</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::CreateAccountPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Opret</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">Gruppe</translation>
+    </message>
+    <message>
+        <source>New Account</source>
+        <translation type="vanished">Ny konto</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Brugernavn</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">Fulde navn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">Gentag adgangskode</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>optional</source>
+        <translation type="vanished">valgfri</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">Adgangskoden må højst være %1 tegn langt</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">Adgangskoderne er ikke ens</translation>
+    </message>
+    <message>
+        <source>Username cannot be empty</source>
+        <translation type="vanished">Brugernavnet må ikke være tomt</translation>
+    </message>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation type="vanished">Brugernavnet skal være mellem 3-32 tegn langt</translation>
+    </message>
+    <message>
+        <source>The first character must be in lower case</source>
+        <translation type="vanished">Det første tegn skal være med småt</translation>
+    </message>
+    <message>
+        <source>Username must only contain a~z, 0~9, - or _</source>
+        <translation type="vanished">Brugernavnet må kun indeholde a~z, 0~9, - eller _</translation>
+    </message>
+    <message>
+        <source>The full name already exists</source>
+        <translation type="vanished">Det fulde navn findes allerede</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::FingerWidget</name>
+    <message>
+        <source>Delete fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint Password</source>
+        <translation type="vanished">Fingeraftryksadgangskode</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add fingerprint</source>
+        <translation type="vanished">Tilføj fingeraftryk</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">Skift adgangskode</translation>
+    </message>
+    <message>
+        <source>Current Password</source>
+        <translation type="vanished">Nuværende adgangskode</translation>
+    </message>
+    <message>
+        <source>New Password</source>
+        <translation type="vanished">Ny adgangskode</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">Gentag adgangskode</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Gem</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="vanished">Forkert password</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">Adgangskoderne er ikke ens</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation type="vanished">Ny adgangskode bør afvige fra den nuværende</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">Adgangskoden må højst være %1 tegn langt</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::AdapterWidget</name>
+    <message>
+        <source>My devices</source>
+        <translation type="vanished">Mine enheder</translation>
+        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Other devices</source>
+        <translation type="vanished">Andre enheder</translation>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation type="vanished">Aktivér Bluetooth for at finde enheder i nærheden (højttalere, tastatur, mus)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::BluetoothModule</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DetailPage</name>
+    <message>
+        <source>Ignore this device</source>
+        <translation type="vanished">Ignorer enheden</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">Afbryd</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
+    <message>
+        <source>Connected</source>
+        <translation type="vanished">Tilsluttet</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="vanished">Ikke tilsluttet</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::BootWidget</name>
+    <message>
+        <source>Updating...</source>
+        <translation type="vanished">Opdaterer...</translation>
+    </message>
+    <message>
+        <source>Startup Delay</source>
+        <translation type="vanished">Opstartsforsinkelse</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Tema</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
+        <translation type="vanished">Klik på valgmuligheden i opstartsmenuen for at indstille den som den første opstart, og trække og slippe et billede, for at skifte baggrunden</translation>
+    </message>
+    <message>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="vanished">Slå tema til for at vise den i opstartsmenuen</translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">Opstartsmenu</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoModule</name>
+    <message>
+        <source>General Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">Opstartsmenu</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">Udviklertilstand</translation>
+        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">Brugeroplevelsesprogram</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Tablet Mode</source>
+        <translation type="vanished">Tablettilstand</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWork</name>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UOS Privacy Policy</source>
+        <translation type="vanished">UOS-privalivspolitik</translation>
+    </message>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="vanished">Accepter og deltag i vores brugeroplevelsesprogram</translation>
+    </message>
+    <message>
+        <source>The Disclaimer of Developer Mode</source>
+        <translation type="vanished">Ansvarsfraskrivelse af udvikler-tilstanden</translation>
+    </message>
+    <message>
+        <source>Agree and Request Root Access</source>
+        <translation type="vanished">Accepter og anmod om root-adgang</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeDialog</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="vanished">Anmod om root-adgang</translation>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation type="vanished">Online</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation type="vanished">Offline</translation>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first and continue</source>
+        <translation type="vanished">Log venligst ind på din skykonto først og fortsæt</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">Næste</translation>
+    </message>
+    <message>
+        <source>Export PC Info</source>
+        <translation type="vanished">Eksportér PC-info</translation>
+    </message>
+    <message>
+        <source>Import Certificate</source>
+        <translation type="vanished">Importér certifikat</translation>
+    </message>
+    <message>
+        <source>1. Export your PC information</source>
+        <translation type="vanished">1. Eksportér din PC-information</translation>
+    </message>
+    <message>
+        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
+        <translation type="vanished">2. Gå til https://www.chinauos.com/developMode for at downloade et offlinecertifikat</translation>
+    </message>
+    <message>
+        <source>3. Import the certificate</source>
+        <translation type="vanished">3. Importér certifikatet</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeWidget</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="vanished">Anmod om root-adgang</translation>
+    </message>
+    <message>
+        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
+        <translation type="vanished">Udviklertilstand gør det muligt for dig at få root-rettigheder, installere og køre programmer. som ikke er underskrevet, der ikke vises i programbutikken, men din systemintegration kan også tage skade. Vær venligst forsigtig når du bruger den.</translation>
+    </message>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please sign in to your cloud account first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To make some features effective, a restart is required. Restart now?</source>
+        <translation type="vanished">Nogle funktionaliteter kræver en genstart. Genstart nu?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Restart Now</source>
+        <translation type="vanished">Genstart nu</translation>
+    </message>
+    <message>
+        <source>Root Access Allowed</source>
+        <translation type="vanished">Root-adgang tilladt</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">Deltag i vores brugeroplevelsesprogram</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://openapi.chinauos.com/agreement/).</source>
+        <translation type="vanished">At deltage i brugeroplevelsesprogrammet betyder at du giver os tilladelse til at indsamle og bruger information fra din enhed, system og programmer. Hvis du afviser at vi foretager indsamlingen af førnævnte information, så deltager du ikke i vores brugeroplevelsesprogram. Se venligst UOSs privatlivspolitik (https://openapi.chinauos.com/agreement/) for mere information.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::ClockItem</name>
+    <message>
+        <source>AM</source>
+        <translation type="vanished">AM</translation>
+    </message>
+    <message>
+        <source>PM</source>
+        <translation type="vanished">PM</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateSettings</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">Automatisk synkronisering</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">Bekræft</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Server</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="vanished">Adresse</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">Tilpas</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateWidget</name>
+    <message>
+        <source>Year</source>
+        <translation type="vanished">År</translation>
+    </message>
+    <message>
+        <source>Month</source>
+        <translation type="vanished">Måned</translation>
+    </message>
+    <message>
+        <source>Day</source>
+        <translation type="vanished">Dag</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeModule</name>
+    <message>
+        <source>Date and Time</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeWidget</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">Tidszoneliste</translation>
+    </message>
+    <message>
+        <source>Time Settings</source>
+        <translation type="vanished">Tidsindstillinger</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="vanished">24-timers klokkeslæt</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::SystemTimezone</name>
+    <message>
+        <source>Change System Timezone</source>
+        <translation type="vanished">Skift systemets tidszone</translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+    </message>
+    <message>
+        <source>System Timezone</source>
+        <translation type="vanished">Systemets tidszone</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::TimezoneList</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">Tidszoneliste</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Timezone</source>
+        <translation type="vanished">Tilføj tidszone</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefappDetailWidget</name>
+    <message>
+        <source>Add Application</source>
+        <translation type="vanished">Tilføj program</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Open Desktop file</source>
+        <translation type="vanished">Åbn skrivebordsfil</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation type="vanished">Ugyldig</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsModule</name>
+    <message>
+        <source>Default Applications</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="vanished">Webside</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="vanished">E-mail</translation>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="vanished">Tekst</translation>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="vanished">Musik</translation>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="vanished">Video</translation>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="vanished">Billede</translation>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="vanished">Terminal</translation>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Standardprogrammer</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::BrightnessPage</name>
+    <message>
+        <source>Night Shift</source>
+        <translation type="vanished">Natteskift</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>The screen hue will be auto adjusted according to your location</source>
+        <translation type="vanished">Skærmens farvetone justeres automatisk i henhold til din placering</translation>
+    </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="vanished">Automatisk lysstyrke</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::CustomSettingDialog</name>
+    <message>
+        <source>Main Screen</source>
+        <translation type="vanished">Primære skærm</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">Opløsning</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">Opdateringshastighed</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Gem</translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">Hz</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Anbefalet</translation>
+    </message>
+    <message>
+        <source>inch</source>
+        <translation type="vanished">tommer</translation>
+    </message>
+    <message>
+        <source>Resolution %1x%2</source>
+        <translation type="vanished">Opløsning %1x%2</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayModule</name>
+    <message>
+        <source>Display</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Flere skærme</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayWidget</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Flere skærme</translation>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="vanished">Lysstyrke</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">Opløsning</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">Skærmskalering</translation>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">Opdateringshastighed</translation>
+        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+    </message>
+    <message>
+        <source>Rotate Screen</source>
+        <translation type="vanished">Roter skærm</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenSettingPage</name>
+    <message>
+        <source>Custom Settings</source>
+        <translation type="vanished">Brugerdefinerede indstillinger</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="vanished">Duplikér</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="vanished">Udvid</translation>
+    </message>
+    <message>
+        <source>Show the same image on other screens</source>
+        <translation type="vanished">Vis det samme billede på de andre skærme</translation>
+    </message>
+    <message>
+        <source>Expand the desktop across the screens</source>
+        <translation type="vanished">Udvid skrivebordet henover skærmene</translation>
+    </message>
+    <message>
+        <source>%1 only</source>
+        <translation type="vanished">kun %1</translation>
+    </message>
+    <message>
+        <source>Show the screen content only on %1</source>
+        <translation type="vanished">Vis kun skærmens indhold på %1</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">Tilpas</translation>
+    </message>
+    <message>
+        <source>Configure the display according to your needs</source>
+        <translation type="vanished">Konfigurer skærmen som du har brug for</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RefreshRatePage</name>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">Hz</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Anbefalet</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ResolutionDetailPage</name>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Anbefalet</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RotateDialog</name>
+    <message>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">Venstreklik for at dreje, højreklik for at gendanne og afslutte. Tryk på Ctrl+S for at gemme.</translation>
+    </message>
+    <message>
+        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">Højreklik for at dreje, venstreklik for at gendanne og afslutte. Tryk på Ctrl+S for at gemme.</translation>
+    </message>
+    <message>
+        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
+        <translation type="vanished">Gem skærmindstillingerne? Hvis der ikke foretages nogen handling, så gendannes skærmen i %1s.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ScalingPage</name>
+    <message>
+        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
+        <translation type="vanished">Nogle programmer kan ikke skaleres med de angivne indstillinger i miljø med flere skærme.</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation type="vanished">Skærmen understøtter kun 100% skærmskalering</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::CustomContent</name>
+    <message>
+        <source>Add Custom Shortcut</source>
+        <translation type="vanished">Tilføj brugerdefineret genvej</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Navn</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="vanished">Kommando</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">Tilføj</translation>
+    </message>
+    <message>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation type="vanished">Genvejen er i konflikt med %1. Klik på Tilføj, for at bruge genvejen med det samme</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
+    <message>
+        <source>Repeat Delay</source>
+        <translation type="vanished">Gentagelsesforsinkelse</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Short</source>
+        <translation type="vanished">Kort</translation>
+    </message>
+    <message>
+        <source>Long</source>
+        <translation type="vanished">Lang</translation>
+    </message>
+    <message>
+        <source>Repeat Rate</source>
+        <translation type="vanished">Gentagelseshastighed</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Langsom</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Hurtig</translation>
+    </message>
+    <message>
+        <source>Test here</source>
+        <translation type="vanished">Test her</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Numeric Keypad</source>
+        <translation type="vanished">Numerisk tastatur</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Caps Lock Prompt</source>
+        <translation type="vanished">Caps Lock-prompt</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">Tastaturlayout</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Rediger</translation>
+    </message>
+    <message>
+        <source>Switch Layouts (Multiple)</source>
+        <translation type="vanished">Skift layouts (flere)</translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="vanished">Gælder for</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="vanished">System</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">Program</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Færdig</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardModule</name>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">Brugerdefineret genvej</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Generelt</translation>
+    </message>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">Tastaturlayout</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System Language</source>
+        <translation type="vanished">Systemets sprog</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="vanished">Genveje</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
+    <message>
+        <source>System</source>
+        <translation type="vanished">System</translation>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation type="vanished">Vindue</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="vanished">Arbejdsområde</translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation type="vanished">Tale</translation>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">Brugerdefineret genvej</translation>
+    </message>
+    <message>
+        <source>Restore Defaults</source>
+        <translation type="vanished">Gendan standarder</translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="vanished">Genvej</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">Tilføj</translation>
+    </message>
+    <message>
+        <source>Add System Language</source>
+        <translation type="vanished">Tilføj systemsprog</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
+    <message>
+        <source>Language List</source>
+        <translation type="vanished">Sprogliste</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Rediger</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Færdig</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
+    <message>
+        <source>Left Hand</source>
+        <translation type="vanished">Venstrehåndet</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad while typing</source>
+        <translation type="vanished">Deaktivér touchpad mens der skrives</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="vanished">Rullehastighed</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Double-click Speed</source>
+        <translation type="vanished">Hastighed for dobbeltklik</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Langsom</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Hurtig</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseModule</name>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Touchpad</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">Trackpoint</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Markørhastighed</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation type="vanished">Museacceleration</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation type="vanished">Deaktivér touchpad når der tilsluttes en mus</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">Naturlig rulning</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Langsom</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Hurtig</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Generelt</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Mus</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Touchpad</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">Trackpoint</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Markørhastighed</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="vanished">Tryk for at klikke</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">Naturlig rulning</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Langsom</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Hurtig</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Markørhastighed</translation>
+        <extra-child_page>TrackPoint</extra-child_page>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Langsom</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Hurtig</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsProxyPage</name>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">Programproxy</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Proxytype</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">IP-adresse</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Brugernavn</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">Valgfri</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+    <message>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="vanished">Tjek &quot;Brug en proxy&quot; i programmets genvejsmenu i opstarter efter den er blevet konfigureret</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Gem</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid port</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsTypePage</name>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Proxytype</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionEditPage</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">Afbryd</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">Slet</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Gem</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this configuration?</source>
+        <translation type="vanished">Er du sikker på, at du vil slette konfigurationen?</translation>
+    </message>
+    <message>
+        <source>Wired Connection %1</source>
+        <translation type="vanished">Kablet forbindelse %1</translation>
+    </message>
+    <message>
+        <source>hotspot</source>
+        <translation type="vanished">hotspot</translation>
+    </message>
+    <message>
+        <source>Wireless Connection %1</source>
+        <translation type="vanished">Trådløs forbindelse %1</translation>
+    </message>
+    <message>
+        <source>PPPoE Connection %1</source>
+        <translation type="vanished">PPPoE-forbindelse %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
+    <message>
+        <source>New VPN</source>
+        <translation type="vanished">Ny VPN</translation>
+    </message>
+    <message>
+        <source>VPN Type</source>
+        <translation type="vanished">VPN-type</translation>
+    </message>
+    <message>
+        <source>L2TP</source>
+        <translation type="vanished">L2TP</translation>
+    </message>
+    <message>
+        <source>PPTP</source>
+        <translation type="vanished">PPTP</translation>
+    </message>
+    <message>
+        <source>VPNC</source>
+        <translation type="vanished">VPNC</translation>
+    </message>
+    <message>
+        <source>OpenVPN</source>
+        <translation type="vanished">OpenVPN</translation>
+    </message>
+    <message>
+        <source>StrongSwan</source>
+        <translation type="vanished">StrongSwan</translation>
+    </message>
+    <message>
+        <source>OpenConnect</source>
+        <translation type="vanished">OpenConnect</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="vanished">Eksportér</translation>
+    </message>
+    <message>
+        <source>VPN L2TP %1</source>
+        <translation type="vanished">VPN L2TP %1</translation>
+    </message>
+    <message>
+        <source>VPN PPTP %1</source>
+        <translation type="vanished">VPN PPTP %1</translation>
+    </message>
+    <message>
+        <source>VPN VPNC %1</source>
+        <translation type="vanished">VPN VPNC %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenVPN %1</source>
+        <translation type="vanished">VPN OpenVPN %1</translation>
+    </message>
+    <message>
+        <source>VPN StrongSwan %1</source>
+        <translation type="vanished">VPN StrongSwan %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenConnect %1</source>
+        <translation type="vanished">VPN OpenConnect %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::EthernetSection</name>
+    <message>
+        <source>Ethernet</source>
+        <translation type="vanished">Ethernet</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">Ikke bundet</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">Enhedens MAC-adresse</translation>
+    </message>
+    <message>
+        <source>Cloned MAC Addr</source>
+        <translation type="vanished">Klonet MAC-adresse</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">Brugerdefineret MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericHotspotSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Generelt</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Navn</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Generelt</translation>
+    </message>
+    <message>
+        <source>The name already exists</source>
+        <translation type="vanished">Navnet findes allerede</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Navn</translation>
+    </message>
+    <message>
+        <source>Auto Connect</source>
+        <translation type="vanished">Opret automatisk forbindelse</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotDeviceWidget</name>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">Hotspot</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Settings</source>
+        <translation type="vanished">Tilføj indstillinger</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotPage</name>
+    <message>
+        <source>Create Hotspot</source>
+        <translation type="vanished">Opret hotspot</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::IpvxSection</name>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automatisk</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">Manuel</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="vanished">Ignorer</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">IP-adresse</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">Primær DNS</translation>
+    </message>
+    <message>
+        <source>Secondary DNS</source>
+        <translation type="vanished">Sekundær DNS</translation>
+    </message>
+    <message>
+        <source>Only applied in corresponding resources</source>
+        <translation type="vanished">Kun anvendt i tilsvarende ressourcer</translation>
+    </message>
+    <message>
+        <source>Method</source>
+        <translation type="vanished">Metode</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Netmaske</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">Præfiks</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkDetailPage</name>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">Netværksdetaljer</translation>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">Hotspot</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Sikkerhed</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation type="vanished">Grænseflade</translation>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation type="vanished">MAC</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation type="vanished">Bånd</translation>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">Primær DNS</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Netmaske</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">Præfiks</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Hastighed</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModule</name>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Kablet netværk</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Trådløst netværk</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Personligt hotspot</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModuleWidget</name>
+    <message>
+        <source>DSL</source>
+        <translation type="vanished">DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">Systemproxy</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">Programproxy</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">Netværksdetaljer</translation>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Configure by Network Manager</source>
+        <translation type="vanished">Konfigurer med netværkshåndtering</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Personligt hotspot</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network %1</source>
+        <translation type="vanished">Kablet netværk %1</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Kablet netværk</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network %1</source>
+        <translation type="vanished">Trådløst netværk %1</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Trådløst netværk</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Deaktiveret</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="vanished">Afbrudt</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPOESection</name>
+    <message>
+        <source>PPPoE</source>
+        <translation type="vanished">PPPoE</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Brugernavn</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation type="vanished">Tjeneste</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPSection</name>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">Afvis EAP-autentifikation</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">Afvis PAP-autentifikation</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">Afvis CHAP-autentifikation</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">Afvis MSCHAP-autentifikation</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">Afvis MSCHAPv2-autentifikation</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">Ingen BSD-datakomprimering</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">Ingen deflate-datakomprimering</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">Ingen TCP-headerkomprimering</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">Ingen protokol-feltkomprimering</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">Ingen adresse-/kontrolkomprimering</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">Send PPP echo-pakker</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">Brug MPPE</translation>
+    </message>
+    <message>
+        <source>128-bit MPPE</source>
+        <translation type="vanished">128-bit MPPE</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Stateful MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PppoePage</name>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation type="vanished">Opret PPPoE-forbindelse</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
+    </message>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ProxyPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Gem</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Intet</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">Manuel</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automatisk</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">Valgfri</translation>
+    </message>
+    <message>
+        <source>HTTP Proxy</source>
+        <translation type="vanished">HTTP-proxy</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+    </message>
+    <message>
+        <source>HTTPS Proxy</source>
+        <translation type="vanished">HTTPS-proxy</translation>
+    </message>
+    <message>
+        <source>FTP Proxy</source>
+        <translation type="vanished">FTP-proxy</translation>
+    </message>
+    <message>
+        <source>SOCKS Proxy</source>
+        <translation type="vanished">SOCKS-proxy</translation>
+    </message>
+    <message>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation type="vanished">Ignorer proxy-konfigurationerne for værterne og domænerne ovenfor</translation>
+    </message>
+    <message>
+        <source>Configuration URL</source>
+        <translation type="vanished">Konfigurations-URL</translation>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">Systemproxy</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::Secret8021xSection</name>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Sikkerhed</translation>
+    </message>
+    <message>
+        <source>TLS</source>
+        <translation type="vanished">TLS</translation>
+    </message>
+    <message>
+        <source>MD5</source>
+        <translation type="vanished">MD5</translation>
+    </message>
+    <message>
+        <source>LEAP</source>
+        <translation type="vanished">LEAP</translation>
+    </message>
+    <message>
+        <source>FAST</source>
+        <translation type="vanished">FAST</translation>
+    </message>
+    <message>
+        <source>Tunneled TLS</source>
+        <translation type="vanished">Tunneled TLS</translation>
+    </message>
+    <message>
+        <source>Protected EAP</source>
+        <translation type="vanished">Beskyttet EAP</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Gemt</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Spørg</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Ikke påkrævet</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Deaktiveret</translation>
+    </message>
+    <message>
+        <source>Anonymous</source>
+        <translation type="vanished">Anonym</translation>
+    </message>
+    <message>
+        <source>Authenticated</source>
+        <translation type="vanished">Autentificeret</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="vanished">Begge</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="vanished">Automatisk</translation>
+    </message>
+    <message>
+        <source>Version 0</source>
+        <translation type="vanished">Version 0</translation>
+    </message>
+    <message>
+        <source>Version 1</source>
+        <translation type="vanished">Version 1</translation>
+    </message>
+    <message>
+        <source>EAP Auth</source>
+        <translation type="vanished">EAP-godkendelse</translation>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="vanished">Identitet</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Valgmuligheder for adgangskode</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privat nøgle</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA-certifikat</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Brugercertifikat</translation>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
+        <translation type="vanished">Anonym ID</translation>
+    </message>
+    <message>
+        <source>Provisioning</source>
+        <translation type="vanished">Provisioning</translation>
+    </message>
+    <message>
+        <source>PAC file</source>
+        <translation type="vanished">PAC-fil</translation>
+    </message>
+    <message>
+        <source>Inner Auth</source>
+        <translation type="vanished">Indre godkendelse</translation>
+    </message>
+    <message>
+        <source>PEAP Version</source>
+        <translation type="vanished">PEAP-version</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">Privat adgangskode</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretHotspotSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Ugyldig adgangskode</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Intet</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 personlig</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Sikkerhed</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">Nøgle</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWiredSection</name>
+    <message>
+        <source>Security Required</source>
+        <translation type="vanished">Påkrævet sikkerhed</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWirelessSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Ugyldig adgangskode</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Intet</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 personlig</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation type="vanished">WPA/WPA2 enterprise</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Sikkerhed</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">Nøgle</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">Avanceret VPN</translation>
+    </message>
+    <message>
+        <source>Customize Gateway Port</source>
+        <translation type="vanished">Tilpas gateway-port</translation>
+    </message>
+    <message>
+        <source>Gateway Port</source>
+        <translation type="vanished">Gateway-port</translation>
+    </message>
+    <message>
+        <source>Customize Renegotiation Interval</source>
+        <translation type="vanished">Tilpas renegotiationsinterval</translation>
+    </message>
+    <message>
+        <source>Renegotiation Interval</source>
+        <translation type="vanished">Renegotiationsinterval</translation>
+    </message>
+    <message>
+        <source>Use LZO Data Compression</source>
+        <translation type="vanished">Brug LZO-datakomprimering</translation>
+    </message>
+    <message>
+        <source>Use TCP Connection</source>
+        <translation type="vanished">Brug TCP-forbindelse</translation>
+    </message>
+    <message>
+        <source>Use TAP Device</source>
+        <translation type="vanished">Brug TAP-enhed</translation>
+    </message>
+    <message>
+        <source>Customize Tunnel MTU</source>
+        <translation type="vanished">Tilpas tunnel-MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+    <message>
+        <source>Customize UDP Fragment Size</source>
+        <translation type="vanished">Tilpas UDP-fragmentstørrelse</translation>
+    </message>
+    <message>
+        <source>UDP Fragment Size</source>
+        <translation type="vanished">UDP-fragmentstørrelse</translation>
+    </message>
+    <message>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation type="vanished">Begræns tunnel TCP MSS</translation>
+    </message>
+    <message>
+        <source>Randomize Remote Hosts</source>
+        <translation type="vanished">Tilfældiggør fjern-værter</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">Avanceret VPN</translation>
+    </message>
+    <message>
+        <source>Cisco (default)</source>
+        <translation type="vanished">Cisco (standard)</translation>
+    </message>
+    <message>
+        <source>Netscreen</source>
+        <translation type="vanished">Netscreen</translation>
+    </message>
+    <message>
+        <source>Secure (default)</source>
+        <translation type="vanished">Sikker (standard)</translation>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation type="vanished">Svag</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Intet</translation>
+    </message>
+    <message>
+        <source>NAT-T When Available (default)</source>
+        <translation type="vanished">NAT-T når tilgængelig (standard)</translation>
+    </message>
+    <message>
+        <source>NAT-T Always</source>
+        <translation type="vanished">NAT-T altid</translation>
+    </message>
+    <message>
+        <source>Cisco UDP</source>
+        <translation type="vanished">Cisco UDP</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Deaktiveret</translation>
+    </message>
+    <message>
+        <source>DH Group 1</source>
+        <translation type="vanished">DH gruppe 1</translation>
+    </message>
+    <message>
+        <source>DH Group 2 (default)</source>
+        <translation type="vanished">DH gruppe 2 (standard)</translation>
+    </message>
+    <message>
+        <source>DH Group 5</source>
+        <translation type="vanished">DH gruppe 5</translation>
+    </message>
+    <message>
+        <source>Server (default)</source>
+        <translation type="vanished">Server (standard)</translation>
+    </message>
+    <message>
+        <source>DH Group 2</source>
+        <translation type="vanished">DH gruppe 2</translation>
+    </message>
+    <message>
+        <source>Domain</source>
+        <translation type="vanished">Domæne</translation>
+    </message>
+    <message>
+        <source>Vendor</source>
+        <translation type="vanished">Udbyder</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="vanished">Version</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="vanished">Kryptering</translation>
+    </message>
+    <message>
+        <source>NAT Traversal Mode</source>
+        <translation type="vanished">NAT-gennemgangstilstand</translation>
+    </message>
+    <message>
+        <source>IKE DH Group</source>
+        <translation type="vanished">IKE DH-gruppe</translation>
+    </message>
+    <message>
+        <source>Forward Secrecy</source>
+        <translation type="vanished">Videresende kode</translation>
+    </message>
+    <message>
+        <source>Local Port</source>
+        <translation type="vanished">Lokal port</translation>
+    </message>
+    <message>
+        <source>Disable Dead Peer Detection</source>
+        <translation type="vanished">Deaktivér registrering af død peer</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnIpsecSection</name>
+    <message>
+        <source>VPN IPsec</source>
+        <translation type="vanished">VPN IPsec</translation>
+    </message>
+    <message>
+        <source>Enable IPsec</source>
+        <translation type="vanished">Aktivér IPsec</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">Gruppenavn</translation>
+    </message>
+    <message>
+        <source>Group ID</source>
+        <translation type="vanished">Gruppe-ID</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Prædelt nøgle</translation>
+    </message>
+    <message>
+        <source>Phase1 Algorithms</source>
+        <translation type="vanished">Fase1-algoritmer</translation>
+    </message>
+    <message>
+        <source>Phase2 Algorithms</source>
+        <translation type="vanished">Fase2-algoritmer</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenConnectSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA-certifikat</translation>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="vanished">Proxy</translation>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="vanished">Tillad Cisco Secure Desktop Trojan</translation>
+    </message>
+    <message>
+        <source>CSD Script</source>
+        <translation type="vanished">CSD-skript</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Brugercertifikat</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privat nøgle</translation>
+    </message>
+    <message>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="vanished">Brug FSID til nøgleadgangskode</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenVPNSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Certificates (TLS)</source>
+        <translation type="vanished">Certifikater (TLS)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+    <message>
+        <source>Certificates with Password (TLS)</source>
+        <translation type="vanished">Certifikater med adgangskode (TLS)</translation>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="vanished">Statisk nøgle</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Gemt</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Spørg</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Ikke påkrævet</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">Godkendelsestype</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA-certifikat</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Brugercertifikat</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privat nøgle</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Valgmuligheder for adgangskode</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">Privat adgangskode</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Brugernavn</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">Tilpas nøgleretning</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">Nøgleretning</translation>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="vanished">Fjern-IP</translation>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="vanished">Lokal IP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPPPSection</name>
+    <message>
+        <source>VPN PPP</source>
+        <translation type="vanished">VPN PPP</translation>
+    </message>
+    <message>
+        <source>All Available (default)</source>
+        <translation type="vanished">Alle tilgængelige (standard)</translation>
+    </message>
+    <message>
+        <source>40-bit (less secure)</source>
+        <translation type="vanished">40-bit (mindre sikker)</translation>
+    </message>
+    <message>
+        <source>128-bit (most secure)</source>
+        <translation type="vanished">128-bit (mest sikker)</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">Afvis EAP-autentifikation</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">Afvis PAP-autentifikation</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">Afvis CHAP-autentifikation</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">Afvis MSCHAP-autentifikation</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">Afvis MSCHAPv2-autentifikation</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">Ingen BSD-datakomprimering</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">Ingen deflate-datakomprimering</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">Ingen TCP-headerkomprimering</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">Ingen protokol-feltkomprimering</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">Ingen adresse-/kontrolkomprimering</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">Send PPP echo-pakker</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">Brug MPPE</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Sikkerhed</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Stateful MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPage</name>
+    <message>
+        <source>VPN Status</source>
+        <translation type="vanished">VPN-status</translation>
+    </message>
+    <message>
+        <source>Create VPN</source>
+        <translation type="vanished">Opret VPN</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import VPN</source>
+        <translation type="vanished">Importér VPN</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="vanished">Fejl ved import</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">OK</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN-proxy</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Ikke påkrævet</translation>
+    </message>
+    <message>
+        <source>HTTP</source>
+        <translation type="vanished">HTTP</translation>
+    </message>
+    <message>
+        <source>SOCKS</source>
+        <translation type="vanished">SOCKS</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Proxytype</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Server-IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+    </message>
+    <message>
+        <source>Retry Indefinitely When Failed</source>
+        <translation type="vanished">Prøv igen når det fejler</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Brugernavn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSSTPSection</name>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">CA-fil</translation>
+    </message>
+    <message>
+        <source>Ignore Certificate Warnings</source>
+        <translation type="vanished">Ignorer advarsler om certifikat</translation>
+    </message>
+    <message>
+        <source>Use TLS Hostname Extensions</source>
+        <translation type="vanished">Brug udvidelser for TLS-værtsnavn</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <message>
+        <source>VPN Security</source>
+        <translation type="vanished">VPN-sikkerhed</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Standard</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Intet</translation>
+    </message>
+    <message>
+        <source>Cipher</source>
+        <translation type="vanished">Chiffer</translation>
+    </message>
+    <message>
+        <source>HMAC Auth</source>
+        <translation type="vanished">HMAC-godkendelse</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Gemt</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Spørg</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Ikke påkrævet</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Brugernavn</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Valgmuligheder for adgangskode</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+    <message>
+        <source>NT Domain</source>
+        <translation type="vanished">NT-domæne</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSstpProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN-proxy</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Server-IP</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Brugernavn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnStrongSwanSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Privat nøgle</translation>
+    </message>
+    <message>
+        <source>SSH Agent</source>
+        <translation type="vanished">SSH-agent</translation>
+    </message>
+    <message>
+        <source>Smart Card</source>
+        <translation type="vanished">Smartcard</translation>
+    </message>
+    <message>
+        <source>EAP</source>
+        <translation type="vanished">EAP</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Prædelt nøgle</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA-certifikat</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">Godkendelsestype</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">Brugercertifikat</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Brugernavn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+    <message>
+        <source>Request an Inner IP Address</source>
+        <translation type="vanished">Anmod om en indre IP-adresse</translation>
+    </message>
+    <message>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="vanished">Gennemtving UDP-indkapsling</translation>
+    </message>
+    <message>
+        <source>Use IP Compression</source>
+        <translation type="vanished">Brug IP-komprimering</translation>
+    </message>
+    <message>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation type="vanished">Aktivér brugerdefineret cifferforslag</translation>
+    </message>
+    <message>
+        <source>IKE</source>
+        <translation type="vanished">IKE</translation>
+    </message>
+    <message>
+        <source>ESP</source>
+        <translation type="vanished">ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnTLSSection</name>
+    <message>
+        <source>VPN TLS Authentication</source>
+        <translation type="vanished">VPN TLS-autentifikation</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Standard</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="vanished">Klient</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Server</translation>
+    </message>
+    <message>
+        <source>Subject Match</source>
+        <translation type="vanished">Emnematch</translation>
+    </message>
+    <message>
+        <source>Remote Cert Type</source>
+        <translation type="vanished">Type af fjern-certifikat</translation>
+    </message>
+    <message>
+        <source>Key File</source>
+        <translation type="vanished">Nøglefil</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">Tilpas nøgleretning</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">Nøgleretning</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnVPNCSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Gemt</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Spørg</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Ikke påkrævet</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Brugernavn</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Valgmuligheder for adgangskode</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">Gruppenavn</translation>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="vanished">Gruppens adgangskode</translation>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="vanished">Brug hybrid-autentifikation</translation>
+    </message>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">CA-fil</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WiredPage</name>
+    <message>
+        <source>Plug in the network cable first</source>
+        <translation type="vanished">Tilslut venligst først netværkskablet</translation>
+    </message>
+    <message>
+        <source>Wired Network Adapter</source>
+        <translation type="vanished">Kablet netværkskort</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Network Connection</source>
+        <translation type="vanished">Tilføj netværksforbindelse</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
+    </message>
+    <message>
+        <source>Select Settings</source>
+        <translation type="vanished">Vælg indstillinger</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessPage</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation type="vanished">Opret forbindelse til skjult netværk</translation>
+    </message>
+    <message>
+        <source>Wireless Network Adapter</source>
+        <translation type="vanished">Trådløst netværkskort</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Close Hotspot</source>
+        <translation type="vanished">Luk hotspot</translation>
+    </message>
+    <message>
+        <source>Disable hotspot first if you want to connect to a wireless network</source>
+        <translation type="vanished">Deaktivér først hotspottet hvis du vil oprette forbindelse og bruger trådløst netværk</translation>
+    </message>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">WLAN</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessSection</name>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">WLAN</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">Ikke bundet</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Påkrævet</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">Enhedens MAC-adresse</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">Brugerdefineret MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">Størrelse</translation>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation type="vanished">Standardskrifttype</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation type="vanished">Skifttype med fast bredde</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source> (Unsupported font)</source>
+        <translation type="vanished"> (ikke-understøttet skrifttype)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Tema</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Accent Color</source>
+        <translation type="vanished">Accentfarve</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">Vindueseffekt</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="vanished">Gennemsigtighed</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationList</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Generelt</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation type="vanished">Ikontema</translation>
+        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Cursor Theme</source>
+        <translation type="vanished">Markørtema</translation>
+        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="vanished">Skrifttype</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationModule</name>
+    <message>
+        <source>Personalization</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Let</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">Mørkt</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automatisk</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Standard</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Let</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">Mørkt</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Automatisk</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Standard</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::GeneralWidget</name>
+    <message>
+        <source>Power Saving Mode</source>
+        <translation type="vanished">Strømbesparende tilstand</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Mode Switch</source>
+        <translation type="vanished">Automatisk skift af tilstand</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation type="vanished">Spørg om adgangskode for at vække computeren</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation type="vanished">Spørg om adgangskode for at vække skærmen</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerModule</name>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">På batteri</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Battery low, please plug in</source>
+        <translation type="vanished">Batteriet er lavt. Tilslut venligst strømforsyningen</translation>
+    </message>
+    <message>
+        <source>Battery critically low</source>
+        <translation type="vanished">Batteriet er kritisk lavt</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">Generelt</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="vanished">Tilsluttet</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">På batteri</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseBatteryWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">Skærmen vil gå i hvile om</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">Computeren vil gå i hvile om</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">Lås skærmen efter</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">Gå i hvile når låget lukkes</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">Aldrig</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 minut</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 minutter</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 time</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseElectricWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">Skærmen vil gå i hvile om</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">Lås skærmen efter</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">Gå i hvile når låget lukkes</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">Computeren vil gå i hvile om</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">Aldrig</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 minut</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 minutter</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 time</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::search::SearchWidget</name>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Server</translation>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">Vindueseffekt</translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">Udviklertilstand</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">Brugeroplevelsesprogram</translation>
+    </message>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">Deltag i vores brugeroplevelsesprogram</translation>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="vanished">Skykonto</translation>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">Skærmskalering</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Touchpad</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">Trackpoint</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Personligt hotspot</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">På batteri</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Kablet netværk</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Trådløst netværk</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Flere skærme</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::AdvancedPage</name>
+    <message>
+        <source>Output</source>
+        <translation type="vanished">Output</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="vanished">Input</translation>
+    </message>
+    <message>
+        <source>Sound Card:</source>
+        <translation type="vanished">Lydkort:</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::MicrophonePage</name>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">Mikrofon</translation>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation type="vanished">Lydstyrke (input)</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation type="vanished">Inputniveau</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">Lydeffekter</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundModule</name>
+    <message>
+        <source>Sound</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundWidget</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">Højttaler</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">Mikrofon</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">Avanceret</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">Lydeffekter</translation>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SpeakerPage</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">Højttaler</translation>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation type="vanished">Lydstyrke (output)</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Volume Boost</source>
+        <translation type="vanished">Boost af lydstyrke</translation>
+    </message>
+    <message>
+        <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
+        <translation type="vanished">Hvis lydstyrken er over 100%, så kan det forringe lyden og være skadeligt for din højttaler</translation>
+    </message>
+    <message>
+        <source>Left/Right Balance</source>
+        <translation type="vanished">Balance for venstre/højre</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="vanished">Venstre</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="vanished">Højre</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::IndexPage</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">Automatisk synkronisering</translation>
+    </message>
+    <message>
+        <source>Syncing...</source>
+        <translation type="vanished">Synkroniserer...</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">Log ud</translation>
+    </message>
+    <message>
+        <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
+        <translation type="vanished">Din Wi-Fi-adgangskode synkroniseres hvis netværksindstillinger er slået til</translation>
+    </message>
+    <message>
+        <source>Network Settings</source>
+        <translation type="vanished">Netværksindstillinger</translation>
+    </message>
+    <message>
+        <source>Sound Settings</source>
+        <translation type="vanished">Lydindstillinger</translation>
+    </message>
+    <message>
+        <source>Mouse Settings</source>
+        <translation type="vanished">Museindstillinger</translation>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Opdateringsindstillinger</translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="vanished">Dok</translation>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation type="vanished">Programstarter</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="vanished">Tapet</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Tema</translation>
+    </message>
+    <message>
+        <source>Power Settings</source>
+        <translation type="vanished">Strømindstillinger</translation>
+    </message>
+    <message>
+        <source>Corner Settings</source>
+        <translation type="vanished">Kantindstillinger</translation>
+    </message>
+    <message>
+        <source>Last Sync: %1</source>
+        <translation type="vanished">Sidste synkronisering: %1</translation>
+    </message>
+    <message>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="vanished">dd-MM-yyyy hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LoginPage</name>
+    <message>
+        <source>Sign In</source>
+        <translation type="vanished">Log ind</translation>
+        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
+        <translation type="vanished">Når du er logget på med skykonto kan du bruge skysynkronisering, programbutik, e-mailklient, browser og andre skytjenester.</translation>
+    </message>
+    <message>
+        <source>Cloud Account Sign In</source>
+        <translation type="vanished">Indlogning for skykonto</translation>
+    </message>
+    <message>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="vanished">Understøttes i øjeblikket kun i Fastlandskina</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LogoutPage</name>
+    <message>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="vanished">Beklager, det understøttes ikke din region på nuværende tidspunkt, men det kommer snart</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">Log ud</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::SyncModule</name>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <message>
+        <source>Edition:</source>
+        <translation type="vanished">Udgave:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="vanished">Type:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation type="vanished">Autentifikation</translation>
+    </message>
+    <message>
+        <source>To be activated</source>
+        <translation type="vanished">Skal aktiveres</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation type="vanished">Aktivér</translation>
+    </message>
+    <message>
+        <source>Kernel:</source>
+        <translation type="vanished">Kerne:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Processor:</source>
+        <translation type="vanished">Processor:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Memory:</source>
+        <translation type="vanished">Hukommelse:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Disk:</source>
+        <translation type="vanished">Disk:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>%1-bit</source>
+        <translation type="vanished">%1-bit</translation>
+    </message>
+    <message>
+        <source>Activated</source>
+        <translation type="vanished">Aktiveret</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="vanished">Vis</translation>
+    </message>
+    <message>
+        <source>Expired</source>
+        <translation type="vanished">Udløbet</translation>
+    </message>
+    <message>
+        <source>In trial period</source>
+        <translation type="vanished">I prøveperiode</translation>
+    </message>
+    <message>
+        <source>Trial expired</source>
+        <translation type="vanished">Prøveperioden er udløbet</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoModule</name>
+    <message>
+        <source>System Info</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
+    <message>
+        <source>About This PC</source>
+        <translation type="vanished">Om denne computer</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Edition License</source>
+        <translation type="vanished">Udgavelicens</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="vanished">Slutbruger-licensaftale</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorSourceItem</name>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">Ikke testet</translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="vanished">Timeout</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Langsom</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="vanished">Medium</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Hurtig</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorsWidget</name>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">Spejlliste</translation>
+    </message>
+    <message>
+        <source>Test Speed</source>
+        <translation type="vanished">Test hastighed</translation>
+    </message>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">Ikke testet</translation>
+    </message>
+    <message>
+        <source>Retest</source>
+        <translation type="vanished">Test igen</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateCtrlWidget</name>
+    <message>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="vanished">Genstart computeren for at bruge systemet og programmerne ordentligt</translation>
+    </message>
+    <message>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="vanished">Netværk deaktiveret. Prøv venligst når forbindelsen er oprettet</translation>
+    </message>
+    <message>
+        <source>Your system is not authorized, please activate first</source>
+        <translation type="vanished">Dit system er ikke autentificeret — aktivér det venligst først</translation>
+    </message>
+    <message>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation type="vanished">Opdateringen kan tage længere tid, luk venligst ikke ned eller genstarter under processen.</translation>
+    </message>
+    <message>
+        <source>Checking for updates, please wait...</source>
+        <translation type="vanished">Søger efter opdateringer, vent venligst...</translation>
+    </message>
+    <message>
+        <source>Download and install updates</source>
+        <translation type="vanished">Download og installer opdateringer</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="vanished">%1% downloadet (klik for at pause)</translation>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="vanished">%1% downloadet (klik for at fortsætte)</translation>
+    </message>
+    <message>
+        <source>Install updates</source>
+        <translation type="vanished">Installer opdateringer</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation type="vanished">Dit system er opdateret</translation>
+    </message>
+    <message>
+        <source>Updating, please wait...</source>
+        <translation type="vanished">Opdaterer, vent venligst...</translation>
+    </message>
+    <message>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="vanished">Nyeste system installeret, genstart for at træde i kraft</translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="vanished">Opdatering mislykkedes: utilstrækkelig diskplads</translation>
+    </message>
+    <message>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="vanished">Afhængighedsfejl, kunne ikke registrere opdateringerne</translation>
+    </message>
+    <message>
+        <source>Backing up, please wait...</source>
+        <translation type="vanished">Sikkerhedskopiérer, vent venligst...</translation>
+    </message>
+    <message>
+        <source>System backup failed</source>
+        <translation type="vanished">Sikkerhedskopiering af system mislykkedes</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n application update(s) available</source>
+        <translation type="vanished"><numerusform>%n programopdatering tilgængelig</numerusform><numerusform>%n programopdateringer tilgængelig</numerusform></translation>
+    </message>
+    <message>
+        <source>New system edition available</source>
+        <translation type="vanished">Ny systemudgave tilgængelig</translation>
+    </message>
+    <message numerus="yes">
+        <source>New system edition and %n application update(s) available</source>
+        <translation type="vanished"><numerusform>Ny systemudgave og %n programopdatering tilgængelig</numerusform><numerusform>Ny systemudgave og %n programopdateringer tilgængelig</numerusform></translation>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="vanished">Downloadet</translation>
+    </message>
+    <message>
+        <source>Size: %1</source>
+        <translation type="vanished">Størrelse: %1</translation>
+    </message>
+    <message>
+        <source>Your battery is lower than 50%, please plug in to continue</source>
+        <translation type="vanished">Dit batteri er under 50%, tilslut venligst strømforsyningen for at fortsætte</translation>
+    </message>
+    <message>
+        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
+        <translation type="vanished">Sørg venligst for tilstrækkeligt med strøm til genstart, og sluk ikke eller frakobl strømforsyningen fra din maskine</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateHistoryButton</name>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">Opdateringshistorik</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateModule</name>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateSettings</name>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Opdateringsindstillinger</translation>
+    </message>
+    <message>
+        <source>Auto Clear Package Cache</source>
+        <translation type="vanished">Automatisk rydning af pakkemellemlager</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Updates Notification</source>
+        <translation type="vanished">Opdateringsnotifikation</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Download Updates</source>
+        <translation type="vanished">Automatisk download af opdateringer</translation>
+    </message>
+    <message>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="vanished">Slå den til for automatisk download af opdateringerne i trådløst og kablet netværk</translation>
+    </message>
+    <message>
+        <source>System Repository Detection</source>
+        <translation type="vanished">Systemsoftwarekilde registreret</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation type="vanished">Vis en notifikation hvis softwarekilden for sytemopdateringer er blev ændret</translation>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="vanished">Smart skift af spejlserver</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="vanished">Slå den til for automatisk at oprette forbindelse til det hurtigste spejlsted</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">Spejlliste</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateWidget</name>
+    <message>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Opdateringsindstillinger</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="vanished">Seneste opdatering</translation>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="vanished">Tilbage</translation>
+    </message>
+    <message>
+        <source>Current Edition</source>
+        <translation type="vanished">Nuværende udgave</translation>
+    </message>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">Opdateringshistorik</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::PressureSettings</name>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="vanished">Trykfølsomhed</translation>
+        <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Let</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="vanished">Tungt</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomModule</name>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomWidget</name>
+    <message>
+        <source>Pen</source>
+        <translation type="vanished">Pen</translation>
+        <extra-contents_path>/wacom/Pen</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Mus</translation>
+        <extra-contents_path>/wacom/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="vanished">Tilstand</translation>
     </message>
 </context>
 <context>
