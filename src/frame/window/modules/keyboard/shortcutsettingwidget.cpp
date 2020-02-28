@@ -28,6 +28,7 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/searchinput.h"
+#include "window/utils.h"
 
 #include <DAnchors>
 
@@ -40,6 +41,7 @@ using namespace dcc::keyboard;
 
 ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *parent)
     : QWidget(parent)
+    , m_speechGroup(nullptr)
     , m_model(model)
 {
     m_searchDelayTimer = new QTimer(this);
@@ -67,11 +69,13 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_workspaceGroup = new SettingsGroup();
     m_workspaceGroup->appendItem(workspaceHead, SettingsGroup::NoneBackground);
 
-    SettingsHead *speechHead = new SettingsHead();
-    speechHead->setTitle(tr("Speech"));
-    speechHead->setEditEnable(false);
-    m_speechGroup = new SettingsGroup();
-    m_speechGroup->appendItem(speechHead, SettingsGroup::NoneBackground);
+    if (!DCC_NAMESPACE::IsServerSystem) {
+        SettingsHead *speechHead = new SettingsHead();
+        speechHead->setTitle(tr("Speech"));
+        speechHead->setEditEnable(false);
+        m_speechGroup = new SettingsGroup();
+        m_speechGroup->appendItem(speechHead, SettingsGroup::NoneBackground);
+    }
 
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
@@ -102,8 +106,10 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_windowGroup);
     m_layout->addSpacing(List_Interval);
     m_layout->addWidget(m_workspaceGroup);
-    m_layout->addSpacing(List_Interval);
-    m_layout->addWidget(m_speechGroup);
+    if (m_speechGroup) {
+        m_layout->addSpacing(List_Interval);
+        m_layout->addWidget(m_speechGroup);
+    }
     m_layout->addSpacing(List_Interval);
     m_layout->addWidget(m_customGroup);
 
@@ -150,6 +156,9 @@ void ShortCutSettingWidget::showCustomShotcut()
 
 void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::InfoType type)
 {
+    if ((m_speechGroup == nullptr) && (type == ShortcutModel::Speech)) {
+        return;
+    }
     QMap<ShortcutModel::InfoType, QList<ShortcutItem *>*> InfoMap {
         {ShortcutModel::System, &m_systemList},
         {ShortcutModel::Window, &m_windowList},
@@ -188,7 +197,6 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         m_searchInfos[info->toString()] = info;
 
         m_allList << item;
-
         switch (type) {
         case ShortcutModel::System:
             m_systemGroup->appendItem(item);
@@ -232,21 +240,27 @@ void ShortCutSettingWidget::modifyStatus(bool status)
 {
     if (status) {
         m_customGroup->hide();
-        m_speechGroup->hide();
+        if (m_speechGroup) {
+            m_speechGroup->hide();
+        }
         m_workspaceGroup->hide();
         m_windowGroup->hide();
         m_systemGroup->hide();
         m_resetBtn->hide();
         m_searchGroup->show();
         m_layout->removeWidget(m_customGroup);
-        m_layout->removeWidget(m_speechGroup);
+        if (m_speechGroup) {
+            m_layout->removeWidget(m_speechGroup);
+        }
         m_layout->removeWidget(m_workspaceGroup);
         m_layout->removeWidget(m_windowGroup);
         m_layout->removeWidget(m_systemGroup);
         m_layout->insertWidget(0, m_searchGroup, 0, Qt::AlignTop);
     } else {
         m_customGroup->show();
-        m_speechGroup->show();
+        if (m_speechGroup) {
+            m_speechGroup->show();
+        }
         m_workspaceGroup->show();
         m_windowGroup->show();
         m_systemGroup->show();
@@ -256,8 +270,13 @@ void ShortCutSettingWidget::modifyStatus(bool status)
         m_layout->insertWidget(0, m_systemGroup);
         m_layout->insertWidget(2, m_windowGroup);
         m_layout->insertWidget(4, m_workspaceGroup);
-        m_layout->insertWidget(6, m_speechGroup);
-        m_layout->insertWidget(8, m_customGroup);
+        if (m_speechGroup) {
+            m_layout->insertWidget(6, m_speechGroup);
+            m_layout->insertWidget(8, m_customGroup);
+        } else {
+            m_layout->insertWidget(6, m_customGroup);
+        }
+
     }
 }
 
