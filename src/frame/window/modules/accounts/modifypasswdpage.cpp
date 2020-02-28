@@ -147,7 +147,9 @@ void ModifyPasswdPage::clickSaveBtn()
         Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
     } else {
         DDialog dlg("", daemonservice->GetPwdError());
-        dlg.addButtons({tr("Go to Settings"), tr("OK")});
+        dlg.setIcon(QIcon(":/widgets/themes/dark/icons/display_setting.svg"));
+        dlg.addButton(tr("Go to Settings"));
+        dlg.addButton(tr("OK"), true, DDialog::ButtonWarning);
         connect(&dlg, &DDialog::buttonClicked, this, [this](int idx){
             if (idx == 0) {
                 Defender *defender = new Defender("com.deepin.defender.hmiscreen",
