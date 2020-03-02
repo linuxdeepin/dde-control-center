@@ -297,7 +297,7 @@ void CreateAccountPage::createUser()
         DDialog dlg("", daemonservice->GetPwdError());
         dlg.setIcon(QIcon::fromTheme("preferences-system"));
         dlg.addButton(tr("Go to Settings"));
-        dlg.addButton(tr("OK"), true, DDialog::ButtonWarning);
+        dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
         connect(&dlg, &DDialog::buttonClicked, this, [this](int idx){
             if (idx == 0) {
                 Defender *defender = new Defender("com.deepin.defender.hmiscreen",
