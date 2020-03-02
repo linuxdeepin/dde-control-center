@@ -30,7 +30,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>계정</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
@@ -100,7 +100,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>업데이트</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
@@ -145,19 +145,19 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="273"/>
         <source>Validity Days</source>
-        <translation type="unfinished"/>
+        <translation>유효 기간</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="276"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="339"/>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>항상</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="332"/>
         <source>Please input a number between 1-99999</source>
-        <translation type="unfinished"/>
+        <translation>1-99999 사이의 숫자를 입력하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
@@ -194,7 +194,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="80"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>계정</translation>
     </message>
 </context>
 <context>
@@ -206,14 +206,14 @@
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="149"/>
         <source>Administrator</source>
         <translation>관리자</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="151"/>
         <source>Standard User</source>
         <translation>표준 사용자</translation>
     </message>
@@ -223,12 +223,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>지문 추가</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
         <source>Scan again</source>
-        <translation type="unfinished"/>
+        <translation>다시 스캔</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
@@ -238,18 +238,18 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>지문 식별중</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="unfinished"/>
+        <translation>지문 판독기에 손가락을 대거나 위아래로 문지른 다음 떼어냅니다.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>지문 추가됨</translation>
     </message>
 </context>
 <context>
@@ -264,6 +264,7 @@
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
@@ -316,54 +317,54 @@
         <translation>옵션</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="299"/>
         <source>Go to Settings</source>
-        <translation type="unfinished"/>
+        <translation>설정으로 이동</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
-        <source>OK</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="369"/>
         <source>Password must be no more than %1 characters</source>
         <translation>비밀번호는 %1 자 이하 여야합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="376"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)만 포함해야 합니다  </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="383"/>
         <source>Passwords do not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="399"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="401"/>
         <source>Username cannot be empty</source>
         <translation>사용자 이름은 비워 둘 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>사용자 이름은 3 ~ 32 자 사이 여야합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="414"/>
         <source>The first character must be in lower case</source>
         <translation>첫 번째 문자는 소문자여야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="418"/>
-        <source>Username must only contain a~z, 0~9, - or _</source>
-        <translation>사용자 이름에는 a~z, 0~9, - 또는 _만 포함되어야 합니다</translation>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="420"/>
+        <source>Username can only contain a~z, 0~9, - or _</source>
+        <translation>사용자 이름은 a~z, 0~9, - 또는 _ 만 포함할 수 있습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="433"/>
         <source>The full name already exists</source>
         <translation>전체 이름이 이미 있음</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="440"/>
+        <source>The full name is too long</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -371,7 +372,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>지문 삭제</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
@@ -381,7 +382,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>지문</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
@@ -413,6 +414,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
@@ -429,37 +431,32 @@
         <translation>필수 항목</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="151"/>
         <source>Go to Settings</source>
-        <translation type="unfinished"/>
+        <translation>설정으로 이동</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
-        <source>OK</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
         <source>Wrong password</source>
         <translation>잘못된 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="238"/>
         <source>Passwords do not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)만 포함해야 합니다  </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="251"/>
         <source>New password should differ from the current one</source>
         <translation>새 비밀번호는 현재 비밀번호와 같을 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="258"/>
         <source>Password must be no more than %1 characters</source>
         <translation>비밀번호는 %1 자 이하 여야합니다</translation>
     </message>
@@ -489,7 +486,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>블루투스</translation>
     </message>
 </context>
 <context>
@@ -506,14 +503,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="113"/>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>연결</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="108"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>연결 중</translation>
     </message>
 </context>
 <context>
@@ -569,7 +566,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="80"/>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>일반 설정</translation>
     </message>
 </context>
 <context>
@@ -604,37 +601,37 @@
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>루트 액세스 권한을 얻지 못했습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
         <source>Please sign in to your cloud account first</source>
-        <translation type="unfinished"/>
+        <translation>먼저 클라우드 계정에 로그인하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>PC 정보를 읽을 수 없습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 연결 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>인증서를 불러오는 중에 실패하여, 루트 액세스 권한을 얻을 수 없습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>서명 확인에 실패하여, 루트 액세스 권한을 얻을 수 없습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="232"/>
         <source>UOS Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>UOS 개인 정보 보호 정책</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
@@ -657,53 +654,53 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="65"/>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>루트 액세스 요청</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="74"/>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>온라인</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="75"/>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>오프라인</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="91"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="121"/>
         <source>Please sign in to your cloud account first and continue</source>
-        <translation type="unfinished"/>
+        <translation>먼저 클라우드 계정에 로그인한 후 계속하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="96"/>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>다음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="100"/>
         <source>Export PC Info</source>
-        <translation type="unfinished"/>
+        <translation>PC 정보 내보내기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="101"/>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>인증서 가져오기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="127"/>
         <source>1. Export your PC information</source>
-        <translation type="unfinished"/>
+        <translation>1. PC 정보 내보내기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="128"/>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation type="unfinished"/>
+        <translation>2. https://www.chinauos.com/developMode 로 이동하여 오프라인 인증서를 다운로드합니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="129"/>
         <source>3. Import the certificate</source>
-        <translation type="unfinished"/>
+        <translation>3. 인증서 가져오기</translation>
     </message>
 </context>
 <context>
@@ -717,43 +714,43 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
-        <translation type="unfinished"/>
+        <translation>개발자 모드에서는 루트 권한을 얻고 앱 스토어에 나열되지 않은 서명되지 않은 앱을 설치 및 실행할 수 있지만, 시스템 통합이 손상될 수도 있습니다. 주의하여 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="104"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="116"/>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>루트 액세스 권한을 얻지 못했습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="106"/>
         <source>Please sign in to your cloud account first</source>
-        <translation type="unfinished"/>
+        <translation>먼저 클라우드 계정에 로그인하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>PC 정보를 읽을 수 없습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 연결 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>인증서를 불러오는 중에 실패하여, 루트 액세스 권한을 얻을 수 없습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="114"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>서명 확인에 실패하여, 루트 액세스 권한을 얻을 수 없습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation type="unfinished"/>
+        <translation>일부 기능을 효과적으로 사용하려면, 다시 시작해야합니다. 지금 다시 시작 하시겠습니까?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
@@ -782,7 +779,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://openapi.chinauos.com/agreement/).</source>
-        <translation type="unfinished"/>
+        <translation>사용자 환경 프로그램에 가입하면 기기, 시스템 및 응용 프로그램의 정보를 수집하고 사용할 수 있는 권한을 부여하고 부여할 수 있습니다. 앞서 언급한 정보의 수집 및 사용을 거부하신다면, 사용자 환경 프로그램에 가입하지 마십시오. 자세한 내용은 UOS 개인정보 보호정책(https://openapi.chinauos.com/agreement/)을 참조하시기 바랍니다.</translation>
     </message>
 </context>
 <context>
@@ -870,7 +867,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="70"/>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>날짜 및 시간</translation>
     </message>
 </context>
 <context>
@@ -947,7 +944,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="82"/>
         <source>Default Applications</source>
-        <translation type="unfinished"/>
+        <translation>기본 응용프로그램</translation>
     </message>
 </context>
 <context>
@@ -1074,7 +1071,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="68"/>
         <source>Display</source>
-        <translation type="unfinished"/>
+        <translation>디스플레이</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="119"/>
@@ -1363,7 +1360,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="122"/>
         <source>Keyboard and Language</source>
-        <translation type="unfinished"/>
+        <translation>키보드 및 언어</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="238"/>
@@ -1417,7 +1414,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
         <source>Speech</source>
-        <translation type="unfinished"/>
+        <translation>말하기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
@@ -1525,7 +1522,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="146"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>마우스</translation>
     </message>
 </context>
 <context>
@@ -1708,12 +1705,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="156"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 IP 주소</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="164"/>
         <source>Invalid port</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 포트</translation>
     </message>
 </context>
 <context>
@@ -2031,7 +2028,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="539"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="548"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 IP 주소</translation>
     </message>
 </context>
 <context>
@@ -2129,7 +2126,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="264"/>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>네트워크</translation>
     </message>
 </context>
 <context>
@@ -2167,7 +2164,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="146"/>
         <source>Configure by Network Manager</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 관리자를 통해 구성</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="300"/>
@@ -3802,7 +3799,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="63"/>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>개인 설정</translation>
     </message>
 </context>
 <context>
@@ -3888,22 +3885,22 @@
 <context>
     <name>dccV20::power::PowerModule</name>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="58"/>
         <source>On Battery</source>
         <translation>배터리 켜기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="73"/>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>전원</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="190"/>
         <source>Battery low, please plug in</source>
         <translation>배터리 부족,. 전원을 연결하세요</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="192"/>
         <source>Battery critically low</source>
         <translation>배터리 잔량 부족</translation>
     </message>
@@ -3967,26 +3964,26 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="171"/>
         <source>Never</source>
         <translation>없음</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="153"/>
         <source>1 Minute</source>
         <translation>1 분</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="167"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="174"/>
         <source>%1 Minutes</source>
         <translation>%1 분</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="168"/>
         <source>1 Hour</source>
         <translation>1 시간</translation>
     </message>
@@ -4082,12 +4079,12 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>클라우드 계정</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>디스플레이 크기조정</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
@@ -4127,7 +4124,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>최종 사용자 사용권 계약</translation>
     </message>
 </context>
 <context>
@@ -4183,7 +4180,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="59"/>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>사운드</translation>
     </message>
 </context>
 <context>
@@ -4228,12 +4225,12 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="157"/>
         <source>Volume Boost</source>
-        <translation type="unfinished"/>
+        <translation>볼륨 증폭</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="165"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
-        <translation type="unfinished"/>
+        <translation>볼륨이 100%보다 크면 오디오가 왜곡되어 스피커에 유해할 수 있습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="174"/>
@@ -4377,7 +4374,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>클라우드 계정</translation>
     </message>
 </context>
 <context>
@@ -4403,7 +4400,7 @@
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="85"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="172"/>
         <source>To be activated</source>
-        <translation type="unfinished"/>
+        <translation>활성화됩니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
@@ -4461,12 +4458,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="180"/>
         <source>In trial period</source>
-        <translation type="unfinished"/>
+        <translation>평가판 사용 기간</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="184"/>
         <source>Trial expired</source>
-        <translation type="unfinished"/>
+        <translation>평가판 만료됨</translation>
     </message>
 </context>
 <context>
@@ -4474,7 +4471,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="81"/>
         <source>System Info</source>
-        <translation type="unfinished"/>
+        <translation>시스템 정보</translation>
     </message>
 </context>
 <context>
@@ -4565,7 +4562,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="80"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
+        <translation>시스템이 인증되지 않은 경우, 먼저 활성화하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="101"/>
@@ -4685,7 +4682,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="98"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>업데이트</translation>
     </message>
 </context>
 <context>
@@ -4752,7 +4749,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>업데이트</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -4807,7 +4804,7 @@
     <message>
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="100"/>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>그리기 태블릿</translation>
     </message>
 </context>
 <context>
@@ -5479,7 +5476,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="271"/>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="274"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>비밀번호는 영어 문자 (대소 문자 구분), 숫자 또는 특수 기호를 포함해야 합니다 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>비밀번호는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)만 포함해야 합니다  </translation>
     </message>
 </context>
 <context>
@@ -5585,7 +5582,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="223"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>비밀번호는 영어 문자 (대소 문자 구분), 숫자 또는 특수 기호를 포함해야 합니다 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>비밀번호는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)만 포함해야 합니다  </translation>
     </message>
 </context>
 <context>
@@ -8953,7 +8950,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
-        <translation>음향 효과</translation>
+        <translation>사운드 효과</translation>
     </message>
 </context>
 <context>
@@ -9090,7 +9087,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>저작권© 2019-2020 유니온테크 소프트웨어 기술 유한 공사</translation>
     </message>
 </context>
 <context>
@@ -9157,7 +9154,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="70"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
+        <translation>시스템이 인증되지 않은 경우, 먼저 활성화하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="75"/>
@@ -9292,7 +9289,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="160"/>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>축소</translation>
     </message>
 </context>
 <context>
@@ -9442,3831 +9439,6 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
         <translation>연결됨</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::MainWindow</name>
-    <message>
-        <source>Help</source>
-        <translation type="vanished">도움말</translation>
-    </message>
-    <message>
-        <source>Accounts</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloud Account</source>
-        <translation type="vanished">클라우드 계정</translation>
-        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
-    </message>
-    <message>
-        <source>Display</source>
-        <translation type="vanished">디스플레이</translation>
-    </message>
-    <message>
-        <source>Default Applications</source>
-        <translation type="vanished">기본 응용프로그램</translation>
-    </message>
-    <message>
-        <source>Personalization</source>
-        <translation type="vanished">개인 설정</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="vanished">네트워크</translation>
-    </message>
-    <message>
-        <source>Sound</source>
-        <translation type="vanished">사운드</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation type="vanished">블루투스</translation>
-    </message>
-    <message>
-        <source>Date and Time</source>
-        <translation type="vanished">날짜 및 시간</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation type="vanished">전원</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation type="vanished">마우스</translation>
-    </message>
-    <message>
-        <source>Drawing Tablet</source>
-        <translation type="vanished">드로잉 태블릿</translation>
-    </message>
-    <message>
-        <source>Keyboard and Language</source>
-        <translation type="vanished">키보드 및 언어</translation>
-    </message>
-    <message>
-        <source>Updates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System Info</source>
-        <translation type="vanished">시스템 정보</translation>
-    </message>
-    <message>
-        <source>General Settings</source>
-        <translation type="vanished">일반 설정</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation type="vanished">터치패드</translation>
-    </message>
-    <message>
-        <source>TrackPoint</source>
-        <translation type="vanished">추적점</translation>
-    </message>
-    <message>
-        <source>Cloud Sync</source>
-        <translation type="vanished">클라우드 동기화</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::AccountsDetailWidget</name>
-    <message>
-        <source>Full Name</source>
-        <translation type="vanished">전체 이름</translation>
-    </message>
-    <message>
-        <source>The full name already exists</source>
-        <translation type="vanished">전체 이름이 이미 있음</translation>
-    </message>
-    <message>
-        <source>Validity Days</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Always</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please input a number between 1-99999</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation type="vanished">비밀번호 변경</translation>
-        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
-    </message>
-    <message>
-        <source>Delete Account</source>
-        <translation type="vanished">계정 삭제</translation>
-        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
-    </message>
-    <message>
-        <source>Auto Login</source>
-        <translation type="vanished">자동 로그인</translation>
-        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
-    </message>
-    <message>
-        <source>Login Without Password</source>
-        <translation type="vanished">비밀번호없이 로그인</translation>
-        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
-    </message>
-    <message>
-        <source>Group</source>
-        <translation type="vanished">그룹</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::AccountsModule</name>
-    <message>
-        <source>Accounts</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::AccountsWidget</name>
-    <message>
-        <source>Create Account</source>
-        <translation type="vanished">계정 생성</translation>
-        <extra-contents_path>/accounts/New Account</extra-contents_path>
-    </message>
-    <message>
-        <source>Administrator</source>
-        <translation type="vanished">관리자</translation>
-    </message>
-    <message>
-        <source>Standard User</source>
-        <translation type="vanished">표준 사용자</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::AddFingeDialog</name>
-    <message>
-        <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Scan again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">완료</translation>
-    </message>
-    <message>
-        <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fingerprint added</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::AvatarListWidget</name>
-    <message>
-        <source>Images</source>
-        <translation type="vanished">이미지　</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::CreateAccountPage</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">취소</translation>
-    </message>
-    <message>
-        <source>Create</source>
-        <translation type="vanished">생성</translation>
-    </message>
-    <message>
-        <source>Group</source>
-        <translation type="vanished">그룹</translation>
-    </message>
-    <message>
-        <source>New Account</source>
-        <translation type="vanished">새로운 계정</translation>
-        <extra-contents_path>/accounts/New Account</extra-contents_path>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">사용자 이름</translation>
-    </message>
-    <message>
-        <source>Full Name</source>
-        <translation type="vanished">전체 이름</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-    <message>
-        <source>Repeat Password</source>
-        <translation type="vanished">비밀번호 재입력</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>optional</source>
-        <translation type="vanished">옵션</translation>
-    </message>
-    <message>
-        <source>Password must be no more than %1 characters</source>
-        <translation type="vanished">비밀번호는 %1 자 이하 여야합니다</translation>
-    </message>
-    <message>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Passwords do not match</source>
-        <translation type="vanished">비밀번호가 일치하지 않습니다</translation>
-    </message>
-    <message>
-        <source>Username cannot be empty</source>
-        <translation type="vanished">사용자 이름은 비워 둘 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Username must be between 3 and 32 characters</source>
-        <translation type="vanished">사용자 이름은 3 ~ 32 자 사이 여야합니다</translation>
-    </message>
-    <message>
-        <source>The first character must be in lower case</source>
-        <translation type="vanished">첫 번째 문자는 소문자여야 합니다</translation>
-    </message>
-    <message>
-        <source>Username must only contain a~z, 0~9, - or _</source>
-        <translation type="vanished">사용자 이름에는 a~z, 0~9, - 또는 _만 포함되어야 합니다</translation>
-    </message>
-    <message>
-        <source>The full name already exists</source>
-        <translation type="vanished">전체 이름이 이미 있음</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::FingerWidget</name>
-    <message>
-        <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fingerprint Password</source>
-        <translation type="vanished">지문 비밀번호</translation>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add fingerprint</source>
-        <translation type="vanished">지문 추가</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::ModifyPasswdPage</name>
-    <message>
-        <source>Change Password</source>
-        <translation type="vanished">비밀번호 변경</translation>
-    </message>
-    <message>
-        <source>Current Password</source>
-        <translation type="vanished">현재 비밀번호</translation>
-    </message>
-    <message>
-        <source>New Password</source>
-        <translation type="vanished">새 비밀번호</translation>
-    </message>
-    <message>
-        <source>Repeat Password</source>
-        <translation type="vanished">비밀번호 재입력</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">취소</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">저장</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Wrong password</source>
-        <translation type="vanished">잘못된 비밀번호</translation>
-    </message>
-    <message>
-        <source>Passwords do not match</source>
-        <translation type="vanished">비밀번호가 일치하지 않습니다</translation>
-    </message>
-    <message>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>New password should differ from the current one</source>
-        <translation type="vanished">새 비밀번호는 현재 비밀번호와 같을 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Password must be no more than %1 characters</source>
-        <translation type="vanished">비밀번호는 %1 자 이하 여야합니다</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::bluetooth::AdapterWidget</name>
-    <message>
-        <source>My devices</source>
-        <translation type="vanished">내 장치</translation>
-        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
-    </message>
-    <message>
-        <source>Other devices</source>
-        <translation type="vanished">다른 장치</translation>
-        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
-    </message>
-    <message>
-        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation type="vanished">블루투스를 활성화하여 근처 장치 찾기 (스피커, 키보드, 마우스)</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::bluetooth::BluetoothModule</name>
-    <message>
-        <source>Bluetooth</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::bluetooth::DetailPage</name>
-    <message>
-        <source>Ignore this device</source>
-        <translation type="vanished">이 장치 무시</translation>
-    </message>
-    <message>
-        <source>Disconnect</source>
-        <translation type="vanished">연결 해제</translation>
-    </message>
-    <message>
-        <source>Connect</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::bluetooth::DeviceSettingsItem</name>
-    <message>
-        <source>Connected</source>
-        <translation type="vanished">연결됨</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation type="vanished">연결되지 않음</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::BootWidget</name>
-    <message>
-        <source>Updating...</source>
-        <translation type="vanished">업데이트중...</translation>
-    </message>
-    <message>
-        <source>Startup Delay</source>
-        <translation type="vanished">시동 지연</translation>
-        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="vanished">테마</translation>
-        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
-    </message>
-    <message>
-        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="vanished">부팅 메뉴에서 옵션을 클릭하여 첫 번째 부팅으로 설정하고 그림을 끌어다 놓아 배경을 변경하십시오</translation>
-    </message>
-    <message>
-        <source>Switch theme on to view it in boot menu</source>
-        <translation type="vanished">부팅 메뉴에서 보여지는 테마 전환</translation>
-    </message>
-    <message>
-        <source>Boot Menu</source>
-        <translation type="vanished">부팅 메뉴</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::CommonInfoModule</name>
-    <message>
-        <source>General Settings</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::CommonInfoWidget</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation type="vanished">부팅 메뉴</translation>
-        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
-    </message>
-    <message>
-        <source>Developer Mode</source>
-        <translation type="vanished">개발자 모드</translation>
-        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation type="vanished">사용자 경험 프로그램</translation>
-        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
-    </message>
-    <message>
-        <source>Tablet Mode</source>
-        <translation type="vanished">태블릿 모드</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::CommonInfoWork</name>
-    <message>
-        <source>Failed to get root access</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please sign in to your cloud account first</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No network connection</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>UOS Privacy Policy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Agree and Join User Experience Program</source>
-        <translation type="vanished">사용자 경험 프로그램 동의 및 참여</translation>
-    </message>
-    <message>
-        <source>The Disclaimer of Developer Mode</source>
-        <translation type="vanished">개발자 모드의 면책 조항</translation>
-    </message>
-    <message>
-        <source>Agree and Request Root Access</source>
-        <translation type="vanished">루트 액세스 동의 및 요청</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::DeveloperModeDialog</name>
-    <message>
-        <source>Request Root Access</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Online</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Offline</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please sign in to your cloud account first and continue</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export PC Info</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import Certificate</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>1. Export your PC information</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>3. Import the certificate</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::DeveloperModeWidget</name>
-    <message>
-        <source>Request Root Access</source>
-        <translation type="vanished">루트 액세스 요청</translation>
-    </message>
-    <message>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to get root access</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please sign in to your cloud account first</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No network connection</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">취소</translation>
-    </message>
-    <message>
-        <source>Restart Now</source>
-        <translation type="vanished">지금 다시 시작</translation>
-    </message>
-    <message>
-        <source>Root Access Allowed</source>
-        <translation type="vanished">루트 액세스 허용됨</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
-    <message>
-        <source>Join User Experience Program</source>
-        <translation type="vanished">사용자 경험 프로그램 참여</translation>
-        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
-    </message>
-    <message>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://openapi.chinauos.com/agreement/).</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::ClockItem</name>
-    <message>
-        <source>AM</source>
-        <translation type="vanished">오전</translation>
-    </message>
-    <message>
-        <source>PM</source>
-        <translation type="vanished">오후</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::DateSettings</name>
-    <message>
-        <source>Auto Sync</source>
-        <translation type="vanished">자동 동기화</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">취소</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="vanished">확인</translation>
-    </message>
-    <message>
-        <source>Server</source>
-        <translation type="vanished">서버</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Address</source>
-        <translation type="vanished">주소</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Customize</source>
-        <translation type="vanished">사용자 정의</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::DateWidget</name>
-    <message>
-        <source>Year</source>
-        <translation type="vanished">년</translation>
-    </message>
-    <message>
-        <source>Month</source>
-        <translation type="vanished">월</translation>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation type="vanished">일</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::DatetimeModule</name>
-    <message>
-        <source>Date and Time</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::DatetimeWidget</name>
-    <message>
-        <source>Timezone List</source>
-        <translation type="vanished">시간대 목록</translation>
-    </message>
-    <message>
-        <source>Time Settings</source>
-        <translation type="vanished">시간 설정</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>24-hour Time</source>
-        <translation type="vanished">24시간</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::SystemTimezone</name>
-    <message>
-        <source>Change System Timezone</source>
-        <translation type="vanished">시스템 시간대 변경</translation>
-        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
-    </message>
-    <message>
-        <source>System Timezone</source>
-        <translation type="vanished">시스템 시간대</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::TimezoneList</name>
-    <message>
-        <source>Timezone List</source>
-        <translation type="vanished">시간대 목록</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
-    </message>
-    <message>
-        <source>Add Timezone</source>
-        <translation type="vanished">시간대 추가</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::defapp::DefappDetailWidget</name>
-    <message>
-        <source>Add Application</source>
-        <translation type="vanished">응용프로그램 추가</translation>
-        <extra-contents_path>/defapp/Webpage</extra-contents_path>
-    </message>
-    <message>
-        <source>Open Desktop file</source>
-        <translation type="vanished">바탕화면 파일 열기</translation>
-    </message>
-    <message>
-        <source>Invalid</source>
-        <translation type="vanished">인식할 수 없음</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::defapp::DefaultAppsModule</name>
-    <message>
-        <source>Default Applications</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::defapp::DefaultAppsWidget</name>
-    <message>
-        <source>Webpage</source>
-        <translation type="vanished">웹페이지</translation>
-        <extra-contents_path>/defapp/Webpage</extra-contents_path>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation type="vanished">메일</translation>
-        <extra-contents_path>/defapp/Mail</extra-contents_path>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="vanished">텍스트</translation>
-        <extra-contents_path>/defapp/Text</extra-contents_path>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation type="vanished">음악</translation>
-        <extra-contents_path>/defapp/Music</extra-contents_path>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="vanished">동영상</translation>
-        <extra-contents_path>/defapp/Video</extra-contents_path>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation type="vanished">사진</translation>
-        <extra-contents_path>/defapp/Picture</extra-contents_path>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation type="vanished">터미널</translation>
-        <extra-contents_path>/defapp/Terminal</extra-contents_path>
-    </message>
-    <message>
-        <source>Default Applications</source>
-        <translation type="vanished">기본 응용프로그램</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::BrightnessPage</name>
-    <message>
-        <source>Night Shift</source>
-        <translation type="vanished">야간모드 전환</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-    <message>
-        <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="vanished">사용자 위치에 따라 화면 색상이 자동으로 조정됩니다</translation>
-    </message>
-    <message>
-        <source>Auto Brightness</source>
-        <translation type="vanished">자동 밝기</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::CustomSettingDialog</name>
-    <message>
-        <source>Main Screen</source>
-        <translation type="vanished">기본 화면</translation>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation type="vanished">해상도</translation>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation type="vanished">새로고침 속도</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">취소</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">저장</translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation type="vanished">Hz</translation>
-    </message>
-    <message>
-        <source>Recommended</source>
-        <translation type="vanished">권장</translation>
-    </message>
-    <message>
-        <source>inch</source>
-        <translation type="vanished">인치</translation>
-    </message>
-    <message>
-        <source>Resolution %1x%2</source>
-        <translation type="vanished">해상도 %1x%2</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::DisplayModule</name>
-    <message>
-        <source>Display</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation type="vanished">다중 디스플레이</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::DisplayWidget</name>
-    <message>
-        <source>Multiple Displays</source>
-        <translation type="vanished">다중 디스플레이</translation>
-        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation type="vanished">밝기</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation type="vanished">해상도</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
-    </message>
-    <message>
-        <source>Display Scaling</source>
-        <translation type="vanished">디스플레이 크기조정</translation>
-        <extra-contents_path>/display/Display Scaling</extra-contents_path>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation type="vanished">새로고침 속도</translation>
-        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
-    </message>
-    <message>
-        <source>Rotate Screen</source>
-        <translation type="vanished">화면 회전</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::MultiScreenSettingPage</name>
-    <message>
-        <source>Custom Settings</source>
-        <translation type="vanished">사용자 정의 설정</translation>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation type="vanished">복제</translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation type="vanished">확장</translation>
-    </message>
-    <message>
-        <source>Show the same image on other screens</source>
-        <translation type="vanished">다른 화면에서 동일한 이미지 표시</translation>
-    </message>
-    <message>
-        <source>Expand the desktop across the screens</source>
-        <translation type="vanished">화면에서 바탕화면 확장</translation>
-    </message>
-    <message>
-        <source>%1 only</source>
-        <translation type="vanished">%1 만</translation>
-    </message>
-    <message>
-        <source>Show the screen content only on %1</source>
-        <translation type="vanished">%1에 대해서만 화면 내용 표시</translation>
-    </message>
-    <message>
-        <source>Customize</source>
-        <translation type="vanished">사용자 정의</translation>
-    </message>
-    <message>
-        <source>Configure the display according to your needs</source>
-        <translation type="vanished">필요에 따라 디스플레이 환경 설정</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::RefreshRatePage</name>
-    <message>
-        <source>Hz</source>
-        <translation type="vanished">Hz</translation>
-    </message>
-    <message>
-        <source>Recommended</source>
-        <translation type="vanished">권장</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::ResolutionDetailPage</name>
-    <message>
-        <source>Recommended</source>
-        <translation type="vanished">권장</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::RotateDialog</name>
-    <message>
-        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="vanished">회전하려면 왼쪽 클릭하고 복원하려면 마우스 오른쪽 버튼을 클릭한 다음 종료하려면 Ctrl+S를 누르십시오.</translation>
-    </message>
-    <message>
-        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="vanished">회전하려면 마우스 오른쪽 버튼을 클릭하고 복원하려면 왼쪽 버튼을 클릭한 다음 종료하려면 Ctrl+S를 누르십시오.</translation>
-    </message>
-    <message>
-        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation type="vanished">디스플레이 설정을 저장 하시겠습니까? 작업이 수행되지 않으면 디스플레이가 %1로 복원됩니다.</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::ScalingPage</name>
-    <message>
-        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation type="vanished">일부 응용프로그램은 다중 디스플레이 환경에서 지정된 설정으로 크기를 조정할 수 없습니다.</translation>
-    </message>
-    <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation type="vanished">모니터가 100% 디스플레이 스케일링만 지원합니다.</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::CustomContent</name>
-    <message>
-        <source>Add Custom Shortcut</source>
-        <translation type="vanished">사용자 지정 바로가기 추가</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">이름</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Command</source>
-        <translation type="vanished">명령</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">취소</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="vanished">추가</translation>
-    </message>
-    <message>
-        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="vanished">이 단축키는 %1과(와) 충돌합니다.이 바로 가기를 즉시 적용하려면 추가를 클릭하세요</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
-    <message>
-        <source>Repeat Delay</source>
-        <translation type="vanished">반복 지연</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Short</source>
-        <translation type="vanished">짤게</translation>
-    </message>
-    <message>
-        <source>Long</source>
-        <translation type="vanished">길게</translation>
-    </message>
-    <message>
-        <source>Repeat Rate</source>
-        <translation type="vanished">반복 속도</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">느리게</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">빠르게</translation>
-    </message>
-    <message>
-        <source>Test here</source>
-        <translation type="vanished">여기에서 테스트</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Numeric Keypad</source>
-        <translation type="vanished">숫자 키패드</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Caps Lock Prompt</source>
-        <translation type="vanished">Caps Lock 알림</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
-    <message>
-        <source>Keyboard Layout</source>
-        <translation type="vanished">키보드 레이아웃</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="vanished">편집</translation>
-    </message>
-    <message>
-        <source>Switch Layouts (Multiple)</source>
-        <translation type="vanished">레이아웃 전환 (다양함)</translation>
-    </message>
-    <message>
-        <source>Applies to</source>
-        <translation type="vanished">적용 대상:</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="vanished">시스템</translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation type="vanished">응용프로그램</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">완료</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::KeyboardModule</name>
-    <message>
-        <source>Keyboard and Language</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Custom Shortcut</source>
-        <translation type="vanished">사용자 지정 바로가기</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::KeyboardWidget</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">일반</translation>
-    </message>
-    <message>
-        <source>Keyboard Layout</source>
-        <translation type="vanished">키보드 레이아웃</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
-    </message>
-    <message>
-        <source>System Language</source>
-        <translation type="vanished">시스템 언어</translation>
-        <extra-contents_path>/keyboard/System Language</extra-contents_path>
-    </message>
-    <message>
-        <source>Shortcuts</source>
-        <translation type="vanished">단축키</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::ShortCutSettingWidget</name>
-    <message>
-        <source>System</source>
-        <translation type="vanished">시스템</translation>
-    </message>
-    <message>
-        <source>Window</source>
-        <translation type="vanished">창</translation>
-    </message>
-    <message>
-        <source>Workspace</source>
-        <translation type="vanished">작업 공간</translation>
-    </message>
-    <message>
-        <source>Speech</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Custom Shortcut</source>
-        <translation type="vanished">사용자 지정 바로가기</translation>
-    </message>
-    <message>
-        <source>Restore Defaults</source>
-        <translation type="vanished">기본값 복원</translation>
-    </message>
-    <message>
-        <source>Shortcut</source>
-        <translation type="vanished">단축키</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">취소</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="vanished">추가</translation>
-    </message>
-    <message>
-        <source>Add System Language</source>
-        <translation type="vanished">시스템 언어 추가</translation>
-        <extra-contents_path>/keyboard/System Language</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::keyboard::SystemLanguageWidget</name>
-    <message>
-        <source>Language List</source>
-        <translation type="vanished">언어 목록</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="vanished">편집</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">완료</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::GeneralSettingWidget</name>
-    <message>
-        <source>Left Hand</source>
-        <translation type="vanished">왼쪽 손</translation>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Disable touchpad while typing</source>
-        <translation type="vanished">입력하는 동안 터치패드 사용안함</translation>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Scrolling Speed</source>
-        <translation type="vanished">스크롤 속도</translation>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Double-click Speed</source>
-        <translation type="vanished">더블클릭 속도</translation>
-        <extra-contents_path>/mouse/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">느리게</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">빠르게</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::MouseModule</name>
-    <message>
-        <source>Touchpad</source>
-        <translation type="vanished">터치패드</translation>
-    </message>
-    <message>
-        <source>TrackPoint</source>
-        <translation type="vanished">추적점</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::MouseSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation type="vanished">포인터 속도</translation>
-        <extra-child_page>Mouse</extra-child_page>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Mouse Acceleration</source>
-        <translation type="vanished">마우스 가속</translation>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Disable touchpad when a mouse is connected</source>
-        <translation type="vanished">마우스가 연결되면 터치패드 사용안함</translation>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation type="vanished">자연스러운 스크롤</translation>
-        <extra-child_page>Mouse</extra-child_page>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">느리게</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">빠르게</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::MouseWidget</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">일반</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation type="vanished">마우스</translation>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation type="vanished">터치패드</translation>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
-    </message>
-    <message>
-        <source>TrackPoint</source>
-        <translation type="vanished">추적점</translation>
-        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::TouchPadSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation type="vanished">포인터 속도</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation type="vanished">두드려서 클릭</translation>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation type="vanished">자연스러운 스크롤</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">느리게</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">빠르게</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::mouse::TrackPointSettingWidget</name>
-    <message>
-        <source>Pointer Speed</source>
-        <translation type="vanished">포인터 속도</translation>
-        <extra-child_page>TrackPoint</extra-child_page>
-        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">느리게</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">빠르게</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ChainsProxyPage</name>
-    <message>
-        <source>Application Proxy</source>
-        <translation type="vanished">응용프로그램 프록시</translation>
-    </message>
-    <message>
-        <source>Proxy Type</source>
-        <translation type="vanished">프록시 타입</translation>
-    </message>
-    <message>
-        <source>IP Address</source>
-        <translation type="vanished">IP 주소</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="vanished">포트</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">사용자 이름</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation type="vanished">옵션</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-    <message>
-        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="vanished">환경 설정후 실행도구의 응용프로그램 상황팝업 메뉴에서 &quot;프록시 사용&quot;을 선택하십시오</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">취소</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">저장</translation>
-    </message>
-    <message>
-        <source>Invalid IP address</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid port</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ChainsTypePage</name>
-    <message>
-        <source>Proxy Type</source>
-        <translation type="vanished">프록시 타입</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ConnectionEditPage</name>
-    <message>
-        <source>Disconnect</source>
-        <translation type="vanished">연결 해제</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="vanished">삭제</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">취소</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">저장</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to delete this configuration?</source>
-        <translation type="vanished">이 환경설정을 삭제하시겠습니까?</translation>
-    </message>
-    <message>
-        <source>Wired Connection %1</source>
-        <translation type="vanished">유선 연결 %1</translation>
-    </message>
-    <message>
-        <source>hotspot</source>
-        <translation type="vanished">핫스팟</translation>
-    </message>
-    <message>
-        <source>Wireless Connection %1</source>
-        <translation type="vanished">무선 연결 %1</translation>
-    </message>
-    <message>
-        <source>PPPoE Connection %1</source>
-        <translation type="vanished">PPPoE 연결 %1</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ConnectionVpnEditPage</name>
-    <message>
-        <source>New VPN</source>
-        <translation type="vanished">새로운 VPN</translation>
-    </message>
-    <message>
-        <source>VPN Type</source>
-        <translation type="vanished">VPN 타입</translation>
-    </message>
-    <message>
-        <source>L2TP</source>
-        <translation type="vanished">L2TP</translation>
-    </message>
-    <message>
-        <source>PPTP</source>
-        <translation type="vanished">PPTP</translation>
-    </message>
-    <message>
-        <source>VPNC</source>
-        <translation type="vanished">VPNC</translation>
-    </message>
-    <message>
-        <source>OpenVPN</source>
-        <translation type="vanished">OpenVPN</translation>
-    </message>
-    <message>
-        <source>StrongSwan</source>
-        <translation type="vanished">StrongSwan</translation>
-    </message>
-    <message>
-        <source>OpenConnect</source>
-        <translation type="vanished">OpenConnect</translation>
-    </message>
-    <message>
-        <source>Export</source>
-        <translation type="vanished">보내기</translation>
-    </message>
-    <message>
-        <source>VPN L2TP %1</source>
-        <translation type="vanished">VPN L2TP %1</translation>
-    </message>
-    <message>
-        <source>VPN PPTP %1</source>
-        <translation type="vanished">VPN PPTP %1</translation>
-    </message>
-    <message>
-        <source>VPN VPNC %1</source>
-        <translation type="vanished">VPN VPNC %1</translation>
-    </message>
-    <message>
-        <source>VPN OpenVPN %1</source>
-        <translation type="vanished">VPN OpenVPN %1</translation>
-    </message>
-    <message>
-        <source>VPN StrongSwan %1</source>
-        <translation type="vanished">VPN StrongSwan %1</translation>
-    </message>
-    <message>
-        <source>VPN OpenConnect %1</source>
-        <translation type="vanished">VPN OpenConnect %1</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::EthernetSection</name>
-    <message>
-        <source>Ethernet</source>
-        <translation type="vanished">이더넷</translation>
-    </message>
-    <message>
-        <source>Not Bind</source>
-        <translation type="vanished">바인딩 안함</translation>
-    </message>
-    <message>
-        <source>Device MAC Addr</source>
-        <translation type="vanished">장치 MAC 주소</translation>
-    </message>
-    <message>
-        <source>Cloned MAC Addr</source>
-        <translation type="vanished">복사된 MAC 주소</translation>
-    </message>
-    <message>
-        <source>Customize MTU</source>
-        <translation type="vanished">MTU 사용자 정의</translation>
-    </message>
-    <message>
-        <source>MTU</source>
-        <translation type="vanished">MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::GenericHotspotSection</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">일반</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">이름</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::GenericSection</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">일반</translation>
-    </message>
-    <message>
-        <source>The name already exists</source>
-        <translation type="vanished">이름이 이미 존재합니다</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">이름</translation>
-    </message>
-    <message>
-        <source>Auto Connect</source>
-        <translation type="vanished">자동 연결</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::HotspotDeviceWidget</name>
-    <message>
-        <source>Hotspot</source>
-        <translation type="vanished">핫스팟</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-    <message>
-        <source>Add Settings</source>
-        <translation type="vanished">설정 추가</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::HotspotPage</name>
-    <message>
-        <source>Create Hotspot</source>
-        <translation type="vanished">핫스팟을 만들기</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::IpvxSection</name>
-    <message>
-        <source>IPv4</source>
-        <translation type="vanished">IPv4</translation>
-    </message>
-    <message>
-        <source>IPv6</source>
-        <translation type="vanished">IPv6</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="vanished">자동</translation>
-    </message>
-    <message>
-        <source>Manual</source>
-        <translation type="vanished">수동</translation>
-    </message>
-    <message>
-        <source>Ignore</source>
-        <translation type="vanished">무시</translation>
-    </message>
-    <message>
-        <source>IP Address</source>
-        <translation type="vanished">IP 주소</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">게이트웨이</translation>
-    </message>
-    <message>
-        <source>Primary DNS</source>
-        <translation type="vanished">기본 DNS</translation>
-    </message>
-    <message>
-        <source>Secondary DNS</source>
-        <translation type="vanished">두번째 DNS</translation>
-    </message>
-    <message>
-        <source>Only applied in corresponding resources</source>
-        <translation type="vanished">해당 리소스에만 적용됨</translation>
-    </message>
-    <message>
-        <source>Method</source>
-        <translation type="vanished">메소드</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation type="vanished">넷마스크</translation>
-    </message>
-    <message>
-        <source>Prefix</source>
-        <translation type="vanished">접두사</translation>
-    </message>
-    <message>
-        <source>Invalid IP address</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkDetailPage</name>
-    <message>
-        <source>Network Details</source>
-        <translation type="vanished">네트워크 세부정보</translation>
-    </message>
-    <message>
-        <source>Hotspot</source>
-        <translation type="vanished">핫스팟</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation type="vanished">SSID</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">보안</translation>
-    </message>
-    <message>
-        <source>Interface</source>
-        <translation type="vanished">인터페이스</translation>
-    </message>
-    <message>
-        <source>MAC</source>
-        <translation type="vanished">MAC</translation>
-    </message>
-    <message>
-        <source>Band</source>
-        <translation type="vanished">밴드</translation>
-    </message>
-    <message>
-        <source>IPv4</source>
-        <translation type="vanished">IPv4</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">게이트웨이</translation>
-    </message>
-    <message>
-        <source>Primary DNS</source>
-        <translation type="vanished">기본 DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation type="vanished">넷마스크</translation>
-    </message>
-    <message>
-        <source>IPv6</source>
-        <translation type="vanished">IPv6</translation>
-    </message>
-    <message>
-        <source>Prefix</source>
-        <translation type="vanished">접두사</translation>
-    </message>
-    <message>
-        <source>Speed</source>
-        <translation type="vanished">속도</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkModule</name>
-    <message>
-        <source>Wired Network</source>
-        <translation type="vanished">유선 네트워크</translation>
-    </message>
-    <message>
-        <source>Wireless Network</source>
-        <translation type="vanished">무선 네트워크</translation>
-    </message>
-    <message>
-        <source>Personal Hotspot</source>
-        <translation type="vanished">개인 핫스팟</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkModuleWidget</name>
-    <message>
-        <source>DSL</source>
-        <translation type="vanished">DSL</translation>
-        <extra-contents_path>/network/DSL</extra-contents_path>
-    </message>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-        <extra-contents_path>/network/VPN</extra-contents_path>
-    </message>
-    <message>
-        <source>System Proxy</source>
-        <translation type="vanished">시스템 프록시</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Application Proxy</source>
-        <translation type="vanished">응용프로그램 프록시</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <source>Network Details</source>
-        <translation type="vanished">네트워크 세부정보</translation>
-        <extra-contents_path>/network/Network Details</extra-contents_path>
-    </message>
-    <message>
-        <source>Configure by Network Manager</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Personal Hotspot</source>
-        <translation type="vanished">개인 핫스팟</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-    <message>
-        <source>Wired Network %1</source>
-        <translation type="vanished">유선 네트워크 %1</translation>
-    </message>
-    <message>
-        <source>Wired Network</source>
-        <translation type="vanished">유선 네트워크</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Wireless Network %1</source>
-        <translation type="vanished">무선 네트워크 %1</translation>
-    </message>
-    <message>
-        <source>Wireless Network</source>
-        <translation type="vanished">무선 네트워크</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
-    </message>
-    <message>
-        <source>Disabled</source>
-        <translation type="vanished">사용안함</translation>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation type="vanished">연결 끊김</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PPPOESection</name>
-    <message>
-        <source>PPPoE</source>
-        <translation type="vanished">PPPoE</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">사용자 이름</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Service</source>
-        <translation type="vanished">서비스</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PPPSection</name>
-    <message>
-        <source>PPP</source>
-        <translation type="vanished">PPP</translation>
-    </message>
-    <message>
-        <source>Refuse EAP Authentication</source>
-        <translation type="vanished">EAP 인증 거부</translation>
-    </message>
-    <message>
-        <source>Refuse PAP Authentication</source>
-        <translation type="vanished">PAP 인증 거부</translation>
-    </message>
-    <message>
-        <source>Refuse CHAP Authentication</source>
-        <translation type="vanished">CHAP 인증 거부</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation type="vanished">MSCHAP 인증 거부</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="vanished">MSCHAPv2 인증 거부</translation>
-    </message>
-    <message>
-        <source>No BSD Data Compression</source>
-        <translation type="vanished">BSD​ 데이터 압축 안함</translation>
-    </message>
-    <message>
-        <source>No Deflate Data Compression</source>
-        <translation type="vanished">무손실 데이터 압축 안함</translation>
-    </message>
-    <message>
-        <source>No TCP Header Compression</source>
-        <translation type="vanished">TCP 해더 압축 안함</translation>
-    </message>
-    <message>
-        <source>No Protocol Field Compression</source>
-        <translation type="vanished">프로토콜 필드 압축 안함</translation>
-    </message>
-    <message>
-        <source>No Address/Control Compression</source>
-        <translation type="vanished">주소/컨트롤 압축 안함</translation>
-    </message>
-    <message>
-        <source>Send PPP Echo Packets</source>
-        <translation type="vanished">PPP 에코 패킷 보냄</translation>
-    </message>
-    <message>
-        <source>Use MPPE</source>
-        <translation type="vanished">MPPE 사용</translation>
-    </message>
-    <message>
-        <source>128-bit MPPE</source>
-        <translation type="vanished">128-bit MPPE</translation>
-    </message>
-    <message>
-        <source>Stateful MPPE</source>
-        <translation type="vanished">상태유지 MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PppoePage</name>
-    <message>
-        <source>Create PPPoE Connection</source>
-        <translation type="vanished">PPPoE 연결 생성</translation>
-        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
-    </message>
-    <message>
-        <source>PPP</source>
-        <translation type="vanished">PPP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ProxyPage</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">취소</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">저장</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">없음</translation>
-    </message>
-    <message>
-        <source>Manual</source>
-        <translation type="vanished">수동</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="vanished">자동</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation type="vanished">옵션</translation>
-    </message>
-    <message>
-        <source>HTTP Proxy</source>
-        <translation type="vanished">HTTP 프록시</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="vanished">포트</translation>
-    </message>
-    <message>
-        <source>HTTPS Proxy</source>
-        <translation type="vanished">HTTPS 프록시</translation>
-    </message>
-    <message>
-        <source>FTP Proxy</source>
-        <translation type="vanished">FTP 프록시</translation>
-    </message>
-    <message>
-        <source>SOCKS Proxy</source>
-        <translation type="vanished">SOCKS 프록시</translation>
-    </message>
-    <message>
-        <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="vanished">위의 호스트 및 도메인에 대한 프록시 환경설정 무시</translation>
-    </message>
-    <message>
-        <source>Configuration URL</source>
-        <translation type="vanished">URL 환경설정</translation>
-    </message>
-    <message>
-        <source>System Proxy</source>
-        <translation type="vanished">시스템 프록시</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::Secret8021xSection</name>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">보안</translation>
-    </message>
-    <message>
-        <source>TLS</source>
-        <translation type="vanished">TLS</translation>
-    </message>
-    <message>
-        <source>MD5</source>
-        <translation type="vanished">MD5</translation>
-    </message>
-    <message>
-        <source>LEAP</source>
-        <translation type="vanished">LEAP</translation>
-    </message>
-    <message>
-        <source>FAST</source>
-        <translation type="vanished">FAST</translation>
-    </message>
-    <message>
-        <source>Tunneled TLS</source>
-        <translation type="vanished">TLS</translation>
-    </message>
-    <message>
-        <source>Protected EAP</source>
-        <translation type="vanished">보호된 EAP</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="vanished">저장됨</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="vanished">묻기</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="vanished">필수 항목이 아닙니다</translation>
-    </message>
-    <message>
-        <source>Disabled</source>
-        <translation type="vanished">사용안함</translation>
-    </message>
-    <message>
-        <source>Anonymous</source>
-        <translation type="vanished">익명</translation>
-    </message>
-    <message>
-        <source>Authenticated</source>
-        <translation type="vanished">인증됨</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">모두</translation>
-    </message>
-    <message>
-        <source>Automatic</source>
-        <translation type="vanished">자동</translation>
-    </message>
-    <message>
-        <source>Version 0</source>
-        <translation type="vanished">버전 0</translation>
-    </message>
-    <message>
-        <source>Version 1</source>
-        <translation type="vanished">버전 1</translation>
-    </message>
-    <message>
-        <source>EAP Auth</source>
-        <translation type="vanished">EAP 인증</translation>
-    </message>
-    <message>
-        <source>Identity</source>
-        <translation type="vanished">신원</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="vanished">비밀번호 옵션</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="vanished">개인키</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="vanished">CA 인증서</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="vanished">사용자 인증서</translation>
-    </message>
-    <message>
-        <source>Anonymous ID</source>
-        <translation type="vanished">익명 ID</translation>
-    </message>
-    <message>
-        <source>Provisioning</source>
-        <translation type="vanished">제공</translation>
-    </message>
-    <message>
-        <source>PAC file</source>
-        <translation type="vanished">PAC 파일</translation>
-    </message>
-    <message>
-        <source>Inner Auth</source>
-        <translation type="vanished">내부 인증</translation>
-    </message>
-    <message>
-        <source>PEAP Version</source>
-        <translation type="vanished">PEAP 버전</translation>
-    </message>
-    <message>
-        <source>Private Pwd</source>
-        <translation type="vanished">개인 비밀번호</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretHotspotSection</name>
-    <message>
-        <source>Invalid password</source>
-        <translation type="vanished">인식할 수 없는 비밀번호</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">없음</translation>
-    </message>
-    <message>
-        <source>WEP 40/128-bit</source>
-        <translation type="vanished">WEP 40/128-bit</translation>
-    </message>
-    <message>
-        <source>WPA/WPA2 Personal</source>
-        <translation type="vanished">개인 WPA/WPA2</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">보안</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="vanished">키</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretWiredSection</name>
-    <message>
-        <source>Security Required</source>
-        <translation type="vanished">보안 필수 항목</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretWirelessSection</name>
-    <message>
-        <source>Invalid password</source>
-        <translation type="vanished">인식할 수 없는 비밀번호</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">없음</translation>
-    </message>
-    <message>
-        <source>WEP 40/128-bit</source>
-        <translation type="vanished">WEP 40/128-bit</translation>
-    </message>
-    <message>
-        <source>WPA/WPA2 Personal</source>
-        <translation type="vanished">개인 WPA/WPA2</translation>
-    </message>
-    <message>
-        <source>WPA/WPA2 Enterprise</source>
-        <translation type="vanished">WPA/WPA2 엔터프라이즈</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">보안</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="vanished">키</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnAdvOpenVPNSection</name>
-    <message>
-        <source>VPN Advanced</source>
-        <translation type="vanished">VPN 고급</translation>
-    </message>
-    <message>
-        <source>Customize Gateway Port</source>
-        <translation type="vanished">게이트웨이 포트 사용자 정의</translation>
-    </message>
-    <message>
-        <source>Gateway Port</source>
-        <translation type="vanished">게이트웨이 포트</translation>
-    </message>
-    <message>
-        <source>Customize Renegotiation Interval</source>
-        <translation type="vanished">재조정 간격 사용자 정의</translation>
-    </message>
-    <message>
-        <source>Renegotiation Interval</source>
-        <translation type="vanished">재조정 간격</translation>
-    </message>
-    <message>
-        <source>Use LZO Data Compression</source>
-        <translation type="vanished">LZO 데이터 압축 사용</translation>
-    </message>
-    <message>
-        <source>Use TCP Connection</source>
-        <translation type="vanished">TCP 연결 사용</translation>
-    </message>
-    <message>
-        <source>Use TAP Device</source>
-        <translation type="vanished">TAP 장치 사용</translation>
-    </message>
-    <message>
-        <source>Customize Tunnel MTU</source>
-        <translation type="vanished">터널 MTU 사용자 정의</translation>
-    </message>
-    <message>
-        <source>MTU</source>
-        <translation type="vanished">MTU</translation>
-    </message>
-    <message>
-        <source>Customize UDP Fragment Size</source>
-        <translation type="vanished">UDP 조각 크기 사용자 정의</translation>
-    </message>
-    <message>
-        <source>UDP Fragment Size</source>
-        <translation type="vanished">UDP 조각 크기</translation>
-    </message>
-    <message>
-        <source>Restrict Tunnel TCP MSS</source>
-        <translation type="vanished">터널 TCP MSS 제한</translation>
-    </message>
-    <message>
-        <source>Randomize Remote Hosts</source>
-        <translation type="vanished">무작위 원격 호스트</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnAdvVPNCSection</name>
-    <message>
-        <source>VPN Advanced</source>
-        <translation type="vanished">VPN 고급</translation>
-    </message>
-    <message>
-        <source>Cisco (default)</source>
-        <translation type="vanished">시스코 (기본값)</translation>
-    </message>
-    <message>
-        <source>Netscreen</source>
-        <translation type="vanished">Netscreen</translation>
-    </message>
-    <message>
-        <source>Secure (default)</source>
-        <translation type="vanished">보안 (기본값)</translation>
-    </message>
-    <message>
-        <source>Weak</source>
-        <translation type="vanished">약함</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">없음</translation>
-    </message>
-    <message>
-        <source>NAT-T When Available (default)</source>
-        <translation type="vanished">NAT-T 사용 가능한 경우 (기본값)</translation>
-    </message>
-    <message>
-        <source>NAT-T Always</source>
-        <translation type="vanished">항상 NAT-T 모드</translation>
-    </message>
-    <message>
-        <source>Cisco UDP</source>
-        <translation type="vanished">시스코 UDP</translation>
-    </message>
-    <message>
-        <source>Disabled</source>
-        <translation type="vanished">사용안함</translation>
-    </message>
-    <message>
-        <source>DH Group 1</source>
-        <translation type="vanished">DH 그룹 1</translation>
-    </message>
-    <message>
-        <source>DH Group 2 (default)</source>
-        <translation type="vanished">DH 그룹 2 (기본값)</translation>
-    </message>
-    <message>
-        <source>DH Group 5</source>
-        <translation type="vanished">DH 그룹 5</translation>
-    </message>
-    <message>
-        <source>Server (default)</source>
-        <translation type="vanished">서버 (기본값)</translation>
-    </message>
-    <message>
-        <source>DH Group 2</source>
-        <translation type="vanished">DH 그룹 2</translation>
-    </message>
-    <message>
-        <source>Domain</source>
-        <translation type="vanished">도메인</translation>
-    </message>
-    <message>
-        <source>Vendor</source>
-        <translation type="vanished">벤더</translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation type="vanished">버전</translation>
-    </message>
-    <message>
-        <source>Encryption</source>
-        <translation type="vanished">암호화</translation>
-    </message>
-    <message>
-        <source>NAT Traversal Mode</source>
-        <translation type="vanished">NAT 순회 모드</translation>
-    </message>
-    <message>
-        <source>IKE DH Group</source>
-        <translation type="vanished">IKE DH 그룹</translation>
-    </message>
-    <message>
-        <source>Forward Secrecy</source>
-        <translation type="vanished">비밀 전송</translation>
-    </message>
-    <message>
-        <source>Local Port</source>
-        <translation type="vanished">로컬 포트</translation>
-    </message>
-    <message>
-        <source>Disable Dead Peer Detection</source>
-        <translation type="vanished">데드 피어 감지 사용안함</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnIpsecSection</name>
-    <message>
-        <source>VPN IPsec</source>
-        <translation type="vanished">VPN IPsec</translation>
-    </message>
-    <message>
-        <source>Enable IPsec</source>
-        <translation type="vanished">IPsec 사용</translation>
-    </message>
-    <message>
-        <source>Group Name</source>
-        <translation type="vanished">그룹 이름</translation>
-    </message>
-    <message>
-        <source>Group ID</source>
-        <translation type="vanished">그룹 ID</translation>
-    </message>
-    <message>
-        <source>Pre-Shared Key</source>
-        <translation type="vanished">사전 공유 킵</translation>
-    </message>
-    <message>
-        <source>Phase1 Algorithms</source>
-        <translation type="vanished">1 단계 알고리즘</translation>
-    </message>
-    <message>
-        <source>Phase2 Algorithms</source>
-        <translation type="vanished">2 단계 알고리즘</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnOpenConnectSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">게이트웨이</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="vanished">CA 인증서</translation>
-    </message>
-    <message>
-        <source>Proxy</source>
-        <translation type="vanished">프록시</translation>
-    </message>
-    <message>
-        <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation type="vanished">시스코 보안 바탕화면 트로이 목마 허용</translation>
-    </message>
-    <message>
-        <source>CSD Script</source>
-        <translation type="vanished">CSD 스크립트</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="vanished">사용자 인증서</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="vanished">개인키</translation>
-    </message>
-    <message>
-        <source>Use FSID for Key Passphrase</source>
-        <translation type="vanished">키 암호화에 FSID 사용</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnOpenVPNSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Certificates (TLS)</source>
-        <translation type="vanished">인증서 (TLS)</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-    <message>
-        <source>Certificates with Password (TLS)</source>
-        <translation type="vanished">비밀번호가 있는 인증서 (TLS)</translation>
-    </message>
-    <message>
-        <source>Static Key</source>
-        <translation type="vanished">정적 키</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="vanished">저장됨</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="vanished">묻기</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="vanished">필수 항목이 아닙니다</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">게이트웨이</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Auth Type</source>
-        <translation type="vanished">인증 타입</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="vanished">CA 인증서</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="vanished">사용자 인증서</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="vanished">개인키</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="vanished">비밀번호 옵션</translation>
-    </message>
-    <message>
-        <source>Private Pwd</source>
-        <translation type="vanished">개인 비밀번호</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">사용자 이름</translation>
-    </message>
-    <message>
-        <source>Customize Key Direction</source>
-        <translation type="vanished">키 방향 사용자 정의</translation>
-    </message>
-    <message>
-        <source>Key Direction</source>
-        <translation type="vanished">키 안내</translation>
-    </message>
-    <message>
-        <source>Remote IP</source>
-        <translation type="vanished">원격 IP</translation>
-    </message>
-    <message>
-        <source>Local IP</source>
-        <translation type="vanished">로컬 IP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnPPPSection</name>
-    <message>
-        <source>VPN PPP</source>
-        <translation type="vanished">VPN PPP</translation>
-    </message>
-    <message>
-        <source>All Available (default)</source>
-        <translation type="vanished">모두 사용가능 (기본값)</translation>
-    </message>
-    <message>
-        <source>40-bit (less secure)</source>
-        <translation type="vanished">40-bit (덜 안전함)</translation>
-    </message>
-    <message>
-        <source>128-bit (most secure)</source>
-        <translation type="vanished">128-bit (가장 안전)</translation>
-    </message>
-    <message>
-        <source>Refuse EAP Authentication</source>
-        <translation type="vanished">EAP 인증 거부</translation>
-    </message>
-    <message>
-        <source>Refuse PAP Authentication</source>
-        <translation type="vanished">PAP 인증 거부</translation>
-    </message>
-    <message>
-        <source>Refuse CHAP Authentication</source>
-        <translation type="vanished">CHAP 인증 거부</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation type="vanished">MSCHAP 인증 거부</translation>
-    </message>
-    <message>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="vanished">MSCHAPv2 인증 거부</translation>
-    </message>
-    <message>
-        <source>No BSD Data Compression</source>
-        <translation type="vanished">BSD​ 데이터 압축 안함</translation>
-    </message>
-    <message>
-        <source>No Deflate Data Compression</source>
-        <translation type="vanished">무손실 데이터 압축 안함</translation>
-    </message>
-    <message>
-        <source>No TCP Header Compression</source>
-        <translation type="vanished">TCP 해더 압축 안함</translation>
-    </message>
-    <message>
-        <source>No Protocol Field Compression</source>
-        <translation type="vanished">프로토콜 필드 압축 안함</translation>
-    </message>
-    <message>
-        <source>No Address/Control Compression</source>
-        <translation type="vanished">주소/컨트롤 압축 안함</translation>
-    </message>
-    <message>
-        <source>Send PPP Echo Packets</source>
-        <translation type="vanished">PPP 에코 패킷 보냄</translation>
-    </message>
-    <message>
-        <source>Use MPPE</source>
-        <translation type="vanished">MPPE 사용</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">보안</translation>
-    </message>
-    <message>
-        <source>Stateful MPPE</source>
-        <translation type="vanished">상태유지 MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnPage</name>
-    <message>
-        <source>VPN Status</source>
-        <translation type="vanished">VPN 상태</translation>
-    </message>
-    <message>
-        <source>Create VPN</source>
-        <translation type="vanished">VPN 생성</translation>
-        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
-    </message>
-    <message>
-        <source>Import VPN</source>
-        <translation type="vanished">VPN 가져오기</translation>
-        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
-    </message>
-    <message>
-        <source>Import Error</source>
-        <translation type="vanished">가져오기 오류</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">확인</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnProxySection</name>
-    <message>
-        <source>VPN Proxy</source>
-        <translation type="vanished">VPN 프록시</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="vanished">필수 항목이 아닙니다</translation>
-    </message>
-    <message>
-        <source>HTTP</source>
-        <translation type="vanished">HTTP</translation>
-    </message>
-    <message>
-        <source>SOCKS</source>
-        <translation type="vanished">SOCKS</translation>
-    </message>
-    <message>
-        <source>Proxy Type</source>
-        <translation type="vanished">프록시 타입</translation>
-    </message>
-    <message>
-        <source>Server IP</source>
-        <translation type="vanished">서버 IP</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="vanished">포트</translation>
-    </message>
-    <message>
-        <source>Retry Indefinitely When Failed</source>
-        <translation type="vanished">실패 시 무한 재시도</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">사용자 이름</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSSTPSection</name>
-    <message>
-        <source>CA File</source>
-        <translation type="vanished">CA 파일</translation>
-    </message>
-    <message>
-        <source>Ignore Certificate Warnings</source>
-        <translation type="vanished">인증서 경고 무시</translation>
-    </message>
-    <message>
-        <source>Use TLS Hostname Extensions</source>
-        <translation type="vanished">TLS 호스트 이름 확장 사용</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSecOpenVPNSection</name>
-    <message>
-        <source>VPN Security</source>
-        <translation type="vanished">VPN 보안</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="vanished">기본값</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">없음</translation>
-    </message>
-    <message>
-        <source>Cipher</source>
-        <translation type="vanished">암호문</translation>
-    </message>
-    <message>
-        <source>HMAC Auth</source>
-        <translation type="vanished">HMAC 인증</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="vanished">저장됨</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="vanished">묻기</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="vanished">필수 항목이 아닙니다</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">게이트웨이</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">사용자 이름</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="vanished">비밀번호 옵션</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-    <message>
-        <source>NT Domain</source>
-        <translation type="vanished">NT 도메인</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSstpProxySection</name>
-    <message>
-        <source>VPN Proxy</source>
-        <translation type="vanished">VPN 프록시</translation>
-    </message>
-    <message>
-        <source>Server IP</source>
-        <translation type="vanished">서버 IP</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="vanished">포트</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">사용자 이름</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnStrongSwanSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="vanished">개인키</translation>
-    </message>
-    <message>
-        <source>SSH Agent</source>
-        <translation type="vanished">SSH 에이전트</translation>
-    </message>
-    <message>
-        <source>Smart Card</source>
-        <translation type="vanished">스마트 카드</translation>
-    </message>
-    <message>
-        <source>EAP</source>
-        <translation type="vanished">EAP</translation>
-    </message>
-    <message>
-        <source>Pre-Shared Key</source>
-        <translation type="vanished">사전 공유 킵</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">게이트웨이</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="vanished">CA 인증서</translation>
-    </message>
-    <message>
-        <source>Auth Type</source>
-        <translation type="vanished">인증 타입</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="vanished">사용자 인증서</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">사용자 이름</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-    <message>
-        <source>Request an Inner IP Address</source>
-        <translation type="vanished">내부 IP 주소 요청</translation>
-    </message>
-    <message>
-        <source>Enforce UDP Encapsulation</source>
-        <translation type="vanished">UDP 캡슐화 적용</translation>
-    </message>
-    <message>
-        <source>Use IP Compression</source>
-        <translation type="vanished">IP 압축 사용</translation>
-    </message>
-    <message>
-        <source>Enable Custom Cipher Proposals</source>
-        <translation type="vanished">사용자 지정 암호 제안 사용</translation>
-    </message>
-    <message>
-        <source>IKE</source>
-        <translation type="vanished">IKE</translation>
-    </message>
-    <message>
-        <source>ESP</source>
-        <translation type="vanished">ESP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnTLSSection</name>
-    <message>
-        <source>VPN TLS Authentication</source>
-        <translation type="vanished">VPN TLS 인증</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="vanished">기본값</translation>
-    </message>
-    <message>
-        <source>Client</source>
-        <translation type="vanished">고객</translation>
-    </message>
-    <message>
-        <source>Server</source>
-        <translation type="vanished">서버</translation>
-    </message>
-    <message>
-        <source>Subject Match</source>
-        <translation type="vanished">제목 일치</translation>
-    </message>
-    <message>
-        <source>Remote Cert Type</source>
-        <translation type="vanished">원격 인증서 유형</translation>
-    </message>
-    <message>
-        <source>Key File</source>
-        <translation type="vanished">키 파일</translation>
-    </message>
-    <message>
-        <source>Customize Key Direction</source>
-        <translation type="vanished">키 방향 사용자 정의</translation>
-    </message>
-    <message>
-        <source>Key Direction</source>
-        <translation type="vanished">키 안내</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnVPNCSection</name>
-    <message>
-        <source>VPN</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Saved</source>
-        <translation type="vanished">저장됨</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="vanished">묻기</translation>
-    </message>
-    <message>
-        <source>Not Required</source>
-        <translation type="vanished">필수 항목이 아닙니다</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">게이트웨이</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">사용자 이름</translation>
-    </message>
-    <message>
-        <source>Pwd Options</source>
-        <translation type="vanished">비밀번호 옵션</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">비밀번호</translation>
-    </message>
-    <message>
-        <source>Group Name</source>
-        <translation type="vanished">그룹 이름</translation>
-    </message>
-    <message>
-        <source>Group Pwd</source>
-        <translation type="vanished">그룹 암호</translation>
-    </message>
-    <message>
-        <source>Use Hybrid Authentication</source>
-        <translation type="vanished">하이브리드 인증 사용</translation>
-    </message>
-    <message>
-        <source>CA File</source>
-        <translation type="vanished">CA 파일</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WiredPage</name>
-    <message>
-        <source>Plug in the network cable first</source>
-        <translation type="vanished">네트워크 케이블을 먼저 연결하세요</translation>
-    </message>
-    <message>
-        <source>Wired Network Adapter</source>
-        <translation type="vanished">유선 네트워크 어댑터</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Add Network Connection</source>
-        <translation type="vanished">네트워크 연결 추가</translation>
-        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
-    </message>
-    <message>
-        <source>Select Settings</source>
-        <translation type="vanished">설정을　선택하기　</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WirelessPage</name>
-    <message>
-        <source>Connect to hidden network</source>
-        <translation type="vanished">숨겨진 네트워크에 연결</translation>
-    </message>
-    <message>
-        <source>Wireless Network Adapter</source>
-        <translation type="vanished">무선 네트워크 어댑터</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
-    </message>
-    <message>
-        <source>Close Hotspot</source>
-        <translation type="vanished">핫스팟 닫기</translation>
-    </message>
-    <message>
-        <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation type="vanished">무선 네트워크에 연결하려면 먼저 핫스팟을 비활성화하십시오</translation>
-    </message>
-    <message>
-        <source>WLAN</source>
-        <translation type="vanished">WLAN</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WirelessSection</name>
-    <message>
-        <source>WLAN</source>
-        <translation type="vanished">WLAN</translation>
-    </message>
-    <message>
-        <source>Not Bind</source>
-        <translation type="vanished">바인딩 안함</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation type="vanished">SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation type="vanished">필수 항목</translation>
-    </message>
-    <message>
-        <source>Device MAC Addr</source>
-        <translation type="vanished">장치 MAC 주소</translation>
-    </message>
-    <message>
-        <source>Customize MTU</source>
-        <translation type="vanished">MTU 사용자 정의</translation>
-    </message>
-    <message>
-        <source>MTU</source>
-        <translation type="vanished">MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PersonalizationFontsWidget</name>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">크기</translation>
-    </message>
-    <message>
-        <source>Standard Font</source>
-        <translation type="vanished">표준 글꼴</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
-    </message>
-    <message>
-        <source>Monospaced Font</source>
-        <translation type="vanished">고정폭 글꼴</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
-    </message>
-    <message>
-        <source> (Unsupported font)</source>
-        <translation type="vanished">(지원하지 않는 글꼴)</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PersonalizationGeneral</name>
-    <message>
-        <source>Theme</source>
-        <translation type="vanished">테마</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Accent Color</source>
-        <translation type="vanished">강조 색상</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Window Effect</source>
-        <translation type="vanished">창 효과</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Transparency</source>
-        <translation type="vanished">투명도</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PersonalizationList</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">일반</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Icon Theme</source>
-        <translation type="vanished">아이콘 테마</translation>
-        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
-    </message>
-    <message>
-        <source>Cursor Theme</source>
-        <translation type="vanished">커서 테마</translation>
-        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
-    </message>
-    <message>
-        <source>Font</source>
-        <translation type="vanished">글꼴</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PersonalizationModule</name>
-    <message>
-        <source>Personalization</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PerssonalizationThemeList</name>
-    <message>
-        <source>Light</source>
-        <translation type="vanished">가볍게</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation type="vanished">어두움</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="vanished">자동</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="vanished">기본값</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
-    <message>
-        <source>Light</source>
-        <translation type="vanished">가볍게</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation type="vanished">어두움</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="vanished">자동</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="vanished">기본값</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::power::GeneralWidget</name>
-    <message>
-        <source>Power Saving Mode</source>
-        <translation type="vanished">절전　모드　</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Auto Mode Switch</source>
-        <translation type="vanished">자동 모드 전환</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Password is required to wake up the computer</source>
-        <translation type="vanished">컴퓨터의 절전 모드를 종료하려면 비밀번호가 필요합니다</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation type="vanished">모니터를 깨우려면 비밀번호가 필요합니다</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::power::PowerModule</name>
-    <message>
-        <source>On Battery</source>
-        <translation type="vanished">배터리 켜기</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Battery low, please plug in</source>
-        <translation type="vanished">배터리 부족,. 전원을 연결하세요</translation>
-    </message>
-    <message>
-        <source>Battery critically low</source>
-        <translation type="vanished">배터리 잔량 부족</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::power::PowerWidget</name>
-    <message>
-        <source>General</source>
-        <translation type="vanished">일반</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation type="vanished">연결됨</translation>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation type="vanished">배터리 켜기</translation>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::power::UseBatteryWidget</name>
-    <message>
-        <source>Monitor will suspend after</source>
-        <translation type="vanished">다음 시간 이후 모니터 끄기</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-    <message>
-        <source>Computer will suspend after</source>
-        <translation type="vanished">다음 시간 이후 컴퓨터 절전모드</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-    <message>
-        <source>Lock screen after</source>
-        <translation type="vanished">다음 시간 이후 화면 잠금</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-    <message>
-        <source>Suspend on lid close</source>
-        <translation type="vanished">덮개를 닫을 때 절전</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation type="vanished">없음</translation>
-    </message>
-    <message>
-        <source>1 Minute</source>
-        <translation type="vanished">1 분</translation>
-    </message>
-    <message>
-        <source>%1 Minutes</source>
-        <translation type="vanished">%1 분</translation>
-    </message>
-    <message>
-        <source>1 Hour</source>
-        <translation type="vanished">1 시간</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::power::UseElectricWidget</name>
-    <message>
-        <source>Monitor will suspend after</source>
-        <translation type="vanished">다음 시간 이후 모니터 끄기</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
-        <source>Lock screen after</source>
-        <translation type="vanished">다음 시간 이후 화면 잠금</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
-        <source>Suspend on lid close</source>
-        <translation type="vanished">덮개를 닫을 때 절전</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
-        <source>Computer will suspend after</source>
-        <translation type="vanished">다음 시간 이후 컴퓨터 절전모드</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation type="vanished">없음</translation>
-    </message>
-    <message>
-        <source>1 Minute</source>
-        <translation type="vanished">1 분</translation>
-    </message>
-    <message>
-        <source>%1 Minutes</source>
-        <translation type="vanished">%1 분</translation>
-    </message>
-    <message>
-        <source>1 Hour</source>
-        <translation type="vanished">1 시간</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::search::SearchWidget</name>
-    <message>
-        <source>Server</source>
-        <translation type="vanished">서버</translation>
-    </message>
-    <message>
-        <source>Window Effect</source>
-        <translation type="vanished">창 효과</translation>
-    </message>
-    <message>
-        <source>Developer Mode</source>
-        <translation type="vanished">개발자 모드</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation type="vanished">사용자 경험 프로그램</translation>
-    </message>
-    <message>
-        <source>Join User Experience Program</source>
-        <translation type="vanished">사용자 경험 프로그램 참여</translation>
-    </message>
-    <message>
-        <source>Cloud Account</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Display Scaling</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation type="vanished">터치패드</translation>
-    </message>
-    <message>
-        <source>TrackPoint</source>
-        <translation type="vanished">추적점</translation>
-    </message>
-    <message>
-        <source>Personal Hotspot</source>
-        <translation type="vanished">개인 핫스팟</translation>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation type="vanished">배터리 켜기</translation>
-    </message>
-    <message>
-        <source>Wired Network</source>
-        <translation type="vanished">유선 네트워크</translation>
-    </message>
-    <message>
-        <source>Wireless Network</source>
-        <translation type="vanished">무선 네트워크</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation type="vanished">다중 디스플레이</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::AdvancedPage</name>
-    <message>
-        <source>Output</source>
-        <translation type="vanished">출력</translation>
-    </message>
-    <message>
-        <source>Input</source>
-        <translation type="vanished">입력</translation>
-    </message>
-    <message>
-        <source>Sound Card:</source>
-        <translation type="vanished">사운드 카드:</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::MicrophonePage</name>
-    <message>
-        <source>Microphone</source>
-        <translation type="vanished">마이크</translation>
-    </message>
-    <message>
-        <source>Input Volume</source>
-        <translation type="vanished">입력 볼륨</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
-    </message>
-    <message>
-        <source>Input Level</source>
-        <translation type="vanished">입력 수준</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::SoundEffectsPage</name>
-    <message>
-        <source>Sound Effects</source>
-        <translation type="vanished">사운드 효과</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::SoundModule</name>
-    <message>
-        <source>Sound</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::SoundWidget</name>
-    <message>
-        <source>Speaker</source>
-        <translation type="vanished">스피커</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
-    </message>
-    <message>
-        <source>Microphone</source>
-        <translation type="vanished">마이크</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation type="vanished">고급</translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation type="vanished">사운드 효과</translation>
-        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::sound::SpeakerPage</name>
-    <message>
-        <source>Speaker</source>
-        <translation type="vanished">스피커</translation>
-    </message>
-    <message>
-        <source>Output Volume</source>
-        <translation type="vanished">출력 볼륨</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
-    </message>
-    <message>
-        <source>Volume Boost</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Left/Right Balance</source>
-        <translation type="vanished">왼쪽/오른쪽 균형</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">왼쪽</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">오른쪽</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sync::IndexPage</name>
-    <message>
-        <source>Auto Sync</source>
-        <translation type="vanished">자동 동기화</translation>
-    </message>
-    <message>
-        <source>Syncing...</source>
-        <translation type="vanished">동기화중...</translation>
-    </message>
-    <message>
-        <source>Sign Out</source>
-        <translation type="vanished">로그아웃</translation>
-    </message>
-    <message>
-        <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
-        <translation type="vanished">네트워크 설정이 켜져 있으면 Wi-Fi 비밀번호가 동기화됩니다</translation>
-    </message>
-    <message>
-        <source>Network Settings</source>
-        <translation type="vanished">네트워크 설정</translation>
-    </message>
-    <message>
-        <source>Sound Settings</source>
-        <translation type="vanished">사운드 설정</translation>
-    </message>
-    <message>
-        <source>Mouse Settings</source>
-        <translation type="vanished">마우스 설정</translation>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation type="vanished">업데이트 설정</translation>
-    </message>
-    <message>
-        <source>Dock</source>
-        <translation type="vanished">도구집</translation>
-    </message>
-    <message>
-        <source>Launcher</source>
-        <translation type="vanished">실행도구</translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation type="vanished">바탕화면</translation>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="vanished">테마</translation>
-    </message>
-    <message>
-        <source>Power Settings</source>
-        <translation type="vanished">전원 설정</translation>
-    </message>
-    <message>
-        <source>Corner Settings</source>
-        <translation type="vanished">모서리 설정</translation>
-    </message>
-    <message>
-        <source>Last Sync: %1</source>
-        <translation type="vanished">마지막 동기화: %1</translation>
-    </message>
-    <message>
-        <source>yyyy-MM-dd hh:mm</source>
-        <translation type="vanished">yyyy-MM-dd hh:mm</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sync::LoginPage</name>
-    <message>
-        <source>Sign In</source>
-        <translation type="vanished">로그인</translation>
-        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
-    </message>
-    <message>
-        <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation type="vanished">클라우드 계정을 로그인한 후에 클라우드 동기화, 앱 스토어, 이메일 클라이언트, 브라우저 및 기타 클라우드 서비스를 이용하실 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Cloud Account Sign In</source>
-        <translation type="vanished">클라우드 계정 로그인</translation>
-    </message>
-    <message>
-        <source>Only supported in Mainland China at present</source>
-        <translation type="vanished">현재 중국 본토에서만 지원</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sync::LogoutPage</name>
-    <message>
-        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation type="vanished">죄송합니다. 현재 해당 지역에서 지원되지 않으며 곧 제공 될 예정입니다</translation>
-    </message>
-    <message>
-        <source>Sign Out</source>
-        <translation type="vanished">로그아웃</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::sync::SyncModule</name>
-    <message>
-        <source>Cloud Account</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::systeminfo::NativeInfoWidget</name>
-    <message>
-        <source>Edition:</source>
-        <translation type="vanished">에디션:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation type="vanished">종류:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <source>Authorization</source>
-        <translation type="vanished">허가</translation>
-    </message>
-    <message>
-        <source>To be activated</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Activate</source>
-        <translation type="vanished">활성화</translation>
-    </message>
-    <message>
-        <source>Kernel:</source>
-        <translation type="vanished">커널:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <source>Processor:</source>
-        <translation type="vanished">프로세서:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <source>Memory:</source>
-        <translation type="vanished">메모리:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <source>Disk:</source>
-        <translation type="vanished">디스크:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <source>%1-bit</source>
-        <translation type="vanished">%1-bit</translation>
-    </message>
-    <message>
-        <source>Activated</source>
-        <translation type="vanished">활성화됨</translation>
-    </message>
-    <message>
-        <source>View</source>
-        <translation type="vanished">보기</translation>
-    </message>
-    <message>
-        <source>Expired</source>
-        <translation type="vanished">만료</translation>
-    </message>
-    <message>
-        <source>In trial period</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Trial expired</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::systeminfo::SystemInfoModule</name>
-    <message>
-        <source>System Info</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::systeminfo::SystemInfoWidget</name>
-    <message>
-        <source>About This PC</source>
-        <translation type="vanished">이 PC 정보</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <source>Edition License</source>
-        <translation type="vanished">에디션 라이선스</translation>
-        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation type="vanished">최종 사용자 사용권 계약</translation>
-        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::MirrorSourceItem</name>
-    <message>
-        <source>Untested</source>
-        <translation type="vanished">테스트되지 않았습니다</translation>
-    </message>
-    <message>
-        <source>Timeout</source>
-        <translation type="vanished">타임아웃</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">느리게</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation type="vanished">중간</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">빠르게</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::MirrorsWidget</name>
-    <message>
-        <source>Mirror List</source>
-        <translation type="vanished">미러 목록</translation>
-    </message>
-    <message>
-        <source>Test Speed</source>
-        <translation type="vanished">테스트 속도</translation>
-    </message>
-    <message>
-        <source>Untested</source>
-        <translation type="vanished">테스트되지 않았습니다</translation>
-    </message>
-    <message>
-        <source>Retest</source>
-        <translation type="vanished">다시 테스트</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::UpdateCtrlWidget</name>
-    <message>
-        <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="vanished">시스템 및 응용프로그램을 올바르게 사용하려면 컴퓨터를 다시 시작하십시오</translation>
-    </message>
-    <message>
-        <source>Network disconnected, please retry after connected</source>
-        <translation type="vanished">네트워크 연결이 끊김, 연결된 후 다시 시도하세요</translation>
-    </message>
-    <message>
-        <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="vanished">이 업데이트는 시간이 오래 걸릴 수 있습니다. 프로세스를 종료하거나 재부팅하지 마세요</translation>
-    </message>
-    <message>
-        <source>Checking for updates, please wait...</source>
-        <translation type="vanished">업데이트 확인중입니다, 기다려 주세요...</translation>
-    </message>
-    <message>
-        <source>Download and install updates</source>
-        <translation type="vanished">업데이트 다운로드 및 설치</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>%1% downloaded (Click to pause)</source>
-        <translation type="vanished">%1% 다운로드됨(일시 중지하려면 클릭)</translation>
-    </message>
-    <message>
-        <source>%1% downloaded (Click to continue)</source>
-        <translation type="vanished">%1% 다운로드됨(계속하려면 클릭)</translation>
-    </message>
-    <message>
-        <source>Install updates</source>
-        <translation type="vanished">업데이트 설치</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Your system is up to date</source>
-        <translation type="vanished">귀하의 시스템은 최신 상태입니다</translation>
-    </message>
-    <message>
-        <source>Updating, please wait...</source>
-        <translation type="vanished">업데이트중...기다려주십시요　</translation>
-    </message>
-    <message>
-        <source>The newest system installed, restart to take effect</source>
-        <translation type="vanished">최신 시스템이 설치되었습니다. 적용하려면 다시 시작하십시오</translation>
-    </message>
-    <message>
-        <source>Update failed: insufficient disk space</source>
-        <translation type="vanished">업데이트 실패: 디스크 공간 부족</translation>
-    </message>
-    <message>
-        <source>Dependency error, failed to detect the updates</source>
-        <translation type="vanished">종속성 오류, 업데이트를 검색하지 못했습니다</translation>
-    </message>
-    <message>
-        <source>Backing up, please wait...</source>
-        <translation type="vanished">백업 중, 잠시 기다리십시오...</translation>
-    </message>
-    <message>
-        <source>System backup failed</source>
-        <translation type="vanished">시스템 백업 실패함</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n application update(s) available</source>
-        <translation type="vanished"><numerusform>%n개의 응용프로그램 업데이트 사용가능</numerusform></translation>
-    </message>
-    <message>
-        <source>New system edition available</source>
-        <translation type="vanished">새로운 시스템 에디션 사용가능</translation>
-    </message>
-    <message numerus="yes">
-        <source>New system edition and %n application update(s) available</source>
-        <translation type="vanished"><numerusform>새로운 시스템 에디션 및 %n개의 애플리케이션 업데이트 사용가능</numerusform></translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation type="vanished">다운로드됨</translation>
-    </message>
-    <message>
-        <source>Size: %1</source>
-        <translation type="vanished">크기: %1</translation>
-    </message>
-    <message>
-        <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="vanished">배터리 잔량이 50%이하입니다, 계속하기 위해 전원을 연결해주세요</translation>
-    </message>
-    <message>
-        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="vanished">재시작을 위한 충분한 전력을 확보하고, 기기의 전원을 끄거나 전원 플러그를 뽑지 마세요</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::UpdateHistoryButton</name>
-    <message>
-        <source>Update History</source>
-        <translation type="vanished">업데이트 기록</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::UpdateModule</name>
-    <message>
-        <source>Updates</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::UpdateSettings</name>
-    <message>
-        <source>Update Settings</source>
-        <translation type="vanished">업데이트 설정</translation>
-    </message>
-    <message>
-        <source>Auto Clear Package Cache</source>
-        <translation type="vanished">패키지 캐시 자동 지우기</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Updates Notification</source>
-        <translation type="vanished">알림 업데이트</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Auto Download Updates</source>
-        <translation type="vanished">자동 다운로드 업데이트</translation>
-    </message>
-    <message>
-        <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="vanished">무선 또는 유선 네트워크에서 업데이트를 자동으로 다운로드하려면 이 스위치를 켜십시오</translation>
-    </message>
-    <message>
-        <source>System Repository Detection</source>
-        <translation type="vanished">시스템 저장소 감지</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Show a notification if system update repository has been modified</source>
-        <translation type="vanished">시스템 업데이트 저장소가 수정된 경우 알림 표시</translation>
-    </message>
-    <message>
-        <source>Smart Mirror Switch</source>
-        <translation type="vanished">스마트 미러 스위치</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="vanished">가장 빠른 미러 사이트에 자동으로 연결 하려면 스위치를 켭니다.</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Mirror List</source>
-        <translation type="vanished">미러 목록</translation>
-        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::UpdateWidget</name>
-    <message>
-        <source>Updates</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <source>Update Settings</source>
-        <translation type="vanished">업데이트 설정</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <source>Last Update</source>
-        <translation type="vanished">마지막 업데이트</translation>
-    </message>
-    <message>
-        <source>Return</source>
-        <translation type="vanished">반환</translation>
-    </message>
-    <message>
-        <source>Current Edition</source>
-        <translation type="vanished">현재 에디션</translation>
-    </message>
-    <message>
-        <source>Update History</source>
-        <translation type="vanished">업데이트 기록</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::wacom::PressureSettings</name>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation type="vanished">압력 감도</translation>
-        <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation type="vanished">가볍게</translation>
-    </message>
-    <message>
-        <source>Heavy</source>
-        <translation type="vanished">무겁게</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::wacom::WacomModule</name>
-    <message>
-        <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV20::wacom::WacomWidget</name>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">펜</translation>
-        <extra-contents_path>/wacom/Pen</extra-contents_path>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation type="vanished">마우스</translation>
-        <extra-contents_path>/wacom/Mouse</extra-contents_path>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation type="vanished">모드</translation>
     </message>
 </context>
 <context>
