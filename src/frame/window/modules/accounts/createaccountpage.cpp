@@ -417,7 +417,7 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
 
     if (!validateUsername(username)) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Username must only contain a~z, 0~9, - or _"), -1);
+        edit->showAlertMessage(tr("Username can only contain a~z, 0~9, - or _"), -1);
         return false;
     }
     return true;
