@@ -109,7 +109,6 @@ void AccountsWidget::setModel(UserModel *model)
 void AccountsWidget::showDefaultAccountInfo()
 {
     QModelIndex qindex = m_userItemModel->index(0, 0);
-    m_userlistView->setFocus();
     m_userlistView->setCurrentIndex(qindex);
     Q_EMIT m_userlistView->clicked(qindex);
 }
