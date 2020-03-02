@@ -50,6 +50,12 @@ DisplayModel::DisplayModel(QObject *parent)
 {
 
 }
+void DisplayModel::monitorChanged_main(QList<Monitor *> monitors)
+{
+    m_monitors=monitors;
+
+    Q_EMIT monitorListChanged();
+}
 
 double DisplayModel::monitorScale(Monitor *moni)
 {

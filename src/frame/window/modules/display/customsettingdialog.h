@@ -29,6 +29,8 @@
 #include <dabstractdialog.h>
 
 #include <QDialog>
+#include <QLabel>
+#include <QHBoxLayout>
 
 #include <memory>
 
@@ -57,7 +59,7 @@ namespace DCC_NAMESPACE {
 
 namespace display {
 
-class CustomSettingDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
+class CustomSettingDialog : public QDialog
 {
     Q_OBJECT
 public:
@@ -83,6 +85,7 @@ struct ResolutionDate {
 };
 
 Q_SIGNALS:
+    void monitorAdd(dcc::display::Monitor *mon);
     void requestShowRotateDialog(dcc::display::Monitor *mon);
     void requestRecognize();
     void requestMerge();
@@ -99,7 +102,7 @@ private Q_SLOTS:
     void onPrimaryMonitorChanged();
     void onChangList(QAbstractButton *btn, bool beChecked);
     void onMonitorModeChange(const Resolution &r);
-
+    void currentIndexChanged(int index);
 private:
     void initUI();
     void initWithModel();
@@ -119,6 +122,8 @@ private:
     dcc::display::Monitor *m_monitor{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
     QVBoxLayout *m_layout{nullptr};
+    QWidget *m_main_select_layout_widget{nullptr};
+    QLabel *m_main_select_lab{nullptr};
     std::unique_ptr<dcc::display::MonitorIndicator> m_fullIndication;
     dcc::display::MonitorControlWidget *m_monitroControlWidget{nullptr};
 

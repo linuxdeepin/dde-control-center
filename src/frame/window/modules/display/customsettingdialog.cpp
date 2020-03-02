@@ -27,8 +27,10 @@
 #include "modules/display/monitorindicator.h"
 #include "widgets/basiclistview.h"
 
+#include <DComboBox>
 #include <DSuggestButton>
 
+#include <QMessageBox>
 #include <QLabel>
 #include <QListView>
 #include <QVBoxLayout>
@@ -42,7 +44,7 @@ using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 
 CustomSettingDialog::CustomSettingDialog(QWidget *parent)
-    : DAbstractDialog(parent)
+    : QDialog(parent)
     , m_isPrimary(true)
 {
     initUI();
@@ -51,7 +53,7 @@ CustomSettingDialog::CustomSettingDialog(QWidget *parent)
 CustomSettingDialog::CustomSettingDialog(dcc::display::Monitor *mon,
                                          dcc::display::DisplayModel *model,
                                          QWidget *parent)
-    : DAbstractDialog(parent)
+    : QDialog(parent)
     , m_isPrimary(false)
     , m_model(model)
 {
@@ -69,7 +71,7 @@ CustomSettingDialog::~CustomSettingDialog()
 void CustomSettingDialog::initUI()
 {
     setMinimumWidth(480);
-    setMinimumHeight(600);
+    setMinimumHeight(650);
     setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint );
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -90,7 +92,7 @@ void CustomSettingDialog::initUI()
         m_moniList = new DListView;
         initlistfunc(m_moniList);
         m_listLayout->addWidget(m_moniList);
-        m_vSegBtn << new DButtonBoxButton(tr("Main Screen"));
+        m_vSegBtn << new DButtonBoxButton(tr("Displays"));
     }
 
     m_resolutionList = new DListView;
@@ -128,17 +130,6 @@ void CustomSettingDialog::initUI()
     });
 
     hlayout->setMargin(10);
-
-    if (m_isPrimary) {
-        QPushButton *btn{nullptr};
-        btn = new QPushButton(tr("Cancel"), this);
-        connect(btn, &QPushButton::clicked, this, &CustomSettingDialog::reject);
-        hlayout->addWidget(btn);
-
-        btn = new DSuggestButton(tr("Save"), this);
-        connect(btn, &DSuggestButton::clicked, this, &CustomSettingDialog::accept);
-        hlayout->addWidget(btn);
-    }
 
     m_fullIndication = std::unique_ptr<MonitorIndicator>(new MonitorIndicator());
     m_fullIndication->show();
@@ -363,13 +354,78 @@ void CustomSettingDialog::initMoniList()
         actionList << titleAction << subTitleAction;
         item->setTextActionList(actionList);
         listModel->appendRow(item);
+        item->setCheckState(Qt::Checked);
+    }
 
-        if (moni->isPrimary())
-            item->setCheckState(Qt::Checked);
+    int vseg_size=m_vSegBtn.size();
+
+    DTK_WIDGET_NAMESPACE::DButtonBoxButton * bntChecked = nullptr;
+
+    for (int index =0; index < vseg_size ;index++ )
+    {
+        if ( m_vSegBtn[index]->isChecked()) {
+            bntChecked = m_vSegBtn[index];
+            break;
+        }
+    }
+
+    if (vseg_size > 2 && bntChecked && bntChecked->isChecked() && bntChecked->text() == tr("Displays") ) {
+         m_main_select_lab=new QLabel(tr("Monitor Connected"));
+        if (!m_model->isMerge()) {
+            QComboBox * mainSelect_comboBox = new QComboBox();
+            auto listModel_main = new QStandardItemModel;
+            mainSelect_comboBox->setModel(listModel_main);
+            for (int idx = 0; idx < moniList.size(); ++idx) {
+                auto item_main= new DStandardItem;
+                auto moni = moniList[idx];
+
+                item_main->setIcon(QIcon::fromTheme(idx % 2 ? "dcc_display_vga1" : "dcc_display_lvds1"));    
+                item_main->setText(moni->name());
+
+                listModel_main->appendRow(item_main);
+            }
+
+            QHBoxLayout *m_main_select_layout = new QHBoxLayout();
+            QHBoxLayout *selectLab_layout = new QHBoxLayout();
+            QLabel *mainLab = new QLabel(tr("Main Screen"));
+
+            selectLab_layout->addWidget(new QLabel);
+            selectLab_layout->addWidget(mainLab);
+            m_main_select_layout->addLayout(selectLab_layout);
+            m_main_select_layout->addWidget(mainSelect_comboBox);
+
+            m_main_select_layout_widget = new QWidget();
+            m_main_select_layout_widget->setLayout(m_main_select_layout);
+            m_layout->insertWidget(1, m_main_select_layout_widget);
+
+            connect(mainSelect_comboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &CustomSettingDialog::currentIndexChanged);
+        }
+        m_layout->insertWidget(2, m_main_select_lab, 0, Qt::AlignCenter);
     }
 
     connect(m_moniList, &DListView::clicked, this, [this] {
-        this->requestSetPrimaryMonitor(m_moniList->currentIndex().row());
+       dcc::display::Monitor *mon = m_model->monitorList()[m_moniList->currentIndex().row()];
+        auto monis = m_model->monitorList();
+            auto listModel = qobject_cast<QStandardItemModel *>(m_moniList->model());
+            for (int idx = 0 ; idx < listModel->rowCount(); ++idx)
+            {
+                if ( monis[idx]->name() == mon->name()) {
+                    monis[idx]->hChanged(mon->h());
+                    monis[idx]->wChanged(mon->w());
+
+                    DStandardItem * item = (DStandardItem *)listModel->item(idx);
+                    if (mon->isPrimary() && !m_model->isMerge()) {
+                        return ;
+                    }
+                    else if (item->checkState() == Qt::Checked) {
+                       item->setCheckState(Qt::Unchecked);
+                       monis.takeAt(idx);
+                       m_model->monitorChanged_main(monis);
+                       return;
+                    }
+                }
+            }
+
     });
     connect(m_model, &DisplayModel::primaryScreenChanged, this, [ = ] {
         Q_ASSERT(listModel->rowCount() == m_model->monitorList().size());
@@ -520,7 +576,13 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
         return;
 
     if (m_moniList)
-        m_moniList->setVisible(false);
+        m_moniList->setVisible(false);    
+
+    if (m_main_select_lab)
+        m_main_select_lab->setVisible(false);
+
+    if (m_main_select_layout_widget)
+        m_main_select_layout_widget->setVisible(false);
 
     m_resolutionList->setVisible(false);
     m_rateList->setVisible(false);
@@ -532,6 +594,8 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
     case 0:
         if (m_isPrimary) {
             m_moniList->setVisible(true);
+            m_main_select_lab->setVisible(true);
+            m_main_select_layout_widget->setVisible(true);
         } else {
             m_resolutionList->setVisible(true);
         }
@@ -587,6 +651,11 @@ void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
     }
 
     resetDialog();
+}
+
+void CustomSettingDialog::currentIndexChanged(int index)
+{
+    this->requestSetPrimaryMonitor(index);
 }
 
 void CustomSettingDialog::resetDialog()

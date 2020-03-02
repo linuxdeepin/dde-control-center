@@ -53,7 +53,8 @@ public:
 public:
     explicit DisplayModel(QObject *parent = 0);
 
-    double monitorScale(Monitor *moni);
+    void monitorChanged_main(QList<Monitor *> monitors);
+    double monitorScale(Monitor *moni);    
     inline int screenHeight() const { return m_screenHeight; }
     inline int screenWidth() const { return m_screenWidth; }
     inline int displayMode() const { return m_mode; }
