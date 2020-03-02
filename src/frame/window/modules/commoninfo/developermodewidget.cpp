@@ -88,7 +88,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
                                                    QDBusConnection::sessionBus());
 
                 //初始化Notify 七个参数
-                QString in0("");
+                QString in0("dde-control-center");
                 uint in1 = 101;
                 QString in2("preferences-system");
                 QString in3("");
