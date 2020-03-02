@@ -233,6 +233,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_lvAP->setSelectionMode(QAbstractItemView::NoSelection);
     m_lvAP->setSpacing(1);
+    m_lvAP->setViewportMargins(0, 0, 7, 0);
 
     QScroller::grabGesture(m_lvAP, QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_lvAP);
