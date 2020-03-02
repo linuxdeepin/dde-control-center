@@ -90,12 +90,12 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
                 //初始化Notify 七个参数
                 QString in0("");
                 uint in1 = 101;
-                QString in2("");
+                QString in2("preferences-system");
                 QString in3("");
                 QString in4("");
                 QStringList in5;
                 QVariantMap in6;
-                int in7 = 0;
+                int in7 = 5000;
 
                 //截取error接口 1001:未导入证书 1002:未登录 1003:无法获取硬件信息 1004:网络异常 1005:证书加载失败 1006:签名验证失败 1007:文件保存失败
                 QString msgcode = msg.errorMessage();
