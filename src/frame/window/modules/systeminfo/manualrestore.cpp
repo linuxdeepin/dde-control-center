@@ -16,6 +16,7 @@
 #include <DDialog>
 #include <DDBusSender>
 #include <com_deepin_daemon_grub2.h>
+#include <QCryptographicHash>
 
 using GrubInter = com::deepin::daemon::Grub2;
 
@@ -257,8 +258,30 @@ void ManualRestore::restoreSystem()
 
 void ManualRestore::restoreManual()
 {
+    m_tipsLabel->hide();
+
     // TODO(justforlxz): 判断内容的有效性
-    if (m_directoryChooseWidget->lineEdit()->text().isEmpty()) {
+    const QString& selectPath = m_directoryChooseWidget->lineEdit()->text();
+
+    if (selectPath.isEmpty()) {
+        return;
+    }
+
+    auto checkValid = [=](const QString& filePath, const QString& md5Path) -> bool {
+        QFile file(filePath);
+        QFile md5File(md5Path);
+
+        if (file.open(QIODevice::Text | QIODevice::ReadOnly) && md5File.open(QIODevice::Text | QIODevice::ReadOnly)) {
+            return md5File.readAll().startsWith(QCryptographicHash::hash(file.readAll(), QCryptographicHash::Md5).toHex());
+        }
+
+        return false;
+    };
+
+    if (!checkValid(QString("%1/boot.dim").arg(selectPath), QString("%1/boot.md5").arg(selectPath)) ||
+        !checkValid(QString("%1/system.dim").arg(selectPath), QString("%1/system.md5").arg(selectPath))) {
+        m_tipsLabel->setText(tr("Backup file is invalid."));
+        m_tipsLabel->show();
         return;
     }
 

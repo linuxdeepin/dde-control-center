@@ -271,7 +271,8 @@ int main(int argc, char *argv[])
                              { "args", QJsonArray{ QString("UUID:%1").arg(bootUUID),
                                                    QString("UUID:%1").arg(realtiveUUID),
                                                    QString("%1/%2").arg(realtivePath).arg(timeDirectory),
-                                                   "boot.dim"
+                                                   "boot.dim",
+                                                   "boot.md5"
                                                   } } },
                 QJsonObject{ { "message", "starting backup root partition" },
                              { "progress", true },
@@ -280,7 +281,8 @@ int main(int argc, char *argv[])
                              { "args", QJsonArray{ QString("UUID:%1").arg(rootUUID),
                                                    QString("UUID:%1").arg(realtiveUUID),
                                                    QString("%1/%2").arg(realtivePath).arg(timeDirectory),
-                                                   "system.dim"
+                                                   "system.dim",
+                                                   "system.md5"
                                                   } } },
                 QJsonObject{ { "message", "starting backup boot partition" },
                              { "progress", true },

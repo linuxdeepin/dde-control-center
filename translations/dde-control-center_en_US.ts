@@ -4483,7 +4483,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="86"/>
-        <source>Backup and Restore</source>
+        <source>System Restore</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

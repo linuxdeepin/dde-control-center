@@ -3645,8 +3645,8 @@
         <translation>关闭热点</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="276"/>
-        <source>Disable hotspot first if you want to connect to a wireless network</source>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <source>Disable hotspot first if want to connect to a wireless network</source>
         <translation>若要连接并使用无线网络功能，请先关闭热点分享</translation>
     </message>
     <message>
@@ -4530,6 +4530,11 @@
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="92"/>
         <source>You should reboot the computer to reset all settings, reboot now?</source>
         <translation>重启系统才能还原所有设置，是否现在重启?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="283"/>
+        <source>Backup file is invalid.</source>
+        <translation>备份文件无效，请检查！</translation>
     </message>
 </context>
 <context>
