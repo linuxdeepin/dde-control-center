@@ -208,18 +208,18 @@ void AdapterWidget::onPowerStatus(bool bPower)
     m_spinner->setVisible(bPower);
     m_myDeviceListView->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDeviceListView->setVisible(bPower);
-    if (!bPower) {
-        for (auto it : m_myDevices) {
-            if (it->device()->state() == Device::StateConnected) {
-                it->requestDisconnectDevice(it->device());
-            }
-        }
-    }
     Q_EMIT notifyLoadFinished();
 }
 
 void AdapterWidget::toggleSwitch(const bool checked)
 {
+    if (!checked) {
+        for (auto it : m_myDevices) {
+            if (it->device()->connecting()) {
+                Q_EMIT requestDisconnectDevice(it->device());
+            }
+        }
+    }
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
 }
 
@@ -245,7 +245,6 @@ void AdapterWidget::addDevice(const Device *device)
     categoryDevice(deviceItem, device->paired());
 
     connect(deviceItem, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
-    connect(deviceItem, &DeviceSettingsItem::requestDisconnectDevice, this, &AdapterWidget::requestDisconnectDevice);
     connect(device, &Device::pairedChanged, this, [this, deviceItem](const bool paired) {
         if (paired) {
             qDebug() << "paired :" << deviceItem->device()->name();
