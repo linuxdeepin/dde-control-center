@@ -121,6 +121,7 @@ void PowerWorker::setSleepDelayOnBattery(const int delay)
 
 void PowerWorker::setScreenBlackDelayOnPower(const int delay)
 {
+    qDebug() << "m_powerInter->setLinePowerScreenBlackDelay: " << converToDelayDBus(delay);
     m_powerInter->setLinePowerScreenBlackDelay(converToDelayDBus(delay));
 }
 
