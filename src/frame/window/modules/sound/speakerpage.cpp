@@ -65,7 +65,9 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     //当扬声器状态发生变化，将switch设置为对应的状态
     connect(m_model, &SoundModel::speakerOnChanged, m_sw, &SwitchWidget::setChecked);
 
-    initSlider();
+    if (m_sw->checked()) {
+        initSlider();
+    }
 }
 
 void SpeakerPage::initSlider()
