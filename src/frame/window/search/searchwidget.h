@@ -39,7 +39,6 @@ QT_END_NAMESPACE
 
 #define DEBUG_XML_SWITCH 0
 
-const QString RES_TS_PATH = ":/translations/";
 const QString XML_Source = "source";
 const QString XML_Title = "translation";
 const QString XML_Numerusform = "numerusform";
@@ -76,7 +75,7 @@ public:
 
     bool jumpContentPathWidget(QString path);
     void setLanguage(QString type);
-    void addModulesName(QString moduleName, QString searchName);
+    void addModulesName(QString moduleName, QString searchName, QIcon icon, QString translation = "");
     void addUnExsitData(QString module = "", QString datail = "");
     void removeUnExsitData(QString module = "", QString datail = "");
     void setRemoveableDeviceStatus(QString name, bool isExist);
@@ -90,7 +89,6 @@ Q_SIGNALS:
 private:
     void loadxml();
     SearchBoxStruct getModuleBtnString(QString value);
-    QString getXmlFilePath();
     QString getModulesName(QString name, bool state = true);
     QString removeDigital(QString input);
     QString transPinyinToChinese(QString pinyin);
@@ -98,7 +96,6 @@ private:
     void appendChineseData(SearchBoxStruct data);
     void clearSearchData();
     bool isLoadText(QString txt);
-    static QIcon getInternalModuleIcon(const QString &moduleName);
 
 private:
     QStandardItemModel *m_model;
@@ -106,7 +103,9 @@ private:
     QList<SearchBoxStruct> m_EnterNewPagelist;
     SearchBoxStruct m_searchBoxStruct;
     QString m_xmlExplain;
-    QString m_xmlFilePath;
+    QSet<QString> m_xmlFilePath;
+    QString m_lang;
+    QHash<QString, QIcon> m_iconMap;
     QList<QPair<QString, QString>> m_moduleNameList;//用于存储如 "update"和"Update"
     QList<SearchDataStruct> m_inputList;
     bool m_bIsChinese;

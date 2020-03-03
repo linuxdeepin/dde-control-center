@@ -362,7 +362,7 @@ void MainWindow::initAllModule(QString m)
         }
 
         m_navModel->appendRow(item);
-        m_searchWidget->addModulesName(it->first->name(), it->second);
+        m_searchWidget->addModulesName(it->first->name(), it->second, it->first->icon(), it->first->translationPath());
     }
 
     resetNavList(isIcon);
@@ -402,6 +402,8 @@ void MainWindow::loadModules()
             qWarning() << loader.errorString();
             continue;
         }
+
+        instance->setParent(this);
 
         auto *module = qobject_cast<ModuleInterface *>(instance);
         module->setFrameProxy(this);

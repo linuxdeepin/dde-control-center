@@ -79,6 +79,15 @@ public:
         return QIcon::fromTheme(QString("dcc_nav_%1").arg(name()));
     };
 
+    ///
+    /// \brief translationPath
+    /// 获取多语言文件的路径，用以搜索
+    /// \return QString
+    ///
+    virtual QString translationPath() const {
+        return QStringLiteral(":/translations/dde-control-center_%1.ts");
+    }
+
     // 应该暂时不需要finalize；
     // virtual void finalize();
 
@@ -115,7 +124,7 @@ public:
 
     ///
     /// \brief load
-    /// 当搜索到相关字段后，load会被调用
+    /// 当搜索到相关字段后，lead会被调用
     /// 如果可以正常显示则返回 0, 否则返回非0
     virtual int load(QString path) {
         Q_UNUSED(path);
