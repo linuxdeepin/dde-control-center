@@ -208,7 +208,7 @@ void ConnectionEditPage::initConnection()
         btns << tr("Delete");
         dialog.addButtons(btns);
         int ret = dialog.exec();
-        if (ret) {
+        if (ret == QDialog::Accepted) {
             m_connection->remove();
             Q_EMIT back();
         }
