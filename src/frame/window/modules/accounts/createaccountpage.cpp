@@ -187,11 +187,6 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
             m_nameEdit->hideAlertMessage();
             m_nameEdit->setAlert(false);
         }
-        m_nameEdit->lineEdit()->blockSignals(true);
-        auto idx = m_nameEdit->lineEdit()->cursorPosition();
-        m_nameEdit->lineEdit()->setText(str.toLower());
-        m_nameEdit->lineEdit()->setCursorPosition(idx);
-        m_nameEdit->lineEdit()->blockSignals(false);
     });
 
     connect(m_fullnameEdit, &DLineEdit::textEdited, this, [ = ] {
@@ -389,7 +384,8 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
 
 bool CreateAccountPage::validateUsername(const QString &username)
 {
-    const QString name_validate = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("-_");
+    const QString name_validate = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
+                                  QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("-_");
     return containsChar(username, name_validate);
 }
 
@@ -398,7 +394,6 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
     const QString &username = edit->lineEdit()->text();
     if (username.isEmpty()) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Username cannot be empty"), -1);
         return false;
     }
 
@@ -408,16 +403,8 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
         return false;
     }
 
-    const QString compStr = "abcdefghijklmnopqrstuvwxyz";
-    if (!compStr.contains(username.at(0))) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("The first character must be in lower case"), -1);
-        return false;
-    }
-
     if (!validateUsername(username)) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Username can only contain a~z, 0~9, - or _"), -1);
         return false;
     }
     return true;
