@@ -147,8 +147,11 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
                 &PersonalizationGeneral::requestSetOpacity);
         connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::sliderMoved, this,
                 &PersonalizationGeneral::requestSetOpacity);
-        connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this,
-                &PersonalizationGeneral::requestSwitchWM);
+        connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this, [this](bool checked) {
+                qDebug() << "DSwitchButton::clicked:" << checked << ",m_model->is3DWm():" << m_model->is3DWm();
+                m_wmSwitch->setChecked(m_model->is3DWm());
+                Q_EMIT requestSwitchWM();
+        });
     }
     m_centralLayout->addWidget(m_switchWidget);
     m_centralLayout->setSpacing(20);
@@ -213,7 +216,7 @@ void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget
 void PersonalizationGeneral::updateWMSwitcher(bool checked)
 {
     if (m_wmSwitch) {
-        m_wmSwitch->setChecked(checked);
+        m_wmSwitch->setChecked(m_model->is3DWm());
     }
     if (m_transparentSlider) {
         m_transparentSlider->setVisible(checked);

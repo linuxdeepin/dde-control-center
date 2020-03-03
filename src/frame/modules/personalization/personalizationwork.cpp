@@ -241,6 +241,7 @@ void PersonalizationWork::onRefreshedChanged(const QString &type)
 
 void PersonalizationWork::onToggleWM(const QString &wm)
 {
+    qDebug() << "onToggleWM: " << wm;
     m_model->setIs3DWm(wm == "deepin wm");
 }
 
