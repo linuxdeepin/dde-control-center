@@ -4480,7 +4480,48 @@
     </message>
 </context>
 <context>
+    <name>dccV20::systeminfo::ManualRestore</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="93"/>
+        <source>Restore</source>
+        <translation>恢复</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="121"/>
+        <source>Save User Data</source>
+        <translation>保留用户数据</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="143"/>
+        <source>Select restore directory</source>
+        <translation>选择恢复文件的目录</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::ManualBackup</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="20"/>
+        <source>Backup</source>
+        <translation>备份</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="31"/>
+        <source>Set backup directory</source>
+        <translation>选择备份文件存在的目录</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::systeminfo::SystemRestore</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="21"/>
+        <source>Backup</source>
+        <translation>备份</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="22"/>
+        <source>Restore</source>
+        <translation>恢复</translation>
+    </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="26"/>
         <source>Initialize all data on your system partition and reset the system configuration file, but keep the username, password, and the contents of other partitions.</source>

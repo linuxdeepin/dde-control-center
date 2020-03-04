@@ -267,12 +267,21 @@ void ManualRestore::restoreManual()
         return;
     }
 
-    auto checkValid = [=](const QString& filePath, const QString& md5Path) -> bool {
+#ifdef QT_DEBUG
+    auto checkValid = [](const QString& filePath, const QString& md5Path) -> bool {
         QFile file(filePath);
         QFile md5File(md5Path);
 
         if (file.open(QIODevice::Text | QIODevice::ReadOnly) && md5File.open(QIODevice::Text | QIODevice::ReadOnly)) {
-            return md5File.readAll().startsWith(QCryptographicHash::hash(file.readAll(), QCryptographicHash::Md5).toHex());
+            QProcess* process = new QProcess;
+            process->setProgram("md5sum");
+            process->setArguments({filePath});
+            process->start();
+            process->waitForFinished();
+            const QString& result = QString(process->readAllStandardOutput()).split(" ").first();
+            process->deleteLater();
+
+            return QString(md5File.readAll()).startsWith(result);
         }
 
         return false;
@@ -284,6 +293,7 @@ void ManualRestore::restoreManual()
         m_tipsLabel->show();
         return;
     }
+#endif
 
     QProcess* process = new QProcess(this);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_restore" << "--path" << m_directoryChooseWidget->lineEdit()->text());
