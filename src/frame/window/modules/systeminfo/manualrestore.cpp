@@ -196,7 +196,7 @@ void ManualRestore::onItemChecked()
 
 void ManualRestore::restoreSystem()
 {
-    const bool formatData = m_systemRestore->checked();
+    const bool formatData = !m_systemRestore->checked();
 
     QProcess process;
     process.start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
