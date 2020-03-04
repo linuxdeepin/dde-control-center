@@ -20,7 +20,7 @@
  */
 
 #include "commoninfomodule.h"
-
+#include "widgets/multiselectlistview.h"
 #include "window/modules/commoninfo/commoninfomodel.h"
 #include "window/modules/commoninfo/commoninfowork.h"
 #include "window/modules/commoninfo/commoninfowidget.h"

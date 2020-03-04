@@ -28,7 +28,7 @@
 #include "modules/mouse/mousemodel.h"
 #include "modules/mouse/widget/palmdetectsetting.h"
 #include "modules/mouse/widget/doutestwidget.h"
-
+#include "widgets/multiselectlistview.h"
 #include <QVBoxLayout>
 #include <QList>
 
@@ -41,7 +41,7 @@ MouseWidget::MouseWidget(QWidget *parent)
 {
     setObjectName("Mouse");
     m_contentLayout = new QVBoxLayout(this);
-    m_mouseListView = new DListView(this);
+    m_mouseListView = new dcc::widgets::MultiSelectListView(this);
     m_contentLayout->setMargin(0);
     m_contentLayout->addWidget(m_mouseListView);
     setLayout(m_contentLayout);
@@ -75,7 +75,7 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     m_mouseListView->setRowHidden(2, !tpadExist);
     m_mouseListView->setRowHidden(3, !redPointExist);
     m_mouseListView->setViewportMargins(ScrollAreaMargins);
-    connect(m_mouseListView, &DListView::clicked, this, &MouseWidget::onItemClieck);
+    connect(m_mouseListView, &DListView::clicked, this, &MouseWidget::onItemClicked);
     connect(m_mouseListView, &DListView::activated, m_mouseListView, &QListView::clicked);
     connect(this, &MouseWidget::tpadExistChanged, this, [this](bool bExist) {
         m_mouseListView->setRowHidden(2, !bExist);
@@ -93,7 +93,7 @@ void MouseWidget::initSetting(const int settingIndex)
     m_mouseListView->clicked(m_listviewModel->index(settingIndex, 0));
 }
 
-void MouseWidget::onItemClieck(const QModelIndex &index)
+void MouseWidget::onItemClicked(const QModelIndex &index)
 {
     switch (index.row()) {
     case 0:
@@ -112,5 +112,5 @@ void MouseWidget::onItemClieck(const QModelIndex &index)
         Q_EMIT showGeneralSetting();
         break;
     }
-
+    m_mouseListView->resetStatus(index);
 }

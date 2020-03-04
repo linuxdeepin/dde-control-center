@@ -35,6 +35,12 @@ class QStandardItemModel;
 class QModelIndex;
 QT_END_NAMESPACE
 
+namespace dcc {
+namespace widgets {
+class MultiSelectListView;
+}
+}
+
 namespace DCC_NAMESPACE {
 namespace systeminfo {
 
@@ -63,7 +69,7 @@ private:
 
 private:
     QVBoxLayout *m_mainContentLayout;
-    DTK_WIDGET_NAMESPACE::DListView *m_listView;
+    dcc::widgets::MultiSelectListView *m_listView;
     QStandardItemModel *m_itemModel;
     QList<ListMethod> m_itemList;
 };

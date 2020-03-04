@@ -32,6 +32,12 @@
 
 class QListView;
 
+namespace dcc {
+namespace widgets {
+class MultiSelectListView;
+}
+}
+
 namespace DCC_NAMESPACE {
 
 namespace sound {
@@ -63,7 +69,7 @@ private:
 
 private:
     QList<MenuMethod> m_menuMethod;
-    DTK_WIDGET_NAMESPACE::DListView *m_menuList{nullptr};
+    dcc::widgets::MultiSelectListView *m_menuList{nullptr};
     QModelIndex m_currentIdx;
 };
 }

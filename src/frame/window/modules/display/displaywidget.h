@@ -42,6 +42,9 @@ namespace display {
 class DisplayModel;
 }
 
+namespace widgets {
+class MultiSelectListView;
+}
 }
 
 namespace DCC_NAMESPACE {
@@ -92,7 +95,7 @@ private:
     dcc::display::DisplayModel *m_model{nullptr};
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_rotate{nullptr};
     QVBoxLayout *m_centralLayout{nullptr};
-    DTK_WIDGET_NAMESPACE::DListView *m_menuList{nullptr};
+    dcc::widgets::MultiSelectListView *m_menuList{nullptr};
     QModelIndex m_currentIdx;
 
     QStandardItemModel *m_multiModel{nullptr};

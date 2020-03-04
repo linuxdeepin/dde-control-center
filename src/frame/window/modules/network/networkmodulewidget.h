@@ -48,6 +48,7 @@ class NetworkModel;
 namespace dcc {
 namespace widgets {
 class SettingsGroup;
+class MultiSelectListView;
 }
 }
 
@@ -95,7 +96,7 @@ private:
     bool handleNMEditor();
 private:
     QVBoxLayout *m_centralLayout;
-    DTK_WIDGET_NAMESPACE::DListView *m_lvnmpages;
+    dcc::widgets::MultiSelectListView *m_lvnmpages;
     QStandardItemModel *m_modelpages;
     QString m_strNetworkManageOutput;
     enum {

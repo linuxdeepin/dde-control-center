@@ -34,6 +34,7 @@ namespace widgets {
 
 class SwitchWidget;
 class SettingsItem;
+class MultiSelectListView;
 
 namespace labels {
 class NormalLabel;
@@ -70,11 +71,11 @@ Q_SIGNALS:
     void requestCloseWidget();
 
 public Q_SLOTS:
-    void onItemClieck(const QModelIndex &index);
+    void onItemClicked(const QModelIndex &index);
     void onHourTypeChanged(const bool &type);
 
 private:
-    DTK_WIDGET_NAMESPACE::DListView *m_listview;
+    dcc::widgets::MultiSelectListView *m_listview;
     ClockItem *m_clockItem;
     const dcc::datetime::DatetimeModel *m_model;
     dcc::widgets::SwitchWidget *m_hourTypeSwitch;

@@ -37,6 +37,12 @@ template <typename T>
 class QList;
 QT_END_NAMESPACE
 
+namespace dcc {
+namespace widgets {
+class MultiSelectListView;
+}
+}
+
 namespace DCC_NAMESPACE {
 namespace commoninfo {
 class CommonInfoWidget : public QWidget
@@ -45,7 +51,7 @@ class CommonInfoWidget : public QWidget
 
 public:
     explicit CommonInfoWidget(QWidget *parent = nullptr);
-    DTK_WIDGET_NAMESPACE::DListView *getCommonListView();
+    dcc::widgets::MultiSelectListView *getCommonListView();
 Q_SIGNALS:
     void requestShowBootWidget();
     void requestShowDeveloperModeWidget();
@@ -63,7 +69,7 @@ private:
         QMetaMethod itemSignal;
     };
     QVBoxLayout *m_vBoxLayout;
-    DTK_WIDGET_NAMESPACE::DListView *m_listView;
+    dcc::widgets::MultiSelectListView *m_listView;
     QStandardItemModel *m_itemModel;
     QList<ListSubItem> m_itemList;
 };

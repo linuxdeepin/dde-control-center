@@ -44,6 +44,7 @@ namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
 class TitledSliderItem;
+class MultiSelectListView;
 }
 }
 
@@ -58,7 +59,7 @@ public:
     void init(bool tpadExist, bool redPointExist);
     void initSetting(const int settingIndex);
 private:
-    void onItemClieck(const QModelIndex &index);
+    void onItemClicked(const QModelIndex &index);
 Q_SIGNALS:
     void tpadExistChanged(bool bExist);
     void redPointExistChanged(bool bExist);
@@ -68,7 +69,7 @@ Q_SIGNALS:
     void showTrackPointSetting();
 private:
     dcc::mouse::MouseModel *m_mouseModel;
-    DTK_WIDGET_NAMESPACE::DListView *m_mouseListView;
+    dcc::widgets::MultiSelectListView *m_mouseListView;
     QVBoxLayout *m_contentLayout;
     QStandardItemModel *m_listviewModel;
 };

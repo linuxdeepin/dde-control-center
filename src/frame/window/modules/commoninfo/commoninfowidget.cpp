@@ -21,7 +21,7 @@
 
 #include "commoninfowidget.h"
 #include "window/utils.h"
-
+#include "widgets/multiselectlistview.h"
 #include <DStandardItem>
 
 #include <QVBoxLayout>
@@ -38,14 +38,14 @@ using namespace commoninfo;
 CommonInfoWidget::CommonInfoWidget(QWidget *parent)
     : QWidget(parent)
     , m_vBoxLayout(new QVBoxLayout(this))
-    , m_listView(new DListView(this))
+    , m_listView(new dcc::widgets::MultiSelectListView(this))
     , m_itemModel(new QStandardItemModel(this))
 {
     initWidget();
     initData();
 }
 
-DListView *CommonInfoWidget::getCommonListView()
+dcc::widgets::MultiSelectListView *CommonInfoWidget::getCommonListView()
 {
     return m_listView;
 }
@@ -98,6 +98,7 @@ void CommonInfoWidget::initData()
 
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
         m_itemList[index.row()].itemSignal.invoke(this);
+        m_listView->resetStatus(index);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
 

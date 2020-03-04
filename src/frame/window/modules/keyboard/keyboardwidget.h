@@ -39,6 +39,10 @@ class KeyboardModel;
 }
 
 namespace widgets {
+class MultiSelectListView;
+}
+
+namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
 class TitledSliderItem;
@@ -64,7 +68,7 @@ Q_SIGNALS:
     void showShortCutSetting();
 private:
     dcc::keyboard::KeyboardModel *m_keyboardModel;
-    DTK_WIDGET_NAMESPACE::DListView *m_keyboardListView;
+    dcc::widgets::MultiSelectListView *m_keyboardListView;
     QVBoxLayout *m_contentLayout;
     QStandardItemModel *m_listviewModel;
 };

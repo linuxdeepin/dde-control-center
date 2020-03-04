@@ -20,7 +20,7 @@
  */
 #include "personalizationlist.h"
 #include "window/utils.h"
-
+#include "widgets/multiselectlistview.h"
 #include <DListView>
 
 #include <QVBoxLayout>
@@ -32,7 +32,7 @@ DWIDGET_USE_NAMESPACE
 
 PersonalizationList::PersonalizationList(QWidget *parent)
     : QWidget(parent)
-    , m_categoryListView(new DListView())
+    , m_categoryListView(new dcc::widgets::MultiSelectListView())
     , m_model(new QStandardItemModel(this))
     , m_centralLayout(new QVBoxLayout())
 {
@@ -96,6 +96,7 @@ void PersonalizationList::onCategoryClicked(const QModelIndex &index)
     default:
         break;
     }
+    m_categoryListView->resetStatus(index);
 }
 
 void PersonalizationList::setCurrentIndex(int row)

@@ -40,6 +40,9 @@ namespace accounts {
 class User;
 class UserModel;
 }
+namespace widgets {
+class MultiSelectListView;
+}
 }
 
 namespace DCC_NAMESPACE {
@@ -85,7 +88,7 @@ Q_SIGNALS:
 
 private:
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
-    DTK_WIDGET_NAMESPACE::DListView *m_userlistView;
+    dcc::widgets::MultiSelectListView *m_userlistView;
     QStandardItemModel *m_userItemModel;
     dcc::accounts::UserModel *m_userModel;
     QList<dcc::accounts::User *> m_userList;

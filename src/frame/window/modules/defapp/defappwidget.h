@@ -37,8 +37,15 @@ class QModelIndex;
 class QVBoxLayout;
 QT_END_NAMESPACE
 
+namespace dcc {
+namespace widgets {
+class MultiSelectListView;
+}
+}
+
 namespace DCC_NAMESPACE {
 namespace defapp {
+
 class DefaultAppsWidget : public QWidget
 {
     Q_OBJECT
@@ -54,7 +61,7 @@ public Q_SLOTS:
     void setCurrentIndex(int row);
 
 private:
-    DTK_WIDGET_NAMESPACE::DListView *m_defAppCatView;
+    dcc::widgets::MultiSelectListView *m_defAppCatView;
     QVBoxLayout *m_centralLayout;
 };
 }

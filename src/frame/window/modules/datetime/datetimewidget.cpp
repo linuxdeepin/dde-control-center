@@ -28,7 +28,7 @@
 #include "modules/mouse/widget/palmdetectsetting.h"
 #include "modules/mouse/widget/doutestwidget.h"
 #include "window/utils.h"
-
+#include "widgets/multiselectlistview.h"
 #include <QStandardItemModel>
 #include <QVBoxLayout>
 
@@ -40,7 +40,7 @@ using namespace DCC_NAMESPACE::datetime;
 
 DatetimeWidget::DatetimeWidget(QWidget *parent)
     : QWidget(parent)
-    , m_listview(new DListView(this))
+    , m_listview(new dcc::widgets::MultiSelectListView(this))
     , m_clockItem(new ClockItem(this))
     , m_model(nullptr)
 {
@@ -92,7 +92,7 @@ void DatetimeWidget::init()
     layout->addWidget(m_listview);
     setLayout(layout);
 
-    connect(m_listview, &DListView::clicked, this, &DatetimeWidget::onItemClieck);
+    connect(m_listview, &DListView::clicked, this, &DatetimeWidget::onItemClicked);
     connect(m_listview, &DListView::activated, m_listview, &QListView::clicked);
     // true : 24 hour type  ,  false : 12 hour type ; All use the system time can recive DatetimeWidget::requestSetHourType signal
     connect(m_hourTypeSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetHourType);
@@ -129,9 +129,10 @@ void DatetimeWidget::setDefaultWidget()
     m_listview->clicked(m_listview->model()->index(0, 0));
 }
 
-void DatetimeWidget::onItemClieck(const QModelIndex &index)
+void DatetimeWidget::onItemClicked(const QModelIndex &index)
 {
     Q_EMIT requestPushWidget(index.row());
+    m_listview->resetStatus(index);
 }
 
 void DatetimeWidget::onHourTypeChanged(const bool &type)

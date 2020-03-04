@@ -22,7 +22,7 @@
 #include "soundwidget.h"
 #include "window/utils.h"
 #include "modules/sound/soundworker.h"
-
+#include "widgets/multiselectlistview.h"
 #include <DStyleOption>
 
 #include <QVBoxLayout>
@@ -35,7 +35,7 @@ using namespace DCC_NAMESPACE::sound;
 
 SoundWidget::SoundWidget(QWidget *parent)
     : QWidget(parent)
-    , m_menuList(new DListView)
+    , m_menuList(new dcc::widgets::MultiSelectListView)
 {
     setObjectName("Display");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -98,6 +98,7 @@ void SoundWidget::initMenuUI()
 
         m_currentIdx = idx;
         m_menuMethod[idx.row()].method.invoke(this);
+        m_menuList->resetStatus(idx);
     });
     connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);
 }

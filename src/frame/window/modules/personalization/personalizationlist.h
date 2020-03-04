@@ -35,6 +35,12 @@ class QStandardItemModel;
 class QVBoxLayout;
 QT_END_NAMESPACE
 
+namespace dcc {
+namespace widgets {
+class MultiSelectListView;
+}
+}
+
 namespace DCC_NAMESPACE {
 namespace personalization {
 class PersonalizationList : public QWidget
@@ -54,7 +60,7 @@ public Q_SLOTS:
     void setCurrentIndex(int row);
 
 private:
-    DTK_WIDGET_NAMESPACE::DListView *m_categoryListView;
+    dcc::widgets::MultiSelectListView *m_categoryListView;
     QStandardItemModel *m_model;
     QVBoxLayout *m_centralLayout;
 };

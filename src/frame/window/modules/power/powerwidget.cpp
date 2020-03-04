@@ -24,7 +24,7 @@
 #include "modules/power/powermodel.h"
 #include "modules/mouse/widget/palmdetectsetting.h"
 #include "modules/mouse/widget/doutestwidget.h"
-
+#include "widgets/multiselectlistview.h"
 #include <DStyleOption>
 
 #include <QTimer>
@@ -37,7 +37,7 @@ using namespace DCC_NAMESPACE::power;
 
 PowerWidget::PowerWidget(QWidget *parent)
     : QWidget(parent)
-    , m_listview(new DListView(this))
+    , m_listview(new dcc::widgets::MultiSelectListView(this))
     , m_model(nullptr)
 {
 
@@ -88,7 +88,7 @@ void PowerWidget::initialize(bool hasBattery)
         m_listview->setRowHidden(1, !hasBattery);
     }
 
-    connect(m_listview, &DListView::clicked, this, &PowerWidget::onItemClieck);
+    connect(m_listview, &DListView::clicked, this, &PowerWidget::onItemClicked);
     connect(m_listview, &DListView::activated, m_listview, &QListView::clicked);
     connect(this, &PowerWidget::requestRemoveBattery, this, [this](bool state) {
         m_listview->setRowHidden(2, !state);
@@ -121,8 +121,9 @@ void PowerWidget::setDefaultWidget()
     m_listview->clicked(m_listview->model()->index(0, 0));
 }
 
-void PowerWidget::onItemClieck(const QModelIndex &index)
+void PowerWidget::onItemClicked(const QModelIndex &index)
 {
     m_listview->setCurrentIndex(index);
     m_menuIconText[index.row()].method.invoke(this);
+    m_listview->resetStatus(index);
 }

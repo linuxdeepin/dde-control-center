@@ -21,8 +21,7 @@
 
 #include "defappwidget.h"
 #include "window/utils.h"
-
-#include <DListView>
+#include "widgets/multiselectlistview.h"
 
 #include <QStandardItemModel>
 #include <QVBoxLayout>
@@ -35,7 +34,7 @@ DWIDGET_USE_NAMESPACE
 
 DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     : QWidget(parent)
-    , m_defAppCatView(new DListView(this))
+    , m_defAppCatView(new dcc::widgets::MultiSelectListView(this))
     , m_centralLayout(new QVBoxLayout(this))
 {
     setObjectName("Defapp");
@@ -104,4 +103,5 @@ void DefaultAppsWidget::setCurrentIndex(int row)
 void DefaultAppsWidget::onCategoryClicked(const QModelIndex &index) {
     qDebug() << "DefaultAppsWidget clicked row " << index.row();
     Q_EMIT requestCategoryClicked(dcc::defapp::DefAppWorker::DefaultAppsCategory(index.row()));
+    m_defAppCatView->resetStatus(index);
 }

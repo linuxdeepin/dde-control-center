@@ -22,13 +22,12 @@
 #include "displaywidget.h"
 #include "interface/namespace.h"
 #include "window/utils.h"
-
+#include "widgets/multiselectlistview.h"
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
 
 #include <DStyleOption>
 
-#include <QListView>
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QVBoxLayout>
@@ -41,7 +40,7 @@ DisplayWidget::DisplayWidget(QWidget *parent)
     : QWidget(parent)
     , m_rotate(new DFloatingButton(this))
     , m_centralLayout(new QVBoxLayout(this))
-    , m_menuList(new DListView(this))
+    , m_menuList(new dcc::widgets::MultiSelectListView(this))
     , m_multiModel(new QStandardItemModel(this))
     , m_singleModel(new QStandardItemModel(this))
 {
@@ -187,4 +186,5 @@ void DisplayWidget::onMenuClicked(const QModelIndex &idx)
     } else {
         m_singleMenuList[idx.row()].method.invoke(this);
     }
+    m_menuList->resetStatus(idx);
 }

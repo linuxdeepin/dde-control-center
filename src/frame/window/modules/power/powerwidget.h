@@ -30,6 +30,9 @@ namespace dcc {
 namespace power {
 class PowerModel;
 }
+namespace widgets {
+class MultiSelectListView;
+}
 }
 
 namespace DCC_NAMESPACE {
@@ -63,10 +66,10 @@ private:
     };
 
 public Q_SLOTS:
-    void onItemClieck(const QModelIndex &index);
+    void onItemClicked(const QModelIndex &index);
 
 private:
-    DTK_WIDGET_NAMESPACE::DListView *m_listview;
+    dcc::widgets::MultiSelectListView *m_listview;
     const dcc::power::PowerModel *m_model;
     bool m_bhasBattery;
     QList<MenuMethod> m_menuIconText;

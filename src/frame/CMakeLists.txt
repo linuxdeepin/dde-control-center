@@ -294,6 +294,8 @@ set(WIDGETS_FILES
                 ../../include/widgets/titledslideritem.h
                 widgets/timeoutdialog.cpp
                 ../../include/widgets/timeoutdialog.h
+                widgets/multiselectlistview.cpp
+                ../../include/widgets/multiselectlistview.h
 
                 widgets/widgets.qrc
 )

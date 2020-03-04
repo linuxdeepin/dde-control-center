@@ -48,6 +48,12 @@ class SearchWidget;
 }
 }
 
+namespace dcc {
+namespace widgets {
+class MultiSelectListView;
+}
+}
+
 extern const QByteArray ControlCenterGSettings;
 extern const QString GSettinsWindowWidth;
 extern const QString GSettinsWindowHeight;
@@ -126,7 +132,7 @@ private:
     bool m_bInit{false};
     QHBoxLayout *m_contentLayout;
     QHBoxLayout *m_rightContentLayout;
-    DListView *m_navView;
+    dcc::widgets::MultiSelectListView *m_navView;
     DBackgroundGroup *m_rightView;
     QStandardItemModel *m_navModel;
     QStack<QPair<ModuleInterface *, QWidget *>> m_contentStack;

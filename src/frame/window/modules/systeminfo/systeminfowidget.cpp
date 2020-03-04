@@ -21,7 +21,7 @@
 
 #include "systeminfowidget.h"
 #include "window/utils.h"
-
+#include "widgets/multiselectlistview.h"
 #include <DStandardItem>
 
 #include <QVBoxLayout>
@@ -35,7 +35,7 @@ using namespace DCC_NAMESPACE::systeminfo;
 SystemInfoWidget::SystemInfoWidget(QWidget *parent)
     : QWidget(parent)
     , m_mainContentLayout(new QVBoxLayout)
-    , m_listView(new DListView)
+    , m_listView(new dcc::widgets::MultiSelectListView)
     , m_itemModel(new QStandardItemModel(this))
 {
     initWidget();
@@ -78,6 +78,7 @@ void SystemInfoWidget::initData()
 
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
         m_itemList[index.row()].method.invoke(this);
+        m_listView->resetStatus(index);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
 }
@@ -85,7 +86,6 @@ void SystemInfoWidget::initData()
 void SystemInfoWidget::setCurrentIndex(int index)
 {
     QModelIndex mindex = m_itemModel->index(index, 0);
-    m_listView->setFocus();
     m_listView->setCurrentIndex(mindex);
     Q_EMIT m_listView->clicked(mindex);
 }

@@ -37,7 +37,7 @@
 #include "modules/defapp/defaultappsmodule.h"
 #include "moduleinitthread.h"
 #include "modules/update/mirrorswidget.h"
-
+#include "widgets/multiselectlistview.h"
 #include "mainwindow.h"
 #include "constant.h"
 #include "search/searchwidget.h"
@@ -115,7 +115,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_rightView->setItemMargins(QMargins(10, 10, 10, 10));
     m_rightView->setContentsMargins(10, 10, 10, 10);
 
-    m_navView = new DListView(this);
+    m_navView = new dcc::widgets::MultiSelectListView(this);
     m_navView->setFrameShape(QFrame::Shape::NoFrame);
     m_navView->setEditTriggers(QListView::NoEditTriggers);
     m_navView->setResizeMode(QListView::Adjust);
@@ -1038,6 +1038,7 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
     m_moduleName = inter->name();
     setCurrModule(inter);
     inter->active();
+    m_navView->resetStatus(index);
 }
 
 FourthColWidget::FourthColWidget(QWidget *parent)

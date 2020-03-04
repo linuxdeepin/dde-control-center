@@ -28,7 +28,7 @@
 #include "widgets/nextpagewidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
-
+#include "widgets/multiselectlistview.h"
 #include <DStyleOption>
 #include <networkmodel.h>
 #include <networkdevice.h>
@@ -46,7 +46,7 @@ using namespace dde::network;
 
 NetworkModuleWidget::NetworkModuleWidget()
     : QWidget()
-    , m_lvnmpages(new DListView(this))
+    , m_lvnmpages(new dcc::widgets::MultiSelectListView(this))
     , m_modelpages(new QStandardItemModel(this))
 {
     setObjectName("Network");
@@ -137,6 +137,7 @@ void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
     default:
         break;
     }
+    m_lvnmpages->resetStatus(idx);
 }
 
 bool NetworkModuleWidget::handleNMEditor()

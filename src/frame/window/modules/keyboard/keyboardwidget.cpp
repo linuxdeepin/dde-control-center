@@ -25,7 +25,7 @@
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
-
+#include "widgets/multiselectlistview.h"
 #include <QVBoxLayout>
 #include <QList>
 
@@ -37,7 +37,7 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) : QWidget(parent)
     setObjectName("Mouse");
     m_contentLayout = new QVBoxLayout(this);
     m_contentLayout->setMargin(0);
-    m_keyboardListView = new DListView(this);
+    m_keyboardListView = new dcc::widgets::MultiSelectListView(this);
     m_contentLayout->addWidget(m_keyboardListView);
     init();
     setLayout(m_contentLayout);
@@ -97,4 +97,5 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
         Q_EMIT showGeneralSetting();
         break;
     }
+    m_keyboardListView->resetStatus(index);
 }
