@@ -61,6 +61,11 @@ void FileChooseWidget::setTitle(const QString &title)
     setAccessibleName(title);
     m_title->setWordWrap(true);
 }
+
+void FileChooseWidget::setIsErr(const bool err)
+{
+    m_fileChooserEdit->setAlert(err);
+}
 }
 }
 

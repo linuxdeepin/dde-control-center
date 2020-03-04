@@ -43,11 +43,11 @@ class FileChooseWidget : public SettingsItem
     Q_OBJECT
 
 public:
-    explicit FileChooseWidget(QWidget *parent = 0);
+    explicit FileChooseWidget(QWidget *parent = nullptr);
 
     DTK_WIDGET_NAMESPACE::DFileChooserEdit *edit() const { return m_fileChooserEdit; }
     void setTitle(const QString &title);
-
+    virtual void setIsErr(const bool err = true) override;
 Q_SIGNALS:
     void requestFrameKeepAutoHide(const bool autoHide) const;
 

@@ -42,7 +42,7 @@ public:
     explicit SettingsItem(QWidget *parent = nullptr);
 
     bool isErr() const;
-    void setIsErr(const bool err = true);
+    virtual void setIsErr(const bool err = true);
 
     void addBackground();
 
