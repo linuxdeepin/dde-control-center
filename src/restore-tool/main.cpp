@@ -167,10 +167,11 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+    dataUUID = getUUID(QString("%1/backup/_dde_data.info").arg(mountPoint));
+
     if (actionType == ActionType::SystemRestore) {
         bootUUID = getUUID(QString("%1/backup/boot.info").arg(mountPoint));
         rootUUID = getUUID(QString("%1/backup/system.info").arg(mountPoint));
-        dataUUID = getUUID(QString("%1/backup/_dde_data.info").arg(mountPoint));
     }
 
     if (actionType == ActionType::ManualBackup || actionType == ActionType::ManualRestore) {
@@ -243,6 +244,24 @@ int main(int argc, char *argv[])
         { "type", type },
         { "tasks",
             QJsonArray{
+                QJsonObject{
+                    { "message", "fix bootloader order" },
+                    { "progress", false },
+                    { "enable", true },
+                    { "command", "fix-bootloader" },
+                    { "args", QJsonArray{ QString("UUID:%1").arg(bootUUID),
+                                          QString("UUID:%1").arg(rootUUID),
+                                          QString("UUID:%1").arg(dataUUID),
+                                          [=]() -> QString {
+#ifdef QT_DEBUG
+                                              QSettings settings("/etc/default/grub", QSettings::IniFormat);
+                                              return settings.value("GRUB_DEFAULT").toString();
+#else
+                                              return 0;
+#endif
+                                          }()
+                                        }},
+                },
                 QJsonObject{ { "message", "save user info" },
                              { "progress", true },
                              { "enable", false },
@@ -323,12 +342,7 @@ int main(int argc, char *argv[])
                              { "enable", true },
                              { "command", "generate-fstab" },
                              { "env", fstabObj } },
-                QJsonObject{
-                    { "message", "fix bootloader order" },
-                    { "progress", false },
-                    { "enable", true },
-                    { "command", "fix-bootloader" },
-                } },
+            }
         }
     };
 

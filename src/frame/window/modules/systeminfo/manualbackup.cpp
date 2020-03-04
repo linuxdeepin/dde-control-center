@@ -7,6 +7,9 @@
 #include <QDir>
 #include <QProcess>
 #include <DDBusSender>
+#include <com_deepin_daemon_grub2.h>
+
+using GrubInter = com::deepin::daemon::Grub2;
 
 DCORE_USE_NAMESPACE
 
@@ -76,9 +79,12 @@ void ManualBackup::backup()
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << m_directoryChooseWidget->lineEdit()->text());
     process->waitForFinished();
 
-    process->start("pkexec", { "/sbin/grub-reboot", "Deepin Recovery" });
-    process->waitForFinished();
-    process->deleteLater();
+    GrubInter* grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
+    grubInter->SetDefaultEntry("Deepin Recovery").waitForFinished();
+    grubInter->deleteLater();
+
+    // Hold 5s wait for grub
+    QThread::msleep(5000);
 
     DDBusSender()
     .service("com.deepin.dde.shutdownFront")

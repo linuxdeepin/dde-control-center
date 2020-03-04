@@ -82,7 +82,7 @@ void SystemInfoWidget::initData()
             if (device->idUUID() == UUID) {
 #endif
             m_itemList << ListMethod{
-                "dcc_system_restore",
+                "chronometer-reset",
                 tr("Backup and Restore"),
                 QMetaMethod::fromSignal(&SystemInfoWidget::requestShowRestore)
             };

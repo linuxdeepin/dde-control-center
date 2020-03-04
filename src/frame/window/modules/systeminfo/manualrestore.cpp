@@ -248,6 +248,9 @@ void ManualRestore::restoreSystem()
     grubInter->SetDefaultEntry("Deepin Recovery").waitForFinished();
     grubInter->deleteLater();
 
+    // Hold 5s wait for grub
+    QThread::msleep(5000);
+
     DDBusSender()
     .service("com.deepin.dde.shutdownFront")
     .path("/com/deepin/dde/shutdownFront")
@@ -299,9 +302,12 @@ void ManualRestore::restoreManual()
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_restore" << "--path" << m_directoryChooseWidget->lineEdit()->text());
     process->waitForFinished();
 
-    process->start("pkexec", { "/sbin/grub-reboot", "Deepin Recovery" });
-    process->waitForFinished();
-    process->deleteLater();
+    GrubInter* grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
+    grubInter->SetDefaultEntry("Deepin Recovery").waitForFinished();
+    grubInter->deleteLater();
+
+    // Hold 5s wait for grub
+    QThread::msleep(5000);
 
     DDBusSender()
     .service("com.deepin.dde.shutdownFront")
