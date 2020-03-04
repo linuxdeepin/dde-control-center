@@ -58,7 +58,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     layout->addWidget(m_devNameLabel, 0, Qt::AlignCenter);
     layout->addSpacing(10);
     m_editDevAlias = new QLineEdit;
-    m_editDevAlias->setMaxLength(18);
+    m_editDevAlias->setMaxLength(32);
     m_editDevAlias->setPlaceholderText(device->alias().isEmpty() ? device->name() : device->alias());
     layout->addWidget(m_editDevAlias);
     layout->addSpacing(10);
