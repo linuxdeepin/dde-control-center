@@ -111,10 +111,10 @@ void ResolutionDetailPage::initResoList()
     auto itemModel = new QStandardItemModel(this);
     rlist->setModel(itemModel);
 
-    QScroller::grabGesture(rlist, QScroller::LeftMouseButtonGesture);
+    QScroller::grabGesture(rlist->viewport(), QScroller::LeftMouseButtonGesture);
 
     // 关闭滚动越过边界以减少异常触发的概率
-    QScroller *scroller = QScroller::scroller(rlist);
+    QScroller *scroller = QScroller::scroller(rlist->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
@@ -182,7 +182,7 @@ void ResolutionDetailPage::stopScroller()
 {
     // 若正在滚动中的对象被析构，会导致下次 QScroller 触发时 Segmentation Fault
     // 故析构时停止滚动
-    QScroller *scroller = QScroller::scroller(m_resoList);
+    QScroller *scroller = QScroller::scroller(m_resoList->viewport());
     if (scroller) {
         scroller->stop();
     }

@@ -46,8 +46,8 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     this->setLayout(layout);
     connect(m_listview, &DListView::clicked, this, &PerssonalizationThemeList::onClicked);
 
-    QScroller::grabGesture(m_listview, QScroller::LeftMouseButtonGesture);
-    QScroller *scroller = QScroller::scroller(m_listview);
+    QScroller::grabGesture(m_listview->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_listview->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
@@ -55,7 +55,7 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
 
 PerssonalizationThemeList::~PerssonalizationThemeList()
 {
-    QScroller *scroller = QScroller::scroller(m_listview);
+    QScroller *scroller = QScroller::scroller(m_listview->viewport());
     if (scroller) {
         scroller->stop();
     }

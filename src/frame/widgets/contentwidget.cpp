@@ -76,8 +76,8 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     m_contentArea->setContentsMargins(0, 0, 0, 0);
 
-    QScroller::grabGesture(m_contentArea, QScroller::LeftMouseButtonGesture);
-    QScroller *scroller = QScroller::scroller(m_contentArea);
+    QScroller::grabGesture(m_contentArea->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_contentArea->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
@@ -108,7 +108,7 @@ ContentWidget::ContentWidget(QWidget *parent)
 
 ContentWidget::~ContentWidget()
 {
-    QScroller *scroller = QScroller::scroller(m_contentArea);
+    QScroller *scroller = QScroller::scroller(m_contentArea->viewport());
     if (scroller) {
         scroller->stop();
     }

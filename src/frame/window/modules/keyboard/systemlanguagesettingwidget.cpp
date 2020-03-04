@@ -56,8 +56,8 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     m_view->setBackgroundType(DStyledItemDelegate::ClipCornerBackground);
     m_view->setSelectionMode(QAbstractItemView::NoSelection);
 
-    QScroller::grabGesture(m_view, QScroller::LeftMouseButtonGesture);
-    QScroller *scroller = QScroller::scroller(m_view);
+    QScroller::grabGesture(m_view->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_view->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
@@ -102,7 +102,7 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
 
 SystemLanguageSettingWidget::~SystemLanguageSettingWidget()
 {
-    QScroller *scroller = QScroller::scroller(m_view);
+    QScroller *scroller = QScroller::scroller(m_view->viewport());
     if (scroller) {
         scroller->stop();
     }
