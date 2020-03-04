@@ -36,8 +36,9 @@ using namespace dcc::display;
 
 const int MARGIN_W = 20;
 const int MARGIN_H = 10;
-const double VIEW_WIDTH = 400.;
-const double VIEW_HEIGHT = 200.;
+const double VIEW_WIDTH = 300.;
+const double VIEW_HEIGHT = 120.;
+const double VIEW_Y_OFFSET = 20.;
 
 MonitorsGround::MonitorsGround(QWidget *parent)
     : QFrame(parent),
@@ -122,7 +123,7 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 
     const double scale = screenScale();
     const int offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const int offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
+    const int offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H - VIEW_Y_OFFSET;
 
     pw->setMovedX((pw->pos().x() - offsetX) / scale);
     pw->setMovedY((pw->pos().y() - offsetY) / scale);
@@ -154,7 +155,7 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     const double scale = screenScale();
 
     const int offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const int offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
+    const int offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H - VIEW_Y_OFFSET;
 
     const int w = scale * pw->w();
     const int h = scale * pw->h();

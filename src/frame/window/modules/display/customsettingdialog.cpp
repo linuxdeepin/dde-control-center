@@ -37,6 +37,7 @@
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QDebug>
+#include <DFrame>
 
 using namespace dcc::display;
 using namespace dcc::widgets;
@@ -44,7 +45,7 @@ using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 
 CustomSettingDialog::CustomSettingDialog(QWidget *parent)
-    : QDialog(parent)
+    : DDialog(parent)
     , m_isPrimary(true)
 {
     initUI();
@@ -53,7 +54,7 @@ CustomSettingDialog::CustomSettingDialog(QWidget *parent)
 CustomSettingDialog::CustomSettingDialog(dcc::display::Monitor *mon,
                                          dcc::display::DisplayModel *model,
                                          QWidget *parent)
-    : QDialog(parent)
+    : DDialog(parent)
     , m_isPrimary(false)
     , m_model(model)
 {
@@ -70,8 +71,8 @@ CustomSettingDialog::~CustomSettingDialog()
 
 void CustomSettingDialog::initUI()
 {
-    setMinimumWidth(480);
-    setMinimumHeight(650);
+    setMinimumWidth(320);
+    setMinimumHeight(600);
     setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint );
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -79,6 +80,7 @@ void CustomSettingDialog::initUI()
     m_listLayout = new QVBoxLayout();
 
     auto btnBox = new DButtonBox(this);
+    m_layout->addSpacing(20);
     m_layout->addWidget(btnBox, 0, Qt::AlignHCenter);
 
     auto initlistfunc = [](DListView *list) {
@@ -86,6 +88,7 @@ void CustomSettingDialog::initUI()
         list->setSelectionMode(DListView::NoSelection);
         list->setSizeAdjustPolicy(DListView::AdjustToContents);
         list->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        list->setMaximumWidth(250);
     };
 
     if (m_isPrimary) {
@@ -111,8 +114,11 @@ void CustomSettingDialog::initUI()
 
     connect(btnBox, &DButtonBox::buttonToggled, this, &CustomSettingDialog::onChangList);
 
-    m_layout->addLayout(m_listLayout);
-    setLayout(m_layout);
+    m_layout->addLayout(m_listLayout);  
+    m_layout->setAlignment(m_listLayout, Qt::AlignHCenter);
+
+    QBoxLayout *lauout = (QBoxLayout *)layout();
+    lauout->addLayout(m_layout);
 
     QHBoxLayout *hlayout = new QHBoxLayout();
     m_layout->addLayout(hlayout);
@@ -338,23 +344,15 @@ void CustomSettingDialog::initMoniList()
 
     auto moniList = m_model->monitorList();
     for (int idx = 0; idx < moniList.size(); ++idx) {
-        auto item = new DStandardItem;
+        auto item = new DStandardItem;        
         item->setIcon(QIcon::fromTheme(idx % 2 ? "dcc_display_vga1" : "dcc_display_lvds1"));
 
         auto moni = moniList[idx];
         auto *titleAction = new DViewItemAction;
         titleAction->setText(moni->name());
-
-        auto *subTitleAction = new DViewItemAction;
-        QString str = QString("%1 %2 ").arg(moni->w()).arg(tr("inch"));
-        str += (tr("Resolution %1x%2").arg(QString::number(moni->w())).arg(QString::number(moni->h())));
-        subTitleAction->setText(str);
-
-        DViewItemActionList actionList;
-        actionList << titleAction << subTitleAction;
-        item->setTextActionList(actionList);
+        item->setText(moni->name());
         listModel->appendRow(item);
-        item->setCheckState(Qt::Checked);
+        item->setCheckState(Qt::Checked);        
     }
 
     int vseg_size=m_vSegBtn.size();
@@ -370,7 +368,9 @@ void CustomSettingDialog::initMoniList()
     }
 
     if (vseg_size > 2 && bntChecked && bntChecked->isChecked() && bntChecked->text() == tr("Displays") ) {
-         m_main_select_lab=new QLabel(tr("Monitor Connected"));
+         QLabel * main_select_lab=new QLabel(tr("Monitor Connected"));
+         main_select_lab->setFixedWidth(250);
+
         if (!m_model->isMerge()) {
             QComboBox * mainSelect_comboBox = new QComboBox();
             auto listModel_main = new QStandardItemModel;
@@ -379,28 +379,41 @@ void CustomSettingDialog::initMoniList()
                 auto item_main= new DStandardItem;
                 auto moni = moniList[idx];
 
-                item_main->setIcon(QIcon::fromTheme(idx % 2 ? "dcc_display_vga1" : "dcc_display_lvds1"));    
                 item_main->setText(moni->name());
-
                 listModel_main->appendRow(item_main);
             }
 
-            QHBoxLayout *m_main_select_layout = new QHBoxLayout();
-            QHBoxLayout *selectLab_layout = new QHBoxLayout();
+            QHBoxLayout *m_main_select_layout = new QHBoxLayout();           
             QLabel *mainLab = new QLabel(tr("Main Screen"));
-
-            selectLab_layout->addWidget(new QLabel);
-            selectLab_layout->addWidget(mainLab);
-            m_main_select_layout->addLayout(selectLab_layout);
+            m_main_select_layout->addWidget(mainLab);
             m_main_select_layout->addWidget(mainSelect_comboBox);
 
             m_main_select_layout_widget = new QWidget();
             m_main_select_layout_widget->setLayout(m_main_select_layout);
-            m_layout->insertWidget(1, m_main_select_layout_widget);
+            m_main_select_layout_widget->setFixedWidth(250);
+
+            //添加背景色，方便视觉识别
+            QFrame *dframe = new QFrame(m_main_select_layout_widget);
+            dframe->setContentsMargins(0, 0, 0, 0);
+            dframe->setStyleSheet ("border-radius:8px;border-bottom-left-radius:8px; background-color: rgb(0, 0, 128, 10);");
+            dframe->setLineWidth(0);
+            //将 m_bgGroup 沉底
+            dframe->lower();
+            //设置m_bgGroup 的大小
+            dframe->setFixedSize(m_main_select_layout_widget->size());
+
+            m_layout->insertWidget(2, m_main_select_layout_widget);
+            m_layout->setAlignment(m_main_select_layout_widget, Qt::AlignHCenter);
 
             connect(mainSelect_comboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &CustomSettingDialog::currentIndexChanged);
         }
-        m_layout->insertWidget(2, m_main_select_lab, 0, Qt::AlignCenter);
+        m_main_select_lab_widget= new QWidget();
+        m_main_select_lab_widget->setFixedHeight(50);
+        QHBoxLayout *m_main_select_lab_layout = new QHBoxLayout();
+        m_main_select_lab_layout->addWidget(main_select_lab);
+        m_main_select_lab_widget->setLayout(m_main_select_lab_layout);
+        m_layout->insertWidget(3, m_main_select_lab_widget);
+        m_layout->setAlignment(m_main_select_lab_widget, Qt::AlignHCenter);
     }
 
     connect(m_moniList, &DListView::clicked, this, [this] {
@@ -578,8 +591,8 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
     if (m_moniList)
         m_moniList->setVisible(false);    
 
-    if (m_main_select_lab)
-        m_main_select_lab->setVisible(false);
+    if (m_main_select_lab_widget)
+        m_main_select_lab_widget->setVisible(false);
 
     if (m_main_select_layout_widget)
         m_main_select_layout_widget->setVisible(false);
@@ -594,7 +607,7 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
     case 0:
         if (m_isPrimary) {
             m_moniList->setVisible(true);
-            m_main_select_lab->setVisible(true);
+            m_main_select_lab_widget->setVisible(true);
             m_main_select_layout_widget->setVisible(true);
         } else {
             m_resolutionList->setVisible(true);
