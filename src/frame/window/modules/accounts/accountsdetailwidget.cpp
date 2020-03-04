@@ -262,7 +262,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
 
-    if (IsServerSystem) {
+    if (m_isServerSystem) {
         auto pwHLayout = new QHBoxLayout;
         auto pwWidget = new SettingsItem;
         pwWidget->addBackground();
@@ -274,7 +274,6 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         auto ageEdit = new DLineEdit();
         ageEdit->lineEdit()->setPlaceholderText(tr("Always"));
         ageEdit->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
-        ageEdit->setMinimumWidth(270);
         ageEdit->setClearButtonEnabled(false);
         pwHLayout->addWidget(ageEdit, 0, Qt::AlignRight);
 
