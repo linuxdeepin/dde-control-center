@@ -39,6 +39,7 @@ TitleEdit::TitleEdit(QWidget *parent)
 {
     QHBoxLayout *mainlayout = new QHBoxLayout;
     m_lineEdit->setVisible(false);
+    m_lineEdit->setMaxLength(18);
     mainlayout->addWidget(m_name);
     mainlayout->addWidget(m_lineEdit);
     mainlayout->addSpacing(5);
