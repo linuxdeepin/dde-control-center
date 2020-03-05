@@ -111,11 +111,13 @@ void PowerWorker::setSleepOnLidOnBatteryClosed(const bool sleep)
 
 void PowerWorker::setSleepDelayOnPower(const int delay)
 {
+    qDebug() << "m_powerInter->setLinePowerSleepDelay: " << converToDelayDBus(delay);
     m_powerInter->setLinePowerSleepDelay(converToDelayDBus(delay));
 }
 
 void PowerWorker::setSleepDelayOnBattery(const int delay)
 {
+    qDebug() << "m_powerInter->setBatterySleepDelay: " << converToDelayDBus(delay);
     m_powerInter->setBatterySleepDelay(converToDelayDBus(delay));
 }
 
@@ -127,6 +129,7 @@ void PowerWorker::setScreenBlackDelayOnPower(const int delay)
 
 void PowerWorker::setScreenBlackDelayOnBattery(const int delay)
 {
+    qDebug() << "m_powerInter->setBatteryScreenBlackDelay: " << converToDelayDBus(delay);
     m_powerInter->setBatteryScreenBlackDelay(converToDelayDBus(delay));
 }
 
@@ -162,11 +165,13 @@ void PowerWorker::setScreenBlackDelayToModelOnBattery(const int delay)
 
 void PowerWorker::setLockScreenDelayOnBattery(const int delay)
 {
+    qDebug() << "m_powerInter->setBatteryLockDelay: " << converToDelayDBus(delay);
     m_powerInter->setBatteryLockDelay(converToDelayDBus(delay));
 }
 
 void PowerWorker::setLockScreenDelayOnPower(const int delay)
 {
+    qDebug() << "m_powerInter->setLinePowerLockDelay: " << converToDelayDBus(delay);
     m_powerInter->setLinePowerLockDelay(converToDelayDBus(delay));
 }
 
