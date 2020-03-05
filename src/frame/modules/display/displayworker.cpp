@@ -28,6 +28,8 @@
 #include "monitorsettingdialog.h"
 #include "widgets/utils.h"
 
+#include <DApplicationHelper>
+
 #include <QDebug>
 
 using namespace dcc;
@@ -93,7 +95,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
 
     m_model->setMouseLeftHand(m_mouseInter->leftHanded());
 
-    const bool isRedshiftValid = QProcess::execute("which", QStringList() << "redshift") == 0;
+    const bool isRedshiftValid = DGuiApplicationHelper::isXWindowPlatform() && QProcess::execute("which", QStringList() << "redshift") == 0;
 
     if (isRedshiftValid)
         updateNightModeStatus();
