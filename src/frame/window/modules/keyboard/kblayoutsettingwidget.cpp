@@ -78,7 +78,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     QMap<int, QString> shortCutMap;
     shortCutMap.insert(1, QString("Ctrl+Shift"));
     shortCutMap.insert(2, QString("Alt+Shift"));
-    shortCutMap.insert(4, QString("Super Space"));
+    shortCutMap.insert(4, QString("Super+Space"));
 
     m_switchLayoutModel = new QStandardItemModel(m_switchLayoutListView);
     QMap<int, QString>::iterator iter;
