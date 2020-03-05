@@ -34,7 +34,7 @@ namespace systeminfo{
 
 static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision = 1)
 {
-    static QString type[] = {" B", " KB", " MB", " GB", " TB"};
+    static QString type[] = {" B", " KIB", " MIB", " GIB", " TIB"};
 
     qulonglong lc = cap;
     double dc = cap;
@@ -185,8 +185,8 @@ void SystemInfoModel::updateMemory()
         m_availableMemory = lst[6].toULongLong();
      }
 
-    QString mem_device_size = formatCap(m_totalMemory, 1000, 0);
-    QString mem = formatCap(m_availableMemory, 1000, 0);
+    QString mem_device_size = formatCap(m_totalMemory, 1024, 0);
+    QString mem = formatCap(m_availableMemory, 1024, 0);
 
     m_memory = QString("%1 (%2 %3)").arg(mem_device_size, mem, tr("available"));
     memoryChanged(m_memory);
