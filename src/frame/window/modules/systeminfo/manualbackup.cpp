@@ -19,7 +19,7 @@ using namespace DCC_NAMESPACE::systeminfo;
 ManualBackup::ManualBackup(QWidget* parent)
     : QWidget(parent)
     , m_directoryChooseWidget(new DFileChooserEdit)
-    , m_tipsLabel(new QLabel)
+    , m_tipsLabel(new QLabel(tr("Choose Directory invalid")))
     , m_backupBtn(new QPushButton(tr("Backup")))
 {
     m_tipsLabel->setWordWrap(true);
@@ -60,23 +60,34 @@ ManualBackup::ManualBackup(QWidget* parent)
     fileDialog->setFileMode(QFileDialog::Directory);
     m_directoryChooseWidget->setFileDialog(fileDialog);
 
-    connect(m_directoryChooseWidget, &DFileChooserEdit::fileChoosed, this, &ManualBackup::onChoose);
+    connect(m_directoryChooseWidget, &DFileChooserEdit::dialogClosed, this, &ManualBackup::onChoose);
     connect(m_backupBtn, &QPushButton::clicked, this, &ManualBackup::backup);
 }
 
 void ManualBackup::onChoose()
 {
+    const QString& choosePath = m_directoryChooseWidget->lineEdit()->text();
+    m_backupBtn->setEnabled(false);
+    if (choosePath.isEmpty()) {
+        return;
+    }
+
+    if (!(choosePath.startsWith("/data") || choosePath.startsWith("/home"))) {
+        m_tipsLabel->show();
+        return;
+    }
+
+    m_tipsLabel->hide();
+
     m_backupBtn->setEnabled(!m_directoryChooseWidget->lineEdit()->text().isEmpty());
 }
 
 void ManualBackup::backup()
 {
-    if (m_directoryChooseWidget->lineEdit()->text().isEmpty()) {
-        return;
-    }
+    const QString& choosePath = m_directoryChooseWidget->lineEdit()->text();
 
     QProcess* process = new QProcess(this);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << m_directoryChooseWidget->lineEdit()->text());
+    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << choosePath);
     process->waitForFinished();
 
     GrubInter* grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());

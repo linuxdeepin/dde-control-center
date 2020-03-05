@@ -4361,6 +4361,87 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
         <source>Cloud Account</source>
+        <translation type="vanished">Cloud Account</translation>
+    </message>
+</context>
+<context>
+    <name>DCC_NAMESPACE::systeminfo::ManualBackup</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="22"/>
+        <source>Choose Directory invalid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="23"/>
+        <source>Backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="34"/>
+        <source>Set backup directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DCC_NAMESPACE::systeminfo::ManualRestore</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="93"/>
+        <source>Restore</source>
+        <translation type="unfinished">Restore</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="121"/>
+        <source>Save User Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="123"/>
+        <source>恢复出厂设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="143"/>
+        <source>Select restore directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="151"/>
+        <source>自定义恢复</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="210"/>
+        <source>This will reset all system settings to their defaults. Your data, username and password will not be deleted, please confirm and continue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="216"/>
+        <source>This will reinstall the system and clear all user data. It is risky, please confirm and continue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="221"/>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancel</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
+        <source>Confirm</source>
+        <translation type="unfinished">Confirm</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="233"/>
+        <source>You should reboot the computer to erase all content and settings, reboot now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="236"/>
+        <source>You should reboot the computer to reset all settings, reboot now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="295"/>
+        <source>Backup file is invalid.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

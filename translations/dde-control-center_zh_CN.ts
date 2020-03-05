@@ -4505,6 +4505,11 @@
         <translation>备份</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="22"/>
+        <source>Choose Directory invalid</source>
+        <translation>选择的目录无效</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="31"/>
         <source>Set backup directory</source>
         <translation>选择备份文件存在的目录</translation>
