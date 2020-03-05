@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="817"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,8 +87,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="829"/>
         <source>Drawing Tablet</source>
         <translation>Çizim Tableti</translation>
     </message>
@@ -123,8 +123,8 @@
         <translation>İmleçDenetim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="841"/>
         <source>Cloud Sync</source>
         <translation>Bulut Eşitleyici</translation>
     </message>
@@ -150,41 +150,41 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="338"/>
         <source>Always</source>
         <translation>Sürekli</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="331"/>
         <source>Please input a number between 1-99999</source>
         <translation>Lütfen 1-99999 arasında bir sayı girin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="372"/>
         <source>Change Password</source>
         <translation>Parolayı Değiştir</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="374"/>
         <source>Delete Account</source>
         <translation>Hesabı Sil</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="377"/>
         <source>Auto Login</source>
         <translation>Otomatik Giriş</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
         <source>Login Without Password</source>
         <translation>Parola Olmadan Giriş</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="456"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
         <source>Group</source>
         <translation>Grup</translation>
     </message>
@@ -264,7 +264,7 @@
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="86"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="295"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
@@ -305,66 +305,51 @@
         <translation>Parolayı Tekrarla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="218"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="216"/>
         <source>Required</source>
         <translation>Zorunlu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="214"/>
         <source>optional</source>
         <translation>isteğe bağlı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
         <source>Go to Settings</source>
         <translation>Ayarlara git</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="364"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Parola %1 karakterden fazla olmamalıdır</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="371"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Parola yalnızca İngilizce harfler (büyük/küçük harfe duyarlı), sayılar veya özel simgeler içerebilir (~! @ # $% ^ &amp; * () [] {} \ | /?,. &lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="378"/>
         <source>Passwords do not match</source>
         <translation>Parolalar eşleşmiyor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="401"/>
-        <source>Username cannot be empty</source>
-        <translation>Kullanıcı adı boş olamaz</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="402"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Kullanıcı adı 3 ile 32 karakter arasında olmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="414"/>
-        <source>The first character must be in lower case</source>
-        <translation>İlk karakter küçük harf olmalıdır</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="420"/>
-        <source>Username can only contain a~z, 0~9, - or _</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="433"/>
         <source>The full name already exists</source>
         <translation>Tam isim zaten var</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="427"/>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Tam isim çok uzun</translation>
     </message>
 </context>
 <context>
@@ -713,8 +698,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
-        <translation>Geliştirici kipi, yönetici ayrıcalıklarına sahip olmanızı, uygulama mağazasında listelenmeyen imzasız uygulamaları yüklemenizi ve çalıştırmanızı sağlar, ancak sistem bütünlüğünüz da zarar görebilir, lütfen dikkatli kullanın.</translation>
+        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="104"/>
@@ -1020,50 +1005,41 @@
 <context>
     <name>dccV20::display::CustomSettingDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
-        <source>Main Screen</source>
-        <translation>Ana Ekran</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="370"/>
+        <source>Displays</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="104"/>
         <source>Resolution</source>
         <translation>Çözünürlük</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="110"/>
         <source>Refresh Rate</source>
         <translation>Yenileme Hızı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="134"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="138"/>
-        <source>Save</source>
-        <translation>Kaydet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="263"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="325"/>
         <source>Recommended</source>
         <translation> Önerilen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
-        <source>inch</source>
-        <translation>inç</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="371"/>
+        <source>Monitor Connected</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="359"/>
-        <source>Resolution %1x%2</source>
-        <translation>Çözünürlük %1x%2</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="387"/>
+        <source>Main Screen</source>
+        <translation>Ana Ekran</translation>
     </message>
 </context>
 <context>
@@ -1148,22 +1124,12 @@
         <translation>Masaüstünü ekranların boyutuna genişlet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>Sadece %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Ekran içeriğini yalnızca %1’de göster</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="136"/>
         <source>Customize</source>
         <translation>Özelleştir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="137"/>
         <source>Configure the display according to your needs</source>
         <translation>Ekranı ihtiyaçlarınıza göre yapılandırın</translation>
     </message>
@@ -3651,28 +3617,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="251"/>
         <source>Connect to hidden network</source>
         <translation>Gizli ağa bağlan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
         <source>Wireless Network Adapter</source>
         <translation>Kablosuz Ağ Adaptörü</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
         <source>Close Hotspot</source>
         <translation>Erişim Noktasını Kapat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="276"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Kablosuz bir ağa bağlanmak için erişim noktasını devre dışı bırakın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="299"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -4051,78 +4017,78 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
         <source>Server</source>
         <translation>Sunucu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
         <source>Window Effect</source>
         <translation>Pencere Etkisi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="422"/>
         <source>Developer Mode</source>
         <translation>Geliştirici Kipi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
         <source>User Experience Program</source>
         <translation>Kullanıcı Deneyimi Programı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
         <source>Join User Experience Program</source>
         <translation>Kullanıcı Deneyimi Programına Katılın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
         <source>Cloud Account</source>
         <translation>Bulut Hesap</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
         <source>Display Scaling</source>
         <translation>Görüntü Ölçeği</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
         <source>Touchpad</source>
         <translation>Dokunmatik Yüzey</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
         <source>TrackPoint</source>
         <translation>İmleçDenetim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
         <source>Personal Hotspot</source>
         <translation>Kişisel Bağlantı Noktası</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
         <source>On Battery</source>
         <translation>Bataryada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
         <source>Wired Network</source>
         <translation>Kablolu Ağ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
         <source>Wireless Network</source>
         <translation>Kablosuz Ağ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
         <source>Multiple Displays</source>
         <translation>Çoklu Ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="423"/>
         <source>End User License Agreement</source>
         <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
     </message>
@@ -4217,34 +4183,34 @@
         <translation>Hoparlör</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="76"/>
         <source>Output Volume</source>
         <translation>Ses Çıkışı</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="159"/>
         <source>Volume Boost</source>
         <translation>Ses Artışı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="167"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Ses seviyesi %100&apos;den daha yüksekse sesi bozabilir ve hoparlörünüze zararlı olabilir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="176"/>
         <source>Left/Right Balance</source>
         <translation>Sol/Sağ Dengesi</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="182"/>
         <source>Left</source>
         <translation>Sol</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="183"/>
         <source>Right</source>
         <translation>Sağ</translation>
     </message>
@@ -4946,53 +4912,53 @@
         <translation>Kontrol Merkezi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="237"/>
         <source>On Battery</source>
         <translation>Bataryada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
         <source>Plugged In</source>
         <translation>Fişe Takılı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
         <source>General</source>
         <translation>Genel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
         <source>Mouse</source>
         <translation>Fare</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
         <source>Touchpad</source>
         <translation>Dokunmatik Yüzey</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
         <source>TrackPoint</source>
         <translation>İmleçDenetim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
         <source>Application Proxy</source>
         <translation>Uygulama Vekil Sunucusu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="248"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
         <source>System Proxy</source>
         <translation>Sistem Vekil Sunucusu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
         <source>Time Settings</source>
         <translation>Zaman Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
         <source>Change System Timezone</source>
         <translation>Sistem Saat Dilimini Değiştir</translation>
     </message>

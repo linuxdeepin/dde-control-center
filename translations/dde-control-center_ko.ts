@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="817"/>
         <source>Bluetooth</source>
         <translation>블루투스</translation>
     </message>
@@ -87,8 +87,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="829"/>
         <source>Drawing Tablet</source>
         <translation>드로잉 태블릿</translation>
     </message>
@@ -123,8 +123,8 @@
         <translation>추적점</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="841"/>
         <source>Cloud Sync</source>
         <translation>클라우드 동기화</translation>
     </message>
@@ -135,12 +135,12 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="148"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="208"/>
         <source>Full Name</source>
-        <translation>전체 이름</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="233"/>
         <source>The full name already exists</source>
-        <translation>전체 이름이 이미 있음</translation>
+        <translation>이름이 이미 존재합니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="273"/>
@@ -150,41 +150,41 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="338"/>
         <source>Always</source>
         <translation>항상</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="331"/>
         <source>Please input a number between 1-99999</source>
         <translation>1-99999 사이의 숫자를 입력하십시오</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="372"/>
         <source>Change Password</source>
         <translation>비밀번호 변경</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="374"/>
         <source>Delete Account</source>
         <translation>계정 삭제</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="377"/>
         <source>Auto Login</source>
         <translation>자동 로그인</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
         <source>Login Without Password</source>
         <translation>비밀번호없이 로그인</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="456"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
         <source>Group</source>
         <translation>그룹</translation>
     </message>
@@ -264,7 +264,7 @@
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="86"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="295"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
@@ -292,7 +292,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="162"/>
         <source>Full Name</source>
-        <translation>전체 이름</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="167"/>
@@ -305,66 +305,51 @@
         <translation>비밀번호 재입력</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="218"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="216"/>
         <source>Required</source>
         <translation>필수 항목</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="214"/>
         <source>optional</source>
         <translation>옵션</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
         <source>Go to Settings</source>
         <translation>설정으로 이동</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="364"/>
         <source>Password must be no more than %1 characters</source>
         <translation>비밀번호는 %1 자 이하 여야합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="371"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>비밀번호는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)만 포함해야 합니다  </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="378"/>
         <source>Passwords do not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="401"/>
-        <source>Username cannot be empty</source>
-        <translation>사용자 이름은 비워 둘 수 없습니다</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="402"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>사용자 이름은 3 ~ 32 자 사이 여야합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="414"/>
-        <source>The first character must be in lower case</source>
-        <translation>첫 번째 문자는 소문자여야 합니다</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="420"/>
-        <source>Username can only contain a~z, 0~9, - or _</source>
-        <translation>사용자 이름은 a~z, 0~9, - 또는 _ 만 포함할 수 있습니다</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="433"/>
         <source>The full name already exists</source>
-        <translation>전체 이름이 이미 있음</translation>
+        <translation>이름이 이미 존재합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="427"/>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>이름이 너무 깁니다</translation>
     </message>
 </context>
 <context>
@@ -713,8 +698,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
-        <translation>개발자 모드에서는 루트 권한을 얻고 앱 스토어에 나열되지 않은 서명되지 않은 앱을 설치 및 실행할 수 있지만, 시스템 통합이 손상될 수도 있습니다. 주의하여 사용하십시오.</translation>
+        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="104"/>
@@ -1020,50 +1005,41 @@
 <context>
     <name>dccV20::display::CustomSettingDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
-        <source>Main Screen</source>
-        <translation>기본 화면</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="370"/>
+        <source>Displays</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="104"/>
         <source>Resolution</source>
         <translation>해상도</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="110"/>
         <source>Refresh Rate</source>
         <translation>새로고침 속도</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="134"/>
-        <source>Cancel</source>
-        <translation>취소</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="138"/>
-        <source>Save</source>
-        <translation>저장</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="263"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="325"/>
         <source>Recommended</source>
         <translation>권장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
-        <source>inch</source>
-        <translation>인치</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="371"/>
+        <source>Monitor Connected</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="359"/>
-        <source>Resolution %1x%2</source>
-        <translation>해상도 %1x%2</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="387"/>
+        <source>Main Screen</source>
+        <translation>기본 화면</translation>
     </message>
 </context>
 <context>
@@ -1148,22 +1124,12 @@
         <translation>화면에서 바탕화면 확장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>%1 만</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>%1에 대해서만 화면 내용 표시</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="136"/>
         <source>Customize</source>
         <translation>사용자 정의</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="137"/>
         <source>Configure the display according to your needs</source>
         <translation>필요에 따라 디스플레이 환경 설정</translation>
     </message>
@@ -3651,28 +3617,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="251"/>
         <source>Connect to hidden network</source>
         <translation>숨겨진 네트워크에 연결</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
         <source>Wireless Network Adapter</source>
         <translation>무선 네트워크 어댑터</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
         <source>Close Hotspot</source>
         <translation>핫스팟 닫기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="276"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>무선 네트워크에 연결하려면 먼저 핫스팟을 비활성화하십시오</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="299"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -4051,78 +4017,78 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
         <source>Server</source>
         <translation>서버</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
         <source>Window Effect</source>
         <translation>창 효과</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="422"/>
         <source>Developer Mode</source>
         <translation>개발자 모드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
         <source>User Experience Program</source>
         <translation>사용자 경험 프로그램</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
         <source>Join User Experience Program</source>
         <translation>사용자 경험 프로그램 참여</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
         <source>Cloud Account</source>
         <translation>클라우드 계정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
         <source>Display Scaling</source>
         <translation>디스플레이 크기조정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
         <source>Touchpad</source>
         <translation>터치패드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
         <source>TrackPoint</source>
         <translation>추적점</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
         <source>Personal Hotspot</source>
         <translation>개인 핫스팟</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
         <source>On Battery</source>
         <translation>배터리 켜기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
         <source>Wired Network</source>
         <translation>유선 네트워크</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
         <source>Wireless Network</source>
         <translation>무선 네트워크</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
         <source>Multiple Displays</source>
         <translation>다중 디스플레이</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="423"/>
         <source>End User License Agreement</source>
         <translation>최종 사용자 사용권 계약</translation>
     </message>
@@ -4217,34 +4183,34 @@
         <translation>스피커</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="76"/>
         <source>Output Volume</source>
         <translation>출력 볼륨</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="159"/>
         <source>Volume Boost</source>
         <translation>볼륨 증폭</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="167"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>볼륨이 100%보다 크면 오디오가 왜곡되어 스피커에 유해할 수 있습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="176"/>
         <source>Left/Right Balance</source>
         <translation>왼쪽/오른쪽 균형</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="182"/>
         <source>Left</source>
         <translation>왼쪽</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="183"/>
         <source>Right</source>
         <translation>오른쪽</translation>
     </message>
@@ -4946,53 +4912,53 @@
         <translation>제어 센터</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="237"/>
         <source>On Battery</source>
         <translation>배터리 켜기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
         <source>Plugged In</source>
         <translation>연결됨</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
         <source>General</source>
         <translation>일반</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
         <source>Mouse</source>
         <translation>마우스</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
         <source>Touchpad</source>
         <translation>터치패드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
         <source>TrackPoint</source>
         <translation>추적점</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
         <source>Application Proxy</source>
         <translation>응용프로그램 프록시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="248"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
         <source>System Proxy</source>
         <translation>시스템 프록시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
         <source>Time Settings</source>
         <translation>시간 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
         <source>Change System Timezone</source>
         <translation>시스템 시간대 변경</translation>
     </message>

@@ -30,7 +30,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Účty</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="813"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="815"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="817"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,8 +87,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="829"/>
         <source>Drawing Tablet</source>
         <translation>Destička na kreslení</translation>
     </message>
@@ -100,7 +100,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizace</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
@@ -123,8 +123,8 @@
         <translation>Polohovací zařízení počítače</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="841"/>
         <source>Cloud Sync</source>
         <translation>Synchronizace se serverem</translation>
     </message>
@@ -150,41 +150,41 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="338"/>
         <source>Always</source>
         <translation>Vždy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="331"/>
         <source>Please input a number between 1-99999</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="372"/>
         <source>Change Password</source>
         <translation>Změnit heslo</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="374"/>
         <source>Delete Account</source>
         <translation>Smazat účet</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="377"/>
         <source>Auto Login</source>
         <translation>Automatické přihlášení</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
         <source>Login Without Password</source>
         <translation>Přihlásit se bez hesla</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="456"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
         <source>Group</source>
         <translation>Skupina</translation>
     </message>
@@ -194,7 +194,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="80"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Účty</translation>
     </message>
 </context>
 <context>
@@ -223,12 +223,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Přidat otisk prstu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
         <source>Scan again</source>
-        <translation type="unfinished"/>
+        <translation>Nasnímat znovu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
@@ -238,18 +238,18 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Rozpoznání otisku prstu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="unfinished"/>
+        <translation>Položte svůj prst na čtečku otisků prstů, nebo jím přejeďte odspodu nahoru nebo naopak, a pak jej oddalte</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Otisk prstu přidán</translation>
     </message>
 </context>
 <context>
@@ -264,7 +264,7 @@
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="86"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="295"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
@@ -305,64 +305,49 @@
         <translation>Zadejte heslo znovu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="218"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="216"/>
         <source>Required</source>
         <translation>Požadováno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="214"/>
         <source>optional</source>
         <translation>Volitelné</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
         <source>Go to Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="364"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Heslo nesmí mít více než %1 znaků</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="371"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Heslo musí obsahovat anglická písmena (rozlišuje se velikost písmen), čísla nebo zvláštní symboly (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="378"/>
         <source>Passwords do not match</source>
         <translation>Hesla se neshodují</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="401"/>
-        <source>Username cannot be empty</source>
-        <translation>Uživatelské jméno nemůže být prázdné</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="402"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Uživatelské jméno musí mít 3 až 32 znaků</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="414"/>
-        <source>The first character must be in lower case</source>
-        <translation>První písmeno musí být malé</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="420"/>
-        <source>Username can only contain a~z, 0~9, - or _</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="433"/>
         <source>The full name already exists</source>
         <translation>Úplný název už existuje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="427"/>
         <source>The full name is too long</source>
         <translation type="unfinished"/>
     </message>
@@ -372,7 +357,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Smazat otisk prstu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
@@ -382,7 +367,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Otisk prstu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
@@ -448,7 +433,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Heslo musí obsahovat anglická písmena (rozlišuje se velikost písmen), čísla nebo zvláštní symboly (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="251"/>
@@ -486,7 +471,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -505,12 +490,12 @@
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="113"/>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>Připojit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="108"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Připojuje se</translation>
     </message>
 </context>
 <context>
@@ -566,7 +551,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="80"/>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Obecná nastavení</translation>
     </message>
 </context>
 <context>
@@ -606,7 +591,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
         <source>Please sign in to your cloud account first</source>
-        <translation type="unfinished"/>
+        <translation>Nejprve se, prosím, přihlašte ke svému serverovému účtu a pokračujte</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
@@ -616,7 +601,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Síť nepřipojena</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
@@ -713,7 +698,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integration may also be damaged, please use it carefully.</source>
+        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -725,7 +710,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="106"/>
         <source>Please sign in to your cloud account first</source>
-        <translation type="unfinished"/>
+        <translation>Nejprve se, prosím, přihlašte ke svému serverovému účtu a pokračujte</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
@@ -735,7 +720,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Síť nepřipojena</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
@@ -867,7 +852,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="70"/>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Datum a čas</translation>
     </message>
 </context>
 <context>
@@ -944,7 +929,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="82"/>
         <source>Default Applications</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí programy</translation>
     </message>
 </context>
 <context>
@@ -1020,50 +1005,41 @@
 <context>
     <name>dccV20::display::CustomSettingDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
-        <source>Main Screen</source>
-        <translation>Hlavní obrazovka</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="370"/>
+        <source>Displays</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="104"/>
         <source>Resolution</source>
         <translation>Rozlišení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="110"/>
         <source>Refresh Rate</source>
         <translation>Obnovovací rychlost</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="134"/>
-        <source>Cancel</source>
-        <translation>Zrušit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="138"/>
-        <source>Save</source>
-        <translation>Uložit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="263"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="325"/>
         <source>Recommended</source>
         <translation>Doporučeno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
-        <source>inch</source>
-        <translation>palec</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="371"/>
+        <source>Monitor Connected</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="359"/>
-        <source>Resolution %1x%2</source>
-        <translation>Rozlišení %1x%2</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="387"/>
+        <source>Main Screen</source>
+        <translation>Hlavní obrazovka</translation>
     </message>
 </context>
 <context>
@@ -1071,7 +1047,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="68"/>
         <source>Display</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazení</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="119"/>
@@ -1148,22 +1124,12 @@
         <translation>Roztáhnout pracovní plochu přes obrazovky</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>Pouze %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Ukázat obsah obrazovky pouze na %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="136"/>
         <source>Customize</source>
         <translation>Přizpůsobit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="137"/>
         <source>Configure the display according to your needs</source>
         <translation>Nastavte zobrazení podle svých potřeb</translation>
     </message>
@@ -1360,7 +1326,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="122"/>
         <source>Keyboard and Language</source>
-        <translation type="unfinished"/>
+        <translation>Klávesnice a jazyk</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="238"/>
@@ -1522,7 +1488,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="146"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Myš</translation>
     </message>
 </context>
 <context>
@@ -2126,7 +2092,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="264"/>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Síť</translation>
     </message>
 </context>
 <context>
@@ -3651,28 +3617,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="251"/>
         <source>Connect to hidden network</source>
         <translation>Připojit se ke skryté síti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
         <source>Wireless Network Adapter</source>
         <translation>Adaptér bezdrátové sítě</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
         <source>Close Hotspot</source>
         <translation>Ukončit činný bod</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="276"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Nejprve zakažte sdílení činného bodu, pokud chcete provést přípojení k bezdrátové síti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="299"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3799,7 +3765,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="63"/>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>Přizpůsobení</translation>
     </message>
 </context>
 <context>
@@ -3892,7 +3858,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="73"/>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Napájení</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="190"/>
@@ -4051,80 +4017,80 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
         <source>Server</source>
         <translation>Server</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
         <source>Window Effect</source>
         <translation>Okenní efekt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="422"/>
         <source>Developer Mode</source>
         <translation>Vývojářský režim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
         <source>User Experience Program</source>
         <translation>Program pro uživatelský zážitek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
         <source>Join User Experience Program</source>
         <translation>Připojit se k programu pro uživatelský zážitek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
         <source>Cloud Account</source>
         <translation>Účet na serveru</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
         <source>Display Scaling</source>
         <translation>Změna velikosti zobrazení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
         <source>Touchpad</source>
         <translation>Dotyková plocha</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
         <source>TrackPoint</source>
         <translation>Polohovací zařízení počítače</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
         <source>Personal Hotspot</source>
         <translation>Osobní činný bod</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
         <source>On Battery</source>
         <translation>Na baterii</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
         <source>Wired Network</source>
         <translation>Drátová síť</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
         <source>Wireless Network</source>
         <translation>Bezdrátová síť</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
         <source>Multiple Displays</source>
         <translation>Více zobrazení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="423"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Licenční ujednání pro koncového uživatele</translation>
     </message>
 </context>
 <context>
@@ -4180,7 +4146,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="59"/>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Zvuk</translation>
     </message>
 </context>
 <context>
@@ -4217,34 +4183,34 @@
         <translation>Reproduktor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="76"/>
         <source>Output Volume</source>
         <translation>Výstupní hlasitost</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="159"/>
         <source>Volume Boost</source>
         <translation>Zesílení hlasitosti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="167"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Pokud hlasitost přesahuje 100 %, může zkreslovat zvuk a škodit reproduktoru</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="176"/>
         <source>Left/Right Balance</source>
         <translation>Vyvážení vlevo/vpravo</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="182"/>
         <source>Left</source>
         <translation>Vlevo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="183"/>
         <source>Right</source>
         <translation>Vpravo</translation>
     </message>
@@ -4374,7 +4340,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>Účet na serveru</translation>
     </message>
 </context>
 <context>
@@ -4471,7 +4437,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="81"/>
         <source>System Info</source>
-        <translation type="unfinished"/>
+        <translation>Informace o systému</translation>
     </message>
 </context>
 <context>
@@ -4682,7 +4648,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="98"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizace</translation>
     </message>
 </context>
 <context>
@@ -4749,7 +4715,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizace</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -4804,7 +4770,7 @@
     <message>
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="100"/>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Destička na kreslení</translation>
     </message>
 </context>
 <context>
@@ -4946,53 +4912,53 @@
         <translation>Ovládací středisko</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="237"/>
         <source>On Battery</source>
         <translation>Na baterii</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
         <source>Plugged In</source>
         <translation>Zapojeno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
         <source>General</source>
         <translation>Obecné</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
         <source>Mouse</source>
         <translation>Myš</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
         <source>Touchpad</source>
         <translation>Dotyková plocha</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
         <source>TrackPoint</source>
         <translation>Polohovací zařízení počítače</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
         <source>Application Proxy</source>
         <translation>Proxy programu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="248"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
         <source>System Proxy</source>
         <translation>Systémová proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
         <source>Time Settings</source>
         <translation>Nastavení času</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
         <source>Change System Timezone</source>
         <translation>Změnit časové pásmo systému</translation>
     </message>

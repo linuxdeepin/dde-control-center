@@ -23,7 +23,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>¿Estás seguro de que quieres revertir a %1 y hacer una copia de seguridad de %2?</translation>
+        <translation>¿Está seguro de que quiere revertir a %1 y hacer una copia de seguridad de %2?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>
