@@ -187,6 +187,28 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
             m_nameEdit->hideAlertMessage();
             m_nameEdit->setAlert(false);
         }
+
+        if (m_nameEdit->text().isEmpty())
+            return;
+
+        QString strText(m_nameEdit->text());
+        QString strTemp;
+        int idx;
+        for (idx = 0; idx < strText.size(); ++idx) {
+            if ((strText[idx] >= '0' && strText[idx] <= '9') ||
+                (strText[idx] >= 'a' && strText[idx] <= 'z') ||
+                (strText[idx] >= 'A' && strText[idx] <= 'Z') ||
+                (strText[idx] == '-' || strText[idx] == '_')) {
+                strTemp.append(strText[idx]);
+            } else {
+                break;
+            }
+        }
+
+        m_nameEdit->lineEdit()->blockSignals(true);
+        m_nameEdit->lineEdit()->setText(strTemp);
+        m_nameEdit->lineEdit()->setCursorPosition(idx);
+        m_nameEdit->lineEdit()->blockSignals(false);
     });
 
     connect(m_fullnameEdit, &DLineEdit::textEdited, this, [ = ] {
