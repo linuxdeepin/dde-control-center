@@ -80,13 +80,13 @@ public:
         Media,
         Window,
         Workspace,
-        Speech
+        AssistiveTools,
     };
 
     QList<ShortcutInfo *> systemInfo() const;
     QList<ShortcutInfo *> windowInfo() const;
     QList<ShortcutInfo *> workspaceInfo() const;
-    QList<ShortcutInfo *> SpeechInfo() const;
+    QList<ShortcutInfo *> assistiveToolsInfo() const;
     QList<ShortcutInfo *> customInfo() const;
     QList<ShortcutInfo *> infos() const;
 
@@ -114,7 +114,7 @@ private:
     QList<ShortcutInfo *> m_systemInfos;
     QList<ShortcutInfo *> m_windowInfos;
     QList<ShortcutInfo *> m_workspaceInfos;
-    QList<ShortcutInfo *> m_speechInfos;
+    QList<ShortcutInfo *> m_assistiveToolsInfos;
     QList<ShortcutInfo *> m_customInfos;
     QList<ShortcutInfo *> m_searchList;
     ShortcutInfo *m_currentInfo;

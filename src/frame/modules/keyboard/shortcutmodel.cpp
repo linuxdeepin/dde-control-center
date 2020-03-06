@@ -34,41 +34,38 @@
 #include <QThreadPool>
 #include "shortcutitem.h"
 
-static const QStringList systemFilter = { "terminal",
-                                          "terminal-quake",
-                                          "screenshot",
-                                          "screenshot-delayed",
-                                          "screenshot-fullscreen",
-                                          "screenshot-window",
-                                          "deepin-screen-recorder",
-                                          "switch-group",
-                                          "switch-group-backward",
-                                          "preview-workspace",
-                                          "expose-windows",
-                                          "expose-all-windows",
-                                          "launcher",
-                                          "switch-applications",
-                                          "switch-applications-backward",
-                                          "show-desktop",
-                                          "file-manager",
-                                          "lock-screen",
-                                          "logout",
-                                          "wm-switcher",
-                                          "system-monitor",
-                                          "color-picker",
-                                          "clipboard"
-                                       };
+static const QStringList systemFilter = {"terminal",
+                                         "terminal-quake",
+                                         "screenshot",
+                                         "screenshot-delayed",
+                                         "screenshot-fullscreen",
+                                         "screenshot-window",
+                                         "deepin-screen-recorder",
+                                         "switch-group",
+                                         "switch-group-backward",
+                                         "preview-workspace",
+                                         "expose-windows",
+                                         "expose-all-windows",
+                                         "launcher",
+                                         "switch-applications",
+                                         "switch-applications-backward",
+                                         "show-desktop",
+                                         "file-manager",
+                                         "lock-screen",
+                                         "logout",
+                                         "wm-switcher",
+                                         "system-monitor",
+                                         "color-picker",
+                                         "clipboard"};
 
-QStringList windowFilter = { "maximize", "unmaximize", "minimize",
-                            "begin-move", "begin-resize", "close"
-                           };
+QStringList windowFilter = {"maximize", "unmaximize", "minimize", "begin-move", "begin-resize", "close"};
 
-QStringList workspaceFilter = { "switch-to-workspace-left", "switch-to-workspace-right",
-                               "move-to-workspace-left", "move-to-workspace-right"
-                              };
+QStringList workspaceFilter = {"switch-to-workspace-left",
+                               "switch-to-workspace-right",
+                               "move-to-workspace-left",
+                               "move-to-workspace-right"};
 
-QStringList speechFilter = { "ai-assistant", "text-to-speech", "speech-to-text"
-                           };
+QStringList assistiveToolsFilter = {"ai-assistant", "text-to-speech", "speech-to-text", "translation"};
 
 namespace dcc {
 namespace keyboard {
@@ -103,9 +100,9 @@ QList<ShortcutInfo *> ShortcutModel::workspaceInfo() const
     return m_workspaceInfos;
 }
 
-QList<ShortcutInfo *> ShortcutModel::SpeechInfo() const
+QList<ShortcutInfo *> ShortcutModel::assistiveToolsInfo() const
 {
-    return m_speechInfos;
+    return m_assistiveToolsInfos;
 }
 
 QList<ShortcutInfo *> ShortcutModel::customInfo() const
@@ -154,7 +151,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     m_systemInfos.clear();
     m_windowInfos.clear();
     m_workspaceInfos.clear();
-    m_speechInfos.clear();
+    m_assistiveToolsInfos.clear();
     m_customInfos.clear();
 
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
@@ -185,8 +182,8 @@ void ShortcutModel::onParseInfo(const QString &info)
                 m_workspaceInfos << info;
                 continue;
             }
-            if (speechFilter.contains(info->id)) {
-                m_speechInfos << info;
+            if (assistiveToolsFilter.contains(info->id)) {
+                m_assistiveToolsInfos << info;
                 continue;
             }
             if (type == 1) {
@@ -210,7 +207,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     Q_EMIT listChanged(m_systemInfos, InfoType::System);
     Q_EMIT listChanged(m_windowInfos, InfoType::Window);
     Q_EMIT listChanged(m_workspaceInfos, InfoType::Workspace);
-    Q_EMIT listChanged(m_speechInfos, InfoType::Speech);
+    Q_EMIT listChanged(m_assistiveToolsInfos, InfoType::AssistiveTools);
     Q_EMIT listChanged(m_customInfos, InfoType::Custom);
 }
 
@@ -303,7 +300,7 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
                 workspaceInfoList << info;
                 continue;
             }
-            if (speechFilter.contains(info->id)) {
+            if (assistiveToolsFilter.contains(info->id)) {
                 speechInfoList << info;
                 continue;
             }

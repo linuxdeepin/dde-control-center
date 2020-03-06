@@ -41,7 +41,7 @@ using namespace dcc::keyboard;
 
 ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *parent)
     : QWidget(parent)
-    , m_speechGroup(nullptr)
+    , m_assistiveToolsGroup(nullptr)
     , m_model(model)
 {
     m_searchDelayTimer = new QTimer(this);
@@ -71,10 +71,10 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     if (!DCC_NAMESPACE::IsServerSystem) {
         SettingsHead *speechHead = new SettingsHead();
-        speechHead->setTitle(tr("Speech"));
+        speechHead->setTitle(tr("Assistive Tools"));
         speechHead->setEditEnable(false);
-        m_speechGroup = new SettingsGroup();
-        m_speechGroup->appendItem(speechHead, SettingsGroup::NoneBackground);
+        m_assistiveToolsGroup = new SettingsGroup();
+        m_assistiveToolsGroup->appendItem(speechHead, SettingsGroup::NoneBackground);
     }
 
     m_customGroup = new SettingsGroup();
@@ -106,9 +106,9 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_windowGroup);
     m_layout->addSpacing(List_Interval);
     m_layout->addWidget(m_workspaceGroup);
-    if (m_speechGroup) {
+    if (m_assistiveToolsGroup) {
         m_layout->addSpacing(List_Interval);
-        m_layout->addWidget(m_speechGroup);
+        m_layout->addWidget(m_assistiveToolsGroup);
     }
     m_layout->addSpacing(List_Interval);
     m_layout->addWidget(m_customGroup);
@@ -156,14 +156,14 @@ void ShortCutSettingWidget::showCustomShotcut()
 
 void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::InfoType type)
 {
-    if ((m_speechGroup == nullptr) && (type == ShortcutModel::Speech)) {
+    if ((m_assistiveToolsGroup == nullptr) && (type == ShortcutModel::AssistiveTools)) {
         return;
     }
     QMap<ShortcutModel::InfoType, QList<ShortcutItem *>*> InfoMap {
         {ShortcutModel::System, &m_systemList},
         {ShortcutModel::Window, &m_windowList},
         {ShortcutModel::Workspace, &m_workspaceList},
-        {ShortcutModel::Speech, &m_speechList},
+        {ShortcutModel::AssistiveTools, &m_assistiveToolsList},
         {ShortcutModel::Custom, &m_customList}
     };
 
@@ -171,7 +171,7 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         {ShortcutModel::System, m_systemGroup},
         {ShortcutModel::Window, m_windowGroup},
         {ShortcutModel::Workspace, m_workspaceGroup},
-        {ShortcutModel::Speech, m_speechGroup},
+        {ShortcutModel::AssistiveTools, m_assistiveToolsGroup},
         {ShortcutModel::Custom, m_customGroup}
     };
 
@@ -210,9 +210,9 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
             m_workspaceGroup->appendItem(item);
             m_workspaceList.append(item);
             break;
-        case ShortcutModel::Speech:
-            m_speechGroup->appendItem(item);
-            m_speechList.append(item);
+        case ShortcutModel::AssistiveTools:
+            m_assistiveToolsGroup->appendItem(item);
+            m_assistiveToolsList.append(item);
             break;
         case ShortcutModel::Custom:
             connect(m_head, &SettingsHead::editChanged, item, &ShortcutItem::onEditMode);
@@ -240,8 +240,8 @@ void ShortCutSettingWidget::modifyStatus(bool status)
 {
     if (status) {
         m_customGroup->hide();
-        if (m_speechGroup) {
-            m_speechGroup->hide();
+        if (m_assistiveToolsGroup) {
+            m_assistiveToolsGroup->hide();
         }
         m_workspaceGroup->hide();
         m_windowGroup->hide();
@@ -249,8 +249,8 @@ void ShortCutSettingWidget::modifyStatus(bool status)
         m_resetBtn->hide();
         m_searchGroup->show();
         m_layout->removeWidget(m_customGroup);
-        if (m_speechGroup) {
-            m_layout->removeWidget(m_speechGroup);
+        if (m_assistiveToolsGroup) {
+            m_layout->removeWidget(m_assistiveToolsGroup);
         }
         m_layout->removeWidget(m_workspaceGroup);
         m_layout->removeWidget(m_windowGroup);
@@ -258,8 +258,8 @@ void ShortCutSettingWidget::modifyStatus(bool status)
         m_layout->insertWidget(0, m_searchGroup, 0, Qt::AlignTop);
     } else {
         m_customGroup->show();
-        if (m_speechGroup) {
-            m_speechGroup->show();
+        if (m_assistiveToolsGroup) {
+            m_assistiveToolsGroup->show();
         }
         m_workspaceGroup->show();
         m_windowGroup->show();
@@ -270,8 +270,8 @@ void ShortCutSettingWidget::modifyStatus(bool status)
         m_layout->insertWidget(0, m_systemGroup);
         m_layout->insertWidget(2, m_windowGroup);
         m_layout->insertWidget(4, m_workspaceGroup);
-        if (m_speechGroup) {
-            m_layout->insertWidget(6, m_speechGroup);
+        if (m_assistiveToolsGroup) {
+            m_layout->insertWidget(6, m_assistiveToolsGroup);
             m_layout->insertWidget(8, m_customGroup);
         } else {
             m_layout->insertWidget(6, m_customGroup);
