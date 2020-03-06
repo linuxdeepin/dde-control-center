@@ -144,7 +144,6 @@ set(FRAME_FILES
 
 set(WINDOW_FILES
     window/constant.h
-    window/namespace.h
     window/mainwindow.cpp
     window/standarditemhelper.h
     window/standarditemhelper.cpp
