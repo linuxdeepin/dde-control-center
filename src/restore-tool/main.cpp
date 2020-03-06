@@ -257,7 +257,7 @@ int main(int argc, char *argv[])
                                               QSettings settings("/etc/default/grub", QSettings::IniFormat);
                                               return settings.value("GRUB_DEFAULT").toString();
 #else
-                                              return 0;
+                                              return "0";
 #endif
                                           }()
                                         }},
