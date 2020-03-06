@@ -79,7 +79,7 @@ void AddFingeDialog::initData()
     m_cancelBtn->setText((tr("Cancel")));
     m_addBtn->setText((tr("Add Fingerprint")));
     m_addBtn->setEnabled(false);
-    connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::reject);
+    connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
     connect(m_addBtn, &DSuggestButton::clicked, this, [=] {
         auto text = m_addBtn->text();
         if (text == tr("Done") || text == tr("Add Fingerprint")) {
