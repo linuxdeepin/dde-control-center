@@ -31,6 +31,8 @@
 #include "modules/accounts/fingermodel.h"
 #include "addfingedialog.h"
 
+#include <DDialog>
+
 #include <QStringList>
 #include <QTimer>
 #include <QDebug>
@@ -211,6 +213,14 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     if (m_fingerWorker->tryEnroll(name, thumb)) {
         dlg->exec();
         m_fingerWorker->refreshUserEnrollList(name);
+    } else {
+        DDialog* errorDialog = new DDialog();
+        errorDialog->setMessage(tr("设备已被占用或无法连接！"));
+        errorDialog->exec();
+        connect(errorDialog, &DDialog::closed, m_fingerWorker, [ = ] {
+           m_fingerWorker->stopEnroll(name);
+        });
+        errorDialog->deleteLater();
     }
     dlg->deleteLater();
 }

@@ -68,6 +68,7 @@ bool FingerWorker::tryEnroll(const QString &name, const QString &thumb)
     callClaim.waitForFinished();
     if (callClaim.isError()) {
         qDebug() << "call Claim Error : " << callClaim.error();
+        return false;
     }
 
     auto callEnroll =  m_fingerPrintInter->Enroll(thumb);
