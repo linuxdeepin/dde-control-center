@@ -202,7 +202,7 @@ void ManualRestore::restoreSystem()
     process.start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
     process.waitForFinished();
 
-    if (process.exitStatus() != QProcess::NormalExit) {
+    if (process.exitCode() != 0) {
         return;
     }
 
@@ -244,19 +244,35 @@ void ManualRestore::restoreSystem()
         }
     }
 
+    if (QFile::exists("/usr/lib/deepin-recovery/prepare_recovery")) {
+        process.start("pkexec", {"/usr/lib/deepin-recovery/prepare_recovery"});
+        process.waitForFinished();
+
+        if (process.exitCode() != 0) {
+            process.deleteLater();
+            return;
+        }
+    }
+
     GrubInter* grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
-    grubInter->SetDefaultEntry("Deepin Recovery").waitForFinished();
-    grubInter->deleteLater();
 
-    // Hold 5s wait for grub
-    QThread::msleep(5000);
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(grubInter->SetDefaultEntry("Deepin Recovery"), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, grubInter] {
+        if (!watcher->isError()) {
+            // Hold 5s wait for grub
+            QThread::msleep(5000);
 
-    DDBusSender()
-    .service("com.deepin.dde.shutdownFront")
-    .path("/com/deepin/dde/shutdownFront")
-    .interface("com.deepin.dde.shutdownFront")
-    .method("Restart")
-    .call();
+            DDBusSender()
+            .service("com.deepin.dde.shutdownFront")
+            .path("/com/deepin/dde/shutdownFront")
+            .interface("com.deepin.dde.shutdownFront")
+            .method("Restart")
+            .call();
+        }
+
+        grubInter->deleteLater();
+        watcher->deleteLater();
+    });
 }
 
 void ManualRestore::restoreManual()
@@ -298,23 +314,42 @@ void ManualRestore::restoreManual()
     }
 #endif
 
-    QProcess* process = new QProcess(this);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_restore" << "--path" << m_directoryChooseWidget->lineEdit()->text());
-    process->waitForFinished();
+    QProcess process;
+    process.start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_restore" << "--path" << m_directoryChooseWidget->lineEdit()->text());
+    process.waitForFinished();
+
+    if (process.exitCode() != 0) {
+        return;
+    }
+
+    if (QFile::exists("/usr/lib/deepin-recovery/prepare_recovery")) {
+        process.start("pkexec", {"/usr/lib/deepin-recovery/prepare_recovery"});
+        process.waitForFinished();
+
+        if (process.exitCode() != 0) {
+            return;
+        }
+    }
 
     GrubInter* grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
-    grubInter->SetDefaultEntry("Deepin Recovery").waitForFinished();
-    grubInter->deleteLater();
 
-    // Hold 5s wait for grub
-    QThread::msleep(5000);
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(grubInter->SetDefaultEntry("Deepin Recovery"), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, grubInter] {
+        if (!watcher->isError()) {
+            // Hold 5s wait for grub
+            QThread::msleep(5000);
 
-    DDBusSender()
-    .service("com.deepin.dde.shutdownFront")
-    .path("/com/deepin/dde/shutdownFront")
-    .interface("com.deepin.dde.shutdownFront")
-    .method("Restart")
-    .call();
+            DDBusSender()
+            .service("com.deepin.dde.shutdownFront")
+            .path("/com/deepin/dde/shutdownFront")
+            .interface("com.deepin.dde.shutdownFront")
+            .method("Restart")
+            .call();
+        }
+
+        grubInter->deleteLater();
+        watcher->deleteLater();
+    });
 }
 
 void ManualRestore::restore()

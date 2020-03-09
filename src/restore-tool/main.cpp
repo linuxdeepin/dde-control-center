@@ -303,7 +303,7 @@ int main(int argc, char *argv[])
                                                    "system.dim",
                                                    "system.md5"
                                                   } } },
-                QJsonObject{ { "message", "starting backup boot partition" },
+                QJsonObject{ { "message", "starting restore boot partition" },
                              { "progress", true },
                              { "enable", actionType == ActionType::ManualRestore },
                              { "command", "restore-partitions" },
@@ -311,7 +311,7 @@ int main(int argc, char *argv[])
                                                    QString("%1/boot.dim").arg(realtivePath),
                                                    QString("UUID:%1").arg(bootUUID)
                                                   } } },
-                QJsonObject{ { "message", "starting backup root partition" },
+                QJsonObject{ { "message", "starting restore root partition" },
                              { "progress", true },
                              { "enable", actionType == ActionType::ManualRestore },
                              { "command", "restore-partitions" },
