@@ -4496,6 +4496,16 @@
         <source>Select restore directory</source>
         <translation>选择恢复文件的目录</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="221"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
+        <source>Confirm</source>
+        <translation>确认</translation>
+    </message>
 </context>
 <context>
     <name>dccV20::systeminfo::ManualBackup</name>
