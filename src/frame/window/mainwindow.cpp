@@ -408,7 +408,12 @@ void MainWindow::loadModules()
         auto *module = qobject_cast<ModuleInterface *>(instance);
         module->setFrameProxy(this);
 
-        m_modules.append({module, module->displayName()});
+        if ( tr("Assistive Tools") == module->displayName()) {
+            m_modules.insert(13 , {module, module->displayName()});
+        } else {
+            m_modules.append({module, module->displayName()});
+        }
+
     }
 }
 
