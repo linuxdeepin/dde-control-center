@@ -57,7 +57,7 @@ const QString SystemTypeName = DSysInfo::deepinTypeDisplayName(QLocale::c());
 
 const DSysInfo::DeepinType DeepinType = DSysInfo::deepinType();
 const bool IsServerSystem = (DSysInfo::DeepinServer == DeepinType);
-const bool IsDesktopSystem = (DSysInfo::DeepinDesktop == DeepinType);
+const bool IsDesktopSystem = DSysInfo::isCommunityEdition();
 const bool IsProfessionalSystem = (DSysInfo::DeepinProfessional == DeepinType);
 
 }
