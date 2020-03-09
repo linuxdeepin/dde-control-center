@@ -196,7 +196,7 @@ void KeyboardWorker::onRefreshKBLayout()
 }
 #endif
 
-void KeyboardWorker::modifyShortcutEdit(ShortcutInfo *info)
+void KeyboardWorker::modifyShortcutEditAux(ShortcutInfo *info, bool isKPDelete)
 {
     if (!info)
         return;
@@ -205,7 +205,11 @@ void KeyboardWorker::modifyShortcutEdit(ShortcutInfo *info)
         onDisableShortcut(info->replace);
     }
 
-    const QString &shortcut = info->accels;
+    QString shortcut = info->accels;
+    if (!isKPDelete) {
+        shortcut = shortcut.replace("KP_Delete", "Delete");
+    }
+
     const QString &result = m_keybindInter->LookupConflictingShortcut(shortcut);
 
     if (!result.isEmpty()) {
@@ -216,11 +220,20 @@ void KeyboardWorker::modifyShortcutEdit(ShortcutInfo *info)
         watcher->setProperty("id", info->id);
         watcher->setProperty("type", info->type);
         watcher->setProperty("shortcut", shortcut);
+        watcher->setProperty("clean", !isKPDelete);
 
         connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onConflictShortcutCleanFinished);
     } else {
-        cleanShortcutSlef(info->id, info->type, shortcut);
+        if (isKPDelete) {
+            m_keybindInter->AddShortcutKeystroke(info->id, info->type, shortcut);
+        } else {
+            cleanShortcutSlef(info->id, info->type, shortcut);
+        }
     }
+}
+
+void KeyboardWorker::modifyShortcutEdit(ShortcutInfo *info) {
+    modifyShortcutEditAux(info);
 }
 
 void KeyboardWorker::addCustomShortcut(const QString &name, const QString &command, const QString &accels)
@@ -633,8 +646,13 @@ void KeyboardWorker::onConflictShortcutCleanFinished(QDBusPendingCallWatcher *wa
         const QString &id = watch->property("id").toString();
         const int type = watch->property("type").toInt();
         const QString &shortcut = watch->property("shortcut").toString();
+        const bool clean = watch->property("clean").toBool();
 
-        cleanShortcutSlef(id, type, shortcut);
+        if (clean) {
+            cleanShortcutSlef(id, type, shortcut);
+        } else {
+            m_keybindInter->AddShortcutKeystroke(id, type, shortcut);
+        }
     }
 
     watch->deleteLater();
@@ -648,6 +666,15 @@ void KeyboardWorker::onShortcutCleanFinished(QDBusPendingCallWatcher *watch)
         const QString &shortcut = watch->property("shortcut").toString();
 
         m_keybindInter->AddShortcutKeystroke(id, type, shortcut);
+
+        if (shortcut.contains("Delete") && !shortcut.contains("KP_Delete")) {
+            ShortcutInfo si;
+            si.id = id;
+            si.type = type;
+            si.accels = shortcut;
+            si.accels = si.accels.replace("Delete", "KP_Delete");
+            modifyShortcutEditAux(&si, true);
+        }
     } else {
         qDebug() << watch->error();
     }

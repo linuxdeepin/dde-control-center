@@ -67,6 +67,7 @@ public:
     inline QList<MetaData> getDatas() {return m_metaDatas;}
     inline QList<QString> getLetters() {return m_letters;}
 
+    void modifyShortcutEditAux(ShortcutInfo* info, bool isKPDelete = false);
     void modifyShortcutEdit(ShortcutInfo* info);
     void addCustomShortcut(const QString& name, const QString& command, const QString& accels);
     void modifyCustomShortcut(ShortcutInfo *info);
