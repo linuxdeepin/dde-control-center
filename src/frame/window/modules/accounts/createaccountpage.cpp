@@ -425,6 +425,13 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
         return false;
     }
 
+    const QString compStr = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    if (!compStr.contains(username.at(0))) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("The first character must be a letter or number"), -1);
+        return false;
+    }
+
     if (!validateUsername(username)) {
         edit->setAlert(true);
         return false;
