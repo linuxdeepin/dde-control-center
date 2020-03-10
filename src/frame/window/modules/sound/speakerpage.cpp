@@ -65,9 +65,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     //当扬声器状态发生变化，将switch设置为对应的状态
     connect(m_model, &SoundModel::speakerOnChanged, m_sw, &SwitchWidget::setChecked);
 
-    if (m_sw->checked()) {
-        initSlider();
-    }
+    initSlider();
 }
 
 void SpeakerPage::initSlider()
@@ -158,7 +156,6 @@ void SpeakerPage::initSlider()
     volumeBoost->setChecked(m_model->isIncreaseVolume());
     volumeBoost->setTitle(tr("Volume Boost"));
     volumeBoost->addBackground();
-    connect(m_model, &SoundModel::speakerOnChanged, volumeBoost, &SwitchWidget::setVisible);
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoost, &SwitchWidget::setChecked);
     connect(volumeBoost, &SwitchWidget::checkedChanged, this, &SpeakerPage::requestIncreaseVolume);
     hlayout->addWidget(volumeBoost);
@@ -167,10 +164,15 @@ void SpeakerPage::initSlider()
     auto volumeBoostTip = new DTipLabel(tr("If the volume is louder than 100%, it may distort audio and be harmful to your speaker"), this);
     volumeBoostTip->setWordWrap(true);
     volumeBoostTip->setMargin(0);
+    volumeBoostTip->setVisible(m_model->isIncreaseVolume());
     hlayout->addWidget(volumeBoostTip);
-    m_layout->insertLayout(2, hlayout);
+    auto vbWidget = new QWidget(this);
+    vbWidget->setLayout(hlayout);
+    vbWidget->setVisible(m_model->speakerOn());
+    m_layout->insertWidget(2, vbWidget);
     connect(volumeBoost, &SwitchWidget::checkedChanged, volumeBoostTip, &DTipLabel::setVisible);
-    connect(m_model, &SoundModel::speakerOnChanged, volumeBoostTip, &DTipLabel::setVisible);
+    connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoostTip, &DTipLabel::setVisible);
+    connect(m_model, &SoundModel::speakerOnChanged, vbWidget, &QWidget::setVisible);
 
     //~ contents_path /sound/Speaker
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
