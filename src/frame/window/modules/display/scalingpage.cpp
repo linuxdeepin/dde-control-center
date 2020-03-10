@@ -122,7 +122,7 @@ void ScalingPage::addSlider(int monitorID){
 
     //如果仅一个缩放值可用，则不显示
     auto scale = m_displayModel->uiScale();
-    if (fscaleList.size() == 1 && fabs(scale - 1.0) < 0.000001) {
+    if (fscaleList.size()  <= 1 && fabs(scale - 1.0) < 0.000001) {
         m_tip->setText(tr("The monitor only supports 100% display scaling"));
         return;
     }
