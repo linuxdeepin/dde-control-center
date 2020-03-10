@@ -1,6 +1,6 @@
 #pragma once
 
-#include "window/namespace.h"
+#include "interface/namespace.h"
 #include <QWidget>
 #include <DButtonBox>
 

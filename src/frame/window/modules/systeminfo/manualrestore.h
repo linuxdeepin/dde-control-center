@@ -1,15 +1,19 @@
 #pragma once
 
-#include "namespace.h"
+#include "interface/namespace.h"
 #include <QWidget>
 #include <dfilechooseredit.h>
+#include <com_deepin_daemon_grub2.h>
 
 DWIDGET_USE_NAMESPACE
+
+using GrubInter = com::deepin::daemon::Grub2;
 
 class QLabel;
 class QPushButton;
 class RestoreItem;
 class QCheckBox;
+class QDBusPendingCallWatcher;
 
 namespace DCC_NAMESPACE {
 namespace systeminfo {
@@ -24,6 +28,7 @@ private Q_SLOTS:
     void restore();
     void restoreSystem();
     void restoreManual();
+    void onGrubSetFinished(QDBusPendingCallWatcher *self);
 
 private:
     enum class ActionType {
@@ -39,6 +44,7 @@ private:
     RestoreItem* m_systemRestore;
     RestoreItem* m_manualRestore;
     ActionType m_actionType;
+    GrubInter* m_grubInter;
 };
 }
 }

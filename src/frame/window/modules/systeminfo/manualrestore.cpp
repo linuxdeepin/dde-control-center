@@ -15,10 +15,7 @@
 
 #include <DDialog>
 #include <DDBusSender>
-#include <com_deepin_daemon_grub2.h>
 #include <QCryptographicHash>
-
-using GrubInter = com::deepin::daemon::Grub2;
 
 using namespace DCC_NAMESPACE::systeminfo;
 
@@ -92,6 +89,7 @@ ManualRestore::ManualRestore(QWidget *parent)
     , m_tipsLabel(new QLabel)
     , m_backupBtn(new QPushButton(tr("Restore")))
     , m_actionType(ActionType::RestoreSystem)
+    , m_grubInter(nullptr)
 {
     m_tipsLabel->setWordWrap(true);
 
@@ -196,7 +194,7 @@ void ManualRestore::onItemChecked()
 
 void ManualRestore::restoreSystem()
 {
-    const bool formatData = !m_systemRestore->checked();
+    const bool formatData = !m_saveUserDataCheckBox->isChecked();
 
     QProcess process;
     process.start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
@@ -244,35 +242,12 @@ void ManualRestore::restoreSystem()
         }
     }
 
-    if (QFile::exists("/usr/lib/deepin-recovery/prepare_recovery")) {
-        process.start("pkexec", {"/usr/lib/deepin-recovery/prepare_recovery"});
-        process.waitForFinished();
-
-        if (process.exitCode() != 0) {
-            process.deleteLater();
-            return;
-        }
+    if (!m_grubInter) {
+        m_grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
     }
 
-    GrubInter* grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
-
-    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(grubInter->SetDefaultEntry("Deepin Recovery"), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, grubInter] {
-        if (!watcher->isError()) {
-            // Hold 5s wait for grub
-            QThread::msleep(5000);
-
-            DDBusSender()
-            .service("com.deepin.dde.shutdownFront")
-            .path("/com/deepin/dde/shutdownFront")
-            .interface("com.deepin.dde.shutdownFront")
-            .method("Restart")
-            .call();
-        }
-
-        grubInter->deleteLater();
-        watcher->deleteLater();
-    });
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("Deepin Recovery"), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &ManualRestore::onGrubSetFinished);
 }
 
 void ManualRestore::restoreManual()
@@ -322,34 +297,12 @@ void ManualRestore::restoreManual()
         return;
     }
 
-    if (QFile::exists("/usr/lib/deepin-recovery/prepare_recovery")) {
-        process.start("pkexec", {"/usr/lib/deepin-recovery/prepare_recovery"});
-        process.waitForFinished();
-
-        if (process.exitCode() != 0) {
-            return;
-        }
+    if (!m_grubInter) {
+        m_grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
     }
 
-    GrubInter* grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
-
-    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(grubInter->SetDefaultEntry("Deepin Recovery"), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, grubInter] {
-        if (!watcher->isError()) {
-            // Hold 5s wait for grub
-            QThread::msleep(5000);
-
-            DDBusSender()
-            .service("com.deepin.dde.shutdownFront")
-            .path("/com/deepin/dde/shutdownFront")
-            .interface("com.deepin.dde.shutdownFront")
-            .method("Restart")
-            .call();
-        }
-
-        grubInter->deleteLater();
-        watcher->deleteLater();
-    });
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("Deepin Recovery"), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &ManualRestore::onGrubSetFinished);
 }
 
 void ManualRestore::restore()
@@ -361,6 +314,21 @@ void ManualRestore::restore()
     if (m_actionType == ActionType::ManualRestore) {
         return restoreManual();
     }
+}
+
+void ManualRestore::onGrubSetFinished(QDBusPendingCallWatcher *self)
+{
+    if (!self->isError()) {
+        const bool isEnable = m_backupBtn->isEnabled();
+        m_backupBtn->setEnabled(false);
+
+        QTimer::singleShot(7000, this, [=] {
+            QProcess::startDetached("qdbus", { "--literal", "com.deepin.dde.shutdownFront", "/com/deepin/dde/shutdownFront", "com.deepin.dde.shutdownFront.Restart" });
+            m_backupBtn->setEnabled(isEnable);
+        });
+    }
+
+    self->deleteLater();
 }
 
 #include "manualrestore.moc"

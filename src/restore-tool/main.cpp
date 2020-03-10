@@ -40,6 +40,8 @@
 #include <QTextStream>
 #include <QDate>
 #include <QDateTime>
+#include <QSharedPointer>
+#include <QProcess>
 
 using AccountsInter = com::deepin::daemon::Accounts;
 using UserInter = com::deepin::daemon::accounts::User;
@@ -247,7 +249,7 @@ int main(int argc, char *argv[])
                 QJsonObject{
                     { "message", "fix bootloader order" },
                     { "progress", false },
-                    { "enable", true },
+                    { "enable", actionType == ActionType::ManualBackup },
                     { "command", "fix-bootloader" },
                     { "args", QJsonArray{ QString("UUID:%1").arg(bootUUID),
                                           QString("UUID:%1").arg(rootUUID),
@@ -375,6 +377,17 @@ int main(int argc, char *argv[])
     file.open(QIODevice::WriteOnly | QIODevice::Text);
     file.write(doc.toJson());
     file.commit();
+
+    QSharedPointer<QProcess> process(new QProcess);
+
+    if (QFile::exists("/usr/lib/deepin-recovery/prepare_recovery")) {
+        process->start("pkexec", {"/usr/lib/deepin-recovery/prepare_recovery"});
+        process->waitForFinished(-1);
+
+        if (process->exitCode() != 0) {
+            return -1;
+        }
+    }
 
     return 0;
 }
