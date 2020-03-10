@@ -141,6 +141,15 @@ void Monitor::setCurrentMode(const Resolution &resolution)
     Q_EMIT currentModeChanged(m_currentMode);
 }
 
+bool compareResolution(const Resolution &first, const Resolution &second)
+{
+    long firstSum = long(first.width()) * first.height();
+    long secondSum = long(second.width()) * second.height();
+    if (firstSum > secondSum)
+        return true;
+    return false;
+}
+
 void Monitor::setModeList(const ResolutionList &modeList)
 {
     m_modeList.clear();
@@ -152,6 +161,7 @@ void Monitor::setModeList(const ResolutionList &modeList)
             m_modeList.append(m);
         }
     }
+    qSort(m_modeList.begin(), m_modeList.end(), compareResolution);
 
     Q_EMIT modelListChanged(m_modeList);
 }
