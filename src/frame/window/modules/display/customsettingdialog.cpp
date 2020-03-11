@@ -352,7 +352,11 @@ void CustomSettingDialog::initMoniList()
         titleAction->setText(moni->name());
         item->setText(moni->name());
         listModel->appendRow(item);
-        item->setCheckState(Qt::Checked);        
+
+        item->setCheckState(moniList[idx]->enable() ? Qt::Checked : Qt::Unchecked);
+        connect(moniList[idx], &Monitor::enableChanged, this, [=](bool enable){
+            item->setCheckState(enable ? Qt::Checked : Qt::Unchecked);
+        });
     }
 
     int vseg_size=m_vSegBtn.size();
@@ -371,7 +375,7 @@ void CustomSettingDialog::initMoniList()
          QLabel * main_select_lab=new QLabel(tr("Monitor Connected"));
          main_select_lab->setFixedWidth(250);
 
-        if (!m_model->isMerge()) {
+        {//
             QComboBox * mainSelect_comboBox = new QComboBox();
             auto listModel_main = new QStandardItemModel;
             mainSelect_comboBox->setModel(listModel_main);
@@ -405,8 +409,10 @@ void CustomSettingDialog::initMoniList()
             m_layout->insertWidget(2, m_main_select_layout_widget);
             m_layout->setAlignment(m_main_select_layout_widget, Qt::AlignHCenter);
 
+            m_main_select_layout_widget->setVisible(!m_model->isMerge());
             connect(mainSelect_comboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &CustomSettingDialog::currentIndexChanged);
         }
+
         m_main_select_lab_widget= new QWidget();
         m_main_select_lab_widget->setFixedHeight(50);
         QHBoxLayout *m_main_select_lab_layout = new QHBoxLayout();
@@ -417,28 +423,16 @@ void CustomSettingDialog::initMoniList()
     }
 
     connect(m_moniList, &DListView::clicked, this, [this] {
-       dcc::display::Monitor *mon = m_model->monitorList()[m_moniList->currentIndex().row()];
+        dcc::display::Monitor *mon = m_model->monitorList()[m_moniList->currentIndex().row()];
         auto monis = m_model->monitorList();
-            auto listModel = qobject_cast<QStandardItemModel *>(m_moniList->model());
-            for (int idx = 0 ; idx < listModel->rowCount(); ++idx)
-            {
-                if ( monis[idx]->name() == mon->name()) {
-                    monis[idx]->hChanged(mon->h());
-                    monis[idx]->wChanged(mon->w());
-
-                    DStandardItem * item = (DStandardItem *)listModel->item(idx);
-                    if (mon->isPrimary() && !m_model->isMerge()) {
-                        return ;
-                    }
-                    else if (item->checkState() == Qt::Checked) {
-                       item->setCheckState(Qt::Unchecked);
-                       monis.takeAt(idx);
-                       m_model->monitorChanged_main(monis);
-                       return;
-                    }
-                }
+        auto listModel = qobject_cast<QStandardItemModel *>(m_moniList->model());
+        for (int idx = 0 ; idx < listModel->rowCount(); ++idx) {
+            if ( monis[idx]->name() != mon->name()) {
+                continue;
             }
-
+            DStandardItem * item = (DStandardItem *)listModel->item(idx);
+            this->requestEnalbeMonitor(monis[idx], item->checkState() == Qt::Checked);
+        }
     });
     connect(m_model, &DisplayModel::primaryScreenChanged, this, [ = ] {
         Q_ASSERT(listModel->rowCount() == m_model->monitorList().size());
