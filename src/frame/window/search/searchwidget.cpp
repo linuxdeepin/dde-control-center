@@ -77,7 +77,6 @@ SearchWidget::SearchWidget(QWidget *parent)
         {tr("Developer Mode"), false},
         {tr("User Experience Program"), false},
         {tr("Join User Experience Program"), false},
-        {tr("Cloud Account"), false},
         {tr("Display Scaling"), false},
     };
 
@@ -424,6 +423,12 @@ void SearchWidget::loadxml()
                                 clearSearchData();
                                 continue;
                             }
+                        }
+
+                        //判断是否为服务器，如果是服务器状态下搜索不到网络账户相关（所有界面）
+                        if (m_bIsServerType && tr("Cloud Account") == m_searchBoxStruct.actualModuleName) {
+                            clearSearchData();
+                            continue;
                         }
 
                         m_EnterNewPagelist.append(m_searchBoxStruct);
