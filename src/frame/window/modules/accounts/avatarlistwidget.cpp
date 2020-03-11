@@ -122,6 +122,7 @@ void AvatarListWidget::refreshCustomAvatar(const QString& str)
     }
     item->setCheckState(Qt::Checked);
     m_currentSelectIndex = item->index();
+    Q_EMIT requesRetract();
 }
 
 void AvatarListWidget::setCurrentAvatarChecked(const QString &avatar)
