@@ -129,6 +129,9 @@ void ScalingPage::addSlider(int monitorID){
 
     m_tip->setText(tr("Some applications cannot be scaled with the specified settings in multi-display environment."));
     //如果当前缩放大于可用缩放，则显示至当前缩放
+    if (fscaleList.size() == 0) {
+        fscaleList.append("1.0");
+    }
     while(scale > fscaleList.last().toDouble() && fscaleList.size() < maxList.size()) {
         fscaleList.append(maxList.at(fscaleList.size()));
     }
