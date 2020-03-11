@@ -95,7 +95,10 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
 
     m_model->setMouseLeftHand(m_mouseInter->leftHanded());
 
-    const bool isRedshiftValid = DGuiApplicationHelper::isXWindowPlatform() && QProcess::execute("which", QStringList() << "redshift") == 0;
+    //redshift 依赖X11，当前isXWindowPlatform返回不准确,所以先用环境变量判断
+//   DGuiApplicationHelper::isXWindowPlatform() const bool isRedshiftValid = DGuiApplicationHelper::isXWindowPlatform() && QProcess::execute("which", QStringList() << "redshift") == 0;
+    auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
+    const bool isRedshiftValid = !sessionType.contains("wayland") && QProcess::execute("which", QStringList() << "redshift") == 0;
 
     if (isRedshiftValid)
         updateNightModeStatus();
