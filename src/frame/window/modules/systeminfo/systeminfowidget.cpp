@@ -33,6 +33,7 @@
 #include <udisks2-qt5/dblockdevice.h>
 #include <udisks2-qt5/dblockpartition.h>
 #include <udisks2-qt5/ddiskmanager.h>
+#include <QDir>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE::systeminfo;
@@ -75,7 +76,7 @@ void SystemInfoWidget::initData()
     const QString &recoveryPath{ "/etc/deepin/system-recovery.conf" };
     QSettings settings(recoveryPath, QSettings::IniFormat);
     const QString UUID {settings.value("UUID").toString() };
-    if (!UUID.isEmpty()) {
+    if (!UUID.isEmpty() && QDir("/boot/recovery/").exists()) {
         const QStringList &devices = DDiskManager().blockDevices();
         for (const QString &path : devices) {
             QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));

@@ -4506,6 +4506,66 @@
         <source>Confirm</source>
         <translation>确认</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="150"/>
+        <source>Manual Restore</source>
+        <translation>手动恢复</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="26"/>
+        <source>Initialize all data on your system partition and reset the system configuration file, but keep the username, password, and the contents of other partitions.</source>
+        <translation>保留数据分区，并将系统分区中除用户名和密码之外的所有内容进行初始化，包括数据分区中保存的系统配置文件，都会被还原。</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="27"/>
+        <source>Reinstall the system, which will erase all data from the disk</source>
+        <translation>将计算机恢复到系统安装时的状态，即系统盘和数据盘中的所有内容都将被还原</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="31"/>
+        <source>Reset All Settings</source>
+        <translation>还原所有设置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="32"/>
+        <source>Erase All Content and Settings</source>
+        <translation>清除所有数据和设置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="66"/>
+        <source>This will reset all system settings to their defaults. Your data, username and password will not be deleted, please confirm and continue</source>
+        <translation>还原所有设置会将系统盘恢复到您安装系统时的状态，您的数据以及用户名和密码都会被保留，请确认后操作</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="72"/>
+        <source>This will reinstall the system and clear all user data. It is risky, please confirm and continue</source>
+        <translation>还原所有数据和设置会彻底抹掉您的所有数据，系统会被重新安装，并清空所有用户数据。此操作非常危险，请确认后再操作</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="89"/>
+        <source>You should reboot the computer to erase all content and settings, reboot now?</source>
+        <translation>重启系统才能还原所有数据和设置，是否现在重启?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="92"/>
+        <source>You should reboot the computer to reset all settings, reboot now?</source>
+        <translation>重启系统才能还原所有设置，是否现在重启?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="283"/>
+        <source>Backup file is invalid.</source>
+        <translation>备份文件无效，请检查！</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="244"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="246"/>
+        <source>Confirm</source>
+        <translation>确认</translation>
+    </message>
 </context>
 <context>
     <name>dccV20::systeminfo::ManualBackup</name>

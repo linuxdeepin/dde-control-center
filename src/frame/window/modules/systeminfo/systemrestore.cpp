@@ -12,11 +12,11 @@ using namespace DCC_NAMESPACE::systeminfo;
 
 DWIDGET_USE_NAMESPACE
 
-SystemRestore::SystemRestore(QWidget *parent)
+SystemRestore::SystemRestore(BackupAndRestoreModel* model, QWidget *parent)
     : QWidget(parent)
     , m_buttonBox(new DButtonBox(this))
-    , m_backupPage(new ManualBackup)
-    , m_restorePage(new ManualRestore)
+    , m_backupPage(new ManualBackup(model))
+    , m_restorePage(new ManualRestore(model))
 {
     DButtonBoxButton* backupBtn = new DButtonBoxButton(tr("Backup"));
     DButtonBoxButton* restoreBtn = new DButtonBoxButton(tr("Restore"));
@@ -48,4 +48,8 @@ SystemRestore::SystemRestore(QWidget *parent)
     });
 
     backupBtn->setChecked(true);
+
+    connect(m_backupPage, &ManualBackup::requestSetBackupDirectory, this, &SystemRestore::requestSetBackupDirectory);
+    connect(m_restorePage, &ManualRestore::requestManualRestore, this, &SystemRestore::requestManualRestore);
+    connect(m_restorePage, &ManualRestore::requestSystemRestore, this, &SystemRestore::requestSystemRestore);
 }

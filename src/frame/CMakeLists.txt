@@ -1013,6 +1013,10 @@ set(SYSTEMINFO_FILES
                 window/modules/systeminfo/manualbackup.cpp
                 window/modules/systeminfo/manualrestore.h
                 window/modules/systeminfo/manualrestore.cpp
+                window/modules/systeminfo/backupandrestoremodel.h
+                window/modules/systeminfo/backupandrestoremodel.cpp
+                window/modules/systeminfo/backupandrestoreworker.h
+                window/modules/systeminfo/backupandrestoreworker.cpp
 )
 
 # load update

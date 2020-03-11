@@ -11,11 +11,17 @@ namespace DCC_NAMESPACE {
 namespace systeminfo {
 class ManualBackup;
 class ManualRestore;
+class BackupAndRestoreModel;
 class SystemRestore : public QWidget
 {
     Q_OBJECT
 public:
-    SystemRestore(QWidget *parent = nullptr);
+    SystemRestore(BackupAndRestoreModel* model, QWidget *parent = nullptr);
+
+Q_SIGNALS:
+    void requestSetBackupDirectory(const QString& path);
+    void requestSystemRestore(bool formatData) const;
+    void requestManualRestore(const QString& directory) const;
 
 private:
     DButtonBox* m_buttonBox;

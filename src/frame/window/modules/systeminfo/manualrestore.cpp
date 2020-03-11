@@ -1,4 +1,5 @@
 #include "manualrestore.h"
+#include "backupandrestoremodel.h"
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -12,7 +13,7 @@
 #include <QFile>
 #include <QSettings>
 #include <QDebug>
-
+#include <QSharedPointer>
 #include <DDialog>
 #include <DDBusSender>
 #include <QCryptographicHash>
@@ -82,14 +83,14 @@ private:
     QWidget* m_content;
 };
 
-ManualRestore::ManualRestore(QWidget *parent)
+ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     : QWidget(parent)
+    , m_model(model)
     , m_saveUserDataCheckBox(new QCheckBox)
     , m_directoryChooseWidget(new DFileChooserEdit)
     , m_tipsLabel(new QLabel)
     , m_backupBtn(new QPushButton(tr("Restore")))
     , m_actionType(ActionType::RestoreSystem)
-    , m_grubInter(nullptr)
 {
     m_tipsLabel->setWordWrap(true);
 
@@ -118,7 +119,7 @@ ManualRestore::ManualRestore(QWidget *parent)
         m_saveUserDataCheckBox->setMinimumSize(24, 24);
         m_saveUserDataCheckBox->setText(tr("Save User Data"));
 
-        m_systemRestore->setTitle(tr("恢复出厂设置"));
+        m_systemRestore->setTitle(tr("Reset All Settings"));
 
         QWidget* bgWidget = new QWidget;
         bgWidget->setLayout(chooseLayout);
@@ -146,7 +147,7 @@ ManualRestore::ManualRestore(QWidget *parent)
         bgWidget->setLayout(chooseLayout);
 
         m_manualRestore->setContent(bgWidget);
-        m_manualRestore->setTitle(tr("自定义恢复"));
+        m_manualRestore->setTitle(tr("Manual Restore"));
 
         QVBoxLayout* bgLayout = new QVBoxLayout;
         bgLayout->addWidget(m_manualRestore);
@@ -169,9 +170,16 @@ ManualRestore::ManualRestore(QWidget *parent)
 
     m_systemRestore->radioButton()->setChecked(true);
 
-    connect(m_backupBtn, &QPushButton::clicked, this, &ManualRestore::restore);
+    connect(m_backupBtn, &QPushButton::clicked, this, &ManualRestore::restore, Qt::QueuedConnection);
     connect(m_systemRestore->radioButton(), &QRadioButton::toggled, this, &ManualRestore::onItemChecked);
     connect(m_manualRestore->radioButton(), &QRadioButton::toggled, this, &ManualRestore::onItemChecked);
+    connect(model, &BackupAndRestoreModel::restoreButtonEnabledChanged, m_backupBtn, &QPushButton::setEnabled);
+    connect(model, &BackupAndRestoreModel::manualRestoreCheckFailedChanged, this, &ManualRestore::onManualRestoreCheckFailed);
+
+    m_backupBtn->setEnabled(model->restoreButtonEnabled());
+    m_directoryChooseWidget->lineEdit()->setText(model->restoreDirectory());
+    m_saveUserDataCheckBox->setChecked(model->formatData());
+    onManualRestoreCheckFailed(model->manualRestoreCheckFailed());
 }
 
 void ManualRestore::onItemChecked()
@@ -192,143 +200,70 @@ void ManualRestore::onItemChecked()
     m_actionType = check ? ActionType::RestoreSystem : ActionType::ManualRestore;
 }
 
-void ManualRestore::restoreSystem()
+void ManualRestore::onManualRestoreCheckFailed(bool failed)
 {
-    const bool formatData = !m_saveUserDataCheckBox->isChecked();
-
-    QProcess process;
-    process.start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
-    process.waitForFinished();
-
-    if (process.exitCode() != 0) {
-        return;
-    }
-
-    DDialog dialog;
-    QString message{ tr(
-                         "This will reset all system settings to their defaults. Your data, username and "
-                         "password will not be deleted, please confirm and continue") };
-
-    if (formatData) {
-        message =
-            tr("This will reinstall the system and clear all user data. It is risky, "
-               "please confirm and continue");
-    }
-
-    dialog.setMessage(message);
-    dialog.addButton(tr("Cancel"));
-
-    {
-        int result = dialog.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
-        if (dialog.exec() != result) {
-            return;
-        }
-    }
-
-    DDialog reboot;
-
-    if (formatData) {
-        reboot.setMessage(tr("You should reboot the computer to erase all content and settings, reboot now?"));
-    }
-    else {
-        reboot.setMessage(tr("You should reboot the computer to reset all settings, reboot now?"));
-    }
-
-    reboot.addButton("Cancel");
-    {
-        int result = reboot.addButton("Confirm", true, DDialog::ButtonWarning);
-        if (reboot.exec() != result) {
-            return;
-        }
-    }
-
-    if (!m_grubInter) {
-        m_grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
-    }
-
-    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("Deepin Recovery"), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &ManualRestore::onGrubSetFinished);
-}
-
-void ManualRestore::restoreManual()
-{
-    m_tipsLabel->hide();
-
-    // TODO(justforlxz): 判断内容的有效性
-    const QString& selectPath = m_directoryChooseWidget->lineEdit()->text();
-
-    if (selectPath.isEmpty()) {
-        return;
-    }
-
-#ifdef QT_DEBUG
-    auto checkValid = [](const QString& filePath, const QString& md5Path) -> bool {
-        QFile file(filePath);
-        QFile md5File(md5Path);
-
-        if (file.open(QIODevice::Text | QIODevice::ReadOnly) && md5File.open(QIODevice::Text | QIODevice::ReadOnly)) {
-            QProcess* process = new QProcess;
-            process->setProgram("md5sum");
-            process->setArguments({filePath});
-            process->start();
-            process->waitForFinished();
-            const QString& result = QString(process->readAllStandardOutput()).split(" ").first();
-            process->deleteLater();
-
-            return QString(md5File.readAll()).startsWith(result);
-        }
-
-        return false;
-    };
-
-    if (!checkValid(QString("%1/boot.dim").arg(selectPath), QString("%1/boot.md5").arg(selectPath)) ||
-        !checkValid(QString("%1/system.dim").arg(selectPath), QString("%1/system.md5").arg(selectPath))) {
-        m_tipsLabel->setText(tr("Backup file is invalid."));
-        m_tipsLabel->show();
-        return;
-    }
-#endif
-
-    QProcess process;
-    process.start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_restore" << "--path" << m_directoryChooseWidget->lineEdit()->text());
-    process.waitForFinished();
-
-    if (process.exitCode() != 0) {
-        return;
-    }
-
-    if (!m_grubInter) {
-        m_grubInter = new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus());
-    }
-
-    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("Deepin Recovery"), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &ManualRestore::onGrubSetFinished);
+    m_tipsLabel->setText(tr("Backup file is invalid."));
+    m_tipsLabel->setVisible(failed);
 }
 
 void ManualRestore::restore()
 {
     if (m_actionType == ActionType::RestoreSystem) {
-        return restoreSystem();
+        const bool formatData = !m_saveUserDataCheckBox->isChecked();
+
+        DDialog dialog;
+        QString message{ tr(
+                             "This will reset all system settings to their defaults. Your data, username and "
+                             "password will not be deleted, please confirm and continue") };
+
+        if (formatData) {
+            message =
+                tr("This will reinstall the system and clear all user data. It is risky, "
+                   "please confirm and continue");
+        }
+
+        dialog.setMessage(message);
+        dialog.addButton(tr("Cancel"));
+
+        {
+            int result = dialog.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
+            if (dialog.exec() != result) {
+                return;
+            }
+        }
+
+        DDialog reboot;
+
+        if (formatData) {
+            reboot.setMessage(tr("You should reboot the computer to erase all content and settings, reboot now?"));
+        }
+        else {
+            reboot.setMessage(tr("You should reboot the computer to reset all settings, reboot now?"));
+        }
+
+        reboot.addButton(tr("Cancel"));
+        {
+            int result = reboot.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
+            if (reboot.exec() != result) {
+                return;
+            }
+        }
+
+        Q_EMIT requestSystemRestore(formatData);
     }
 
     if (m_actionType == ActionType::ManualRestore) {
-        return restoreManual();
+        m_tipsLabel->hide();
+
+        // TODO(justforlxz): 判断内容的有效性
+        const QString& selectPath = m_directoryChooseWidget->lineEdit()->text();
+
+        if (selectPath.isEmpty()) {
+            return;
+        }
+
+        Q_EMIT requestManualRestore(selectPath);
     }
-}
-
-void ManualRestore::onGrubSetFinished(QDBusPendingCallWatcher *self)
-{
-    if (!self->isError()) {
-        const bool isEnable = m_backupBtn->isEnabled();
-        m_backupBtn->setEnabled(false);
-
-        QTimer::singleShot(7000, this, [=] {
-            QProcess::startDetached("qdbus", { "--literal", "com.deepin.dde.shutdownFront", "/com/deepin/dde/shutdownFront", "com.deepin.dde.shutdownFront.Restart" });
-            m_backupBtn->setEnabled(isEnable);
-        });
-    }
-
-    self->deleteLater();
 }
 
 #include "manualrestore.moc"
