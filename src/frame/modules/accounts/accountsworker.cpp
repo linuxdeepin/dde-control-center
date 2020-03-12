@@ -75,8 +75,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     getAllGroups();
     getPresetGroups();
 
-    auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
-    bool bShowAutoLogin = !req.value() || valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showAutologin", true);
+    bool bShowAutoLogin = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showAutologin", true);
     m_userModel->setAutoLoginValid(bShowAutoLogin);
     m_userModel->setNoPassWordLoginValid(bShowAutoLogin);
 }
