@@ -56,6 +56,7 @@ private Q_SLOTS:
     void onMouseMoveSpeedChanged(int speed);
 
 private:
+    bool m_isNotWayland{false};
     dcc::mouse::MouseModel *m_mouseModel;
     dcc::widgets::SettingsGroup *m_mouseSettingsGrp;
     dcc::widgets::TitledSliderItem *m_mouseMoveSlider;

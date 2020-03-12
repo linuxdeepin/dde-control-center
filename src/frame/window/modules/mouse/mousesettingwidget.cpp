@@ -38,6 +38,9 @@ using namespace dcc::widgets;
 
 MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(parent)
 {
+    auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
+    m_isNotWayland = !sessionType.contains("wayland");
+
     m_mouseSettingsGrp = new SettingsGroup;
     //~ contents_path /mouse/Mouse
     //~ child_page Mouse
@@ -76,7 +79,12 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
     layout()->setMargin(0);
     setContent(tFrame);
 
-    connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseSettingWidget::requestSetMouseMotionAcceleration);
+    connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, [this](int value) {
+        if(m_isNotWayland)
+             requestSetMouseMotionAcceleration(value);
+        else
+            requestSetMouseMotionAcceleration(abs(value - 6));
+    });
     connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetAccelProfile);
     connect(m_disTchStn, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetDisTouchPad);
     connect(m_mouseNaturalScroll, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetMouseNaturalScroll);
@@ -87,12 +95,21 @@ void MouseSettingWidget::setModel(dcc::mouse::MouseModel *const model)
     m_mouseModel = model;
 
     connect(model, &MouseModel::tpadExistChanged, m_disTchStn, &SwitchWidget::setVisible);
-    connect(model, &MouseModel::mouseMoveSpeedChanged, this, &MouseSettingWidget::onMouseMoveSpeedChanged);
+    connect(model, &MouseModel::mouseMoveSpeedChanged, [this](int value) {
+        if(m_isNotWayland)
+             onMouseMoveSpeedChanged(value);
+        else
+            onMouseMoveSpeedChanged(abs(value - 6));
+    });
     connect(model, &MouseModel::accelProfileChanged, m_adaptiveAccelProfile, &SwitchWidget::setChecked);
     connect(model, &MouseModel::disTpadChanged, m_disTchStn, &SwitchWidget::setChecked);
     connect(model, &MouseModel::mouseNaturalScrollChanged, m_mouseNaturalScroll, &SwitchWidget::setChecked);
 
-    onMouseMoveSpeedChanged(model->mouseMoveSpeed());
+    if(m_isNotWayland)
+        onMouseMoveSpeedChanged(model->mouseMoveSpeed());
+    else
+        onMouseMoveSpeedChanged(abs(model->mouseMoveSpeed() - 6));
+
     m_adaptiveAccelProfile->setChecked(model->accelProfile());
     m_disTchStn->setChecked(model->disTpad());
     m_disTchStn->setVisible(model->tpadExist());
