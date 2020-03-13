@@ -83,7 +83,7 @@ class MainWindow : public DMainWindow, public FrameProxyInterface, protected QDB
     Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    virtual ~MainWindow() override;
 
     void popWidget(ModuleInterface *const inter) override;
     void pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type = Normal) override;

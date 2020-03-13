@@ -105,7 +105,7 @@ private:
     QString m_xmlExplain;
     QSet<QString> m_xmlFilePath;
     QString m_lang;
-    QHash<QString, QIcon> m_iconMap;
+    QMap<QString, QIcon> m_iconMap;
     QList<QPair<QString, QString>> m_moduleNameList;//用于存储如 "update"和"Update"
     QList<SearchDataStruct> m_inputList;
     bool m_bIsChinese;
