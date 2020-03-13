@@ -227,11 +227,23 @@ void SystemInfoWork::setBackground(const QString &path)
 
 void SystemInfoWork::showActivatorDialog()
 {
+    QDBusConnection::systemBus().connect("com.deepin.license",
+                                         "/com/deepin/license/Info",
+                                         "com.deepin.license.Info",
+                                         "LicenseStateChange",
+                                         this,
+                                         SLOT(licenseStateChangeSlot()));
+
     QDBusInterface activator("com.deepin.license.activator",
                              "/com/deepin/license/activator",
                              "com.deepin.license.activator",
                              QDBusConnection::sessionBus());
     activator.call(QDBus::AutoDetect, "Show");
+}
+
+void SystemInfoWork::licenseStateChangeSlot()
+{
+    getLicenseState();
 }
 
 void SystemInfoWork::getEntryTitles()
