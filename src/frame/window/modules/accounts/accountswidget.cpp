@@ -96,6 +96,8 @@ void AccountsWidget::setModel(UserModel *model)
     m_userList << nullptr;
     m_userItemModel->appendRow(new DStandardItem);
 
+    m_createBtn->setVisible(m_userModel->isCreateUserValid() && !IsServerSystem);
+
     connect(model, &UserModel::userAdded, this, [this](User * user) {
         addUser(user);
     });

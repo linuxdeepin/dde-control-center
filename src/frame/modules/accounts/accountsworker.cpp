@@ -76,8 +76,10 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     getPresetGroups();
 
     bool bShowAutoLogin = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showAutologin", true);
+    bool bShowCreateUser = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showCreateUser", true);
     m_userModel->setAutoLoginValid(bShowAutoLogin);
     m_userModel->setNoPassWordLoginValid(bShowAutoLogin);
+    m_userModel->setCreateUserValid(bShowCreateUser);
 }
 
 void AccountsWorker::getAllGroups()

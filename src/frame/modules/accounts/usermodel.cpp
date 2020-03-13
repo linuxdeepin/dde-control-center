@@ -86,6 +86,14 @@ void UserModel::setAutoLoginValid(bool bValid)
     m_bAutoLoginValid = bValid;
 }
 
+void UserModel::setCreateUserValid(bool bValid)
+{
+    if (m_bCreateUserValid == bValid)
+        return;
+
+    m_bCreateUserValid = bValid;
+}
+
 void UserModel::setNoPassWordLoginValid(bool bValid)
 {
     if (m_bNoPassWordLoginValid == bValid)
