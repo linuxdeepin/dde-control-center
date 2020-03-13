@@ -83,7 +83,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     // connect(m_systemInfoInter, &__SystemInfo::SystemTypeChanged, m_model, &SystemInfoModel::setType);
     connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
     // connect(m_systemInfoInter, &__SystemInfo::MemoryCapChanged, m_model, &SystemInfoModel::setMemory);
-    // connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
+    connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
     //预留接口
     //connect(m_dbusActivator, &GrubDbus::LicenseStateChange, m_model, &SystemInfoModel::setLicenseState);
 
@@ -107,7 +107,7 @@ void SystemInfoWork::activate()
     // m_model->setType(m_systemInfoInter->systemType());
     m_model->setProcessor(m_systemInfoInter->processor());
     // m_model->setMemory(m_systemInfoInter->memoryCap());
-    // m_model->setDisk(m_systemInfoInter->diskCap());
+    m_model->setDisk(m_systemInfoInter->diskCap());
 
     QString version;
     if (DSysInfo::isDeepin()) {
@@ -120,9 +120,10 @@ void SystemInfoWork::activate()
 
     m_model->setVersion(version);
     m_model->setType(QSysInfo::WordSize);
-    m_model->setProcessor(QString("%1").arg(m_model->processor()));
+    // m_model->setProcessor(QString("%1 x %2").arg(DSysInfo::cpuModelName())
+    //                                         .arg(QThread::idealThreadCount()));
     m_model->setMemory(DSysInfo::memoryTotalSize());
-    m_model->setDisk(DSysInfo::systemDiskSize());
+    // m_model->setDisk(DSysInfo::systemDiskSize());
 }
 
 void SystemInfoWork::deactivate()
