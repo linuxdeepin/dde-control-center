@@ -93,9 +93,6 @@ void AccountsWidget::setModel(UserModel *model)
 {
     m_userModel = model;
 
-    m_userList << nullptr;
-    m_userItemModel->appendRow(new DStandardItem);
-
     m_createBtn->setVisible(m_userModel->isCreateUserValid() && !IsServerSystem);
 
     connect(model, &UserModel::userAdded, this, [this](User * user) {
@@ -163,11 +160,10 @@ void AccountsWidget::addUser(User *user, bool t1)
             auto tindex = m_userList.indexOf(user);
             auto titem = m_userItemModel->takeRow(tindex);
 
-            m_userItemModel->removeRow(0);
             m_userItemModel->insertRow(0, titem);
 
             m_userList.removeOne(user);
-            m_userList[0] = user;
+            m_userList.push_front(user);
 
             showDefaultAccountInfo();
         }
@@ -196,16 +192,16 @@ void AccountsWidget::addUser(User *user, bool t1)
         //如果是当前用户
         auto tttitem = m_userItemModel->takeRow(m_userItemModel->rowCount() - 1);
         Q_ASSERT(tttitem[0] == item);
-        m_userItemModel->removeRow(0);
         m_userItemModel->insertRow(0, item);
 
-        m_userList[0] = user;
-        m_userList.pop_back();
+        m_userList.push_front(user);
+
+        m_currentUserAdded = true;
 
         QTimer::singleShot(0, this, &AccountsWidget::showDefaultAccountInfo);
     } else {
         int count = m_userItemModel->rowCount();
-        for (int idx = 1; idx < count; ++idx) {
+        for (int idx = m_currentUserAdded ? 1 : 0; idx < count; ++idx) {
             if (user->createdTime() < m_userList[idx]->createdTime()) {
                 auto tttitem = m_userItemModel->takeRow(count - 1);
                 Q_ASSERT(tttitem[0] == item);

@@ -93,6 +93,7 @@ private:
     dcc::accounts::UserModel *m_userModel;
     QList<dcc::accounts::User *> m_userList;
     bool m_isShowFirstUserInfo = false;
+    bool m_currentUserAdded = false;
     int m_saveClickedRow;
 };
 
