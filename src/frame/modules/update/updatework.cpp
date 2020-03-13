@@ -121,7 +121,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
 
-    connect(m_powerSystemInter, &__SystemPower::BatteryPercentageChanged, this, &UpdateWorker::setSystemBatteryPercentage);
+    // connect(m_powerSystemInter, &__SystemPower::BatteryPercentageChanged, this, &UpdateWorker::setSystemBatteryPercentage);
 
     connect(m_smartMirrorInter, &SmartMirrorInter::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
     connect(m_smartMirrorInter, &SmartMirrorInter::serviceValidChanged, this, &UpdateWorker::onSmartMirrorServiceIsValid);
@@ -172,7 +172,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
 #endif
     setOnBattery(m_powerInter->onBattery());
     setBatteryPercentage(m_powerInter->batteryPercentage());
-    setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
+    // setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
     onJobListChanged(m_managerInter->jobList());
 
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
@@ -1078,8 +1078,8 @@ void UpdateWorker::setSystemBatteryPercentage(const double &value)
 void UpdateWorker::setOnBattery(bool onBattery)
 {
     m_onBattery = onBattery;
-//    const bool low = m_onBattery ? m_batteryPercentage < 50 : false;
-    const bool low = m_onBattery ? m_batterySystemPercentage < 50 : false;
+    const bool low = m_onBattery ? m_batteryPercentage < 50 : false;
+    // const bool low = m_onBattery ? m_batterySystemPercentage < 50 : false;
     m_model->setLowBattery(low);
 }
 
