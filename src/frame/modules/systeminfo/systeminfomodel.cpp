@@ -27,8 +27,6 @@
 
 #include "math.h"
 
-#include <QProcess>
-
 namespace dcc{
 namespace systeminfo{
 
@@ -54,11 +52,10 @@ static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision
 }
 
 SystemInfoModel::SystemInfoModel(QObject *parent)
-    : QObject(parent)    
+    : QObject(parent)
     , m_type(64)
-    , m_totalMemory(0)
-    , m_availableMemory(0)
 {
+
 }
 
 void SystemInfoModel::setEntryLists(const QStringList &list)
@@ -167,27 +164,12 @@ void SystemInfoModel::setProcessor(const QString &processor)
 
 void SystemInfoModel::setMemory(qulonglong memory)
 {
-    m_totalMemory = memory;
-    updateMemory();
-}
+    QString mem_device_size = formatCap(memory, 1000, 0);
+    QString mem = formatCap(memory);
+    if(m_memory == mem)
+        return ;
 
-void SystemInfoModel::updateMemory()
-{
-    QProcess process;    
-    process.start("free -b");
-    process.waitForFinished();
-    process.readLine();//第一行不处理
-    QString str = process.readLine();//第二行处理
-    str.replace("\n","");
-    str.replace(QRegExp("( ){1,}")," ");//将连续空格替换为单个空格 用于分割
-    auto lst = str.split(" ");
-    if (lst.size() > 6) {
-        m_availableMemory = lst[6].toULongLong();
-     }
-
-    QString mem_device_size = formatCap(m_totalMemory, 1000, 0);
-    QString mem = formatCap(m_availableMemory, 1000, 0);
-
+    m_memory = mem;
     m_memory = QString("%1 (%2 %3)").arg(mem_device_size, mem, tr("available"));
     memoryChanged(m_memory);
 }

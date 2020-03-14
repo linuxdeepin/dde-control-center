@@ -95,7 +95,6 @@ public Q_SLOTS:
     void setType(qlonglong type);
     void setProcessor(const QString& processor);
     void setMemory(qulonglong memory);
-    void updateMemory();
     void setDisk(qulonglong disk);
     void setKernel(const QString &kernel);
     void setLicenseState(quint32 state);
@@ -117,9 +116,6 @@ private:
     QString m_disk;
     QString m_kernel;
     quint32 m_licenseState;
-
-    qulonglong m_totalMemory;
-    qulonglong m_availableMemory;
 };
 
 }
