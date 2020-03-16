@@ -59,6 +59,7 @@ Q_SIGNALS:
     void enrollRetry(QString msg);
     void enrollDisconnected();
 
+    void lockedChanged(bool locked);
 private:
     bool m_isVaild{false};
     QList<QString> m_thumbsList;

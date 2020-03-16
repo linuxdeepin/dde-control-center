@@ -41,6 +41,7 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     , m_model(model)
     , m_fingerPrintInter(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint",
                                          QDBusConnection::systemBus(), this))
+    , m_SMInter(new SessionManagerInter("com.deepin.SessionManager", "/com/deepin/SessionManager", QDBusConnection::sessionBus(), this))
 {
 //    m_fingerPrintInter->setSync(false);
 
@@ -50,6 +51,7 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     });
     //当前此信号末实现
     connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::onTouch);
+    connect(m_SMInter, &SessionManagerInter::LockedChanged, m_model, &FingerModel::lockedChanged);
 
     auto defualtDevice = m_fingerPrintInter->defaultDevice();
     qDebug() << "defaultDevice:" << defualtDevice;
