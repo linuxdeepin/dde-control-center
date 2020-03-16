@@ -99,6 +99,11 @@ void AddFingeDialog::setFingerModel(FingerModel *model)
     connect(m_model, &FingerModel::enrollFailed, this, &AddFingeDialog::enrollFailed);
     connect(m_model, &FingerModel::enrollDisconnected, this, &AddFingeDialog::enrollDisconnected);
     connect(m_model, &FingerModel::enrollRetry, this, &AddFingeDialog::enrollRetry);
+    connect(m_model, &FingerModel::lockedChanged, this, [this](bool locked) {
+        if (locked) {
+            close();
+        }
+    });
 }
 
 void AddFingeDialog::setUsername(const QString &name)

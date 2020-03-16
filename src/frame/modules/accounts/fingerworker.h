@@ -30,11 +30,12 @@
 #include "user.h"
 
 #include <com_deepin_daemon_authenticate_fingerprint.h>
+#include <com_deepin_sessionmanager.h>
 
 #include <QObject>
 
 using com::deepin::daemon::authenticate::Fingerprint;
-
+using SessionManagerInter = com::deepin::SessionManager;
 
 namespace dcc {
 namespace accounts {
@@ -62,6 +63,7 @@ public Q_SLOTS:
 private:
     FingerModel *m_model;
     Fingerprint *m_fingerPrintInter;
+    SessionManagerInter *m_SMInter{nullptr};
 };
 
 }
