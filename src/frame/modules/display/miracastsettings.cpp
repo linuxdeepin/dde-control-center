@@ -48,7 +48,7 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
     SettingsGroup *switchGrp = new SettingsGroup;
     switchGrp->appendItem(m_deviceSwBtn);
 
-    m_tip = new NormalLabel(tr("WIFI will be disconnected when screen projection is enabled"));
+    m_tip = new NormalLabel(tr("WLAN will be disconnected when screen projection is enabled"));
     m_tip->setWordWrap(true);
 
     m_refreshBtn = new DImageButton;

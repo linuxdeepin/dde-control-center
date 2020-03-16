@@ -116,7 +116,7 @@ IndexPage::IndexPage(QWidget *parent)
 
     QHBoxLayout *tipLayout = new QHBoxLayout;
     tipLayout->addSpacing(12);
-    m_networkTip = new DTipLabel(tr("Your Wi-Fi password will be synced if Network Settings is turned on"));
+    m_networkTip = new DTipLabel(tr("Your WLAN password will be synced if Network Settings is turned on"));
     m_networkTip->setWordWrap(true);
     tipLayout->addWidget(m_networkTip);
     backgroundLayout->addLayout(tipLayout);

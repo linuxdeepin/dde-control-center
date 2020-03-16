@@ -81,7 +81,7 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
     {
         if (rowCount(QModelIndex()) == 1)
-            return tr("Click icon to enable WIFI");
+            return tr("Click icon to enable WLAN");
 
         if (!info.info && info.device)
             return deviceName(info.device);
