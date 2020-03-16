@@ -412,7 +412,20 @@ void CustomSettingDialog::initMoniList()
             m_layout->setAlignment(m_main_select_layout_widget, Qt::AlignHCenter);
 
             m_main_select_layout_widget->setVisible(!m_model->isMerge());
-            connect(mainSelect_comboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &CustomSettingDialog::currentIndexChanged);
+            connect(mainSelect_comboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                    this, &CustomSettingDialog::currentIndexChanged);
+            connect(m_model, &DisplayModel::primaryScreenChanged, this, [ = ](const QString &name){
+                Q_ASSERT(listModel_main->rowCount() == m_model->monitorList().size());
+
+                auto monis = m_model->monitorList();
+                for (int idx = 0 ; idx < listModel_main->rowCount(); ++idx)
+                {
+                    auto item = listModel_main->item(idx);
+                    if (name == item->text()) {
+                        mainSelect_comboBox->setCurrentIndex(idx);
+                    }
+                }
+            });
         }
 
         m_main_select_lab_widget= new QWidget();
@@ -434,16 +447,6 @@ void CustomSettingDialog::initMoniList()
             }
             DStandardItem * item = (DStandardItem *)listModel->item(idx);
             this->requestEnalbeMonitor(monis[idx], item->checkState() != Qt::Checked);
-        }
-    });
-    connect(m_model, &DisplayModel::primaryScreenChanged, this, [ = ] {
-        Q_ASSERT(listModel->rowCount() == m_model->monitorList().size());
-
-        auto monis = m_model->monitorList();
-        for (int idx = 0 ; idx < listModel->rowCount(); ++idx)
-        {
-            auto item = listModel->item(idx);
-            item->setCheckState(monis[idx] == m_model->primaryMonitor() ? Qt::Checked : Qt::Unchecked);
         }
     });
 }
