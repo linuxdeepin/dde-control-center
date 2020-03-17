@@ -340,20 +340,13 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
 
 bool DefappDetailWidget::isDesktopOrBinaryFile(const QString &fileName)
 {
-    if (QFileInfo(fileName).suffix() == "desktop")
-        return true;
-
     QMimeDatabase mimeDatabase;
-    QMimeType mimeType;
+    if (mimeDatabase.suffixForFileName(fileName) == "desktop") {
+        return true;
+    }
 
-    QFile file(fileName);
-    if (!file.open(QFile::ReadOnly))
-        return false;
-    file.close();
-
-    mimeType = mimeDatabase.mimeTypeForFile(fileName);
-
-    return  (mimeType.name().startsWith("application/octet-stream"));
+    QMimeType mimeType(mimeDatabase.mimeTypeForFile(fileName, QMimeDatabase::MatchExtension));
+    return mimeType.name().startsWith("application/octet-stream");
 }
 
 bool DefappDetailWidget::isValid(const dcc::defapp::App &app)

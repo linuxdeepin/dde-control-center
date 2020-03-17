@@ -38,7 +38,6 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     m_defAppModel(model),
     m_dbusManager(new Mime(ManagerService, "/com/deepin/daemon/Mime", QDBusConnection::sessionBus(), this))
 {
-
     m_dbusManager->setSync(false);
 
     m_stringToCategory.insert("Browser",     Browser);
@@ -80,10 +79,6 @@ void DefAppWorker::onGetListApps()
     //遍历QMap去获取dbus数据
     for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
         const QString type { getTypeByCategory(mimelist.value()) };
-        /*Category *category = getCategory(mimelist.key());
-        if (category) {
-            category->clear();
-        }*/
 
         QDBusPendingCallWatcher *Default_Watcher = new QDBusPendingCallWatcher(m_dbusManager->GetDefaultApp(type), this);
         Default_Watcher->setProperty("mime", mimelist.key());
