@@ -70,7 +70,7 @@ void TitleEdit::setName()
             m_lineEdit->setText(m_name->text());
         }
     }
-    m_lineEdit->clearFocus();
+    m_name->setFocus();
 }
 
 void TitleEdit::setEdit()
