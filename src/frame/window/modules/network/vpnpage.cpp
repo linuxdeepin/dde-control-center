@@ -40,6 +40,7 @@
 #include <DHiDPIHelper>
 #include <ddialog.h>
 #include <networkmanagerqt/settings.h>
+#include <DSpinner>
 
 #include <QDebug>
 #include <QList>
@@ -168,7 +169,7 @@ void VpnPage::refreshVpnList(const QList<QJsonObject> &vpnList)
         it->setText(vpn.value("Id").toString());
         it->setData(QVariant::fromValue(vpn), VpnInfoRole);
 
-        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
+        DViewItemAction *editaction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), true);
         QStyleOption opt;
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
         editaction->setClickAreaMargins(ArrowEnterClickMargin);
@@ -218,15 +219,45 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
     }
 
     for (int i = 0; i < m_modelprofiles->rowCount(); ++i) {
-        QStandardItem *it = m_modelprofiles->item(i);
+        DStandardItem *it = dynamic_cast<DStandardItem *>(m_modelprofiles->item(i));
         const QString &uuid = it->data(VpnInfoRole).value<QJsonObject>().value("Uuid").toString();
         const bool exist = activeVpnStates.contains(uuid);
-        const bool loading = exist && activeVpnStates[uuid] != 2;
 
-        it->setCheckState((exist && !loading) ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+        if (it->actionList(Qt::RightEdge).size() > 1) {
+            it->actionList(Qt::RightEdge).first()->widget()->deleteLater();
+            it->actionList(Qt::RightEdge).last()->deleteLater();
+        }
+        it->actionList(Qt::RightEdge).first()->deleteLater();
 
-        //TODO: loading state?
-        //it.key()->setLoading(loading);
+        DViewItemActionList dActionList;
+        DViewItemAction *editaction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), true);
+        QStyleOption opt;
+        editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
+        editaction->setClickAreaMargins(ArrowEnterClickMargin);
+
+        connect(editaction, &QAction::triggered, [this, uuid] {
+            this->onVpnDetailClicked(uuid);
+        });
+
+        if (exist && activeVpnStates[uuid] == 2) {
+            it->setCheckState(Qt::Checked);
+        } else if (exist && activeVpnStates[uuid] == 1) {
+            it->setCheckState(Qt::Unchecked);
+
+            DViewItemAction *loadingAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), false);
+            DSpinner *loadingIndicator = new DSpinner(m_lvprofiles->viewport());
+            loadingIndicator->setFixedSize(20, 20);
+            loadingAction->setWidget(loadingIndicator);
+            loadingIndicator->start();
+            loadingIndicator->show();
+            dActionList.append(loadingAction);
+            editaction->setVisible(false);
+        } else {
+            it->setCheckState(Qt::Unchecked);
+        }
+
+        dActionList.append(editaction);
+        it->setActionList(Qt::RightEdge, dActionList);
     }
 }
 
