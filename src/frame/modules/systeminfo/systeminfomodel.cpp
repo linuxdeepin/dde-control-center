@@ -162,10 +162,10 @@ void SystemInfoModel::setProcessor(const QString &processor)
     processorChanged(m_processor);
 }
 
-void SystemInfoModel::setMemory(qulonglong memory)
+void SystemInfoModel::setMemory(qulonglong totalMemory, qulonglong installedMemory)
 {
-    QString mem_device_size = formatCap(memory, 1000, 0);
-    QString mem = formatCap(memory);
+    QString mem_device_size = formatCap(installedMemory, 1024, 0);
+    QString mem = formatCap(totalMemory);
     if(m_memory == mem)
         return ;
 

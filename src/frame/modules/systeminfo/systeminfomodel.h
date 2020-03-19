@@ -94,7 +94,7 @@ public Q_SLOTS:
     void setVersion(const QString& version);
     void setType(qlonglong type);
     void setProcessor(const QString& processor);
-    void setMemory(qulonglong memory);
+    void setMemory(qulonglong totalMemory, qulonglong installedMemory);
     void setDisk(qulonglong disk);
     void setKernel(const QString &kernel);
     void setLicenseState(quint32 state);

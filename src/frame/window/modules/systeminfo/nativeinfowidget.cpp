@@ -101,11 +101,6 @@ void NativeInfoWidget::initWidget()
     m_memory->setTitle(tr("Memory:"));
     m_memory->setValue(m_model->memory());
 
-    m_disk = new TitleValueItem();
-    //~ contents_path /systeminfo/About This PC
-    m_disk->setTitle(tr("Disk:"));
-    m_disk->setValue(m_model->disk());
-
     logoGroup->appendItem(logo);
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
@@ -113,7 +108,7 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(m_kernel);
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);
-    infoGroup->appendItem(m_disk);
+
     infoGroup->setSpacing(10);
 
 
@@ -128,7 +123,7 @@ void NativeInfoWidget::initWidget()
     connect(m_model, &SystemInfoModel::typeChanged, this, &NativeInfoWidget::setType);
     connect(m_model, &SystemInfoModel::processorChanged, this, &NativeInfoWidget::setProcessor);
     connect(m_model, &SystemInfoModel::memoryChanged, this, &NativeInfoWidget::setMemory);
-    connect(m_model, &SystemInfoModel::diskChanged, this, &NativeInfoWidget::setDisk);
+
     //传递button的点击信号
     connect(m_authorized, &TitleAuthorizedItem::clicked, this, &NativeInfoWidget::clickedActivator);
     connect(m_model, &SystemInfoModel::licenseStateChanged, this, &NativeInfoWidget::setLicenseState);
@@ -155,11 +150,6 @@ void NativeInfoWidget::setProcessor(const QString &processor)
 void NativeInfoWidget::setMemory(const QString &memory)
 {
     m_memory->setValue(memory);
-}
-
-void NativeInfoWidget::setDisk(const QString &disk)
-{
-    m_disk->setValue(disk);
 }
 
 void NativeInfoWidget::setLicenseState(quint32 state)

@@ -61,7 +61,6 @@ public Q_SLOTS:
     void setType(const QString &type);
     void setProcessor(const QString &processor);
     void setMemory(const QString &memory);
-    void setDisk(const QString &disk);
     void setLicenseState(quint32 state);
 
 Q_SIGNALS:
@@ -76,7 +75,6 @@ private:
     dcc::widgets::TitleValueItem *m_kernel;
     dcc::widgets::TitleValueItem *m_processor;
     dcc::widgets::TitleValueItem *m_memory;
-    dcc::widgets::TitleValueItem *m_disk;
 };
 
 }

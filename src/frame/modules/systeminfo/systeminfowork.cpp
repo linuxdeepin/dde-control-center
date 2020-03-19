@@ -122,7 +122,7 @@ void SystemInfoWork::activate()
     m_model->setType(QSysInfo::WordSize);
     // m_model->setProcessor(QString("%1 x %2").arg(DSysInfo::cpuModelName())
     //                                         .arg(QThread::idealThreadCount()));
-    m_model->setMemory(DSysInfo::memoryTotalSize());
+    m_model->setMemory(DSysInfo::memoryTotalSize(), DSysInfo::memoryInstalledSize());
     // m_model->setDisk(DSysInfo::systemDiskSize());
 }
 
