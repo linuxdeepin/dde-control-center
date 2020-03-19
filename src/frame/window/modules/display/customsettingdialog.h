@@ -28,8 +28,7 @@
 #include <DButtonBox>
 #include <dabstractdialog.h>
 
-#include <DDialog>
-
+#include <QDialog>
 #include <QLabel>
 #include <QHBoxLayout>
 
@@ -42,7 +41,6 @@ class QListView;
 class QVBoxLayout;
 class QAbstractButton;
 QT_END_NAMESPACE
-DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace display {
@@ -61,7 +59,7 @@ namespace DCC_NAMESPACE {
 
 namespace display {
 
-class CustomSettingDialog : public DDialog
+class CustomSettingDialog : public QDialog
 {
     Q_OBJECT
 public:
@@ -125,7 +123,7 @@ private:
     dcc::display::DisplayModel *m_model{nullptr};
     QVBoxLayout *m_layout{nullptr};
     QWidget *m_main_select_layout_widget{nullptr};
-    QWidget *m_main_select_lab_widget{nullptr};
+    QLabel *m_main_select_lab{nullptr};
     std::unique_ptr<dcc::display::MonitorIndicator> m_fullIndication;
     dcc::display::MonitorControlWidget *m_monitroControlWidget{nullptr};
 
