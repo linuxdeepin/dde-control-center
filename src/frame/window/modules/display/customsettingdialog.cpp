@@ -200,11 +200,9 @@ void CustomSettingDialog::initOtherDialog()
         } else {
             dlg = new CustomSettingDialog(mon, m_model, this);
             m_otherDialog.append(dlg);
-            dlg->setWindowFlags(dlg->windowFlags() | Qt::WindowCloseButtonHint);
 
             dlg->initConnect();
 
-            connect(dlg, &DDialog::closed, this, &CustomSettingDialog::close);
             connect(dlg, &CustomSettingDialog::requestSetResolution, this,
                     &CustomSettingDialog::requestSetResolution);
             connect(dlg, &CustomSettingDialog::requestShowRotateDialog, this,
