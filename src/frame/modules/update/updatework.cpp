@@ -177,8 +177,15 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
 
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     refreshMirrors();
-#endif   
+#endif
     getLicenseState();
+
+    QDBusConnection::systemBus().connect("com.deepin.license",
+                                         "/com/deepin/license/Info",
+                                         "com.deepin.license.Info",
+                                         "LicenseStateChange",
+                                         this,
+                                         SLOT(licenseStateChangeSlot()));
 }
 
 UpdateWorker::~UpdateWorker()
