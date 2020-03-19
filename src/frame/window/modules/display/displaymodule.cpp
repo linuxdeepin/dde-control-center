@@ -229,7 +229,7 @@ void DisplayModule::showCustomSettingDialog() {
         m_displayWorker->saveChanges();
     });
     connect(dlg, &CustomSettingDialog::requestEnalbeMonitor, [=](Monitor *mon, bool enable) {
-        m_displayWorker->onMonitorEnable(mon, enable);
+        m_displayWorker->setMonitorEnable(mon, enable);
         m_displayWorker->saveChanges();
     });
     connect(dlg, &CustomSettingDialog::requestSplit, this, [=](){
