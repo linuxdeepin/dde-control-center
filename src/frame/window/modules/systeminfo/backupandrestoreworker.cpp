@@ -8,6 +8,7 @@
 #include <QFuture>
 #include <QtConcurrent>
 #include <DDialog>
+#include <QScopedPointer>
 
 DWIDGET_USE_NAMESPACE
 
@@ -105,21 +106,26 @@ bool BackupAndRestoreWorker::doManualRestore()
 {
     const QString& selectPath = m_model->restoreDirectory();
 
-#ifdef QT_DEBUG
     auto checkValid = [](const QString& filePath, const QString& md5Path) -> bool {
         QFile file(filePath);
         QFile md5File(md5Path);
 
         if (file.open(QIODevice::Text | QIODevice::ReadOnly) && md5File.open(QIODevice::Text | QIODevice::ReadOnly)) {
-            QProcess* process = new QProcess;
+            QScopedPointer<QProcess> process(new QProcess);
             process->setProgram("md5sum");
             process->setArguments({filePath});
             process->start();
             process->waitForFinished();
-            const QString& result = QString(process->readAllStandardOutput()).split(" ").first();
-            process->deleteLater();
 
-            return QString(md5File.readAll()).startsWith(result);
+            const QString& result = QString(process->readAllStandardOutput()).simplified();
+            const QStringList& list = result.split(" ");
+
+            if (list.size() < 2) {
+                qWarning() << Q_FUNC_INFO << "wrong md5: " << filePath;
+                return false;
+            }
+
+            return QString(md5File.readAll()).startsWith(list.first());
         }
 
         return false;
@@ -127,10 +133,8 @@ bool BackupAndRestoreWorker::doManualRestore()
 
     if (!checkValid(QString("%1/boot.dim").arg(selectPath), QString("%1/boot.md5").arg(selectPath)) ||
         !checkValid(QString("%1/system.dim").arg(selectPath), QString("%1/system.md5").arg(selectPath))) {
-
         return false;
     }
-#endif
 
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_restore" << "--path" << selectPath);
