@@ -78,6 +78,7 @@ SearchWidget::SearchWidget(QWidget *parent)
         {tr("User Experience Program"), false},
         {tr("Join User Experience Program"), false},
         {tr("Display Scaling"), false},
+        {tr("Night Shift"), false},
     };
 
     //first : 可移除设备名称
