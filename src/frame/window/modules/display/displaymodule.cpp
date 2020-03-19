@@ -211,7 +211,8 @@ void DisplayModule::showMultiScreenSettingPage()
     m_frameProxy->pushWidget(this, page);
 }
 
-void DisplayModule::showCustomSettingDialog() {
+void DisplayModule::showCustomSettingDialog()
+{
     auto displayMode = m_displayModel->displayMode();
     Q_ASSERT(displayMode == CUSTOM_MODE);
 
@@ -224,27 +225,18 @@ void DisplayModule::showCustomSettingDialog() {
             this, &DisplayModule::showRotate);
     connect(dlg, &CustomSettingDialog::requestSetResolution, this,
             &DisplayModule::onCustomPageRequestSetResolution);
-    connect(dlg, &CustomSettingDialog::requestMerge, this, [=](){
-        m_displayWorker->mergeScreens();
-        m_displayWorker->saveChanges();
-    });
-    connect(dlg, &CustomSettingDialog::requestEnalbeMonitor, [=](Monitor *mon, bool enable) {
-        m_displayWorker->setMonitorEnable(mon, enable);
-        m_displayWorker->saveChanges();
-    });
-    connect(dlg, &CustomSettingDialog::requestSplit, this, [=](){
-        m_displayWorker->splitScreens();
-        m_displayWorker->saveChanges();
-    });
-    connect(dlg, &CustomSettingDialog::requestSetMonitorPosition, this, [=](Monitor *moni, int x, int y){
-        m_displayWorker->setMonitorPosition(moni, x, y);
-        m_displayWorker->saveChanges();
-    });
-    connect(dlg, &CustomSettingDialog::requestRecognize, this, &DisplayModule::showRecognize);
-    connect(dlg, &CustomSettingDialog::requestSetPrimaryMonitor, this, [=](int idx){
-        m_displayWorker->setPrimary(idx);
-        m_displayWorker->saveChanges();
-    });
+    connect(dlg, &CustomSettingDialog::requestMerge,
+            m_displayWorker, &DisplayWorker::mergeScreens);
+    connect(dlg, &CustomSettingDialog::requestEnalbeMonitor,
+            m_displayWorker, &DisplayWorker::setMonitorEnable);
+    connect(dlg, &CustomSettingDialog::requestSplit,
+            m_displayWorker, &DisplayWorker::splitScreens);
+    connect(dlg, &CustomSettingDialog::requestSetMonitorPosition,
+            m_displayWorker, &DisplayWorker::setMonitorPosition);
+    connect(dlg, &CustomSettingDialog::requestRecognize, this,
+            &DisplayModule::showRecognize);
+    connect(dlg, &CustomSettingDialog::requestSetPrimaryMonitor,
+            m_displayWorker, &DisplayWorker::setPrimary);
     connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
 
     m_displayModel->setIsMerge(m_displayModel->monitorsIsIntersect());
@@ -323,7 +315,6 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
     if (showTimeoutDialog(mon ? mon : m_displayModel->primaryMonitor()) != QDialog::Accepted) {
         tfunc(mon, lastres);
     }
-    m_displayWorker->saveChanges();
 }
 
 int DisplayModule::showTimeoutDialog(Monitor *mon)

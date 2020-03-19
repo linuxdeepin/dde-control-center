@@ -431,7 +431,7 @@ void CustomSettingDialog::initMoniList()
                 continue;
             }
             DStandardItem * item = (DStandardItem *)listModel->item(idx);
-            this->requestEnalbeMonitor(monis[idx], item->checkState() != Qt::Checked);
+            this->requestEnalbeMonitor(monis[idx], item->checkState() == Qt::Checked);
         }
     });
     connect(m_model, &DisplayModel::primaryScreenChanged, this, [ = ] {
@@ -569,17 +569,12 @@ void CustomSettingDialog::resetMonitorObject(Monitor *moni)
         disconnect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
         disconnect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
         disconnect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::resetDialog);
-        disconnect(m_monitor, &Monitor::enableChanged, this, &CustomSettingDialog::setVisible);
     }
 
     m_monitor = moni;
     connect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
     connect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
     connect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::resetDialog);
-    connect(m_monitor, &Monitor::enableChanged, this, [=](bool enable) {
-        setVisible(enable);
-        resetDialog();
-    });
 }
 
 void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
