@@ -102,4 +102,6 @@ void GeneralWidget::setModel(const PowerModel *model)
     m_autoIntoSaveEnergyMode->setChecked(model->autoPowerSaveMode());
     m_lowBatteryMode->setChecked(model->powerSaveMode());
 #endif
+
+    m_wakeComputerNeedPassword->setVisible(model->canSleep());
 }

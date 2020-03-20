@@ -47,6 +47,9 @@ public:
     inline bool sleepLock() const { return m_sleepLock; }
     void setSleepLock(bool sleepLock);
 
+    inline bool canSleep() const { return m_canSleep; }
+    void setCanSleep(bool canSleep);
+
     inline bool lidPresent() const { return m_lidPresent; }
     void setLidPresent(bool lidPresent);
 
@@ -90,6 +93,7 @@ public:
 
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
+    void canSleepChanged(const bool canSleep);
     void screenBlackLockChanged(const bool screenBlackLock);
     void lidPresentChanged(const bool lidPresent);
     void sleepOnLidOnPowerCloseChanged(const bool sleepOnLidClose);
@@ -113,6 +117,7 @@ private:
     bool m_sleepOnLidOnBatteryClose;
     bool m_screenBlackLock;
     bool m_sleepLock;
+    bool m_canSleep;
     int m_screenBlackDelayOnPower;
     int m_sleepDelayOnPower;
     int m_screenBlackDelayOnBattery;

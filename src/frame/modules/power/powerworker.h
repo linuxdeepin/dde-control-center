@@ -28,10 +28,12 @@
 
 #include <com_deepin_daemon_power.h>
 #include <com_deepin_system_systempower.h>
+#include <org_freedesktop_login1.h>
 #include <QObject>
 
 using PowerInter = com::deepin::daemon::Power;
 using SysPowerInter = com::deepin::system::Power;
+using Login1ManagerInter = org::freedesktop::login1::Manager;
 
 namespace dcc{
 namespace power {
@@ -77,6 +79,7 @@ private:
     PowerModel *m_powerModel;
     PowerInter *m_powerInter;
     SysPowerInter *m_sysPowerInter;
+    Login1ManagerInter *m_login1ManagerInter;
 };
 
 }

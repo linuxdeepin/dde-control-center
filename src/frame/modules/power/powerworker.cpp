@@ -25,6 +25,12 @@
 
 #include "powerworker.h"
 #include "powermodel.h"
+#include "widgets/utils.h"
+
+#include <QProcessEnvironment>
+
+#define POWER_CAN_SLEEP "POWER_CAN_SLEEP"
+#define POWER_CAN_HIBERNATE "POWER_CAN_HIBERNATE"
 
 using namespace dcc;
 using namespace dcc::power;
@@ -34,6 +40,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     , m_powerModel(model)
     , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
     , m_sysPowerInter(new SysPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
+    , m_login1ManagerInter(new Login1ManagerInter("org.freedesktop.login1", "/org/freedesktop/login1", QDBusConnection::systemBus(), this))
 {
 
     connect(m_powerInter, &PowerInter::ScreenBlackLockChanged, m_powerModel, &PowerModel::setScreenBlackLock);
@@ -53,6 +60,14 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
 #endif
     connect(m_sysPowerInter, &SysPowerInter::HasBatteryChanged, m_powerModel, &PowerModel::setHaveBettary);
     connect(m_sysPowerInter, &SysPowerInter::BatteryPercentageChanged, m_powerModel, &PowerModel::setBatteryPercentage);
+
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    bool envVal = QVariant(env.value(POWER_CAN_SLEEP)).toBool();
+    bool confVal = valueByQSettings<bool>(DCC_CONFIG_FILES, "Power", "sleep", true);
+    bool dbusVal = m_login1ManagerInter->CanSuspend().value().contains("yes");
+    qDebug() << "envVal: " << envVal << " confVal: " << confVal << " dbusVal: " << dbusVal;
+    bool can_sleep = env.contains(POWER_CAN_SLEEP) ? envVal : confVal && dbusVal;
+    m_powerModel->setCanSleep(can_sleep);
 }
 
 void PowerWorker::active(bool isSync)

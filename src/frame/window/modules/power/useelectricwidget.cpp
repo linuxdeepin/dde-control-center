@@ -127,6 +127,11 @@ void UseElectricWidget::setModel(const PowerModel *model)
 
     m_suspendOnLidClose->setChecked(model->sleepOnLidOnPowerClose());
     setLockScreenAfter(model->getPowerLockScreenDelay());
+
+    if (m_computerSleepOnPower) {
+        m_computerSleepOnPower->setVisible(model->canSleep());
+    }
+    m_suspendOnLidClose->setVisible(model->canSleep());
 }
 
 void UseElectricWidget::setLidClose(bool state)

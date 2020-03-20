@@ -34,6 +34,7 @@ const double EPSINON = 1e-6;
 
 PowerModel::PowerModel(QObject *parent)
     : QObject(parent)
+    , m_canSleep(true)
     , m_haveBettary(false)
     , m_batteryPercentage(0.0)
 {
@@ -182,5 +183,14 @@ void PowerModel::setSleepLock(bool sleepLock)
         m_sleepLock = sleepLock;
 
         Q_EMIT sleepLockChanged(sleepLock);
+    }
+}
+
+void PowerModel::setCanSleep(bool canSleep)
+{
+    if (canSleep != m_canSleep) {
+        m_canSleep = canSleep;
+
+        Q_EMIT canSleepChanged(canSleep);
     }
 }

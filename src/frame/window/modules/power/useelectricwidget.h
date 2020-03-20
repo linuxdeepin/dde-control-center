@@ -70,11 +70,11 @@ private:
     QString delayToLiteralString(const int delay) const;
 
 private:
-    QVBoxLayout *m_layout;
-    dcc::widgets::TitledSliderItem *m_monitorSleepOnPower;
-    dcc::widgets::TitledSliderItem *m_computerSleepOnPower;
-    dcc::widgets::TitledSliderItem *m_autoLockScreen;
-    dcc::widgets::SwitchWidget *m_suspendOnLidClose;
+    QVBoxLayout *m_layout = nullptr;
+    dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
+    dcc::widgets::TitledSliderItem *m_computerSleepOnPower = nullptr;
+    dcc::widgets::TitledSliderItem *m_autoLockScreen = nullptr;
+    dcc::widgets::SwitchWidget *m_suspendOnLidClose = nullptr;
 };
 
 }// namespace datetime

@@ -118,6 +118,9 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
     m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
+
+    m_computerSleepOnBattery->setVisible(model->canSleep());
+    m_suspendOnLidClose->setVisible(model->canSleep());
 }
 
 void UseBatteryWidget::setScreenBlackDelayOnBattery(const int delay)
