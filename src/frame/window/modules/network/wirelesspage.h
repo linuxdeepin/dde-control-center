@@ -89,6 +89,7 @@ public:
     void setSignalStrength(int ss);
     int signalStrength() const;
     void setConnected(bool connected);
+    bool isConnected();
     void setSortInfo(const APSortInfo &si);
     void setPath(const QString &path);
     QString path() const;

@@ -133,6 +133,11 @@ void APItem::setConnected(bool connected)
     setCheckState(connected ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
 }
 
+bool APItem::isConnected()
+{
+    return checkState();
+}
+
 void APItem::setSortInfo(const APSortInfo &si)
 {
     setData(QVariant::fromValue(si), SortRole);
@@ -311,6 +316,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         m_clickedItem = dynamic_cast<APItem *>(deviceModel->item(idx.row()));
         if (!m_clickedItem) {
             qDebug() << "clicked item is nullptr";
+            return;
+        }
+        if (m_clickedItem->isConnected()) {
             return;
         }
         qDebug() << "clicked item " << m_clickedItem->text();
