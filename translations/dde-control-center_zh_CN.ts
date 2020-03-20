@@ -9251,11 +9251,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-<<<<<<< HEAD
         <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
-=======
-        <translation>Copyright ©&#xa0;2019-2020 统信软件技术有限公司</translation>
->>>>>>> feat(Restore): add restore module
     </message>
 </context>
 <context>
