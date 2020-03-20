@@ -96,7 +96,7 @@ void AccountsWidget::setModel(UserModel *model)
     m_createBtn->setVisible(m_userModel->isCreateUserValid() && !IsServerSystem);
 
     connect(model, &UserModel::userAdded, this, [this](User * user) {
-        addUser(user);
+        addUser(user, false);
     });
     connect(model, &UserModel::userRemoved, this, &AccountsWidget::removeUser);
     //给账户列表添加用户数据
