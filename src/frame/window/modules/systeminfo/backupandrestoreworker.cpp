@@ -117,15 +117,12 @@ bool BackupAndRestoreWorker::doManualRestore()
             process->start();
             process->waitForFinished();
 
-            const QString& result = QString(process->readAllStandardOutput()).simplified();
-            const QStringList& list = result.split(" ");
+            auto splitString = [=](const QString& source) -> QString {
+                const QStringList& list = source.simplified().split(" ");
+                return list.size() < 2 ? QString() : list.first();
+            };
 
-            if (list.size() < 2) {
-                qWarning() << Q_FUNC_INFO << "wrong md5: " << filePath;
-                return false;
-            }
-
-            return QString(md5File.readAll()).startsWith(list.first());
+            return splitString(process->readAllStandardOutput()) == splitString(md5File.readAll());
         }
 
         return false;
