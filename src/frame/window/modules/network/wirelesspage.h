@@ -91,6 +91,7 @@ public:
     void setConnected(bool connected);
     bool isConnected();
     void setSortInfo(const APSortInfo &si);
+    APSortInfo sortInfo();
     void setPath(const QString &path);
     QString path() const;
     void setUuid(const QString &uuid);
