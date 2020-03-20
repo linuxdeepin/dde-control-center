@@ -52,10 +52,6 @@ void BackupAndRestoreModel::setFormatData(bool formatData)
 
 void BackupAndRestoreModel::setManualRestoreCheckFailed(bool manualRestoreCheckFailed)
 {
-    if (m_manualRestoreCheckFailed == manualRestoreCheckFailed) {
-        return;
-    }
-
     m_manualRestoreCheckFailed = manualRestoreCheckFailed;
 
     Q_EMIT manualRestoreCheckFailedChanged(manualRestoreCheckFailed);

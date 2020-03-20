@@ -259,7 +259,7 @@ void ManualRestore::restore()
         const QString& selectPath = m_directoryChooseWidget->lineEdit()->text();
 
         if (selectPath.isEmpty()) {
-            return;
+            return onManualRestoreCheckFailed(true);
         }
 
         Q_EMIT requestManualRestore(selectPath);
