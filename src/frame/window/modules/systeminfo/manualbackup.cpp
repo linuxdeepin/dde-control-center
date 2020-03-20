@@ -57,6 +57,9 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     connect(model, &BackupAndRestoreModel::backupButtonEnabledChanged, m_backupBtn, &QPushButton::setEnabled);
     connect(m_directoryChooseWidget, &DFileChooserEdit::dialogClosed, this, &ManualBackup::onChoose);
     connect(m_backupBtn, &QPushButton::clicked, this, &ManualBackup::backup, Qt::QueuedConnection);
+    connect(m_directoryChooseWidget->lineEdit(), &QLineEdit::textChanged, this, [=](const QString& text) {
+        m_backupBtn->setEnabled(model->backupButtonEnabled() && !text.isEmpty());
+    });
 
     m_backupBtn->setEnabled(model->backupButtonEnabled());
 
