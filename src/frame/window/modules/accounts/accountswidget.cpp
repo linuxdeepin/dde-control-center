@@ -93,7 +93,7 @@ void AccountsWidget::setModel(UserModel *model)
 {
     m_userModel = model;
 
-    m_createBtn->setVisible(m_userModel->isCreateUserValid() && !IsServerSystem);
+    m_createBtn->setVisible(m_userModel->isCreateUserValid());
 
     connect(model, &UserModel::userAdded, this, [this](User * user) {
         addUser(user, false);
