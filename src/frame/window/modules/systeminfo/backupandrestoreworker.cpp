@@ -141,7 +141,12 @@ bool BackupAndRestoreWorker::doManualRestore()
         return false;
     }
 
-    m_grubInter->SetDefaultEntry("Deepin Recovery").waitForFinished();
+    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("Deepin Recovery")));
+    watcher->waitForFinished();
+    if (watcher->isError()) {
+        qWarning() << Q_FUNC_INFO << watcher->error();
+        return false;
+    }
 
     QThread::sleep(5);
 
@@ -167,7 +172,12 @@ bool BackupAndRestoreWorker::doSystemRestore()
         return false;
     }
 
-    m_grubInter->SetDefaultEntry("Deepin Recovery").waitForFinished();
+    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("Deepin Recovery")));
+    watcher->waitForFinished();
+    if (watcher->isError()) {
+        qWarning() << Q_FUNC_INFO << watcher->error();
+        return false;
+    }
 
     QThread::sleep(5);
 

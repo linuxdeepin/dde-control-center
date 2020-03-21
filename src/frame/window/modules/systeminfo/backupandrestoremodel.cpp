@@ -15,10 +15,6 @@ BackupAndRestoreModel::BackupAndRestoreModel(QObject *parent)
 
 void BackupAndRestoreModel::setBackupButtonEnabled(bool backupButtonEnabled)
 {
-    if (m_backupButtonEnabled == backupButtonEnabled) {
-        return;
-    }
-
     m_backupButtonEnabled = backupButtonEnabled;
 
     Q_EMIT backupButtonEnabledChanged(backupButtonEnabled);
@@ -26,10 +22,6 @@ void BackupAndRestoreModel::setBackupButtonEnabled(bool backupButtonEnabled)
 
 void BackupAndRestoreModel::setRestoreButtonEnabled(bool restoreButtonEnabled)
 {
-    if (m_restoreButtonEnabled == restoreButtonEnabled) {
-        return;
-    }
-
     m_restoreButtonEnabled = restoreButtonEnabled;
 
     Q_EMIT restoreButtonEnabledChanged(restoreButtonEnabled);
