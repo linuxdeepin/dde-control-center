@@ -33,7 +33,6 @@
 
 #include <DTipLabel>
 
-#include <QComboBox>
 #include <QHBoxLayout>
 #include <QRegularExpression>
 
@@ -51,10 +50,10 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     m_proxyType = new ComboxWidget;
     m_proxyType->setTitle(tr("Proxy Type"));
 
-    QComboBox *cb = m_proxyType->comboBox();
-    cb->addItem("http");
-    cb->addItem("socks4");
-    cb->addItem("socks5");
+    m_comboBox = m_proxyType->comboBox();
+    m_comboBox->addItem("http");
+    m_comboBox->addItem("socks4");
+    m_comboBox->addItem("socks5");
 
     m_addr = new LineEditWidget;
     m_addr->setTitle(tr("IP Address"));
@@ -107,7 +106,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 
     setContent(w);
 
-    connect(btns->leftButton(), &QPushButton::clicked, this, &ChainsProxyPage::back);
+    connect(btns->leftButton(), &QPushButton::clicked, this, &ChainsProxyPage::onRestoreValue);
     connect(btns->rightButton(), &QPushButton::clicked, this, &ChainsProxyPage::onCheckValue);
 }
 
@@ -130,6 +129,15 @@ void ChainsProxyPage::setModel(NetworkModel *model)
     m_port->setText(QString::number(config.port));
     m_username->setText(config.username);
     m_password->setText(config.password);
+}
+
+void ChainsProxyPage::onRestoreValue()
+{
+    m_comboBox->setCurrentIndex(0);
+    m_addr->setText("");
+    m_port->setText("0");
+    m_username->setText("");
+    m_password->setText("");
 }
 
 void ChainsProxyPage::onCheckValue()
