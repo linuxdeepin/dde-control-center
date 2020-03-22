@@ -141,7 +141,7 @@ bool BackupAndRestoreWorker::doManualRestore()
         return false;
     }
 
-    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("Deepin Recovery")));
+    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
     watcher->waitForFinished();
     if (watcher->isError()) {
         qWarning() << Q_FUNC_INFO << watcher->error();
@@ -172,7 +172,7 @@ bool BackupAndRestoreWorker::doSystemRestore()
         return false;
     }
 
-    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("Deepin Recovery")));
+    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
     watcher->waitForFinished();
     if (watcher->isError()) {
         qWarning() << Q_FUNC_INFO << watcher->error();
