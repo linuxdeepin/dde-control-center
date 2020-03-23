@@ -202,7 +202,7 @@ void ManualRestore::onItemChecked()
 
 void ManualRestore::onManualRestoreCheckFailed(bool failed)
 {
-    m_tipsLabel->setText(tr("Backup file is invalid."));
+    m_tipsLabel->setText(tr("Backup file is invalid"));
     m_tipsLabel->setVisible(failed);
 }
 
@@ -212,14 +212,11 @@ void ManualRestore::restore()
         const bool formatData = !m_saveUserDataCheckBox->isChecked();
 
         DDialog dialog;
-        QString message{ tr(
-                             "This will reset all system settings to their defaults. Your data, username and "
-                             "password will not be deleted, please confirm and continue") };
+        QString message{ tr("It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding") };
 
         if (formatData) {
             message =
-                tr("This will reinstall the system and clear all user data. It is risky, "
-                   "please confirm and continue");
+                tr("It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding");
         }
 
         dialog.setMessage(message);

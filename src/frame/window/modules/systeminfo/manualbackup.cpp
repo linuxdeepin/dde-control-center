@@ -14,7 +14,7 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     : QWidget(parent)
     , m_model(model)
     , m_directoryChooseWidget(new DFileChooserEdit)
-    , m_tipsLabel(new QLabel(tr("Choose Directory invalid")))
+    , m_tipsLabel(new QLabel(tr("Invalid path")))
     , m_backupBtn(new QPushButton(tr("Backup")))
 {
     m_tipsLabel->setWordWrap(true);
