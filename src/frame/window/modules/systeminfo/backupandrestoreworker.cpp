@@ -88,7 +88,12 @@ bool BackupAndRestoreWorker::doManualBackup()
         return false;
     }
 
-    m_grubInter->SetDefaultEntry("Deepin Recovery").waitForFinished();
+    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
+    watcher->waitForFinished();
+    if (watcher->isError()) {
+        qWarning() << Q_FUNC_INFO << watcher->error();
+        return false;
+    }
 
     QThread::sleep(5);
 
