@@ -297,9 +297,9 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                      << "\t id: " << tmode.id;
             for (auto m : m_displayModel->monitorList()) {
                 for (auto res : m->modeList()) {
-                    if (fabs(r) > 0.000001 && fabs(res.rate() - r) > 0.000001) {
-                        continue;
-                    }
+//                    if (fabs(r) > 0.000001 && fabs(res.rate() - r) > 0.000001) {
+//                        continue;
+//                    }
                     if (res.width() == w && res.height() == h) {
                         m_displayWorker->setMonitorResolution(m, res.id());
                         break;
