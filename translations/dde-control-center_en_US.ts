@@ -23,7 +23,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::MainWindow</name>
+    <name>dccV20::MainWindow</name>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
         <source>Help</source>
@@ -137,7 +137,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::AccountsDetailWidget</name>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="148"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="208"/>
@@ -197,7 +197,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::AccountsModule</name>
+    <name>dccV20::accounts::AccountsModule</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="80"/>
         <source>Accounts</source>
@@ -205,7 +205,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::AccountsWidget</name>
+    <name>dccV20::accounts::AccountsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="59"/>
         <source>Create Account</source>
@@ -226,7 +226,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::AddFingeDialog</name>
+    <name>dccV20::accounts::AddFingeDialog</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
         <source>Add Fingerprint</source>
@@ -260,7 +260,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::AvatarListWidget</name>
+    <name>dccV20::accounts::AvatarListWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="173"/>
         <source>Images</source>
@@ -268,7 +268,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::CreateAccountPage</name>
+    <name>dccV20::accounts::CreateAccountPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="86"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="317"/>
@@ -365,7 +365,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::FingerWidget</name>
+    <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <source>Delete fingerprint</source>
@@ -388,7 +388,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::ModifyPasswdPage</name>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="58"/>
         <source>Change Password</source>
@@ -459,7 +459,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::bluetooth::AdapterWidget</name>
+    <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="56"/>
         <source>My devices</source>
@@ -479,7 +479,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::bluetooth::BluetoothModule</name>
+    <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
         <source>Bluetooth</source>
@@ -487,7 +487,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::bluetooth::DetailPage</name>
+    <name>dccV20::bluetooth::DetailPage</name>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Ignore this device</source>
@@ -511,7 +511,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::bluetooth::DeviceSettingsItem</name>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="162"/>
         <source>Connected</source>
@@ -524,7 +524,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::BootWidget</name>
+    <name>dccV20::commoninfo::BootWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="78"/>
         <source>Updating...</source>
@@ -559,7 +559,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::CommonInfoModule</name>
+    <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="80"/>
         <source>General Settings</source>
@@ -567,7 +567,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::CommonInfoWidget</name>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="71"/>
         <source>Boot Menu</source>
@@ -593,7 +593,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::CommonInfoWork</name>
+    <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
@@ -647,7 +647,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::DeveloperModeDialog</name>
+    <name>dccV20::commoninfo::DeveloperModeDialog</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="65"/>
         <source>Request Root Access</source>
@@ -701,7 +701,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::DeveloperModeWidget</name>
+    <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="190"/>
@@ -766,7 +766,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::UserExperienceProgramWidget</name>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="46"/>
         <source>Join User Experience Program</source>
@@ -780,7 +780,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::ClockItem</name>
+    <name>dccV20::datetime::ClockItem</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="78"/>
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="181"/>
@@ -794,7 +794,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::DateSettings</name>
+    <name>dccV20::datetime::DateSettings</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="80"/>
         <source>Auto Sync</source>
@@ -842,7 +842,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::DateWidget</name>
+    <name>dccV20::datetime::DateWidget</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="62"/>
         <source>Year</source>
@@ -860,7 +860,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::DatetimeModule</name>
+    <name>dccV20::datetime::DatetimeModule</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="70"/>
         <source>Date and Time</source>
@@ -868,7 +868,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::DatetimeWidget</name>
+    <name>dccV20::datetime::DatetimeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="61"/>
         <source>Timezone List</source>
@@ -888,7 +888,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::SystemTimezone</name>
+    <name>dccV20::datetime::SystemTimezone</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="41"/>
         <source>Change System Timezone</source>
@@ -903,7 +903,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::TimezoneList</name>
+    <name>dccV20::datetime::TimezoneList</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="48"/>
         <source>Timezone List</source>
@@ -918,7 +918,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::defapp::DefappDetailWidget</name>
+    <name>dccV20::defapp::DefappDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="74"/>
         <source>Add Application</source>
@@ -937,7 +937,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::defapp::DefaultAppsModule</name>
+    <name>dccV20::defapp::DefaultAppsModule</name>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="82"/>
         <source>Default Applications</source>
@@ -945,7 +945,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::defapp::DefaultAppsWidget</name>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="49"/>
         <source>Webpage</source>
@@ -995,7 +995,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::BrightnessPage</name>
+    <name>dccV20::display::BrightnessPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="60"/>
         <source>Night Shift</source>
@@ -1015,7 +1015,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::CustomSettingDialog</name>
+    <name>dccV20::display::CustomSettingDialog</name>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Main Screen</source>
@@ -1064,7 +1064,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::DisplayModule</name>
+    <name>dccV20::display::DisplayModule</name>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="68"/>
         <source>Display</source>
@@ -1078,7 +1078,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::DisplayWidget</name>
+    <name>dccV20::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="123"/>
         <source>Multiple Displays</source>
@@ -1118,7 +1118,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::MultiScreenSettingPage</name>
+    <name>dccV20::display::MultiScreenSettingPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="51"/>
         <source>Custom Settings</source>
@@ -1166,7 +1166,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::RefreshRatePage</name>
+    <name>dccV20::display::RefreshRatePage</name>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="80"/>
         <source>Hz</source>
@@ -1179,7 +1179,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::ResolutionDetailPage</name>
+    <name>dccV20::display::ResolutionDetailPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
         <source>Recommended</source>
@@ -1188,7 +1188,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::RotateDialog</name>
+    <name>dccV20::display::RotateDialog</name>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
@@ -1206,7 +1206,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::ScalingPage</name>
+    <name>dccV20::display::ScalingPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="53"/>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="130"/>
@@ -1220,7 +1220,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::CustomContent</name>
+    <name>dccV20::keyboard::CustomContent</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="61"/>
         <source>Add Custom Shortcut</source>
@@ -1260,7 +1260,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::GeneralKBSettingWidget</name>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="48"/>
         <source>Repeat Delay</source>
@@ -1313,7 +1313,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::KBLayoutSettingWidget</name>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="55"/>
         <source>Keyboard Layout</source>
@@ -1353,7 +1353,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::KeyboardModule</name>
+    <name>dccV20::keyboard::KeyboardModule</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="122"/>
         <source>Keyboard and Language</source>
@@ -1366,7 +1366,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::KeyboardWidget</name>
+    <name>dccV20::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="51"/>
         <source>General</source>
@@ -1392,7 +1392,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::ShortCutSettingWidget</name>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="54"/>
         <source>System</source>
@@ -1430,7 +1430,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::SystemLanguageSettingWidget</name>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
         <source>Cancel</source>
@@ -1449,7 +1449,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::SystemLanguageWidget</name>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
@@ -1468,7 +1468,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::GeneralSettingWidget</name>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="46"/>
         <source>Left Hand</source>
@@ -1505,7 +1505,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::MouseModule</name>
+    <name>dccV20::mouse::MouseModule</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="57"/>
         <source>Touchpad</source>
@@ -1523,7 +1523,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::MouseSettingWidget</name>
+    <name>dccV20::mouse::MouseSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="44"/>
         <source>Pointer Speed</source>
@@ -1562,7 +1562,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::MouseWidget</name>
+    <name>dccV20::mouse::MouseWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="56"/>
         <source>General</source>
@@ -1588,40 +1588,40 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::TouchPadSettingWidget</name>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="47"/>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="49"/>
         <source>Tap to Click</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="52"/>
         <source>Natural Scrolling</source>
         <translation type="unfinished"></translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="56"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="57"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::TrackPointSettingWidget</name>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="39"/>
         <source>Pointer Speed</source>
@@ -1641,7 +1641,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ChainsProxyPage</name>
+    <name>dccV20::network::ChainsProxyPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
         <source>Application Proxy</source>
@@ -1711,7 +1711,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ChainsTypePage</name>
+    <name>dccV20::network::ChainsTypePage</name>
     <message>
         <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
@@ -1719,7 +1719,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ConnectionEditPage</name>
+    <name>dccV20::network::ConnectionEditPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
         <source>Disconnect</source>
@@ -1769,7 +1769,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ConnectionVpnEditPage</name>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="104"/>
         <source>New VPN</source>
@@ -1847,7 +1847,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::EthernetSection</name>
+    <name>dccV20::network::EthernetSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="37"/>
         <source>Ethernet</source>
@@ -1880,7 +1880,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::GenericHotspotSection</name>
+    <name>dccV20::network::GenericHotspotSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="31"/>
         <source>General</source>
@@ -1893,7 +1893,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::GenericSection</name>
+    <name>dccV20::network::GenericSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="33"/>
         <source>General</source>
@@ -1916,7 +1916,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::HotspotDeviceWidget</name>
+    <name>dccV20::network::HotspotDeviceWidget</name>
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="68"/>
         <source>Hotspot</source>
@@ -1930,7 +1930,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::HotspotPage</name>
+    <name>dccV20::network::HotspotPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="263"/>
         <source>Create Hotspot</source>
@@ -1939,7 +1939,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::IpvxSection</name>
+    <name>dccV20::network::IpvxSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="33"/>
         <source>IPv4</source>
@@ -2029,7 +2029,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::NetworkDetailPage</name>
+    <name>dccV20::network::NetworkDetailPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="91"/>
         <source>Network Details</source>
@@ -2104,7 +2104,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::NetworkModule</name>
+    <name>dccV20::network::NetworkModule</name>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="158"/>
         <source>Wired Network</source>
@@ -2127,7 +2127,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::NetworkModuleWidget</name>
+    <name>dccV20::network::NetworkModuleWidget</name>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="67"/>
         <source>DSL</source>
@@ -2206,7 +2206,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::PPPOESection</name>
+    <name>dccV20::network::PPPOESection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="31"/>
         <source>PPPoE</source>
@@ -2235,7 +2235,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::PPPSection</name>
+    <name>dccV20::network::PPPSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="31"/>
         <source>PPP</source>
@@ -2313,7 +2313,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::PppoePage</name>
+    <name>dccV20::network::PppoePage</name>
     <message>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="57"/>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="77"/>
@@ -2328,7 +2328,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ProxyPage</name>
+    <name>dccV20::network::ProxyPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>Cancel</source>
@@ -2412,7 +2412,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::Secret8021xSection</name>
+    <name>dccV20::network::Secret8021xSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="34"/>
         <source>Security</source>
@@ -2577,7 +2577,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::SecretHotspotSection</name>
+    <name>dccV20::network::SecretHotspotSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
@@ -2621,7 +2621,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::SecretWiredSection</name>
+    <name>dccV20::network::SecretWiredSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="34"/>
         <source>Security Required</source>
@@ -2629,7 +2629,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::SecretWirelessSection</name>
+    <name>dccV20::network::SecretWirelessSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="68"/>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="76"/>
@@ -2678,7 +2678,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnAdvOpenVPNSection</name>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
@@ -2751,7 +2751,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnAdvVPNCSection</name>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
         <source>VPN Advanced</source>
@@ -2877,7 +2877,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnIpsecSection</name>
+    <name>dccV20::network::VpnIpsecSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
         <source>VPN IPsec</source>
@@ -2915,7 +2915,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnOpenConnectSection</name>
+    <name>dccV20::network::VpnOpenConnectSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
         <source>VPN</source>
@@ -2968,7 +2968,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnOpenVPNSection</name>
+    <name>dccV20::network::VpnOpenVPNSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
         <source>VPN</source>
@@ -3084,7 +3084,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnPPPSection</name>
+    <name>dccV20::network::VpnPPPSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
         <source>VPN PPP</source>
@@ -3177,7 +3177,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnPage</name>
+    <name>dccV20::network::VpnPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="91"/>
         <source>VPN Status</source>
@@ -3209,7 +3209,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnProxySection</name>
+    <name>dccV20::network::VpnProxySection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="38"/>
         <source>VPN Proxy</source>
@@ -3269,7 +3269,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnSSTPSection</name>
+    <name>dccV20::network::VpnSSTPSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="79"/>
         <source>CA File</source>
@@ -3287,7 +3287,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnSecOpenVPNSection</name>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="31"/>
         <source>VPN Security</source>
@@ -3317,7 +3317,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnSection</name>
+    <name>dccV20::network::VpnSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
         <source>VPN</source>
@@ -3372,7 +3372,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnSstpProxySection</name>
+    <name>dccV20::network::VpnSstpProxySection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
@@ -3400,7 +3400,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnStrongSwanSection</name>
+    <name>dccV20::network::VpnStrongSwanSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
         <source>VPN</source>
@@ -3499,7 +3499,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnTLSSection</name>
+    <name>dccV20::network::VpnTLSSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
         <source>VPN TLS Authentication</source>
@@ -3547,7 +3547,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnVPNCSection</name>
+    <name>dccV20::network::VpnVPNCSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
         <source>VPN</source>
@@ -3620,7 +3620,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::WiredPage</name>
+    <name>dccV20::network::WiredPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
         <source>Plug in the network cable first</source>
@@ -3646,7 +3646,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::WirelessPage</name>
+    <name>dccV20::network::WirelessPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
         <source>Connect to hidden network</source>
@@ -3675,7 +3675,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::WirelessSection</name>
+    <name>dccV20::network::WirelessSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
         <source>WLAN</source>
@@ -3713,7 +3713,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PersonalizationFontsWidget</name>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="50"/>
         <source>Size</source>
@@ -3738,7 +3738,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PersonalizationGeneral</name>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="72"/>
         <source>Theme</source>
@@ -3765,7 +3765,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PersonalizationList</name>
+    <name>dccV20::personalization::PersonalizationList</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="48"/>
         <source>General</source>
@@ -3792,7 +3792,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PersonalizationModule</name>
+    <name>dccV20::personalization::PersonalizationModule</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="63"/>
         <source>Personalization</source>
@@ -3800,7 +3800,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PerssonalizationThemeList</name>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="100"/>
         <source>Light</source>
@@ -3823,7 +3823,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PerssonalizationThemeWidget</name>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="77"/>
         <source>Light</source>
@@ -3849,7 +3849,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::GeneralWidget</name>
+    <name>dccV20::power::GeneralWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="41"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="52"/>
@@ -3880,7 +3880,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::PowerModule</name>
+    <name>dccV20::power::PowerModule</name>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="58"/>
         <source>On Battery</source>
@@ -3903,7 +3903,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::PowerWidget</name>
+    <name>dccV20::power::PowerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="58"/>
         <source>General</source>
@@ -3926,7 +3926,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::UseBatteryWidget</name>
+    <name>dccV20::power::UseBatteryWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="42"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
@@ -3986,7 +3986,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::UseElectricWidget</name>
+    <name>dccV20::power::UseElectricWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="51"/>
@@ -4046,7 +4046,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::search::SearchWidget</name>
+    <name>dccV20::search::SearchWidget</name>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
         <source>Server</source>
@@ -4130,7 +4130,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::AdvancedPage</name>
+    <name>dccV20::sound::AdvancedPage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="71"/>
         <source>Output</source>
@@ -4150,7 +4150,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::MicrophonePage</name>
+    <name>dccV20::sound::MicrophonePage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="62"/>
         <source>Microphone</source>
@@ -4170,7 +4170,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::SoundEffectsPage</name>
+    <name>dccV20::sound::SoundEffectsPage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="49"/>
         <source>Sound Effects</source>
@@ -4178,7 +4178,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::SoundModule</name>
+    <name>dccV20::sound::SoundModule</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="59"/>
         <source>Sound</source>
@@ -4186,7 +4186,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::SoundWidget</name>
+    <name>dccV20::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
         <source>Speaker</source>
@@ -4212,7 +4212,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::SpeakerPage</name>
+    <name>dccV20::sound::SpeakerPage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="46"/>
         <source>Speaker</source>
@@ -4252,7 +4252,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sync::IndexPage</name>
+    <name>dccV20::sync::IndexPage</name>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="44"/>
         <source>Auto Sync</source>
@@ -4335,7 +4335,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sync::LoginPage</name>
+    <name>dccV20::sync::LoginPage</name>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
         <source>Sign In</source>
@@ -4359,7 +4359,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sync::LogoutPage</name>
+    <name>dccV20::sync::LogoutPage</name>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="43"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
@@ -4372,7 +4372,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sync::SyncModule</name>
+    <name>dccV20::sync::SyncModule</name>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
         <source>Cloud Account</source>
@@ -4380,7 +4380,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::systeminfo::ManualBackup</name>
+    <name>dccV20::systeminfo::ManualBackup</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="17"/>
         <source>Invalid path</source>
@@ -4398,7 +4398,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::systeminfo::ManualRestore</name>
+    <name>dccV20::systeminfo::ManualRestore</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="92"/>
         <source>Restore</source>
@@ -4463,7 +4463,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::systeminfo::NativeInfoWidget</name>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="77"/>
         <source>Edition:</source>
@@ -4546,7 +4546,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::systeminfo::SystemInfoModule</name>
+    <name>dccV20::systeminfo::SystemInfoModule</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="89"/>
         <source>System Info</source>
@@ -4554,7 +4554,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::systeminfo::SystemInfoWidget</name>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="68"/>
         <source>About This PC</source>
@@ -4580,7 +4580,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::systeminfo::SystemRestore</name>
+    <name>dccV20::systeminfo::SystemRestore</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="21"/>
         <source>Backup</source>
@@ -4593,7 +4593,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::MirrorSourceItem</name>
+    <name>dccV20::update::MirrorSourceItem</name>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="10"/>
         <source>Untested</source>
@@ -4621,7 +4621,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::MirrorsWidget</name>
+    <name>dccV20::update::MirrorsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="49"/>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="62"/>
@@ -4645,7 +4645,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateCtrlWidget</name>
+    <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Restart the computer to use the system and the applications properly</source>
@@ -4773,7 +4773,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateHistoryButton</name>
+    <name>dccV20::update::UpdateHistoryButton</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="48"/>
         <source>Update History</source>
@@ -4781,7 +4781,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateModule</name>
+    <name>dccV20::update::UpdateModule</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="97"/>
         <source>Updates</source>
@@ -4789,7 +4789,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateSettings</name>
+    <name>dccV20::update::UpdateSettings</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="48"/>
         <source>Update Settings</source>
@@ -4848,7 +4848,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateWidget</name>
+    <name>dccV20::update::UpdateWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
         <source>Updates</source>
@@ -4884,7 +4884,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::wacom::PressureSettings</name>
+    <name>dccV20::wacom::PressureSettings</name>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
@@ -4903,7 +4903,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::wacom::WacomModule</name>
+    <name>dccV20::wacom::WacomModule</name>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="100"/>
         <source>Drawing Tablet</source>
@@ -4911,7 +4911,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::wacom::WacomWidget</name>
+    <name>dccV20::wacom::WacomWidget</name>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="46"/>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="65"/>
