@@ -179,14 +179,17 @@ void AccountsWidget::addUser(User *user, bool t1)
 
     item->setIcon(QIcon(pixmap));
 
-    //对用户全名做限制，如果长度超过32，就在后面显示...
+    //对用户全名做限制，如果长度超过29，就在后面显示...
     QString fullname = user->displayName();
-    if (fullname.length() > 32) {
-        QString newfullname = fullname.left(32) + QString("...");
-        item->setText(newfullname);
-    } else {
-        item->setText(fullname);
+    if (fullname.toLocal8Bit().size() > 29) {
+        for(auto i = 0; i < fullname.size(); ++i) {
+            if (fullname.left(i).toLocal8Bit().size() > 29) {
+                fullname = fullname.left(i - 1) + QString("...");
+                break;
+            }
+        }
     }
+    item->setText(fullname);
 
     if (user->isCurrentUser()) {
         //如果是当前用户
@@ -250,14 +253,17 @@ void AccountsWidget::connectUserWithItem(User *user)
         if (!titem) {
             return;
         }
-        //对用户全名做限制，如果长度超过32，就在后面显示...
+        //对用户全名做限制，如果长度超过29，就在后面显示...
         QString fullname = user->displayName();
-        if (fullname.length() > 32) {
-            QString newfullname = fullname.left(32) + QString("...");
-            titem->setText(newfullname);
-        } else {
-            titem->setText(fullname);
+        if (fullname.toLocal8Bit().size() > 29) {
+            for(auto i = 0; i < fullname.size(); ++i) {
+                if (fullname.left(i).toLocal8Bit().size() > 29) {
+                    fullname = fullname.left(i - 1) + QString("...");
+                    break;
+                }
+            }
         }
+        titem->setText(fullname);
     });
     connect(user, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
         int tindex = m_userList.indexOf(user);
