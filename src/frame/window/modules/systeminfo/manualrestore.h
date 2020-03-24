@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <dfilechooseredit.h>
 #include <com_deepin_daemon_grub2.h>
+#include <DWaterProgress>
 
 DWIDGET_USE_NAMESPACE
 
@@ -48,6 +49,7 @@ private:
     RestoreItem* m_systemRestore;
     RestoreItem* m_manualRestore;
     ActionType m_actionType;
+    DWaterProgress* m_loadingIndicator;
 };
 }
 }

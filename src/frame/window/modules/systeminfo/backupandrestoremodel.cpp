@@ -5,7 +5,7 @@ using namespace DCC_NAMESPACE::systeminfo;
 
 BackupAndRestoreModel::BackupAndRestoreModel(QObject *parent)
     : QObject(parent)
-    , m_backupButtonEnabled(false)
+    , m_backupButtonEnabled(true)
     , m_restoreButtonEnabled(true)
     , m_formatData(false)
     , m_manualRestoreCheckFailed(false)

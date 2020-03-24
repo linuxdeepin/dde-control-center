@@ -16,6 +16,7 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     , m_directoryChooseWidget(new DFileChooserEdit)
     , m_tipsLabel(new QLabel(tr("Invalid path")))
     , m_backupBtn(new QPushButton(tr("Backup")))
+    , m_loadingIndicator(new DWaterProgress)
 {
     m_tipsLabel->setWordWrap(true);
 
@@ -45,6 +46,7 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     mainLayout->addWidget(m_tipsLabel);
     mainLayout->addStretch();
     mainLayout->addWidget(m_backupBtn);
+    mainLayout->addWidget(m_loadingIndicator, 0, Qt::AlignHCenter);
 
     setLayout(mainLayout);
 
@@ -54,16 +56,26 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     fileDialog->setFileMode(QFileDialog::Directory);
     m_directoryChooseWidget->setFileDialog(fileDialog);
 
-    connect(model, &BackupAndRestoreModel::backupButtonEnabledChanged, m_backupBtn, &QPushButton::setEnabled);
+    connect(model, &BackupAndRestoreModel::backupButtonEnabledChanged, this, [=](bool enable) {
+        m_backupBtn->setVisible(enable);
+        m_loadingIndicator->setVisible(!enable);
+    });
     connect(m_directoryChooseWidget, &DFileChooserEdit::dialogClosed, this, &ManualBackup::onChoose);
     connect(m_backupBtn, &QPushButton::clicked, this, &ManualBackup::backup, Qt::QueuedConnection);
     connect(m_directoryChooseWidget->lineEdit(), &QLineEdit::textChanged, this, [=](const QString& text) {
         m_backupBtn->setEnabled(model->backupButtonEnabled() && !text.isEmpty());
     });
 
-    m_backupBtn->setEnabled(model->backupButtonEnabled());
+    m_backupBtn->setEnabled(!model->backupDirectory().isEmpty());
+    m_backupBtn->setVisible(model->backupButtonEnabled());
+    m_loadingIndicator->setVisible(!model->backupButtonEnabled());
 
     m_directoryChooseWidget->lineEdit()->setText(model->backupDirectory());
+
+    m_loadingIndicator->setValue(50);
+    m_loadingIndicator->setTextVisible(false);
+    m_loadingIndicator->setFixedSize(48, 48);
+    m_loadingIndicator->start();
 }
 
 void ManualBackup::onChoose()
@@ -83,6 +95,7 @@ void ManualBackup::onChoose()
     m_tipsLabel->hide();
 
     m_model->setBackupButtonEnabled(!m_directoryChooseWidget->lineEdit()->text().isEmpty());
+    m_backupBtn->setEnabled(true);
 }
 
 void ManualBackup::backup()
@@ -90,6 +103,8 @@ void ManualBackup::backup()
     const QString& choosePath = m_directoryChooseWidget->lineEdit()->text();
 
     if (!choosePath.isEmpty()) {
+        m_backupBtn->setVisible(false);
+        m_loadingIndicator->setVisible(true);
         Q_EMIT requestSetBackupDirectory(choosePath);
     }
 }
