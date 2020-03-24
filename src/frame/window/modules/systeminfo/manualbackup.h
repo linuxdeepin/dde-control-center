@@ -3,6 +3,7 @@
 #include "interface/namespace.h"
 #include <QWidget>
 #include <dfilechooseredit.h>
+#include <DWaterProgress>
 
 DWIDGET_USE_NAMESPACE
 
@@ -30,6 +31,7 @@ private:
     DFileChooserEdit* m_directoryChooseWidget;
     QLabel          * m_tipsLabel;
     QPushButton* m_backupBtn;
+    DWaterProgress* m_loadingIndicator;
 };
 }
 }

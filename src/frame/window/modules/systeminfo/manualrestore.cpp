@@ -91,6 +91,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     , m_tipsLabel(new QLabel)
     , m_backupBtn(new QPushButton(tr("Restore")))
     , m_actionType(ActionType::RestoreSystem)
+    , m_loadingIndicator(new DWaterProgress)
 {
     m_tipsLabel->setWordWrap(true);
 
@@ -159,6 +160,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     mainLayout->addWidget(m_tipsLabel);
     mainLayout->addStretch();
     mainLayout->addWidget(m_backupBtn);
+    mainLayout->addWidget(m_loadingIndicator, 0, Qt::AlignHCenter);
 
     setLayout(mainLayout);
 
@@ -173,13 +175,22 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     connect(m_backupBtn, &QPushButton::clicked, this, &ManualRestore::restore, Qt::QueuedConnection);
     connect(m_systemRestore->radioButton(), &QRadioButton::toggled, this, &ManualRestore::onItemChecked);
     connect(m_manualRestore->radioButton(), &QRadioButton::toggled, this, &ManualRestore::onItemChecked);
-    connect(model, &BackupAndRestoreModel::restoreButtonEnabledChanged, m_backupBtn, &QPushButton::setEnabled);
     connect(model, &BackupAndRestoreModel::manualRestoreCheckFailedChanged, this, &ManualRestore::onManualRestoreCheckFailed);
+    connect(model, &BackupAndRestoreModel::restoreButtonEnabledChanged, this, [=](bool enable) {
+        m_backupBtn->setVisible(enable);
+        m_loadingIndicator->setVisible(!enable);
+    });
 
-    m_backupBtn->setEnabled(model->restoreButtonEnabled());
     m_directoryChooseWidget->lineEdit()->setText(model->restoreDirectory());
     m_saveUserDataCheckBox->setChecked(model->formatData());
     onManualRestoreCheckFailed(model->manualRestoreCheckFailed());
+
+    m_backupBtn->setVisible(model->restoreButtonEnabled());
+    m_loadingIndicator->setVisible(!model->restoreButtonEnabled());
+    m_loadingIndicator->setValue(50);
+    m_loadingIndicator->setTextVisible(false);
+    m_loadingIndicator->setFixedSize(48, 48);
+    m_loadingIndicator->start();
 }
 
 void ManualRestore::onItemChecked()
@@ -247,6 +258,8 @@ void ManualRestore::restore()
         }
 
         Q_EMIT requestSystemRestore(formatData);
+        m_loadingIndicator->setVisible(true);
+        m_backupBtn->setVisible(false);
     }
 
     if (m_actionType == ActionType::ManualRestore) {
@@ -260,6 +273,8 @@ void ManualRestore::restore()
         }
 
         Q_EMIT requestManualRestore(selectPath);
+        m_loadingIndicator->setVisible(true);
+        m_backupBtn->setVisible(false);
     }
 }
 
