@@ -103,6 +103,7 @@ void DisplayWidget::onMonitorListChanged()
 {
     const auto mons = m_model->monitorList();
 
+    m_rotate->setVisible(mons.size() <= 1);
     if (m_isMultiScreen && mons.size() <= 1) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
