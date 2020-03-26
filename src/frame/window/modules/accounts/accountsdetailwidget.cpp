@@ -147,8 +147,8 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     if (fullname.isEmpty()) {
         fullname = tr("Full Name");
         m_fullName->setEnabled(false);
-    } else if (fullname.toLocal8Bit().size() > 29) {
-        for(auto i = 0; i < fullname.size(); ++i) {
+    } else if (fullname.toLocal8Bit().size() > 32) {
+        for(auto i = 1; i <= fullname.size(); ++i) {
             if (fullname.left(i).toLocal8Bit().size() > 29) {
                 fullname = fullname.left(i - 1) + QString("...");
                 break;
@@ -212,8 +212,8 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         if (fullname.isEmpty()) {
             tstr = tr("Full Name");
             m_fullName->setEnabled(false);
-        } else if (fullname.toLocal8Bit().size() > 29) {
-            for(auto i = 0; i < fullname.size(); ++i) {
+        } else if (fullname.toLocal8Bit().size() > 32) {
+            for(auto i = 1; i <= fullname.size(); ++i) {
                 if (fullname.left(i).toLocal8Bit().size() > 29) {
                     tstr = fullname.left(i - 1) + QString("...");
                     break;
