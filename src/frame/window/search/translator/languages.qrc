@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/translator"/>
     <qresource prefix="/">
-        <file>../../../../../translations/dde-control-center_es_419.ts</file>
         <file>../../../../../translations/dde-control-center_ml.ts</file>
         <file>../../../../../translations/dde-control-center_nl.ts</file>
         <file>../../../../../translations/dde-control-center_pt.ts</file>
@@ -57,7 +56,6 @@
         <file>../../../../../translations/dialogs_ro.ts</file>
         <file>../../../../../translations/dialogs_ur.ts</file>
         <file>../../../../../translations/dde-control-center_ast.ts</file>
-        <file>../../../../../translations/dde-control-center_gl.ts</file>
         <file>../../../../../translations/dialogs_en_AU.ts</file>
         <file>../../../../../translations/dialogs_sr.ts</file>
         <file>../../../../../translations/dialogs_eo.ts</file>
@@ -65,7 +63,6 @@
         <file>../../../../../translations/dialogs_az.ts</file>
         <file>../../../../../translations/dialogs_ca.ts</file>
         <file>../../../../../translations/dde-control-center_ko.ts</file>
-        <file>../../../../../translations/dialogs_es_419.ts</file>
         <file>../../../../../translations/dialogs_sv.ts</file>
         <file>../../../../../translations/dde-control-center_ro.ts</file>
         <file>../../../../../translations/dialogs_hr.ts</file>
