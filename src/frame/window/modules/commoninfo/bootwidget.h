@@ -49,6 +49,7 @@ public:
     void setDefaultEntry(const QString &value);
     void setModel(CommonInfoModel *model);
     void resizeEvent(QResizeEvent *event);
+    void setBootList();
 
 Q_SIGNALS:
     void enableTheme(bool value);
