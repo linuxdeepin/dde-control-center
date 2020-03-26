@@ -164,13 +164,23 @@ void SystemInfoModel::setProcessor(const QString &processor)
 
 void SystemInfoModel::setMemory(qulonglong totalMemory, qulonglong installedMemory)
 {
-    QString mem_device_size = formatCap(installedMemory, 1024, 0);
-    QString mem = formatCap(totalMemory);
+    QString mem;
+    QString mem_device_size;
+    QString mem_available_size;
+    auto envType = qEnvironmentVariable("XDG_SESSION_TYPE");
+    bool bWayland = envType.contains("wayland");
+    if (bWayland) {
+        mem_device_size = formatCap(totalMemory, 1000, 0);
+        mem_available_size = formatCap(totalMemory);
+    } else {
+        mem_device_size = formatCap(installedMemory, 1024, 0);
+        mem_available_size = formatCap(installedMemory);
+    }
+
+    mem = QString("%1 (%2 %3)").arg(mem_device_size, mem_available_size, tr("available"));
     if(m_memory == mem)
         return ;
-
     m_memory = mem;
-    m_memory = QString("%1 (%2 %3)").arg(mem_device_size, mem, tr("available"));
     memoryChanged(m_memory);
 }
 
