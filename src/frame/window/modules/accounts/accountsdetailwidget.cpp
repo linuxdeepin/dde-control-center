@@ -392,8 +392,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     //当前用户禁止使用删除按钮
-    const bool isOnline = m_curUser->online();
-    deleteAccount->setEnabled(!isOnline);
+    deleteAccount->setEnabled(!m_curUser->isCurrentUser());
 
     //修改密码，删除账户操作
     connect(modifyPassword, &QPushButton::clicked, [ = ] {
