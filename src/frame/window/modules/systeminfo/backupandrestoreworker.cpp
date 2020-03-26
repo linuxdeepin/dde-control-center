@@ -111,30 +111,19 @@ bool BackupAndRestoreWorker::doManualRestore()
 {
     const QString& selectPath = m_model->restoreDirectory();
 
-    auto checkValid = [](const QString& filePath, const QString& md5Path) -> bool {
-        QFile file(filePath);
-        QFile md5File(md5Path);
+    auto checkValid = [](const QString& filePath) -> bool {
+        QScopedPointer<QProcess> process(new QProcess);
+        process->setProgram("deepin-clone");
+        process->setArguments({"--dim-info", filePath});
+        process->start();
+        process->waitForFinished();
 
-        if (file.open(QIODevice::Text | QIODevice::ReadOnly) && md5File.open(QIODevice::Text | QIODevice::ReadOnly)) {
-            QScopedPointer<QProcess> process(new QProcess);
-            process->setProgram("md5sum");
-            process->setArguments({filePath});
-            process->start();
-            process->waitForFinished();
-
-            auto splitString = [=](const QString& source) -> QString {
-                const QStringList& list = source.simplified().split(" ");
-                return list.size() < 2 ? QString() : list.first();
-            };
-
-            return splitString(process->readAllStandardOutput()) == splitString(md5File.readAll());
-        }
-
-        return false;
+        return process->exitCode() == 0 && process->exitStatus() == QProcess::NormalExit;
     };
 
-    if (!checkValid(QString("%1/boot.dim").arg(selectPath), QString("%1/boot.md5").arg(selectPath)) ||
-        !checkValid(QString("%1/system.dim").arg(selectPath), QString("%1/system.md5").arg(selectPath))) {
+    if (!checkValid(QString("%1/boot.dim").arg(selectPath)) ||
+        !checkValid(QString("%1/system.dim").arg(selectPath))) {
+        qWarning() << Q_FUNC_INFO << "md5 check failed!";
         return false;
     }
 
@@ -143,6 +132,7 @@ bool BackupAndRestoreWorker::doManualRestore()
     process->waitForFinished(-1);
 
     if (process->exitCode() != 0) {
+        qWarning() << Q_FUNC_INFO << "restore tool run failed!";
         return false;
     }
 
@@ -174,6 +164,7 @@ bool BackupAndRestoreWorker::doSystemRestore()
     process->waitForFinished(-1);
 
     if (process->exitCode() != 0) {
+        qWarning() << Q_FUNC_INFO << "restore tool run failed!";
         return false;
     }
 
