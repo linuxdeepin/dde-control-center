@@ -175,7 +175,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     connect(m_backupBtn, &QPushButton::clicked, this, &ManualRestore::restore, Qt::QueuedConnection);
     connect(m_systemRestore->radioButton(), &QRadioButton::toggled, this, &ManualRestore::onItemChecked);
     connect(m_manualRestore->radioButton(), &QRadioButton::toggled, this, &ManualRestore::onItemChecked);
-    connect(model, &BackupAndRestoreModel::manualRestoreCheckFailedChanged, this, &ManualRestore::onManualRestoreCheckFailed);
+    connect(model, &BackupAndRestoreModel::manualRestoreErrorTypeChanged, this, &ManualRestore::onManualRestoreErrorChanged);
     connect(model, &BackupAndRestoreModel::restoreButtonEnabledChanged, this, [=](bool enable) {
         m_backupBtn->setVisible(enable);
         m_loadingIndicator->setVisible(!enable);
@@ -183,7 +183,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
 
     m_directoryChooseWidget->lineEdit()->setText(model->restoreDirectory());
     m_saveUserDataCheckBox->setChecked(model->formatData());
-    onManualRestoreCheckFailed(model->manualRestoreCheckFailed());
+    onManualRestoreErrorChanged(model->manualRestoreCheckFailed());
 
     m_backupBtn->setVisible(model->restoreButtonEnabled());
     m_loadingIndicator->setVisible(!model->restoreButtonEnabled());
@@ -211,10 +211,19 @@ void ManualRestore::onItemChecked()
     m_actionType = check ? ActionType::RestoreSystem : ActionType::ManualRestore;
 }
 
-void ManualRestore::onManualRestoreCheckFailed(bool failed)
+void ManualRestore::onManualRestoreErrorChanged(ErrorType errorType)
 {
-    m_tipsLabel->setText(tr("Backup file is invalid"));
-    m_tipsLabel->setVisible(failed);
+    switch (errorType) {
+    case ErrorType::MD5Error: {
+        m_tipsLabel->setText(tr("Backup file is invalid"));
+        m_tipsLabel->setVisible(true);
+        break;
+    }
+    default: {
+        m_tipsLabel->setVisible(false);
+        break;
+    }
+    }
 }
 
 void ManualRestore::restore()
@@ -269,7 +278,8 @@ void ManualRestore::restore()
         const QString& selectPath = m_directoryChooseWidget->lineEdit()->text();
 
         if (selectPath.isEmpty()) {
-            return onManualRestoreCheckFailed(true);
+            // TODO(justforlxz): 这里要更换成相应的错误，应该是ErrorType::PathError
+            return onManualRestoreErrorChanged(ErrorType::MD5Error);
         }
 
         Q_EMIT requestManualRestore(selectPath);

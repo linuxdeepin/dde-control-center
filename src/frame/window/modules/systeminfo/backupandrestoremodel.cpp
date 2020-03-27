@@ -8,7 +8,7 @@ BackupAndRestoreModel::BackupAndRestoreModel(QObject *parent)
     , m_backupButtonEnabled(true)
     , m_restoreButtonEnabled(true)
     , m_formatData(false)
-    , m_manualRestoreCheckFailed(false)
+    , m_manualBackupErrorType(ErrorType::NoError)
 {
 
 }
@@ -42,9 +42,13 @@ void BackupAndRestoreModel::setFormatData(bool formatData)
     m_formatData = formatData;
 }
 
-void BackupAndRestoreModel::setManualRestoreCheckFailed(bool manualRestoreCheckFailed)
+void BackupAndRestoreModel::setManualRestoreCheckFailed(ErrorType errorType)
 {
-    m_manualRestoreCheckFailed = manualRestoreCheckFailed;
+    if (m_manualBackupErrorType == errorType) {
+        return;
+    }
 
-    Q_EMIT manualRestoreCheckFailedChanged(manualRestoreCheckFailed);
+    m_manualBackupErrorType = errorType;
+
+    Q_EMIT manualRestoreErrorTypeChanged(errorType);
 }

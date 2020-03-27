@@ -1,6 +1,8 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "backupandrestoremodel.h"
+
 #include <QWidget>
 #include <dfilechooseredit.h>
 #include <com_deepin_daemon_grub2.h>
@@ -18,7 +20,6 @@ class QDBusPendingCallWatcher;
 
 namespace DCC_NAMESPACE {
 namespace systeminfo {
-class BackupAndRestoreModel;
 class ManualRestore : public QWidget
 {
     Q_OBJECT
@@ -32,7 +33,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onItemChecked();
     void restore();
-    void onManualRestoreCheckFailed(bool failed);
+    void onManualRestoreErrorChanged(ErrorType errorType);
 
 private:
     enum class ActionType {
