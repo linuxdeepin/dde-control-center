@@ -44,10 +44,6 @@ void BackupAndRestoreModel::setFormatData(bool formatData)
 
 void BackupAndRestoreModel::setManualRestoreCheckFailed(ErrorType errorType)
 {
-    if (m_manualBackupErrorType == errorType) {
-        return;
-    }
-
     m_manualBackupErrorType = errorType;
 
     Q_EMIT manualRestoreErrorTypeChanged(errorType);
