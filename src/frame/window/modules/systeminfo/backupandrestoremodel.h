@@ -42,7 +42,11 @@ public:
         return m_restoreDirectory;
     }
 
-    inline ErrorType manualRestoreCheckFailed() const {
+    inline ErrorType manualRestoreErrorType() const {
+        return m_manualBackupErrorType;
+    }
+
+    inline ErrorType manualBackupErrorType() const {
         return m_manualBackupErrorType;
     }
 
@@ -50,6 +54,7 @@ Q_SIGNALS:
     void backupButtonEnabledChanged(bool backupButtonEnabled) const;
     void restoreButtonEnabledChanged(bool restoreButtonEnabled) const;
     void manualRestoreErrorTypeChanged(ErrorType type) const;
+    void manualBackupErrorTypeChanged(ErrorType type) const;
 
 public Q_SLOTS:
     void setBackupButtonEnabled(bool backupButtonEnabled);
@@ -57,13 +62,15 @@ public Q_SLOTS:
     void setBackupDirectory(const QString& directory);
     void setRestoreDirectory(const QString& directory);
     void setFormatData(bool formatData);
-    void setManualRestoreCheckFailed(ErrorType errorType);
+    void setManualRestoreErrorType(ErrorType errorType);
+    void setManualBackupErrorType(ErrorType type);
 
 private:
     bool m_backupButtonEnabled;
     bool m_restoreButtonEnabled;
     bool m_formatData;
     ErrorType m_manualBackupErrorType;
+    ErrorType m_manualRestoreErrorType;
     QString m_backupDirectory;
     QString m_restoreDirectory;
 };
