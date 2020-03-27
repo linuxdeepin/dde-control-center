@@ -213,16 +213,21 @@ void ManualRestore::onItemChecked()
 
 void ManualRestore::onManualRestoreErrorChanged(ErrorType errorType)
 {
+    m_tipsLabel->setVisible(true);
+
     switch (errorType) {
-    case ErrorType::MD5Error: {
-        m_tipsLabel->setText(tr("Backup file is invalid"));
-        m_tipsLabel->setVisible(true);
-        break;
-    }
-    default: {
-        m_tipsLabel->setVisible(false);
-        break;
-    }
+        case ErrorType::MD5Error: {
+            m_tipsLabel->setText(tr("Backup file is invalid"));
+            break;
+        }
+        case ErrorType::GrubError: {
+            m_tipsLabel->setText(tr("Grub authentication failed"));
+            break;
+        }
+        default: {
+            m_tipsLabel->setVisible(false);
+            break;
+        }
     }
 }
 

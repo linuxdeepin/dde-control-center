@@ -4428,6 +4428,11 @@
         <translation>备份文件无效</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
+        <source>Grub authentication failed</source>
+        <translation>Grub认证失败</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="215"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
         <translation>还原所有设置会将系统盘恢复到您安装系统时的状态，您的数据将保留而用户名和密码会清空，请确认后操作</translation>
