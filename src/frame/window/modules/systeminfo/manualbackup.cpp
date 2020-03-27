@@ -14,7 +14,7 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     : QWidget(parent)
     , m_model(model)
     , m_directoryChooseWidget(new DFileChooserEdit)
-    , m_tipsLabel(new QLabel(tr("Invalid path")))
+    , m_tipsLabel(new QLabel)
     , m_backupBtn(new QPushButton(tr("Backup")))
     , m_loadingIndicator(new DWaterProgress)
 {
@@ -65,6 +65,7 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     connect(m_directoryChooseWidget->lineEdit(), &QLineEdit::textChanged, this, [=](const QString& text) {
         m_backupBtn->setEnabled(model->backupButtonEnabled() && !text.isEmpty());
     });
+    connect(model, &BackupAndRestoreModel::manualBackupErrorTypeChanged, this, &ManualBackup::onManualBackupErrorTypeChanged);
 
     m_backupBtn->setEnabled(!model->backupDirectory().isEmpty());
     m_backupBtn->setVisible(model->backupButtonEnabled());
@@ -76,24 +77,16 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     m_loadingIndicator->setTextVisible(false);
     m_loadingIndicator->setFixedSize(48, 48);
     m_loadingIndicator->start();
+
+    onManualBackupErrorTypeChanged(model->manualBackupErrorType());
 }
 
 void ManualBackup::onChoose()
 {
     m_backupBtn->setEnabled(false);
-
-    const QString& choosePath = m_directoryChooseWidget->lineEdit()->text();
-    if (choosePath.isEmpty()) {
-        return;
-    }
-
-    if (!(choosePath.startsWith("/data") || choosePath.startsWith("/home"))) {
-        m_tipsLabel->show();
-        return;
-    }
-
     m_tipsLabel->hide();
 
+    // TODO(justforlxz): need send signal to worker -> model;
     m_model->setBackupButtonEnabled(!m_directoryChooseWidget->lineEdit()->text().isEmpty());
     m_backupBtn->setEnabled(true);
 }
@@ -106,5 +99,25 @@ void ManualBackup::backup()
         m_backupBtn->setVisible(false);
         m_loadingIndicator->setVisible(true);
         Q_EMIT requestSetBackupDirectory(choosePath);
+    }
+}
+
+void ManualBackup::onManualBackupErrorTypeChanged(ErrorType type)
+{
+    m_tipsLabel->setVisible(true);
+
+    switch (type) {
+    case ErrorType::PathError: {
+        m_tipsLabel->setText(tr("Invalid path"));
+        break;
+    }
+    case ErrorType::ToolError: {
+        m_tipsLabel->setText(tr("Tool execution error"));
+        break;
+    }
+    default: {
+        m_tipsLabel->setVisible(false);
+        break;
+    }
     }
 }

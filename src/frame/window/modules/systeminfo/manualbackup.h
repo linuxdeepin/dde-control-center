@@ -1,6 +1,8 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "backupandrestoremodel.h"
+
 #include <QWidget>
 #include <dfilechooseredit.h>
 #include <DWaterProgress>
@@ -13,7 +15,6 @@ class QDBusPendingCallWatcher;
 
 namespace DCC_NAMESPACE {
 namespace systeminfo {
-class BackupAndRestoreModel;
 class ManualBackup : public QWidget {
     Q_OBJECT
 public:
@@ -25,6 +26,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onChoose();
     void backup();
+    void onManualBackupErrorTypeChanged(ErrorType type);
 
 private:
     BackupAndRestoreModel* m_model;
