@@ -48,4 +48,4 @@ target_link_libraries(${BIN_NAME} PUBLIC
 )
 
 # bin
-install(TARGETS ${BIN_NAME} DESTINATION bin)
+install(TARGETS ${BIN_NAME} DESTINATION /bin)
