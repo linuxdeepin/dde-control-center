@@ -224,6 +224,10 @@ void ManualRestore::onManualRestoreErrorChanged(ErrorType errorType)
             m_tipsLabel->setText(tr("Grub authentication failed"));
             break;
         }
+        case ErrorType::ToolError: {
+            m_tipsLabel->setText(tr("Tool execution error"));
+            break;
+        }
         default: {
             m_tipsLabel->setVisible(false);
             break;
