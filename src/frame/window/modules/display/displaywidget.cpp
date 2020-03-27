@@ -103,8 +103,13 @@ void DisplayWidget::onMonitorListChanged()
 {
     const auto mons = m_model->monitorList();
 
+    QDBusInterface  tInter("com.deepin.daemon.Display",
+                                       "/com/deepin/dde/Display",
+                                       "com.deepin.daemon.Display",
+                                       QDBusConnection::sessionBus());
+    QDBusReply<bool> canSwitch = tInter.call("CanSwitchMode");
     m_rotate->setVisible(mons.size() <= 1);
-    if (m_isMultiScreen && mons.size() <= 1) {
+    if (!canSwitch.value() || (m_isMultiScreen && mons.size() <= 1)) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
 
