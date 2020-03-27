@@ -27,15 +27,15 @@ void BackupAndRestoreWorker::manualBackup(const QString &directory)
 {
     m_model->setBackupDirectory(directory);
 
-    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
+    QFutureWatcher<ErrorType> *watcher = new QFutureWatcher<ErrorType>(this);
     connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher] {
-        const bool result = watcher->result();
-        qDebug() << Q_FUNC_INFO << result;
+        const ErrorType type = watcher->result();
+        qDebug() << Q_FUNC_INFO << "result type: " << type;
         m_model->setBackupButtonEnabled(true);
         watcher->deleteLater();
     });
 
-    QFuture<bool> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doManualBackup);
+    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doManualBackup);
     watcher->setFuture(future);
 
     m_model->setBackupButtonEnabled(false);
@@ -45,16 +45,16 @@ void BackupAndRestoreWorker::manualRestore(const QString &directory)
 {
     m_model->setRestoreDirectory(directory);
 
-    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
-    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher] {
-        const bool result = watcher->result();
+    QFutureWatcher<ErrorType> *watcher = new QFutureWatcher<ErrorType>(this);
+    connect(watcher, &QFutureWatcher<ErrorType>::finished, [this, watcher] {
+        const ErrorType result = watcher->result();
         qDebug() << Q_FUNC_INFO << result;
-        m_model->setManualRestoreCheckFailed(!result);
+        m_model->setManualRestoreCheckFailed(result);
         m_model->setRestoreButtonEnabled(true);
         watcher->deleteLater();
     });
 
-    QFuture<bool> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doManualRestore);
+    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doManualRestore);
     watcher->setFuture(future);
 
     m_model->setRestoreButtonEnabled(false);
@@ -64,35 +64,35 @@ void BackupAndRestoreWorker::systemRestore(bool formatData)
 {
     m_model->setFormatData(formatData);
 
-    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
-    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher] {
+    QFutureWatcher<ErrorType> *watcher = new QFutureWatcher<ErrorType>(this);
+    connect(watcher, &QFutureWatcher<ErrorType>::finished, [this, watcher] {
         const bool result = watcher->result();
         qDebug() << Q_FUNC_INFO << result;
         m_model->setRestoreButtonEnabled(true);
         watcher->deleteLater();
     });
 
-    QFuture<bool> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doSystemRestore);
+    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doSystemRestore);
     watcher->setFuture(future);
 
     m_model->setRestoreButtonEnabled(false);
 }
 
-bool BackupAndRestoreWorker::doManualBackup()
+ErrorType BackupAndRestoreWorker::doManualBackup()
 {
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << m_model->backupDirectory());
     process->waitForFinished(-1);
 
     if (process->exitCode() != 0) {
-        return false;
+        return ErrorType::ToolError;
     }
 
     QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
     watcher->waitForFinished();
     if (watcher->isError()) {
         qWarning() << Q_FUNC_INFO << watcher->error();
-        return false;
+        return ErrorType::GrubError;
     }
 
     QThread::sleep(5);
@@ -104,10 +104,10 @@ bool BackupAndRestoreWorker::doManualBackup()
     .method("Restart")
     .call();
 
-    return true;
+    return ErrorType::NoError;
 }
 
-bool BackupAndRestoreWorker::doManualRestore()
+ErrorType BackupAndRestoreWorker::doManualRestore()
 {
     const QString& selectPath = m_model->restoreDirectory();
 
@@ -124,7 +124,7 @@ bool BackupAndRestoreWorker::doManualRestore()
     if (!checkValid(QString("%1/boot.dim").arg(selectPath)) ||
         !checkValid(QString("%1/system.dim").arg(selectPath))) {
         qWarning() << Q_FUNC_INFO << "md5 check failed!";
-        return false;
+        return ErrorType::MD5Error;
     }
 
     QSharedPointer<QProcess> process(new QProcess);
@@ -133,14 +133,14 @@ bool BackupAndRestoreWorker::doManualRestore()
 
     if (process->exitCode() != 0) {
         qWarning() << Q_FUNC_INFO << "restore tool run failed!";
-        return false;
+        return ErrorType::ToolError;
     }
 
     QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
     watcher->waitForFinished();
     if (watcher->isError()) {
         qWarning() << Q_FUNC_INFO << watcher->error();
-        return false;
+        return ErrorType::GrubError;
     }
 
     QThread::sleep(5);
@@ -152,10 +152,10 @@ bool BackupAndRestoreWorker::doManualRestore()
     .method("Restart")
     .call();
 
-    return true;
+    return ErrorType::NoError;
 }
 
-bool BackupAndRestoreWorker::doSystemRestore()
+ErrorType BackupAndRestoreWorker::doSystemRestore()
 {
     const bool formatData = m_model->formatData();
 
@@ -165,14 +165,14 @@ bool BackupAndRestoreWorker::doSystemRestore()
 
     if (process->exitCode() != 0) {
         qWarning() << Q_FUNC_INFO << "restore tool run failed!";
-        return false;
+        return ErrorType::ToolError;
     }
 
     QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
     watcher->waitForFinished();
     if (watcher->isError()) {
         qWarning() << Q_FUNC_INFO << watcher->error();
-        return false;
+        return ErrorType::GrubError;
     }
 
     QThread::sleep(5);
@@ -184,5 +184,5 @@ bool BackupAndRestoreWorker::doSystemRestore()
     .method("Restart")
     .call();
 
-    return true;
+    return ErrorType::NoError;
 }
