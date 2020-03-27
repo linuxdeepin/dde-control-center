@@ -4433,6 +4433,11 @@
         <translation>备份文件无效</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="228"/>
+        <source>Tool execution error</source>
+        <translation>工具执行错误</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
         <source>Grub authentication failed</source>
         <translation>Grub认证失败</translation>
