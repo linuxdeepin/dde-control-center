@@ -183,7 +183,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
 
     m_directoryChooseWidget->lineEdit()->setText(model->restoreDirectory());
     m_saveUserDataCheckBox->setChecked(model->formatData());
-    onManualRestoreErrorChanged(model->manualRestoreCheckFailed());
+    onManualRestoreErrorChanged(model->manualRestoreErrorType());
 
     m_backupBtn->setVisible(model->restoreButtonEnabled());
     m_loadingIndicator->setVisible(!model->restoreButtonEnabled());

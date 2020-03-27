@@ -4385,6 +4385,11 @@
         <translation>此路径无效</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="115"/>
+        <source>Tool execution error</source>
+        <translation>工具执行错误</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="18"/>
         <source>Backup</source>
         <translation>备份</translation>

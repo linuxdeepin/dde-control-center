@@ -31,6 +31,7 @@ void BackupAndRestoreWorker::manualBackup(const QString &directory)
     connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher] {
         const ErrorType type = watcher->result();
         qDebug() << Q_FUNC_INFO << "result type: " << type;
+        m_model->setManualBackupErrorType(type);
         m_model->setBackupButtonEnabled(true);
         watcher->deleteLater();
     });
@@ -49,7 +50,7 @@ void BackupAndRestoreWorker::manualRestore(const QString &directory)
     connect(watcher, &QFutureWatcher<ErrorType>::finished, [this, watcher] {
         const ErrorType result = watcher->result();
         qDebug() << Q_FUNC_INFO << result;
-        m_model->setManualRestoreCheckFailed(result);
+        m_model->setManualRestoreErrorType(result);
         m_model->setRestoreButtonEnabled(true);
         watcher->deleteLater();
     });
@@ -80,6 +81,12 @@ void BackupAndRestoreWorker::systemRestore(bool formatData)
 
 ErrorType BackupAndRestoreWorker::doManualBackup()
 {
+    const QString& choosePath { m_model->backupDirectory()};
+
+    if (choosePath.isEmpty() || !(choosePath.startsWith("/data") || choosePath.startsWith("/home"))) {
+        return ErrorType::PathError;
+    }
+
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << m_model->backupDirectory());
     process->waitForFinished(-1);
