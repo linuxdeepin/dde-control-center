@@ -284,6 +284,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
         pwHLayout->addWidget(new QLabel(tr("Validity Days")), 0, Qt::AlignLeft);
         auto ageEdit = new DLineEdit();
+        ageEdit->setMinimumWidth(165);
         ageEdit->lineEdit()->setPlaceholderText(tr("Always"));
         ageEdit->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
         ageEdit->setClearButtonEnabled(false);
