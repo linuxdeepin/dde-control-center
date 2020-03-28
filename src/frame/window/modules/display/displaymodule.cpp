@@ -284,7 +284,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
     } else {
         lastres.w = qint16(m_displayModel->primaryMonitor()->currentMode().width());
         lastres.h = qint16(m_displayModel->primaryMonitor()->currentMode().height());
-        lastres.rate = qint16(m_displayModel->primaryMonitor()->currentMode().rate());
+        lastres.rate = m_displayModel->primaryMonitor()->currentMode().rate();
     }
 
     auto tfunc = [this](Monitor *tmon, CustomSettingDialog::ResolutionDate tmode) {
@@ -300,10 +300,19 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
 //                    if (fabs(r) > 0.000001 && fabs(res.rate() - r) > 0.000001) {
 //                        continue;
 //                    }
-                    if (res.width() == w && res.height() == h) {
-                        m_displayWorker->setMonitorResolution(m, res.id());
-                        break;
-                    }
+                     if (fabs(r) <0.000001 ){
+                         if (res.width() == w && res.height() == h) {
+                            m_displayWorker->setMonitorResolution(m, res.id());
+                            break;
+                         }
+                     }
+                     else{
+                         if (res.width() == w && res.height() == h&&abs(res.rate() - r) <0.000001) {
+                                m_displayWorker->setMonitorResolution(m, res.id());
+                                break;
+                         }
+                     }
+
                 }
             }
         } else {

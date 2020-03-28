@@ -230,14 +230,12 @@ void CustomSettingDialog::initOtherDialog()
 
 void CustomSettingDialog::initRefreshrateList()
 {
-    QStandardItemModel *listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
-    if (listModel) {
-        listModel->clear();
-    } else {
-        listModel = new QStandardItemModel(this);
-    }
+    if (m_freshListModel)
+        m_freshListModel->clear();
+    else
+        m_freshListModel = new QStandardItemModel(this);
     auto modes = m_monitor->modeList();
-    m_rateList->setModel(listModel);
+    m_rateList->setModel(m_freshListModel);
     Resolution pevR;
 
     auto moni = m_monitor;
@@ -261,7 +259,7 @@ void CustomSettingDialog::initRefreshrateList()
         }
         auto trate = m.rate();
         DStandardItem *item = new DStandardItem;
-        listModel->appendRow(item);
+        m_freshListModel->appendRow(item);
 
         auto tstr = QString::number(trate, 'g', 4) + tr("Hz");
         if (isFirst) {
@@ -553,6 +551,8 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
 
 void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
 {
+    initResolutionList();
+    initRefreshrateList();
     auto listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
     for (int i = 0; i < listModel->rowCount(); ++i) {
         auto tItem = listModel->item(i);
