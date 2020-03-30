@@ -53,7 +53,6 @@ DisplayModule::~DisplayModule()
     m_displayWorker->deleteLater();
 }
 
-
 void DisplayModule::initialize()
 {
 }
@@ -297,10 +296,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                      << "\t id: " << tmode.id;
             for (auto m : m_displayModel->monitorList()) {
                 for (auto res : m->modeList()) {
-//                    if (fabs(r) > 0.000001 && fabs(res.rate() - r) > 0.000001) {
-//                        continue;
-//                    }
-                     if (fabs(r) <0.000001 ){
+                     if (fabs(r) < 0.000001 ){
                          if (res.width() == w && res.height() == h) {
                             m_displayWorker->setMonitorResolution(m, res.id());
                             break;
@@ -312,7 +308,6 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                                 break;
                          }
                      }
-
                 }
             }
         } else {
