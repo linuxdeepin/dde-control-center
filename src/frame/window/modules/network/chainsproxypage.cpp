@@ -162,7 +162,7 @@ void ChainsProxyPage::onCheckValue()
     const QString &addr = m_addr->text();
     if (addr.isEmpty() || !isIPV4(addr)) {
         m_addr->setIsErr(true);
-        m_addr->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+        m_addr->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_addr, 2000);
         return;
     }
 
@@ -170,7 +170,7 @@ void ChainsProxyPage::onCheckValue()
     const uint port = m_port->text().toUInt(&ok);
     if (!ok) {
         m_port->setIsErr(true);
-        m_port->dTextEdit()->showAlertMessage(tr("Invalid port"), this, 2000);
+        m_port->dTextEdit()->showAlertMessage(tr("Invalid port"), m_port, 2000);
         return;
     }
 

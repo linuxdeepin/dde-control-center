@@ -446,7 +446,7 @@ bool IpvxSection::ipv4InputIsValid()
         if (!isIpv4Address(ip)) {
             valid = false;
             m_ipAddress->setIsErr(true);
-            m_ipAddress->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+            m_ipAddress->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_ipAddress, 2000);
         } else {
             m_ipAddress->setIsErr(false);
         }
@@ -458,7 +458,7 @@ bool IpvxSection::ipv4InputIsValid()
         if (!isIpv4SubnetMask(netmask)) {
             valid = false;
             m_netmaskIpv4->setIsErr(true);
-            m_netmaskIpv4->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+            m_netmaskIpv4->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_netmaskIpv4, 2000);
         } else {
             m_netmaskIpv4->setIsErr(false);
         }
@@ -467,7 +467,7 @@ bool IpvxSection::ipv4InputIsValid()
         if (gateway.isEmpty() || !isIpv4Address(gateway)) {
             valid = false;
             m_gateway->setIsErr(true);
-            m_gateway->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+            m_gateway->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_gateway, 2000);
         } else {
             m_gateway->setIsErr(false);
         }
@@ -477,7 +477,7 @@ bool IpvxSection::ipv4InputIsValid()
     if (!dnsPri.isEmpty() && !isIpv4Address(dnsPri)) {
         valid = false;
         m_dnsPrimary->setIsErr(true);
-        m_dnsPrimary->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+        m_dnsPrimary->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_dnsPrimary, 2000);
     } else {
         m_dnsPrimary->setIsErr(false);
     }
@@ -486,7 +486,7 @@ bool IpvxSection::ipv4InputIsValid()
     if (!dnsSec.isEmpty() && !isIpv4Address(dnsSec)) {
         valid = false;
         m_dnsSecond->setIsErr(true);
-        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_dnsSecond, 2000);
     } else {
         if (!dnsSec.isEmpty() && dnsPri.isEmpty()) {
             valid = false;
@@ -514,7 +514,7 @@ bool IpvxSection::ipv6InputIsValid()
         if (!isIpv6Address(ip)) {
             valid = false;
             m_ipAddress->setIsErr(true);
-            m_ipAddress->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+            m_ipAddress->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_ipAddress, 2000);
         } else {
             m_ipAddress->setIsErr(false);
         }
@@ -530,7 +530,7 @@ bool IpvxSection::ipv6InputIsValid()
         if (gateway.isEmpty() || !isIpv6Address(gateway)) {
             valid = false;
             m_gateway->setIsErr(true);
-            m_gateway->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+            m_gateway->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_gateway, 2000);
         } else {
             m_gateway->setIsErr(false);
         }
@@ -540,7 +540,7 @@ bool IpvxSection::ipv6InputIsValid()
     if (!dnsPri.isEmpty() && !isIpv6Address(dnsPri)) {
         valid = false;
         m_dnsPrimary->setIsErr(true);
-        m_dnsPrimary->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+        m_dnsPrimary->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_dnsPrimary, 2000);
     } else {
         m_dnsPrimary->setIsErr(false);
     }
@@ -549,7 +549,7 @@ bool IpvxSection::ipv6InputIsValid()
     if (!dnsSec.isEmpty() && !isIpv6Address(dnsSec)) {
         valid = false;
         m_dnsSecond->setIsErr(true);
-        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_dnsSecond, 2000);
     } else {
         if (!dnsSec.isEmpty() && dnsPri.isEmpty()) {
             valid = false;
