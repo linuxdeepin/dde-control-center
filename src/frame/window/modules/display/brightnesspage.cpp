@@ -107,6 +107,18 @@ void BrightnessPage::addSlider()
 {
     auto monList = m_displayModel->monitorList();
 
+    auto envType = qEnvironmentVariable("XDG_SESSION_TYPE");
+    bool bWayland = envType.contains("wayland");
+    if (bWayland) {
+        monList.clear();
+        for (auto monitor : m_displayModel->monitorList()) {
+            QString monitorName = monitor->name();
+            if(monitorName.contains("eDP")) {
+                monList.append(monitor);
+            }
+        }
+    }
+
     for (int i = 0; i < monList.size(); ++i) {
         //单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name());
