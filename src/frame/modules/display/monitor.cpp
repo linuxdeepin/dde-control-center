@@ -147,7 +147,14 @@ bool compareResolution(const Resolution &first, const Resolution &second)
     long secondSum = long(second.width()) * second.height();
     if (firstSum > secondSum)
         return true;
-    return false;
+    else if (firstSum == secondSum) {
+        if (first.rate() - second.rate() > 0.000001)
+            return true;
+        else
+            return false;
+    } else
+        return false;
+
 }
 
 void Monitor::setModeList(const ResolutionList &modeList)
