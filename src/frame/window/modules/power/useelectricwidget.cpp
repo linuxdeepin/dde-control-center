@@ -129,10 +129,12 @@ void UseElectricWidget::setModel(const PowerModel *model)
     m_suspendOnLidClose->setChecked(model->sleepOnLidOnPowerClose());
     setLockScreenAfter(model->getPowerLockScreenDelay());
 
-    //通过gsetting设置电脑待机是否显示
-    QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    auto listModule =  comSlpSettings->get("hide-module").toStringList();
-    m_computerSleepOnPower->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
+    if (m_computerSleepOnPower) {
+        //通过gsetting设置电脑待机是否显示
+        QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+        auto listModule =  comSlpSettings->get("hide-module").toStringList();
+        m_computerSleepOnPower->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
+    }
     m_suspendOnLidClose->setVisible(model->canSleep());
 }
 
