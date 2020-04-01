@@ -724,7 +724,7 @@ void MainWindow::resetNavList(bool isIconMode)
         m_backwardBtn->setEnabled(false);
     } else {
         //The second page will Covered with fill blank areas
-        m_navView->setViewportMargins(QMargins(10, 8, 11, 8));
+        m_navView->setViewportMargins(QMargins(10, 10, 10, 10));
         m_navView->setViewMode(QListView::ListMode);
         m_navView->setMinimumWidth(first_widget_min_width);
         m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
