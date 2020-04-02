@@ -213,7 +213,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="218"/>
-        <source>设备已被占用或无法连接！</source>
+        <source>The device is in use or cannot be connected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
