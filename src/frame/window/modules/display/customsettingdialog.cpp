@@ -230,14 +230,13 @@ void CustomSettingDialog::initOtherDialog()
 
 void CustomSettingDialog::initRefreshrateList()
 {
-    QStandardItemModel *listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
-    if (listModel) {
-        listModel->clear();
+    if (m_freshListModel) {
+        m_freshListModel->clear();
     } else {
-        listModel = new QStandardItemModel(this);
+        m_freshListModel = new QStandardItemModel(this);
     }
     auto modes = m_monitor->modeList();
-    m_rateList->setModel(listModel);
+    m_rateList->setModel(m_freshListModel);
     Resolution pevR;
 
     auto moni = m_monitor;
@@ -261,7 +260,7 @@ void CustomSettingDialog::initRefreshrateList()
         }
         auto trate = m.rate();
         DStandardItem *item = new DStandardItem;
-        listModel->appendRow(item);
+        m_freshListModel->appendRow(item);
 
         auto tstr = QString::number(trate, 'g', 4) + tr("Hz");
         if (isFirst) {
@@ -330,7 +329,7 @@ void CustomSettingDialog::initResolutionList()
             item->setText(res);
         }
 
-        if (curMode == m)
+        if (Monitor::isSameResolution(curMode, m))
             curIdx = item;
         m_resolutionListModel->appendRow(item);
     }
@@ -553,39 +552,8 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
 
 void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
 {
-    auto listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
-    for (int i = 0; i < listModel->rowCount(); ++i) {
-        auto tItem = listModel->item(i);
-
-        if (tItem->data(IdRole).toInt() == r.id()) {
-            tItem->setData(Qt::CheckState::Checked, Qt::CheckStateRole);
-        } else {
-            tItem->setData(Qt::CheckState::Unchecked, Qt::CheckStateRole);
-        }
-    }
-
-    for (auto idx = 0; idx < m_resolutionListModel->rowCount(); ++idx) {
-        auto item = m_resolutionListModel->item(idx);
-        if (m_model->isMerge()) {
-            auto w = item->data(WidthRole).toInt();
-            auto h = item->data(HeightRole).toInt();
-
-            if (w == r.width() && h == r.height()) {
-                item->setCheckState(Qt::Checked);
-            } else {
-                item->setCheckState(Qt::Unchecked);
-            }
-        } else {
-            auto id = item->data(IdRole).toInt();
-
-            if (id == r.id()) {
-                item->setCheckState(Qt::Checked);
-            } else {
-                item->setCheckState(Qt::Unchecked);
-            }
-        }
-    }
-
+    initResolutionList();
+    initRefreshrateList();
     resetDialog();
 }
 
