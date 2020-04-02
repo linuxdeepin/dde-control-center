@@ -170,7 +170,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     const std::list<std::pair<SyncType, QStringList>> list = m_model->moduleMap();
     for (auto it = list.cbegin(); it != list.cend(); ++it) {
         DStandardItem *item = new DStandardItem;
-        item->setCheckable(true);
+        item->setCheckable(false);
         item->setIcon(QIcon::fromTheme(moduleTs[it->first].first));
         item->setText(moduleTs[it->first].second);
         item->setData(it->first, Qt::WhatsThisPropertyRole);
