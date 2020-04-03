@@ -117,6 +117,8 @@ void TouchPadSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 
 void TouchPadSettingWidget::onTouchMoveSpeedChanged(int speed)
 {
+    if (!m_touchMoveSlider)
+        return;
     m_touchMoveSlider->slider()->blockSignals(true);
     m_touchMoveSlider->slider()->setValue(speed);
     m_touchMoveSlider->slider()->blockSignals(false);
