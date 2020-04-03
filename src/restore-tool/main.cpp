@@ -226,8 +226,12 @@ int main(int argc, char *argv[])
     const QDateTime& currentTime = QDateTime::currentDateTime();
     const QString& timeDirectory = currentTime.toString("yyyy-MM-dd-hh-mm-ss");
     const QString& type = [=]() -> QString {
-        if (actionType == ActionType::SystemRestore || actionType == ActionType::ManualRestore) {
-            return "Restore";
+        if (actionType == ActionType::SystemRestore) {
+            return "SystemRestore";
+        }
+
+        if (actionType == ActionType::ManualRestore) {
+            return "ManualRestore";
         }
 
         if (actionType == ActionType::ManualBackup) {
@@ -285,16 +289,6 @@ int main(int argc, char *argv[])
                              { "args", QJsonArray{ QString("UUID:%1").arg(UUID),
                                                    "backup/system.dim",
                                                    QString("UUID:%1").arg(rootUUID) } } },
-                QJsonObject{ { "message", "starting backup boot partition" },
-                             { "progress", true },
-                             { "enable", actionType == ActionType::ManualBackup },
-                             { "command", "create-backup-image" },
-                             { "args", QJsonArray{ QString("UUID:%1").arg(bootUUID),
-                                                   QString("UUID:%1").arg(realtiveUUID),
-                                                   QString("%1/%2").arg(realtivePath).arg(timeDirectory),
-                                                   "boot.dim",
-                                                   "boot.md5"
-                                                  } } },
                 QJsonObject{ { "message", "starting backup root partition" },
                              { "progress", true },
                              { "enable", actionType == ActionType::ManualBackup },
@@ -304,14 +298,6 @@ int main(int argc, char *argv[])
                                                    QString("%1/%2").arg(realtivePath).arg(timeDirectory),
                                                    "system.dim",
                                                    "system.md5"
-                                                  } } },
-                QJsonObject{ { "message", "starting restore boot partition" },
-                             { "progress", true },
-                             { "enable", actionType == ActionType::ManualRestore },
-                             { "command", "restore-partitions" },
-                             { "args", QJsonArray{ QString("UUID:%1").arg(realtiveUUID),
-                                                   QString("%1/boot.dim").arg(realtivePath),
-                                                   QString("UUID:%1").arg(bootUUID)
                                                   } } },
                 QJsonObject{ { "message", "starting restore root partition" },
                              { "progress", true },
@@ -341,7 +327,7 @@ int main(int argc, char *argv[])
                                                                    rootUUID) } } } },
                 QJsonObject{ { "message", "regenerate /etc/fstab" },
                              { "progress", false },
-                             { "enable", true },
+                             { "enable", false },
                              { "command", "generate-fstab" },
                              { "env", fstabObj } },
             }

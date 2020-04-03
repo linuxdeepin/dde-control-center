@@ -83,7 +83,7 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
 {
     const QString& choosePath { m_model->backupDirectory()};
 
-    if (choosePath.isEmpty() || !(choosePath.startsWith("/data") || choosePath.startsWith("/home"))) {
+    if (choosePath.isEmpty() || !choosePath.startsWith("/media")) {
         return ErrorType::PathError;
     }
 
@@ -128,8 +128,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
         return process->exitCode() == 0 && process->exitStatus() == QProcess::NormalExit;
     };
 
-    if (!checkValid(QString("%1/boot.dim").arg(selectPath)) ||
-        !checkValid(QString("%1/system.dim").arg(selectPath))) {
+    if (!checkValid(QString("%1/system.dim").arg(selectPath))) {
         qWarning() << Q_FUNC_INFO << "md5 check failed!";
         return ErrorType::MD5Error;
     }
