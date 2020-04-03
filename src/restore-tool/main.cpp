@@ -373,7 +373,7 @@ int main(int argc, char *argv[])
                                                                    rootUUID) } } } },
                 QJsonObject{ { "message", "regenerate /etc/fstab" },
                              { "progress", false },
-                             { "enable", true },
+                             { "enable", false },
                              { "command", "generate-fstab" },
                              { "env", fstabObj } },
             }
