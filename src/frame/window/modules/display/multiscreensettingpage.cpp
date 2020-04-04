@@ -71,6 +71,14 @@ void MultiScreenSettingPage::setModel(dcc::display::DisplayModel *model)
 
 void MultiScreenSettingPage::onItemClicked(const QModelIndex &index)
 {
+    if (m_listModel->itemData(index)[Qt::CheckStateRole].value<Qt::CheckState>() == Qt::Checked
+            || beSwitching)
+        return;
+
+    beSwitching = true;
+    m_modeList->setDisabled(true);;
+    update();
+    qDebug() << "set List disable & switch display mode!";
     switch (index.row()) {
     case 0:
         Q_EMIT requestDuplicateMode();
@@ -96,6 +104,7 @@ void MultiScreenSettingPage::onDisplayModeChanged()
     if (m_currIdx.isValid())
         m_listModel->setData(m_currIdx, Qt::Unchecked, Qt::CheckStateRole);
 
+//    switchIdx = -1;
     switch (m_model->displayMode()) {
     case MERGE_MODE:
         m_currIdx = m_listModel->index(0, 0);
@@ -120,6 +129,11 @@ void MultiScreenSettingPage::onDisplayModeChanged()
 
     if (m_currIdx.isValid())
         m_listModel->setData(m_currIdx, Qt::Checked, Qt::CheckStateRole);
+    QTimer::singleShot(1000, this, [this](){
+        qDebug() << "apply display mode succese! set display mode list enable.";
+        m_modeList->setDisabled(false);
+        beSwitching  = false;
+    });
 }
 
 void MultiScreenSettingPage::initModeList()

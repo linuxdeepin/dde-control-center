@@ -83,6 +83,8 @@ private:
     dcc::display::DisplayModel *m_model{nullptr};
     QStandardItemModel *m_listModel{nullptr};
     QModelIndex m_currIdx;
+    bool beSwitching{false};
+//    int switchIdx{-1};
 };
 
 }
