@@ -364,6 +364,10 @@ void IpvxSection::initConnection()
         }
     });
 
+    connect(m_ipAddress->textEdit(), &QLineEdit::selectionChanged, this, [this] {
+        m_ipAddress->textEdit()->setFocus();
+    });
+
     switch (m_currentIpvx) {
     case Ipv4:
         connect(m_methodChooser, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [ = ] {
