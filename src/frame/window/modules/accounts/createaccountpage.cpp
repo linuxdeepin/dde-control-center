@@ -380,17 +380,23 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
         return false;
     }
 
-    const int maxSize = 512;
-    if (userpassword.size() > maxSize) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
-        return false;
-    }
+//    const int maxSize = 512;
+//    if (userpassword.size() > maxSize) {
+//        edit->setAlert(true);
+//        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
+//        return false;
+//    }
 
-    bool result = validatePassword(userpassword);
-    if (!result) {
+//    bool result = validatePassword(userpassword);
+//    if (!result) {
+//        edit->setAlert(true);
+//        edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+//        return false;
+//    }
+    auto res = dcc::accounts::UserModel::validatePassword(edit->lineEdit()->text());
+    if (!res.isEmpty()) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+        edit->showAlertMessage(res);
         return false;
     }
 

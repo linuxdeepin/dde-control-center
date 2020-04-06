@@ -5390,6 +5390,24 @@ If no operation, the display will be restored after %1s.</source>
     </message>
 </context>
 <context>
+    <name>dcc::accounts::UserModel</name>
+    <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="51"/>
+        <source>Password must be between %1 and %2 characters</source>
+        <translation>密码长度必须在%1和%2之间</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="51"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>密码必须包含英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="51"/>
+        <source>Password must be contain %1 type charaters</source>
+        <translation>密码必须包含%1种不同类型的字符</translation>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="51"/>

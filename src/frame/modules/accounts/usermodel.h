@@ -75,6 +75,9 @@ Q_SIGNALS:
 #endif
     void deleteUserSuccess();
 
+public:
+    static QString validatePassword(const QString &password);
+
 private:
     bool m_bAutoLoginValid;
     bool m_bNoPassWordLoginValid;

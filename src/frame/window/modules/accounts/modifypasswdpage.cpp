@@ -21,6 +21,7 @@
 
 #include "modifypasswdpage.h"
 #include "widgets/titlelabel.h"
+#include "modules/accounts/usermodel.h"
 
 #include <DFontSizeManager>
 
@@ -240,9 +241,10 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         }
     }
 
-    if (!validatePassword(password)) {
+    auto res = UserModel::validatePassword(password);
+    if (!res.isEmpty()) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+        edit->showAlertMessage(res);
         return false;
     }
 
