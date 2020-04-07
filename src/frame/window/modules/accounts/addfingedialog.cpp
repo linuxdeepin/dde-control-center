@@ -72,6 +72,9 @@ void AddFingeDialog::initWidget()
 
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
+
+    this->activateWindow();
+    this->setFocus();
 }
 
 void AddFingeDialog::initData()
@@ -184,4 +187,10 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
     }
     QDialog::closeEvent(event);
 }
+
+void AddFingeDialog::focusOutEvent(QFocusEvent *event)
+{
+    enrollDisconnected();
+}
+
 
