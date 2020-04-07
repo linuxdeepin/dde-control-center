@@ -65,6 +65,7 @@ private:
 
 protected:
     void closeEvent(QCloseEvent *event) override;
+    void focusOutEvent(QFocusEvent *event) override;
 
 Q_SIGNALS:
     void requestSaveThumb(const QString &name);
