@@ -104,7 +104,8 @@ void NativeInfoWidget::initWidget()
     logoGroup->appendItem(logo);
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
-    infoGroup->appendItem(m_authorized);
+    if (!DCC_NAMESPACE::IsDesktopSystem)
+        infoGroup->appendItem(m_authorized);
     infoGroup->appendItem(m_kernel);
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);
@@ -183,8 +184,8 @@ const QString NativeInfoWidget::systemCopyright() const
     const QString oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
 
     if (oem_copyright.isEmpty()) {
-        if(DCC_NAMESPACE::IsDesktopSystem)
-            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Deepin Community")).arg(2019);
+        if (DCC_NAMESPACE::IsDesktopSystem)
+            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "www.deepin.org")).arg(2019);
         else
             return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-2020 UnionTech Software Technology Co., LTD")).arg(2019);
     } else {
