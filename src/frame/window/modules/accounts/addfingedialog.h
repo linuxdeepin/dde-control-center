@@ -74,6 +74,7 @@ Q_SIGNALS:
     void requestEnrollThumb();
 
 private:
+    QTimer *m_timer;
     dcc::accounts::FingerModel *m_model;
     QVBoxLayout *m_mainLayout;
     QHBoxLayout *m_titleHLayout;

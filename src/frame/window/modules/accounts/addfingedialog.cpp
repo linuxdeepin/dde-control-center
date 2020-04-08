@@ -35,6 +35,7 @@ using namespace DCC_NAMESPACE::accounts;
 
 AddFingeDialog::AddFingeDialog(const QString &thumb, DAbstractDialog *parent)
     : DAbstractDialog(parent)
+    , m_timer(new QTimer(parent))
     , m_mainLayout(new QVBoxLayout(this))
     , m_titleHLayout(new QHBoxLayout)
     , m_btnHLayout(new QHBoxLayout)
@@ -97,6 +98,8 @@ void AddFingeDialog::initData()
 void AddFingeDialog::setFingerModel(FingerModel *model)
 {
     m_model = model;
+    m_timer->setSingleShot(true);
+    connect(m_timer, &QTimer::timeout, this, &AddFingeDialog::enrollDisconnected);
     connect(m_model, &FingerModel::enrollCompleted, this, &AddFingeDialog::enrollCompleted);
     connect(m_model, &FingerModel::enrollStagePass, this, &AddFingeDialog::enrollStagePass);
     connect(m_model, &FingerModel::enrollFailed, this, &AddFingeDialog::enrollFailed);
@@ -107,6 +110,7 @@ void AddFingeDialog::setFingerModel(FingerModel *model)
             close();
         }
     });
+    m_timer->start(1000 * 60);//1min
 }
 
 void AddFingeDialog::setUsername(const QString &name)
@@ -124,6 +128,7 @@ void AddFingeDialog::enrollCompleted()
     m_fingeWidget->finished();
     m_addBtn->setText(tr("Done"));
     m_addBtn->setEnabled(true);
+    m_timer->stop();
     Q_EMIT requestStopEnroll(m_username);
 }
 
@@ -135,6 +140,7 @@ void AddFingeDialog::enrollStagePass(int pro)
 
     m_addBtn->setEnabled(false);
     m_fingeWidget->setProsses(pro);
+    m_timer->start(1000 * 60);//1min
 }
 
 void AddFingeDialog::enrollFailed(QString msg)
@@ -146,6 +152,7 @@ void AddFingeDialog::enrollFailed(QString msg)
     m_fingeWidget->setStatueMsg(tr("Scan Suspended"), msg, true);
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
+    m_timer->stop();
 
     Q_EMIT requestStopEnroll(m_username);
 }
@@ -157,6 +164,7 @@ void AddFingeDialog::enrollDisconnected()
     m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Suspended"), true);
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
+    m_timer->stop();
 
     //会出现末知情况，需要与后端确认中断时是否可以停止
     Q_EMIT requestStopEnroll(m_username);
@@ -169,6 +177,7 @@ void AddFingeDialog::enrollRetry(QString msg)
     }
 
     m_addBtn->setEnabled(false);
+    m_timer->start(1000 * 60);//1min
     m_fingeWidget->setStatueMsg(tr("Cannot recognize your fingerprint"), msg, false);
 }
 
