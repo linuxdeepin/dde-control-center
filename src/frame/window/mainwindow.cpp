@@ -408,12 +408,13 @@ void MainWindow::loadModules()
         auto *module = qobject_cast<ModuleInterface *>(instance);
         module->setFrameProxy(this);
 
-        if ( tr("Assistive Tools") == module->displayName()) {
-            m_modules.insert(13 , {module, module->displayName()});
-        } else {
-            m_modules.append({module, module->displayName()});
+        if (tr("Assistive Tools") == module->displayName() && !DCC_NAMESPACE::IsDesktopSystem) {
+            for (auto i : m_modules) {
+                if (i.second == tr("Keyboard and Language")) {
+                    m_modules.insert(m_modules.indexOf(i) + 1, {module, module->displayName()});
+                }
+            }
         }
-
     }
 }
 
