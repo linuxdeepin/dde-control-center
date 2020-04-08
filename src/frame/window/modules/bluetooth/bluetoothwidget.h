@@ -50,6 +50,7 @@ class BluetoothWidget : public dcc::ContentWidget
 
 public:
     explicit BluetoothWidget(dcc::bluetooth::BluetoothModel *model);
+    virtual ~BluetoothWidget();
     void setModel(dcc::bluetooth::BluetoothModel *model);
     void loadDetailPage();
 Q_SIGNALS:
