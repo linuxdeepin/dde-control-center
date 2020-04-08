@@ -140,7 +140,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_navModel = new QStandardItemModel(m_navView);
     m_navView->setModel(m_navModel);
     connect(m_navView, &DListView::activated, this, &MainWindow::onFirstItemClick);
-    connect(m_navView, &DListView::pressed, m_navView, &DListView::activated);
+    connect(m_navView, &DListView::clicked, m_navView, &DListView::activated);
 
     m_searchWidget = new SearchWidget(this);
     m_searchWidget->setMinimumSize(350, 36);
