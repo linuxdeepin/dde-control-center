@@ -48,6 +48,13 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model)
     QTimer::singleShot(1, this, &BluetoothWidget::setVisibleState);
 }
 
+BluetoothWidget::~BluetoothWidget()
+{
+    for (const Adapter *adapter : m_model->adapters()) {
+        m_bluetoothWorker->setAdapterDiscovering(QDBusObjectPath(adapter->id()), false);
+    }
+}
+
 void BluetoothWidget::setModel(BluetoothModel *model)
 {
     model->disconnect(this);
