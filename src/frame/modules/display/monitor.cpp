@@ -81,6 +81,16 @@ void Monitor::setH(const int h)
     Q_EMIT geometryChanged();
 }
 
+void Monitor::setMmWidth(const int mmWidth)
+{
+    m_mmWidth = mmWidth;
+}
+
+void Monitor::setMmHeight(const int mmHeight)
+{
+    m_mmHeight = mmHeight;
+}
+
 void Monitor::setScale(const double scale)
 {
     if (fabs(m_scale - scale) < DoubleZero)

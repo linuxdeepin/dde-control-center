@@ -50,6 +50,8 @@ public:
     inline int y() const { return m_y; }
     inline int w() const { return m_w; }
     inline int h() const { return m_h; }
+    inline int mmWidth() const { return m_mmWidth; }
+    inline int mmHeight() const { return m_mmHeight; }
     inline double scale() const { return m_scale; }
     inline bool isPrimary() const { return m_primary == m_name; }
     inline quint16 rotate() const { return m_rotate; }
@@ -86,6 +88,8 @@ private Q_SLOTS:
     void setY(const int y);
     void setW(const int w);
     void setH(const int h);
+    void setMmWidth(const int mmWidth);
+    void setMmHeight(const int mmHeight);
     void setScale(const double scale);
     void setPrimary(const QString &primaryName);
     void setRotate(const quint16 rotate);
@@ -102,6 +106,8 @@ private:
     int m_y;
     int m_w;
     int m_h;
+    int m_mmWidth;
+    int m_mmHeight;
     double m_scale;
     quint16 m_rotate;
     double m_brightness;

@@ -528,6 +528,8 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::YChanged, mon, &Monitor::setY);
     connect(inter, &MonitorInter::WidthChanged, mon, &Monitor::setW);
     connect(inter, &MonitorInter::HeightChanged, mon, &Monitor::setH);
+    connect(inter, &MonitorInter::MmWidthChanged, mon, &Monitor::setMmWidth);
+    connect(inter, &MonitorInter::MmHeightChanged, mon, &Monitor::setMmHeight);
     connect(inter, &MonitorInter::RotationChanged, mon, &Monitor::setRotate);
     connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
@@ -551,6 +553,8 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setModeList(inter->modes());
     mon->setRotateList(inter->rotations());
     mon->setPrimary(m_displayInter.primary());
+    mon->setMmWidth(inter->mmWidth());
+    mon->setMmHeight(inter->mmHeight());
 
     if (!m_model->brightnessMap().isEmpty()) {
         mon->setBrightness(m_model->brightnessMap()[mon->name()]);
