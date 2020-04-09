@@ -143,6 +143,11 @@ void APItem::setSortInfo(const APSortInfo &si)
     setData(QVariant::fromValue(si), SortRole);
 }
 
+APSortInfo APItem::sortInfo()
+{
+    return data(SortRole).value<APSortInfo>();
+}
+
 void APItem::setPath(const QString &path)
 {
     setData(path, PathRole);
@@ -666,6 +671,10 @@ void WirelessPage::updateActiveAp()
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
         bool isConnected = it.key() == activedSsid;
         it.value()->setConnected(isConnected);
+        APSortInfo info = it.value()->sortInfo();
+        info.connected = isConnected;
+        it.value()->setSortInfo(info);
+
         if (m_clickedItem == it.value()) {
             qDebug() << "click item: " << isConnected;
             bool loading = true;
