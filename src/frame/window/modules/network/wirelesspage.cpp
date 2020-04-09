@@ -263,6 +263,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_sortDelayTimer(new QTimer(this))
     , m_indicatorDelayTimer(new QTimer(this))
     , m_airplaninter(new AirplanInter("com.deepin.daemon.AirplaneMode","/com/deepin/daemon/AirplaneMode",QDBusConnection::systemBus(),this))
+    , m_requestWirelessScanTimer(new QTimer(this))
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -288,6 +289,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     m_indicatorDelayTimer->setInterval(300);
     m_indicatorDelayTimer->setSingleShot(true);
+
+    m_requestWirelessScanTimer->setInterval(60000);
+    m_requestWirelessScanTimer->setSingleShot(false);
 
     APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
     nonbc->setSignalStrength(-1);
@@ -385,6 +389,10 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_device, &WirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
 
+    connect(m_requestWirelessScanTimer, &QTimer::timeout, this, [=] {
+           Q_EMIT requestDeviceAPList(m_device->path());
+           Q_EMIT requestWirelessScan();
+    });
     // init data
     const QJsonArray mApList = m_device->apList();
     if (!mApList.isEmpty()) {
@@ -392,6 +400,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             onAPAdded(ap.toObject());
         }
     }
+
+    m_requestWirelessScanTimer->start();
+
     QTimer::singleShot(100, this, [=] {
         Q_EMIT requestDeviceAPList(m_device->path());
         Q_EMIT requestWirelessScan();
@@ -404,6 +415,7 @@ WirelessPage::~WirelessPage()
     if (scroller) {
         scroller->stop();
     }
+    m_requestWirelessScanTimer->stop();
 }
 
 void WirelessPage::updateLayout(bool enabled)
@@ -576,7 +588,8 @@ void WirelessPage::onDeviceRemoved()
     if (!m_apEditPage.isNull()) {
         m_apEditPage->onDeviceRemoved();
     }
-
+    Q_EMIT requestDeviceAPList(m_device->path());
+    Q_EMIT requestWirelessScan();
     // destroy self page
     Q_EMIT back();
 }
@@ -602,15 +615,41 @@ void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid
 void WirelessPage::refreshLoadingIndicator()
 {
     QString activeSsid;
+    static QString activingSsid;
     for (auto activeConnObj : m_device->activeConnections()) {
         if (activeConnObj.value("Vpn").toBool(false)) {
             continue;
         }
+        if( activeConnObj.value("Id").toString()  == m_lastConnectSsid ){
+            for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+                if( it.value()->sortInfo().ssid == m_lastConnectSsid){
+                        for(int temp = 0; temp < m_modelAP->rowCount();temp++ ){
+                            if(m_modelAP->index(temp,0).data().toString() == m_lastConnectSsid){
+                                QModelIndex indexFromList = m_modelAP->index(temp, 0);
+                                m_lvAP->clicked(indexFromList);
+                                m_lvAP->setCurrentIndex(indexFromList);
+                                m_lastConnectSsid = "";
+                                break;
+                            }
+                        }
+                }
+            }
+            continue;
+        }
+
         // the State of Active Connection
         // 0:Unknow, 1:Activating, 2:Activated, 3:Deactivating, 4:Deactivated
+        if (activingSsid == activeConnObj.value("Id").toString() && activeConnObj.value("State").toInt(0) == 4) {
+            m_lastConnectSsid =  activeConnObj.value("Id").toString();
+            continue;
+        }
+
         if (activeConnObj.value("State").toInt(0) != 1) {
             break;
+        } else {
+            activingSsid = activeConnObj.value("Id").toString();
         }
+
         activeSsid = activeConnObj.value("Id").toString();
         break;
     }
