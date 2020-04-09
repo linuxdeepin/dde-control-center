@@ -91,6 +91,7 @@ Q_SIGNALS:
     void requestSetGroups(dcc::accounts::User *user, const QStringList &usrGroups);
     void requsetSetPassWordAge(dcc::accounts::User *user, const int age);
     void requestDeleteFingerItem(const QString &userName, const QString& finger);
+    void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
     void noticeEnrollCompleted(QString username);
 
 protected:

@@ -110,9 +110,9 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
         connect(item, &AccounntFingeItem::removeClicked, this, [this, finger] {
             Q_EMIT requestDeleteFingerItem(m_curUser->name(), finger);
         });
-        connect(item, &AccounntFingeItem::editTextFinished, this, [item](QString finger) {
-           item->setTitle(finger);
-
+        connect(item, &AccounntFingeItem::editTextFinished, this, [this, finger, item](QString newName) {
+            item->setTitle(newName);
+            Q_EMIT requestRenameFingerItem(m_curUser->name(), finger, newName);
         });
 
         if(m_clearBtn->isChecked())
