@@ -135,12 +135,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 
     connect(m_progress, &DownloadProgressBar::clicked, this, &UpdateCtrlWidget::onProgressBarClicked);
     connect(m_fullProcess, &DownloadProgressBar::clicked, this, &UpdateCtrlWidget::onProgressBarClicked);
-
-    if (m_model->systemActivation()) {
-        m_checkUpdateItem->setVisible(true);
-    } else {
-        m_checkUpdateItem->setVisible(false);
-    }
+    m_checkUpdateItem->setVisible(true);
 }
 
 UpdateCtrlWidget::~UpdateCtrlWidget()
@@ -199,10 +194,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
     m_status = status;
 
-    if (!m_model->systemActivation()) {
-        m_status = NoAtive;
-    }
-
     Q_EMIT notifyUpdateState(m_status);
 
     m_powerTip->setVisible(false);
@@ -240,7 +231,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_fullProcess->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
         setLowBattery(m_model->lowBattery());
-        setShowInfo(m_model->systemActivation());
+        setShowInfo(true);
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
