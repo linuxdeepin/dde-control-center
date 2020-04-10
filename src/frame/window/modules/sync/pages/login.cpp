@@ -1,4 +1,5 @@
 #include "login.h"
+#include "window/utils.h"
 
 #include <DSuggestButton>
 #include <DFontSizeManager>
@@ -58,7 +59,9 @@ LoginPage::LoginPage(QWidget *parent)
     sps->setWordWrap(true);
     m_mainLayout->addWidget(sps, 0, Qt::AlignHCenter);
     m_mainLayout->addStretch(5);
-
+    if (IsDesktopSystem) {
+        sps->setVisible(false);
+    }
     setLayout(m_mainLayout);
 
     connect(loginBtn, &QPushButton::clicked, this, &LoginPage::requestLoginUser);
