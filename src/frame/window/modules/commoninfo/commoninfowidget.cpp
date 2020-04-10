@@ -78,10 +78,10 @@ void CommonInfoWidget::initData()
             //~ contents_path /commoninfo/Developer Mode
             m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
                                QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)});
+            //~ contents_path /commoninfo/User Experience Program
+            m_itemList.append({"dcc_ue_plan", tr("User Experience Program"),
+                               QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)});
         }
-        //~ contents_path /commoninfo/User Experience Program
-        m_itemList.append({"dcc_ue_plan", tr("User Experience Program"),
-                           QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)});
 
 #if 0
         m_itemList.append({"", tr("Tablet Mode"),
