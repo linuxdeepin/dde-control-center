@@ -24,6 +24,9 @@
 
 #include <QProgressBar>
 #include <QLabel>
+#include <DSysInfo>
+
+DCORE_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {

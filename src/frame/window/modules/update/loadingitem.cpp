@@ -91,7 +91,12 @@ void LoadingItem::setVersionVisible(bool state)
 
 void LoadingItem::setSystemVersion(QString version)
 {
-    m_labelText->setText(QString("V%1").arg(version));
+    if(DSysInfo::isCommunityEdition())
+    {
+        m_labelText->setText("Deepin " + DSysInfo::deepinVersion());
+    } else{
+        m_labelText->setText(DSysInfo::productTypeString().toUpper()+ " " + DSysInfo::deepinTypeDisplayName() + " " + DSysInfo::productVersion());
+    }
 }
 
 void LoadingItem::setImage(QImage *image)
