@@ -109,30 +109,30 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_autoUrl->setPlaceholderText(tr("Optional"));
     m_autoUrl->setTitle(tr("Configuration URL"));
 
-    SettingsGroup *httpGroup = new SettingsGroup;
-    httpGroup->appendItem(m_httpAddr);
-    httpGroup->appendItem(m_httpPort);
+    m_httpGroup = new SettingsGroup;
+    m_httpGroup->appendItem(m_httpAddr);
+    m_httpGroup->appendItem(m_httpPort);
 
-    SettingsGroup *httpsGroup = new SettingsGroup;
-    httpsGroup->appendItem(m_httpsAddr);
-    httpsGroup->appendItem(m_httpsPort);
+    m_httpsGroup = new SettingsGroup;
+    m_httpsGroup->appendItem(m_httpsAddr);
+    m_httpsGroup->appendItem(m_httpsPort);
 
-    SettingsGroup *ftpGroup = new SettingsGroup;
-    ftpGroup->appendItem(m_ftpAddr);
-    ftpGroup->appendItem(m_ftpPort);
+    m_ftpGroup = new SettingsGroup;
+    m_ftpGroup->appendItem(m_ftpAddr);
+    m_ftpGroup->appendItem(m_ftpPort);
 
-    SettingsGroup *socksGroup = new SettingsGroup;
-    socksGroup->appendItem(m_socksAddr);
-    socksGroup->appendItem(m_socksPort);
+    m_socksGroup = new SettingsGroup;
+    m_socksGroup->appendItem(m_socksAddr);
+    m_socksGroup->appendItem(m_socksPort);
 
     SettingsGroup *autoGroup = new SettingsGroup;
     autoGroup->appendItem(m_autoUrl);
 
     QVBoxLayout *manualLayout = new QVBoxLayout;
-    manualLayout->addWidget(httpGroup);
-    manualLayout->addWidget(httpsGroup);
-    manualLayout->addWidget(ftpGroup);
-    manualLayout->addWidget(socksGroup);
+    manualLayout->addWidget(m_httpGroup);
+    manualLayout->addWidget(m_httpsGroup);
+    manualLayout->addWidget(m_ftpGroup);
+    manualLayout->addWidget(m_socksGroup);
     manualLayout->addWidget(m_ignoreList);
     manualLayout->addWidget(ignoreTips);
     manualLayout->setMargin(0);
@@ -224,6 +224,43 @@ void ProxyPage::onProxyToggled(const int index)
 
 void ProxyPage::applySettings() const
 {
+    bool ok = true;
+    if (!m_httpPort->text().isEmpty()) {
+        m_httpPort->text().toUInt(&ok);
+        if (!ok) {
+            m_httpPort->setIsErr(true);
+            m_httpPort->dTextEdit()->showAlertMessage(tr("Invalid port"), m_httpGroup, 2000);
+            return;
+        }
+    }
+
+    if (!m_httpsPort->text().isEmpty()) {
+        m_httpsPort->text().toUInt(&ok);
+        if (!ok) {
+            m_httpsPort->setIsErr(true);
+            m_httpsPort->dTextEdit()->showAlertMessage(tr("Invalid port"), m_httpsGroup, 2000);
+            return;
+        }
+    }
+
+    if (!m_ftpPort->text().isEmpty()) {
+        m_ftpPort->text().toUInt(&ok);
+        if (!ok) {
+            m_ftpPort->setIsErr(true);
+            m_ftpPort->dTextEdit()->showAlertMessage(tr("Invalid port"), m_ftpGroup, 2000);
+            return;
+        }
+    }
+
+    if (!m_socksPort->text().isEmpty()) {
+        m_socksPort->text().toUInt(&ok);
+        if (!ok) {
+            m_socksPort->setIsErr(true);
+            m_socksPort->dTextEdit()->showAlertMessage(tr("Invalid port"), m_socksGroup, 2000);
+            return;
+        }
+    }
+
     Q_EMIT requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
     Q_EMIT requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
     Q_EMIT requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());

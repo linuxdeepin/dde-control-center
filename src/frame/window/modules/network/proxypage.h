@@ -44,6 +44,7 @@ namespace widgets {
 class LineEditWidget;
 class PlainTextItem;
 class ButtonTuple;
+class SettingsGroup;
 }
 }
 
@@ -96,6 +97,10 @@ private:
 
     dcc::widgets::LineEditWidget *m_autoUrl;
 
+    dcc::widgets::SettingsGroup *m_httpGroup;
+    dcc::widgets::SettingsGroup *m_httpsGroup;
+    dcc::widgets::SettingsGroup *m_ftpGroup;
+    dcc::widgets::SettingsGroup *m_socksGroup;
     DButtonBox *m_proxyTabs;
     QList<DButtonBoxButton *> m_tablist;
 };
