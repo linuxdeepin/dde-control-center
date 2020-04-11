@@ -72,11 +72,11 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
         m_editTitle->hideAlertMessage();
     });
     connect(m_editTitle->lineEdit(), &QLineEdit::editingFinished, this, [this] {
+        m_editTitle->lineEdit()->clearFocus();
         if(onNameEditFinished(m_editTitle)) {
             Q_EMIT editTextFinished(m_editTitle->text());
         }
         setEditTitle(false);
-        m_editTitle->lineEdit()->clearFocus();
     });
 }
 
