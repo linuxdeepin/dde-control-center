@@ -75,7 +75,11 @@ void NativeInfoWidget::initWidget()
     m_version = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_version->setTitle(tr("Edition:"));
-    m_version->setValue(m_model->version());
+    if(DSysInfo::isCommunityEdition()) {
+        m_version->setValue(DSysInfo::productVersion());
+    } else {
+        m_version->setValue(m_model->version());
+    }
     m_type = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_type->setTitle(tr("Type:"));
@@ -185,7 +189,7 @@ const QString NativeInfoWidget::systemCopyright() const
 
     if (oem_copyright.isEmpty()) {
         if (DCC_NAMESPACE::IsDesktopSystem)
-            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "www.deepin.org")).arg(2019);
+            return QString("www.deepin.org");
         else
             return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-2020 UnionTech Software Technology Co., LTD")).arg(2019);
     } else {

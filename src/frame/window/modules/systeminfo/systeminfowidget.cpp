@@ -98,7 +98,7 @@ void SystemInfoWidget::initData()
 #endif
 
     if(DCC_NAMESPACE::IsDesktopSystem) {
-        m_itemList.removeAt(2);
+        //m_itemList.removeAt(2);
     }
 
     for (auto m : m_itemList) {
