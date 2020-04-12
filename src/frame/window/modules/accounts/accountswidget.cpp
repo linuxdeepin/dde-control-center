@@ -209,6 +209,8 @@ void AccountsWidget::addUser(User *user, bool t1)
 
                 m_userList.insert(idx, user);
                 m_userList.pop_back();
+
+                handleRequestBack(ActionOption::CreateUserSuccess);
                 break;
             }
         }
@@ -336,7 +338,7 @@ void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
         }
         break;
     case AccountsWidget::CreateUserSuccess: { //创建账户成功
-        QModelIndex qindex1 = m_userItemModel->index(m_userItemModel->rowCount() - 1, 0);
+        QModelIndex qindex1 = m_userItemModel->index(0,0);
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex1);
         onItemClicked(qindex1);
