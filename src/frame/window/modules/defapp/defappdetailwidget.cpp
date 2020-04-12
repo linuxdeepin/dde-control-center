@@ -241,6 +241,7 @@ void DefappDetailWidget::onListViewClicked(const QModelIndex& index) {
     if (!isValid(app))
         return;
     qDebug()  <<  "set default app "  << app.Name;
+    m_category->setDefault(app);
     updateListView(app);
     //set default app
     Q_EMIT requestSetDefaultApp(m_categoryName, app);
