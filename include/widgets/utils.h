@@ -5,6 +5,7 @@
 #include <QLocale>
 #include <QFile>
 #include <QSettings>
+#include <QTextCodec>
 
 static const QStringList DCC_CONFIG_FILES {
     "/etc/deepin/dde-control-center.conf",
@@ -34,9 +35,10 @@ static const QString getLicense(const QString &filePath, const QString &type)
         return QString();
 
     const QByteArray buf = license.readAll();
+    QTextCodec *tc = QTextCodec::codecForName("GBK");
     license.close();
 
-    return std::move(buf);
+    return tc->toUnicode(buf);
 }
 
 template <typename T>

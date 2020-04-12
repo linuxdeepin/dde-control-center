@@ -285,7 +285,6 @@ void RecoveryDialog::initUI()
     addContent(txt);
     addButton(tr("Cancel and Reboot"), true, DDialog::ButtonRecommend);
     addButton(tr("Confirm"), true, DDialog::ButtonRecommend);
-
     connect(this, &DDialog::buttonClicked, this, [ = ](int index, const QString & text) {
         Q_UNUSED(text)
         Q_EMIT notifyButtonClicked(index);
