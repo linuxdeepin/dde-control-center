@@ -33,6 +33,9 @@
 #include <QVBoxLayout>
 #include <QStandardItemModel>
 #include <QStackedLayout>
+#include <DSysInfo>
+
+DCORE_USE_NAMESPACE
 
 using namespace dcc::update;
 using namespace dcc::widgets;
@@ -171,7 +174,11 @@ void UpdateWidget::setSystemVersion(QString version)
         m_systemVersion = version.remove('"');
     }
 
-    m_label->setText(QString("%1 V%2").arg(tr("Current Edition")).arg(version.remove('"')));
+    if (DSysInfo::isCommunityEdition()) {
+        m_label->setText("Deepin " + DSysInfo::deepinVersion());
+    } else {
+        m_label->setText(QString("%1 V%2").arg(tr("Current Edition")).arg(version.remove('"')));
+    }
 }
 
 void UpdateWidget::resetUpdateCheckState(bool state)
