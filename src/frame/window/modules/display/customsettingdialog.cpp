@@ -70,7 +70,7 @@ void CustomSettingDialog::initUI()
 {
     setMinimumWidth(480);
     setMinimumHeight(600);
-    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint );
+    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_layout = new QVBoxLayout();
@@ -79,7 +79,7 @@ void CustomSettingDialog::initUI()
     auto btnBox = new DButtonBox(this);
     m_layout->addWidget(btnBox, 0, Qt::AlignHCenter);
 
-    auto initlistfunc = [](DListView *list) {
+    auto initlistfunc = [](DListView * list) {
         list->setEditTriggers(DListView::NoEditTriggers);
         list->setSelectionMode(DListView::NoSelection);
         list->setSizeAdjustPolicy(DListView::AdjustToContents);
@@ -148,6 +148,14 @@ void CustomSettingDialog::initUI()
 void CustomSettingDialog::setModel(DisplayModel *model)
 {
     m_model = model;
+    if (model->isRefreshRateEnable() == false) {
+        for (auto btn : m_vSegBtn) {
+            if (btn->text() == tr("Refresh Rate")) {
+                btn->hide();
+                break;
+            }
+        }
+    }
 
     resetMonitorObject(model->primaryMonitor());
     m_isPrimary = true;
@@ -163,7 +171,14 @@ void CustomSettingDialog::setModel(DisplayModel *model)
 void CustomSettingDialog::initWithModel()
 {
     Q_ASSERT(m_model);
-
+    if (m_model->isRefreshRateEnable() == false) {
+        for (auto btn : m_vSegBtn) {
+            if (btn->text() == tr("Refresh Rate")) {
+                btn->hide();
+                break;
+            }
+        }
+    }
     initMoniControlWidget();
     initResolutionList();
     initRefreshrateList();
@@ -353,7 +368,7 @@ void CustomSettingDialog::initMoniList()
         titleAction->setText(moni->name());
 
         auto *subTitleAction = new DViewItemAction;
-        QString str = QString("%1 %2 ").arg(QString::number(qSqrt(pow(moni->mmWidth(),2)+pow(moni->mmHeight(),2))/25.4, 'g', 3)).arg(tr("inch"));
+        QString str = QString("%1 %2 ").arg(QString::number(qSqrt(pow(moni->mmWidth(), 2) + pow(moni->mmHeight(), 2)) / 25.4, 'g', 3)).arg(tr("inch"));
         str += (tr("Resolution %1x%2").arg(QString::number(moni->w())).arg(QString::number(moni->h())));
         subTitleAction->setText(str);
 
@@ -443,7 +458,7 @@ void CustomSettingDialog::initConnect()
             this->requestSetResolution(m_monitor, res);
         }
     });
-    connect(m_rateList, &DListView::clicked, this, [this](QModelIndex idx){
+    connect(m_rateList, &DListView::clicked, this, [this](QModelIndex idx) {
         auto lm = m_rateList->model();
         auto check = lm->data(idx, Qt::CheckStateRole);
         if (check == Qt::Checked)
@@ -560,7 +575,7 @@ void CustomSettingDialog::resetDialog()
 {
     //当收到屏幕变化的消息后，屏幕数据还是旧的
     //需要用QTimer把对窗口的改变放在屏幕数据应用后
-    QTimer::singleShot(sender() ? 1000 : 0, this, [=] {
+    QTimer::singleShot(sender() ? 1000 : 0, this, [ = ] {
         m_monitroControlWidget->adjustSize();
         adjustSize();
 

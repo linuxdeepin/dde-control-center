@@ -160,7 +160,7 @@ void DisplayWorker::mergeScreens()
     Resolution bestMode = modes.first();
     for (auto m : modes) {
         bool isCommon = true;
-        for (int i = 1; i< monis.size(); ++i) {
+        for (int i = 1; i < monis.size(); ++i) {
             if (!monis[i]->hasResolution(m)) {
                 isCommon = false;
                 break;
@@ -173,7 +173,7 @@ void DisplayWorker::mergeScreens()
 
         qDebug() << "get same resolution:" << m.width() << " x " << m.height();
         auto ts = m.width() * m.height();
-        if ( ts <= maxSize)
+        if (ts <= maxSize)
             continue;
 
         bestMode = m;
@@ -369,7 +369,7 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 
 void DisplayWorker::setMonitorRotateAll(const quint16 rotate)
 {
-    qDebug()<<rotate;
+    qDebug() << rotate;
     for (auto *mi : m_monitors)
         mi->SetRotation(rotate).waitForFinished();
 
@@ -439,7 +439,8 @@ void DisplayWorker::setUiScale(const double value)
         if (call.isError())
         {
             qWarning() << call.error();
-        } else {
+        } else
+        {
             m_model->setUIScale(rv);
         }
         watcher->deleteLater();
@@ -551,6 +552,13 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setRotate(inter->rotation());
     mon->setCurrentMode(inter->currentMode());
     mon->setModeList(inter->modes());
+    if (m_model->isRefreshRateEnable() == false) {
+        for (auto resolutionModel : mon->modeList()) {
+            if (qFuzzyCompare(resolutionModel.rate(), 0.0) == false) {
+                m_model->setRefreshRateEnable(true);
+            }
+        }
+    }
     mon->setRotateList(inter->rotations());
     mon->setPrimary(m_displayInter.primary());
     mon->setMmWidth(inter->mmWidth());
