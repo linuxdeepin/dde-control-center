@@ -28,10 +28,14 @@
 
 #include <QObject>
 
-static const QStringList thumbsLists =  { "right-little-finger","left-index-finger",
-                                          "right-index-finger", "left-middle-finger" ,
-                                          "right-thumb" , "left-ring-finger" ,"left-little-finger" ,
-                                          "right-middle-finger" , "left-thumb" ,"right-ring-finger"};
+static const QStringList thumbsLists ={"Fingerprint1","Fingerprint2","Fingerprint3","Fingerprint4","Fingerprint5",
+                                       "Fingerprint6","Fingerprint7","Fingerprint8","Fingerprint9","Fingerprint10"
+                                        };
+
+//static const QStringList thumbsLists =  { "right-little-finger","left-index-finger",
+//                                          "right-index-finger", "left-middle-finger" ,
+//                                          "right-thumb" , "left-ring-finger" ,"left-little-finger" ,
+//                                          "right-middle-finger" , "left-thumb" ,"right-ring-finger"};
 
 namespace dcc {
 namespace accounts {
