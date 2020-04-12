@@ -298,7 +298,7 @@ void AdapterWidget::removeDevice(const QString &deviceId)
 {
     bool isFind = false;
     for (auto it = m_myDevices.begin(); it != m_myDevices.end(); ++it) {
-        if ((*it)->device()->id() == deviceId) {
+        if ((*it)!= nullptr && (*it)->device() != nullptr && (*it)->device()->id() == deviceId) {
             qDebug() << "removeDevice my: " << (*it)->device()->name();
             DStandardItem *item = (*it)->getStandardItem();
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
@@ -315,7 +315,7 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     }
     if (!isFind) {
         for (auto it = m_deviceLists.begin(); it != m_deviceLists.end(); ++it) {
-            if ((*it)->device()->id() == deviceId) {
+            if ((*it)!= nullptr && (*it)->device() != nullptr && (*it)->device()->id() == deviceId) {
                 qDebug() << "removeDevice other: " << (*it)->device()->name();
                 DStandardItem *item = (*it)->getStandardItem();
                 QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
