@@ -36,7 +36,7 @@ using namespace DCC_NAMESPACE::systeminfo;
 
 static QString loadLicenses()
 {
-    if (!DSysInfo::isCommunityEdition()) {
+    if (DSysInfo::isCommunityEdition()) {
         const QString body = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "title");
         return body;
     } else {
