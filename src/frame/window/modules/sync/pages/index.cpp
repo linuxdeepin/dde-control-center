@@ -155,7 +155,6 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
         { SyncType::Wallpaper, {("dcc_sync_wallpaper"), tr("Wallpaper") }},
         { SyncType::Theme, {("dcc_sync_theme"), tr("Theme") }},
         { SyncType::Power, {("dcc_sync_supply"), tr("Power Settings") }},
-        { SyncType::Corner, {("dcc_sync_hot_zone"), tr("Corner Settings") }}
     };
 
     m_listModel->clear(); // will delete all items
