@@ -152,7 +152,6 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
                 break;
             case RC_RepeatFingerData: //重复手指
                 msg = tr("The fingerprint already exists, please scan other fingers");
-                Q_EMIT
                 break;
             case RC_SwipeTooShort: //滑动太短
                 msg = tr("Finger moved too fast. Please do not lift until prompted");

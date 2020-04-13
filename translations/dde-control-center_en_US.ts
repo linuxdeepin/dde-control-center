@@ -282,7 +282,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="181"/>
-        <source>Adjust the finger position to scan your fingerprint fully</source>
+        <source>Already scanned</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5665,19 +5665,19 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="158"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation type="unfinished"></translation>
     </message>

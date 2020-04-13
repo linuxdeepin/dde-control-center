@@ -178,7 +178,7 @@ void AddFingeDialog::enrollRetry(QString msg)
 
     m_addBtn->setEnabled(false);
     m_timer->start(1000 * 60);//1min
-    m_fingeWidget->setStatueMsg(tr("Adjust the finger position to scan your fingerprint fully"), msg, false);
+    m_fingeWidget->setStatueMsg(tr("Already scanned"), msg, false);
 }
 
 void AddFingeDialog::setInitStatus()
