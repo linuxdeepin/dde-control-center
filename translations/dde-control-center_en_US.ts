@@ -245,10 +245,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="80"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="171"/>
         <source>Add fingerprint</source>
+=======
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
+        <source>Add Fingerprint</source>
+>>>>>>> 48c38ec86... refeactor(accounts):Finger input overtime warning change
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -258,21 +265,44 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="87"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="139"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="150"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+>>>>>>> 48c38ec86... refeactor(accounts):Finger input overtime warning change
         <source>Scan Again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="138"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="149"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+>>>>>>> 48c38ec86... refeactor(accounts):Finger input overtime warning change
         <source>Scan Suspended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="164"/>
         <source>Cannot recognize your fingerprint</source>
+=======
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+        <source>Scan Overtime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
+        <source>Already scanned</source>
+>>>>>>> 48c38ec86... refeactor(accounts):Finger input overtime warning change
         <translation type="unfinished"></translation>
     </message>
 </context>

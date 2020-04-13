@@ -99,7 +99,7 @@ void AddFingeDialog::setFingerModel(FingerModel *model)
 {
     m_model = model;
     m_timer->setSingleShot(true);
-    connect(m_timer, &QTimer::timeout, this, &AddFingeDialog::enrollDisconnected);
+    connect(m_timer, &QTimer::timeout, this, &AddFingeDialog::enrollOverTime);
     connect(m_model, &FingerModel::enrollCompleted, this, &AddFingeDialog::enrollCompleted);
     connect(m_model, &FingerModel::enrollStagePass, this, &AddFingeDialog::enrollStagePass);
     connect(m_model, &FingerModel::enrollFailed, this, &AddFingeDialog::enrollFailed);
@@ -162,6 +162,20 @@ void AddFingeDialog::enrollDisconnected()
 
     m_isEnrolling = false;
     m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Suspended"), true);
+    m_addBtn->setText(tr("Scan Again"));
+    m_addBtn->setEnabled(true);
+    m_timer->stop();
+
+    //会出现末知情况，需要与后端确认中断时是否可以停止
+    Q_EMIT requestStopEnroll(m_username);
+}
+
+void AddFingeDialog::enrollOverTime()
+{
+    Q_EMIT requestStopEnroll(m_username);
+
+    m_isEnrolling = false;
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Overtime"), true);
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
     m_timer->stop();

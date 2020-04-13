@@ -32,7 +32,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="294"/>
         <source>Accounts</source>
-        <translation>用户</translation>
+        <translation>帐户</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="296"/>
@@ -125,6 +125,11 @@
         <translation>指点杆</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <source>Assistive Tools</source>
+        <translation>辅助功能</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Cloud Sync</source>
@@ -194,7 +199,7 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="456"/>
         <source>Group</source>
         <translation>用户组</translation>
     </message>
@@ -204,7 +209,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="79"/>
         <source>Accounts</source>
-        <translation>用户</translation>
+        <translation>帐户</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="218"/>
+        <source>The device is in use or cannot be connected</source>
+        <translation>设备已被占用或无法连接</translation>
     </message>
 </context>
 <context>
@@ -245,12 +255,15 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="80"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="176"/>
         <source>Add Fingerprint</source>
         <translation>添加指纹</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="122"/>
         <source>Done</source>
         <translation>完成</translation>
     </message>
@@ -271,6 +284,16 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="166"/>
         <source>Cannot recognize your fingerprint</source>
         <translation>无法识别</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+        <source>Scan Overtime</source>
+        <translation>录入超时</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="169"/>
+        <source>Already scanned</source>
+        <translation>图像重复</translation>
     </message>
 </context>
 <context>
@@ -348,8 +371,8 @@
         <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="393"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
     </message>
     <message>
@@ -458,13 +481,10 @@
         <translation>密码不一致</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-=======
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
->>>>>>> 8df960a5d... feat: update translate file
         <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
     </message>
     <message>
@@ -501,11 +521,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="96"/>
-=======
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="95"/>
->>>>>>> 8df960a5d... feat: update translate file
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -524,20 +540,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="113"/>
-=======
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="112"/>
->>>>>>> 8df960a5d... feat: update translate file
         <source>Connect</source>
         <translation>连接</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="108"/>
-=======
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="107"/>
->>>>>>> 8df960a5d... feat: update translate file
         <source>Connecting</source>
         <translation>正在连接</translation>
     </message>
@@ -2055,6 +2063,15 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="528"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="538"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="485"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="548"/>
         <source>Invalid IP address</source>
         <translation>无效的IP地址</translation>
     </message>
@@ -3684,23 +3701,23 @@
         <translation>连接到隐藏网络</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="264"/>
         <source>Wireless Network Adapter</source>
         <translation>无线网卡</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="276"/>
         <source>Close Hotspot</source>
         <translation>关闭热点</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>若要连接并使用无线网络功能，请先关闭热点分享</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="302"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3710,7 +3727,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
         <source>WLAN</source>
-        <translation>WLAN</translation>
+        <translation>Wi-Fi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
@@ -4113,6 +4130,14 @@
         <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
         <source>Display Scaling</source>
         <translation>屏幕缩放</translation>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
+        <source>Display Scaling</source>
+        <translation>屏幕缩放</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
+        <source>Night Shift</source>
+        <translation>自动调节色温</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
@@ -4153,6 +4178,11 @@
         <location filename="../src/frame/window/search/searchwidget.cpp" line="412"/>
         <source>End User License Agreement</source>
         <translation>最终用户许可协议</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="430"/>
+        <source>Cloud Account</source>
+        <translation>网络帐户</translation>
     </message>
 </context>
 <context>
@@ -4403,6 +4433,104 @@
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
         <source>Cloud Account</source>
         <translation>网络帐户</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::ManualBackup</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="18"/>
+        <source>Backup</source>
+        <translation>备份</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="30"/>
+        <source>Set backup directory</source>
+        <translation>设置备份目录</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="111"/>
+        <source>Invalid path</source>
+        <translation>此路径无效</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="115"/>
+        <source>Tool execution error</source>
+        <translation>工具执行失败</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::ManualRestore</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="92"/>
+        <source>Restore</source>
+        <translation>还原</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="121"/>
+        <source>Save User Data</source>
+        <translation>保存用户数据</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="123"/>
+        <source>Reset All Settings</source>
+        <translation>还原所有设置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="143"/>
+        <source>Select restore directory</source>
+        <translation>选择还原目录</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="151"/>
+        <source>Manual Restore</source>
+        <translation>手动还原</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="220"/>
+        <source>Backup file is invalid</source>
+        <translation>备份文件无效</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
+        <source>Grub authentication failed</source>
+        <translation>grub验证失败</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="228"/>
+        <source>Tool execution error</source>
+        <translation>工具执行失败</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="244"/>
+        <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
+        <translation>还原所有设置会将系统盘恢复到您安装系统时的状态，您的数据将保留而用户名和密码会清空，请确认后操作</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
+        <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
+        <translation>还原所有数据和设置会彻底抹掉您的所有数据，系统会被重新安装，并清空所有用户数据。此操作非常危险，请确认后再操作</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="270"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="272"/>
+        <source>Confirm</source>
+        <translation>确定还原</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="264"/>
+        <source>You should reboot the computer to erase all content and settings, reboot now?</source>
+        <translation>重启系统才能还原所有数据和设置，是否现在重启?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="267"/>
+        <source>You should reboot the computer to reset all settings, reboot now?</source>
+        <translation>重启系统才能还原所有设置，是否现在重启?</translation>
     </message>
 </context>
 <context>
@@ -4966,9 +5094,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation>
-            <numerusform>%n天前</numerusform>
-        </translation>
+        <translation><numerusform>%n天前</numerusform></translation>
     </message>
 </context>
 <context>
@@ -9201,7 +9327,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright ©&#xa0;2019-2020 统信软件技术有限公司</translation>
+        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>
@@ -9359,9 +9485,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation>
-            <numerusform>检测到%n个应用更新</numerusform>
-        </translation>
+        <translation><numerusform>检测到%n个应用更新</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9371,9 +9495,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation>
-            <numerusform>检测到新系统版本和%n个应用更新</numerusform>
-        </translation>
+        <translation><numerusform>检测到新系统版本和%n个应用更新</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
