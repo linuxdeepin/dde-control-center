@@ -176,6 +176,8 @@ void UpdateWidget::setSystemVersion(QString version)
 
     if (DSysInfo::isCommunityEdition()) {
         m_label->setText("Deepin " + DSysInfo::deepinVersion());
+    } else if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinPersonal) {
+        m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinTypeDisplayName() + " " + DSysInfo::deepinVersion()));
     } else {
         m_label->setText(QString("%1 V%2").arg(tr("Current Edition")).arg(version.remove('"')));
     }

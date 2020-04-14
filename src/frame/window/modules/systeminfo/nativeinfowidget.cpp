@@ -77,6 +77,8 @@ void NativeInfoWidget::initWidget()
     m_version->setTitle(tr("Edition:"));
     if(DSysInfo::isCommunityEdition()) {
         m_version->setValue(DSysInfo::productVersion());
+    } else if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinPersonal) {
+        m_version->setValue(DSysInfo::deepinTypeDisplayName() + " " + DSysInfo::deepinVersion());
     } else {
         m_version->setValue(m_model->version());
     }
