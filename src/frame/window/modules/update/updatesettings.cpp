@@ -104,7 +104,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->addLayout(updateLblLayout);
     layout->addSpacing(15);
 
-    if (SystemTypeName != "Professional") {
+    if (SystemTypeName != "Professional" && (!IsDesktopSystem)) {
         m_smartMirrorBtn = new SwitchWidget;
         //~ contents_path /update/Update Settings
         m_smartMirrorBtn->setTitle(tr("Smart Mirror Switch"));
