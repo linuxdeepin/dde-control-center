@@ -263,3 +263,8 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
 
     return true;
 }
+
+void ModifyPasswdPage::showEvent(QShowEvent *event) {
+    Q_UNUSED(event);
+    m_oldPasswordEdit->lineEdit()->setFocus();
+}

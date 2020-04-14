@@ -65,6 +65,9 @@ public:
         InputOldPwdError  = 10
     };
 
+protected:
+    void showEvent(QShowEvent *event);
+
 private:
     bool onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit);
 
