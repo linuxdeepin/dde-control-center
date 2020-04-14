@@ -195,7 +195,7 @@ void AccountsWidget::addUser(User *user, bool t1)
         m_userItemModel->insertRow(0, item);
 
         m_userList.push_front(user);
-
+        m_userList.pop_back();
         m_currentUserAdded = true;
 
         QTimer::singleShot(0, this, &AccountsWidget::showDefaultAccountInfo);
