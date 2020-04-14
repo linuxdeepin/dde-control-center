@@ -59,10 +59,6 @@ void WacomModule::preInitialize(bool sync)
 
     connect(m_model, &WacomModel::existChanged, this, [this](const bool exist) {
         m_frameProxy->setModuleVisible(this, exist);
-
-        if (!exist) {
-            m_frameProxy->popWidget(this);
-        }
     });
 
     setAvailable(m_model->exist());
