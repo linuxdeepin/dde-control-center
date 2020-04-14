@@ -135,6 +135,17 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
+=======
+    <name>dccV20::accounts::AccounntFingeItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
+        <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
+        <translation>يجب أن يحتوي الاسم على أحرف وأرقام وتسطير فقط ، وألا يزيد عن 15 حرفًا.</translation>
+    </message>
+</context>
+<context>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="148"/>
@@ -189,7 +200,11 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
         <source>Group</source>
         <translation>مجموعة</translation>
     </message>
@@ -201,6 +216,14 @@
         <source>Accounts</source>
         <translation>الحسابات</translation>
     </message>
+<<<<<<< HEAD
+=======
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
+        <source>The device is in use or cannot be connected</source>
+        <translation type="unfinished"/>
+    </message>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
 </context>
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
@@ -226,21 +249,38 @@
 <context>
     <name>dccV20::accounts::AddFingeDialog</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="83"/>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
         <source>Add Fingerprint</source>
         <translation>إضافة بصمة الإصبع</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
         <source>Scan again</source>
         <translation>المسح مرة أخرى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="129"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
         <source>Done</source>
         <translation>تم</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
         <source>Identifying fingerprint</source>
         <translation>تعريف بصمة الإصبع</translation>
@@ -255,6 +295,31 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
         <source>Fingerprint added</source>
         <translation>تم إضافة بصمة الإصبع</translation>
+=======
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+        <source>Scan Again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+        <source>Scan Suspended</source>
+        <translation>تم تعليق الفحص</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+        <source>Scan Overtime</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
+        <source>Already scanned</source>
+        <translation type="unfinished"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
     </message>
 </context>
 <context>
@@ -366,8 +431,14 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
+<<<<<<< HEAD
         <source>Delete fingerprint</source>
         <translation>حذف بصمة الإصبع</translation>
+=======
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
+        <source>Edit</source>
+        <translation type="unfinished"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
@@ -380,9 +451,15 @@
         <translation>بصمة الإصبع</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
         <source>Add fingerprint</source>
         <translation>أضف بصمة إصبع</translation>
+=======
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
     </message>
 </context>
 <context>
@@ -511,12 +588,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="165"/>
         <source>Connected</source>
         <translation>متصل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Not connected</source>
         <translation>غير متصل</translation>
     </message>
@@ -616,32 +693,32 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>فشل تحميل الشهادة ، غير قادر على الحصول على وصول الجذر</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>فشل التحقق من التوقيع ، غير قادر على الوصول إلى الجذر</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="232"/>
         <source>UOS Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>سياسة الخصوصية UOS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>الموافقة والانضمام إلى برنامج تجربة المستخدم</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>إخلاء المسؤولية عن وضع المطور</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>الموافقة وطلب الوصول إلى الجذر</translation>
     </message>
 </context>
 <context>
@@ -665,7 +742,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="91"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="121"/>
         <source>Please sign in to your cloud account first and continue</source>
-        <translation type="unfinished"/>
+        <translation>يرجى تسجيل الدخول إلى حساب السحابة الخاص بك أولاً و من ثم المتابعة</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="96"/>
@@ -685,17 +762,17 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="127"/>
         <source>1. Export your PC information</source>
-        <translation type="unfinished"/>
+        <translation>1. استخراج المعلومات عن حاسوبك</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="128"/>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation type="unfinished"/>
+        <translation>2. انتقل إلى https://www.chinauos.com/developMode لتنزيل شهادة في وضع عدم الاتصال</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="129"/>
         <source>3. Import the certificate</source>
-        <translation type="unfinished"/>
+        <translation>3. استيراد الشهادة</translation>
     </message>
 </context>
 <context>
@@ -709,7 +786,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation type="unfinished"/>
+        <translation>يتيح لك وضع المطور الحصول على امتيازات الجذر ، وتثبيت التطبيقات غير الموقعة وتشغيلها حتى لو كانت غير المدرجة في متجر التطبيقات ، ولكن قد يتضرر تكامل النظام الخاص بك أيضًا ، يرجى استخدامه بعناية.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="104"/>
@@ -735,17 +812,17 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>فشل تحميل الشهادة ، غير قادر على الحصول على وصول الجذر</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="114"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>فشل التحقق من التوقيع ، غير قادر على الوصول إلى الجذر</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation type="unfinished"/>
+        <translation>لجعل بعض الميزات فعالة ، يلزم إعادة التشغيل. اعد التشغيل الان؟</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
@@ -760,7 +837,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="183"/>
         <source>Root Access Allowed</source>
-        <translation type="unfinished"/>
+        <translation>تم السماح بوصول الجذر</translation>
     </message>
 </context>
 <context>
@@ -774,7 +851,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
-        <translation type="unfinished"/>
+        <translation>الانضمام إلى برنامج تجربة المستخدميعني أنك تمنحنا تفويضًا بجمع معلومات جهازك ونظامك وتطبيقاتك واستخدامها. إذا رفضت جمعنا واستخدامنا للمعلومات المذكورة أعلاه ، فلا تنضم إلى برنامج تجربة المستخدم. لمزيد من التفاصيل ، يرجى الرجوع إلى سياسة خصوصية UOS (https://www.chinauos.com/agreement/experience).</translation>
     </message>
 </context>
 <context>
@@ -1003,7 +1080,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="64"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>سيتم ضبط تدرج الشاشة تلقائيًا وفقًا لموقعك</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="74"/>
@@ -1040,23 +1117,23 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="265"/>
         <source>Hz</source>
         <translation>هرتز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="327"/>
         <source>Recommended</source>
         <translation>مستحسن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="357"/>
         <source>inch</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
         <source>Resolution %1x%2</source>
         <translation type="unfinished"/>
     </message>
@@ -1064,13 +1141,13 @@
 <context>
     <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="67"/>
         <source>Display</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="121"/>
         <source>Multiple Displays</source>
         <translation>شاشات متعددة</translation>
     </message>
@@ -1140,7 +1217,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="132"/>
         <source>Expand the desktop across the screens</source>
-        <translation type="unfinished"/>
+        <translation>قم بتوسيع سطح المكتب عبر جميع الشاشات</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
@@ -1190,17 +1267,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="unfinished"/>
+        <translation>اضغط زر الفأرة الأيسر للف الشاشة، اضغط زر فأرة الأيمن لإعادة الإعدادات السابقة والخروج، اضغط Ctrl+S للحفظ.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="166"/>
         <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="unfinished"/>
+        <translation>اضغط زر الفأرة لأيمن للف الشاشة، اضغط زر فأرة الأيسر لإعادة الإعدادات السابقة والخروج، اضغط Ctrl+S للحفظ.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="169"/>
         <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>حفظ إعدادات العرض؟ إن لم يتم الاختيار، فإن الإعدادت سوف تعود بعد 1%ث.</translation>
     </message>
 </context>
 <context>
@@ -1209,7 +1286,7 @@
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="53"/>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="130"/>
         <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن تغيير حجم بعض التطبيقات بالإعدادات المحددة في بيئة الشاشات المتعددة.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="126"/>
@@ -3646,28 +3723,48 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="251"/>
+=======
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="265"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
         <source>Connect to hidden network</source>
         <translation>الإتصال بشبكة مخفية</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
+=======
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
         <source>Wireless Network Adapter</source>
         <translation>كرت الشبكة اللاسلكية</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
+=======
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="285"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
         <source>Close Hotspot</source>
         <translation>أغلق نقطة الاتصال</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="276"/>
+=======
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="288"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation type="unfinished"/>
+        <translation>يرجى أولا تعطيل مشاركة &quot;نقطة الاتصال&quot; إذا كنت ترغب في الاتصال واستخدام وظيفة الشبكة اللاسلكية</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="299"/>
+=======
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="311"/>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
         <source>WLAN</source>
         <translation>الشبكة المحلية اللاسلكية</translation>
     </message>
@@ -4230,7 +4327,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="164"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
-        <translation type="unfinished"/>
+        <translation>إذا كان مستوى الصوت أعلى من 100٪، فقد يشوه الصوت وقد يضر بمكبر الصوت</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="178"/>
@@ -4269,7 +4366,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
-        <translation type="unfinished"/>
+        <translation>ستتم مزامنة كلمة مرور شبكة WLAN الخاصة بك في حالة تشغيل إعدادات الشبكة</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
@@ -4343,7 +4440,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation type="unfinished"/>
+        <translation>بعد تسجيل الدخول إلى حساب السحابة ، يمكنك استخدام المزامنة السحابية ومتجر التطبيقات وعميل البريد الإلكتروني والمتصفح والخدمات السحابية الأخرى.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
@@ -4392,7 +4489,21 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="29"/>
         <source>Set backup directory</source>
+<<<<<<< HEAD
         <translation type="unfinished"/>
+=======
+        <translation>تحديد مسار النسخة الاحتياطية</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="111"/>
+        <source>Invalid path</source>
+        <translation>مسار خاطئ</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="115"/>
+        <source>Tool execution error</source>
+        <translation>خطأ في تنفيذ الأداة</translation>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
     </message>
 </context>
 <context>
@@ -4410,16 +4521,17 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="122"/>
         <source>Reset All Settings</source>
-        <translation type="unfinished"/>
+        <translation>إعادة ضبط جميع الإعدادات</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="142"/>
         <source>Select restore directory</source>
-        <translation type="unfinished"/>
+        <translation>حدد مسار الاستعادة</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="150"/>
         <source>Manual Restore</source>
+<<<<<<< HEAD
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4436,6 +4548,34 @@
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="221"/>
         <source>This will reinstall the system and clear all user data. It is risky, please confirm and continue</source>
         <translation type="unfinished"/>
+=======
+        <translation>استعادة يدوية</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="220"/>
+        <source>Backup file is invalid</source>
+        <translation>ملف النسخة الاحتياطية غير صالح</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
+        <source>Grub authentication failed</source>
+        <translation>فشل مصادقة Grub</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="228"/>
+        <source>Tool execution error</source>
+        <translation>خطأ في تنفيذ الأداة</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="244"/>
+        <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
+        <translation>سيعيد ضبط إعدادات النظام إلى الإعدادات الافتراضية الخاصة بهم دون التأثير على ملفاتك وتطبيقاتك ، ولكن سيتم مسح اسم المستخدم وكلمة المرور ، يرجى التأكيد قبل المتابعة</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
+        <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
+        <translation>سيعيد هذا تثبيت النظام ويزيل جميع بيانات المستخدم ، وهو أمر خطير للغاية ، يرجى التأكيد قبل المتابعة</translation>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="226"/>
@@ -4452,12 +4592,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="238"/>
         <source>You should reboot the computer to erase all content and settings, reboot now?</source>
-        <translation type="unfinished"/>
+        <translation>يجب عليك إعادة تشغيل الكمبيوتر لمحو جميع المحتويات والإعدادات ، هل تريد إعادة التشغيل الآن؟</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="241"/>
         <source>You should reboot the computer to reset all settings, reboot now?</source>
-        <translation type="unfinished"/>
+        <translation>يجب عليك إعادة تشغيل الكمبيوتر لاعادة ضبط جميع الإعدادات، هل تريد إعادة التشغيل الآن؟</translation>
     </message>
 </context>
 <context>
@@ -4477,13 +4617,13 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="84"/>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>تفويض</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="85"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="162"/>
         <source>To be activated</source>
-        <translation type="unfinished"/>
+        <translation>ليتم تفعيلها</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
@@ -4496,7 +4636,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="91"/>
         <source>Kernel:</source>
-        <translation type="unfinished"/>
+        <translation>النواة:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -4514,7 +4654,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="142"/>
         <source>%1-bit</source>
-        <translation type="unfinished"/>
+        <translation> %1 بت</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="158"/>
@@ -4624,7 +4764,7 @@
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="49"/>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="62"/>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>قائمة المرايا</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="51"/>
@@ -4657,7 +4797,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="80"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
+        <translation>نظامك غير مصرح به، يرجى تفعيله أولاً</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="101"/>
@@ -4711,7 +4851,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="301"/>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>فشل التحديث: مساحة القرص غير كافية</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="306"/>
@@ -4721,17 +4861,17 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>Backing up, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>النسخ الاحتياطي قيد العمل، يرجى الانتظار ...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="318"/>
         <source>System backup failed</source>
-        <translation type="unfinished"/>
+        <translation>فشل النسخ الاحتياطي للنظام</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%0 تطبيقات متوفرة للترقية</numerusform><numerusform>%1 تطبيقات متوفرة للترقية</numerusform><numerusform>%2 تطبيقات متوفرة للترقية</numerusform><numerusform>%n تحديثات مكتشفة للتطبيقات</numerusform><numerusform>%n تحديثات مكتشفة للتطبيقات</numerusform><numerusform>%s تطبيقات متوفرة للترقية</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4741,7 +4881,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>تم اكتشاف إصدار جديد للنظام  و %0 من تحديثات التطبيقات</numerusform><numerusform>تم اكتشاف إصدار جديد للنظام  و %1 من تحديثات التطبيقات</numerusform><numerusform>تم اكتشاف إصدار جديد للنظام  و %2 من تحديثات التطبيقات</numerusform><numerusform>تم اكتشاف إصدار جديد للنظام  و %n من تحديثات التطبيق(ات)</numerusform><numerusform>تم اكتشاف إصدار جديد للنظام  و %n من تحديثات التطبيق(ات)</numerusform><numerusform>تم اكتشاف إصدار جديد للنظام  و %n من تحديثات التطبيق(ات)</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -4812,13 +4952,13 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="79"/>
         <source>System Repository Detection</source>
-        <translation type="unfinished"/>
+        <translation>الكشف عن مخزن النظام</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="83"/>
         <source>Show a notification if system update repository has been modified</source>
-        <translation type="unfinished"/>
+        <translation>تنبيه عاجل إذا تم تغيير مخزن تحديث النظام</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="110"/>
@@ -4835,7 +4975,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="131"/>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>قائمة المرايا</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
@@ -5328,7 +5468,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WLAN</source>
-        <translation type="unfinished"/>
+        <translation>انقر الأيقونة لتمكين شبكة WLAN</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
@@ -5575,6 +5715,36 @@ If no operation, the display will be restored after %1s.</source>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
+=======
+    <name>dcc::accounts::FingerModel</name>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
+        <source>The fingerprint already exists, please scan other fingers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <source>Adjust the finger position to scan your fingerprint fully</source>
+        <translation>اضبط موضع الإصبع لمسح بصمة إصبعك بالكامل</translation>
+    </message>
+</context>
+<context>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
     <name>dcc::accounts::FingerPage</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
@@ -5608,6 +5778,32 @@ If no operation, the display will be restored after %1s.</source>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
+=======
+    <name>dcc::accounts::FingerWidget</name>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="49"/>
+        <source>Place your finger</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="122"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="124"/>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="142"/>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+>>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
     <name>dcc::accounts::ModifyFullNamePage</name>
     <message>
         <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="44"/>
@@ -5685,7 +5881,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>هل أنت متأكد من حذف هذا الحساب؟</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
@@ -6008,7 +6204,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="133"/>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>متأخر %1 ساعات عن المحلي</translation>
     </message>
 </context>
 <context>
@@ -6200,7 +6396,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
         <source>WLAN will be disconnected when screen projection is enabled</source>
-        <translation type="unfinished"/>
+        <translation>سيتم قطع شبكة الواي فاي عند تمكين شاشة اﻹسقاط</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
@@ -6331,7 +6527,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Save to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>هذا الإختصار يتعارض مع %1، انقر على إضافة لجعل هذا الإختصار فعال على الفور</translation>
     </message>
 </context>
 <context>
@@ -6678,7 +6874,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
         <source>Palm Detection</source>
-        <translation type="unfinished"/>
+        <translation>اكتشاف راحة اليد</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -6686,7 +6882,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="42"/>
         <source>Minimum Contact Surface</source>
-        <translation type="unfinished"/>
+        <translation>أدنى مساحة تلامس</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -6694,14 +6890,14 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="45"/>
         <source>Minimum Pressure Value</source>
-        <translation type="unfinished"/>
+        <translation>أدنى مقدار للضغط</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="82"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>يُرجى تعطيل الخيار إن لم تعمل لوحة اللمس بعد تمكينها.</translation>
     </message>
 </context>
 <context>
@@ -9177,12 +9373,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
         <source>Deepin Community</source>
-        <translation>مجتمع ديبين</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>حقوق النشر محفوظة © 2019-2020 UnionTech Software Technology Co.، LTD</translation>
     </message>
 </context>
 <context>
@@ -9249,7 +9445,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="70"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
+        <translation>نظامك غير مصرح به، يرجى تفعيله أولاً</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="75"/>
