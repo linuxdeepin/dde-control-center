@@ -128,6 +128,7 @@ void AddFingeDialog::enrollCompleted()
     m_fingeWidget->finished();
     m_addBtn->setText(tr("Done"));
     m_addBtn->setEnabled(true);
+    m_cancelBtn->hide();
     m_timer->stop();
     Q_EMIT requestStopEnroll(m_username);
 }
@@ -213,7 +214,9 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
 
 void AddFingeDialog::focusOutEvent(QFocusEvent *event)
 {
-    enrollDisconnected();
+    if (m_isEnrolling) {
+        enrollDisconnected();
+    }
 }
 
 
