@@ -164,7 +164,7 @@ void UpdateSettings::setModel(UpdateModel *model)
         m_autoDownloadSwitch->setChecked(autoDownload);
     };
 
-    if (SystemTypeName != "Professional") {
+    if (SystemTypeName != "Professional" && (!IsDesktopSystem)) {
         auto setDefaultMirror = [this](const MirrorInfo & mirror) {
             m_updateMirrors->setValue(mirror.m_name);
         };
