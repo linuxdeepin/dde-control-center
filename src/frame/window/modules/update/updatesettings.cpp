@@ -72,7 +72,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_updateLbl->setAlignment(Qt::AlignLeft);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional") {
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && (!IsDesktopSystem)) {
         SettingsGroup *sourceCheckGrp = new SettingsGroup;
         m_sourceCheck = new SwitchWidget;
         //~ contents_path /update/Update Settings
@@ -148,7 +148,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional") {
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && (!IsDesktopSystem)) {
         connect(m_sourceCheck, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetSourceCheck);
     }
 #endif
@@ -199,7 +199,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_updateLbl->setVisible(model->autoCheckUpdates());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional") {
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && (!IsDesktopSystem)) {
         connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
         m_sourceCheck->setChecked(model->sourceCheck());
     }
