@@ -240,7 +240,7 @@ void DisplayModule::showCustomSettingDialog()
     dlg->setModel(m_displayModel);
     if (dlg->exec() != QDialog::Accepted) {
         m_displayWorker->restore();
-        m_displayWorker->setPrimaryByName(currentPrimaryName);
+        //m_displayWorker->setPrimaryByName(currentPrimaryName);
     } else {
         m_displayWorker->saveChanges();
     }
