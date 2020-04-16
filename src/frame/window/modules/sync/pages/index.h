@@ -78,6 +78,9 @@ private:
     void onAutoSyncChanged(bool autoSync);
     void onHideSyncWidgets();
 
+public Q_SLOTS:
+    void SyncTimeLbl(bool checked);
+
 private:
     QVBoxLayout *m_mainLayout;
     dcc::widgets::SwitchWidget *m_autoSyncSwitch;
