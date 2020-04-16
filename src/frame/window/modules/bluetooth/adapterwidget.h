@@ -100,6 +100,7 @@ private:
     DTK_WIDGET_NAMESPACE::DSpinner *m_spinner;
     DTK_WIDGET_NAMESPACE::DListView *m_otherDeviceListView;
     QStandardItemModel *m_otherDeviceModel;
+    QList<DeviceSettingsItem *> m_preConnDevices;//记录关闭pc端蓝牙前的连接设备
 };
 }
 }
