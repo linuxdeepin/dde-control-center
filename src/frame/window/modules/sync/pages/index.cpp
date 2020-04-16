@@ -130,6 +130,7 @@ IndexPage::IndexPage(QWidget *parent)
 
     connect(m_listView, &QListView::clicked, this, &IndexPage::onListViewClicked);
     connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::requestSetAutoSync);
+    connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::SyncTimeLbl);
     connect(logoutBtn, &QPushButton::clicked, this, &IndexPage::requestLogout);
 }
 
@@ -227,6 +228,13 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
 
     } while (false);
 
+    if (!m_autoSyncSwitch->checked()) {
+        m_lastSyncTimeLbl->show();
+        m_stateLbl->hide();
+        m_stateIcon->setRotatePixmap(QPixmap());
+        m_stateIcon->stop();
+        return;
+    }
     switch (syncState) {
     case SyncState::Succeed:
         m_lastSyncTimeLbl->show();
@@ -246,6 +254,23 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
         m_stateIcon->setRotatePixmap(QPixmap());
         m_stateIcon->stop();
         break;
+    }
+    m_state = state;
+}
+
+void IndexPage::SyncTimeLbl(bool checked)
+{
+    if (!checked) {
+        m_lastSyncTimeLbl->show();
+        m_stateLbl->hide();
+        m_stateIcon->setRotatePixmap(QPixmap());
+        m_stateIcon->stop();
+        return;
+    } else if(SyncModel::isSyncStateValid(m_state)) {
+        onStateChanged(m_state);
+    }
+    else {
+        return;
     }
 }
 
