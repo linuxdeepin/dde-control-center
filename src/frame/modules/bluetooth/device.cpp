@@ -69,11 +69,11 @@ void Device::setPaired(bool paired)
     }
 }
 
-void Device::setState(const State &state)
+void Device::setState(const State &state, bool paired)
 {
     if (state != m_state) {
         m_state = state;
-        Q_EMIT stateChanged(state);
+        Q_EMIT stateChanged(state, paired);
     }
 }
 
