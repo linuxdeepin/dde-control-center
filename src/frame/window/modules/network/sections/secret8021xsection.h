@@ -27,6 +27,7 @@
 #include "widgets/lineeditwidget.h"
 
 #include <networkmanagerqt/security8021xsetting.h>
+#include <DPasswordEdit>
 
 namespace DCC_NAMESPACE {
 namespace network {
