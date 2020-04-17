@@ -141,7 +141,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
-        <translation>El nombre solo debe contener letras, números y guión bajo, y no más de 15 caracteres.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -221,7 +221,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
         <source>The device is in use or cannot be connected</source>
-        <translation>El dispositivo está en uso o no se puede conectar</translation>
+        <translation type="unfinished"/>
     </message>
 >>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
 </context>
@@ -254,13 +254,17 @@
 =======
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="83"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
 >>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
+=======
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="218"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
         <source>Add Fingerprint</source>
         <translation>Añadir huella dactilar</translation>
     </message>
@@ -297,26 +301,33 @@
         <translation>Huella dactilar agregada</translation>
 =======
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
+        <source>Scan Again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
-        <source>Scan Again</source>
-        <translation>Escanear de nuevo</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan Suspended</source>
-        <translation>Escaneo suspendido</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+        <source>Please scan one second later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan Overtime</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
         <source>Already scanned</source>
         <translation type="unfinished"/>
 >>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
@@ -431,8 +442,14 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
+<<<<<<< HEAD
         <source>Delete fingerprint</source>
         <translation>Borrar huella dactilar</translation>
+=======
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
+        <source>Edit</source>
+        <translation type="unfinished"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
@@ -440,6 +457,7 @@
         <translation>Contraseña de huella dactilar</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
         <source>Fingerprint</source>
         <translation>Huella dactilar</translation>
@@ -448,6 +466,16 @@
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
         <source>Add fingerprint</source>
         <translation>Añadir huella dactilar</translation>
+=======
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
     </message>
 </context>
 <context>
@@ -576,12 +604,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
         <source>Connected</source>
         <translation>Conectado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="167"/>
         <source>Not connected</source>
         <translation>No conectado</translation>
     </message>
@@ -1082,7 +1110,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Main Screen</source>
-        <translation>Pantalla principal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
@@ -1118,12 +1146,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="357"/>
         <source>inch</source>
-        <translation>pulgadas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
         <source>Resolution %1x%2</source>
-        <translation>Resolución %1x%2</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1210,12 +1238,20 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
         <source>%1 only</source>
+<<<<<<< HEAD
         <translation>solo %1</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
         <source>Show the screen content only on %1</source>
+<<<<<<< HEAD
         <translation>Mostrar solo contenido de la pantalla en %1</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
@@ -4404,7 +4440,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
         <source>Corner Settings</source>
-        <translation>Ajustes de esquinas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="256"/>
@@ -5007,7 +5043,7 @@
 <context>
     <name>dccV20::wacom::WacomModule</name>
     <message>
-        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="96"/>
         <source>Drawing Tablet</source>
         <translation>Tableta de dibujo</translation>
     </message>
@@ -5692,25 +5728,25 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
         <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>La huella dactilar ya existe, por favor, escanee otros dedos</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>Movió el dedo muy rápido. Por favor, no lo levante hasta que se indique</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Limpie su dedo o ajuste la posición del mismo, e intente de nuevo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>Ajuste la posición del dedo para escanear su huella dactilar completamente</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5769,7 +5805,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="142"/>
         <source>Fingerprint added</source>
-        <translation>Huella dactilar añadida</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9343,7 +9379,7 @@ Si no está operativa, la pantalla se restaurará después de %1s.</translation>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
         <source>Deepin Community</source>
-        <translation>Comunidad Deepin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>

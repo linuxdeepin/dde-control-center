@@ -135,6 +135,17 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
+=======
+    <name>dccV20::accounts::AccounntFingeItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
+        <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="148"/>
@@ -243,13 +254,17 @@
 =======
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="83"/>
         <source>Cancel</source>
-        <translation>Cancel·la</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
 >>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
+=======
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="218"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
         <source>Add Fingerprint</source>
         <translation>Afegiu una empremta</translation>
     </message>
@@ -286,26 +301,33 @@
         <translation>Empremta afegida</translation>
 =======
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
         <source>Scan Again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan Suspended</source>
-        <translation>Escaneig suspès</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+        <source>Please scan one second later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan Overtime</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
         <source>Already scanned</source>
         <translation type="unfinished"/>
 >>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
@@ -435,9 +457,15 @@
         <translation>Contrasenya d&apos;empremta</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
         <source>Fingerprint</source>
         <translation>Empremta</translation>
+=======
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
     </message>
     <message>
 <<<<<<< HEAD
@@ -577,12 +605,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
         <source>Connected</source>
         <translation>Connectat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="167"/>
         <source>Not connected</source>
         <translation>No connectat</translation>
     </message>
@@ -977,7 +1005,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="67"/>
         <source>Add Timezone</source>
-        <translation>Afegeix una zona horària</translation>
+        <translation>Afegiu una zona horària</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -986,7 +1014,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="74"/>
         <source>Add Application</source>
-        <translation>Afegeix una aplicació</translation>
+        <translation>Afegiu una aplicació</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -1083,7 +1111,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Main Screen</source>
-        <translation>Pantalla principal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
@@ -1288,7 +1316,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="61"/>
         <source>Add Custom Shortcut</source>
-        <translation>Afegeix una drecera personalitzada</translation>
+        <translation>Afegiu una drecera personalitzada</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
@@ -1990,7 +2018,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation>Afegeix paràmetres</translation>
+        <translation>Afegiu paràmetres</translation>
     </message>
 </context>
 <context>
@@ -3700,7 +3728,7 @@
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="88"/>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="110"/>
         <source>Add Network Connection</source>
-        <translation>Afegir connexió de xarxa</translation>
+        <translation>Afegiu una connexió de xarxa</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
@@ -4405,7 +4433,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
         <source>Corner Settings</source>
-        <translation>Configuració del cantó</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="256"/>
@@ -4983,7 +5011,7 @@
 <context>
     <name>dccV20::wacom::WacomModule</name>
     <message>
-        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="96"/>
         <source>Drawing Tablet</source>
         <translation>Tauleta de dibuix</translation>
     </message>
@@ -5566,7 +5594,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation>Afegeix una empremta</translation>
+        <translation>Afegiu una empremta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
@@ -5686,7 +5714,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>Ajusteu la posició del dit per escanejar-ne tota l&apos;empremta.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5705,7 +5733,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation>Afegeix una empremta</translation>
+        <translation>Afegiu una empremta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="52"/>
@@ -6070,7 +6098,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
-        <translation>Afegeix una zona horària</translation>
+        <translation>Afegiu una zona horària</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
@@ -6111,7 +6139,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
         <source>Add Timezone</source>
-        <translation>Afegeix una zona horària</translation>
+        <translation>Afegiu una zona horària</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
@@ -6548,7 +6576,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
-        <translation>Afegeix una disposició de teclat</translation>
+        <translation>Afegiu una disposició de teclat</translation>
     </message>
 </context>
 <context>
@@ -6556,7 +6584,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="49"/>
         <source>Add Keyboard Layout</source>
-        <translation>Afegeix una disposició de teclat</translation>
+        <translation>Afegiu una disposició de teclat</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
@@ -6709,7 +6737,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
-        <translation>Afegeix una drecera personalitzada</translation>
+        <translation>Afegiu una drecera personalitzada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
@@ -8759,7 +8787,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation>Afegeix paràmetres</translation>
+        <translation>Afegiu paràmetres</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>

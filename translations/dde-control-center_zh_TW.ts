@@ -141,7 +141,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
-        <translation>指紋名稱只能由字母、數字、中文、下劃線組成，且不得超過15個字元。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -221,7 +221,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
         <source>The device is in use or cannot be connected</source>
-        <translation>裝置已被占用或無法連接</translation>
+        <translation type="unfinished"/>
     </message>
 >>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
 </context>
@@ -254,13 +254,17 @@
 =======
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="83"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
 >>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
+=======
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="218"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
         <source>Add Fingerprint</source>
         <translation>加入指紋</translation>
     </message>
@@ -297,29 +301,40 @@
         <translation>已新增指紋</translation>
 =======
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
+        <source>Scan Again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
-        <source>Scan Again</source>
-        <translation>重新掃描</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan Suspended</source>
-        <translation>輸入中斷</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+        <source>Please scan one second later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan Overtime</source>
-        <translation>輸入超時</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
         <source>Already scanned</source>
+<<<<<<< HEAD
         <translation>圖像重複</translation>
 >>>>>>> c67cb8ffd... feat(translations):complete translations of dde-control-center branch uos/v20sp1-0101
+=======
+        <translation type="unfinished"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
     </message>
 </context>
 <context>
@@ -431,8 +446,14 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
+<<<<<<< HEAD
         <source>Delete fingerprint</source>
         <translation>刪除指紋</translation>
+=======
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
+        <source>Edit</source>
+        <translation type="unfinished"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
@@ -440,6 +461,7 @@
         <translation>指紋 ID</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
         <source>Fingerprint</source>
         <translation>指紋</translation>
@@ -448,6 +470,16 @@
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
         <source>Add fingerprint</source>
         <translation>新增指紋</translation>
+=======
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+>>>>>>> 43f1a58c4... Fix(accounts):Finger input-widiget lose focus only at the first-time
     </message>
 </context>
 <context>
@@ -576,12 +608,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
         <source>Connected</source>
         <translation>已連線</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="167"/>
         <source>Not connected</source>
         <translation>未連線</translation>
     </message>
@@ -1082,7 +1114,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Main Screen</source>
-        <translation>主螢幕</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
@@ -4404,7 +4436,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
         <source>Corner Settings</source>
-        <translation>邊角設定</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="256"/>
@@ -5007,7 +5039,7 @@
 <context>
     <name>dccV20::wacom::WacomModule</name>
     <message>
-        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="96"/>
         <source>Drawing Tablet</source>
         <translation>繪圖板</translation>
     </message>
@@ -5692,25 +5724,25 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
         <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>指紋已存在，請使用其他手指輸入</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>指紋採集間隙，請勿移動手指，直到提示您抬起</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>請清潔手指或調整觸摸位置，再次按壓指紋識別器</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>請調整手指按壓區域以輸入更多指紋</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5754,22 +5786,22 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="49"/>
         <source>Place your finger</source>
-        <translation>放置手指</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="122"/>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>請以手指邊緣壓指紋收集器，然後根據提示抬起</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="124"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>請以手指壓指紋收集器，然後根據提示抬起</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="142"/>
         <source>Fingerprint added</source>
-        <translation>已新增指紋</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9343,7 +9375,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
         <source>Deepin Community</source>
-        <translation>Deepin 社群</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>

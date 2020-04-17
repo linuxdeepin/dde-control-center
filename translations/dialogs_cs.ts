@@ -4,17 +4,17 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Spusťte počítač znovu, aby se daly systém a programy používat řádně</translation>
+        <translation>Pro správné fungování systému a aplikací po provedení aktualizace restartujte</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation>Ujistěte se nejprve, že byla všechna data uložena</translation>
+        <translation>Ujistěte se nejprve, že všechna data byla uložena</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
