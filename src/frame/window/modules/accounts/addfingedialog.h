@@ -57,6 +57,7 @@ public:
     void enrollFailed(QString msg);
     void setInitStatus();
     void enrollDisconnected();
+    void enrollFocusOut();
     void enrollOverTime();
     void enrollRetry(QString msg);
 

@@ -171,6 +171,21 @@ void AddFingeDialog::enrollDisconnected()
     Q_EMIT requestStopEnroll(m_username);
 }
 
+void AddFingeDialog::enrollFocusOut()
+{
+    Q_EMIT requestStopEnroll(m_username);
+
+    m_isEnrolling = false;
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Please scan one second later"), true);
+    m_addBtn->setText(tr("Scan Again"));
+    m_cancelBtn->setEnabled(false);
+    m_addBtn->setEnabled(false);
+    m_timer->stop();
+
+    //会出现末知情况，需要与后端确认中断时是否可以停止
+    Q_EMIT requestStopEnroll(m_username);
+}
+
 void AddFingeDialog::enrollOverTime()
 {
     Q_EMIT requestStopEnroll(m_username);
@@ -215,7 +230,11 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
 void AddFingeDialog::focusOutEvent(QFocusEvent *event)
 {
     if (m_isEnrolling) {
-        enrollDisconnected();
+        enrollFocusOut();
+        QTimer::singleShot(1000, this, [=] {
+            m_cancelBtn->setEnabled(true);
+            m_addBtn->setEnabled(true);
+        });
     }
 }
 
