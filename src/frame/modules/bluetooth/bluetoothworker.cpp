@@ -43,16 +43,17 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync) :
     connect(m_bluetoothInter, &DBusBluetooth::DeviceAdded, this, &BluetoothWorker::addDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DeviceRemoved, this, &BluetoothWorker::removeDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
-    connect(m_bluetoothInter, &DBusBluetooth::Cancelled, this, [=] (const QDBusObjectPath &device) {
-        PinCodeDialog *dialog = m_dialogs[device];
+    connect(m_bluetoothInter, &DBusBluetooth::Cancelled, this, &BluetoothWorker::pinCodeCancel);
+    connect(m_bluetoothInter, &DBusBluetooth::PinCancle, this, [=] (const QString &device) {
+        QJsonDocument doc = QJsonDocument::fromJson(device.toUtf8());
+        QJsonObject obj = doc.object();
+        const QString strPath = obj["Path"].toString();
+        PinCodeDialog *dialog = m_dialogs[strPath];
         if (dialog != nullptr) {
-            m_dialogs.remove(device);
-            QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
-        } else {
-            Q_EMIT pinCodeCancel(device);
+            m_dialogs.remove(strPath);
+            dialog->deleteLater();
         }
     });
-
 
     connect(m_bluetoothInter, &DBusBluetooth::RequestAuthorization, this, [] (const QDBusObjectPath &in0) {
         qDebug() << "request authorization: " << in0.path();
@@ -72,10 +73,9 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync) :
         qDebug() << "request display passkey: " << in0.path() << in1 << in2;
 
         PinCodeDialog *dialog = PinCodeDialog::instance(QString::number(in1), false);
-        m_dialogs[in0] = dialog;
+        m_dialogs[in0.path()] = dialog;
         if (!dialog->isVisible()) {
             dialog->exec();
-            QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
         }
     });
 
@@ -83,10 +83,9 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync) :
         qDebug() << "request display pincode: " << in0.path() << in1;
 
         PinCodeDialog *dialog = PinCodeDialog::instance(in1, false);
-        m_dialogs[in0] = dialog;
+        m_dialogs[in0.path()] = dialog;
         if (!dialog->isVisible()) {
             dialog->exec();
-            QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
         }
     });
 
