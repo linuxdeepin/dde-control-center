@@ -233,7 +233,7 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         QString allowContent(tr("Agree and Join User Experience Program"));
 
         // license内容
-        QString content = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "");
+        QString content = getLicense("/usr/share/deepin-deepinid-client/privacy/deepinid-CN-%1.md", "");
         QString contentPath("/tmp/tempLic.txt"); // 临时存储路径
         m_licenseFile = new QFile(contentPath);
         // 如果文件不存在，则创建文件
