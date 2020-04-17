@@ -171,6 +171,7 @@ void AccountsWidget::addUser(User *user, bool t1)
     });
 
     if (t1) {
+        handleRequestBack(CreateUserSuccess);
         return;
     }
 
