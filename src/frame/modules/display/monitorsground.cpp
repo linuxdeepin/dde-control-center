@@ -208,6 +208,7 @@ void MonitorsGround::applySettings()
 {
     for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it)
         Q_EMIT requestApplySettings(it.value(), it.key()->x(), it.key()->y());
+    Q_EMIT applyChanges();
 }
 
 bool MonitorsGround::isScreenPerfect() const

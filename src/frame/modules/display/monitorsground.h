@@ -50,7 +50,7 @@ Q_SIGNALS:
     void requestApplySettings(Monitor *mon, const int x, const int y);
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
-
+    void applyChanges();
 private Q_SLOTS:
     void resetMonitorsView();
     void monitorMoved(MonitorProxyWidget *pw);

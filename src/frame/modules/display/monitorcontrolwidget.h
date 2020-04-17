@@ -54,7 +54,7 @@ Q_SIGNALS:
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
-
+    void applyChanges();
 private:
     MonitorsGround *m_screensGround;
     IconButton *m_recognize;

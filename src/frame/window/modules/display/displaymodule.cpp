@@ -229,6 +229,8 @@ void DisplayModule::showCustomSettingDialog()
             m_displayWorker, &DisplayWorker::splitScreens);
     connect(dlg, &CustomSettingDialog::requestSetMonitorPosition,
             m_displayWorker, &DisplayWorker::setMonitorPosition);
+    connect(dlg, &CustomSettingDialog::applyChanges,
+            m_displayWorker, &DisplayWorker::applyChanges);
     connect(dlg, &CustomSettingDialog::requestRecognize, this,
             &DisplayModule::showRecognize);
     connect(dlg, &CustomSettingDialog::requestSetPrimaryMonitor,

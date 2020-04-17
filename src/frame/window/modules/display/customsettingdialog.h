@@ -90,7 +90,7 @@ Q_SIGNALS:
     void requestSetMonitorPosition(dcc::display::Monitor *mon, const int x, const int y);
     void requestSetResolution(dcc::display::Monitor *mon, ResolutionDate resolution);
     void requestSetPrimaryMonitor(int idx);
-
+    void applyChanges();
 
 private Q_SLOTS:
     void onMonitorPress(dcc::display::Monitor *mon);

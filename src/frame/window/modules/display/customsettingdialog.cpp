@@ -403,7 +403,8 @@ void CustomSettingDialog::initMoniControlWidget()
             this, &CustomSettingDialog::requestSplit);
     connect(m_monitroControlWidget, &MonitorControlWidget::requestSetMonitorPosition,
             this, &CustomSettingDialog::requestSetMonitorPosition);
-
+    connect(m_monitroControlWidget, &MonitorControlWidget::applyChanges,
+            this, &CustomSettingDialog::applyChanges);
     m_layout->insertWidget(0, m_monitroControlWidget);
 }
 
