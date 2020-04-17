@@ -195,7 +195,7 @@ void SpeakerPage::initSlider()
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::TicksBelow);
     slider2->setTickInterval(1);
-    slider2->setSliderPosition(qRound(m_model->speakerBalance() * PercentageNum));
+    slider2->setSliderPosition(qRound(m_model->speakerBalance() * PercentageNum + 0.000001));
     slider2->setPageStep(1);
     slider2->setEnabledAcrossStyle(true);
     balanceSlider->setAnnotations(balanceList);
@@ -209,7 +209,7 @@ void SpeakerPage::initSlider()
     connect(m_model, &SoundModel::speakerOnChanged, balanceSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::speakerBalanceChanged, this, [ = ](double v) {
         slider2->blockSignals(true);
-        slider2->setSliderPosition(qRound(v * PercentageNum));
+        slider2->setSliderPosition(qRound(v * PercentageNum + 0.000001));
         slider2->blockSignals(false);
     });
 
