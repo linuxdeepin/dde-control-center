@@ -201,23 +201,18 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
 
 void AdapterWidget::onPowerStatus(bool bPower)
 {
-    if (getSwitchState() == bPower) {
-        m_switch->setChecked(bPower);
-        m_tip->setVisible(!bPower);
-        m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
-        m_otherDevicesGroup->setVisible(bPower);
-        m_spinner->setVisible(bPower);
-        m_myDeviceListView->setVisible(bPower && !m_myDevices.isEmpty());
-        m_otherDeviceListView->setVisible(bPower);
-        Q_EMIT notifyLoadFinished();
-    } else {
-        Q_EMIT requestSetToggleAdapter(m_adapter, getSwitchState());
-    }
+    m_switch->setChecked(bPower);
+    m_tip->setVisible(!bPower);
+    m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
+    m_otherDevicesGroup->setVisible(bPower);
+    m_spinner->setVisible(bPower);
+    m_myDeviceListView->setVisible(bPower && !m_myDevices.isEmpty());
+    m_otherDeviceListView->setVisible(bPower);
+    Q_EMIT notifyLoadFinished();
 }
 
 void AdapterWidget::toggleSwitch(const bool checked)
 {
-    onPowerStatus(checked);
     if (!checked) {
         for (auto it : m_myDevices) {
             if (it->device()->state() == Device::StateConnected) {
