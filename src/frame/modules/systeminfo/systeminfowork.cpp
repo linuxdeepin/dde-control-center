@@ -44,6 +44,12 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                             "/com/deepin/daemon/SystemInfo",
                                             QDBusConnection::sessionBus(), this);
     m_systemInfoInter->setSync(false);
+
+    m_systemInfo = new QDBusInterface("com.deepin.system.SystemInfo",
+                                      "/com/deepin/system/SystemInfo",
+                                      "com.deepin.system.SystemInfo",
+                                      QDBusConnection::systemBus(), this);
+
     m_dbusGrub = new GrubDbus("com.deepin.daemon.Grub2",
                               "/com/deepin/daemon/Grub2",
                               QDBusConnection::systemBus(),
@@ -122,7 +128,11 @@ void SystemInfoWork::activate()
     m_model->setType(QSysInfo::WordSize);
     // m_model->setProcessor(QString("%1 x %2").arg(DSysInfo::cpuModelName())
     //                                         .arg(QThread::idealThreadCount()));
-    m_model->setMemory(DSysInfo::memoryTotalSize(), DSysInfo::memoryInstalledSize());
+    if (m_systemInfo->isValid()) {
+        m_model->setMemory(DSysInfo::memoryTotalSize(), m_systemInfo->property("MemorySize").toULongLong());
+    } else {
+        m_model->setMemory(DSysInfo::memoryTotalSize(), DSysInfo::memoryInstalledSize());
+    }
     // m_model->setDisk(DSysInfo::systemDiskSize());
 }
 
