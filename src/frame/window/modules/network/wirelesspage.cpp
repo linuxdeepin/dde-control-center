@@ -232,7 +232,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
     , m_indicatorDelayTimer(new QTimer(this))
-    ,m_requestWirelessScanTimer(new QTimer(this))
+    , m_requestWirelessScanTimer(new QTimer(this))
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -311,7 +311,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     setTitle(tr("WLAN"));
 #endif
 
-    connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex &idx) {
+    connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex & idx) {
         if (idx.data(APItem::PathRole).toString().length() == 0) {
             this->showConnectHidePage();
             return;
@@ -349,9 +349,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_device, &WirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
 
-    connect(m_requestWirelessScanTimer, &QTimer::timeout, this, [=] {
-           Q_EMIT requestDeviceAPList(m_device->path());
-           Q_EMIT requestWirelessScan();
+    connect(m_requestWirelessScanTimer, &QTimer::timeout, this, [ = ] {
+        Q_EMIT requestDeviceAPList(m_device->path());
+        Q_EMIT requestWirelessScan();
     });
     // init data
     const QJsonArray mApList = m_device->apList();
@@ -363,7 +363,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     m_requestWirelessScanTimer->start();
 
-    QTimer::singleShot(100, this, [=] {
+    QTimer::singleShot(100, this, [ = ] {
         Q_EMIT requestDeviceAPList(m_device->path());
         Q_EMIT requestWirelessScan();
     });
@@ -408,6 +408,14 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
         onNetworkAdapterChanged(!unavailable);
         m_preWifiStatus = curWifiStatus;
     }
+    if (stat == WirelessDevice::Failed) {
+        for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+            if (m_clickedItem == it.value()) {
+                it.value()->setLoading(false);
+                m_clickedItem = nullptr;
+            }
+        }
+    }
 }
 
 void WirelessPage::setModel(NetworkModel *model)
@@ -429,8 +437,9 @@ void WirelessPage::jumpByUuid(const QString &uuid)
 {
     if (uuid.isEmpty()) return;
 
-    QTimer::singleShot(50, this, [=] {
-        if (m_apItems.contains(connectionSsid(uuid))) {
+    QTimer::singleShot(50, this, [ = ] {
+        if (m_apItems.contains(connectionSsid(uuid)))
+        {
             onApWidgetEditRequested("", uuid);
         }
     });
@@ -555,18 +564,18 @@ void WirelessPage::refreshLoadingIndicator()
         if (activeConnObj.value("Vpn").toBool(false)) {
             continue;
         }
-        if( activeConnObj.value("Id").toString()  == m_lastConnectSsid ){
+        if (activeConnObj.value("Id").toString()  == m_lastConnectSsid) {
             for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-                if( it.value()->sortInfo().ssid == m_lastConnectSsid){
-                        for(int temp = 0; temp < m_modelAP->rowCount();temp++ ){
-                            if(m_modelAP->index(temp,0).data().toString() == m_lastConnectSsid){
-                                QModelIndex indexFromList = m_modelAP->index(temp, 0);
-                                m_lvAP->clicked(indexFromList);
-                                m_lvAP->setCurrentIndex(indexFromList);
-                                m_lastConnectSsid = "";
-                                break;
-                            }
+                if (it.value()->sortInfo().ssid == m_lastConnectSsid) {
+                    for (int temp = 0; temp < m_modelAP->rowCount(); temp++) {
+                        if (m_modelAP->index(temp, 0).data().toString() == m_lastConnectSsid) {
+                            QModelIndex indexFromList = m_modelAP->index(temp, 0);
+                            m_lvAP->clicked(indexFromList);
+                            m_lvAP->setCurrentIndex(indexFromList);
+                            m_lastConnectSsid = "";
+                            break;
                         }
+                    }
                 }
             }
             continue;
