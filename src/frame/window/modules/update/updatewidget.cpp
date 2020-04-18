@@ -170,10 +170,10 @@ void UpdateWidget::setSystemVersion(QString version)
     qDebug() << Q_FUNC_INFO << QString("%1 %2").arg(tr("Current Edition")).arg(version.toLatin1().data());
 
     if (m_systemVersion != version) {
-        m_systemVersion = version.remove('"');
+        m_systemVersion = version;
     }
 
-    m_label->setText(QString("%1 V%2").arg(tr("Current Edition")).arg(version.remove('"')));
+    m_label->setText(m_systemVersion);
 }
 
 void UpdateWidget::resetUpdateCheckState(bool state)

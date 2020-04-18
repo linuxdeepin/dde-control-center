@@ -111,7 +111,11 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     m_powerSystemInter->setSync(false);
     m_lastoresessionHelper->setSync(false);
     m_smartMirrorInter->setSync(true, false);
-    m_model->setSystemVersionInfo(m_systemInfoInter->version());
+
+    QString sVersion = QString("%1 %2 %3").arg(DSysInfo::productTypeString().toUpper(),
+                                                 DSysInfo::deepinTypeDisplayName(),
+                                                 DSysInfo::deepinVersion());
+    m_model->setSystemVersionInfo(sVersion);
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);
     connect(m_managerInter, &ManagerInter::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);

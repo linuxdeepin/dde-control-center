@@ -147,11 +147,11 @@ void SystemInfoWork::activate()
 
     QString version;
     if (DSysInfo::isDeepin()) {
-        version = QString("%1 %2").arg(DSysInfo::deepinVersion())
-                                  .arg(DSysInfo::deepinTypeDisplayName());
+        version = QString("%1 %2").arg(DSysInfo::deepinTypeDisplayName())
+                                  .arg(DSysInfo::deepinVersion());
     } else {
-        version = QString("%1 %2").arg(DSysInfo::productTypeString())
-                                  .arg(DSysInfo::productVersion());
+        version = QString("%1 %2").arg(DSysInfo::productVersion())
+                                  .arg(DSysInfo::productTypeString());
     }
 
     m_model->setVersion(version);
