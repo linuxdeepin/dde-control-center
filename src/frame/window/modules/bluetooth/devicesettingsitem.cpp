@@ -162,11 +162,10 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool p
     QString tip;
     if (state == Device::StateConnected && paired) {
         tip = tr("Connected");
-        setLoading(false);
-    } else if (state == Device::StateUnavailable){
+    } else {
         tip = tr("Not connected");
-        setLoading(false);
     }
+    setLoading(false);
     m_textAction->setText(tip);
 }
 
