@@ -355,10 +355,10 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
             ddeUpdateInfo.m_changelog = tr("System patches");
         }
 
-        if(!DCC_NAMESPACE::IsDesktopSystem) {
-            //app updates are not displayed
-            infos.clear();
-        }
+//        if(!DCC_NAMESPACE::IsDesktopSystem) {
+//            //app updates are not displayed
+//            infos.clear();
+//        }
 
         infos.prepend(ddeUpdateInfo);
     }
