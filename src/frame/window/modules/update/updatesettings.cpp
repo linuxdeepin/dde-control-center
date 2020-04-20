@@ -72,7 +72,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_updateLbl->setAlignment(Qt::AlignLeft);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional") {
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal") {
         SettingsGroup *sourceCheckGrp = new SettingsGroup;
         m_sourceCheck = new SwitchWidget;
         //~ contents_path /update/Update Settings
@@ -104,7 +104,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->addLayout(updateLblLayout);
     layout->addSpacing(15);
 
-    if (SystemTypeName != "Professional") {
+    if (SystemTypeName != "Professional" && SystemTypeName != "Personal") {
         m_smartMirrorBtn = new SwitchWidget;
         //~ contents_path /update/Update Settings
         m_smartMirrorBtn->setTitle(tr("Smart Mirror Switch"));
@@ -148,7 +148,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional") {
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal") {
         connect(m_sourceCheck, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetSourceCheck);
     }
 #endif
@@ -164,7 +164,7 @@ void UpdateSettings::setModel(UpdateModel *model)
         m_autoDownloadSwitch->setChecked(autoDownload);
     };
 
-    if (SystemTypeName != "Professional") {
+    if (SystemTypeName != "Professional" && SystemTypeName != "Personal") {
         auto setDefaultMirror = [this](const MirrorInfo & mirror) {
             m_updateMirrors->setValue(mirror.m_name);
         };
@@ -199,7 +199,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_updateLbl->setVisible(model->autoCheckUpdates());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional") {
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal") {
         connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
         m_sourceCheck->setChecked(model->sourceCheck());
     }
