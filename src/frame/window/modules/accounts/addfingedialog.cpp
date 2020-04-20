@@ -216,6 +216,7 @@ void AddFingeDialog::setInitStatus()
     m_isEnrolling = true;
     m_addBtn->setEnabled(false);
     m_addBtn->setText(tr("Add Fingerprint"));
+    m_timer->start(1000 * 60);//1min
     m_fingeWidget->reEnter();
 }
 
@@ -234,6 +235,10 @@ void AddFingeDialog::focusOutEvent(QFocusEvent *event)
         QTimer::singleShot(1000, this, [=] {
             m_cancelBtn->setEnabled(true);
             m_addBtn->setEnabled(true);
+
+            // reactive window
+            this->activateWindow();
+            this->setFocus();
         });
     }
 }
