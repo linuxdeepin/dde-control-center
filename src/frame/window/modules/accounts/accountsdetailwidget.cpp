@@ -341,6 +341,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
             if(age <= 0) {
                 ageEdit->setAlert(true);
+                ageEdit->setAlertMessageAlignment(Qt::AlignRight);
                 ageEdit->showAlertMessage(tr("Please input a number between 1-99999"), pwWidget, 2000);
                 return;
             }
