@@ -302,6 +302,7 @@ void SystemInfoWork::getLicenseState()
 
     QDBusReply<quint32> reply = licenseInfo.call(QDBus::AutoDetect,
                                    "GetIndicatorData");
+    qDebug() << "authorize result:" << reply;
     m_model->setLicenseState(reply);
 }
 
