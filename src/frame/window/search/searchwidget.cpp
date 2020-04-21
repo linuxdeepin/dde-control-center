@@ -84,7 +84,7 @@ SearchWidget::SearchWidget(QWidget *parent)
         {tr("Auto Brightness"), false},
         {tr("General"), false},
         {tr("Password is required to wake up the monitor"), false},
-        {tr("Password is required to wake up the computer"), false},
+        {tr("Password required to wake up the computer"), false},
         {tr("Power Saving Mode"), false},
         {tr("Auto Mode Switch"), false},
         {tr("Transparency"), false},
