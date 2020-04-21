@@ -191,7 +191,7 @@ void AddFingeDialog::enrollOverTime()
     Q_EMIT requestStopEnroll(m_username);
 
     m_isEnrolling = false;
-    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Overtime"), true);
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan time expired"), true);
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
     m_timer->stop();
@@ -230,17 +230,15 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
 
 void AddFingeDialog::focusOutEvent(QFocusEvent *event)
 {
+    this->clearFocus();
     if (m_isEnrolling) {
         enrollFocusOut();
         QTimer::singleShot(1000, this, [=] {
             m_cancelBtn->setEnabled(true);
             m_addBtn->setEnabled(true);
-
-            // reactive window
-            this->activateWindow();
-            this->setFocus();
         });
     }
+    this->setFocus();
 }
 
 
