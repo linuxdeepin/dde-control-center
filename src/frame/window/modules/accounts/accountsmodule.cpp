@@ -215,13 +215,15 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
         dlg->exec();
         m_fingerWorker->refreshUserEnrollList(name);
     } else {
-        DDialog* errorDialog = new DDialog();
-        errorDialog->setMessage(tr("设备已被占用或无法连接！"));
-        errorDialog->exec();
-        connect(errorDialog, &DDialog::closed, m_fingerWorker, [ = ] {
-           m_fingerWorker->stopEnroll(name);
-        });
-        errorDialog->deleteLater();
+        m_fingerWorker->stopEnroll(name);
+        //V20更改设备抢占方法，已经不需要该弹窗
+//        DDialog* errorDialog = new DDialog();
+//        errorDialog->setMessage(tr("The device is in use or cannot be connected"));
+//        errorDialog->exec();
+//        connect(errorDialog, &DDialog::closed, m_fingerWorker, [ = ] {
+//           m_fingerWorker->stopEnroll(name);
+//        });
+//        errorDialog->deleteLater();
     }
     dlg->deleteLater();
 }
