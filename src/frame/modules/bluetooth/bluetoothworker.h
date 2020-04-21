@@ -52,7 +52,6 @@ public:
 
     void blockDBusSignals(bool block);
 
-
 Q_SIGNALS:
     void deviceEnableChanged();
     void requestConfirmation(const QDBusObjectPath &path, const QString &code);
@@ -68,6 +67,7 @@ public Q_SLOTS:
     void setAdapterDiscoverable(const QString &path);
     void pinCodeConfirm(const QDBusObjectPath &path, bool value);
     void setAdapterDiscovering(const QDBusObjectPath &path, bool enable);
+    void pinCancel(const Device *device);
 
 private:
     void inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj);

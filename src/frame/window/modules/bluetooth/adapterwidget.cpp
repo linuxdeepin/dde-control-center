@@ -196,6 +196,7 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     for (const Device *device : adapter->devices()) {
         addDevice(device);
     }
+    m_switch->setChecked(adapter->powered());
     onPowerStatus(adapter->powered());
 }
 
@@ -274,6 +275,7 @@ void AdapterWidget::addDevice(const Device *device)
             DStandardItem *dListItem = deviceItem->createStandardItem(m_myDeviceListView);
             m_myDevices << deviceItem;
             m_myDeviceModel->appendRow(dListItem);
+            Q_EMIT requestPinCancel(deviceItem->device());
         } else {
             qDebug() << "unpaired :" << deviceItem->device()->name();
             for (auto it = m_myDevices.begin(); it != m_myDevices.end(); ++it) {

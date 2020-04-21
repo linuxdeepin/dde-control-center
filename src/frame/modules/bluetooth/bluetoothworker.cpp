@@ -394,6 +394,16 @@ void BluetoothWorker::setDeviceAlias(const Device *device, const QString &alias)
     m_bluetoothInter->SetDeviceAlias(path, alias);
 }
 
+void BluetoothWorker::pinCancel(const Device *device)
+{
+    const QString strPath = device->id();
+    PinCodeDialog *dialog = m_dialogs[strPath];
+    if (dialog != nullptr) {
+        m_dialogs.remove(strPath);
+        dialog->deleteLater();
+    }
+}
+
 void BluetoothWorker::setAdapterDiscoverable(const QString &path)
 {
     QDBusObjectPath dPath(path);
