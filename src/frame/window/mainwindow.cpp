@@ -356,7 +356,8 @@ void MainWindow::initAllModule(QString m)
             group.m_action.first = action1;
             group.m_action.second = action2;
             m_remindeSubscriptList.append(group);
-            item->setData(QVariant::fromValue(QMargins(ListViweRightSubscriptItemDis,0,0,0)), Dtk::MarginsRole);
+            if(action2->isVisible())
+                item->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
         } else {
             item->setData(NavItemMargin, Dtk::MarginsRole);
         }
@@ -682,9 +683,12 @@ void MainWindow::resetNavList(bool isIconMode)
         for (auto data : m_remindeSubscriptList) {
             for (int i = 0; i < m_navModel->rowCount(); i++) {
                 if (m_modules.at(i).first->name() == data.m_name) {
-                    m_navModel->item(i, 0)->setData(QVariant::fromValue(QMargins(ListViweRightSubscriptItemDis,0,0,0)), Dtk::MarginsRole);
                     data.m_action.first->setVisible(data.m_action.second->isVisible());
                     data.m_action.second->setVisible(false);
+                    if(data.m_action.first->isVisible())
+                        m_navModel->item(i, 0)->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
+                    else
+                        m_navModel->item(i, 0)->setData(QVariant::fromValue(QMargins()), Dtk::MarginsRole);
                     break;
                 }
             }
