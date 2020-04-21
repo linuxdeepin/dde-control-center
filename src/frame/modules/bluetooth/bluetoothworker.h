@@ -50,7 +50,6 @@ public:
     void deactivate() Q_DECL_OVERRIDE;
 
     void blockDBusSignals(bool block);
-    void clearUnpairedDevice();
 
 
 Q_SIGNALS:

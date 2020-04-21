@@ -75,9 +75,6 @@ void BluetoothWidget::loadDetailPage()
 
 AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
 {
-    //每次获取device前都应该把历史device清空
-    m_bluetoothWorker->clearUnpairedDevice();
-
     AdapterWidget *adpWidget = new AdapterWidget(adapter);
 
     const QDBusObjectPath path(adapter->id());
@@ -89,7 +86,6 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
     connect(adpWidget, &AdapterWidget::requestSetAlias, this, &BluetoothWidget::requestSetAlias);
     connect(adpWidget, &AdapterWidget::requestShowDetail, this, &BluetoothWidget::showDeviceDetail);
     connect(adpWidget, &AdapterWidget::notifyLoadFinished, this, &BluetoothWidget::updateWidget);
-    connect(adpWidget, &AdapterWidget::requestClearUnpairedDevice, this, &BluetoothWidget::onRequestClearUnpairedDevice);
 
     m_bluetoothWorker->setAdapterDiscovering(path, true);
     m_valueMap[adapter] = adpWidget;
@@ -157,8 +153,4 @@ void BluetoothWidget::setVisibleState()
     Q_EMIT requestModuleVisible(m_valueMap.size());
 }
 
-void BluetoothWidget::onRequestClearUnpairedDevice()
-{
-    m_bluetoothWorker->clearUnpairedDevice();
-}
 
