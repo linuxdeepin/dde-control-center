@@ -209,11 +209,6 @@
         <source>Accounts</source>
         <translation>Hesaplar</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
-        <source>The device is in use or cannot be connected</source>
-        <translation>Aygıt kullanımda veya bağlanamıyor</translation>
-    </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
@@ -1931,7 +1926,12 @@
         <translation>İsim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
+        <source>Wired Connection</source>
+        <translation>Kablolu Bağlantı</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
         <source>Auto Connect</source>
         <translation>Otomatik Bağlan</translation>
     </message>
@@ -3664,6 +3664,11 @@
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="102"/>
         <source>Select Settings</source>
         <translation>Ayarları Seç</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <source>Wired Connection</source>
+        <translation>Kablolu Bağlantı</translation>
     </message>
 </context>
 <context>
@@ -7005,7 +7010,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="62"/>
         <source>Name</source>
-        <translation>Ad</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>

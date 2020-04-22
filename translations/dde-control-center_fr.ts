@@ -209,11 +209,6 @@
         <source>Accounts</source>
         <translation>Comptes</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
-        <source>The device is in use or cannot be connected</source>
-        <translation>Le périphérique est en cours d&apos;utilisation ou ne peut pas être connecté</translation>
-    </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
@@ -1932,7 +1927,12 @@
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
+        <source>Wired Connection</source>
+        <translation>Connexion filaire</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
         <source>Auto Connect</source>
         <translation>Connexion automatique</translation>
     </message>
@@ -3665,6 +3665,11 @@
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="102"/>
         <source>Select Settings</source>
         <translation>Sélectionner les paramètre</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <source>Wired Connection</source>
+        <translation>Connexion filaire</translation>
     </message>
 </context>
 <context>

@@ -209,11 +209,6 @@
         <source>Accounts</source>
         <translation>Account</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
-        <source>The device is in use or cannot be connected</source>
-        <translation>Il dispositivo è in uso o non può essere connesso</translation>
-    </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
@@ -1931,7 +1926,12 @@
         <translation>Nome</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
+        <source>Wired Connection</source>
+        <translation>Connessione cablata</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
         <source>Auto Connect</source>
         <translation>Connessione automatica</translation>
     </message>
@@ -2265,27 +2265,27 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Autentificazione EAP Rifiutata</translation>
+        <translation>Autenticazione EAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Autentificazione PAP Rifiutata</translation>
+        <translation>Autenticazione PAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Autentificazione CHAP Rifiutata</translation>
+        <translation>Autenticazione CHAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Autentificazione MSCHAP Rifiutata</translation>
+        <translation>Autenticazione MSCHAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Autentificazione MSCHAPv2 Rifiutata</translation>
+        <translation>Autenticazione MSCHAPv2 Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="91"/>
@@ -2522,7 +2522,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="209"/>
         <source>EAP Auth</source>
-        <translation>Autentificazione EAP</translation>
+        <translation>Autenticazione EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
@@ -2579,7 +2579,7 @@
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="428"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="471"/>
         <source>Inner Auth</source>
-        <translation>Autentificazione Inner</translation>
+        <translation>Autenticazione Inner</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="460"/>
@@ -3050,7 +3050,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
         <source>Auth Type</source>
-        <translation>Tipo di autentificazione</translation>
+        <translation>Tipo di autenticazione</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="148"/>
@@ -3129,27 +3129,27 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Autentificazione EAP Rifiutata</translation>
+        <translation>Autenticazione EAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Autentificazione PAP Rifiutata</translation>
+        <translation>Autenticazione PAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Autentificazione CHAP Rifiutata</translation>
+        <translation>Autenticazione CHAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Autentificazione MSCHAP Rifiutata</translation>
+        <translation>Autenticazione MSCHAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Autentificazione MSCHAPv2 Rifiutata</translation>
+        <translation>Autenticazione MSCHAPv2 Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
@@ -3334,7 +3334,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="125"/>
         <source>HMAC Auth</source>
-        <translation>Autentificazione HMAC</translation>
+        <translation>Autenticazione HMAC</translation>
     </message>
 </context>
 <context>
@@ -3471,7 +3471,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
         <source>Auth Type</source>
-        <translation>Tipo di autentificazione</translation>
+        <translation>Tipo di autenticazione</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
@@ -3524,7 +3524,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
         <source>VPN TLS Authentication</source>
-        <translation>Autentificazione VPN TLS</translation>
+        <translation>Autenticazione VPN TLS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
@@ -3632,7 +3632,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="210"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Usa autentificazione ibrida</translation>
+        <translation>Usa autenticazione ibrida</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="213"/>
@@ -3664,6 +3664,11 @@
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="102"/>
         <source>Select Settings</source>
         <translation>Seleziona configurazione</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <source>Wired Connection</source>
+        <translation>Connessione cablata</translation>
     </message>
 </context>
 <context>
@@ -7000,7 +7005,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="31"/>
         <source>General</source>
-        <translation>Generali</translation>
+        <translation>Generale</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="62"/>
@@ -7302,27 +7307,27 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Autentificazione EAP Rifiutata</translation>
+        <translation>Autenticazione EAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Autentificazione PAP Rifiutata</translation>
+        <translation>Autenticazione PAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Autentificazione CHAP Rifiutata</translation>
+        <translation>Autenticazione CHAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Autentificazione MSCHAP Rifiutata</translation>
+        <translation>Autenticazione MSCHAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Autentificazione MSCHAPv2 Rifiutata</translation>
+        <translation>Autenticazione MSCHAPv2 Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="91"/>
@@ -7544,7 +7549,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="202"/>
         <source>EAP Auth</source>
-        <translation>Autentificazione EAP</translation>
+        <translation>Autenticazione EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="214"/>
@@ -7601,7 +7606,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="391"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="438"/>
         <source>Inner Auth</source>
-        <translation>Autentificazione Inner</translation>
+        <translation>Autenticazione Inner</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="427"/>
@@ -8059,7 +8064,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
         <source>Auth Type</source>
-        <translation>Tipo di autentificazione</translation>
+        <translation>Tipo di autenticazione</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
@@ -8138,27 +8143,27 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Autentificazione EAP Rifiutata</translation>
+        <translation>Autenticazione EAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Autentificazione PAP Rifiutata</translation>
+        <translation>Autenticazione PAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Autentificazione CHAP Rifiutata</translation>
+        <translation>Autenticazione CHAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Autentificazione MSCHAP Rifiutata</translation>
+        <translation>Autenticazione MSCHAP Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Autentificazione MSCHAPv2 Rifiutata</translation>
+        <translation>Autenticazione MSCHAPv2 Rifiutata</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
@@ -8384,7 +8389,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
         <source>HMAC Auth</source>
-        <translation>Autentificazione HMAC</translation>
+        <translation>Autenticazione HMAC</translation>
     </message>
 </context>
 <context>
@@ -8521,7 +8526,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
         <source>Auth Type</source>
-        <translation>Tipo di autentificazione</translation>
+        <translation>Tipo di autenticazione</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
@@ -8574,7 +8579,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
         <source>VPN TLS Authentication</source>
-        <translation>Autentificazione VPN TLS</translation>
+        <translation>Autenticazione VPN TLS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="79"/>
@@ -8682,7 +8687,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Usa autentificazione ibrida</translation>
+        <translation>Usa autenticazione ibrida</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
@@ -8705,7 +8710,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation>Aggiungi configurazione</translation>
+        <translation>Aggiungi configurazione </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>

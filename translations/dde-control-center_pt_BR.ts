@@ -187,13 +187,13 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="377"/>
         <source>Auto Login</source>
-        <translation>Login Automático</translation>
+        <translation>Login automático</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
         <source>Login Without Password</source>
-        <translation>Login Sem Senha</translation>
+        <translation>Login sem senha</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
@@ -208,11 +208,6 @@
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="80"/>
         <source>Accounts</source>
         <translation>Contas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
-        <source>The device is in use or cannot be connected</source>
-        <translation>O dispositivo está em uso ou não pode ser conectado</translation>
     </message>
 </context>
 <context>
@@ -829,7 +824,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="80"/>
         <source>Auto Sync</source>
-        <translation>Sincronização Automática com Servidor NTP</translation>
+        <translation>Sincronizar com Servidor NTP</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
@@ -1041,7 +1036,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="74"/>
         <source>Auto Brightness</source>
-        <translation>Brilho Automático</translation>
+        <translation>Brilho automático</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
 </context>
@@ -1931,9 +1926,14 @@
         <translation>Nome</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
+        <source>Wired Connection</source>
+        <translation>Conexão Cabeada</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
         <source>Auto Connect</source>
-        <translation>Conectar Automaticamente</translation>
+        <translation>Conectar automaticamente</translation>
     </message>
 </context>
 <context>
@@ -3665,6 +3665,11 @@
         <source>Select Settings</source>
         <translation>Selecionar Configurações</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <source>Wired Connection</source>
+        <translation>Conexão Cabeada</translation>
+    </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
@@ -4277,7 +4282,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="44"/>
         <source>Auto Sync</source>
-        <translation>Sincronização Automática com Servidor NTP</translation>
+        <translation>Sincronizar com Servidor NTP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="47"/>
@@ -5432,12 +5437,12 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="60"/>
         <source>Auto Login</source>
-        <translation>Login Automático</translation>
+        <translation>Login automático</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="64"/>
         <source>Login Without Password</source>
-        <translation>Login Sem Senha</translation>
+        <translation>Login sem senha</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="68"/>
@@ -5518,7 +5523,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation>Adicionar a Impressão Digital</translation>
+        <translation>Adicionar Impressão Digital</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
@@ -5533,7 +5538,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation>Identificando a impressão digital</translation>
+        <translation>Identificando impressão digital</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
@@ -5654,7 +5659,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation>Adicionar a Impressão Digital</translation>
+        <translation>Adicionar Impressão Digital</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="52"/>
@@ -5883,7 +5888,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
         <source>Auto Sync</source>
-        <translation>Auto Sincronia</translation>
+        <translation>Sincronizar com Servidor NTP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
@@ -6011,7 +6016,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation>Sincronização Automática com Servidor NTP</translation>
+        <translation>Sincronizar com Servidor NTP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
@@ -6186,7 +6191,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation>Brilho Automático</translation>
+        <translation>Brilho automático</translation>
     </message>
 </context>
 <context>

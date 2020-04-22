@@ -209,11 +209,6 @@
         <source>Accounts</source>
         <translation>Профили</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
-        <source>The device is in use or cannot be connected</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
@@ -241,7 +236,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="83"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отказ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
@@ -400,7 +395,7 @@
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Редактиране</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
@@ -410,12 +405,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отказ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Добави отпечатък</translation>
     </message>
 </context>
 <context>
@@ -1931,7 +1926,12 @@
         <translation>Име</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
+        <source>Wired Connection</source>
+        <translation>Кабелна връзка</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
         <source>Auto Connect</source>
         <translation type="unfinished"/>
     </message>
@@ -3665,6 +3665,11 @@
         <source>Select Settings</source>
         <translation>Избери настройки</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <source>Wired Connection</source>
+        <translation>Кабелна връзка</translation>
+    </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
@@ -4342,7 +4347,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
         <source>Corner Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки на ъгъл</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="256"/>
@@ -9265,7 +9270,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
         <source>Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Deepin общност</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>

@@ -139,7 +139,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
-        <translation type="unfinished"/>
+        <translation>Tên chỉ được chứa các chữ cái, số và gạch chân và không quá 15 ký tự.</translation>
     </message>
 </context>
 <context>
@@ -209,11 +209,6 @@
         <source>Accounts</source>
         <translation>Tài khoản </translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
-        <source>The device is in use or cannot be connected</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
@@ -241,7 +236,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="83"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Hủy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
@@ -263,7 +258,7 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="180"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
         <source>Scan Again</source>
-        <translation type="unfinished"/>
+        <translation>Quét lại lần nữa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
@@ -271,7 +266,7 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Dừng quét</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
@@ -400,7 +395,7 @@
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Chỉnh sửa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
@@ -410,12 +405,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Hủy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Thêm Dấu vân tay</translation>
     </message>
 </context>
 <context>
@@ -1050,7 +1045,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Màn hình chính</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
@@ -1086,12 +1081,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="357"/>
         <source>inch</source>
-        <translation type="unfinished"/>
+        <translation>inch</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
         <source>Resolution %1x%2</source>
-        <translation type="unfinished"/>
+        <translation>Độ phân giải %1x%2</translation>
     </message>
 </context>
 <context>
@@ -1931,7 +1926,12 @@
         <translation>tên</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
+        <source>Wired Connection</source>
+        <translation>Kết nối Có dây</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
         <source>Auto Connect</source>
         <translation>Tự động kết nối</translation>
     </message>
@@ -3665,6 +3665,11 @@
         <source>Select Settings</source>
         <translation>Lực chọn Thiết lập</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <source>Wired Connection</source>
+        <translation>Kết nối Có dây</translation>
+    </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
@@ -4342,7 +4347,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
         <source>Corner Settings</source>
-        <translation type="unfinished"/>
+        <translation>Thiết lập Góc</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="256"/>
@@ -5618,25 +5623,25 @@ Nếu không hoạt động, màn hình sẽ được khôi phục sau %1s.</tra
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
         <source>The fingerprint already exists, please scan other fingers</source>
-        <translation type="unfinished"/>
+        <translation>Dấu vân tay đã tồn tại, vui lòng quét các ngón tay khác</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation type="unfinished"/>
+        <translation>Ngón tay di chuyển quá nhanh. Xin đừng nâng cho đến khi được nhắc</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation type="unfinished"/>
+        <translation>Làm sạch ngón tay của bạn hoặc điều chỉnh vị trí ngón tay và thử lại</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation type="unfinished"/>
+        <translation>Điều chỉnh vị trí ngón tay để quét dấu vân tay của bạn đầy đủ</translation>
     </message>
 </context>
 <context>
@@ -5677,22 +5682,22 @@ Nếu không hoạt động, màn hình sẽ được khôi phục sau %1s.</tra
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="49"/>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Đặt ngón tay của bạn</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="122"/>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Đặt các cạnh của dấu vân tay của bạn trên cảm biến</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="124"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Đặt ngón tay của bạn chắc chắn vào cảm biến cho đến khi bạn được yêu cầu nâng nó lên</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="142"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Đã thêm dấu vân tay</translation>
     </message>
 </context>
 <context>
@@ -9265,7 +9270,7 @@ Nếu không hoạt động, màn hình sẽ được khôi phục sau %1s.</tra
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
         <source>Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Cộng đồng Deepin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>

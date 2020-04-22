@@ -209,11 +209,6 @@
         <source>Accounts</source>
         <translation>Cuentas</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
-        <source>The device is in use or cannot be connected</source>
-        <translation>El dispositivo está en uso o no se puede conectar</translation>
-    </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
@@ -263,7 +258,7 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="180"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
         <source>Scan Again</source>
-        <translation>Escanear otra vez</translation>
+        <translation>Escanear de nuevo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
@@ -1931,7 +1926,12 @@
         <translation>Nombre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
+        <source>Wired Connection</source>
+        <translation>Conexión cableada</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
         <source>Auto Connect</source>
         <translation>Conectar automáticamente</translation>
     </message>
@@ -3665,6 +3665,11 @@
         <source>Select Settings</source>
         <translation>Seleccionar ajustes</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <source>Wired Connection</source>
+        <translation>Conexión cableada</translation>
+    </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
@@ -4685,7 +4690,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Reinicie el equipo para usar el sistema y las aplicaciones correctamente</translation>
+        <translation>Reinicie el equipo para aplicar los cambios y pueda usarlo con normalidad</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="71"/>
@@ -5135,12 +5140,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Reinicie el equipo para usar el sistema y las aplicaciones correctamente</translation>
+        <translation>Reinicie el equipo para aplicar los cambios y pueda usarlo con normalidad</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation>Asegúrese de que todos los datos se hayan guardado primero</translation>
+        <translation>Asegúrese de que hayan guardado todos los datos</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="41"/>
@@ -5644,7 +5649,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation>Lista de huellas dactilar</translation>
+        <translation>Lista de huellas dactilares</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="46"/>
@@ -5692,7 +5697,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="142"/>
         <source>Fingerprint added</source>
-        <translation>Huella dactilar agregada</translation>
+        <translation>Huella dactilar añadida</translation>
     </message>
 </context>
 <context>
@@ -9355,7 +9360,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation>Por favor, reinicie para usar el sistema y aplicaciones correctamente después de actualizar</translation>
+        <translation>Por favor, reinicie después de actualizar para usar el sistema y aplicaciones con normalidad</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
