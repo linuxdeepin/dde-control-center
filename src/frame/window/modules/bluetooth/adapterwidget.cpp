@@ -128,10 +128,14 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
         if (!item) {
             return;
         }
+        for (auto it : m_deviceLists) {
+            it->setSpinnerColor(QColor(0,129,255));
+        }
         for (auto it : m_myDevices) {
             if (it->getStandardItem() == item) {
                 if (it->device()->state() != Device::StateConnected) {
                     it->requestConnectDevice(it->device());
+                    it->setSpinnerColor(Qt::white);
                 }
                 Q_EMIT requestShowDetail(m_adapter, it->device());
                 break;
@@ -153,7 +157,9 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
         for (auto it : m_deviceLists) {
             if (it->getStandardItem() == item) {
                 it->requestConnectDevice(it->device());
-                break;
+                it->setSpinnerColor(Qt::white);
+            } else {
+                it->setSpinnerColor(QColor(0,129,255));
             }
         }
     });

@@ -77,9 +77,6 @@ void DeviceSettingsItem::initItemActionList()
 void DeviceSettingsItem::setLoading(const bool loading)
 {
     if (loading) {
-        QPalette pa = m_loadingIndicator->palette();
-        pa.setBrush(QPalette::Highlight,Qt::white);
-        m_loadingIndicator->setPalette(pa);
         m_loadingIndicator->start();
         m_loadingIndicator->show();
         m_loadingAction->setVisible(true);
@@ -93,6 +90,15 @@ void DeviceSettingsItem::setLoading(const bool loading)
     if (m_parentDListView) {
         m_parentDListView->update();
     }
+}
+
+void DeviceSettingsItem::setSpinnerColor(const QColor color)
+{
+    QPalette pa = m_loadingIndicator->palette();
+    QBrush brush=pa.highlight();
+    QColor wf=brush.color();
+    pa.setBrush(QPalette::Highlight,color);
+    m_loadingIndicator->setPalette(pa);
 }
 
 void DeviceSettingsItem::setDevice(const Device *device)
