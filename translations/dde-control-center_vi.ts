@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="823"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="820"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="822"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,14 +87,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="835"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="832"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="834"/>
         <source>Drawing Tablet</source>
         <translation>Drawing Tablet</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="413"/>
         <source>Keyboard and Language</source>
         <translation>Bàn phím và Ngôn ngữ</translation>
     </message>
@@ -129,10 +128,18 @@
         <translation>Công cụ hỗ trợ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="847"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="844"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="846"/>
         <source>Cloud Sync</source>
         <translation>Đồng bộ hóa trên đám mây</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccounntFingeItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
+        <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
+        <translation>Tên chỉ được chứa các chữ cái, số và gạch chân và không quá 15 ký tự.</translation>
     </message>
 </context>
 <context>
@@ -190,7 +197,7 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
         <source>Group</source>
         <translation>Nhóm</translation>
     </message>
@@ -227,35 +234,54 @@
 <context>
     <name>dccV20::accounts::AddFingeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="83"/>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="218"/>
         <source>Add Fingerprint</source>
         <translation>Thêm Dấu vân tay</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
-        <source>Scan again</source>
-        <translation>Quét lại lần nữa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="129"/>
         <source>Done</source>
         <translation>Xong</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
-        <source>Identifying fingerprint</source>
-        <translation>Đang nhận diện dấu vân tay</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
+        <source>Scan Again</source>
+        <translation>Quét lại lần nữa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
-        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
+        <source>Scan Suspended</source>
+        <translation>Dừng quét</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+        <source>Please scan one second later</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
-        <source>Fingerprint added</source>
-        <translation>Đã thêm dấu vân tay</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
+        <source>Scan time expired</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
+        <source>Already scanned</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -367,23 +393,24 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
-        <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
+        <source>Edit</source>
+        <translation>Chỉnh sửa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
         <source>Fingerprint Password</source>
         <translation>Mật mã Dấu vân tay</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
-        <source>Fingerprint</source>
-        <translation>Dấu vân tay</translation>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
-        <source>Add fingerprint</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
+        <source>Add Fingerprint</source>
+        <translation>Thêm Dấu vân tay</translation>
     </message>
 </context>
 <context>
@@ -512,12 +539,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
         <source>Connected</source>
         <translation>Đã kết nối</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="166"/>
         <source>Not connected</source>
         <translation>Không được kết nối</translation>
     </message>
@@ -580,7 +607,7 @@
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
         <translation>Chương trình trải nghiệm người dùng</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
@@ -1041,23 +1068,23 @@
         <translation>Lưu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="265"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="327"/>
         <source>Recommended</source>
         <translation>Đề nghị</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="357"/>
         <source>inch</source>
         <translation>inch</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
         <source>Resolution %1x%2</source>
         <translation>Độ phân giải %1x%2</translation>
     </message>
@@ -1065,13 +1092,13 @@
 <context>
     <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="67"/>
         <source>Display</source>
         <translation>Hiển thị</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="121"/>
         <source>Multiple Displays</source>
         <translation>Nhiều màn hình</translation>
     </message>
@@ -1142,16 +1169,6 @@
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="132"/>
         <source>Expand the desktop across the screens</source>
         <translation>Mở rộng máy tính để bàn trên màn hình</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>chỉ %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Chỉ hiển thị nội dung trên màn hình %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
@@ -1909,7 +1926,12 @@
         <translation>tên</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
+        <source>wired Connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
         <source>Auto Connect</source>
         <translation>Tự động kết nối</translation>
     </message>
@@ -2409,14 +2431,6 @@
         <source>System Proxy</source>
         <translation>Ủy thác hệ thống</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="232"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="241"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="250"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="259"/>
-        <source>Invalid port</source>
-        <translation>Port không đúng</translation>
-    </message>
 </context>
 <context>
     <name>dccV20::network::Secret8021xSection</name>
@@ -2426,159 +2440,159 @@
         <translation>Bảo mật</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="160"/>
         <source>TLS</source>
         <translation>TLS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
         <source>MD5</source>
         <translation>MD5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="162"/>
         <source>LEAP</source>
         <translation>LEAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="163"/>
         <source>FAST</source>
         <translation>FAST</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="164"/>
         <source>Tunneled TLS</source>
         <translation>TLS được tạo đường</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="165"/>
         <source>Protected EAP</source>
         <translation>EAP được bảo vệ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
         <source>Saved</source>
         <translation>Đã lưu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
         <source>Ask</source>
         <translation>Yêu cầu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Not Required</source>
         <translation>Không Cần</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
         <source>Disabled</source>
         <translation>Đã ngắt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="177"/>
         <source>Anonymous</source>
         <translation>Ẩn danh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="178"/>
         <source>Authenticated</source>
         <translation>Đã xác thực</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="179"/>
         <source>Both</source>
         <translation>Cả hai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="195"/>
         <source>Automatic</source>
         <translation>Tự động</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="196"/>
         <source>Version 0</source>
         <translation>Phiên bản 0</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="197"/>
         <source>Version 1</source>
         <translation>Phiên bản 1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="209"/>
         <source>EAP Auth</source>
         <translation>Xác thực EAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
         <source>Identity</source>
         <translation>Danh tính</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="231"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="249"/>
         <source>Required</source>
         <translation>Cần thiết</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="237"/>
         <source>Pwd Options</source>
         <translation>Pwd Options</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="344"/>
         <source>Private Key</source>
         <translation>Chìa khóa Cá nhân</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="344"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="420"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="452"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="456"/>
         <source>CA Cert</source>
         <translation>Xác nhận CA</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="352"/>
         <source>User Cert</source>
         <translation>Xác nhận Người dùng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="370"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="416"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="452"/>
         <source>Anonymous ID</source>
         <translation>ID Ẩn danh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="378"/>
         <source>Provisioning</source>
         <translation>Dự phòng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="390"/>
         <source>PAC file</source>
         <translation>Tập tin PAC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="390"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="424"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="471"/>
         <source>Inner Auth</source>
         <translation>Xác thực bên trong</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="456"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="460"/>
         <source>PEAP Version</source>
         <translation>Phiên bản PEAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="546"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="555"/>
         <source>Private Pwd</source>
         <translation>Pwd Cá nhân</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="557"/>
         <source>Password</source>
         <translation>Mật mã</translation>
     </message>
@@ -3651,32 +3665,37 @@
         <source>Select Settings</source>
         <translation>Lực chọn Thiết lập</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <source>wired Connection</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="265"/>
         <source>Connect to hidden network</source>
         <translation>Kết nối với mạng ẩn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
         <source>Wireless Network Adapter</source>
         <translation>Wireless Network Adapter</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="285"/>
         <source>Close Hotspot</source>
         <translation>Đóng điểm truy cập</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="288"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Trước tiên hãy tắt điểm phát sóng nếu bạn muốn kết nối với mạng không dây</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="311"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -4344,23 +4363,23 @@
 <context>
     <name>dccV20::sync::LoginPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="34"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
         <source>Sign In</source>
         <translation>Đăng nhập</translation>
         <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="36"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
         <translation>Sau khi đăng nhập tài khoản đám mây, bạn có thể sử dụng đồng bộ đám mây, cửa hàng ứng dụng, ứng dụng email, trình duyệt và các dịch vụ đám mây khác.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Cloud Account Sign In</source>
         <translation>Đăng nhập tài khoản đám mây</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
         <source>Only supported in Mainland China at present</source>
         <translation>Hiện tại chỉ hỗ trợ tại Trung Quốc đại lục</translation>
     </message>
@@ -4505,15 +4524,15 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="162"/>
         <source>To be activated</source>
         <translation>Để được kích hoạt</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="176"/>
         <source>Activate</source>
         <translation>Kịch hoạt</translation>
     </message>
@@ -4536,33 +4555,33 @@
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="142"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="158"/>
         <source>Activated</source>
         <translation>Đã kích hoạt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="161"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="168"/>
         <source>View</source>
         <translation>Xem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="166"/>
         <source>Expired</source>
         <translation>Hết hạn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="170"/>
         <source>In trial period</source>
         <translation>Trong thời gian dùng thử</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="174"/>
         <source>Trial expired</source>
         <translation>Bản dùng thử đã hết hạn</translation>
     </message>
@@ -4689,101 +4708,101 @@
         <translation>Bản cập nhật này có thể mất nhiều thời gian, vui lòng không tắt hoặc khởi động lại</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="232"/>
         <source>Checking for updates, please wait...</source>
         <translation>Đang kiểm tra cập nhật, xin hãy đợi...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="240"/>
         <source>Download and install updates</source>
         <translation>Tải xuống và cài đặt những cập nhật</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="371"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% đã được tải xuống (Nhấn chuột để tạm dừng)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="247"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="373"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>đã tải xuống %1 (Nhấn để tiếp tục)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="263"/>
         <source>Install updates</source>
         <translation>Cài đặt những cập nhật</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="270"/>
         <source>Your system is up to date</source>
         <translation>Hệ thống của bạn thì đã cập nhật</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Updating, please wait...</source>
         <translation>Đang cập nhật, xin hãy đợi...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="291"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Hệ thống mới nhất đã được cập nhật, khởi động lại để có hiệu lực</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="301"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Cập nhật thất bại: không đủ dung lượng </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="306"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Lỗi phụ thuộc, không phát hiện các bản cập nhật</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>Backing up, please wait...</source>
         <translation>Đang khôi phục, xin hãy đợi...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="318"/>
         <source>System backup failed</source>
         <translation>Khôi phục hệ thống lỗi</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
         <translation><numerusform>%n cập nhật ứng dụng được phát hiện</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
         <source>New system edition available</source>
         <translation>Phiên bản hệ thống mới được phát hiện</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
         <translation><numerusform>Phiên bản hệ thống mới và %n cập nhật() ứng dụng được phát hiện</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
         <source>Downloaded</source>
         <translation>Đã tải xuống</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="357"/>
         <source>Size: %1</source>
         <translation>Kích thước: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="381"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Pin của bạn thấp hơn 50%, xin hãy cắm điện vào để tiếp tục</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="383"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Xin hãy bảo đảm đủ năng lượng để khởi động lại, và không tắt điện hay rút dây máy của bạn</translation>
     </message>
@@ -4921,7 +4940,7 @@
 <context>
     <name>dccV20::wacom::WacomModule</name>
     <message>
-        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="96"/>
         <source>Drawing Tablet</source>
         <translation>Drawing Tablet</translation>
     </message>
@@ -5599,6 +5618,33 @@ Nếu không hoạt động, màn hình sẽ được khôi phục sau %1s.</tra
     </message>
 </context>
 <context>
+    <name>dcc::accounts::FingerModel</name>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
+        <source>The fingerprint already exists, please scan other fingers</source>
+        <translation>Dấu vân tay đã tồn tại, vui lòng quét các ngón tay khác</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>Ngón tay di chuyển quá nhanh. Xin đừng nâng cho đến khi được nhắc</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>Làm sạch ngón tay của bạn hoặc điều chỉnh vị trí ngón tay và thử lại</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <source>Adjust the finger position to scan your fingerprint fully</source>
+        <translation>Điều chỉnh vị trí ngón tay để quét dấu vân tay của bạn đầy đủ</translation>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::FingerPage</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
@@ -5629,6 +5675,29 @@ Nếu không hoạt động, màn hình sẽ được khôi phục sau %1s.</tra
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
         <translation>Dấu vân tay</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::FingerWidget</name>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="49"/>
+        <source>Place your finger</source>
+        <translation>Đặt ngón tay của bạn</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="122"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation>Đặt các cạnh của dấu vân tay của bạn trên cảm biến</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="124"/>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation>Đặt ngón tay của bạn chắc chắn vào cảm biến cho đến khi bạn được yêu cầu nâng nó lên</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="142"/>
+        <source>Fingerprint added</source>
+        <translation>Đã thêm dấu vân tay</translation>
     </message>
 </context>
 <context>
@@ -9199,12 +9268,12 @@ Nếu không hoạt động, màn hình sẽ được khôi phục sau %1s.</tra
         <translation>%1Bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="188"/>
-        <source>www.deepin.org</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
+        <source>Deepin Community</source>
+        <translation>Cộng đồng Deepin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
         <translation>Bản quyền © Công ty TNHH Công nghệ 2019-2020 Wuhan Deepin</translation>
     </message>

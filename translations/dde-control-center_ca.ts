@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="823"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="820"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="822"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,14 +87,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="835"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="832"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="834"/>
         <source>Drawing Tablet</source>
         <translation>Tauleta de dibuix</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="413"/>
         <source>Keyboard and Language</source>
         <translation>Llengua i teclat</translation>
     </message>
@@ -129,10 +128,18 @@
         <translation>Eines d&apos;assistència</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="847"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="844"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="846"/>
         <source>Cloud Sync</source>
         <translation>Sincronització del núvol</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccounntFingeItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
+        <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
+        <translation>El nom ha de tenir només lletres, números i guionets baixos, i no superar els 15 caràcters.</translation>
     </message>
 </context>
 <context>
@@ -190,7 +197,7 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
         <source>Group</source>
         <translation>Grup</translation>
     </message>
@@ -227,35 +234,54 @@
 <context>
     <name>dccV20::accounts::AddFingeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="83"/>
+        <source>Cancel</source>
+        <translation>Cancel·la</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="218"/>
         <source>Add Fingerprint</source>
         <translation>Afegiu una empremta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
-        <source>Scan again</source>
-        <translation>Torna-ho a escanejar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="129"/>
         <source>Done</source>
         <translation>Fet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
-        <source>Identifying fingerprint</source>
-        <translation>Identificació de l&apos;empremta</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="195"/>
+        <source>Scan Again</source>
+        <translation>Torna-ho a escanejar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
-        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation>Poseu el dit al lector d&apos;empremtes, feu-lo lliscar amunt o avall i traieu-l&apos;en.</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
+        <source>Scan Suspended</source>
+        <translation>Escaneig suspès</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
-        <source>Fingerprint added</source>
-        <translation>Empremta afegida</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
+        <source>Please scan one second later</source>
+        <translation>Escanegeu un segon més tard</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
+        <source>Scan time expired</source>
+        <translation>S&apos;ha esgotat l&apos;estona de l&apos;escaneig.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
+        <source>Already scanned</source>
+        <translation>Ja escanejat</translation>
     </message>
 </context>
 <context>
@@ -367,22 +393,23 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
-        <source>Delete fingerprint</source>
-        <translation>Elimina l&apos;empremta</translation>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
+        <source>Edit</source>
+        <translation>Edita</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
         <source>Fingerprint Password</source>
         <translation>Contrasenya d&apos;empremta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
-        <source>Fingerprint</source>
-        <translation>Empremta</translation>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
+        <source>Cancel</source>
+        <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
-        <source>Add fingerprint</source>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
+        <source>Add Fingerprint</source>
         <translation>Afegeix una empremta</translation>
     </message>
 </context>
@@ -512,12 +539,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
         <source>Connected</source>
         <translation>Connectat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="166"/>
         <source>Not connected</source>
         <translation>No connectat</translation>
     </message>
@@ -580,7 +607,7 @@
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
         <translation>Programa d&apos;experiència d&apos;usuari</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
@@ -912,7 +939,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="67"/>
         <source>Add Timezone</source>
-        <translation>Afegeix una zona horària</translation>
+        <translation>Afegiu una zona horària</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -921,7 +948,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="74"/>
         <source>Add Application</source>
-        <translation>Afegeix una aplicació</translation>
+        <translation>Afegiu una aplicació</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -1041,37 +1068,37 @@
         <translation>Desa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="265"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="327"/>
         <source>Recommended</source>
         <translation>Recomanada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="357"/>
         <source>inch</source>
         <translation>polzada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="358"/>
         <source>Resolution %1x%2</source>
-        <translation>Resolució: %1x%2</translation>
+        <translation>Resolució %1x%2</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="67"/>
         <source>Display</source>
         <translation>Pantalla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="121"/>
         <source>Multiple Displays</source>
         <translation>Pantalles múltiples</translation>
     </message>
@@ -1144,16 +1171,6 @@
         <translation>Expandeix l&apos;escriptori a totes les pantalles.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>Només %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Mostra el contingut de la pantalla només a %1.</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
         <source>Customize</source>
         <translation>Personalitzeu-ho</translation>
@@ -1223,7 +1240,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="61"/>
         <source>Add Custom Shortcut</source>
-        <translation>Afegeix una drecera personalitzada</translation>
+        <translation>Afegiu una drecera personalitzada</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
@@ -1909,7 +1926,12 @@
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
+        <source>wired Connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
         <source>Auto Connect</source>
         <translation>Connexió automàtica</translation>
     </message>
@@ -1925,7 +1947,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation>Afegeix paràmetres</translation>
+        <translation>Afegiu paràmetres</translation>
     </message>
 </context>
 <context>
@@ -2409,14 +2431,6 @@
         <source>System Proxy</source>
         <translation>Servidor intermediari del sistema</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="232"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="241"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="250"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="259"/>
-        <source>Invalid port</source>
-        <translation>Port no vàlid</translation>
-    </message>
 </context>
 <context>
     <name>dccV20::network::Secret8021xSection</name>
@@ -2426,159 +2440,159 @@
         <translation>Seguretat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="160"/>
         <source>TLS</source>
         <translation>TLS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
         <source>MD5</source>
         <translation>MD5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="162"/>
         <source>LEAP</source>
         <translation>SALT</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="163"/>
         <source>FAST</source>
         <translation>Ràpid</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="164"/>
         <source>Tunneled TLS</source>
         <translation>TLS per túnel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="165"/>
         <source>Protected EAP</source>
         <translation>EAP protegit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
         <source>Saved</source>
         <translation>S&apos;ha desat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
         <source>Ask</source>
         <translation>Pregunta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Not Required</source>
         <translation>No cal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
         <source>Disabled</source>
         <translation>S&apos;ha desactivat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="177"/>
         <source>Anonymous</source>
         <translation>Anònim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="178"/>
         <source>Authenticated</source>
         <translation>Autenticat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="179"/>
         <source>Both</source>
         <translation>Ambdós</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="195"/>
         <source>Automatic</source>
         <translation>Automàtic</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="196"/>
         <source>Version 0</source>
         <translation>Versió 0</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="197"/>
         <source>Version 1</source>
         <translation>Versió 1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="209"/>
         <source>EAP Auth</source>
         <translation>Autenticació d&apos;EAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
         <source>Identity</source>
         <translation>Identitat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="231"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="249"/>
         <source>Required</source>
         <translation>Cal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="237"/>
         <source>Pwd Options</source>
         <translation>Opcions de la contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="344"/>
         <source>Private Key</source>
         <translation>Clau privada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="344"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="420"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="452"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="456"/>
         <source>CA Cert</source>
         <translation>Certificat CA</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="352"/>
         <source>User Cert</source>
         <translation>Certificat d&apos;usuari</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="370"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="416"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="452"/>
         <source>Anonymous ID</source>
         <translation>ID anònim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="378"/>
         <source>Provisioning</source>
         <translation>Aprovisionament</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="390"/>
         <source>PAC file</source>
         <translation>Fitxer PAC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="390"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="424"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="471"/>
         <source>Inner Auth</source>
         <translation>Autenticació interna</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="456"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="460"/>
         <source>PEAP Version</source>
         <translation>Versió PEAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="546"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="555"/>
         <source>Private Pwd</source>
         <translation>Contrasenya privada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="557"/>
         <source>Password</source>
         <translation>Contrasenya</translation>
     </message>
@@ -3643,7 +3657,7 @@
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="88"/>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="110"/>
         <source>Add Network Connection</source>
-        <translation>Afegir connexió de xarxa</translation>
+        <translation>Afegiu una connexió de xarxa</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
@@ -3651,32 +3665,37 @@
         <source>Select Settings</source>
         <translation>Seleccioneu els paràmetres</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <source>wired Connection</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="265"/>
         <source>Connect to hidden network</source>
         <translation>Connecta amb una xarxa oculta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
         <source>Wireless Network Adapter</source>
         <translation>Adaptador de la xarxa sense fil</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="285"/>
         <source>Close Hotspot</source>
         <translation>Tanca el punt d&apos;accés.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="288"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Inhabiliteu primer el punt d&apos;accés si voleu connectar-vos a una xarxa sense fil.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="311"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -4328,7 +4347,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
         <source>Corner Settings</source>
-        <translation>Configuració del cantó</translation>
+        <translation>Configuració de la vora</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="256"/>
@@ -4344,23 +4363,23 @@
 <context>
     <name>dccV20::sync::LoginPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="34"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
         <source>Sign In</source>
         <translation>Inicia la sessió</translation>
         <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="36"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
         <translation>Després d’iniciar la sessió al compte de núvol, podeu usar la sincronització en núvol, la botiga d’aplicacions, el client de correu electrònic, el navegador i altres serveis del núvol.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Cloud Account Sign In</source>
         <translation>Registre al compte de núvol</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
         <source>Only supported in Mainland China at present</source>
         <translation>Només s&apos;admet ara a la Xina continental.</translation>
     </message>
@@ -4505,15 +4524,15 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="162"/>
         <source>To be activated</source>
         <translation>Per ser activat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="176"/>
         <source>Activate</source>
         <translation>Activa</translation>
     </message>
@@ -4536,33 +4555,33 @@
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="142"/>
         <source>%1-bit</source>
         <translation>%1 bits</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="158"/>
         <source>Activated</source>
         <translation>Activat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="161"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="168"/>
         <source>View</source>
         <translation>Visualització</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="166"/>
         <source>Expired</source>
         <translation>Caducat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="170"/>
         <source>In trial period</source>
         <translation>En un període de prova</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="174"/>
         <source>Trial expired</source>
         <translation>S&apos;ha esgotat el període de prova.</translation>
     </message>
@@ -4689,101 +4708,101 @@
         <translation>Aquesta actualització pot trigar força. Si us plau, no atureu ni reinicieu el sistema mentre duri el procés.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="232"/>
         <source>Checking for updates, please wait...</source>
         <translation>Comprovant si hi ha actualitzacions. Espereu, si us plau...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="240"/>
         <source>Download and install updates</source>
         <translation>Baixa i instal·la les actualitzacions</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="371"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% baixat (cliqueu per interrompre-ho)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="247"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="373"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% baixat (cliqueu per repredre-ho)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="263"/>
         <source>Install updates</source>
         <translation>Instal·la les actualitzacions</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="270"/>
         <source>Your system is up to date</source>
         <translation>El sistema està actualitzat.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Updating, please wait...</source>
         <translation>S&apos;actualitza. Espereu, si us plau...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="291"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>S&apos;ha instal·lat el sistema més nou. Reinicieu-lo perquè tingui efecte.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="301"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Ha fallat l&apos;actualització: no hi ha prou espai de disc.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="306"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Error de dependències. Ha fallat detectar les actualitzacions.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>Backing up, please wait...</source>
         <translation>Se&apos;n fa la còpia de seguretat. Espereu, si us plau...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="318"/>
         <source>System backup failed</source>
         <translation>Ha fallat la còpia de seguretat del sistema.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
         <translation><numerusform>%n actualització d&apos;aplicació disponible</numerusform><numerusform>%n actualitzacions d&apos;aplicacions disponibles</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
         <source>New system edition available</source>
         <translation>Hi ha disponible una edició nova del sistema.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
         <translation><numerusform>Hi ha una edició nova del sistema i %n actualització d&apos;aplicació disponible.</numerusform><numerusform>Hi ha una edició nova del sistema i %n actualitzacions d&apos;aplicacions disponibles.</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
         <source>Downloaded</source>
         <translation>Baixat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="357"/>
         <source>Size: %1</source>
         <translation>Mida: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="381"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>La bateria no arriba al 50 %. Si us plau, endolleu l&apos;ordinador per continuar.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="383"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Si us plau, assegureu-vos que hi ha energia suficient per reiniciar i no atureu ni desendolleu l&apos;ordinador.</translation>
     </message>
@@ -4921,7 +4940,7 @@
 <context>
     <name>dccV20::wacom::WacomModule</name>
     <message>
-        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="96"/>
         <source>Drawing Tablet</source>
         <translation>Tauleta de dibuix</translation>
     </message>
@@ -5504,7 +5523,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation>Afegeix una empremta</translation>
+        <translation>Afegiu una empremta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
@@ -5599,6 +5618,33 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     </message>
 </context>
 <context>
+    <name>dcc::accounts::FingerModel</name>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
+        <source>The fingerprint already exists, please scan other fingers</source>
+        <translation>L&apos;empremta ja existeix. Escanegeu altres dits.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>El dit s&apos;ha mogut massa de pressa. No l&apos;aixequeu fins que s&apos;indiqui.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>Netegeu-vos el dit o ajusteu-ne la posició i torneu-ho a provar.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <source>Adjust the finger position to scan your fingerprint fully</source>
+        <translation>Ajusteu la posició del dit per escanejar tota l&apos;empremta.</translation>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::FingerPage</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
@@ -5613,7 +5659,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation>Afegeix una empremta</translation>
+        <translation>Afegiu una empremta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="52"/>
@@ -5629,6 +5675,29 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
         <translation>Empremta</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::FingerWidget</name>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="49"/>
+        <source>Place your finger</source>
+        <translation>Col·loqueu el dit</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="122"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation>Col·loqueu les vores de la vostra empremta en el sensor</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="124"/>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation>Col·loqueu el dit amb fermesa sobre el sensor fins que se us digui d&apos;aixecar-lo.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="142"/>
+        <source>Fingerprint added</source>
+        <translation>Empremta afegida</translation>
     </message>
 </context>
 <context>
@@ -5952,7 +6021,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
-        <translation>Afegeix una zona horària</translation>
+        <translation>Afegiu una zona horària</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
@@ -5993,7 +6062,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
         <source>Add Timezone</source>
-        <translation>Afegeix una zona horària</translation>
+        <translation>Afegiu una zona horària</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
@@ -6430,7 +6499,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
-        <translation>Afegeix una disposició de teclat</translation>
+        <translation>Afegiu una disposició de teclat</translation>
     </message>
 </context>
 <context>
@@ -6438,7 +6507,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="49"/>
         <source>Add Keyboard Layout</source>
-        <translation>Afegeix una disposició de teclat</translation>
+        <translation>Afegiu una disposició de teclat</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
@@ -6591,7 +6660,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
-        <translation>Afegeix una drecera personalitzada</translation>
+        <translation>Afegiu una drecera personalitzada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
@@ -8641,7 +8710,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation>Afegeix paràmetres</translation>
+        <translation>Afegiu paràmetres</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>
@@ -9199,12 +9268,12 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
         <translation>%1 bits</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="188"/>
-        <source>www.deepin.org</source>
-        <translation>www.deepin.org</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
+        <source>Deepin Community</source>
+        <translation>Comunitat del Deepin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
