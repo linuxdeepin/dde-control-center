@@ -98,7 +98,13 @@ void GenericSection::setConnectionNameEditable(const bool editable)
 void GenericSection::initUI()
 {
     m_connIdItem->setTitle(tr("Name"));
-    m_connIdItem->setText(m_connSettings->id());
+
+    //下面的四行代码是为了盘古项目的一个小bug做的一个改动
+    if ( m_connSettings->id() == "Wired Connection" || m_connSettings->id() == "有线连接")
+        m_connIdItem->setText(tr("Wired Connection"));
+    else
+        m_connIdItem->setText(m_connSettings->id());
+
     m_autoConnItem->switchWidget()->setChecked(m_connSettings->autoconnect());
     m_autoConnItem->setTitle(tr("Auto Connect"));
 

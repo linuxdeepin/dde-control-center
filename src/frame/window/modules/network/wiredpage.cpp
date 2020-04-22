@@ -168,6 +168,11 @@ void WiredPage::refreshConnectionList()
             continue;
 
         DStandardItem *it = new DStandardItem(m_model->connectionNameByPath(path));
+
+        //以下两行是为了盘古项目一个小bug所改
+        if (it->text() == "Wired Connection" || it->text() == "有线连接")
+            it->setText(tr("Wired Connection"));
+
         it->setData(path, PathRole);
         it->setCheckable(false);
         it->setCheckState(path == m_device->activeWiredConnSettingPath() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
