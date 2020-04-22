@@ -73,10 +73,6 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
         m_isNewConnection = true;
     } else {
         m_connection = findConnectionByUuid(m_connectionUuid);
-        if (!m_connection) {
-            qDebug() << "can't find connection by uuid:" << m_connectionUuid;
-            return;
-        }
         m_connectionSettings = m_connection->settings();
         m_isNewConnection = false;
         initConnectionSecrets();
