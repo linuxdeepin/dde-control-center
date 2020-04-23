@@ -408,12 +408,17 @@ void MainWindow::loadModules()
         auto *module = qobject_cast<ModuleInterface *>(instance);
         module->setFrameProxy(this);
 
-        if (tr("Assistive Tools") == module->displayName() && !DCC_NAMESPACE::IsDesktopSystem) {
-            for (auto i : m_modules) {
-                if (i.second == tr("Keyboard and Language")) {
-                    m_modules.insert(m_modules.indexOf(i) + 1, {module, module->displayName()});
+        if (tr("Assistive Tools") == module->displayName()) {
+            if(!DCC_NAMESPACE::IsDesktopSystem) {//社区版不加载辅助功能
+                for (auto i : m_modules) {
+                    if (i.second == tr("Keyboard and Language")) {
+                        m_modules.insert(m_modules.indexOf(i) + 1, {module, module->displayName()});
+                        break;
+                    }
                 }
             }
+        } else {
+            m_modules.append({module, module->displayName()});
         }
     }
 }
