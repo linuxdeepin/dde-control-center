@@ -54,6 +54,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     , m_searchValue("")
     , m_bIstextEdited(false)
     , m_speechState(false)
+    ,m_deepinwm(new DEEPIN_WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
 {
     m_model = new QStandardItemModel(this);
     m_completer = new ddeCompleter(m_model, this);
@@ -423,6 +424,13 @@ void SearchWidget::loadxml()
                         if ("" == m_searchBoxStruct.actualModuleName || "" == m_searchBoxStruct.translateContent) {
                             clearSearchData();
                             continue;
+                        }
+
+                        if (!m_bIsIsDesktopType && !m_deepinwm->compositingAllowSwitch()) {
+                            if (tr("Window Effect") == m_searchBoxStruct.translateContent) {
+                                clearSearchData();
+                                continue;
+                            }
                         }
 
                         //判断是否为服务器,是服务器时,若当前不是服务器就不添加"Server"

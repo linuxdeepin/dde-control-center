@@ -29,6 +29,7 @@
 #include <QLocale>
 #include <QListView>
 #include <QStandardItemModel>
+#include <com_deepin_wm.h>
 
 QT_BEGIN_NAMESPACE
 class QListWidget;
@@ -44,6 +45,8 @@ const QString XML_Title = "translation";
 const QString XML_Numerusform = "numerusform";
 const QString XML_Explain_Path = "extra-contents_path";
 const QString XML_Child_Path = "extra-child_page";
+
+using DEEPIN_WM = com::deepin::wm;
 
 namespace DCC_NAMESPACE {
 namespace search {
@@ -120,6 +123,7 @@ private:
     QList<QPair<QString, bool>> m_serverTxtList;//QString表示和服务器/桌面版有关的文言,bool:true表示只有服务器版会存在,false表示只有桌面版存在
     QList<QString> m_TxtList;
     bool m_speechState;
+    DEEPIN_WM *m_deepinwm;
 };
 
 }// namespace search
