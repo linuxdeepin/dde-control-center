@@ -57,7 +57,7 @@ void Clock::paintEvent(QPaintEvent *)
     painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
 
     // draw plate
-    const bool nightMode = !(6 < time.hour() && time.hour() < 18);
+    const bool nightMode = !(time.hour() >= 6  && time.hour() < 18);
     painter.setPen(Qt::transparent);
     painter.setBrush(nightMode && autoNightMode() ? Qt::black : Qt::white);
 
