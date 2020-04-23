@@ -42,6 +42,11 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 
+#include <networkmanagerqt/wiredsetting.h>
+#include <networkmanagerqt/connection.h>
+#include <networkmanagerqt/connectionsettings.h>
+#include <networkmanagerqt/settings.h>
+
 #include "dstyle.h"
 
 DWIDGET_USE_NAMESPACE
@@ -50,6 +55,7 @@ namespace DCC_NAMESPACE {
 namespace network {
 using namespace dcc::widgets;
 using namespace dde::network;
+using namespace NetworkManager;
 
 WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     : ContentWidget(parent)
@@ -169,10 +175,13 @@ void WiredPage::refreshConnectionList()
 
         DStandardItem *it = new DStandardItem(m_model->connectionNameByPath(path));
 
-        //以下两行是为了盘古项目一个小bug所改
-        if (it->text() == "Wired Connection" || it->text() == "有线连接")
-            it->setText(tr("Wired Connection"));
-
+        //以下6行是为了盘古项目一个小bug所改
+        if (it->text() == "Wired Connection" || it->text() == "有线连接"){
+            NetworkManager::Connection::Ptr connection = findConnectionByUuid(m_model->connectionUuidByPath(path));
+            ConnectionSettings::Ptr connectionSettings = connection->settings();
+            connectionSettings->setId(tr("Wired Connection"));
+            connection->update(connectionSettings->toMap());
+        }
         it->setData(path, PathRole);
         it->setCheckable(false);
         it->setCheckState(path == m_device->activeWiredConnSettingPath() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
@@ -240,8 +249,8 @@ void WiredPage::checkActivatedConnection()
 
 void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
 {
-        const bool unavailable = stat <= NetworkDevice::Unavailable;
-        m_tipsGrp->setVisible(unavailable);
+    const bool unavailable = stat <= NetworkDevice::Unavailable;
+    m_tipsGrp->setVisible(unavailable);
 }
 
 void WiredPage::onDeviceRemoved()
