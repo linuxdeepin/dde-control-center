@@ -73,6 +73,9 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
         m_isNewConnection = true;
     } else {
         m_connection = findConnectionByUuid(m_connectionUuid);
+        if (!m_connection) {
+            return;
+        }
         m_connectionSettings = m_connection->settings();
         m_isNewConnection = false;
         initConnectionSecrets();
