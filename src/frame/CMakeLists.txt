@@ -1167,7 +1167,6 @@ find_package(Qt5 COMPONENTS
     Multimedia
 REQUIRED)
 
-pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
 pkg_check_modules(DDE-Network-Utils REQUIRED dde-network-utils)
@@ -1291,7 +1290,6 @@ add_executable(${BIN_NAME} ${SRCS} ${QRC})
 target_include_directories(${BIN_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/include
     ${DtkWidget_INCLUDE_DIRS}
-    ${XCB_EWMH_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     ${PROJECT_BINARY_DIR}
@@ -1305,7 +1303,6 @@ target_include_directories(${BIN_NAME} PUBLIC
 )
 target_link_libraries(${BIN_NAME} PRIVATE
     dccwidgets
-    ${XCB_EWMH_LIBRARIES}
     ${DFrameworkDBus_LIBRARIES}
     ${DtkWidget_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
