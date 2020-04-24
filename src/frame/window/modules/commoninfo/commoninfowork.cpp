@@ -291,7 +291,21 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     QString allowContent(tr("Agree and Request Root Access"));
 
     // license内容
-    QString content = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
+    QString content = getdevelopmoveLicense(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
+    QString contentPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);// 临时存储路径
+    QString contentPathS =contentPath + "/tmpDeveloperMode.txt" ;
+
+    QFile file(contentPathS);
+    // 如果文件不存在，则创建文件
+    if (!file.exists()) {
+        file.open(QIODevice::WriteOnly);
+        file.close();
+    }
+    // 写入文件内容
+    if (!file.open(QFile::ReadWrite | QIODevice::Text | QIODevice::Truncate))
+        return;
+    file.write(content.toLocal8Bit());
+    file.close();
 
     auto pathType = "-c";
     QStringList sl;
@@ -301,7 +315,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
 
     m_process = new QProcess(this);
     int result = m_process->execute("dde-license-dialog",
-                                    QStringList() << "-t" << title << pathType << content << "-a" << allowContent);
+                                    QStringList() << "-t" << title << pathType << contentPathS << "-a" << allowContent);
     m_process->deleteLater();
     m_process = nullptr;
 
@@ -326,6 +340,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
         qInfo() << QString("On %1, Remove developer mode Disclaimer!").arg(current_date);
         //Q_EMIT m_commomModel->developerModeStateChanged(false);
     }
+    file.remove();
 }
 
 void CommonInfoWork::login()
