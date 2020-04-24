@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
         <source>Refresh</source>
-        <translation>Дахин ачааллах</translation>
+        <translation>Дахин ачаалах</translation>
     </message>
 </context>
 <context>
@@ -30,12 +30,12 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэглэгчийн бүртгэл</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>Үүлэн сервер дэх бүртгэл</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
@@ -46,7 +46,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Default Applications</source>
-        <translation>Ерөнхий Аппликейшнүүд</translation>
+        <translation>Ерөнхий аппликейшнүүд</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Date and Time</source>
-        <translation>Огноо ба Цаг</translation>
+        <translation>Огноо ба цаг</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
@@ -115,7 +115,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Мэдрэгч самбар</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
@@ -125,13 +125,13 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
         <source>Assistive Tools</source>
-        <translation type="unfinished"/>
+        <translation>Туслах хэрэгслүүд</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="844"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="846"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Үүлэн серверт хуулбарлах</translation>
     </message>
 </context>
 <context>
@@ -148,29 +148,29 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="148"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="208"/>
         <source>Full Name</source>
-        <translation type="unfinished"/>
+        <translation>Бүтэн нэр</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="233"/>
         <source>The full name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Бүтэн нэр өмнө бүртгэгдсэн байна</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="273"/>
         <source>Validity Days</source>
-        <translation type="unfinished"/>
+        <translation>Хүчинтэй хугацаа</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="276"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="338"/>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>Үргэлж</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="331"/>
         <source>Please input a number between 1-99999</source>
-        <translation type="unfinished"/>
+        <translation>1-99999 хооронд тоо оруулаарай</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="372"/>
@@ -181,7 +181,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="374"/>
         <source>Delete Account</source>
-        <translation>Бүртгэлийг устгах</translation>
+        <translation>Бүртгэл устгах</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
@@ -207,7 +207,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="80"/>
         <source>Accounts</source>
-        <translation>Бүртгэлүүд</translation>
+        <translation>Хэрэглэгчийн бүртгэл</translation>
     </message>
 </context>
 <context>
@@ -228,7 +228,7 @@
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="140"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="150"/>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Энгийн хэрэглэгч</translation>
     </message>
 </context>
 <context>
@@ -324,7 +324,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="162"/>
         <source>Full Name</source>
-        <translation type="unfinished"/>
+        <translation>Бүтэн нэр</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="167"/>
@@ -334,7 +334,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
         <source>Repeat Password</source>
-        <translation>Нууц Үг Давтах</translation>
+        <translation>Нууц үг давтах</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="235"/>
@@ -346,47 +346,47 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="236"/>
         <source>optional</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагагүй</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="316"/>
         <source>Go to Settings</source>
-        <translation type="unfinished"/>
+        <translation>Тохиргооруу очих</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="386"/>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үг %1 тэмдэгтээс илүүгүй байх ёстой</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="393"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үгийг зөвхөн латин үсэг (том-жижиг-үсэг), тоо болон тусгай тэмдэгтүүд (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) агуулах хэрэгтэй</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үгтэй тохирохгүй байна</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="424"/>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэглэгчийн нэр 3-32 тэмдэгтийн хооронд байх ёстой</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Хамгийн эхний тэмдэгт үсэг эсвэл тоо байх ёстой</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="449"/>
         <source>The full name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Бүтэн нэр өмнө бүртгэгдсэн байна</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="456"/>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Бүтэн нэр хэтэрхий урт байна</translation>
     </message>
 </context>
 <context>
@@ -428,12 +428,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="66"/>
         <source>New Password</source>
-        <translation>Шинэ Нууц үг</translation>
+        <translation>Шинэ нууц үг</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="70"/>
         <source>Repeat Password</source>
-        <translation>Нууц Үг Давтах</translation>
+        <translation>Нууц үг давтах</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
@@ -456,7 +456,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="151"/>
         <source>Go to Settings</source>
-        <translation type="unfinished"/>
+        <translation>Тохиргооруу очих</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
@@ -466,12 +466,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="238"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үгтэй тохирохгүй байна</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үгийг зөвхөн латин үсэг (том-жижиг-үсэг), тоо болон тусгай тэмдэгтүүд (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) агуулах хэрэгтэй</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="251"/>
@@ -481,7 +481,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="258"/>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үг %1 тэмдэгтээс илүүгүй байх ёстой</translation>
     </message>
 </context>
 <context>
@@ -517,7 +517,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Ignore this device</source>
-        <translation type="unfinished"/>
+        <translation>Энэ төхөөрөмжийг алгасах </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="45"/>
@@ -528,7 +528,7 @@
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="113"/>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>Холбогдох</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="108"/>
@@ -539,12 +539,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Connected</source>
         <translation>Холбогдсон</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
         <source>Not connected</source>
         <translation>Холбогдоогүй</translation>
     </message>
@@ -1427,7 +1427,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
         <source>Assistive Tools</source>
-        <translation type="unfinished"/>
+        <translation>Туслах хэрэгслүүд</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
@@ -1525,7 +1525,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="57"/>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Мэдрэгч самбар</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="61"/>
@@ -1593,7 +1593,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="60"/>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Мэдрэгч самбар</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
@@ -1737,49 +1737,49 @@
 <context>
     <name>dccV20::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="99"/>
         <source>Disconnect</source>
         <translation>Салгах</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="102"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
         <source>Delete</source>
         <translation>Устгах</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="206"/>
         <source>Cancel</source>
         <translation>Цуцлах</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
         <source>Save</source>
         <translation>Хадгалах</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="204"/>
         <source>Are you sure you want to delete this configuration?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="380"/>
         <source>Wired Connection %1</source>
         <translation>Утастай холболт %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="385"/>
         <source>hotspot</source>
         <translation>Утасгүй сүлжээ цацагч</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="387"/>
         <source>Wireless Connection %1</source>
         <translation>Утасгүй холболт %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE холболт %1</translation>
     </message>
@@ -1926,12 +1926,7 @@
         <translation>Нэр</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
-        <source>Wired Connection</source>
-        <translation>Утастай холболт</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
         <translation type="unfinished"/>
     </message>
@@ -3643,30 +3638,30 @@
 <context>
     <name>dccV20::network::WiredPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
         <source>Plug in the network cable first</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="82"/>
         <source>Wired Network Adapter</source>
         <translation type="unfinished"/>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="116"/>
         <source>Add Network Connection</source>
         <translation>Сүлжээний холболт нэмэх</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="108"/>
         <source>Select Settings</source>
         <translation>Тохиргоо сонгох</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="182"/>
         <source>Wired Connection</source>
         <translation>Утастай холболт</translation>
     </message>
@@ -4112,7 +4107,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Мэдрэгч самбар</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
@@ -4152,7 +4147,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="430"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>Үүлэн данс</translation>
     </message>
 </context>
 <context>
@@ -4402,7 +4397,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>Үүлэн данс</translation>
     </message>
 </context>
 <context>
@@ -5106,7 +5101,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Мэдрэгч самбар</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
@@ -5696,7 +5691,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="142"/>
         <source>Fingerprint added</source>
-        <translation>Хурууны хээг оруулсан</translation>
+        <translation>Хурууны хээ нэмэгдлээ</translation>
     </message>
 </context>
 <context>
@@ -5966,7 +5961,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Үүлэн серверт хуулбарлах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
@@ -9145,7 +9140,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Үүлэн серверт хуулбарлах</translation>
     </message>
 </context>
 <context>

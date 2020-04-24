@@ -539,12 +539,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Connected</source>
         <translation>Conectado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
         <source>Not connected</source>
         <translation>No conectado</translation>
     </message>
@@ -1737,49 +1737,49 @@
 <context>
     <name>dccV20::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="99"/>
         <source>Disconnect</source>
         <translation>Desconectar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="102"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
         <source>Delete</source>
         <translation>Borrar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="206"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
         <source>Save</source>
         <translation>Guardar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="204"/>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>¿Está seguro que desea borrar la configuración?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="380"/>
         <source>Wired Connection %1</source>
         <translation>Conexión cableada %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="385"/>
         <source>hotspot</source>
         <translation>compartir conexión</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="387"/>
         <source>Wireless Connection %1</source>
         <translation>Conexión inalámbrica %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
         <source>PPPoE Connection %1</source>
         <translation>Conexión PPPoE %1</translation>
     </message>
@@ -1926,12 +1926,7 @@
         <translation>Nombre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
-        <source>Wired Connection</source>
-        <translation>Conexión cableada</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
         <translation>Conectar automáticamente</translation>
     </message>
@@ -3643,30 +3638,30 @@
 <context>
     <name>dccV20::network::WiredPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
         <source>Plug in the network cable first</source>
         <translation>Conecte en el cable de red primero</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="82"/>
         <source>Wired Network Adapter</source>
         <translation>Tarjeta de red cableada</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="116"/>
         <source>Add Network Connection</source>
         <translation>Añadir conexión de red</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="108"/>
         <source>Select Settings</source>
         <translation>Seleccionar ajustes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="182"/>
         <source>Wired Connection</source>
         <translation>Conexión cableada</translation>
     </message>
@@ -3840,7 +3835,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="104"/>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation>Automático</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="109"/>
@@ -4410,7 +4405,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="18"/>
         <source>Backup</source>
-        <translation>Respaldo</translation>
+        <translation>Respaldar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="30"/>
@@ -4443,12 +4438,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="123"/>
         <source>Reset All Settings</source>
-        <translation>Restablecer todos los ajustes</translation>
+        <translation>Restablecer valores de fábrica</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="143"/>
         <source>Select restore directory</source>
-        <translation>Seleccione restaurar carpeta</translation>
+        <translation>Cargar punto de restauración</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="151"/>
@@ -4605,7 +4600,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Edition License</source>
-        <translation>Licencia:</translation>
+        <translation>Licencia</translation>
         <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
     </message>
     <message>
@@ -4625,7 +4620,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="21"/>
         <source>Backup</source>
-        <translation>Respaldo</translation>
+        <translation>Respaldar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="22"/>
@@ -9187,7 +9182,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>Edition License</source>
-        <translation>Licencia:</translation>
+        <translation>Licencia</translation>
     </message>
 </context>
 <context>
@@ -9250,7 +9245,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="119"/>
         <source>Edition License</source>
-        <translation>Licencia:</translation>
+        <translation>Licencia</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="122"/>

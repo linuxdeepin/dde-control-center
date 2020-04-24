@@ -541,12 +541,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
         <source>Not connected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1739,49 +1739,49 @@
 <context>
     <name>dccV20::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="99"/>
         <source>Disconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="102"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="206"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="204"/>
         <source>Are you sure you want to delete this configuration?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="380"/>
         <source>Wired Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="385"/>
         <source>hotspot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="387"/>
         <source>Wireless Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
         <source>PPPoE Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3663,7 +3663,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="182"/>
         <source>Wired Connection</source>
         <translation type="unfinished"></translation>
     </message>

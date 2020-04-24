@@ -271,12 +271,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
         <source>Please scan one second later</source>
-        <translation type="unfinished"/>
+        <translation>請在1秒後重新輸入</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan time expired</source>
-        <translation type="unfinished"/>
+        <translation>輸入超時</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
@@ -539,12 +539,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Connected</source>
         <translation>已連線</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
         <source>Not connected</source>
         <translation>未連線</translation>
     </message>
@@ -1737,49 +1737,49 @@
 <context>
     <name>dccV20::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="99"/>
         <source>Disconnect</source>
         <translation>斷開連線</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="102"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
         <source>Delete</source>
         <translation>刪除</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="206"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
         <source>Save</source>
         <translation>儲存</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="204"/>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>確定刪除此設定？</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="380"/>
         <source>Wired Connection %1</source>
         <translation>有線網路 %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="385"/>
         <source>hotspot</source>
         <translation>熱點</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="387"/>
         <source>Wireless Connection %1</source>
         <translation>無線網路 %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE 連線 %1</translation>
     </message>
@@ -1926,12 +1926,7 @@
         <translation>名稱</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
-        <source>Wired Connection</source>
-        <translation>有線網路</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
         <translation>自動連線</translation>
     </message>
@@ -3643,30 +3638,30 @@
 <context>
     <name>dccV20::network::WiredPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
         <source>Plug in the network cable first</source>
         <translation>請先插入數據線</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="82"/>
         <source>Wired Network Adapter</source>
         <translation>有線網路介面卡</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="116"/>
         <source>Add Network Connection</source>
         <translation>新增網路連線</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="108"/>
         <source>Select Settings</source>
         <translation>選擇設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="182"/>
         <source>Wired Connection</source>
         <translation>有線網路</translation>
     </message>

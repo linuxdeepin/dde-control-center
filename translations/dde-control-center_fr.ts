@@ -539,12 +539,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Connected</source>
         <translation>Connecté</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
         <source>Not connected</source>
         <translation>Non connecté</translation>
     </message>
@@ -1738,49 +1738,49 @@
 <context>
     <name>dccV20::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="99"/>
         <source>Disconnect</source>
         <translation>Déconnecter</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="102"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="206"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
         <source>Save</source>
         <translation>Sauvegarder</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="204"/>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>Êtes-vous sûr de vouloir supprimer cette configuration ?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="380"/>
         <source>Wired Connection %1</source>
         <translation>Connexion filaire %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="385"/>
         <source>hotspot</source>
         <translation>Points d&apos;accès</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="387"/>
         <source>Wireless Connection %1</source>
         <translation>Connexion sans fil %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
         <source>PPPoE Connection %1</source>
         <translation>Connexion PPPoE %1</translation>
     </message>
@@ -1927,12 +1927,7 @@
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
-        <source>Wired Connection</source>
-        <translation>Connexion filaire</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
         <translation>Connexion automatique</translation>
     </message>
@@ -3644,30 +3639,30 @@
 <context>
     <name>dccV20::network::WiredPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
         <source>Plug in the network cable first</source>
         <translation>Brancher le câble réseau en premier</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="82"/>
         <source>Wired Network Adapter</source>
         <translation>Adaptateur réseau filaire</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="116"/>
         <source>Add Network Connection</source>
         <translation>Ajouter Connection Réseau</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="108"/>
         <source>Select Settings</source>
         <translation>Sélectionner les paramètre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="182"/>
         <source>Wired Connection</source>
         <translation>Connexion filaire</translation>
     </message>

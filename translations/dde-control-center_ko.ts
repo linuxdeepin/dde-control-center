@@ -539,12 +539,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Connected</source>
         <translation>연결됨</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
         <source>Not connected</source>
         <translation>연결되지 않음</translation>
     </message>
@@ -1737,49 +1737,49 @@
 <context>
     <name>dccV20::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="99"/>
         <source>Disconnect</source>
         <translation>연결 해제</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="102"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
         <source>Delete</source>
         <translation>삭제</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="206"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
         <source>Save</source>
         <translation>저장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="204"/>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>이 환경설정을 삭제하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="380"/>
         <source>Wired Connection %1</source>
         <translation>유선 연결 %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="385"/>
         <source>hotspot</source>
         <translation>핫스팟</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="387"/>
         <source>Wireless Connection %1</source>
         <translation>무선 연결 %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE 연결 %1</translation>
     </message>
@@ -1926,12 +1926,7 @@
         <translation>이름</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="104"/>
-        <source>Wired Connection</source>
-        <translation>유선 연결</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
         <translation>자동 연결</translation>
     </message>
@@ -3643,30 +3638,30 @@
 <context>
     <name>dccV20::network::WiredPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
         <source>Plug in the network cable first</source>
         <translation>네트워크 케이블을 먼저 연결하세요</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="82"/>
         <source>Wired Network Adapter</source>
         <translation>유선 네트워크 어댑터</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="116"/>
         <source>Add Network Connection</source>
         <translation>네트워크 연결 추가</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="108"/>
         <source>Select Settings</source>
         <translation>설정을　선택하기　</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="182"/>
         <source>Wired Connection</source>
         <translation>유선 연결</translation>
     </message>
@@ -6370,7 +6365,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
         <source>Some applications in multi-screens may not scale as the settings.</source>
-        <translation>멀티 스크린의 일부 애플리케이션은 설정으로 확장되지 않을 수 있습니다</translation>
+        <translation>다중 화면의 일부 응용 프로그램은 설정으로 크기조정되지 않을 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
