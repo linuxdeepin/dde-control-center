@@ -234,18 +234,6 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
 
         // license内容
         QString content = getLicense("/usr/share/deepin-deepinid-client/privacy/deepinid-CN-%1.md", "");
-        QString contentPath("/tmp/tempLic.txt"); // 临时存储路径
-        m_licenseFile = new QFile(contentPath);
-        // 如果文件不存在，则创建文件
-        if (!m_licenseFile->exists()) {
-            m_licenseFile->open(QIODevice::WriteOnly);
-            m_licenseFile->close();
-        }
-        // 写入文件内容
-        if (!m_licenseFile->open(QFile::ReadWrite | QIODevice::Text | QIODevice::Truncate))
-            return;
-        m_licenseFile->write(content.toLocal8Bit());
-        m_licenseFile->close();
 
         m_process = new QProcess(this);
 
@@ -255,7 +243,7 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         if (!sl.contains(QLocale::system().name()))
             pathType = "-e";
         m_process->start("dde-license-dialog",
-                                      QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent);
+                                      QStringList() << "-t" << title << pathType << content << "-a" << allowContent);
         connect(m_process, &QProcess::stateChanged, this, [pMainWindow](QProcess::ProcessState state) {
             if (pMainWindow) {
                 pMainWindow->setEnabled(state != QProcess::Running);
@@ -274,9 +262,6 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
                 m_commomModel->setUeProgram(m_dBusUeProgram->IsEnabled());
                 qInfo() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
             }
-            m_licenseFile->remove();
-            m_licenseFile->deleteLater();
-            m_licenseFile = nullptr;
             m_process->deleteLater();
             m_process = nullptr;
         });
@@ -307,18 +292,6 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
 
     // license内容
     QString content = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
-    QString contentPath("/tmp/tmpDeveloperMode.txt"); // 临时存储路径
-    QFile file(contentPath);
-    // 如果文件不存在，则创建文件
-    if (!file.exists()) {
-        file.open(QIODevice::WriteOnly);
-        file.close();
-    }
-    // 写入文件内容
-    if (!file.open(QFile::ReadWrite | QIODevice::Text | QIODevice::Truncate))
-        return;
-    file.write(content.toLocal8Bit());
-    file.close();
 
     auto pathType = "-c";
     QStringList sl;
@@ -328,7 +301,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
 
     m_process = new QProcess(this);
     int result = m_process->execute("dde-license-dialog",
-                                    QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent);
+                                    QStringList() << "-t" << title << pathType << content << "-a" << allowContent);
     m_process->deleteLater();
     m_process = nullptr;
 
@@ -353,7 +326,6 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
         qInfo() << QString("On %1, Remove developer mode Disclaimer!").arg(current_date);
         //Q_EMIT m_commomModel->developerModeStateChanged(false);
     }
-    file.remove();
 }
 
 void CommonInfoWork::login()

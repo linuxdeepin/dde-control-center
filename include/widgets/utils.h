@@ -29,14 +29,8 @@ static const QString getLicense(const QString &filePath, const QString &type)
     }
 
     QString path = QString(filePath).arg(lang).arg(type);
-    QFile license(path);
-    if (!license.open(QIODevice::ReadOnly))
-        return QString();
 
-    const QByteArray buf = license.readAll();
-    license.close();
-
-    return std::move(buf);
+    return path;
 }
 
 template <typename T>
