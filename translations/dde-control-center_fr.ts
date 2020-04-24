@@ -2467,18 +2467,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Saved</source>
-        <translation>Sauvegardé</translation>
+        <source>Save password for all users</source>
+        <translation>Enregistrer le mot de passe pour tous les utilisateurs</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Ask</source>
-        <translation>Demander</translation>
+        <source>Save password for this user</source>
+        <translation>Enregistrer le mot de passe de cet utilisateur</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Not Required</source>
-        <translation>Non requis</translation>
+        <source>Ask me always</source>
+        <translation>Toujours me le demander</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>

@@ -2466,18 +2466,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Saved</source>
-        <translation>S&apos;ha desat</translation>
+        <source>Save password for all users</source>
+        <translation>Desa la contrasenya per a tots els usuaris.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Ask</source>
-        <translation>Pregunta</translation>
+        <source>Save password for this user</source>
+        <translation>Desa la contrasenya per a aquest usuari.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Not Required</source>
-        <translation>No cal</translation>
+        <source>Ask me always</source>
+        <translation>Pregunta-m&apos;ho sempre.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>

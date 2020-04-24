@@ -2466,18 +2466,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Saved</source>
-        <translation>Kaydedildi</translation>
+        <source>Save password for all users</source>
+        <translation>Tüm kullanıcılar için parolayı kaydet</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Ask</source>
-        <translation>Sor</translation>
+        <source>Save password for this user</source>
+        <translation>Bu kullanıcı için parolayı kaydet</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Not Required</source>
-        <translation>Zorunlu Değil</translation>
+        <source>Ask me always</source>
+        <translation>Her zaman sor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>

@@ -271,17 +271,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
         <source>Please scan one second later</source>
-        <translation type="unfinished"/>
+        <translation>Vui lòng thử lại trong một hai giây sau</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan time expired</source>
-        <translation type="unfinished"/>
+        <translation>Thời gian quét hết hạn</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
         <source>Already scanned</source>
-        <translation type="unfinished"/>
+        <translation>Đã quét xong</translation>
     </message>
 </context>
 <context>
@@ -2466,18 +2466,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Saved</source>
-        <translation>Đã lưu</translation>
+        <source>Save password for all users</source>
+        <translation>Lưu mật khẩu cho tất cả tài khoản</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Ask</source>
-        <translation>Yêu cầu</translation>
+        <source>Save password for this user</source>
+        <translation>Lưu mật khẩu chỉ mình tài khoản này</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Not Required</source>
-        <translation>Không Cần</translation>
+        <source>Ask me always</source>
+        <translation>Luôn hỏi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
