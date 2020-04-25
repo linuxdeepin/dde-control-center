@@ -218,12 +218,21 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         updateLineEditDisplayStyle(true);
         m_inputLineEdit->lineEdit()->setFocus();
     });
-    connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ]() {
-        m_inputLineEdit->setAlert(false);
-        m_inputLineEdit->hideAlertMessage();
+    connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ](const QString &text) {
+        if(text.size()>100){
+            m_inputLineEdit->setText(text.left(100));
+            m_inputLineEdit->setAlert(true);
+            m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
+        }
+        else {
+            m_inputLineEdit->setAlert(false);
+            m_inputLineEdit->hideAlertMessage();
+        }
     });
     connect(m_inputLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ]() {
         auto uerList = m_userModel->userList();
+        m_inputLineEdit->setAlert(false);
+        m_inputLineEdit->hideAlertMessage();
         //判断账户全名是否被其他用户所用
         auto userList = m_userModel->userList();
         if(m_inputLineEdit->text() != m_curUser->fullname()){
@@ -396,11 +405,11 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_curUser, &User::nopasswdLoginChanged,
             m_nopasswdLogin, &SwitchWidget::setChecked);
     connect(m_autoLogin, &SwitchWidget::checkedChanged,
-    this, [ = ](const bool autoLogin) {
+            this, [ = ](const bool autoLogin) {
         Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
     });
     connect(m_nopasswdLogin, &SwitchWidget::checkedChanged,
-    this, [ = ](const bool nopasswdLogin) {
+            this, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
 
@@ -414,7 +423,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_fingerWidget, &FingerWidget::noticeEnrollCompleted, this, &AccountsDetailWidget::noticeEnrollCompleted);
     //图像列表操作
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
-    this, [ = ](const QString &avatarPath) {
+            this, [ = ](const QString &avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
     });
 }
