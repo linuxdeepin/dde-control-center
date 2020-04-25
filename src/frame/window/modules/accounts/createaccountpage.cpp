@@ -425,6 +425,23 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
         return false;
     }
 
+    auto checkUserName = [=](const QString &name){
+        bool ret = false;
+        const QString numStr = QString("1234567890");
+        for (const QChar &p : name) {
+            if (!numStr.contains(p)) {
+                return true;
+            }
+        }
+        return ret;
+    };
+
+    if(!checkUserName(username)) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Username cannot be a pure number"), -1);
+        return false;
+    }
+
     const QString compStr = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     if (!compStr.contains(username.at(0))) {
         edit->setAlert(true);
