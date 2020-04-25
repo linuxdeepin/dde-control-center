@@ -109,7 +109,8 @@ int main(int argc, char *argv[])
     gwm = &mw;
 
     //处理SIGTERM 信号，保证在控制中心被强制关闭时，正常退出
-    signal(15, closeSignal);
+    // 盘古项目暂时去掉这部分,否则每次再任务栏上强制退出或者使用pkill,killall都会产生崩溃文件
+//    signal(15, closeSignal);
 
     const QString &reqModule = parser.value(moduleOption);
     const QString &reqPage = parser.value(pageOption);
