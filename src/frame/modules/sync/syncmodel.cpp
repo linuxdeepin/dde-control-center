@@ -79,8 +79,7 @@ std::list<std::pair<SyncType, QStringList>> SyncModel::moduleMap()
         { Launcher, { "launcher" } },
         { Wallpaper, { "background", "screensaver" } },
         { Theme, { "appearance" } },
-        { Power, { "power" } },
-        { Corner, { "screen_edge" } }
+        { Power, { "power" } }
     };
 }
 
