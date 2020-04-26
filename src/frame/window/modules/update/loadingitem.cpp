@@ -26,7 +26,9 @@
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QIcon>
+#include <DSysInfo>
 
+DCORE_USE_NAMESPACE
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::update;
@@ -91,7 +93,7 @@ void LoadingItem::setVersionVisible(bool state)
 
 void LoadingItem::setSystemVersion(QString version)
 {
-    m_labelText->setText(QString("V%1").arg(version));
+    m_labelText->setText(DSysInfo::productTypeString().toUpper()+ " " + DSysInfo::deepinTypeDisplayName() + " " + DSysInfo::productVersion());
 }
 
 void LoadingItem::setImage(QImage *image)

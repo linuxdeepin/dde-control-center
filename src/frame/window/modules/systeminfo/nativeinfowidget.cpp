@@ -75,7 +75,11 @@ void NativeInfoWidget::initWidget()
     m_version = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_version->setTitle(tr("Edition:"));
-    m_version->setValue(m_model->version());
+    if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinPersonal) {
+        m_version->setValue(DSysInfo::deepinTypeDisplayName() + " " + DSysInfo::deepinVersion());
+    } else {
+        m_version->setValue(m_model->version());
+    }
     m_type = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_type->setTitle(tr("Type:"));
