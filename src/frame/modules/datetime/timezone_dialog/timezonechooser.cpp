@@ -159,7 +159,7 @@ TimeZoneChooser::TimeZoneChooser()
         QCompleter *completer = new QCompleter(completions, m_searchInput);
         completer->setCompletionMode(QCompleter::PopupCompletion);
         completer->setCaseSensitivity(Qt::CaseInsensitive);
-        completer->setFilterMode(Qt::MatchContains);
+        completer->setFilterMode(Qt::MatchExactly);
 
         m_searchInput->setCompleter(completer);
 
