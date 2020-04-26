@@ -153,7 +153,14 @@ void MultiScreenSettingPage::initModeList()
         auto moniNmae = moniList[i]->name();
         titleList << tr("%1 only").arg(moniNmae);
         subTitleList << tr("Show the screen content only on %1").arg(moniNmae);
-        iconList << (i % 2 ? "dcc_display_vga1" : "dcc_display_lvds1");
+        //change icon by displayer name
+        //Desktop:HDMI-A-0 VGA-0 DP-1   Notebook:eDP-0
+        if(moniNmae.contains("eDP-"))
+        {
+            iconList << "dcc_display_vga1";
+        } else {
+            iconList << "dcc_display_lvds1";
+        }
     }
 
     titleList << tr("Customize");
