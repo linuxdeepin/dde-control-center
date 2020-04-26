@@ -24,6 +24,7 @@
  */
 
 #include "updatemodel.h"
+#include "modules/systeminfo/systeminfomodel.h"
 
 namespace dcc{
 namespace update{
@@ -298,12 +299,13 @@ void UpdateModel::setSystemVersionInfo(QString systemVersionInfo)
     Q_EMIT systemVersionChanged(systemVersionInfo);
 }
 
-void UpdateModel::setSystemActivation(bool systemactivation)
+void UpdateModel::setSystemActivation(quint32 systemactivation)
 {
-    if (m_bSystemActivation == systemactivation) {
-        return;
+    if (systemactivation == systeminfo::ActiveState::Authorized || systemactivation == systeminfo::ActiveState::TrialAuthorized) {
+        m_bSystemActivation = true;
+    } else {
+        m_bSystemActivation = false;
     }
-    m_bSystemActivation = systemactivation;
 
     Q_EMIT setSystemActivationChanged(systemactivation);
 }
