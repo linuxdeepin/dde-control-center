@@ -70,6 +70,8 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     m_bootList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_bootList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_bootList->setMinimumWidth(240);
+    m_bootList->setWordWrap(true);
 
     DPalette dp = DApplicationHelper::instance()->palette(m_bootList);
     dp.setColor(DPalette::Text, QColor(255, 255, 255));
