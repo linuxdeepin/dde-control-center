@@ -105,7 +105,7 @@ void SecretWirelessSection::initStrMaps()
 {
     KeyMgmtStrMap = {
         {tr("None"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone},
-        {tr("WEP 40/128-bit"), NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
+        {tr("WEP 40/64/128-bit"), NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
         {tr("WPA/WPA2 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk},
         {tr("WPA/WPA2 Enterprise"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap}
     };
