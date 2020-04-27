@@ -118,7 +118,7 @@ set(FRAME_FILES
 #                notify/notifyview.h
 #                notify/notifyview.cpp
 #                notify/notifymodel.cpp
-                dbuscontrolcenterservice.h
+ #               dbuscontrolcenterservice.h
 #                frame.cpp
 #                frame.h
 #                framewidget.cpp
@@ -143,11 +143,11 @@ set(FRAME_FILES
 )
 
 set(WINDOW_FILES
-    window/constant.h
+#    window/constant.h
     window/mainwindow.cpp
-    window/standarditemhelper.h
+#    window/standarditemhelper.h
     window/standarditemhelper.cpp
-    window/utils.h
+#    window/utils.h
     window/modules/display/displaywidget.cpp
     window/modules/datetime/datetimemodule.cpp
     window/modules/datetime/datetimewidget.cpp
@@ -302,11 +302,11 @@ set(WIDGETS_FILES
 
 # load modules
 set(MODULE_FILES
-                modules/modulewidget.h
-                modules/modulewidget.cpp
-                modules/modulewidgetheader.cpp
-                modules/modulewidgetheader.h
-                modules/moduleworker.h
+#                modules/modulewidget.h
+ #               modules/modulewidget.cpp
+ #               modules/modulewidgetheader.cpp
+ #               modules/modulewidgetheader.h
+ #               modules/moduleworker.h
 )
 
 # load accounts
@@ -319,31 +319,31 @@ set(ACCOUNTS_FILES
 #                modules/accounts/removeuserdialog.h
                 modules/accounts/useroptionitem.cpp
                 modules/accounts/widgets/fingeritem.cpp
-                modules/accounts/widgets/fingeritem.h
+#                modules/accounts/widgets/fingeritem.h
 #                modules/accounts/widgets/addialog.cpp
 #                modules/accounts/widgets/addialog.h
                 modules/accounts/widgets/fingerwidget.cpp
-                modules/accounts/widgets/fingerwidget.h
+ #               modules/accounts/widgets/fingerwidget.h
 #                modules/accounts/accountsdetailwidget.cpp
 #                modules/accounts/accountsdetailwidget.h
 #                modules/accounts/accountsmodule.h
 #                modules/accounts/accountswidget.cpp
 #                modules/accounts/accountswidget.h
                 modules/accounts/accountsworker.cpp
-                modules/accounts/accountsworker.h
+#                modules/accounts/accountsworker.h
 #                modules/accounts/addfingerpage.cpp
 #                modules/accounts/addfingerpage.h
 #                modules/accounts/avatardel.h
                 modules/accounts/avatarwidget.cpp
-                modules/accounts/avatarwidget.h
+#                modules/accounts/avatarwidget.h
 #                modules/accounts/createpage.cpp
 #                modules/accounts/createpage.h
                 modules/accounts/fingermodel.cpp
-                modules/accounts/fingermodel.h
+ #               modules/accounts/fingermodel.h
                 modules/accounts/fingerpage.cpp
-                modules/accounts/fingerpage.h
+ #               modules/accounts/fingerpage.h
                 modules/accounts/fingerworker.cpp
-                modules/accounts/fingerworker.h
+ #               modules/accounts/fingerworker.h
 #                modules/accounts/modifyavatarpage.cpp
 #                modules/accounts/modifyavatarpage.h
 #                modules/accounts/modifyfullnamepage.cpp
@@ -351,30 +351,30 @@ set(ACCOUNTS_FILES
 #                modules/accounts/modifypasswordpage.cpp
 #                modules/accounts/modifypasswordpage.h
                 modules/accounts/user.cpp
-                modules/accounts/user.h
+#                modules/accounts/user.h
                 modules/accounts/usermodel.cpp
-                modules/accounts/usermodel.h
-                modules/accounts/useroptionitem.h
+#                modules/accounts/usermodel.h
+#                modules/accounts/useroptionitem.h
                 # v20-accounts
                 window/modules/accounts/accountsmodule.cpp
-                window/modules/accounts/accountsmodule.h
+#                window/modules/accounts/accountsmodule.h
                 window/modules/accounts/accountswidget.cpp
-                window/modules/accounts/accountswidget.h
+#                window/modules/accounts/accountswidget.h
                 window/modules/accounts/createaccountpage.cpp
-                window/modules/accounts/createaccountpage.h
+#                window/modules/accounts/createaccountpage.h
                 window/modules/accounts/modifypasswdpage.cpp
-                window/modules/accounts/modifypasswdpage.h
-                window/modules/accounts/accountsdetailwidget.h
+#                window/modules/accounts/modifypasswdpage.h
+ #               window/modules/accounts/accountsdetailwidget.h
                 window/modules/accounts/accountsdetailwidget.cpp
-                window/modules/accounts/avatarlistwidget.h
+ #               window/modules/accounts/avatarlistwidget.h
                 window/modules/accounts/avatarlistwidget.cpp
-                window/modules/accounts/avataritemdelegate.h
+#                window/modules/accounts/avataritemdelegate.h
                 window/modules/accounts/avataritemdelegate.cpp
-                window/modules/accounts/accounntfingeitem.h
+ #               window/modules/accounts/accounntfingeitem.h
                 window/modules/accounts/accounntfingeitem.cpp
-                window/modules/accounts/addfingedialog.h
+ #               window/modules/accounts/addfingedialog.h
                 window/modules/accounts/addfingedialog.cpp
-                window/modules/accounts/fingerwidget.h
+ #               window/modules/accounts/fingerwidget.h
                 window/modules/accounts/fingerwidget.cpp
 )
 
@@ -386,16 +386,16 @@ set(BLUETOOTH_FILES
 #                modules/bluetooth/TitleEdit.cpp
 #                modules/bluetooth/TitleEdit.h
                 modules/bluetooth/adapter.cpp
-                modules/bluetooth/adapter.h
+ #               modules/bluetooth/adapter.h
 #                modules/bluetooth/adapterwidget.cpp
 #                modules/bluetooth/adapterwidget.h
                 modules/bluetooth/bluetoothmodel.cpp
-                modules/bluetooth/bluetoothmodel.h
+#                modules/bluetooth/bluetoothmodel.h
 #                modules/bluetooth/bluetoothmodule.h
 #                modules/bluetooth/bluetoothwidget.cpp
 #                modules/bluetooth/bluetoothwidget.h
                 modules/bluetooth/bluetoothworker.cpp
-                modules/bluetooth/bluetoothworker.h
+#                modules/bluetooth/bluetoothworker.h
 #                modules/bluetooth/detailpage.cpp
 #                modules/bluetooth/detailpage.h
                 modules/bluetooth/device.cpp
@@ -403,17 +403,17 @@ set(BLUETOOTH_FILES
 #                modules/bluetooth/devicesettingsitem.cpp
 #                modules/bluetooth/devicesettingsitem.h
 
-                window/modules/bluetooth/titleedit.h
+#                window/modules/bluetooth/titleedit.h
                 window/modules/bluetooth/titleedit.cpp
-                window/modules/bluetooth/devicesettingsitem.h
+#                window/modules/bluetooth/devicesettingsitem.h
                 window/modules/bluetooth/devicesettingsitem.cpp
-                window/modules/bluetooth/detailpage.h
+#                window/modules/bluetooth/detailpage.h
                 window/modules/bluetooth/detailpage.cpp
-                window/modules/bluetooth/adapterwidget.h
+#                window/modules/bluetooth/adapterwidget.h
                 window/modules/bluetooth/adapterwidget.cpp
-                window/modules/bluetooth/bluetoothwidget.h
+#                window/modules/bluetooth/bluetoothwidget.h
                 window/modules/bluetooth/bluetoothwidget.cpp
-                window/modules/bluetooth/bluetoothmodule.h
+#                window/modules/bluetooth/bluetoothmodule.h
                 window/modules/bluetooth/bluetoothmodule.cpp
 )
 
@@ -424,18 +424,18 @@ set(DATETIME_FILES
 #                modules/datetime/clockitem.cpp
 #                modules/datetime/timezone_dialog/consts.h
                 modules/datetime/timezone_dialog/file_util.cpp
-                modules/datetime/timezone_dialog/file_util.h
+ #               modules/datetime/timezone_dialog/file_util.h
                 modules/datetime/timezone_dialog/popup_menu_delegate.cpp
-                modules/datetime/timezone_dialog/popup_menu_delegate.h
+ #               modules/datetime/timezone_dialog/popup_menu_delegate.h
                 modules/datetime/timezone_dialog/timezone.cpp
-                modules/datetime/timezone_dialog/timezone.h
+ #               modules/datetime/timezone_dialog/timezone.h
                 modules/datetime/timezone_dialog/timezone_map_util.cpp
-                modules/datetime/timezone_dialog/timezone_map_util.h
+ #               modules/datetime/timezone_dialog/timezone_map_util.h
                 modules/datetime/timezone_dialog/tooltip_pin.cpp
                 modules/datetime/timezone_dialog/popup_menu.cpp
-                modules/datetime/timezone_dialog/popup_menu.h
+ #               modules/datetime/timezone_dialog/popup_menu.h
                 modules/datetime/timezone_dialog/timezone_map.cpp
-                modules/datetime/timezone_dialog/timezone_map.h
+ #               modules/datetime/timezone_dialog/timezone_map.h
                 modules/datetime/timezone_dialog/timezonechooser.cpp
 #                modules/datetime/timezone_dialog/timezonechooser.h
 #                modules/datetime/timezone_dialog/tooltip_pin.h
@@ -597,25 +597,25 @@ set(KEYBOARD_FILES
 #                modules/keyboard/shortcutwidget.h
 #                modules/keyboard/titlebuttonItem.h
 
-                window/modules/keyboard/checkitem.h
-                window/modules/keyboard/checkitem.cpp
-                window/modules/keyboard/keyboardmodule.h
+ #               window/modules/keyboard/checkitem.h
+ #               window/modules/keyboard/checkitem.cpp
+ #               window/modules/keyboard/keyboardmodule.h
                 window/modules/keyboard/keyboardmodule.cpp
-                window/modules/keyboard/keyboardwidget.h
+ #               window/modules/keyboard/keyboardwidget.h
                 window/modules/keyboard/keyboardwidget.cpp
-                window/modules/keyboard/customcontent.h
+ #               window/modules/keyboard/customcontent.h
                 window/modules/keyboard/customcontent.cpp
-                window/modules/keyboard/generalkbsettingwidget.h
+ #               window/modules/keyboard/generalkbsettingwidget.h
                 window/modules/keyboard/generalkbsettingwidget.cpp
-                window/modules/keyboard/kblayoutsettingwidget.h
+ #               window/modules/keyboard/kblayoutsettingwidget.h
                 window/modules/keyboard/kblayoutsettingwidget.cpp
                 window/modules/keyboard/keyboardlayoutwidget.cpp
-                window/modules/keyboard/keyboardlayoutwidget.h
-                window/modules/keyboard/systemlanguagesettingwidget.h
+ #               window/modules/keyboard/keyboardlayoutwidget.h
+ #               window/modules/keyboard/systemlanguagesettingwidget.h
                 window/modules/keyboard/systemlanguagesettingwidget.cpp
-                window/modules/keyboard/shortcutsettingwidget.h
+ #               window/modules/keyboard/shortcutsettingwidget.h
                 window/modules/keyboard/shortcutsettingwidget.cpp
-                window/modules/keyboard/systemlanguagewidget.h
+ #               window/modules/keyboard/systemlanguagewidget.h
                 window/modules/keyboard/systemlanguagewidget.cpp
 )
 
@@ -634,17 +634,17 @@ set(MOUSE_FILES
                 modules/mouse/mousemodel.cpp
 #                modules/mouse/mousemodel.h
 
-                window/modules/mouse/mousemodule.h
+#                window/modules/mouse/mousemodule.h
                 window/modules/mouse/mousemodule.cpp
-                window/modules/mouse/mousewidget.h
+ #               window/modules/mouse/mousewidget.h
                 window/modules/mouse/mousewidget.cpp
-                window/modules/mouse/generalsettingwidget.h
+ #               window/modules/mouse/generalsettingwidget.h
                 window/modules/mouse/generalsettingwidget.cpp
-                window/modules/mouse/mousesettingwidget.h
+ #               window/modules/mouse/mousesettingwidget.h
                 window/modules/mouse/mousesettingwidget.cpp
-                window/modules/mouse/touchpadsettingwidget.h
+ #               window/modules/mouse/touchpadsettingwidget.h
                 window/modules/mouse/touchpadsettingwidget.cpp
-                window/modules/mouse/trackpointsettingwidget.h
+ #               window/modules/mouse/trackpointsettingwidget.h
                 window/modules/mouse/trackpointsettingwidget.cpp
 )
 
@@ -761,18 +761,18 @@ set(NETWORK_FILES
 #               modules/network/wirelesspage.h
                 window/modules/network/netswitchwidget.cpp
                 window/modules/network/networkdetailpage.cpp
-                window/modules/network/connectionhotspoteditpage.h
+#                window/modules/network/connectionhotspoteditpage.h
                 window/modules/network/networkmodule.cpp
-                window/modules/network/sections/declare_metatype_for_networkmanager.h
+#                window/modules/network/sections/declare_metatype_for_networkmanager.h
                 window/modules/network/sections/abstractsection.cpp
-                window/modules/network/sections/abstractsection.h
+ #               window/modules/network/sections/abstractsection.h
                 window/modules/network/sections/generichotspotsection.cpp
                 window/modules/network/sections/genericsection.cpp
                 window/modules/network/sections/pppoesection.cpp
                 window/modules/network/sections/pppsection.cpp
                 window/modules/network/sections/secret8021xsection.cpp
                 window/modules/network/sections/secretwiredsection.cpp
-                window/modules/network/sections/secretwiredsection.h
+ #               window/modules/network/sections/secretwiredsection.h
                 window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp
                 window/modules/network/sections/vpn/vpnadvvpncsection.cpp
                 window/modules/network/sections/vpn/vpnipsecsection.cpp
@@ -782,39 +782,39 @@ set(NETWORK_FILES
                 window/modules/network/sections/vpn/vpnstrongswansection.cpp
                 window/modules/network/sections/vpn/vpntlssection.cpp
                 window/modules/network/sections/vpn/vpnvpncsection.cpp
-                window/modules/network/sections/vpn/vpnsection.h
-                window/modules/network/sections/vpn/vpnopenconnectsection.h
-                window/modules/network/sections/vpn/vpntlssection.h
-                window/modules/network/sections/vpn/vpnopenvpnsection.h
-                window/modules/network/sections/vpn/vpnstrongswansection.h
-                window/modules/network/sections/vpn/vpnadvvpncsection.h
-                window/modules/network/sections/vpn/vpnproxysection.h
-                window/modules/network/sections/vpn/vpnsecopenvpnsection.h
-                window/modules/network/sections/vpn/vpnadvopenvpnsection.h
-                window/modules/network/sections/vpn/vpnvpncsection.h
-                window/modules/network/sections/vpn/vpnpppsection.h
-                window/modules/network/sections/vpn/vpnipsecsection.h
+#                window/modules/network/sections/vpn/vpnsection.h
+ #               window/modules/network/sections/vpn/vpnopenconnectsection.h
+#                window/modules/network/sections/vpn/vpntlssection.h
+#                window/modules/network/sections/vpn/vpnopenvpnsection.h
+ #               window/modules/network/sections/vpn/vpnstrongswansection.h
+ #               window/modules/network/sections/vpn/vpnadvvpncsection.h
+ #               window/modules/network/sections/vpn/vpnproxysection.h
+  #              window/modules/network/sections/vpn/vpnsecopenvpnsection.h
+ #               window/modules/network/sections/vpn/vpnadvopenvpnsection.h
+#                window/modules/network/sections/vpn/vpnvpncsection.h
+#                window/modules/network/sections/vpn/vpnpppsection.h
+#                window/modules/network/sections/vpn/vpnipsecsection.h
                 window/modules/network/sections/vpn/vpnopenvpnsection.cpp
                 window/modules/network/sections/vpn/vpnpppsection.cpp
                 window/modules/network/sections/vpn/vpnproxysection.cpp
-                window/modules/network/sections/vpn/vpnsstpproxysection.h
+#                window/modules/network/sections/vpn/vpnsstpproxysection.h
                 window/modules/network/sections/vpn/vpnsstpproxysection.cpp
                 window/modules/network/sections/vpn/vpnsstpsection.cpp
-                window/modules/network/sections/vpn/vpnsstpsection.h
+ #               window/modules/network/sections/vpn/vpnsstpsection.h
                 window/modules/network/sections/ethernetsection.cpp
-                window/modules/network/sections/generichotspotsection.h
-                window/modules/network/sections/genericsection.h
+#                window/modules/network/sections/generichotspotsection.h
+#                window/modules/network/sections/genericsection.h
                 window/modules/network/sections/secrethotspotsection.cpp
                 window/modules/network/sections/secretwirelesssection.cpp
-                window/modules/network/sections/secretwirelesssection.h
+#                window/modules/network/sections/secretwirelesssection.h
                 window/modules/network/sections/wirelesssection.cpp
-                window/modules/network/sections/pppsection.h
-                window/modules/network/sections/ipvxsection.h
-                window/modules/network/sections/ethernetsection.h
-                window/modules/network/sections/secrethotspotsection.h
-                window/modules/network/sections/pppoesection.h
-                window/modules/network/sections/wirelesssection.h
-                window/modules/network/sections/secret8021xsection.h
+#                window/modules/network/sections/pppsection.h
+#                window/modules/network/sections/ipvxsection.h
+ #               window/modules/network/sections/ethernetsection.h
+ #               window/modules/network/sections/secrethotspotsection.h
+ #               window/modules/network/sections/pppoesection.h
+ #               window/modules/network/sections/wirelesssection.h
+ #               window/modules/network/sections/secret8021xsection.h
                 window/modules/network/sections/ipvxsection.cpp
                 window/modules/network/settings/abstractsettings.cpp
                 window/modules/network/settings/dslpppoesettings.cpp
@@ -825,46 +825,45 @@ set(NETWORK_FILES
                 window/modules/network/settings/vpn/vpnpptpsettings.cpp
                 window/modules/network/settings/vpn/vpnstrongswansettings.cpp
                 window/modules/network/settings/vpn/vpnvpncsettings.cpp
-                window/modules/network/settings/vpn/vpnl2tpsettings.h
-                window/modules/network/settings/vpn/vpnopenconnectsettings.h
-                window/modules/network/settings/vpn/vpnopenvpnsettings.h
-                window/modules/network/settings/vpn/vpnpptpsettings.h
-                window/modules/network/settings/vpn/vpnstrongswansettings.h
-                window/modules/network/settings/vpn/vpnvpncsettings.h
-                window/modules/network/settings/vpn/vpnsstpsettings.h
+ #               window/modules/network/settings/vpn/vpnl2tpsettings.h
+ #               window/modules/network/settings/vpn/vpnopenconnectsettings.h
+#                window/modules/network/settings/vpn/vpnopenvpnsettings.h
+#                window/modules/network/settings/vpn/vpnpptpsettings.h
+ #               window/modules/network/settings/vpn/vpnstrongswansettings.h
+ #               window/modules/network/settings/vpn/vpnvpncsettings.h
+ #               window/modules/network/settings/vpn/vpnsstpsettings.h
                 window/modules/network/settings/vpn/vpnsstpsettings.cpp
                 window/modules/network/settings/wiredsettings.cpp
                 window/modules/network/settings/wirelesssettings.cpp
-                window/modules/network/settings/dslpppoesettings.h
-                window/modules/network/settings/hotspotsettings.h
-                window/modules/network/settings/wiredsettings.h
-                window/modules/network/settings/wirelesssettings.h
-                window/modules/network/settings/abstractsettings.h
-                window/modules/network/connectionvpneditpage.h
-                window/modules/network/connectionwirelesseditpage.h
+#               window/modules/network/settings/hotspotsettings.h
+ #               window/modules/network/settings/wiredsettings.h
+ #               window/modules/network/settings/wirelesssettings.h
+ #               window/modules/network/settings/abstractsettings.h
+ #               window/modules/network/connectionvpneditpage.h
+ #               window/modules/network/connectionwirelesseditpage.h
                 window/modules/network/chainsproxypage.cpp
-                window/modules/network/chainsproxypage.h
+ #               window/modules/network/chainsproxypage.h
                 window/modules/network/connectioneditpage.cpp
-                window/modules/network/connectioneditpage.h
+ #               window/modules/network/connectioneditpage.h
                 window/modules/network/connectionhotspoteditpage.cpp
                 window/modules/network/connectionvpneditpage.cpp
                 window/modules/network/connectionwirelesseditpage.cpp
                 window/modules/network/hotspotpage.cpp
-                window/modules/network/hotspotpage.h
-                window/modules/network/networkdetailpage.h
-                window/modules/network/networkmodule.h
+#                window/modules/network/hotspotpage.h
+ #               window/modules/network/networkdetailpage.h
+ #               window/modules/network/networkmodule.h
                 window/modules/network/networkmodulewidget.cpp
-                window/modules/network/networkmodulewidget.h
+ #               window/modules/network/networkmodulewidget.h
                 window/modules/network/pppoepage.cpp
-                window/modules/network/pppoepage.h
+ #               window/modules/network/pppoepage.h
                 window/modules/network/proxypage.cpp
-                window/modules/network/proxypage.h
+ #               window/modules/network/proxypage.h
                 window/modules/network/vpnpage.cpp
-                window/modules/network/vpnpage.h
+ #               window/modules/network/vpnpage.h
                 window/modules/network/wiredpage.cpp
-                window/modules/network/wiredpage.h
+ #               window/modules/network/wiredpage.h
                 window/modules/network/wirelesspage.cpp
-                window/modules/network/wirelesspage.h
+ #               window/modules/network/wirelesspage.h
 )
 
 # load personalization
@@ -898,19 +897,19 @@ set(PERSONALIZATION_FILES
 #                modules/personalization/personalizationwidget.h
 #                modules/personalization/personalizationwork.h
 
-                window/modules/personalization/personalizationmodule.h
+#                window/modules/personalization/personalizationmodule.h
                 window/modules/personalization/personalizationmodule.cpp
-                window/modules/personalization/personalizationlist.h
+ #               window/modules/personalization/personalizationlist.h
                 window/modules/personalization/personalizationlist.cpp
-                window/modules/personalization/themeitempic.h
+ #               window/modules/personalization/themeitempic.h
                 window/modules/personalization/themeitempic.cpp
-                window/modules/personalization/roundcolorwidget.h
+ #               window/modules/personalization/roundcolorwidget.h
                 window/modules/personalization/roundcolorwidget.cpp
-                window/modules/personalization/personalizationgeneral.h
+ #               window/modules/personalization/personalizationgeneral.h
                 window/modules/personalization/personalizationgeneral.cpp
-                window/modules/personalization/perssonalizationthemewidget.h
+#                window/modules/personalization/perssonalizationthemewidget.h
                 window/modules/personalization/perssonalizationthemewidget.cpp
-                window/modules/personalization/themeitem.h
+ #               window/modules/personalization/themeitem.h
                 window/modules/personalization/themeitem.cpp
                 window/modules/personalization/personalizationfontswidget.cpp
                 window/modules/personalization/personalizationthemelist.cpp
@@ -962,13 +961,13 @@ set(SYNC_FILES
     modules/sync/syncstateicon.cpp
 #    modules/sync/utils.h
 
-    window/modules/sync/syncmodule.h
+#    window/modules/sync/syncmodule.h
     window/modules/sync/syncmodule.cpp
-    window/modules/sync/syncwidget.h
+#    window/modules/sync/syncwidget.h
     window/modules/sync/syncwidget.cpp
-    window/modules/sync/pages/index.h
+ #   window/modules/sync/pages/index.h
     window/modules/sync/pages/index.cpp
-    window/modules/sync/pages/login.h
+ #   window/modules/sync/pages/login.h
     window/modules/sync/pages/login.cpp
     window/modules/sync/pages/logout.cpp
     window/modules/sync/pages/downloadurl.cpp
@@ -997,25 +996,25 @@ set(SYSTEMINFO_FILES
 #                modules/systeminfo/bootwidget.cpp
 #                modules/systeminfo/grubbackgrounditem.cpp
                 #for V20
-                window/modules/systeminfo/systeminfomodule.h
+#                window/modules/systeminfo/systeminfomodule.h
                 window/modules/systeminfo/systeminfomodule.cpp
-                window/modules/systeminfo/systeminfowidget.h
+ #               window/modules/systeminfo/systeminfowidget.h
                 window/modules/systeminfo/systeminfowidget.cpp
-                window/modules/systeminfo/nativeinfowidget.h
+ #               window/modules/systeminfo/nativeinfowidget.h
                 window/modules/systeminfo/nativeinfowidget.cpp
-                window/modules/systeminfo/versionprotocolwidget.h
+ #               window/modules/systeminfo/versionprotocolwidget.h
                 window/modules/systeminfo/versionprotocolwidget.cpp
-                window/modules/systeminfo/userlicensewidget.h
+ #               window/modules/systeminfo/userlicensewidget.h
                 window/modules/systeminfo/userlicensewidget.cpp
-                window/modules/systeminfo/systemrestore.h
+   #             window/modules/systeminfo/systemrestore.h
                 window/modules/systeminfo/systemrestore.cpp
-                window/modules/systeminfo/manualbackup.h
+   #             window/modules/systeminfo/manualbackup.h
                 window/modules/systeminfo/manualbackup.cpp
-                window/modules/systeminfo/manualrestore.h
+  #              window/modules/systeminfo/manualrestore.h
                 window/modules/systeminfo/manualrestore.cpp
-                window/modules/systeminfo/backupandrestoremodel.h
+ #               window/modules/systeminfo/backupandrestoremodel.h
                 window/modules/systeminfo/backupandrestoremodel.cpp
-                window/modules/systeminfo/backupandrestoreworker.h
+ #               window/modules/systeminfo/backupandrestoreworker.h
                 window/modules/systeminfo/backupandrestoreworker.cpp
 )
 
