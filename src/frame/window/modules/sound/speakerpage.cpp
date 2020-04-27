@@ -174,7 +174,6 @@ void SpeakerPage::initSlider()
     connect(volumeBoost, &SwitchWidget::checkedChanged, volumeBoostTip, &DTipLabel::setVisible);
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoostTip, &DTipLabel::setVisible);
     connect(m_model, &SoundModel::speakerOnChanged, vbWidget, &QWidget::setVisible);
-
     //~ contents_path /sound/Speaker
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     balanceSlider->addBackground();
