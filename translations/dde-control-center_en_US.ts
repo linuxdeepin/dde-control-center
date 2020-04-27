@@ -153,57 +153,118 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="243"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="225"/>
+        <source>The full name is too long</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="242"/>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>The full name already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="283"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="282"/>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>Validity Days</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="348"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="347"/>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>Always</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="341"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="340"/>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>Please input a number between 1-99999</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="382"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>Change Password</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="384"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>Delete Account</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="387"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="386"/>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>Auto Login</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="391"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="390"/>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>Login Without Password</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="465"/>
 =======
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
 >>>>>>> feat: update translate file
+<<<<<<< HEAD
+=======
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="456"/>
+>>>>>>> fix(uos/sp1-0101):修改翻译
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
+>>>>>>> fix:fingerprint update
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="463"/>
+>>>>>>> feat:when modifying the full name of an account, there is no length limit
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="466"/>
+>>>>>>> Fix(text):lift finger.And clean Finger
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>Group</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2715,7 +2776,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
-        <source>WEP 40/128-bit</source>
+        <source>WEP 40/64/128-bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2772,11 +2833,15 @@
         <translation type="unfinished"></translation>
 =======
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
+<<<<<<< HEAD
         <source>WEP 40/128-bit</source>
 <<<<<<< HEAD
         <translation>WEP 40/128-bit</translation>
 >>>>>>> Fix(accounts):Finger input-widiget lose focus only at the first-time
 =======
+=======
+        <source>WEP 40/64/128-bit</source>
+>>>>>>> Fix(text):lift finger.And clean Finger
         <translation type="unfinished"></translation>
 >>>>>>> feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
     </message>
@@ -5768,20 +5833,34 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="158"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
+=======
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <source>Finger moved too fast, please do not lift until prompted</source>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
+=======
+        <source>Unclear fingerprint, please clean your finger and try again</source>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5821,23 +5900,50 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="49"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="141"/>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="70"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="130"/>
         <source>Place your finger</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+=======
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>Place the edges of your fingerprint on the sensor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+=======
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="71"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="164"/>
         <source>Fingerprint added</source>
+=======
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <source>Lift your finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="139"/>
+        <source>Lift your finger and place it on the sensor again</source>
+>>>>>>> 5bf6de21c... Fix(text):lift finger.And clean Finger
         <translation type="unfinished"></translation>
     </message>
 </context>

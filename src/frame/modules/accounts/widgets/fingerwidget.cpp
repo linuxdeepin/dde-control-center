@@ -45,16 +45,33 @@ FingerWidget::FingerWidget(QWidget *parent)
     , m_isFinished(false)
     , m_titleTimer(new QTimer(this))
     , m_msgTimer(new QTimer(this))
+    , m_liftTimer(new QTimer(this))
 {
-    m_defTitle = tr("Place your finger");
     m_titleTimer->setSingleShot(true);
     m_titleTimer->setInterval(1000);
     m_msgTimer->setSingleShot(true);
-    m_msgTimer->setInterval(2000);
+    m_msgTimer->setInterval(1000);
+    m_liftTimer->setSingleShot(true);
+    m_liftTimer->setInterval(1500);
     connect(m_titleTimer, &QTimer::timeout, this, [this]{
         m_titleLbl->setText(m_defTitle);
     });
     connect(m_msgTimer, &QTimer::timeout, this, [this]{
+        m_tipLbl->setText(m_defTip);
+    });
+    connect(m_liftTimer, &QTimer::timeout, this, [this]{
+        if (m_pro == 100) {
+            m_defTitle = tr("Fingerprint added");
+            m_defTip = tr("");
+        } else if (m_pro >= 35) {
+            m_defTitle = tr("Place your finger");
+            m_defTip = tr("Place the edges of your fingerprint on the sensor");
+        } else if (m_pro >= 0 && m_pro < 35) {
+            m_defTitle = tr("Place your finger");
+            m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
+        }
+
+        m_titleLbl->setText(m_defTitle);
         m_tipLbl->setText(m_defTip);
     });
 
@@ -110,23 +127,26 @@ void FingerWidget::setProsses(int pro)
     m_pro = pro;
     if(m_pro == 0) {
         m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
+        m_defTitle = tr("Place your finger");
+        m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
     } else {
         int idx = m_pro/2;
         idx = idx > 50 ? 50 : idx;
         m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%2.svg")
                                    .arg(m_theme).arg(idx));
-    }
-    if (pro == 100)
-        return;
-    if (pro > 35) {
-        m_defTip = tr("Place the edges of your fingerprint on the sensor");
-    } else {
-        m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
+        if (m_pro != 100) {
+            m_defTitle = tr("Lift your finger");
+            m_defTip = tr("Lift your finger and place it on the sensor again");
+        }else {
+            m_defTitle = tr("Fingerprint added");
+            m_defTip = tr("");
+        }
     }
     m_msgTimer->stop();
     m_titleTimer->stop();
     m_titleLbl->setText(m_defTitle);
     m_tipLbl->setText(m_defTip);
+    m_liftTimer->start();
 }
 
 void FingerWidget::reEnter()
@@ -139,8 +159,6 @@ void FingerWidget::reEnter()
 void FingerWidget::finished()
 {
     m_isFinished = true;
-    m_titleLbl->setText(tr("Fingerprint added"));
-    m_tipLbl->setText("");
     setProsses(100);
 }
 
