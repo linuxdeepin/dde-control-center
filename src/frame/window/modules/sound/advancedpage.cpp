@@ -99,9 +99,9 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     setListFucn(m_inputList);
     contentLayout->addWidget(m_inputList);
 
-    /*connect(m_inputList, &DListView::clicked, this, [this](const QModelIndex & idx) {
+    connect(m_inputList, &DListView::clicked, this, [this](const QModelIndex & idx) {
         this->requestSetPort(m_inputList->model()->data(idx, Qt::WhatsThisPropertyRole).value<const Port *>());
-    });*/
+    });
     connect(m_outputList, &DListView::clicked, this, [this](const QModelIndex & idx) {
         this->requestSetPort(m_outputList->model()->data(idx, Qt::WhatsThisPropertyRole).value<const Port *>());
     });
