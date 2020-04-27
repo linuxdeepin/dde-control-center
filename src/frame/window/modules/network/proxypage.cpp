@@ -71,31 +71,31 @@ ProxyPage::ProxyPage(QWidget *parent)
     tabManualBtn->setChecked(true);
 
     m_httpAddr = new LineEditWidget;
-    m_httpAddr->setPlaceholderText(tr("Optional"));
+    //m_httpAddr->setPlaceholderText(tr("Optional"));
     m_httpAddr->setTitle(tr("HTTP Proxy"));
     m_httpPort = new LineEditWidget;
-    m_httpPort->setPlaceholderText(tr("Optional"));
+    //m_httpPort->setPlaceholderText(tr("Optional"));
     m_httpPort->setTitle(tr("Port"));
 
     m_httpsAddr = new LineEditWidget;
-    m_httpsAddr->setPlaceholderText(tr("Optional"));
+    //m_httpsAddr->setPlaceholderText(tr("Optional"));
     m_httpsAddr->setTitle(tr("HTTPS Proxy"));
     m_httpsPort = new LineEditWidget;
-    m_httpsPort->setPlaceholderText(tr("Optional"));
+    //m_httpsPort->setPlaceholderText(tr("Optional"));
     m_httpsPort->setTitle(tr("Port"));
 
     m_ftpAddr = new LineEditWidget;
-    m_ftpAddr->setPlaceholderText(tr("Optional"));
+    //m_ftpAddr->setPlaceholderText(tr("Optional"));
     m_ftpAddr->setTitle(tr("FTP Proxy"));
     m_ftpPort = new LineEditWidget;
-    m_ftpPort->setPlaceholderText(tr("Optional"));
+    //m_ftpPort->setPlaceholderText(tr("Optional"));
     m_ftpPort->setTitle(tr("Port"));
 
     m_socksAddr = new LineEditWidget;
-    m_socksAddr->setPlaceholderText(tr("Optional"));
+    //m_socksAddr->setPlaceholderText(tr("Optional"));
     m_socksAddr->setTitle(tr("SOCKS Proxy"));
     m_socksPort = new LineEditWidget;
-    m_socksPort->setPlaceholderText(tr("Optional"));
+    //m_socksPort->setPlaceholderText(tr("Optional"));
     m_socksPort->setTitle(tr("Port"));
 
     m_ignoreList = new DTextEdit;
@@ -106,7 +106,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     ignoreTips->setText(tr("Ignore the proxy configurations for the above hosts and domains"));
 
     m_autoUrl = new LineEditWidget;
-    m_autoUrl->setPlaceholderText(tr("Optional"));
+    //m_autoUrl->setPlaceholderText(tr("Optional"));
     m_autoUrl->setTitle(tr("Configuration URL"));
 
     SettingsGroup *httpGroup = new SettingsGroup;
@@ -194,10 +194,10 @@ void ProxyPage::setModel(NetworkModel *model)
     connect(model, &NetworkModel::proxyChanged, this, &ProxyPage::onProxyChanged);
     connect(model, &NetworkModel::autoProxyChanged, m_autoUrl, &LineEditWidget::setText);
 
-    onProxyChanged("http", model->proxy("http"));
-    onProxyChanged("https", model->proxy("https"));
-    onProxyChanged("ftp", model->proxy("ftp"));
-    onProxyChanged("socks", model->proxy("socks"));
+    //onProxyChanged("http", model->proxy("http"));
+    //onProxyChanged("https", model->proxy("https"));
+    //onProxyChanged("ftp", model->proxy("ftp"));
+    //onProxyChanged("socks", model->proxy("socks"));
     onProxyMethodChanged(model->proxyMethod());
     onIgnoreHostsChanged(model->ignoreHosts());
     m_autoUrl->setText(model->autoProxy());
