@@ -121,7 +121,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setResizeMode(QListView::Adjust);
     m_navView->setAutoScroll(true);
 
-    QScroller::grabGesture(m_navView->viewport(), QScroller::LeftMouseButtonGesture);
+    //QScroller::grabGesture(m_navView->viewport(), QScroller::LeftMouseButtonGesture);//disable mouse left button scrolling
     QScroller *scroller = QScroller::scroller(m_navView->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
