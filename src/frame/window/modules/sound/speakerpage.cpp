@@ -159,6 +159,7 @@ void SpeakerPage::initSlider()
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoost, &SwitchWidget::setChecked);
     connect(volumeBoost, &SwitchWidget::checkedChanged, this, &SpeakerPage::requestIncreaseVolume);
     hlayout->addWidget(volumeBoost);
+    volumeBoost->setVisible(false);//去掉音量增强
 
     //下方提示
     auto volumeBoostTip = new DTipLabel(tr("If the volume is louder than 100%, it may distort audio and be harmful to your speaker"), this);
@@ -205,5 +206,8 @@ void SpeakerPage::initSlider()
         slider2->blockSignals(false);
     });
 
-    m_layout->insertWidget(3, balanceSlider);
+    if (!volumeBoost->isVisible())
+        m_layout->insertWidget(2, balanceSlider);
+    else
+        m_layout->insertWidget(3, balanceSlider);
 }
