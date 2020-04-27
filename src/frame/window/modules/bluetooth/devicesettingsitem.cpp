@@ -95,8 +95,6 @@ void DeviceSettingsItem::setLoading(const bool loading)
 void DeviceSettingsItem::setSpinnerColor(const QColor color)
 {
     QPalette pa = m_loadingIndicator->palette();
-    QBrush brush=pa.highlight();
-    QColor wf=brush.color();
     pa.setBrush(QPalette::Highlight,color);
     m_loadingIndicator->setPalette(pa);
 }

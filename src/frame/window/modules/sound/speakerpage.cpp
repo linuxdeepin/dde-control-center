@@ -191,6 +191,7 @@ void SpeakerPage::initSlider()
     slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100));
     slider2->setPageStep(1);
     balanceSlider->setAnnotations(balanceList);
+    slider2->setEnabledAcrossStyle(true);
 
     auto slotfunc2 = [ = ](int pos) {
         double val = pos / 100.0;
