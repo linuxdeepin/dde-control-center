@@ -299,13 +299,12 @@ void UpdateModel::setSystemVersionInfo(QString systemVersionInfo)
     Q_EMIT systemVersionChanged(systemVersionInfo);
 }
 
-void UpdateModel::setSystemActivation(quint32 systemactivation)
+void UpdateModel::setSystemActivation(bool systemactivation)
 {
-    if (systemactivation == systeminfo::ActiveState::Authorized || systemactivation == systeminfo::ActiveState::TrialAuthorized) {
-        m_bSystemActivation = true;
-    } else {
-        m_bSystemActivation = false;
+    if (m_bSystemActivation == systemactivation) {
+        return;
     }
+    m_bSystemActivation = systemactivation;
 
     Q_EMIT setSystemActivationChanged(systemactivation);
 }

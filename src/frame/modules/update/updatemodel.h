@@ -145,7 +145,7 @@ public:
     bool getIsRecoveryBackingup(UpdatesStatus state) const;
 
     inline bool systemActivation() const {return m_bSystemActivation;}
-    void setSystemActivation(quint32 systemactivation);
+    void setSystemActivation(bool systemactivation);
 
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
