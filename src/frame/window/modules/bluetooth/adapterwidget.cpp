@@ -227,9 +227,9 @@ void AdapterWidget::toggleSwitch(const bool checked)
             for (auto conn : m_preConnDevices) {
                 if (conn->device()->state() != Device::StateConnected){
                    Q_EMIT requestConnectDevice(conn->device());
-                }
-                m_preConnDevices.clear();
+                }     
             }
+            m_preConnDevices.clear();
         });
     }
 
