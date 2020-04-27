@@ -201,7 +201,7 @@ void ClockItem::updateDateTime()
         m_label->setText(QDate::currentDate().toString("dddd"));
         m_labelDate->setText(QDate::currentDate().toString("MM-dd-yyyy"));
     } else {
-        m_label->setText(QDate::currentDate().toString("yyyy-MM-dd"));
+        m_label->setText(QDate::currentDate().toString(tr("yyyy-MM-dd")));
         m_labelDate->setText(QDate::currentDate().toString("dddd"));
     }
 }
