@@ -142,10 +142,10 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
             auto errCode = jsonObject.value("subcode").toInt();
             switch(errCode) {
             case RC_TouchTooShort: //接触时间过短
-                msg = tr("Finger moved too fast. Please do not lift until prompted");
+                msg = tr("Finger moved too fast, please do not lift until prompted");
                 break;
-            case RC_ErrorFigure: //图形不可用
-                msg = tr("Clean your finger or adjust the finger position, and try again");
+            case RC_ErrorFigure: //图像不可用
+                msg = tr("Unclear fingerprint, please clean your finger and try again");
                 break;
             case RC_RepeatTouchData: //重复率过高
                 msg = tr("Adjust the finger position to scan your fingerprint fully");
@@ -153,8 +153,8 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
             case RC_RepeatFingerData: //重复手指
                 msg = tr("The fingerprint already exists, please scan other fingers");
                 break;
-            case RC_SwipeTooShort: //滑动太短
-                msg = tr("Finger moved too fast. Please do not lift until prompted");
+            case RC_SwipeTooShort: //按压时间短
+                msg = tr("Finger moved too fast, please do not lift until prompted");
                 break;
             case RC_FingerNotCenter: //手指不在中间
                 msg = tr("Adjust the finger position to scan your fingerprint fully");
