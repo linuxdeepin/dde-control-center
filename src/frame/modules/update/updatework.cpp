@@ -111,8 +111,8 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     m_smartMirrorInter->setSync(true, false);
 
     QString sVersion = QString("%1 %2 %3").arg(DSysInfo::productTypeString().toUpper(),
-                                                 DSysInfo::deepinTypeDisplayName(),
-                                                 DSysInfo::deepinVersion());
+                                                 DSysInfo::deepinVersion(),
+                                                 DSysInfo::deepinTypeDisplayName());
     m_model->setSystemVersionInfo(sVersion);
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);
