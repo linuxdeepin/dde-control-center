@@ -165,6 +165,7 @@ ProxyPage::ProxyPage(QWidget *parent)
 //    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ProxyPage::back);
 //    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::back, Qt::QueuedConnection);
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
+    connect(m_autoUrl->dTextEdit(), &DLineEdit::editingFinished, this, &ProxyPage::applySettings);
     connect(m_proxyTabs, &DButtonBox::buttonClicked, this, [this](QAbstractButton *value) {
         onProxyToggled(m_proxyTabs->id(value));
     });
