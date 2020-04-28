@@ -245,6 +245,8 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
             pathType = "-e";
         m_process->start("dde-license-dialog",
                                       QStringList() << "-t" << title << pathType << content << "-a" << allowContent);
+        qDebug()<<" Deliver content QStringList() = "<<"dde-license-dialog"
+                                                     << "-t" << title << pathType << content << "-a" << allowContent;
         connect(m_process, &QProcess::stateChanged, this, [pMainWindow](QProcess::ProcessState state) {
             if (pMainWindow) {
                 pMainWindow->setEnabled(state != QProcess::Running);
