@@ -29,6 +29,23 @@ static const QString getLicense(const QString &filePath, const QString &type)
     }
 
     QString path = QString(filePath).arg(lang).arg(type);
+
+    return path;
+}
+
+static const QString getDevelopModeLicense(const QString &filePath, const QString &type)
+{
+    const QString& locale { QLocale::system().name() };
+    QString lang;
+    if (SYSTEM_LOCAL_MAP.keys().contains(locale)) {
+        lang = { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
+    }
+
+    if (lang.isEmpty()) {
+        lang = { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
+    }
+
+    QString path = QString(filePath).arg(lang).arg(type);
     QFile license(path);
     if (!license.open(QIODevice::ReadOnly))
         return QString();
