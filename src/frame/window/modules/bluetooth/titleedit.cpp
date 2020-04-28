@@ -26,6 +26,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QHBoxLayout>
+#include <DLineEdit>
 
 DWIDGET_USE_NAMESPACE
 
@@ -35,11 +36,10 @@ using namespace DCC_NAMESPACE::bluetooth;
 TitleEdit::TitleEdit(QWidget *parent)
     : QWidget(parent)
     , m_name(new QLabel)
-    , m_lineEdit(new QLineEdit)
+    , m_lineEdit(new DLineEdit)
 {
     QHBoxLayout *mainlayout = new QHBoxLayout;
-    m_lineEdit->setVisible(false);
-    m_lineEdit->setMaxLength(32);
+    m_lineEdit->lineEdit()->setVisible(false);
     mainlayout->addWidget(m_name);
     mainlayout->addWidget(m_lineEdit);
     mainlayout->addSpacing(5);
@@ -52,13 +52,21 @@ TitleEdit::TitleEdit(QWidget *parent)
     mainlayout->setSpacing(0);
     setLayout(mainlayout);
 
-    connect(m_lineEdit, &QLineEdit::editingFinished, this, &TitleEdit::setName);
+    connect(m_lineEdit, &DLineEdit::editingFinished, this, &TitleEdit::setName);
+    connect(m_lineEdit, &DLineEdit::textEdited, this, [ = ](const QString &str){
+        if (str.length() > 32) {
+            m_lineEdit->lineEdit()->backspace();
+            m_lineEdit->setAlert(true);
+        } else {
+            m_lineEdit->setAlert(false);
+        }
+    });
     connect(editWidget, &DIconButton::clicked, this, &TitleEdit::setEdit);
 }
 
 void TitleEdit::setName()
 {
-    m_lineEdit->setVisible(false);
+    m_lineEdit->lineEdit()->setVisible(false);
     m_name->setVisible(true);
     if (m_name->text() != m_lineEdit->text()) {
         if (!m_lineEdit->text().isEmpty()) {
@@ -76,8 +84,8 @@ void TitleEdit::setName()
 void TitleEdit::setEdit()
 {
     m_name->setVisible(false);
-    m_lineEdit->setVisible(true);
-    m_lineEdit->setFocus();
+    m_lineEdit->lineEdit()->setVisible(true);
+    m_lineEdit->lineEdit()->setFocus();
 }
 
 void TitleEdit::setTitle(const QString &title)
