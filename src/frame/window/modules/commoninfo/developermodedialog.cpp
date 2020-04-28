@@ -131,11 +131,7 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
     });
 
     connect(m_nextButton, &QPushButton::clicked, this, &DeveloperModeDialog::setLogin);
-    connect(this,&DeveloperModeDialog::requestSetNextBtnStatus, [this](bool state){
-        m_nextButton->setEnabled(state);
-        //关闭窗口
-        close();
-    });
+    connect(this,&DeveloperModeDialog::requestSetNextBtnStatus, [this]{close();});
 
     connect(exportBtn, &QPushButton::clicked, [this]{
         auto inter = new GrubDevelopMode("com.deepin.deepinid", "/com/deepin/deepinid",
@@ -224,12 +220,10 @@ void DeveloperModeDialog::setLogin()
     if (!model->isLogin()){
         m_enterDev = true;
         btn->clearFocus();
-        btn->setEnabled(false);
         Q_EMIT requestLogin();
         connect(model, &CommonInfoModel::isLoginChenged, this, [requestDev, this, btn](bool log){
             if (!log || !m_enterDev)
                 return;
-            btn->setEnabled(true);
             requestDev();
             m_enterDev = false;
         });

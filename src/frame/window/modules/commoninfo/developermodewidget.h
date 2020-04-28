@@ -51,9 +51,6 @@ Q_SIGNALS:
     void enableDeveloperMode(bool enabled);
     void requestLogin();
 
-private Q_SLOTS:
-    void onLoginChanged();
-
 public Q_SLOTS:
     void updateDeveloperModeState(const bool state);
 
