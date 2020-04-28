@@ -48,9 +48,9 @@ FingerWidget::FingerWidget(QWidget *parent)
     , m_liftTimer(new QTimer(this))
 {
     m_titleTimer->setSingleShot(true);
-    m_titleTimer->setInterval(1000);
+    m_titleTimer->setInterval(1500);
     m_msgTimer->setSingleShot(true);
-    m_msgTimer->setInterval(1000);
+    m_msgTimer->setInterval(1500);
     m_liftTimer->setSingleShot(true);
     m_liftTimer->setInterval(1500);
     connect(m_titleTimer, &QTimer::timeout, this, [this]{
@@ -115,10 +115,13 @@ void FingerWidget::setStatueMsg(const QString &title, const QString &msg, bool r
     if (!m_reset) {
         m_msgTimer->start();
         m_titleTimer->start();
-        m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%2.svg")
-                                   .arg(m_theme).arg(m_pro/2));
-    } else {
-        m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
+
+        if (m_pro == 0) {
+            m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
+        } else {
+            m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%2.svg")
+                                       .arg(m_theme).arg(m_pro/2));
+        }
     }
 }
 
