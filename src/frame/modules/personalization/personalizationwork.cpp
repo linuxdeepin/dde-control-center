@@ -77,6 +77,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_dbus, &Appearance::OpacityChanged, this, &PersonalizationWork::refreshOpacity);
     connect(m_dbus, &Appearance::QtActiveColorChanged, this, &PersonalizationWork::refreshActiveColor);
     connect(m_wm, &WM::CompositingAllowSwitchChanged, this, &PersonalizationWork::onCompositingAllowSwitch);
+    connect(m_wm, &WM::compositingEnabledChanged, this, &PersonalizationWork::onCompositingEnable);
 
     m_themeModels["gtk"]           = windowTheme;
     m_themeModels["icon"]          = iconTheme;
@@ -97,6 +98,7 @@ void PersonalizationWork::active()
     refreshOpacity(m_dbus->opacity());
     refreshActiveColor(m_dbus->qtActiveColor());
     onCompositingAllowSwitch(m_wm->compositingAllowSwitch());
+    onCompositingEnable(m_wm->compositingEnabled());
 
     m_model->getWindowModel()->setDefault(m_dbus->gtkTheme());
     m_model->getIconModel()->setDefault(m_dbus->iconTheme());
@@ -248,6 +250,11 @@ void PersonalizationWork::onToggleWM(const QString &wm)
 void PersonalizationWork::onCompositingAllowSwitch(bool value)
 {
     m_model->setCompositingAllowSwitch(value);
+}
+
+void PersonalizationWork::onCompositingEnable(bool value)
+{
+    m_model->setCompositingEnable(value);
 }
 
 void PersonalizationWork::onGetCurrentWMFinished(QDBusPendingCallWatcher *w)

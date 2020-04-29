@@ -79,6 +79,7 @@ private:
     void onActiveColorChanged(const QString &newColor);
     void onActiveColorClicked();
     void onCompositingAllowSwitchChanged(bool value);
+    void onCompositingEnableChanged(bool value);
 
 private:
     QVBoxLayout *m_centralLayout;             //主布局

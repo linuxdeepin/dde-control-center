@@ -118,6 +118,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         swswitchLayout->addStretch();
         swswitchLayout->addWidget(m_wmSwitch);
         winEffectVLayout->addWidget(switem);
+        switem->setVisible(false);
 
         //~ contents_path /personalization/General
         m_transparentSlider = new dcc::widgets::TitledSliderItem(tr("Transparency"));
@@ -183,9 +184,13 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
             &PersonalizationGeneral::onActiveColorChanged);
     onActiveColorChanged(model->getActiveColor());
 
-    connect(m_model, &dcc::personalization::PersonalizationModel::onCompositingAllowSwitch, this,
-            &PersonalizationGeneral::onCompositingAllowSwitchChanged);
-    onCompositingAllowSwitchChanged(m_model->getAllowSwitch());
+//    connect(m_model, &dcc::personalization::PersonalizationModel::onCompositingAllowSwitch, this,
+//            &PersonalizationGeneral::onCompositingAllowSwitchChanged);
+//    onCompositingAllowSwitchChanged(m_model->getAllowSwitch());
+
+    connect(m_model, &dcc::personalization::PersonalizationModel::onCompositingEnable, this,
+            &PersonalizationGeneral::onCompositingEnableChanged);
+    onCompositingEnableChanged(m_model->getCompositingEnable());
 }
 
 void PersonalizationGeneral::paintEvent(QPaintEvent *event)
@@ -226,7 +231,16 @@ void PersonalizationGeneral::updateWMSwitcher(bool checked)
 void PersonalizationGeneral::onCompositingAllowSwitchChanged(bool value)
 {
     if (!m_bSystemIsServer && value) {
+        m_switchWidget->setVisible(false);
+    } else {
         m_switchWidget->setVisible(true);
+    }
+}
+
+void PersonalizationGeneral::onCompositingEnableChanged(bool value)
+{
+    if (!m_bSystemIsServer && value) {
+       m_switchWidget->setVisible(true);
     } else {
         m_switchWidget->setVisible(false);
     }

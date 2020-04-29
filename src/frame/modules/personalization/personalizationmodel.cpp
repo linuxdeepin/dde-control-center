@@ -89,3 +89,12 @@ void PersonalizationModel::setCompositingAllowSwitch(bool value)
 
     Q_EMIT onCompositingAllowSwitch(value);
 }
+
+void PersonalizationModel::setCompositingEnable(bool value)
+{
+    if (m_compositingEnabled == value)
+        return;
+    m_compositingEnabled = value;
+
+    Q_EMIT onCompositingEnable(value);
+}

@@ -75,6 +75,7 @@ private Q_SLOTS:
     void onGetCurrentWMFinished(QDBusPendingCallWatcher *w);
     void setFontList(FontModel* model, const QString &type, const QString &list);
     void onCompositingAllowSwitch(bool value);
+    void onCompositingEnable(bool value);
 
 private:
     int sizeToSliderValue(const double value) const;
