@@ -168,7 +168,7 @@ void SpeakerPage::initSlider()
     hlayout->addWidget(volumeBoostTip);
     auto vbWidget = new QWidget(this);
     vbWidget->setLayout(hlayout);
-    vbWidget->setVisible(m_model->speakerOn());
+    vbWidget->setVisible(false);
     m_layout->insertWidget(2, vbWidget);
     connect(volumeBoost, &SwitchWidget::checkedChanged, volumeBoostTip, &DTipLabel::setVisible);
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoostTip, &DTipLabel::setVisible);
@@ -190,8 +190,8 @@ void SpeakerPage::initSlider()
     slider2->setTickInterval(1);
     slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100));
     slider2->setPageStep(1);
-    balanceSlider->setAnnotations(balanceList);
     slider2->setEnabledAcrossStyle(true);
+    balanceSlider->setAnnotations(balanceList);
 
     auto slotfunc2 = [ = ](int pos) {
         double val = pos / 100.0;
