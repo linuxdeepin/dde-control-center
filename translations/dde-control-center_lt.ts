@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="823"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,14 +87,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="835"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Drawing Tablet</source>
         <translation>Piešimo planšetė</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="413"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
         <source>Keyboard and Language</source>
         <translation>Klaviatūra ir kalba</translation>
     </message>
@@ -114,23 +114,23 @@
         <translation>Bendri nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>Touchpad</source>
         <translation>Jutiklinis kilimėlis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="412"/>
         <source>Assistive Tools</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="847"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="851"/>
         <source>Cloud Sync</source>
         <translation>Sinchronizavimas su debesija</translation>
     </message>
@@ -244,18 +244,18 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Atpažįstamas piršto atspaudas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="unfinished"/>
+        <translation>Padėkite pirštą ant piršto atspaudo skaitytuvo, prispauskite nuo apačios į viršų ar nuo viršaus į apačią, o tuomet jį pakelkite</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Piršto atspaudas pridėtas</translation>
     </message>
 </context>
 <context>
@@ -350,7 +350,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Pirmasis simbolis privalo būti raidė arba skaitmuo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="449"/>
@@ -368,7 +368,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ištrinti piršto atspaudą</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
@@ -378,12 +378,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Pirštų atspaudas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
         <source>Add fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Pridėti piršto atspaudą</translation>
     </message>
 </context>
 <context>
@@ -594,53 +594,53 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
         <source>Failed to get root access</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="88"/>
         <source>Please sign in to your cloud account first</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="90"/>
         <source>Cannot read your PC information</source>
         <translation>Nepavyksta perskaityti jūsų kompiuterio informacijos</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="92"/>
         <source>No network connection</source>
         <translation>Nėra tinklo ryšio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
         <source>UOS Privacy Policy</source>
         <translation>UOS privatumo politika</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="234"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Sutinku ir prisijungiu prie naudotojo patyrimo programos</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="293"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="294"/>
         <source>Agree and Request Root Access</source>
         <translation type="unfinished"/>
     </message>
@@ -863,7 +863,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="70"/>
         <source>Date and Time</source>
-        <translation>Data ir laikas</translation>
+        <translation>Laikas ir data</translation>
     </message>
 </context>
 <context>
@@ -1018,7 +1018,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pagrindinis ekranas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
@@ -1056,12 +1056,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="371"/>
         <source>inch</source>
-        <translation type="unfinished"/>
+        <translation>col.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="372"/>
         <source>Resolution %1x%2</source>
-        <translation type="unfinished"/>
+        <translation>Raiška %1x%2</translation>
     </message>
 </context>
 <context>
@@ -1149,12 +1149,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
         <source>%1 only</source>
-        <translation type="unfinished"/>
+        <translation>Tik %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
         <source>Show the screen content only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Rodyti ekrano turinį tik %1 ekrane</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
@@ -2332,83 +2332,70 @@
 <context>
     <name>dccV20::network::ProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="57"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>Save</source>
         <translation>Įrašyti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
         <source>None</source>
         <translation>Nėra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
         <source>Manual</source>
         <translation>Rankinis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
         <source>Auto</source>
         <translation>Automatinis</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
-        <source>Optional</source>
-        <translation>Nebūtina</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
         <source>HTTP Proxy</source>
         <translation>HTTP įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
         <source>Port</source>
         <translation>Prievadas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
         <source>HTTPS Proxy</source>
         <translation>HTTPS įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
         <source>FTP Proxy</source>
         <translation>FTP įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
         <source>SOCKS Proxy</source>
         <translation>SOCKS įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Nepaisyti įgaliotojo serverio konfigūracijų aukščiau esantiems serveriams ir sritims</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
         <source>Configuration URL</source>
         <translation>Konfigūracijos URL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="156"/>
         <source>System Proxy</source>
         <translation>Sistemos įgaliotasis serveris</translation>
     </message>
@@ -4088,62 +4075,62 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Automatinis prisijungimas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="83"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Prisijungti be slaptažodžio</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="84"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Automatinis ryškumas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="85"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Bendra</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="86"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Išsijungus monitoriui reikalauti slaptažodžio</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="87"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Po kompiuterio pristabdymo reikalauti slaptažodžio</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>Energijos taupymo veiksena</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Automatinis veiksenos perjungimas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Permatomumas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>Sukurti PPPoE ryšį</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Išjungti jutiklinį kilimėlį, renkant tekstą</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation type="unfinished"/>
+        <translation>Prijungus pelę, išjungti jutiklinį kilimėlį</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="101"/>
@@ -4200,13 +4187,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="95"/>
         <source>Input</source>
         <translation>Įvestis</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
         <source>Sound Card:</source>
         <translation>Garso plokštė:</translation>
     </message>
@@ -4464,7 +4451,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="92"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Atkurti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="121"/>
@@ -4805,7 +4792,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform>Yra prieinamas %n programų atnaujinimas</numerusform><numerusform>Yra prieinami %n programų atnaujinimai</numerusform><numerusform>Yra prieinama %n programų atnaujinimų</numerusform><numerusform>Yra prieinamas %n programų atnaujinimas</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4815,7 +4802,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>Yra prieinama nauja sistemos laida ir %n programų atnaujinimas</numerusform><numerusform>Yra prieinama nauja sistemos laida ir %n programų atnaujinimai</numerusform><numerusform>Yra prieinama nauja sistemos laida ir %n programų atnaujinimų</numerusform><numerusform>Yra prieinama nauja sistemos laida ir %n programų atnaujinimas</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5090,7 +5077,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>Prieš %n dieną</numerusform><numerusform>Prieš %n dienas</numerusform><numerusform>Prieš %n dienų</numerusform><numerusform>Prieš %n dieną</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -6068,7 +6055,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="110"/>
         <source>Yesterday</source>
-        <translation>Vakar diena</translation>
+        <translation>Vakar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="112"/>
@@ -7314,7 +7301,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
-        <translation>Nėra BSD duomenų kompresijos</translation>
+        <translation>Be BSD duomenų glaudinimo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
@@ -8150,7 +8137,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
-        <translation>Nėra BSD duomenų kompresijos</translation>
+        <translation>Be BSD duomenų glaudinimo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
@@ -8674,7 +8661,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
         <source>CA File</source>
-        <translation>CA failas</translation>
+        <translation>LĮ failas</translation>
     </message>
 </context>
 <context>
@@ -8906,12 +8893,12 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Išsijungus monitoriui reikalauti slaptažodžio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Po kompiuterio pristabdymo reikalauti slaptažodžio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
@@ -9252,7 +9239,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="188"/>
         <source>www.deepin.org</source>
-        <translation type="unfinished"/>
+        <translation>www.deepin.org</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
@@ -9286,7 +9273,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="93"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="126"/>
         <source>Slow</source>
-        <translation>Lėta</translation>
+        <translation>Lėtas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="95"/>
@@ -9298,7 +9285,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="97"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
         <source>Fast</source>
-        <translation>Greita</translation>
+        <translation>Greitas</translation>
     </message>
 </context>
 <context>
@@ -9415,7 +9402,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>Aptiktas %n programų atnaujinimas</numerusform><numerusform>Aptikti %n programų atnaujinimai</numerusform><numerusform>Aptikta %n programų atnaujinimų</numerusform><numerusform>Aptiktas %n programų atnaujinimas</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9425,7 +9412,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Aptikta nauja sistemos laida bei %n programų atnaujinimas</numerusform><numerusform>Aptikta nauja sistemos laida bei %n programų atnaujinimai</numerusform><numerusform>Aptikta nauja sistemos laida bei %n programų atnaujinimų</numerusform><numerusform>Aptikta nauja sistemos laida bei %n programų atnaujinimas</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
@@ -9521,7 +9508,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
         <location filename="../src/frame/modules/update/updateview.cpp" line="40"/>
         <location filename="../src/frame/modules/update/updateview.cpp" line="52"/>
         <source>Update</source>
-        <translation>Atnaujinti</translation>
+        <translation>Atnaujinimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>

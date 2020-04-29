@@ -33,7 +33,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="275"/>
         <source>Confirm</source>
-        <translation>確定</translation>
+        <translation>確認</translation>
     </message>
 </context>
 </TS>

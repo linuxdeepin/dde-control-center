@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="823"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,14 +87,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="835"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Drawing Tablet</source>
         <translation>Piirustusalusta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="413"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
         <source>Keyboard and Language</source>
         <translation>Kieliasetukset</translation>
     </message>
@@ -114,23 +114,23 @@
         <translation>Yleiset asetukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>Touchpad</source>
         <translation>Kosketuslevy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
         <source>TrackPoint</source>
         <translation>Tappihiiri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="412"/>
         <source>Assistive Tools</source>
         <translation>Apuvälineet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="847"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="851"/>
         <source>Cloud Sync</source>
         <translation>Pilvisynkronointi</translation>
     </message>
@@ -234,7 +234,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
         <source>Scan Again</source>
-        <translation type="unfinished"/>
+        <translation>Skannaa uudelleen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
@@ -244,18 +244,18 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Tunnistetaan sormenjälkeä</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="unfinished"/>
+        <translation>Aseta sormi lukijaan, pyyhkäise ylös tai alas ja nosta se sitten pois</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Sormenjälki lisätty</translation>
     </message>
 </context>
 <context>
@@ -368,7 +368,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Poista sormenjälki</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
@@ -378,12 +378,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Sormenjälki</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
         <source>Add fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Lisää sormenjälki</translation>
     </message>
 </context>
 <context>
@@ -594,53 +594,53 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
         <source>Failed to get root access</source>
         <translation>Pääkäyttäjän käyttöoikeuden hakeminen epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="88"/>
         <source>Please sign in to your cloud account first</source>
         <translation>Kirjaudu ensin pilvitiliisi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="90"/>
         <source>Cannot read your PC information</source>
         <translation>Tietokoneesi tietoja ei voi lukea</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="92"/>
         <source>No network connection</source>
         <translation>Ei verkkoyhteyttä</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>Varmenteen lataaminen epäonnistui, pääkäyttäjän oikeuksia ei saada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>Varmenteen varmennus epäonnistui, pääkäyttäjän käyttöoikeutta ei voitu saada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
         <source>UOS Privacy Policy</source>
         <translation>UOS tietosuojakäytäntö</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="234"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Hyväksy ja liity käyttökokemus ohjelmaan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="293"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Kehittäjätilan vastuuvapauslauseke</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="294"/>
         <source>Agree and Request Root Access</source>
         <translation>Hyväksy ja pyydä pääkäyttäjän oikeuksia</translation>
     </message>
@@ -1149,12 +1149,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
         <source>%1 only</source>
-        <translation type="unfinished"/>
+        <translation>vain %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
         <source>Show the screen content only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Näytä vain näytön %1 sisältö</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
@@ -2332,83 +2332,70 @@
 <context>
     <name>dccV20::network::ProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="57"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>Save</source>
         <translation>Tallenna</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
         <source>None</source>
         <translation>Mitään</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
         <source>Manual</source>
         <translation>Manuaalinen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
         <source>Auto</source>
         <translation>Automaattinen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
-        <source>Optional</source>
-        <translation>Valinnainen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
         <source>HTTP Proxy</source>
         <translation>HTTP välityspalvelin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
         <source>Port</source>
         <translation>Portti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
         <source>HTTPS Proxy</source>
         <translation>HTTPS välityspalvelin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
         <source>FTP Proxy</source>
         <translation>FTP välityspalvelin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
         <source>SOCKS Proxy</source>
         <translation>SOCKS välityspalvelin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Ohita yllä mainittujen isäntien ja toimialueiden välityspalvelin määritykset</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
         <source>Configuration URL</source>
         <translation>Kokoonpanon URL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="156"/>
         <source>System Proxy</source>
         <translation>Välityspalvelin</translation>
     </message>
@@ -4088,62 +4075,62 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen kirjautuminen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="83"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ilman salasanaa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="84"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen kirkkaus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="85"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="86"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Näytön herääminen edellyttää salasanan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="87"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneen herääminen edellyttää salasanan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>Virransäästötila</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen tilan vaihto</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Läpinäkyvyys</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>Luo PPPoE yhteys</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Poista kosketuslevy käytöstä, kun kirjoitat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation type="unfinished"/>
+        <translation>Poista kosketuslevy kun hiiri on asennettu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="101"/>
@@ -4200,13 +4187,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="95"/>
         <source>Input</source>
         <translation>Sisääntulo</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
         <source>Sound Card:</source>
         <translation>Äänikortti:</translation>
     </message>
@@ -4721,7 +4708,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Käynnistä järjestelmä päivityksen jälkeen uudelleen</translation>
+        <translation>Käynnistä päivityksen jälkeen uudelleen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="71"/>
@@ -4805,7 +4792,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform> %n sovellusten päivityksiä havaittu</numerusform><numerusform>%n sovellusen päivity(s) havaittu</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4815,7 +4802,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>Uusi versio järjestelmästä ja %n sovellusten päivitykset(s) saatavilla</numerusform><numerusform>Järjestelmästä uusi versio ja %n sovelluksen päivity(s) saatavilla</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5090,7 +5077,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n päivää sitten</numerusform><numerusform>%n päivää sitten</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -5170,7 +5157,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Käynnistä järjestelmä päivityksen jälkeen uudelleen</translation>
+        <translation>Käynnistä päivityksen jälkeen uudelleen</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
@@ -5467,7 +5454,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="60"/>
         <source>Auto Login</source>
-        <translation>Kirjaudu automaattisesti</translation>
+        <translation>Automaattinen kirjautuminen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="64"/>
@@ -5487,7 +5474,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation>Sormenjälkitunniste</translation>
+        <translation>Sormenjäljen salasana</translation>
     </message>
 </context>
 <context>
@@ -5657,7 +5644,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation>Sormenjälkitunniste</translation>
+        <translation>Sormenjäljen salasana</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
@@ -5713,7 +5700,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
-        <translation>Toista salasanasi</translation>
+        <translation>Toista salasana</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="56"/>
@@ -5809,7 +5796,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Ignore</source>
-        <translation>Sivuuta</translation>
+        <translation>Ohita</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="44"/>
@@ -5888,7 +5875,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
         <source>Mouse Settings</source>
-        <translation>Hiiren asetukset</translation>
+        <translation>Hiiri asetukset</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
@@ -6389,7 +6376,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="64"/>
         <source>Command</source>
-        <translation>Käsky</translation>
+        <translation>Komento</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="83"/>
@@ -6442,12 +6429,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="105"/>
         <source>Command</source>
-        <translation>Käsky</translation>
+        <translation>Komento</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="122"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Tämä pikanäppäin on ristiriidassa %1 :n kanssa. Napsauta lisää-painiketta, jotta tämä pikanäppäin toimii välittömästi</translation>
+        <translation>Tämä pikakuvake on ristiriidassa %1 kanssa, napsauta Lisää, jotta pikakuvake tulee voimaan heti</translation>
     </message>
 </context>
 <context>
@@ -6469,7 +6456,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="49"/>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="51"/>
         <source>Keyboard Layout</source>
-        <translation>Näppäimistön asettelu</translation>
+        <translation>Näppäimistöasettelu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
@@ -6528,7 +6515,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Repeat Rate</source>
-        <translation>Toiston tahti</translation>
+        <translation>Toiston nopeus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
@@ -6553,12 +6540,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation>Suuret kirjaimet</translation>
+        <translation>CapsLock ilmoitus </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="103"/>
         <source>Keyboard Layout</source>
-        <translation>Näppäimistö</translation>
+        <translation>Näppäimistöasettelu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="111"/>
@@ -6635,12 +6622,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
-        <translation>Mukautettu pikanäppäin</translation>
+        <translation>Mukautettu pikakuvake</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
-        <translation>Lisää mukautettu pikanäppäin</translation>
+        <translation>Lisää mukautettu pikakuvake</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
@@ -6711,7 +6698,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
-        <translation>Hiiren kiihdytys</translation>
+        <translation>Hiiren kiihtyvyys</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="60"/>
@@ -6850,7 +6837,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
-        <translation>Katkaise yhteys</translation>
+        <translation>Katkaise</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
@@ -6870,7 +6857,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="344"/>
         <source>Wired Connection %1</source>
-        <translation>Yhteys kaapelilla %1</translation>
+        <translation>Kaapeli yhteys %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="348"/>
@@ -6880,7 +6867,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="352"/>
         <source>PPPoE Connection %1</source>
-        <translation>PPPoE-yhteys %1</translation>
+        <translation>PPPoE yhteys %1</translation>
     </message>
 </context>
 <context>
@@ -6888,7 +6875,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
-        <translation>WLAN-yhteyspiste</translation>
+        <translation>yhteyspiste</translation>
     </message>
 </context>
 <context>
@@ -6926,7 +6913,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="186"/>
         <source>VPN OpenConnect %1</source>
-        <translation>VPN-yhteys %1</translation>
+        <translation>VPN OpenConnect %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="190"/>
@@ -7039,7 +7026,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="222"/>
         <source>Ignore</source>
-        <translation>Sivuuta</translation>
+        <translation>Ohita</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
@@ -7075,7 +7062,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
         <source>Only applied in corresponding resources</source>
-        <translation>Sovelletaan vastaaviin resursseihin</translation>
+        <translation>Sovelletaan vain vastaaviin resursseihin</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
@@ -7113,7 +7100,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="160"/>
         <source>Interface</source>
-        <translation>Verkkoliitäntä</translation>
+        <translation>Liitäntä</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="165"/>
@@ -7205,7 +7192,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wired Network%1</source>
-        <translation>Langaton verkko%1</translation>
+        <translation>Kiinteä verkko%1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="242"/>
@@ -7215,7 +7202,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
-        <translation>Langaton verkko</translation>
+        <translation>Kaapeli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="252"/>
@@ -7235,7 +7222,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="267"/>
         <source>Wireless Network%1</source>
-        <translation>Langaton verkko:%1</translation>
+        <translation>Langaton verkko%1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="271"/>
@@ -7287,27 +7274,27 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Kieltäydy EAP todentamisesta</translation>
+        <translation>Hylkää EAP-todennus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Kieltäydy PAP todentamisesta</translation>
+        <translation>Hylkää PAP-todennus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Kieltäydy CHAP todentamisesta</translation>
+        <translation>Hylkää CHAP-todennus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Kieltäydy MSCHAP todentamisesta</translation>
+        <translation>Hylkää MSCHAP-todennus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Kieltäydy MSCHAPv2 todentamisesta</translation>
+        <translation>Hylkää MSCHAPv2-todennus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="91"/>
@@ -7317,7 +7304,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation>Ei tyhjennä datan pakkausta</translation>
+        <translation>Ei tyhjää tiedon pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="93"/>
@@ -7332,12 +7319,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation>Ei osoitetta/ohjauksen pakkausta</translation>
+        <translation>Ei osoiteen/ohjauksen pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
-        <translation>Lähetä PPP:n echo-paketteja</translation>
+        <translation>Lähetä PPP echo-paketteja</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="104"/>
@@ -7383,7 +7370,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="61"/>
         <source>None</source>
-        <translation>Ei mitään</translation>
+        <translation>Mitään</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="62"/>
@@ -7426,12 +7413,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Ohita edellä mainittujen isäntien ja verkkotunnusten välityspalvelinasetukset</translation>
+        <translation>Ohita yllä mainittujen isäntien ja toimialueiden välityspalvelin määritykset</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="95"/>
         <source>Configuration URL</source>
-        <translation>Konfigurointi URL</translation>
+        <translation>Kokoonpanon URL</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="152"/>
@@ -7459,12 +7446,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="155"/>
         <source>LEAP</source>
-        <translation>HYPPÄÄ</translation>
+        <translation>LEAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="156"/>
         <source>FAST</source>
-        <translation>NOPEA</translation>
+        <translation>FAST</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="157"/>
@@ -7545,7 +7532,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation>Pwd asetukset</translation>
+        <translation>Salasanan valinnat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="302"/>
@@ -7569,12 +7556,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="383"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="419"/>
         <source>Anonymous ID</source>
-        <translation>Anonyymi identiteetti</translation>
+        <translation>Anonyymi tunnus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="336"/>
         <source>Provisioning</source>
-        <translation>Provisioning</translation>
+        <translation>Valmistelu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="348"/>
@@ -7596,7 +7583,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="523"/>
         <source>Private Pwd</source>
-        <translation>Avaimen salasana</translation>
+        <translation>Yksityinen salasana</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="525"/>
@@ -7647,7 +7634,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwiredsection.cpp" line="32"/>
         <source>Security Required</source>
-        <translation>Turvallisuus vaadittu</translation>
+        <translation>Suojaus vaaditaan</translation>
     </message>
 </context>
 <context>
@@ -7703,12 +7690,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
         <source>Customize Gateway Port</source>
-        <translation>Muokkaa yhdysväylän porttia</translation>
+        <translation>Muokkaa yhdyskäytävän porttia</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
         <source>Gateway Port</source>
-        <translation>Yhdysväylän portti</translation>
+        <translation>Yhdyskäytävän portti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
@@ -7723,7 +7710,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation>Käytä LZO-pakkausta</translation>
+        <translation>Käytä LZO pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
@@ -7738,7 +7725,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
         <source>Customize Tunnel MTU</source>
-        <translation>Mukauta tunneli MTU</translation>
+        <translation>Mukauta tunnelin MTU</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
@@ -7748,12 +7735,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
         <source>Customize UDP Fragment Size</source>
-        <translation>Mukauta UDP-palan kokoa</translation>
+        <translation>Mukauta UDP-fragmentin kokoa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
         <source>UDP Fragment Size</source>
-        <translation>UDP-palan koko</translation>
+        <translation>UDP-fragmentin koko</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
@@ -7786,7 +7773,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="144"/>
         <source>Secure (default)</source>
-        <translation>Turvaa (oletus)</translation>
+        <translation>Suojattu (oletus)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
@@ -7802,7 +7789,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="149"/>
         <source>NAT-T When Available (default)</source>
-        <translation>NAT-T, kun käytettävissä (oletus)</translation>
+        <translation>NAT-T kun saatavilla (oletus)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
@@ -7828,7 +7815,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
         <source>DH Group 2 (default)</source>
-        <translation>DH-ryhmä 2 (oletusasetus)</translation>
+        <translation>DH-ryhmä 2 (oletus)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
@@ -7839,7 +7826,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="160"/>
         <source>Server (default)</source>
-        <translation>Palvelin (oletusasetus)</translation>
+        <translation>Palvelin (oletus)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
@@ -7849,7 +7836,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="170"/>
         <source>Domain</source>
-        <translation>Domain</translation>
+        <translation>Toimialue</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="173"/>
@@ -7859,7 +7846,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="179"/>
         <source>Version</source>
-        <translation>Version</translation>
+        <translation>Versio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="182"/>
@@ -7869,7 +7856,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>NAT Traversal Mode</source>
-        <translation>NAT-liikenteen muoto</translation>
+        <translation>NAT -muuntotila</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
@@ -7879,7 +7866,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="200"/>
         <source>Forward Secrecy</source>
-        <translation>Edelleen salaus</translation>
+        <translation>Välitä salassapito</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
@@ -7889,7 +7876,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
         <source>Disable Dead Peer Detection</source>
-        <translation>Poista DeadPeerDetection käytöstä</translation>
+        <translation>Poista käytöstä poistuneiden tunnistus</translation>
     </message>
 </context>
 <context>
@@ -7960,12 +7947,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Salli Ciscon suojattu työpöydän troijalainen</translation>
+        <translation>Salli Cisco Secure Desktop Trojan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
         <source>CSD Script</source>
-        <translation>CSD Scripti</translation>
+        <translation>CSD Script</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
@@ -7980,7 +7967,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation>Käytä FSID-tunnusta salasanalle</translation>
+        <translation>Käytä FSID-tunnusta avaimena</translation>
     </message>
 </context>
 <context>
@@ -8044,7 +8031,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
         <source>Auth Type</source>
-        <translation>Tyyppi</translation>
+        <translation>Tunnistautumistapa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
@@ -8065,7 +8052,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
         <source>Pwd Options</source>
-        <translation>Salasanavalinnat</translation>
+        <translation>Salasanan valinnat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
@@ -8108,42 +8095,42 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
-        <translation>Kaikki saatavilla olevat (oletus)</translation>
+        <translation>Kaikki käytettävissä (oletus)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
-        <translation>40-bittinen (vähemmän turvallinen)</translation>
+        <translation>40-bit (vähemmän turvallinen)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
-        <translation>128-bittinen (turvallisin)</translation>
+        <translation>128-bit (turvallisin)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Kieltäydy EAP todentamisesta</translation>
+        <translation>Hylkää EAP-todennus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Kieltäydy PAP todentamisesta</translation>
+        <translation>Hylkää PAP-todennus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Kieltäydy CHAP todentamisesta</translation>
+        <translation>Hylkää CHAP-todennus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Kieltäydy MSCHAP todentamisesta</translation>
+        <translation>Hylkää MSCHAP-todennus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Kieltäydy MSCHAPv2 todentamisesta</translation>
+        <translation>Hylkää MSCHAPv2-todennus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
@@ -8153,7 +8140,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
-        <translation>Ei tyhjennä datan pakkausta</translation>
+        <translation>Ei tyhjää tiedon pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
@@ -8168,12 +8155,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
-        <translation>Ei osoitetta/ohjauksen pakkausta</translation>
+        <translation>Ei osoiteen/ohjauksen pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
-        <translation>Lähetä PPP:n echo-paketteja</translation>
+        <translation>Lähetä PPP echo-paketteja</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
@@ -8284,7 +8271,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="137"/>
         <source>SOCKS</source>
-        <translation>PORTIT</translation>
+        <translation>SOCKS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -8311,7 +8298,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Yritä jatkuvasti uudelleen virheen sattuessa</translation>
+        <translation>Yritä uudelleen virheen sattuessa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
@@ -8329,12 +8316,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="79"/>
         <source>CA File</source>
-        <translation>Sertifikaattitiedosto</translation>
+        <translation>Varmennetiedosto</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation>Ohita varmenteet</translation>
+        <translation>Ohita varmenne varoitukset</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
@@ -8347,7 +8334,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
         <source>VPN Security</source>
-        <translation>VPN tietoturva</translation>
+        <translation>VPN-suojaus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="75"/>
@@ -8364,7 +8351,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
         <source>Cipher</source>
-        <translation>Salausmenetelmä</translation>
+        <translation>Salakirjoitus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
@@ -8414,7 +8401,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation>Salauksen asetukset</translation>
+        <translation>Salasanan valinnat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -8447,7 +8434,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
         <source>Username</source>
-        <translation>Käyttäjätunnus</translation>
+        <translation>Käyttäjänimi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
@@ -8471,7 +8458,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>SSH Agent</source>
-        <translation>SSH agentti</translation>
+        <translation>SSH-agentti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
@@ -8506,7 +8493,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
         <source>Auth Type</source>
-        <translation>Tyyppi</translation>
+        <translation>Tunnistautumistapa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
@@ -8526,22 +8513,22 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="181"/>
         <source>Request an Inner IP Address</source>
-        <translation>Pyydä sisempää IP-osoitetta</translation>
+        <translation>Pyydä sisäinen IP-osoite</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation>Vaadi UDP-kapselointi</translation>
+        <translation>Pakota UDP-kapselointi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
         <source>Use IP Compression</source>
-        <translation>Käytä IP-kompressiota</translation>
+        <translation>Käytä IP-pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation>Mukautetut salausehdotukset käyttöön</translation>
+        <translation>Ota mukautetut salauslausekkeet käyttöön</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -8584,7 +8571,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
         <source>Remote Cert Type</source>
-        <translation>Varmenteen tyyppi</translation>
+        <translation>Ulkoisen varmenteen tyyppi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
@@ -8647,7 +8634,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation>Salauksen asetukset</translation>
+        <translation>Salasanan valinnat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -8672,7 +8659,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
         <source>CA File</source>
-        <translation>CA-tiedosto</translation>
+        <translation>Varmennetiedosto</translation>
     </message>
 </context>
 <context>
@@ -8713,7 +8700,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation>Poista hotspot-jakaminen käytöstä ensin, jos haluat muodostaa yhteyden langattomaan verkkoon</translation>
+        <translation>Poista esin yhteyden jakaminen käytöstä, jos haluat muodostaa yhteyden langattomaan verkkoon</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
@@ -8759,7 +8746,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontlistwidget.cpp" line="89"/>
         <source> (Unsupported font)</source>
-        <translation>(Ei tuettu fontti)</translation>
+        <translation>(Epäsopiva fontti)</translation>
     </message>
 </context>
 <context>
@@ -8767,18 +8754,18 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="45"/>
         <source>Standard Font</source>
-        <translation>Vakio-fontti</translation>
+        <translation>Vakio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
-        <translation>Tasalevyinen fontti</translation>
+        <translation>Tasaleveä</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
-        <translation>(Ei tuettu fontti)</translation>
+        <translation>(Epäsopiva fontti)</translation>
     </message>
 </context>
 <context>
@@ -8802,12 +8789,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="118"/>
         <source>Standard Font</source>
-        <translation>Vakio-fontti</translation>
+        <translation>Vakio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="127"/>
         <source>Monospaced Font</source>
-        <translation>Tasalevyinen fontti</translation>
+        <translation>Tasaleveä</translation>
     </message>
 </context>
 <context>
@@ -8858,12 +8845,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
         <source>Icon Theme</source>
-        <translation>Ikoni-teema</translation>
+        <translation>Kuvake</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
         <source>Cursor Theme</source>
-        <translation>Kohdistimen teema</translation>
+        <translation>Kohdistin</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
@@ -8904,12 +8891,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Näytön herääminen edellyttää salasanan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneen herääminen edellyttää salasanan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
@@ -8925,7 +8912,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="111"/>
         <source>Auto Mode Switch</source>
-        <translation>Automaattitilan kytkin</translation>
+        <translation>Automaattinen tilan vaihto</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="122"/>
@@ -9076,7 +9063,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
-        <translation>Äänenvoimakkuus</translation>
+        <translation>Lähdön äänenvoimakkuus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="44"/>
@@ -9250,7 +9237,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="188"/>
         <source>www.deepin.org</source>
-        <translation type="unfinished"/>
+        <translation>www.deepin.org</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
@@ -9304,17 +9291,17 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation>Testinopeus</translation>
+        <translation>Testaa nopeus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="46"/>
         <source>Switch Mirror</source>
-        <translation>Vaihda varasto</translation>
+        <translation>Vaihda pakettivarasto</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
-        <translation>Testaa</translation>
+        <translation>Uudestaan</translation>
     </message>
 </context>
 <context>
@@ -9340,7 +9327,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation>Käynnistä järjestelmä päivityksen jälkeen uudelleen</translation>
+        <translation>Käynnistä päivityksen jälkeen uudelleen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
@@ -9362,7 +9349,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Tarkistaa päivityksiä, odota...</translation>
+        <translation>Tarkistaa päivityksiä, odota ...</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="181"/>
@@ -9413,7 +9400,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>%n sovellusten </numerusform><numerusform>%n sovelluksen päivity(s) havaittu</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9423,7 +9410,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Uusi järjestelmän versio ja </numerusform><numerusform>Järjestelmän uusi versio ja %n sovelluksen päivity(s) havaittu</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
@@ -9443,7 +9430,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="304"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Varmista akkuun riittävästi virtaa käynnistääksesi uudelleen, äläkä sammuta tai irrota laitetta</translation>
+        <translation>Varmista, että sinulla on riittävästi virtaa uudelleenkäynnistystä varten. Älä katkaise virtaa koneesta</translation>
     </message>
 </context>
 <context>
@@ -9465,12 +9452,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
-        <translation>Päivitysasetukset</translation>
+        <translation>Päivityksen asetukset</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation>Automaattinen pakettien välimuistin tyhjennys</translation>
+        <translation>Tyhjennä pakettivälimuisti automaattisesti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
@@ -9485,7 +9472,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Valitse, jotta päivitykset ladataan automaattisesti langattomassa tai langallisessa verkossa</translation>
+        <translation>Kytke automaattisesti lataamaan päivitykset langattomassa tai langallisessa verkossa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
@@ -9505,7 +9492,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Valitse, jos haluat yhteyden nopeimpaan pakettivarastoon automaattisesti</translation>
+        <translation>Kytke, jotta voit muodostaa yhteyden nopeimmille pakettivarastoille automaattisesti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="114"/>
@@ -9524,7 +9511,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
-        <translation>Päivitysasetukset</translation>
+        <translation>Päivityksen asetukset</translation>
     </message>
 </context>
 <context>
@@ -9532,7 +9519,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="354"/>
         <source>Patches</source>
-        <translation>Muutostiedostot</translation>
+        <translation>Korjaukset</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="355"/>
@@ -9568,7 +9555,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Light</source>
-        <translation>Kevyt</translation>
+        <translation>Vaalea</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>

@@ -51,7 +51,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Personalization</source>
-        <translation>Kişiselleştir</translation>
+        <translation>Kişiselleştirme</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="823"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,14 +87,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="835"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Drawing Tablet</source>
         <translation>Çizim Tableti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="413"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
         <source>Keyboard and Language</source>
         <translation>Klavye ve Dil</translation>
     </message>
@@ -114,23 +114,23 @@
         <translation>Genel Ayarlar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>Touchpad</source>
         <translation>Dokunmatik Yüzey</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
         <source>TrackPoint</source>
         <translation>İmleçDenetim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="412"/>
         <source>Assistive Tools</source>
         <translation>Yardımcı Araçlar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="847"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="851"/>
         <source>Cloud Sync</source>
         <translation>Bulut Eşitleyici</translation>
     </message>
@@ -293,7 +293,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="157"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="162"/>
@@ -315,7 +315,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="237"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="238"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="236"/>
@@ -335,7 +335,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="393"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Parola yalnızca İngilizce harfler (büyük/küçük harfe duyarlı), sayılar veya özel simgeler içerebilir (~! @ # $% ^ &amp; * () [] {} \ | /?,. &lt;&gt;)</translation>
+        <translation>Parola yalnızca İngilizce harfler (büyük/küçük harfe duyarlı), sayılar veya özel simgeler içerebilir  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
@@ -582,7 +582,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
-        <translation>Kullanıcı Deneyim Programı</translation>
+        <translation>Kullanıcı Deneyimi Programı</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
@@ -594,53 +594,53 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
         <source>Failed to get root access</source>
         <translation>Kök erişimi alınamadı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="88"/>
         <source>Please sign in to your cloud account first</source>
         <translation>Lütfen önce bulut hesabınızda oturum açın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="90"/>
         <source>Cannot read your PC information</source>
         <translation>PC bilgileriniz okunamıyor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="92"/>
         <source>No network connection</source>
         <translation>Ağ bağlantısı yok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>Sertifika yüklenemedi, kök erişimine erişilemedi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>İmza doğrulaması başarısız oldu, kök erişimine erişilemedi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
         <source>UOS Privacy Policy</source>
         <translation>UOS Gizlilik Politikası</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="234"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="293"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Geliştirici Kipi Sorumluluk Reddi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="294"/>
         <source>Agree and Request Root Access</source>
         <translation>Kök Erişimi Kabul Et ve İste</translation>
     </message>
@@ -824,7 +824,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="144"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="152"/>
@@ -1109,7 +1109,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="143"/>
         <source>Display Scaling</source>
-        <translation>Görüntü Ölçeklendirme</translation>
+        <translation>Görüntü Ölçeği</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
@@ -1258,7 +1258,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="131"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıklayın</translation>
+        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıkla</translation>
     </message>
 </context>
 <context>
@@ -1585,7 +1585,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="62"/>
         <source>TrackPoint</source>
-        <translation>İz İşareti</translation>
+        <translation>İmleçDenetim</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
@@ -2332,83 +2332,70 @@
 <context>
     <name>dccV20::network::ProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="57"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>Save</source>
         <translation>Kaydet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
         <source>None</source>
         <translation>Yok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
         <source>Manual</source>
         <translation>Elle</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
         <source>Auto</source>
         <translation>Otomatik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
-        <source>Optional</source>
-        <translation>İsteğe bağlı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
         <source>HTTP Proxy</source>
         <translation>HTTP Vekil Sunucusu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
         <source>HTTPS Proxy</source>
         <translation>HTTPS Vekil Sunucusu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
         <source>FTP Proxy</source>
         <translation>FTP Vekil Sunucusu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
         <source>SOCKS Proxy</source>
         <translation>SOCKS Vekil Sunucusu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Yukarıdaki bilgisayar ve etki alanları için vekil sunucu yapılandırmaları yoksay</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
         <source>Configuration URL</source>
         <translation>Yapılandırma Adresi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="156"/>
         <source>System Proxy</source>
         <translation>Sistem Vekil Sunucusu</translation>
     </message>
@@ -2514,7 +2501,7 @@
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="231"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="245"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
@@ -2609,7 +2596,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="128"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="156"/>
@@ -2931,7 +2918,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
@@ -3011,7 +2998,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
         <source>Not Required</source>
-        <translation>Gerekli Değil</translation>
+        <translation>Zorunlu Değil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
@@ -3247,7 +3234,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="175"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="179"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
@@ -3756,7 +3743,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="117"/>
         <source>Window Effect</source>
-        <translation>Pencere Etkisi</translation>
+        <translation>Pencere Efekti</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
@@ -4057,7 +4044,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
         <source>Window Effect</source>
-        <translation>Pencere Etkisi</translation>
+        <translation>Pencere Efekti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
@@ -4200,13 +4187,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="95"/>
         <source>Input</source>
         <translation>Giriş</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
         <source>Sound Card:</source>
         <translation>Ses Kartı:</translation>
     </message>
@@ -4464,7 +4451,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="92"/>
         <source>Restore</source>
-        <translation>Geri Yükle</translation>
+        <translation>Geri Al</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="121"/>
@@ -4661,7 +4648,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="22"/>
         <source>Restore</source>
-        <translation>Geri Yükle</translation>
+        <translation>Geri Al</translation>
     </message>
 </context>
 <context>
@@ -4805,7 +4792,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform>%n uygulama güncellemesi mevcut</numerusform><numerusform>%n uygulama güncellemesi mevcut</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4815,7 +4802,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi mevcut</numerusform><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi mevcut</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5090,7 +5077,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n gün önce</numerusform><numerusform>%n gün önce</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -5256,7 +5243,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation>Başlangıç</translation>
+        <translation>Önyükleme</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -5578,7 +5565,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Added successfully</source>
-        <translation>Eklendi</translation>
+        <translation>Ekleme başarılı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
@@ -5598,7 +5585,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="56"/>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="59"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="55"/>
@@ -5720,7 +5707,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="57"/>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="58"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="62"/>
@@ -5735,7 +5722,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="117"/>
         <source>New password should differ from the current one</source>
-        <translation>Yeni parola geçerli paroladan farklı olmalı</translation>
+        <translation>Yeni parola mevcut paroladan farklı olmalıdır</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="156"/>
@@ -5822,7 +5809,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
-        <translation>Bağlı</translation>
+        <translation>Bağlandı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="130"/>
@@ -5835,7 +5822,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>Bluetooth aygıtına bağlanmak için gereken PIN kodu:</translation>
+        <translation>Bluetooth aygıtına bağlanmak için PIN kodu:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -5908,7 +5895,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
         <source>Wallpaper</source>
-        <translation>Duvar Kağıdı</translation>
+        <translation>Duvar Kâğıdı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
@@ -5928,7 +5915,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="214"/>
         <source>Last Sync: %1</source>
-        <translation>Son Eşitleme: %1</translation>
+        <translation>Son Eşitlenme: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="216"/>
@@ -5941,7 +5928,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
         <source>Login</source>
-        <translation>Giriş</translation>
+        <translation>Oturum aç</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
@@ -6096,7 +6083,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation>Web Sitesi</translation>
+        <translation>Web sayfası</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
@@ -6210,7 +6197,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
-        <translation>Görüntü Ölçeklendirme</translation>
+        <translation>Görüntü Ölçeği</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
@@ -6355,7 +6342,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
         <source>Display Scaling</source>
-        <translation>Görüntü Ölçeklendirme</translation>
+        <translation>Görüntü Ölçeği</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
@@ -6378,13 +6365,13 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="60"/>
         <source>Name</source>
-        <translation>Ad</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="64"/>
@@ -6417,7 +6404,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="61"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="72"/>
@@ -6437,7 +6424,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="104"/>
         <source>Name</source>
-        <translation>Ad</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="105"/>
@@ -6543,7 +6530,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="79"/>
         <source>Please Test Here</source>
-        <translation>Lütfen Bu Alanda Deneyin</translation>
+        <translation>Lütfen Burada Test Et</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="93"/>
@@ -6584,7 +6571,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="49"/>
         <source>Please Reset Shortcut</source>
-        <translation>Lütfen Kısayolu Sıfırlayın</translation>
+        <translation>Lütfen Kısayolu Sıfırla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="56"/>
@@ -6604,7 +6591,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="92"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Kaydet üzerine tıkla</translation>
+        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Değiştir üzerine tıkla</translation>
     </message>
 </context>
 <context>
@@ -6612,7 +6599,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="82"/>
         <source>Enter a new shortcut</source>
-        <translation>Lütfen yeni bir kısayol gir</translation>
+        <translation>Yeni bir kısayol gir</translation>
     </message>
 </context>
 <context>
@@ -6658,7 +6645,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
         <source>Double-click Test</source>
-        <translation>Çift Tıklama Denemesi</translation>
+        <translation>Çift Tıklama Sınaması</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
@@ -6684,7 +6671,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
-        <translation>İz İşareti</translation>
+        <translation>İmleçDenetim</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="53"/>
@@ -6792,13 +6779,13 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="52"/>
         <source>IP address</source>
-        <translation>IP Adresi</translation>
+        <translation>IP adresi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="53"/>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="57"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="56"/>
@@ -6808,13 +6795,13 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="60"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="61"/>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="65"/>
         <source>Optional</source>
-        <translation>İsteğe Bağlı</translation>
+        <translation>İsteğe bağlı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="64"/>
@@ -6850,7 +6837,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
-        <translation>Bağlantıyı Kes</translation>
+        <translation>Bağlantıyı kes</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
@@ -6896,7 +6883,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="155"/>
         <source>Export</source>
-        <translation>Dışa Aktar</translation>
+        <translation>Dışarı aktar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="166"/>
@@ -6977,7 +6964,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="63"/>
         <source>Name</source>
-        <translation>Ad</translation>
+        <translation>İsim</translation>
     </message>
 </context>
 <context>
@@ -6990,7 +6977,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="62"/>
         <source>Name</source>
-        <translation>Ad</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
@@ -7004,7 +6991,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="61"/>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="83"/>
         <source>Hotspot</source>
-        <translation>Erişim Noktası</translation>
+        <translation>Bağlantı Noktası</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="62"/>
@@ -7034,12 +7021,12 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="216"/>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
         <source>Manual</source>
-        <translation>El ile</translation>
+        <translation>Elle</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="222"/>
         <source>Ignore</source>
-        <translation>Yok say</translation>
+        <translation>Yoksay</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
@@ -7055,7 +7042,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="295"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
@@ -7075,7 +7062,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
         <source>Only applied in corresponding resources</source>
-        <translation>Yalnız ilgili kaynaklara uygulanır</translation>
+        <translation>Sadece ilgili kaynaklarda uygulanır</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
@@ -7098,7 +7085,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="139"/>
         <source>Hotspot</source>
-        <translation>Erişim Noktası</translation>
+        <translation>Bağlantı Noktası</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="144"/>
@@ -7220,7 +7207,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="252"/>
         <source>Hotspot</source>
-        <translation>Erişim Noktası</translation>
+        <translation>Bağlantı Noktası</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="257"/>
@@ -7258,18 +7245,18 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="78"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="79"/>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="82"/>
         <source>Service</source>
-        <translation>Hizmet</translation>
+        <translation>Servis</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="85"/>
@@ -7388,7 +7375,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="62"/>
         <source>Manual</source>
-        <translation>El ile</translation>
+        <translation>Elle</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="63"/>
@@ -7519,12 +7506,12 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="189"/>
         <source>Version 0</source>
-        <translation>0. Sürüm</translation>
+        <translation>Sürüm 0</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="190"/>
         <source>Version 1</source>
-        <translation>1. Sürüm</translation>
+        <translation>Sürüm 1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="202"/>
@@ -7540,12 +7527,12 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="216"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="224"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation>Pwd Seçenekleri</translation>
+        <translation>Parola Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="302"/>
@@ -7629,7 +7616,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="118"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="148"/>
@@ -7680,7 +7667,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="163"/>
@@ -7763,7 +7750,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
         <source>Randomize Remote Hosts</source>
-        <translation>Uzak Sunucuları Rastlantısal Seç</translation>
+        <translation>Uzak Ana Bilgisayarları Rastgele Ayarla</translation>
     </message>
 </context>
 <context>
@@ -7781,7 +7768,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
         <source>Netscreen</source>
-        <translation>NetScreen</translation>
+        <translation>Netscreen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="144"/>
@@ -7902,7 +7889,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
         <source>Enable IPsec</source>
-        <translation>IPsec Kullan</translation>
+        <translation>IPsec Kullanılsın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
@@ -7945,7 +7932,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
@@ -8039,7 +8026,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
@@ -8065,7 +8052,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
         <source>Pwd Options</source>
-        <translation>Parola Seçenekleri</translation>
+        <translation>Parola Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
@@ -8075,7 +8062,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="227"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
@@ -8090,12 +8077,12 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
         <source>Remote IP</source>
-        <translation>Uzak IP Adresi</translation>
+        <translation>Uzak IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
         <source>Local IP</source>
-        <translation>Yerel IP Adresi</translation>
+        <translation>Yerel IP</translation>
     </message>
 </context>
 <context>
@@ -8206,7 +8193,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="82"/>
         <source>Import VPN</source>
-        <translation>VPN Ayarlarını İçe Aktar</translation>
+        <translation>VPN&apos;yi İçe Aktar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="101"/>
@@ -8221,7 +8208,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="244"/>
         <source>OK</source>
-        <translation>TAMAM</translation>
+        <translation>Tamam</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="266"/>
@@ -8294,14 +8281,14 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
         <source>Server IP</source>
-        <translation>Sunucu IP Adresi</translation>
+        <translation>Sunucu IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="154"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="157"/>
@@ -8316,7 +8303,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="169"/>
@@ -8334,7 +8321,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation>Sertifika Uyarılarını Yok Say</translation>
+        <translation>Sertifika Uyarılarını Yoksay</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
@@ -8364,7 +8351,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
         <source>Cipher</source>
-        <translation>Şifreleme</translation>
+        <translation>Şifre</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
@@ -8404,17 +8391,17 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="129"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation>Parola Seçenekleri</translation>
+        <translation>Parola Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -8437,7 +8424,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
         <source>Server IP</source>
-        <translation>Sunucu IP Adresi</translation>
+        <translation>Sunucu IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
@@ -8447,7 +8434,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
@@ -8496,7 +8483,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
@@ -8516,7 +8503,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="175"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="178"/>
@@ -8526,22 +8513,22 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="181"/>
         <source>Request an Inner IP Address</source>
-        <translation>Bir iç IP Adresi istensin</translation>
+        <translation>İç IP Adresi İste</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation>UDP Enkapsülasyonu Kullanılsın</translation>
+        <translation>UDP Enkapsülasyonu Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
         <source>Use IP Compression</source>
-        <translation>IP Sıkıştırması Kullanılsın</translation>
+        <translation>IP Sıkıştırmasını Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation>Özel Şifre Önerileri Kullanılsın</translation>
+        <translation>Özel Şifreleme Tekliflerini Etkinleştir</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -8636,18 +8623,18 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="186"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="196"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation>Parola Seçenekleri</translation>
+        <translation>Parola Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -8667,7 +8654,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Karma Kimlik Doğrulamayı Kullan</translation>
+        <translation>Karma Kimlik Doğrulaması Kullan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
@@ -8703,7 +8690,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="64"/>
         <source>Connect to hidden network</source>
-        <translation>Gizli Ağa Bağlan</translation>
+        <translation>Gizli ağa bağlan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
@@ -8713,12 +8700,12 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation>Kablosuz bir ağa bağlanmak için erişim noktası paylaşımını devre dışı bırakın</translation>
+        <translation>Kablosuz bir ağa bağlanmak için erişim noktası paylaşımını devre dışı bırak</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
         <source>WLAN</source>
-        <translation>Kablosuz Yerel Ağ</translation>
+        <translation>WLAN</translation>
     </message>
 </context>
 <context>
@@ -8736,12 +8723,12 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="113"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Device MAC Addr</source>
-        <translation>Aygıt MAC Adresi</translation>
+        <translation>Aygıtın MAC Adresi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="144"/>
@@ -8820,7 +8807,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Window Effect</source>
-        <translation>Pencere Etkisi</translation>
+        <translation>Pencere Efekti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="72"/>
@@ -8991,7 +8978,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="67"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="84"/>
         <source>Boot up</source>
-        <translation>Başlangıç</translation>
+        <translation>Önyükleme</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="68"/>
@@ -9154,12 +9141,12 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Önyükleme menüsünde görüntülemek için temayı etkinleştirin</translation>
+        <translation>Önyükleme menüsünde görüntülemek için temayı etkinleştir</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
         <source>Boot Menu</source>
-        <translation>Ön Yükleme Menüsü</translation>
+        <translation>Önyükleme Menüsü</translation>
     </message>
 </context>
 <context>
@@ -9240,7 +9227,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="126"/>
         <source>Boot Menu</source>
-        <translation>Ön Yükleme Menüsü</translation>
+        <translation>Önyükleme Menüsü</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
@@ -9332,7 +9319,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="80"/>
         <source>Failed to update</source>
-        <translation>Güncellenemedi</translation>
+        <translation>Güncelleme başarısız</translation>
     </message>
 </context>
 <context>
@@ -9345,7 +9332,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation>Ağ bağlantısı kesildi, lütfen bağlandıktan sonra yeniden deneyin</translation>
+        <translation>Ağ bağlantısı kesildi, lütfen bağlandıktan sonra tekrar dene</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
@@ -9357,7 +9344,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Bu güncellemenin yapılması uzun sürebilir. Lütfen işlem sürerken bilgisayarı kapatmayın ya da yeniden başlatmayın</translation>
+        <translation>Güncelleme uzun sürebilir. Lütfen işlem sürerken bilgisayarı kapatmayın ya da yeniden başlatmayın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -9373,12 +9360,12 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="190"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="294"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% indirildi (duraklatmak için tıklayın)</translation>
+        <translation>%1% indirildi (Duraklatmak için tıkla)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="195"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% indirildi (sürdürmek için tıklayın)</translation>
+        <translation>%1% indirildi (Sürdürmek için tıkla)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="201"/>
@@ -9413,7 +9400,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>%n uygulama güncellemesi bulundu</numerusform><numerusform>%n uygulama güncellemesi bulundu</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9423,7 +9410,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi bulundu</numerusform><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi bulundu</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
@@ -9443,7 +9430,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="304"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Lütfen yeniden başlatmak için yeterli gücü sağlayın ve bilgisayarı kapatmayın ve fişini çekmeyin</translation>
+        <translation>Lütfen yeniden başlatmak için yeterli güç sağlayın ve makinenizi kapatmayın veya fişten çekmeyin</translation>
     </message>
 </context>
 <context>
@@ -9500,7 +9487,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation>Akıllı Yansı Değiştirici</translation>
+        <translation>Akıllı Yansı Değiştir</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
@@ -9519,7 +9506,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/update/updateview.cpp" line="40"/>
         <location filename="../src/frame/modules/update/updateview.cpp" line="52"/>
         <source>Update</source>
-        <translation>Güncellemeler</translation>
+        <translation>Güncelle</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
@@ -9568,7 +9555,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Light</source>
-        <translation>Hafif</translation>
+        <translation>Açık</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>

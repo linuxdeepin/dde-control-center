@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="823"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,14 +87,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="835"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Drawing Tablet</source>
         <translation>Tablet graficzny</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="413"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
         <source>Keyboard and Language</source>
         <translation>Klawiatura i język</translation>
     </message>
@@ -114,25 +114,25 @@
         <translation>Ustawienia Główne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>Touchpad</source>
         <translation>Panel dotykowy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
         <source>TrackPoint</source>
         <translation>Manipulator punktowy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="412"/>
         <source>Assistive Tools</source>
-        <translation type="unfinished"/>
+        <translation>Narzędzia pomocnicze</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="847"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="851"/>
         <source>Cloud Sync</source>
-        <translation>Synchronizacja w chmurze</translation>
+        <translation>Synchronizacja z chmurą</translation>
     </message>
 </context>
 <context>
@@ -151,7 +151,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="283"/>
         <source>Validity Days</source>
-        <translation type="unfinished"/>
+        <translation>Dni ważności</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
@@ -234,7 +234,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
         <source>Scan Again</source>
-        <translation type="unfinished"/>
+        <translation>Przeskanuj ponownie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
@@ -244,18 +244,18 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Identyfikacja odcisku palca</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="unfinished"/>
+        <translation>Umieść palec na czytniku linii papilarnych lub przesuń palcem w górę lub w dół, a następnie podnieś go</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Dodano odcisk palca</translation>
     </message>
 </context>
 <context>
@@ -350,7 +350,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Pierwszy znak musi być literą lub cyfrą</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="449"/>
@@ -368,7 +368,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Usuń odcisk palca</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
@@ -378,12 +378,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Odcisk palca</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
         <source>Add fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj odcisk palca</translation>
     </message>
 </context>
 <context>
@@ -594,53 +594,53 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
         <source>Failed to get root access</source>
         <translation>Nie można uzyskać dostępu do konta root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="88"/>
         <source>Please sign in to your cloud account first</source>
         <translation>Najpierw zaloguj się na swoje konto w chmurze</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="90"/>
         <source>Cannot read your PC information</source>
         <translation>Nie można odczytać informacji o komputerze</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="92"/>
         <source>No network connection</source>
         <translation>Brak połączenia z siecią</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>Ładowanie certyfikatu nie powiodło się, nie można uzyskać dostępu do konta root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>Weryfikacja podpisu nie powiodła się, nie można uzyskać dostępu do konta root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
         <source>UOS Privacy Policy</source>
         <translation>Poliytka Prywatności UOS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="234"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Zgadzam się i dołącz do programu doświadczenia użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="293"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Oświadczenie o trybie dewelopera</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="294"/>
         <source>Agree and Request Root Access</source>
         <translation>Zgadzam się i żądaj dostępu do katalogu głównego</translation>
     </message>
@@ -691,7 +691,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="128"/>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation type="unfinished"/>
+        <translation>2. Przejdź do https://www.chinauos.com/developMode, aby pobrać certyfikat offline</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="129"/>
@@ -710,7 +710,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation type="unfinished"/>
+        <translation>Tryb programisty umożliwia uzyskanie uprawnień administratora, instalowanie i uruchamianie niepodpisanych aplikacji niewymienionych w sklepie z aplikacjami, ale integralność systemu może również ulec uszkodzeniu, należy go używać ostrożnie.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="104"/>
@@ -746,7 +746,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Aby niektóre funkcje były skuteczne, konieczne jest ponowne uruchomienie. Zrestartuj teraz?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
@@ -775,7 +775,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
-        <translation type="unfinished"/>
+        <translation>Dołączenie do programu User Experience oznacza, że udzielasz i upoważniasz nas do gromadzenia i wykorzystywania informacji o twoim urządzeniu, systemie i aplikacjach. Jeśli odmówisz gromadzenia i wykorzystywania wyżej wymienionych informacji, nie dołącz do Programu User Experience. Szczegółowe informacje można znaleźć w Polityce prywatności UOS (https://www.chinauos.com/agreement/experience).</translation>
     </message>
 </context>
 <context>
@@ -1018,7 +1018,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Główny ekran</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
@@ -1056,12 +1056,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="371"/>
         <source>inch</source>
-        <translation type="unfinished"/>
+        <translation>cal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="372"/>
         <source>Resolution %1x%2</source>
-        <translation type="unfinished"/>
+        <translation>Rozdzielczość %1x%2</translation>
     </message>
 </context>
 <context>
@@ -1149,12 +1149,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
         <source>%1 only</source>
-        <translation type="unfinished"/>
+        <translation>Tylko %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
         <source>Show the screen content only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż zawartość ekranu tylko na %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
@@ -1258,7 +1258,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="131"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ten skrót jest w konflikcie z %1, kliknij na Dodaj, aby natychmiast uczynić ten skrót działającym.</translation>
+        <translation>Ten skrót powoduje konflikt z %1, kliknij Dodaj, aby ten skrót od razu zadziałał</translation>
     </message>
 </context>
 <context>
@@ -1413,7 +1413,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
         <source>Assistive Tools</source>
-        <translation type="unfinished"/>
+        <translation>Narzędzia pomocnicze</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
@@ -1704,12 +1704,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="164"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Nieprawidłowy adres IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="172"/>
         <source>Invalid port</source>
-        <translation type="unfinished"/>
+        <translation>Nieprawidłowy port</translation>
     </message>
 </context>
 <context>
@@ -2027,7 +2027,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="543"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="552"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Nieprawidłowy adres IP</translation>
     </message>
 </context>
 <context>
@@ -2332,83 +2332,70 @@
 <context>
     <name>dccV20::network::ProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="57"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>Save</source>
         <translation>Zapisz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
         <source>None</source>
         <translation>Brak</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
         <source>Manual</source>
         <translation>Instrukcja Deepin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
         <source>Auto</source>
         <translation>Automatycznie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
-        <source>Optional</source>
-        <translation>Opcjonalne</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
         <source>HTTP Proxy</source>
         <translation>Serwer pośredniczący HTTP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
         <source>HTTPS Proxy</source>
         <translation>Serwer pośredniczący HTTPS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
         <source>FTP Proxy</source>
         <translation>Serwer pośredniczący FTP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
         <source>SOCKS Proxy</source>
         <translation>Proxy SOCKS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Ignoruj konfiguracje pośrednika sieciowego dla powyższych hostów i domen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
         <source>Configuration URL</source>
         <translation>Adres URL konfiguracji</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="156"/>
         <source>System Proxy</source>
         <translation>Systemowy serwer pośredniczący</translation>
     </message>
@@ -4088,62 +4075,62 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczne logowanie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="83"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Zaloguj się bez hasła</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="84"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczna jasność</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="85"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Ogólne</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="86"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Do obudzenia monitora wymagane jest hasło</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="87"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Hasło jest wymagane, aby obudzić komputer</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>Tryb oszczędzania energii</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczne przełączanie trybów</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Przejrzystość</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>Utwórz połączenie PPPoE</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Wyłącz panel dotykowy podczas pisania</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation type="unfinished"/>
+        <translation>Wyłącz panel dotykowy przy podłączeniu myszy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="101"/>
@@ -4200,13 +4187,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="95"/>
         <source>Input</source>
         <translation>Wejście</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
         <source>Sound Card:</source>
         <translation>Karta dźwiękowa:</translation>
     </message>
@@ -4289,12 +4276,12 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="157"/>
         <source>Volume Boost</source>
-        <translation type="unfinished"/>
+        <translation>Zwiększenie głośności</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="164"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli głośność jest większa niż 100%, może to zniekształcić dźwięk i być szkodliwe dla głośnika</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="178"/>
@@ -4333,7 +4320,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
-        <translation type="unfinished"/>
+        <translation>Twoje hasło do sieci WLAN zostanie zsynchronizowane, jeśli włączone są Ustawienia sieciowe</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
@@ -4384,7 +4371,7 @@
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="280"/>
         <source>Last Sync: %1</source>
         <translation>Ostatnia synchronizacja: %1
- </translation>
+ </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="282"/>
@@ -4442,22 +4429,22 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="18"/>
         <source>Backup</source>
-        <translation type="unfinished"/>
+        <translation>Utworzyć kopię zapasową</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="30"/>
         <source>Set backup directory</source>
-        <translation type="unfinished"/>
+        <translation>Ustaw katalog kopii zapasowej</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="111"/>
         <source>Invalid path</source>
-        <translation type="unfinished"/>
+        <translation>Niewłaściwa ścieżka</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="115"/>
         <source>Tool execution error</source>
-        <translation type="unfinished"/>
+        <translation>Błąd wykonania narzędzia</translation>
     </message>
 </context>
 <context>
@@ -4465,52 +4452,52 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="92"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Przywróć</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="121"/>
         <source>Save User Data</source>
-        <translation type="unfinished"/>
+        <translation>Zapisz dane użytkownika</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="123"/>
         <source>Reset All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Zresetuj wszystkie ustawienia</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="143"/>
         <source>Select restore directory</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz katalog przywracania</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="151"/>
         <source>Manual Restore</source>
-        <translation type="unfinished"/>
+        <translation>Ręczne przywracanie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="220"/>
         <source>Backup file is invalid</source>
-        <translation type="unfinished"/>
+        <translation>Plik kopii zapasowej jest nieprawidłowy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
         <source>Grub authentication failed</source>
-        <translation type="unfinished"/>
+        <translation>Uwierzytelnianie Grub nie powiodło się</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="228"/>
         <source>Tool execution error</source>
-        <translation type="unfinished"/>
+        <translation>Błąd wykonania narzędzia</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="244"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
-        <translation type="unfinished"/>
+        <translation>Zresetuje ustawienia systemu do wartości domyślnych bez wpływu na pliki i aplikacje, ale nazwa użytkownika i hasło zostaną usunięte, proszę potwierdzić przed kontynuowaniem</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
-        <translation type="unfinished"/>
+        <translation>Ponownie zainstaluje system i wyczyści wszystkie dane użytkownika, co jest bardzo ryzykowne, proszę potwierdzić przed kontynuowaniem</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="252"/>
@@ -4527,12 +4514,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="264"/>
         <source>You should reboot the computer to erase all content and settings, reboot now?</source>
-        <translation type="unfinished"/>
+        <translation>Powinieneś zrestartować komputer, aby usunąć całą zawartość i ustawienia, zrestartować teraz?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="267"/>
         <source>You should reboot the computer to reset all settings, reboot now?</source>
-        <translation type="unfinished"/>
+        <translation>Powinieneś zrestartować komputer, aby zresetować wszystkie ustawienia, zrestartować teraz?</translation>
     </message>
 </context>
 <context>
@@ -4552,13 +4539,13 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="84"/>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Uprawnienie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="85"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="163"/>
         <source>To be activated</source>
-        <translation type="unfinished"/>
+        <translation>Aby aktywować</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
@@ -4566,7 +4553,7 @@
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="173"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="177"/>
         <source>Activate</source>
-        <translation type="unfinished"/>
+        <translation>Aktywuj</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="91"/>
@@ -4594,7 +4581,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="159"/>
         <source>Activated</source>
-        <translation type="unfinished"/>
+        <translation>Aktywowany</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="161"/>
@@ -4605,17 +4592,17 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="167"/>
         <source>Expired</source>
-        <translation type="unfinished"/>
+        <translation>Wygasł</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="171"/>
         <source>In trial period</source>
-        <translation type="unfinished"/>
+        <translation>W okresie próbnym</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="175"/>
         <source>Trial expired</source>
-        <translation type="unfinished"/>
+        <translation>Wersja czasowa wygasła</translation>
     </message>
 </context>
 <context>
@@ -4649,7 +4636,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="87"/>
         <source>Backup and Restore</source>
-        <translation type="unfinished"/>
+        <translation>Kopia zapasowa i przywracanie</translation>
     </message>
 </context>
 <context>
@@ -4657,7 +4644,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="21"/>
         <source>Backup</source>
-        <translation type="unfinished"/>
+        <translation>Utworzyć kopię zapasową</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="22"/>
@@ -4675,7 +4662,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="80"/>
         <source>Timeout</source>
-        <translation>Przekroczono czas</translation>
+        <translation>Limit czasu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="82"/>
@@ -4732,7 +4719,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="80"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
+        <translation>Twój system nie jest autoryzowany, najpierw aktywuj</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="101"/>
@@ -4806,7 +4793,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform>%n dostępna aktualizacja aplikacji</numerusform><numerusform>%n dostępne aktualizacje aplikacji</numerusform><numerusform>%n dostępne aktualizacje aplikacji</numerusform><numerusform>%n dostępne aktualizacje aplikacji</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4816,7 +4803,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>Dostępna nowa edycja systemu i aktualizacja aplikacji %n</numerusform><numerusform>Dostępna nowa edycja systemu i aktualizacje aplikacji %n</numerusform><numerusform>Dostępna nowa edycja systemu i aktualizacje aplikacji %n</numerusform><numerusform>Dostępna nowa edycja systemu i aktualizacje aplikacji %n</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5091,7 +5078,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n dzień temu</numerusform><numerusform>%n dni temu</numerusform><numerusform>%n dni temu</numerusform><numerusform>%n dni temu</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -5257,7 +5244,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation>Rozruch</translation>
+        <translation>Uruchomienie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -5272,7 +5259,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation>Wybudzenie</translation>
+        <translation>Wybudzanie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
@@ -5287,13 +5274,12 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
-        <translation>Niski stan baterii</translation>
+        <translation>Niski poziom baterii</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Wyślij ikonę w programu uruchamiania na pulpit
-</translation>
+        <translation>Wyślij ikonę Launchera na pulpit</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
@@ -5313,7 +5299,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
-        <translation>Podłączono urządzenie wymienne</translation>
+        <translation>Podłączone urządzenie wymienne</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
@@ -5403,7 +5389,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WLAN</source>
-        <translation type="unfinished"/>
+        <translation>Kliknij ikonę, aby włączyć sieć WLAN</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
@@ -5527,12 +5513,12 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="392"/>
         <source>Your host joins the domain server successfully</source>
-        <translation>Twój host pomyślnie dołącza się do serwera domeny</translation>
+        <translation>Twój host pomyślnie dołącza do serwera domeny</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="414"/>
         <source>Your host failed to leave the domain server</source>
-        <translation>Twój host nie opuścił serwera domeny</translation>
+        <translation>Twój host nie mógł opuścić serwera domeny</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="415"/>
@@ -5837,7 +5823,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>PIN do połączenia z urządzeniem Bluetooth:</translation>
+        <translation>Kod PIN do połączenia z urządzeniem Bluetooth to:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -5870,7 +5856,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
         <source>Auto Sync</source>
-        <translation>Automatyczna synchronizacja</translation>
+        <translation>Auto synchronizacja</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
@@ -5900,17 +5886,17 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
         <source>Dock</source>
-        <translation>Dok</translation>
+        <translation>Dock</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
         <source>Launcher</source>
-        <translation>Aktywator</translation>
+        <translation>Launcher</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
         <source>Wallpaper</source>
-        <translation>Tapeta pulpitu</translation>
+        <translation>Tapeta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
@@ -5925,17 +5911,18 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
         <source>Corner Settings</source>
-        <translation>Ustawienia narożników</translation>
+        <translation>Ustawienia narożnika</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="214"/>
         <source>Last Sync: %1</source>
-        <translation>Ostatnia synchronizacja: %1</translation>
+        <translation>Ostatnia synchronizacja: %1
+ </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="216"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation>dd-MM-yyyy hh:mm</translation>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
@@ -5949,7 +5936,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
         <source>Cloud Sync</source>
-        <translation>Synchronizacja w chmurze</translation>
+        <translation>Synchronizacja z chmurą</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
@@ -6078,12 +6065,12 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="131"/>
         <source>%1 hours earlier than local</source>
-        <translation>%1 godzin wcześniej niż lokalnie</translation>
+        <translation>%1 godziny wcześniej niż lokalnie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="133"/>
         <source>%1 hours later than local</source>
-        <translation>%1 godzin(y) później niż czas lokalny</translation>
+        <translation>%1 godziny później niż lokalnie</translation>
     </message>
 </context>
 <context>
@@ -6275,7 +6262,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
         <source>WLAN will be disconnected when screen projection is enabled</source>
-        <translation type="unfinished"/>
+        <translation>Sieć WLAN zostanie rozłączona po włączeniu projekcji ekranu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
@@ -6293,12 +6280,12 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="47"/>
         <source>Recognize</source>
-        <translation>Rozpoznaj</translation>
+        <translation>Rozpoznać</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="54"/>
         <source>Split</source>
-        <translation>Podziel</translation>
+        <translation>Rozdziel</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="61"/>
@@ -6331,7 +6318,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="346"/>
         <source> (Recommended)</source>
-        <translation>(Polecany)</translation>
+        <translation>(Zalecana)</translation>
     </message>
 </context>
 <context>
@@ -6344,7 +6331,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation>(Polecany)</translation>
+        <translation>(Zalecana)</translation>
     </message>
 </context>
 <context>
@@ -6449,7 +6436,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="122"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ten skrót jest w konflikcie z %1, kliknij na Dodaj, aby natychmiast uczynić ten skrót działającym.</translation>
+        <translation>Ten skrót powoduje konflikt z %1, kliknij Dodaj, aby ten skrót od razu zadziałał</translation>
     </message>
 </context>
 <context>
@@ -6462,7 +6449,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="112"/>
         <source>Please enter a shortcut</source>
-        <translation>Prosimy wprowadzić skrót</translation>
+        <translation>Wprowadź skrót</translation>
     </message>
 </context>
 <context>
@@ -6535,12 +6522,12 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Slow</source>
-        <translation>Powolne</translation>
+        <translation>Powolna</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Fast</source>
-        <translation>Szybkie</translation>
+        <translation>Szybka</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="79"/>
@@ -6586,7 +6573,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="49"/>
         <source>Please Reset Shortcut</source>
-        <translation>Prosimy zresetować skrót</translation>
+        <translation>Zresetuj skrót</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="56"/>
@@ -6596,7 +6583,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="57"/>
         <source>Replace</source>
-        <translation>Zastąp</translation>
+        <translation>Zamień</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="59"/>
@@ -6606,7 +6593,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="92"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Ten skrót jest w konflikcie z %1, kliknij na Zastąp, aby natychmiast uczynić ten skrót działającym.</translation>
+        <translation>Ten skrót powoduje konflikt z %1, kliknij Zastąp, aby ten skrót od razu zadziałał</translation>
     </message>
 </context>
 <context>
@@ -6622,7 +6609,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>System</source>
-        <translation>System</translation>
+        <translation>Systemowe</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="56"/>
@@ -6660,7 +6647,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
         <source>Double-click Test</source>
-        <translation>Test szybkości dwukliku</translation>
+        <translation>Test dwukrotnego kliknięcia</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
@@ -7390,7 +7377,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="62"/>
         <source>Manual</source>
-        <translation>Ręcznie</translation>
+        <translation>Instrukcja Deepin</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="63"/>
@@ -8906,12 +8893,12 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Do obudzenia monitora wymagane jest hasło</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Hasło jest wymagane, aby obudzić komputer</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
@@ -8934,7 +8921,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
         <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
         <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>Power Management</source>
-        <translation>Zarządzanie zasilaniem</translation>
+        <translation>Zarządzanie energią</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="190"/>
@@ -8993,7 +8980,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="67"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="84"/>
         <source>Boot up</source>
-        <translation>Rozruch</translation>
+        <translation>Uruchomienie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="68"/>
@@ -9013,7 +9000,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="98"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="99"/>
         <source>Wake up</source>
-        <translation>Wybudzenie</translation>
+        <translation>Wybudzanie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="71"/>
@@ -9030,14 +9017,13 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="73"/>
         <source>Low battery</source>
-        <translation>Niski stan baterii</translation>
+        <translation>Niski poziom baterii</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="74"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="90"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Wyślij ikonę w programu uruchamiania na pulpit
-</translation>
+        <translation>Wyślij ikonę Launchera na pulpit</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="75"/>
@@ -9059,7 +9045,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="78"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="92"/>
         <source>Removable device connected</source>
-        <translation>Podłączono urządzenie wymienne</translation>
+        <translation>Podłączone urządzenie wymienne</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="79"/>
@@ -9129,7 +9115,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Cloud Sync</source>
-        <translation>Synchronizacja w chmurze</translation>
+        <translation>Synchronizacja z chmurą</translation>
     </message>
 </context>
 <context>
@@ -9193,7 +9179,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
         <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
         <location filename="../src/frame/navigationbar.cpp" line="217"/>
         <source>System Information</source>
-        <translation>Informacje systemowe</translation>
+        <translation>Informacje o systemie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -9253,12 +9239,12 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="188"/>
         <source>www.deepin.org</source>
-        <translation type="unfinished"/>
+        <translation>www.deepin.org</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</translation>
+        <translation>Prawa Autorskie© 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -9281,13 +9267,13 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="91"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="125"/>
         <source>Timeout</source>
-        <translation>Przekroczono czas</translation>
+        <translation>Limit czasu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="93"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="126"/>
         <source>Slow</source>
-        <translation>Powolny</translation>
+        <translation>Powolna</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="95"/>
@@ -9299,7 +9285,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="97"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
         <source>Fast</source>
-        <translation>Szybki</translation>
+        <translation>Szybka</translation>
     </message>
 </context>
 <context>
@@ -9325,17 +9311,17 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="70"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
+        <translation>Twój system nie jest autoryzowany, najpierw aktywuj</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="75"/>
         <source>Update successful</source>
-        <translation>Zaktualizowano pomyślnie</translation>
+        <translation>Aktualizacja przeprowadzona pomyślnie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="80"/>
         <source>Failed to update</source>
-        <translation>Błąd aktualizacji</translation>
+        <translation>Nie udało się zaktualizować</translation>
     </message>
 </context>
 <context>
@@ -9355,7 +9341,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
         <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
         <location filename="../src/frame/navigationbar.cpp" line="216"/>
         <source>Update</source>
-        <translation>Aktualizuj</translation>
+        <translation>Aktualizacja</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
@@ -9416,7 +9402,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>Wykryto aktualizację %n programu</numerusform><numerusform>Wykryto aktualizację %n programów</numerusform><numerusform>Wykryto aktualizację %n programów</numerusform><numerusform>Wykryto aktualizację %n programów</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9426,7 +9412,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Wykryto nowe wydanie systemu i aktualizację %n programu</numerusform><numerusform>Wykryto nowe wydanie systemu i aktualizację %n programów</numerusform><numerusform>Wykryto nowe wydanie systemu i aktualizację %n programów</numerusform><numerusform>Wykryto nowe wydanie systemu i aktualizację %n programów</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
@@ -9460,7 +9446,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="160"/>
         <source>Collapse</source>
-        <translation>Rozwiń</translation>
+        <translation>Zwiń</translation>
     </message>
 </context>
 <context>
@@ -9522,7 +9508,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
         <location filename="../src/frame/modules/update/updateview.cpp" line="40"/>
         <location filename="../src/frame/modules/update/updateview.cpp" line="52"/>
         <source>Update</source>
-        <translation>Aktualizuj</translation>
+        <translation>Aktualizacja</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
@@ -9535,7 +9521,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="354"/>
         <source>Patches</source>
-        <translation>Poprawki</translation>
+        <translation>Łatki</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="355"/>

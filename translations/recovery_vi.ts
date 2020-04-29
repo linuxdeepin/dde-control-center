@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Đang khôi phục lại lại hệ thống, vui lòng đợi ...</translation>
     </message>
 </context>
 <context>
@@ -13,7 +13,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="259"/>
         <source>Rollback failed.</source>
-        <translation type="unfinished"/>
+        <translation>Khôi phục thất bại</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="264"/>
@@ -23,7 +23,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation type="unfinished"/>
+        <translation>Bạn có muốn khôi phục lại hệ thống từ %1  được sao lưu vào %2</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>

@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
         <source>Refresh</source>
-        <translation>Atualizar</translation>
+        <translation>Recarregar</translation>
     </message>
 </context>
 <context>
@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="823"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,14 +87,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="835"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
         <source>Drawing Tablet</source>
         <translation>Tablet de desenho</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="413"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
         <source>Keyboard and Language</source>
         <translation>Teclado e Idioma</translation>
     </message>
@@ -114,23 +114,23 @@
         <translation>Definições Gerais</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="412"/>
         <source>Assistive Tools</source>
         <translation>Ferramentas de apoio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="847"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="851"/>
         <source>Cloud Sync</source>
         <translation>Sincronização na nuvem</translation>
     </message>
@@ -234,7 +234,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
         <source>Scan Again</source>
-        <translation type="unfinished"/>
+        <translation>Verificar novamente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
@@ -244,18 +244,18 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>A identificar impressão digital</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="unfinished"/>
+        <translation>Coloque o dedo sobre o leitor de impressões digitais ou deslize para cima ou para baixo e depois levante-o</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Impressão digital adicionada</translation>
     </message>
 </context>
 <context>
@@ -368,7 +368,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar impressão digital</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
@@ -378,12 +378,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Impressão digital</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
         <source>Add fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar impressão digital</translation>
     </message>
 </context>
 <context>
@@ -474,7 +474,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="75"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation>Ativar o bluetooth para encontrar dispositivos próximos (colunas, teclado, rato)</translation>
+        <translation>Ativar o bluetooth para encontrar dispositivos próximos (altifalantes, teclado, rato)</translation>
     </message>
 </context>
 <context>
@@ -594,53 +594,53 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
         <source>Failed to get root access</source>
         <translation>Falha em obter acesso root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="88"/>
         <source>Please sign in to your cloud account first</source>
         <translation>Primeiro inicie sessão na sua conta da nuvem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="90"/>
         <source>Cannot read your PC information</source>
         <translation>Não consegue ler as informações do seu PC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="92"/>
         <source>No network connection</source>
         <translation>Sem ligação à rede</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>Falha no carregamento do certificado, incapaz de obter acesso root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>Falha na verificação da assinatura, incapaz de obter acesso root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
         <source>UOS Privacy Policy</source>
         <translation>Política de Privacidade do UOS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="234"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Concordar e aderir ao programa de experiência do utilizador</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="293"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Isenção de responsabilidade do modo de programador</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="294"/>
         <source>Agree and Request Root Access</source>
         <translation>Concordar e solicitar acesso root</translation>
     </message>
@@ -948,7 +948,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="49"/>
         <source>Webpage</source>
-        <translation>Página web</translation>
+        <translation>Internet</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -1149,12 +1149,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
         <source>%1 only</source>
-        <translation type="unfinished"/>
+        <translation>apenas %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
         <source>Show the screen content only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar o conteúdo do ecrã apenas em %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
@@ -1258,7 +1258,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="131"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atalho entra em conflito com o %1, clicar em Adicionar para tornar este atalho imediatamente efetivo</translation>
+        <translation>Este atalho entra em conflito com o %1, clicar em Adicionar para que este atalho tenha efeito imediato</translation>
     </message>
 </context>
 <context>
@@ -1652,7 +1652,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
         <source>Proxy Type</source>
-        <translation>Tipo de Proxy</translation>
+        <translation>Tipo de proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
@@ -1717,7 +1717,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation>Tipo de Proxy</translation>
+        <translation>Tipo de proxy</translation>
     </message>
 </context>
 <context>
@@ -1989,7 +1989,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>Primary DNS</source>
-        <translation>DNS Primário</translation>
+        <translation>DNS Principal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
@@ -2082,7 +2082,7 @@
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="178"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="198"/>
         <source>Primary DNS</source>
-        <translation>DNS Primário</translation>
+        <translation>DNS Principal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="182"/>
@@ -2332,83 +2332,70 @@
 <context>
     <name>dccV20::network::ProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="57"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>Save</source>
         <translation>Guardar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
         <source>None</source>
         <translation>Nenhum</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
         <source>Manual</source>
         <translation>Manual</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
         <source>Auto</source>
         <translation>Automático</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
-        <source>Optional</source>
-        <translation>Opcional</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
         <source>HTTP Proxy</source>
         <translation>Proxy HTTP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
         <source>Port</source>
         <translation>Porta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
         <source>HTTPS Proxy</source>
         <translation>Proxy HTTPS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
         <source>FTP Proxy</source>
         <translation>Proxy FTP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
         <source>SOCKS Proxy</source>
         <translation>Proxy SOCKS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Ignorar as configurações de proxy para os hosts e domínios acima</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
         <source>Configuration URL</source>
         <translation>Configuração URL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="156"/>
         <source>System Proxy</source>
         <translation>Proxy do sistema</translation>
     </message>
@@ -2453,7 +2440,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
         <source>Saved</source>
-        <translation>Guardada</translation>
+        <translation>Guardado</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
@@ -2893,7 +2880,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
         <source>Group Name</source>
-        <translation>Nome do grupo</translation>
+        <translation>Nome de grupo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
@@ -2946,7 +2933,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Permitir Cisco Secure Desktop Trojan</translation>
+        <translation>Permitir o Cisco Secure Desktop Trojan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
@@ -3652,7 +3639,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="265"/>
         <source>Connect to hidden network</source>
-        <translation>Ligar a uma rede oculta</translation>
+        <translation>Ligar a uma rede escondida</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
@@ -3806,7 +3793,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="100"/>
         <source>Light</source>
-        <translation>Claro</translation>
+        <translation>Leve</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="102"/>
@@ -3829,7 +3816,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="77"/>
         <source>Light</source>
-        <translation>Claro</translation>
+        <translation>Leve</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
@@ -4088,62 +4075,62 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Início de sessão automático</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="83"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Iniciar sessão sem palavra-passe</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="84"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Luminosidade automática</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="85"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Geral</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="86"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe é necessária para ativar o monitor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="87"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe é necessária para ativar o computador</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo de poupança de energia</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Interruptor de modo automático</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Transparência</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>Criar ligação PPPoE</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Desativar o touchpad enquanto escreve</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation type="unfinished"/>
+        <translation>Desativar o touchpad ao inserir o rato</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="101"/>
@@ -4200,13 +4187,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="95"/>
         <source>Input</source>
         <translation>Entrada</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
         <source>Sound Card:</source>
         <translation>Placa de som:</translation>
     </message>
@@ -4252,7 +4239,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
         <source>Speaker</source>
-        <translation>Coluna</translation>
+        <translation>Altifalantes</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
@@ -4278,7 +4265,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="46"/>
         <source>Speaker</source>
-        <translation>Coluna</translation>
+        <translation>Altifalantes</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="74"/>
@@ -4294,7 +4281,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="164"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
-        <translation>Se o volume for mais alto do que 100%, pode distorcer o som e ser prejudicial para as suas colunas</translation>
+        <translation>Se o volume for mais alto do que 100%, pode distorcer o som e ser prejudicial para os altifalantes</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="178"/>
@@ -4642,7 +4629,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="72"/>
         <source>End User License Agreement</source>
-        <translation>Contrato de licença do utilizador final</translation>
+        <translation>Contrato de licença de utilizador final</translation>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
     <message>
@@ -4669,7 +4656,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="10"/>
         <source>Untested</source>
-        <translation>Não testado</translation>
+        <translation>Não testada</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="80"/>
@@ -4805,7 +4792,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform>%n atualização da aplicação(ões) disponível</numerusform><numerusform>%n atualização da aplicação(ões) disponível</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4815,7 +4802,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>Nova edição do sistema e %n actualização(ões) da aplicação disponível(s)</numerusform><numerusform>Nova edição do sistema e %n actualização(ões) da aplicação disponível(s)</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5090,7 +5077,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>há %n dia atrás</numerusform><numerusform>%n dia(s) atrás</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -5311,12 +5298,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
-        <translation>Dispositivo removível ligado</translation>
+        <translation>Dispositivo amovível ligado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation>Dispositivo removível removido</translation>
+        <translation>Dispositivo amovível removido</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
@@ -5352,7 +5339,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation>Atulizações</translation>
+        <translation>Atualizações</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="162"/>
@@ -5457,7 +5444,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="54"/>
         <source>Modify Fullname</source>
-        <translation>Modificar Nome Completo</translation>
+        <translation>Modificar nome completo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="57"/>
@@ -5467,7 +5454,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="60"/>
         <source>Auto Login</source>
-        <translation>Autenticação Automática</translation>
+        <translation>Início de sessão automático</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="64"/>
@@ -5477,7 +5464,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="68"/>
         <source>Delete Account</source>
-        <translation>Eliminar Conta</translation>
+        <translation>Eliminar conta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="71"/>
@@ -5495,7 +5482,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
-        <translation>Criar Conta</translation>
+        <translation>Criar conta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
@@ -5623,7 +5610,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="88"/>
         <source>New Account</source>
-        <translation>Nova Conta</translation>
+        <translation>Nova conta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
@@ -5703,17 +5690,17 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Current Password</source>
-        <translation>Palavra-passe Atual</translation>
+        <translation>Palavra-passe atual</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>New Password</source>
-        <translation>Nova Palavra-passe</translation>
+        <translation>Nova palavra-passe</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
-        <translation>Repita Palavra-passe</translation>
+        <translation>Repetir a palavra-passe</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="56"/>
@@ -5735,7 +5722,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="117"/>
         <source>New password should differ from the current one</source>
-        <translation>A nova palavra-passe deverá ser diferente da atual</translation>
+        <translation>A nova palavra-passe deve ser diferente da atual</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="156"/>
@@ -5763,7 +5750,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation>Eliminar o directório da conta</translation>
+        <translation>Eliminar o diretório da conta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -5791,7 +5778,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Ativar o bluetooth para encontrar dispositivos próximos (coluna, teclado, rato)</translation>
+        <translation>Ativar o bluetooth para encontrar dispositivos próximos (altifalantes, teclado, rato)</translation>
     </message>
 </context>
 <context>
@@ -5858,12 +5845,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
         <source>Logout</source>
-        <translation>Sair</translation>
+        <translation>Terminar sessão</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Desculpe, de momento não é suportado na sua região, mas será dentro em breve</translation>
+        <translation>De momento não é suportado na sua região, mas será dentro em breve</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
@@ -5893,7 +5880,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
         <source>Update Settings</source>
-        <translation>Atualizar definições</translation>
+        <translation>Definições de atualização</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
@@ -5960,7 +5947,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation>Alterar Definições Horárias</translation>
+        <translation>Alterar definições horárias</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="68"/>
@@ -6001,7 +5988,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
-        <translation>Adicionar Fuso Horário</translation>
+        <translation>Adicionar fuso horário</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
@@ -6018,12 +6005,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="69"/>
         <source>Time Settings</source>
-        <translation>Definições Horárias</translation>
+        <translation>Definições horárias</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="74"/>
         <source>Timezone List</source>
-        <translation>Lista de Fusos Horários</translation>
+        <translation>Lista de fusos horários</translation>
     </message>
 </context>
 <context>
@@ -6042,7 +6029,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
         <source>Add Timezone</source>
-        <translation>Adicionar Fuso Horário</translation>
+        <translation>Adicionar fuso horário</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
@@ -6053,7 +6040,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
         <source>Change Timezone</source>
-        <translation>Alterar Fuso Horário</translation>
+        <translation>Alterar fuso horário</translation>
     </message>
 </context>
 <context>
@@ -6076,12 +6063,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="131"/>
         <source>%1 hours earlier than local</source>
-        <translation>%1 horas antes das locais</translation>
+        <translation>%1 horas antes da local</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="133"/>
         <source>%1 hours later than local</source>
-        <translation>%1 horas depois das locais</translation>
+        <translation>%1 horas depois da local</translation>
     </message>
 </context>
 <context>
@@ -6096,7 +6083,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation>Página web</translation>
+        <translation>Internet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
@@ -6171,7 +6158,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation>Luminosidade Automática</translation>
+        <translation>Luminosidade automática</translation>
     </message>
 </context>
 <context>
@@ -6265,7 +6252,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="47"/>
         <source>Refresh</source>
-        <translation>Atualizar</translation>
+        <translation>Recarregar</translation>
     </message>
 </context>
 <context>
@@ -6278,7 +6265,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
         <source>Refresh</source>
-        <translation>Atualizar</translation>
+        <translation>Recarregar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="69"/>
@@ -6301,7 +6288,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="61"/>
         <source>Merge</source>
-        <translation>Fundir</translation>
+        <translation>Combinar</translation>
     </message>
 </context>
 <context>
@@ -6324,7 +6311,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="179"/>
         <source>Primary</source>
-        <translation>Primário</translation>
+        <translation>Principal</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="346"/>
@@ -6404,7 +6391,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Save to make this shortcut effective immediately</source>
-        <translation>Este atalho entra em conflito com o %1, clicar em Guardar para tornar este atalho imediatamente efetivo</translation>
+        <translation>Este atalho entra em conflito com o %1, clicar em Guardar para que este atalho tenha efeito imediato</translation>
     </message>
 </context>
 <context>
@@ -6447,7 +6434,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="122"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atalho está em conflito com o %1, clicar em Adicionar para tornar este atalho imediatamente efetivo</translation>
+        <translation>Este atalho entra em conflito com o %1, clicar em Adicionar para que este atalho tenha efeito imediato</translation>
     </message>
 </context>
 <context>
@@ -6474,7 +6461,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Alternar Esquemas (Vários)</translation>
+        <translation>Alternar esquemas (Vários)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
@@ -6513,7 +6500,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="52"/>
         <source>Repeat Delay</source>
-        <translation>Atraso da repetição</translation>
+        <translation>Atraso de repetição</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
@@ -6584,7 +6571,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="49"/>
         <source>Please Reset Shortcut</source>
-        <translation>Repor Atalho</translation>
+        <translation>Repor atalho</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="56"/>
@@ -6604,7 +6591,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="92"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Este atalho está em conflito com o %1, clicar em Substituir para tornar este atalho imediatamente efetivo</translation>
+        <translation>Este atalho entra em conflito com o %1, clicar em Substituir para que este atalho tenha efeito imediato</translation>
     </message>
 </context>
 <context>
@@ -6689,7 +6676,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="53"/>
         <source>Left Hand</source>
-        <translation>Mão Esquerda</translation>
+        <translation>Mão esquerda</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="54"/>
@@ -6711,7 +6698,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
-        <translation>Aceleração do Rato</translation>
+        <translation>Aceleração do rato</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="60"/>
@@ -6727,7 +6714,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
-        <translation>Deslocamento Natural</translation>
+        <translation>Deslocamento natural</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="65"/>
@@ -6787,7 +6774,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
         <source>Proxy Type</source>
-        <translation>Tipo de Proxy</translation>
+        <translation>Tipo de proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="52"/>
@@ -6803,7 +6790,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="56"/>
         <source>Port</source>
-        <translation>Porto</translation>
+        <translation>Porta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="60"/>
@@ -6824,7 +6811,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Marque &quot;Usar um proxy&quot; no menu de contexto da aplicação no Lançador depois de configurado</translation>
+        <translation>Marque &quot;Usar um proxy&quot; no menu de contexto da aplicação no lançador depois de configurado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -6842,7 +6829,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation>Tipo de Proxy</translation>
+        <translation>Tipo de proxy</translation>
     </message>
 </context>
 <context>
@@ -6944,7 +6931,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
-        <translation>Não Ligar</translation>
+        <translation>Não vincula</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="96"/>
@@ -7009,7 +6996,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="62"/>
         <source>Add Settings</source>
-        <translation>Adicionar Definições</translation>
+        <translation>Adicionar definições</translation>
     </message>
 </context>
 <context>
@@ -7049,7 +7036,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
         <source>IP Address</source>
-        <translation>Endereço IP</translation>
+        <translation>Endereço de IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
@@ -7065,7 +7052,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Primary DNS</source>
-        <translation>DNS Primário</translation>
+        <translation>DNS Principal</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
@@ -7093,7 +7080,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="94"/>
         <source>Network Details</source>
-        <translation>Detalhes de Rede</translation>
+        <translation>Detalhes da rede</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="139"/>
@@ -7140,7 +7127,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="190"/>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="215"/>
         <source>Primary DNS</source>
-        <translation>DNS Primário</translation>
+        <translation>DNS Principal</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="195"/>
@@ -7178,7 +7165,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="65"/>
         <source>System Proxy</source>
-        <translation>Proxy do Sistema</translation>
+        <translation>Proxy do sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
@@ -7188,7 +7175,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
         <source>Network Details</source>
-        <translation>Detalhes de rede</translation>
+        <translation>Detalhes da rede</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
@@ -7287,37 +7274,37 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Recusar Autenticação EAP</translation>
+        <translation>Recusar autenticação EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Recusar Autenticação PAP</translation>
+        <translation>Recusar autenticação PAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Recusar Autenticação CHAP</translation>
+        <translation>Recusar autenticação CHAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Recusar Autenticação MSCHAP</translation>
+        <translation>Recusar autenticação MSCHAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Recusar Autenticação MSCHAPv2</translation>
+        <translation>Recusar autenticação MSCHAPv2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
-        <translation>Nenhuma Compressão de Dados BSD</translation>
+        <translation>Sem compressão de dados BSD</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation>Não Deflacionar Compressão de Dados</translation>
+        <translation>Sem compressão de dados deflacionados</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="93"/>
@@ -7327,22 +7314,22 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
-        <translation>Nenhuma Compressão de Protocolo de Campo</translation>
+        <translation>Sem compressão de campo de protocolo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation>Nenhuma Compressão de Endereço/Controlo</translation>
+        <translation>Sem compressão de endereço/controlo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
-        <translation>Enviar pacotes Echo PPP</translation>
+        <translation>Enviar pacotes de eco PPP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
-        <translation>Usar MPPE</translation>
+        <translation>Utilizar MPPE</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="107"/>
@@ -7352,7 +7339,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
-        <translation>Afirmação Máxima MPPE</translation>
+        <translation>MPPE Com estado</translation>
     </message>
 </context>
 <context>
@@ -7360,7 +7347,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/pppoepage.cpp" line="52"/>
         <source>Create PPPoE Connection</source>
-        <translation>Criar Ligação PPPoE</translation>
+        <translation>Criar ligação PPPoE</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/pppoepage.cpp" line="66"/>
@@ -7426,7 +7413,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Ignorar as configurações de proxy para os anfitriões e domínios acima</translation>
+        <translation>Ignorar as configurações de proxy para os hosts e domínios acima</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="95"/>
@@ -7436,7 +7423,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="152"/>
         <source>System Proxy</source>
-        <translation>Proxy do Sistema</translation>
+        <translation>Proxy do sistema</translation>
     </message>
 </context>
 <context>
@@ -7545,7 +7532,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation>Opções Pwd</translation>
+        <translation>Opções de palavra-passe</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="302"/>
@@ -7574,7 +7561,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="336"/>
         <source>Provisioning</source>
-        <translation>Aprovisionar</translation>
+        <translation>Aprovisionamento</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="348"/>
@@ -7596,7 +7583,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="523"/>
         <source>Private Pwd</source>
-        <translation>Palavra-passe Privada</translation>
+        <translation>Palavra-passe privada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="525"/>
@@ -7619,7 +7606,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Personal</translation>
+        <translation>WPA/WPA2 Pessoal</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="112"/>
@@ -7647,7 +7634,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwiredsection.cpp" line="32"/>
         <source>Security Required</source>
-        <translation>Segurança Necessária</translation>
+        <translation>Segurança necessária</translation>
     </message>
 </context>
 <context>
@@ -7665,12 +7652,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Personal</translation>
+        <translation>WPA/WPA2 Pessoal</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 Enterprise</translation>
+        <translation>WPA/WPA2 Infraestrutura</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="115"/>
@@ -7698,7 +7685,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>VPN Avançado</translation>
+        <translation>VPN Avançada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
@@ -7718,22 +7705,22 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
-        <translation>Intervalo de Renegociação</translation>
+        <translation>Intervalo de renegociação</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation>Usar compressão de dados LZO</translation>
+        <translation>Utilizar compressão de dados LZO</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation>Usar conexão TCP</translation>
+        <translation>Utilizar ligação TCP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation>Usar dispositivo TAP</translation>
+        <translation>Utilizar dispositivo TAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -7753,17 +7740,17 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
         <source>UDP Fragment Size</source>
-        <translation>Tamanho de Fragmento UDP</translation>
+        <translation>Tamanho de fragmento UDP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation>Restringir Túnel TCP MSS</translation>
+        <translation>Restringir túnel TCP MSS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
         <source>Randomize Remote Hosts</source>
-        <translation>Randomizar Anfitriões Remotos</translation>
+        <translation>Aleatorizar hosts remotos</translation>
     </message>
 </context>
 <context>
@@ -7791,7 +7778,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
         <source>Weak</source>
-        <translation>Fraco</translation>
+        <translation>Fraca</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
@@ -7869,7 +7856,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>NAT Traversal Mode</source>
-        <translation>Modo NAT Transversal</translation>
+        <translation>Modo NAT transversal</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
@@ -7879,17 +7866,17 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="200"/>
         <source>Forward Secrecy</source>
-        <translation>Re-encaminhar Sigilo</translation>
+        <translation>Sigilo encaminhado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
         <source>Local Port</source>
-        <translation>Porto Local</translation>
+        <translation>Porta Local</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
         <source>Disable Dead Peer Detection</source>
-        <translation>Desativar Deteção de Peer Morto</translation>
+        <translation>Desativar deteção de pares mortos</translation>
     </message>
 </context>
 <context>
@@ -7907,12 +7894,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
         <source>Group Name</source>
-        <translation>Nome de Grupo</translation>
+        <translation>Nome de grupo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
         <source>Group ID</source>
-        <translation>Id. de Grupo</translation>
+        <translation>ID do grupo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
@@ -7927,7 +7914,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
         <source>Phase2 Algorithms</source>
-        <translation>Algoritmos Fase2</translation>
+        <translation>Algoritmos fase2</translation>
     </message>
 </context>
 <context>
@@ -7960,7 +7947,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Permitir Cisco Secure Desktop Trojan</translation>
+        <translation>Permitir o Cisco Secure Desktop Trojan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
@@ -8004,7 +7991,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
         <source>Certificates with Password (TLS)</source>
-        <translation>Certificados com Palavra-passe (TLS)</translation>
+        <translation>Certificados com palavra-passe (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
@@ -8044,7 +8031,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
         <source>Auth Type</source>
-        <translation>Tipo de Autenticação</translation>
+        <translation>Tipo de autenticação</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
@@ -8065,12 +8052,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
         <source>Pwd Options</source>
-        <translation>Opções Pwd</translation>
+        <translation>Opções de palavra-passe</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
         <source>Private Pwd</source>
-        <translation>Palavra-passe Privada</translation>
+        <translation>Palavra-passe privada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="227"/>
@@ -8108,52 +8095,52 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
-        <translation>Tudo Disponível (predefinição)</translation>
+        <translation>Tudo disponível (predefinição)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
-        <translation>40 bits (menos seguro)</translation>
+        <translation>40-bit (menos seguro)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
-        <translation>128 bits (mais seguro)</translation>
+        <translation>128-bit (mais seguro)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Recusar Autenticação EAP</translation>
+        <translation>Recusar autenticação EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Recusar Autenticação PAP</translation>
+        <translation>Recusar autenticação PAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Recusar Autenticação CHAP</translation>
+        <translation>Recusar autenticação CHAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Recusar Autenticação MSCHAP</translation>
+        <translation>Recusar autenticação MSCHAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Recusar Autenticação MSCHAPv2</translation>
+        <translation>Recusar autenticação MSCHAPv2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
-        <translation>Nenhuma Compressão de Dados BSD</translation>
+        <translation>Sem compressão de dados BSD</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
-        <translation>Não Deflacionar Compressão de Dados</translation>
+        <translation>Sem compressão de dados deflacionados</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
@@ -8163,17 +8150,17 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
-        <translation>Nenhuma Compressão de Protocolo de Campo</translation>
+        <translation>Sem compressão de campo de protocolo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
-        <translation>Nenhuma Compressão de Endereço/Controlo</translation>
+        <translation>Sem compressão de endereço/controlo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
-        <translation>Enviar pacotes Eco PPP</translation>
+        <translation>Enviar pacotes de eco PPP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
@@ -8188,7 +8175,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
         <source>Stateful MPPE</source>
-        <translation>Estado Máximo MPPE</translation>
+        <translation>MPPE Com estado</translation>
     </message>
 </context>
 <context>
@@ -8216,7 +8203,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="242"/>
         <source>Import Error</source>
-        <translation>Erro de Importação</translation>
+        <translation>Erro ao importar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="244"/>
@@ -8289,7 +8276,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
         <source>Proxy Type</source>
-        <translation>Tipo de Proxy</translation>
+        <translation>Tipo de proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
@@ -8311,7 +8298,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Tentar Novamente Quando Falhar por Tempo Indeterminado</translation>
+        <translation>Repetir indefinidamente quando falhar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
@@ -8339,7 +8326,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation>Use extensões de hostname TLS</translation>
+        <translation>Utilize extensões de hostname TLS</translation>
     </message>
 </context>
 <context>
@@ -8347,7 +8334,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
         <source>VPN Security</source>
-        <translation>Segurança de VPN</translation>
+        <translation>Segurança da VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="75"/>
@@ -8414,7 +8401,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation>Opções Pwd</translation>
+        <translation>Opções de palavra-passe</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -8442,7 +8429,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
         <source>Port</source>
-        <translation>Porto</translation>
+        <translation>Porta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
@@ -8476,7 +8463,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smartcard</source>
-        <translation>Smartcard</translation>
+        <translation>Cartão Inteligente</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
@@ -8506,7 +8493,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
         <source>Auth Type</source>
-        <translation>Tipo de Autenticação</translation>
+        <translation>Tipo de autenticação</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
@@ -8531,12 +8518,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation>Forçar Encapsulamento UDP</translation>
+        <translation>Impor encapsulamento UDP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
         <source>Use IP Compression</source>
-        <translation>Utilizar Compressão de IP</translation>
+        <translation>Utilizar compressão de IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
@@ -8584,7 +8571,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
         <source>Remote Cert Type</source>
-        <translation>Tipo de Cert Remoto</translation>
+        <translation>Tipo de certificado remoto</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
@@ -8647,7 +8634,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation>Opções Pwd</translation>
+        <translation>Opções de palavra-passe</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -8657,17 +8644,17 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="185"/>
         <source>Group Name</source>
-        <translation>Nome de Grupo</translation>
+        <translation>Nome de grupo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
         <source>Group Pwd</source>
-        <translation>Palavra-passe do Grupo</translation>
+        <translation>Palavra-passe do grupo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Utilizar Autenticação Híbrida</translation>
+        <translation>Utilizar autenticação híbrida</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
@@ -8680,7 +8667,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="59"/>
         <source>Setting List</source>
-        <translation>Lista de Definições</translation>
+        <translation>Lista de definições</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
@@ -8690,12 +8677,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation>Adicionar Definições</translation>
+        <translation>Adicionar definições</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>
         <source>Select Settings</source>
-        <translation>Selecionar Definições</translation>
+        <translation>Selecionar definições</translation>
     </message>
 </context>
 <context>
@@ -8703,12 +8690,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="64"/>
         <source>Connect to hidden network</source>
-        <translation>Ligar a uma rede oculta</translation>
+        <translation>Ligar a uma rede escondida</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
-        <translation>Fechar Hotspot</translation>
+        <translation>Fechar hotspot</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
@@ -8726,7 +8713,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
-        <translation>Não Ligar</translation>
+        <translation>Não vincula</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
@@ -8741,7 +8728,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Device MAC Addr</source>
-        <translation>Endereço MAC do dispositivo:</translation>
+        <translation>Endereço MAC do dispositivo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="144"/>
@@ -8863,7 +8850,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
         <source>Cursor Theme</source>
-        <translation>Tema de cursor</translation>
+        <translation>Tema do cursor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
@@ -8881,19 +8868,19 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="47"/>
         <source>On battery</source>
-        <translation>A bateria</translation>
+        <translation>Bateria</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="48"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="50"/>
         <source>Monitor will suspend after</source>
-        <translation>O Monitor entrará em suspensão após</translation>
+        <translation>O monitor irá suspender após</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="49"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
-        <translation>O computador entrará em suspensão após</translation>
+        <translation>O computador irá suspender após</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="62"/>
@@ -8904,12 +8891,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe é necessária para ativar o monitor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe é necessária para ativar o computador</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
@@ -8925,7 +8912,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="111"/>
         <source>Auto Mode Switch</source>
-        <translation>Interruptor de Modo Automático</translation>
+        <translation>Interruptor de modo automático</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="122"/>
@@ -9056,13 +9043,13 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="78"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="92"/>
         <source>Removable device connected</source>
-        <translation>Dispositivo removível ligado</translation>
+        <translation>Dispositivo amovível ligado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="79"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="93"/>
         <source>Removable device removed</source>
-        <translation>Dispositivo removível removido</translation>
+        <translation>Dispositivo amovível removido</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="80"/>
@@ -9103,7 +9090,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="60"/>
         <source>Speaker</source>
-        <translation>Coluna</translation>
+        <translation>Altifalantes</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="83"/>
@@ -9139,7 +9126,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
         <source>Startup Delay</source>
-        <translation>Atraso do arranque</translation>
+        <translation>Atraso no arranque</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="76"/>
@@ -9167,7 +9154,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>Edition License</source>
-        <translation>Licença de Edição</translation>
+        <translation>Licença de edição</translation>
     </message>
 </context>
 <context>
@@ -9183,7 +9170,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="50"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Direitos de autor © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
+        <translation>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
@@ -9230,7 +9217,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="119"/>
         <source>Edition License</source>
-        <translation>Licença de Edição</translation>
+        <translation>Licença de edição</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="122"/>
@@ -9250,12 +9237,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="188"/>
         <source>www.deepin.org</source>
-        <translation type="unfinished"/>
+        <translation>www.deepin.org</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Direitos de autor© 2019-2020 UnionTech Software Technology Co., LTD</translation>
+        <translation>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -9304,7 +9291,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation>Testar Velocidade</translation>
+        <translation>Testar velocidade</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="46"/>
@@ -9322,7 +9309,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="70"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation>O seu sistema não está autorizado, ative-o primeiro</translation>
+        <translation>O seu sistema não está autorizado, ativar primeiro</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="75"/>
@@ -9357,7 +9344,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Esta atualização pode demorar muito tempo, não encerrar ou reiniciar durante o processo</translation>
+        <translation>Esta atualização pode demorar muito tempo, não encerre ou reinicie durante o processo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -9388,7 +9375,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="208"/>
         <source>Your system is up to date</source>
-        <translation>O sistema está atualizado</translation>
+        <translation>O seu sistema está atualizado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="213"/>
@@ -9413,7 +9400,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>Detetada %n atualização(ões) da aplicação</numerusform><numerusform>Detetada %n atualização(ões) da aplicação</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9423,7 +9410,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Nova edição do sistema e %n atualização detetada(s)</numerusform><numerusform>Nova edição do sistema e %n atualização(ões) detetadas</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
@@ -9550,7 +9537,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation>Caneta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="38"/>
@@ -9563,7 +9550,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
-        <translation>Sensibilidade da Pressão</translation>
+        <translation>Sensibilidade da pressão</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
@@ -9598,7 +9585,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation>Caneta</translation>
     </message>
 </context>
 <context>

@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation>Revirtiendo el sistema, por favor espere...</translation>
+        <translation>Restaurando el sistema, por favor espere...</translation>
     </message>
 </context>
 <context>
@@ -13,7 +13,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="259"/>
         <source>Rollback failed.</source>
-        <translation>Reversión fallida.</translation>
+        <translation>La restauración falló.</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="264"/>
@@ -23,7 +23,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>¿Está seguro de que quiere revertir a %1 y hacer una copia de seguridad de %2?</translation>
+        <translation>¿Está seguro que quiere restaurar %1 al respaldo del %2?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>
