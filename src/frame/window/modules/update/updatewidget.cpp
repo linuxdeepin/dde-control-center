@@ -172,11 +172,7 @@ void UpdateWidget::setSystemVersion(QString version)
     if (m_systemVersion != version) {
         m_systemVersion = version.remove('"');
     }
-    if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinPersonal) {
-        m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinTypeDisplayName() + " " + DSysInfo::deepinVersion()));
-    } else {
-        m_label->setText(QString("%1 V%2").arg(tr("Current Edition")).arg(version.remove('"')));
-    }
+    m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion().left(2) + " " + DSysInfo::deepinTypeDisplayName()));
 }
 
 void UpdateWidget::resetUpdateCheckState(bool state)

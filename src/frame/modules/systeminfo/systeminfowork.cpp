@@ -111,7 +111,7 @@ void SystemInfoWork::activate()
 
     QString version;
     if (DSysInfo::isDeepin()) {
-        version = QString("%1 %2").arg(DSysInfo::deepinVersion())
+        version = QString("%1 %2").arg(DSysInfo::deepinVersion().left(2))
                                   .arg(DSysInfo::deepinTypeDisplayName());
     } else {
         version = QString("%1 %2").arg(DSysInfo::productTypeString())
