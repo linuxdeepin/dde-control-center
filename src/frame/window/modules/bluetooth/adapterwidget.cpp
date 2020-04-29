@@ -23,7 +23,6 @@
 #include "titleedit.h"
 #include "devicesettingsitem.h"
 #include "modules/bluetooth/adapter.h"
-#include "modules/bluetooth/detailpage.h"
 #include "modules/bluetooth/adapter.h"
 #include "widgets/translucentframe.h"
 #include "widgets/settingsheaderitem.h"
