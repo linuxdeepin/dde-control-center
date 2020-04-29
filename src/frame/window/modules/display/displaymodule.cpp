@@ -352,7 +352,7 @@ void DisplayModule::showRotate(Monitor *mon)
         mMonitorRotate.insert(m, m->rotate());
     }
 
-    qApp->setOverrideCursor(Qt::BlankCursor);
+    qApp->setOverrideCursor(Qt::SizeAllCursor);
     if (QDialog::DialogCode::Accepted == dialog->exec()) {
         // if monitor list size > 1 means the config file will be saved by CustomSettingDialog
         qDebug() << "monitor size: " << m_displayModel->monitorList().size() <<
