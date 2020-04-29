@@ -49,7 +49,7 @@ Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr
     // init password type
     NetworkManager::Setting::SecretFlags passwordFlags = m_secretSetting->passwordFlags();
     for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
-        if (passwordFlags.testFlag(it->second)) {
+        if (passwordFlags == it->second) {
             m_currentPasswordType = it->second;
             break;
         }
@@ -167,8 +167,8 @@ void Secret8021xSection::initStrMaps()
 
     PasswordFlagsStrMap = {
         //{tr("Saved"), NetworkManager::Setting::AgentOwned},
-        {tr("Save password for all users"), NetworkManager::Setting::None},
         {tr("Save password for this user"), NetworkManager::Setting::AgentOwned},
+        {tr("Save password for all users"), NetworkManager::Setting::None},
         {tr("Ask me always"), NetworkManager::Setting::NotSaved}
     };
 
