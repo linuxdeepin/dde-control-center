@@ -110,13 +110,8 @@ void SystemInfoWork::activate()
     m_model->setDisk(m_systemInfoInter->diskCap());
 
     QString version;
-    if (DSysInfo::isDeepin()) {
-        version = QString("%1 %2").arg(DSysInfo::deepinVersion().left(2))
-                                  .arg(DSysInfo::deepinTypeDisplayName());
-    } else {
-        version = QString("%1 %2").arg(DSysInfo::productTypeString())
-                                  .arg(DSysInfo::productVersion());
-    }
+    version = QString("%1 %2").arg(DSysInfo::deepinVersion().left(2))
+                              .arg(DSysInfo::deepinTypeDisplayName());
 
     m_model->setVersion(version);
     m_model->setType(QSysInfo::WordSize);
