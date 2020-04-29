@@ -245,7 +245,6 @@ set(ACCOUNTS_FILES
                 modules/accounts/accountsworker.cpp
                 modules/accounts/avatarwidget.cpp
                 modules/accounts/fingermodel.cpp
-                modules/accounts/fingerpage.cpp
                 modules/accounts/fingerworker.cpp
                 modules/accounts/user.cpp
                 modules/accounts/usermodel.cpp
