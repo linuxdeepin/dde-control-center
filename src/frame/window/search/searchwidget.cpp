@@ -426,7 +426,9 @@ void SearchWidget::loadxml()
                             continue;
                         }
 
-                        if (!m_bIsIsDesktopType && !m_deepinwm->compositingAllowSwitch()) {
+                        qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
+                        if (false == m_bIsServerType && false == m_deepinwm->compositingAllowSwitch()) {
+                            qDebug()<<"search not Window!";
                             if (tr("Window Effect") == m_searchBoxStruct.translateContent) {
                                 clearSearchData();
                                 continue;
