@@ -23,113 +23,113 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="160"/>
         <source>Help</source>
         <translation>Помоћ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
         <source>Accounts</source>
         <translation>Налози</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
         <source>Cloud Account</source>
         <translation>Налог облака</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Display</source>
         <translation>Екран</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Default Applications</source>
         <translation>Основни програми</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Personalization</source>
         <translation>Личне промене</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Network</source>
         <translation>Мрежа</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Sound</source>
         <translation>Звук</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="820"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="822"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="819"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
         <source>Bluetooth</source>
         <translation>Блутут</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
         <source>Date and Time</source>
         <translation>Датум и Време</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Power</source>
         <translation>Напајање</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Mouse</source>
         <translation>Миш</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="832"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="834"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="831"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
         <source>Drawing Tablet</source>
         <translation>Таблет за цртање</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
         <source>Keyboard and Language</source>
         <translation>Тастатура и језик</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Updates</source>
         <translation>Ажурирања</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>System Info</source>
         <translation>Подаци система</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>General Settings</source>
         <translation>Општа подешавања</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
         <source>Touchpad</source>
         <translation>Додирна табла</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>TrackPoint</source>
         <translation>Управљачки тастер</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
         <source>Assistive Tools</source>
         <translation>Помоћни алати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="844"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="846"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="843"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
         <source>Cloud Sync</source>
         <translation>Облак синхронизација</translation>
     </message>
@@ -266,7 +266,6 @@
         <translation>Поново очитај</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
@@ -274,19 +273,9 @@
         <translation>Очитавање обустављено</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
-        <source>Please scan one second later</source>
-        <translation>Очитајте за секунду ксније</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan time expired</source>
         <translation>Време за очитавање истекло</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
-        <source>Already scanned</source>
-        <translation>Већ очитано</translation>
     </message>
 </context>
 <context>
@@ -381,7 +370,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="441"/>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Корисничко име не може садржати само бројеве</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="448"/>
@@ -549,12 +538,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="168"/>
         <source>Connected</source>
         <translation>Повезани сте</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Not connected</source>
         <translation>Нисте повезани</translation>
     </message>
@@ -740,7 +729,7 @@
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="178"/>
         <source>Request Root Access</source>
         <translation>Захтевај root приступ</translation>
     </message>
@@ -781,22 +770,22 @@
         <translation>Неуспешна верификација потписа, није добијен root пркступ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="151"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
         <translation>Потребно је поновно покретање да одређене функције ступе на снагу. Поново покрени сад?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>Restart Now</source>
         <translation>Поново покрени сад</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="175"/>
         <source>Root Access Allowed</source>
         <translation>Root приступ дозвољен</translation>
     </message>
@@ -1181,12 +1170,22 @@
         <translation>Прошири радну површину преко свих екрана</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
+        <source>%1 only</source>
+        <translation>Само %1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
+        <source>Show the screen content only on %1</source>
+        <translation>Прикажи садржај екрана само на %1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
         <source>Customize</source>
         <translation>Прилагоди</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
         <source>Configure the display according to your needs</source>
         <translation>Подесите приказ према вашим потребама</translation>
     </message>
@@ -2476,18 +2475,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Save password for all users</source>
-        <translation>Сачувај лозинку за све кориснике</translation>
+        <source>Saved</source>
+        <translation>Сачувано</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Save password for this user</source>
-        <translation>Сачувај лозинку за овог корисника</translation>
+        <source>Ask</source>
+        <translation>Питај</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Ask me always</source>
-        <translation>Увек ме питај</translation>
+        <source>Not Required</source>
+        <translation>Није потребно</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -2618,7 +2617,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
         <source>WEP 40/64/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>ВЕП 40/64/128-bit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
@@ -2670,7 +2669,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WEP 40/64/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>ВЕП 40/64/128-bit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
@@ -4779,7 +4778,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n ажурирање за програм је доступно</numerusform><numerusform>%n ажурирања за програме је доступно</numerusform><numerusform>%n ажурирања(е) за програме је доступно</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4789,7 +4788,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Доступно је ново издање система и ажурирање за %n програм</numerusform><numerusform>Доступно је ново издање система и ажурирање за %n програма</numerusform><numerusform>Доступно је ново издање система и ажурирање за %n програм(а)</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5065,7 +5064,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Пре %n дан</numerusform><numerusform>Пре %n дана</numerusform><numerusform>Пре %n дан(а)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5350,7 +5349,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation>Кликни на иконицу да укључиш ВПН</translation>
+        <translation>Укључи ВПН кликом на иконицу</translation>
     </message>
 </context>
 <context>
@@ -5376,7 +5375,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WLAN</source>
-        <translation>Кликни на иконицу да укључиш ВЛАН</translation>
+        <translation>Укључи ВЛАН кликом на иконицу</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
@@ -5603,12 +5602,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
         <source>Username can&apos;t be empty</source>
-        <translation>Корисничко име не може остати празно</translation>
+        <translation>Корисничко име не може бити празно</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="163"/>
         <source>Password can&apos;t be empty</source>
-        <translation>Лозинка не може остати празна</translation>
+        <translation>Лозинка не може бити празна</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
@@ -5625,32 +5624,56 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::FingerModel</name>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>Отисак прста већ постоји, молимо очитајте остале прсте</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <source>The fingerprint already exists</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <source>Please scan other fingers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+        <source>Moved too fast</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
         <translation>Прст је пребрзо склоњен, молимо не подижите до обавештења</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
-        <source>Unclear fingerprint, please clean your finger and try again</source>
-        <translation>Нејасан отисак прста, молимо очистите прст и покушајте поново</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="152"/>
+        <source>Unclear fingerprint</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>Очистите прст или прилагодите позицију прста и покушајте поново</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="156"/>
+        <source>Already scanned</source>
+        <translation>Већ очитано</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Прилагодите положај прста да очитате цео отисак</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <source>The fingerprint already exists, please scan other fingers</source>
+        <translation>Отисак прста већ постоји, молимо очитајте остале прсте</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
-        <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Очистите прст или прилагодите позицију прста и покушајте поново</translation>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>Прст је пребрзо склоњен. Молимо не подижите до обавештења</translation>
     </message>
 </context>
 <context>
@@ -5689,38 +5712,45 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="141"/>
-        <source>Fingerprint added</source>
-        <translation>Отисак прста додат</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="70"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="130"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
         <source>Place your finger</source>
         <translation>Прислоните прст</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Поставите рубове вашег отиска на читач</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="71"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation>Прислоните прст чврсто на читач све док се не затражи да га склоните</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
         <source>Lift your finger</source>
         <translation>Склоните прст</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="139"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
         <source>Lift your finger and place it on the sensor again</source>
         <translation>Склоните прст и поново га прислоните на читач </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <source>Scan the edges of your fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <source>Lift your finger and do that again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <source>Fingerprint added</source>
+        <translation>Отисак прста додат</translation>
     </message>
 </context>
 <context>
@@ -6139,7 +6169,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation>Интернет страница</translation>
+        <translation>Интернет прегледач</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
@@ -6232,7 +6262,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation>Молимо промените тренутни режим пре промене подешавања</translation>
+        <translation>Молимо пређите на тренутни режим пре промене подешавања</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/customconfigpage.cpp" line="50"/>
@@ -6344,7 +6374,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="61"/>
         <source>Merge</source>
-        <translation>Споји</translation>
+        <translation>Спој</translation>
     </message>
 </context>
 <context>
@@ -9456,7 +9486,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n ажурирање за програм је откривено</numerusform><numerusform>%n ажурирања за програме је откривено</numerusform><numerusform>%n ажурирања(е) за програме је откривено</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9466,7 +9496,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Пронађено је ново издање система и ажурирање за %n програм</numerusform><numerusform>Пронађено је ново издање система и ажурирање за %n програма</numerusform><numerusform>Пронађено је ново издање система и ажурирање за %n програм(а)</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>

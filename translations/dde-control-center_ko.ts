@@ -23,113 +23,113 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="160"/>
         <source>Help</source>
         <translation>도움말</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
         <source>Accounts</source>
         <translation>계정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
         <source>Cloud Account</source>
         <translation>클라우드 계정</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Display</source>
         <translation>디스플레이</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Default Applications</source>
         <translation>기본 응용프로그램</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Personalization</source>
         <translation>개인 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Network</source>
         <translation>네트워크</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Sound</source>
         <translation>사운드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="820"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="822"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="819"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
         <source>Bluetooth</source>
         <translation>블루투스</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
         <source>Date and Time</source>
         <translation>날짜 및 시간</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Power</source>
         <translation>전원</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Mouse</source>
         <translation>마우스</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="832"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="834"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="831"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
         <source>Drawing Tablet</source>
         <translation>그리기 태블릿</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
         <source>Keyboard and Language</source>
         <translation>키보드 및 언어</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Updates</source>
         <translation>업데이트</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>System Info</source>
         <translation>시스템 정보</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>General Settings</source>
         <translation>일반 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
         <source>Touchpad</source>
         <translation>터치패드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>TrackPoint</source>
         <translation>추적점</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
         <source>Assistive Tools</source>
         <translation>보조 도구</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="844"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="846"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="843"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
         <source>Cloud Sync</source>
         <translation>클라우드 동기화</translation>
     </message>
@@ -266,7 +266,6 @@
         <translation>다시 스캔</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
@@ -274,19 +273,9 @@
         <translation>스캔 일시 중단됨</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
-        <source>Please scan one second later</source>
-        <translation>1초 후에 스캔하십시오</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan time expired</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
-        <source>Already scanned</source>
-        <translation>이미 스캔됨</translation>
+        <translation>스캔 시간이 만료됨</translation>
     </message>
 </context>
 <context>
@@ -381,7 +370,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="441"/>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>사용자 이름에 숫자만 있어야 합니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="448"/>
@@ -549,12 +538,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="168"/>
         <source>Connected</source>
         <translation>연결됨</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Not connected</source>
         <translation>연결되지 않음</translation>
     </message>
@@ -740,7 +729,7 @@
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="178"/>
         <source>Request Root Access</source>
         <translation>루트 액세스 요청</translation>
     </message>
@@ -781,22 +770,22 @@
         <translation>서명 확인에 실패하여, 루트 액세스 권한을 얻을 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="151"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
         <translation>일부 기능을 효과적으로 사용하려면, 다시 시작해야합니다. 지금 다시 시작 하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>Cancel</source>
         <translation>취소 </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>Restart Now</source>
         <translation>지금 다시 시작</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="175"/>
         <source>Root Access Allowed</source>
         <translation>루트 액세스 허용됨</translation>
     </message>
@@ -1181,12 +1170,22 @@
         <translation>화면에서 바탕화면 확장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
+        <source>%1 only</source>
+        <translation>%1 만</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
+        <source>Show the screen content only on %1</source>
+        <translation>%1에 대해서만 화면 내용 표시</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
         <source>Customize</source>
         <translation>사용자 정의</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
         <source>Configure the display according to your needs</source>
         <translation>필요에 따라 디스플레이 환경 설정</translation>
     </message>
@@ -2476,18 +2475,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Save password for all users</source>
-        <translation type="unfinished"/>
+        <source>Saved</source>
+        <translation>저장됨</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Save password for this user</source>
-        <translation type="unfinished"/>
+        <source>Ask</source>
+        <translation>묻기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Ask me always</source>
-        <translation type="unfinished"/>
+        <source>Not Required</source>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -2618,7 +2617,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
         <source>WEP 40/64/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/64/128-bit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
@@ -2670,7 +2669,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WEP 40/64/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/64/128-bit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
@@ -4779,7 +4778,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n개의 응용프로그램 업데이트 사용가능</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4789,7 +4788,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>새로운 시스템 에디션 및 %n개의 애플리케이션 업데이트 사용가능</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5065,7 +5064,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n일 전</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5625,32 +5624,56 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::FingerModel</name>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>지문이 이미 존재하므로 다른 손가락을 스캔하십시오</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <source>The fingerprint already exists</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <source>Please scan other fingers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+        <source>Moved too fast</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
         <translation>손가락이 너무 빨리 움직입니다. 메시지가 표시 될 때까지 들어 올리지 마십시오</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
-        <source>Unclear fingerprint, please clean your finger and try again</source>
-        <translation>지문이 불분명합니다. 손가락을 닦고 다시 시도하십시오</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="152"/>
+        <source>Unclear fingerprint</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>손가락을 닦거나 손가락 위치를 조정하고 다시 시도하십시오</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="156"/>
+        <source>Already scanned</source>
+        <translation>이미 스캔됨</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>지문을 완전히 스캔하도록 손가락 위치 조정</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <source>The fingerprint already exists, please scan other fingers</source>
+        <translation>지문이 이미 존재하므로 다른 손가락을 스캔하십시오</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
-        <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>손가락을 닦거나 손가락 위치를 조정하고 다시 시도하십시오</translation>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>손가락이 너무 빨리 움직였습니다. 메시지가 표시될 때까지 들어 올리지 마십시오</translation>
     </message>
 </context>
 <context>
@@ -5689,38 +5712,45 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="141"/>
-        <source>Fingerprint added</source>
-        <translation>지문 추가됨</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="70"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="130"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
         <source>Place your finger</source>
         <translation>손가락 갖다대기</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>지문 가장자리를 센서에 갖다대기</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="71"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation>손가락을 들어 올리라는 메시지가 될 때까지 손가락을 센서에 확실히 갖다대기</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
         <source>Lift your finger</source>
+        <translation>손가락 들어 올리리기</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>손가락을 들어 센서에 다시 놓으십시오</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <source>Scan the edges of your fingerprint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="139"/>
-        <source>Lift your finger and place it on the sensor again</source>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <source>Lift your finger and do that again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <source>Fingerprint added</source>
+        <translation>지문 추가됨</translation>
     </message>
 </context>
 <context>
@@ -9456,7 +9486,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 개의 응용프로그램 업데이트가 감지되었습니다.</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9466,7 +9496,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>새 시스템 버전 및 %n 응용프로그램 업데이트가 감지되었습니다</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>

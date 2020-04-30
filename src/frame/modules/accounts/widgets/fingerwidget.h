@@ -70,9 +70,9 @@ private:
     int m_pro{0};
     QTimer *m_titleTimer;
     QTimer *m_msgTimer;
-    QTimer *m_liftTimer;
     QString m_theme;
     bool m_reset{false};
+    bool m_isStageOne{true};
 };
 }
 }

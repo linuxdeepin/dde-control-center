@@ -23,113 +23,113 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="160"/>
         <source>Help</source>
         <translation>說明</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
         <source>Accounts</source>
         <translation>帳戶</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
         <source>Cloud Account</source>
         <translation>網路帳戶</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Display</source>
         <translation>顯示</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Default Applications</source>
         <translation>預設程式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Personalization</source>
         <translation>個人化</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Network</source>
         <translation>網路</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Sound</source>
         <translation>聲音</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="820"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="822"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="819"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
         <source>Bluetooth</source>
         <translation>藍牙</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
         <source>Date and Time</source>
         <translation>時間日期</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Power</source>
         <translation>電源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Mouse</source>
         <translation>滑鼠</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="832"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="834"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="831"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
         <source>Drawing Tablet</source>
         <translation>繪圖板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
         <source>Keyboard and Language</source>
         <translation>鍵盤和語言</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Updates</source>
         <translation>檢查更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>System Info</source>
         <translation>系統資訊</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>General Settings</source>
         <translation>一般設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
         <source>Touchpad</source>
         <translation>觸控板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>TrackPoint</source>
         <translation>小紅點 (TrackPoint)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
         <source>Assistive Tools</source>
         <translation>輔助功能</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="844"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="846"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="843"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
         <source>Cloud Sync</source>
         <translation>雲端同步</translation>
     </message>
@@ -266,7 +266,6 @@
         <translation>重新掃描</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
@@ -274,19 +273,9 @@
         <translation>輸入中斷</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
-        <source>Please scan one second later</source>
-        <translation>請在1秒後重新輸入</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan time expired</source>
         <translation>輸入超時</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
-        <source>Already scanned</source>
-        <translation>圖像重複</translation>
     </message>
 </context>
 <context>
@@ -381,7 +370,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="441"/>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>使用者名稱不能只包含數字</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="448"/>
@@ -549,12 +538,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="168"/>
         <source>Connected</source>
         <translation>已連線</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Not connected</source>
         <translation>未連線</translation>
     </message>
@@ -740,7 +729,7 @@
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="178"/>
         <source>Request Root Access</source>
         <translation>進入開發者模式</translation>
     </message>
@@ -781,22 +770,22 @@
         <translation>簽名驗證失敗，無法進入開發者模式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="151"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
         <translation>開發者模式部分功能需要重啟後生效，是否立即重啟？</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>Restart Now</source>
         <translation>Restart Now</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="175"/>
         <source>Root Access Allowed</source>
         <translation>已進入開發者模式</translation>
     </message>
@@ -1181,12 +1170,22 @@
         <translation>跨螢幕展開桌面</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
+        <source>%1 only</source>
+        <translation>只在%1顯示</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
+        <source>Show the screen content only on %1</source>
+        <translation>僅在 %1 顯示螢幕內容</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
         <source>Customize</source>
         <translation>自訂</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
         <source>Configure the display according to your needs</source>
         <translation>根據需要設定顯示器</translation>
     </message>
@@ -2476,18 +2475,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Save password for all users</source>
-        <translation>存儲所有用戶密碼</translation>
+        <source>Saved</source>
+        <translation>已儲存</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Save password for this user</source>
-        <translation>僅為該用戶存儲密碼</translation>
+        <source>Ask</source>
+        <translation>詢問</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Ask me always</source>
-        <translation>總是詢問</translation>
+        <source>Not Required</source>
+        <translation>選填</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -2618,7 +2617,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
         <source>WEP 40/64/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP40/64/128位金鑰</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
@@ -2670,7 +2669,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WEP 40/64/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP40/64/128位金鑰</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
@@ -4779,7 +4778,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>有 %n 個可用應用程式更新</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4789,7 +4788,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>偵測到新的系統版本和 %n 個應用程式更新</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5065,7 +5064,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 天前</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5625,32 +5624,56 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::FingerModel</name>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>指紋已存在，請使用其他手指輸入</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <source>The fingerprint already exists</source>
+        <translation>指紋已存在</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <source>Please scan other fingers</source>
+        <translation>請使用其他手指輸入</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+        <source>Moved too fast</source>
+        <translation>接觸時間短</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
         <translation>接觸時間短，驗證時請勿移動手指</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
-        <source>Unclear fingerprint, please clean your finger and try again</source>
-        <translation>圖像模糊，請清潔手指後再次驗證</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="152"/>
+        <source>Unclear fingerprint</source>
+        <translation>圖像模糊</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>請清潔手指或調整觸摸位置，再次按壓指紋識別器</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="156"/>
+        <source>Already scanned</source>
+        <translation>圖像重複</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>請調整手指按壓區域以輸入更多指紋</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <source>The fingerprint already exists, please scan other fingers</source>
+        <translation>指紋已存在，請使用其他手指輸入</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
-        <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>請清潔手指或調整觸摸位置，再次按壓指紋識別器</translation>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>指紋採集間隙，請勿移動手指，直到提示您抬起</translation>
     </message>
 </context>
 <context>
@@ -5689,38 +5712,45 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="141"/>
-        <source>Fingerprint added</source>
-        <translation>已新增指紋</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="70"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="130"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
         <source>Place your finger</source>
         <translation>放置手指</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>請以手指邊緣壓指紋收集器，然後根據提示抬起</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="71"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation>請以手指壓指紋收集器，然後根據提示抬起</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
         <source>Lift your finger</source>
+        <translation>抬起手指</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>請抬起手指，再次按壓</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <source>Scan the edges of your fingerprint</source>
+        <translation>輸入邊緣指紋</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="139"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <source>Lift your finger and do that again</source>
+        <translation>請抬起手指，再次按壓</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <source>Fingerprint added</source>
+        <translation>已新增指紋</translation>
     </message>
 </context>
 <context>
@@ -9456,7 +9486,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>偵測到 %n 個應用程式更新</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9466,7 +9496,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>偵測到新的系統版本和 %n 個應用程式更新</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>

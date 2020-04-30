@@ -23,113 +23,113 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="160"/>
         <source>Help</source>
         <translation>Ohje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
         <source>Accounts</source>
         <translation>Tilit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
         <source>Cloud Account</source>
         <translation>Pilvitili</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Display</source>
         <translation>Näyttö</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Default Applications</source>
         <translation>Oletusohjelmat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Personalization</source>
         <translation>Personointi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Network</source>
         <translation>Verkko</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Sound</source>
         <translation>Ääni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="820"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="822"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="819"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
         <source>Date and Time</source>
         <translation>Päivä ja aika</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Power</source>
         <translation>Virta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Mouse</source>
         <translation>Hiiri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="832"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="834"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="831"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
         <source>Drawing Tablet</source>
         <translation>Piirustusalusta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
         <source>Keyboard and Language</source>
         <translation>Kieliasetukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Updates</source>
         <translation>Päivitykset</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>System Info</source>
         <translation>Järjestelmän tiedot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>General Settings</source>
         <translation>Yleiset asetukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
         <source>Touchpad</source>
         <translation>Kosketuslevy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>TrackPoint</source>
         <translation>Tappihiiri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
         <source>Assistive Tools</source>
         <translation>Apuvälineet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="844"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="846"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="843"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
         <source>Cloud Sync</source>
         <translation>Pilvisynkronointi</translation>
     </message>
@@ -266,7 +266,6 @@
         <translation>Skannaa uudelleen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
@@ -274,19 +273,9 @@
         <translation>Skannaus keskeytetty</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
-        <source>Please scan one second later</source>
-        <translation>Skannaa sekuntia myöhemmin</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan time expired</source>
         <translation>Skannausaika on vanhentunut</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
-        <source>Already scanned</source>
-        <translation>Jo skannattu</translation>
     </message>
 </context>
 <context>
@@ -381,7 +370,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="441"/>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjätunnuksessasi ei saa olla vain numeroita</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="448"/>
@@ -549,12 +538,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="168"/>
         <source>Connected</source>
         <translation>Yhdistetty</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Not connected</source>
         <translation>Ei yhteyttä</translation>
     </message>
@@ -740,7 +729,7 @@
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="178"/>
         <source>Request Root Access</source>
         <translation>Pyydä pääkäyttäjän oikeuksia</translation>
     </message>
@@ -781,22 +770,22 @@
         <translation>Varmenteen varmennus epäonnistui, pääkäyttäjän käyttöoikeutta ei voitu saada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="151"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
         <translation>Käyttöönottoon, tarvitaan tietokoneen käynnistys. Käynnistä uudelleen nyt?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>Restart Now</source>
         <translation>Käynnistä nyt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="175"/>
         <source>Root Access Allowed</source>
         <translation>Root oikeudet sallittu</translation>
     </message>
@@ -1181,12 +1170,22 @@
         <translation>Laajenna työpöytää näyttöjen välillä</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
+        <source>%1 only</source>
+        <translation>vain %1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
+        <source>Show the screen content only on %1</source>
+        <translation>Näytä vain näytön %1 sisältö</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
         <source>Customize</source>
         <translation>Muokkaa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
         <source>Configure the display according to your needs</source>
         <translation>Määritä näyttö tarpeidesi mukaan</translation>
     </message>
@@ -2476,18 +2475,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Save password for all users</source>
-        <translation>Tallenna salasana kaikille käyttäjille</translation>
+        <source>Saved</source>
+        <translation>Tallennettu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Save password for this user</source>
-        <translation>Tallenna salasana tälle käyttäjälle</translation>
+        <source>Ask</source>
+        <translation>Kysy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Ask me always</source>
-        <translation>Kysy minulta aina</translation>
+        <source>Not Required</source>
+        <translation>Ei vaadita</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -2618,7 +2617,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
         <source>WEP 40/64/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/64/128-bit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
@@ -2670,7 +2669,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WEP 40/64/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/64/128-bit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
@@ -5625,32 +5624,56 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::accounts::FingerModel</name>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>Sormenjälki on jo olemassa, skannaa muut sormet</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <source>The fingerprint already exists</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <source>Please scan other fingers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+        <source>Moved too fast</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
         <translation>Olet liian nopea, älä nosta sormea ennen kuin pyydetään</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
-        <source>Unclear fingerprint, please clean your finger and try again</source>
-        <translation>Epäselvä sormenjälki, puhdista sormesi ja yritä uudelleen</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="152"/>
+        <source>Unclear fingerprint</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>Puhdista sormesi tai säädä sormen asentoa ja yritä uudelleen</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="156"/>
+        <source>Already scanned</source>
+        <translation>Jo skannattu</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Säädä sormen asentoa, jotta sormenjälkesi voidaan skannata</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <source>The fingerprint already exists, please scan other fingers</source>
+        <translation>Sormenjälki on jo olemassa, skannaa muut sormet</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
-        <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Puhdista sormesi tai säädä sormen asentoa ja yritä uudelleen</translation>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>Sormi liikkui liian nopeasti. Älä nosta, ennen kuin pyydetään</translation>
     </message>
 </context>
 <context>
@@ -5689,38 +5712,45 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="141"/>
-        <source>Fingerprint added</source>
-        <translation>Sormenjälki lisätty</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="70"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="130"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
         <source>Place your finger</source>
         <translation>Aseta sormi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Aseta sormen reunat anturiin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="71"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation>Aseta sormesi tiukasti anturiin, kunnes sinua pyydetään nostamaan se</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
         <source>Lift your finger</source>
         <translation>Nosta sormesi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="139"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
         <source>Lift your finger and place it on the sensor again</source>
         <translation>Nosta sormesi ja aseta se lukijaan uudelleen</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <source>Scan the edges of your fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <source>Lift your finger and do that again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <source>Fingerprint added</source>
+        <translation>Sormenjälki lisätty</translation>
     </message>
 </context>
 <context>

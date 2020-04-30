@@ -23,113 +23,113 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="160"/>
         <source>Help</source>
         <translation>Ajuda</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="305"/>
         <source>Accounts</source>
         <translation>Comptes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="307"/>
         <source>Cloud Account</source>
         <translation>Compte de núvol</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
         <source>Display</source>
         <translation>Pantalla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
         <source>Default Applications</source>
         <translation>Aplicacions per defecte</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
         <source>Personalization</source>
         <translation>Personalització</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
         <source>Network</source>
         <translation>Xarxa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
         <source>Sound</source>
         <translation>So</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="820"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="822"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="819"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
         <source>Date and Time</source>
         <translation>Data i hora</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
         <source>Power</source>
         <translation>Energia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
         <source>Mouse</source>
         <translation>Ratolí</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="832"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="834"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="831"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
         <source>Drawing Tablet</source>
         <translation>Tauleta de dibuix</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
         <source>Keyboard and Language</source>
         <translation>Llengua i teclat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <source>Updates</source>
         <translation>Actualitzacions</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
         <source>System Info</source>
         <translation>Informació del sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>General Settings</source>
         <translation>Configuració general</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
         <source>Touchpad</source>
         <translation>Ratolí tàctil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>TrackPoint</source>
         <translation>Punt de rastreig</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
         <source>Assistive Tools</source>
         <translation>Eines d&apos;assistència</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="844"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="846"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="843"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
         <source>Cloud Sync</source>
         <translation>Sincronització del núvol</translation>
     </message>
@@ -266,7 +266,6 @@
         <translation>Torna-ho a escanejar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
@@ -274,19 +273,9 @@
         <translation>Escaneig suspès</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
-        <source>Please scan one second later</source>
-        <translation>Escaneja un segon més tard</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
         <source>Scan time expired</source>
         <translation>S&apos;ha esgotat l&apos;estona de l&apos;escaneig.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
-        <source>Already scanned</source>
-        <translation>Ja s&apos;ha escanejat.</translation>
     </message>
 </context>
 <context>
@@ -381,7 +370,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="441"/>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>El nom d’usuari no només hauria de tenir números.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="448"/>
@@ -549,12 +538,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="168"/>
         <source>Connected</source>
         <translation>Connectat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
         <source>Not connected</source>
         <translation>No connectat</translation>
     </message>
@@ -740,7 +729,7 @@
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="178"/>
         <source>Request Root Access</source>
         <translation>Demana l&apos;accés d&apos;arrel</translation>
     </message>
@@ -781,22 +770,22 @@
         <translation>Ha fallat la verificació de la signatura. No es pot aconseguir accés d&apos;arrel.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="151"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
         <translation>Per fer efectives algunes característiques, cal reiniciar. Reinicio ara?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
         <source>Restart Now</source>
         <translation>Reinicia ara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="175"/>
         <source>Root Access Allowed</source>
         <translation>Es permet l&apos;accés d&apos;arrel.</translation>
     </message>
@@ -1181,12 +1170,22 @@
         <translation>Expandeix l&apos;escriptori a totes les pantalles.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
+        <source>%1 only</source>
+        <translation>Només %1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
+        <source>Show the screen content only on %1</source>
+        <translation>Mostra el contingut de la pantalla només a %1.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
         <source>Customize</source>
         <translation>Personalitzeu-ho</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
         <source>Configure the display according to your needs</source>
         <translation>Configureu la pantalla d&apos;acord amb les vostres necessitats.</translation>
     </message>
@@ -2476,18 +2475,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Save password for all users</source>
-        <translation>Desa la contrasenya per a tots els usuaris.</translation>
+        <source>Saved</source>
+        <translation>S&apos;ha desat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Save password for this user</source>
-        <translation>Desa la contrasenya per a aquest usuari.</translation>
+        <source>Ask</source>
+        <translation>Pregunta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Ask me always</source>
-        <translation>Pregunta-m&apos;ho sempre.</translation>
+        <source>Not Required</source>
+        <translation>No cal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -2618,7 +2617,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
         <source>WEP 40/64/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP de 40 / 64 / 128 bits</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
@@ -2670,7 +2669,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WEP 40/64/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP de 40 / 64 / 128 bits</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
@@ -5625,32 +5624,56 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
 <context>
     <name>dcc::accounts::FingerModel</name>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>L&apos;empremta ja existeix. Si us plau, escanegeu altres dits.</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <source>The fingerprint already exists</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <source>Please scan other fingers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+        <source>Moved too fast</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
         <translation>El dit s&apos;ha mogut massa de pressa. Si us plau, no l&apos;alceu fins que s&apos;avisi.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
-        <source>Unclear fingerprint, please clean your finger and try again</source>
-        <translation>Empremta poc clara; si us plau, netegeu-vos el dit i torneu-ho a provar.</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="152"/>
+        <source>Unclear fingerprint</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>Netegeu-vos el dit o ajusteu-ne la posició i torneu-ho a provar.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="156"/>
+        <source>Already scanned</source>
+        <translation>Ja s&apos;ha escanejat.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Ajusteu la posició del dit per escanejar-ne tota l&apos;empremta.</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <source>The fingerprint already exists, please scan other fingers</source>
+        <translation>L&apos;empremta ja existeix. Si us plau, escanegeu altres dits.</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
-        <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Netegeu-vos el dit o ajusteu-ne la posició i torneu-ho a provar.</translation>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>El dit s&apos;ha mogut massa de pressa. No l&apos;aixequeu fins que s&apos;indiqui.</translation>
     </message>
 </context>
 <context>
@@ -5689,38 +5712,45 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
 <context>
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="141"/>
-        <source>Fingerprint added</source>
-        <translation>Empremta afegida</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="70"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="130"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
         <source>Place your finger</source>
         <translation>Poseu-hi el dit.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Poseu els marges de l&apos;empremta sobre el sensor.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="71"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation>Poseu el dit amb fermesa sobre el sensor fins que se us digui d&apos;alçar-lo.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
         <source>Lift your finger</source>
         <translation>Alceu el dit.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="139"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
         <source>Lift your finger and place it on the sensor again</source>
         <translation>Alceu el dit i torneu-lo a posar sobre el sensor.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <source>Scan the edges of your fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <source>Lift your finger and do that again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <source>Fingerprint added</source>
+        <translation>Empremta afegida</translation>
     </message>
 </context>
 <context>
@@ -9456,17 +9486,17 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>%n actualització d&apos;aplicació detectada</numerusform><numerusform>%n actualitzacions d&apos;aplicacions detectades</numerusform></translation>
+        <translation><numerusform>S&apos;ha detectat %n actualització d&apos;aplicació.</numerusform><numerusform>S&apos;han detectat %n actualitzacions d&apos;aplicacions.</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
         <source>New system edition detected</source>
-        <translation>Nova edició del sistema detectada</translation>
+        <translation>S&apos;ha detectat una edició nova del sistema.</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Hi ha una edició nova del sistema i s&apos;ha detectat %n actualització d&apos;aplicació.</numerusform><numerusform>Hi ha una edició nova del sistema i s&apos;han detectat %n actualitzacions d&apos;aplicacions.</numerusform></translation>
+        <translation><numerusform>S&apos;han detectat una edició nova del sistema i %n actualització d&apos;aplicació.</numerusform><numerusform>S&apos;han detectat una edició nova del sistema i %n actualitzacions d&apos;aplicacions.</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
