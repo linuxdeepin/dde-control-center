@@ -1280,22 +1280,12 @@
         <translation>Expandir o ambiente de trabalho através dos ecrãs</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>apenas %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Mostrar o conteúdo do ecrã apenas em %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
         <source>Customize</source>
         <translation>Personalizar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
         <source>Configure the display according to your needs</source>
         <translation>Configure o ecrã de acordo com as suas necessidades</translation>
     </message>
@@ -2587,16 +2577,22 @@
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <source>Saved</source>
         <translation>Guardado</translation>
+=======
+        <source>Save password for this user</source>
+        <translation>Guardar palavra-passe para este utilizador</translation>
+>>>>>>> 2e4e1bd90... fix(network): 修复【Pangu-WBY0B 5.7.0.7(C233) + BIOS1.07 V7】Root权限下可以查看用户连接SSID的明文密码
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Ask</source>
-        <translation>Perguntar</translation>
+        <source>Save password for all users</source>
+        <translation>Guardar palavra-passe para todos os utilizadores</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
+<<<<<<< HEAD
         <source>Not Required</source>
         <translation>Desnecessário</translation>
 =======
@@ -2622,6 +2618,10 @@
         <source>Not Required</source>
         <translation>Desnecessário</translation>
 >>>>>>> eb5190f82... refeactor(text):Finger unclear.And Lift finger info
+=======
+        <source>Ask me always</source>
+        <translation>Perguntar sempre</translation>
+>>>>>>> 2e4e1bd90... fix(network): 修复【Pangu-WBY0B 5.7.0.7(C233) + BIOS1.07 V7】Root权限下可以查看用户连接SSID的明文密码
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -5782,11 +5782,13 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <name>dcc::accounts::FingerModel</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>The fingerprint already exists</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
         <source>Please scan other fingers</source>
         <translation type="unfinished"/>
     </message>
@@ -5807,7 +5809,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>Limpe ou ajuste a posição do dedo e tente novamente</translation>
     </message>
@@ -5818,17 +5820,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Ajuste a posição do dedo para verificar completamente a sua impressão digital</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>A impressão digital já existe. Verificar outros dedos</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
         <translation>O dedo mexeu-se muito depressa. Não levante o dedo até ser solicitado</translation>
     </message>

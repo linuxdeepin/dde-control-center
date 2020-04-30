@@ -1272,22 +1272,12 @@
         <translation>Laajenna työpöytää näyttöjen välillä</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>vain %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Näytä vain näytön %1 sisältö</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
         <source>Customize</source>
         <translation>Muokkaa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
         <source>Configure the display according to your needs</source>
         <translation>Määritä näyttö tarpeidesi mukaan</translation>
     </message>
@@ -2579,6 +2569,7 @@
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <source>Saved</source>
         <translation>Tallennettu</translation>
     </message>
@@ -2598,14 +2589,19 @@
         <source>Saved</source>
         <translation>Tallennettu</translation>
 >>>>>>> eb5190f82... refeactor(text):Finger unclear.And Lift finger info
+=======
+        <source>Save password for this user</source>
+        <translation>Tallenna salasana tälle käyttäjälle</translation>
+>>>>>>> 2e4e1bd90... fix(network): 修复【Pangu-WBY0B 5.7.0.7(C233) + BIOS1.07 V7】Root权限下可以查看用户连接SSID的明文密码
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Ask</source>
-        <translation>Kysy</translation>
+        <source>Save password for all users</source>
+        <translation>Tallenna salasana kaikille käyttäjille</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <source>Ask me always</source>
         <translation>Kysy minulta aina</translation>
@@ -2614,6 +2610,10 @@
         <source>Not Required</source>
         <translation>Ei vaadita</translation>
 >>>>>>> eb5190f82... refeactor(text):Finger unclear.And Lift finger info
+=======
+        <source>Ask me always</source>
+        <translation>Kysy minulta aina</translation>
+>>>>>>> 2e4e1bd90... fix(network): 修复【Pangu-WBY0B 5.7.0.7(C233) + BIOS1.07 V7】Root权限下可以查看用户连接SSID的明文密码
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -5779,11 +5779,13 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <name>dcc::accounts::FingerModel</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>The fingerprint already exists</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
         <source>Please scan other fingers</source>
         <translation type="unfinished"/>
     </message>
@@ -5804,7 +5806,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>Puhdista sormesi tai säädä sormen asentoa ja yritä uudelleen</translation>
     </message>
@@ -5815,17 +5817,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Säädä sormen asentoa, jotta sormenjälkesi voidaan skannata</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>Sormenjälki on jo olemassa, skannaa muut sormet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
         <translation>Sormi liikkui liian nopeasti. Älä nosta, ennen kuin pyydetään</translation>
     </message>

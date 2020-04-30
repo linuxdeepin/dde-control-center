@@ -1369,22 +1369,12 @@
         <translation>扩展屏幕并在不同屏幕显示不同内容</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>只在%1显示</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>仅在%1上显示屏幕内容</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
         <source>Configure the display according to your needs</source>
         <translation>根据您需要的方式进行自定义配置</translation>
     </message>
@@ -2682,18 +2672,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Saved</source>
-        <translation>已保存的</translation>
+        <source>Save password for this user</source>
+        <translation>仅为该用户存储密码</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Ask</source>
-        <translation>总是询问</translation>
+        <source>Save password for all users</source>
+        <translation>存储所有用户密码</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Not Required</source>
-        <translation>不要求</translation>
+        <source>Ask me always</source>
+        <translation>总是询问</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -5861,11 +5851,13 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::accounts::FingerModel</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>The fingerprint already exists</source>
         <translation>指纹已存在</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
         <source>Please scan other fingers</source>
         <translation>请使用其他手指录入</translation>
     </message>
@@ -5886,7 +5878,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>请清洁手指或调整触摸位置，再次按压指纹识别器</translation>
     </message>
@@ -5897,17 +5889,12 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>请调整手指按压区域以录入更多指纹</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>指纹已存在，请使用其他手指录入</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
         <translation>指纹采集间隙，请勿移动手指，直到提示您抬起</translation>
     </message>

@@ -1272,22 +1272,12 @@
         <translation>Прошири радну површину преко свих екрана</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>Само %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Прикажи садржај екрана само на %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
         <source>Customize</source>
         <translation>Прилагоди</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
         <source>Configure the display according to your needs</source>
         <translation>Подесите приказ према вашим потребама</translation>
     </message>
@@ -2579,16 +2569,22 @@
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <source>Saved</source>
         <translation>Сачувано</translation>
+=======
+        <source>Save password for this user</source>
+        <translation>Сачувај лозинку за овог корисника</translation>
+>>>>>>> 2e4e1bd90... fix(network): 修复【Pangu-WBY0B 5.7.0.7(C233) + BIOS1.07 V7】Root权限下可以查看用户连接SSID的明文密码
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Ask</source>
-        <translation>Питај</translation>
+        <source>Save password for all users</source>
+        <translation>Сачувај лозинку за све кориснике</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
+<<<<<<< HEAD
         <source>Not Required</source>
         <translation>Није потребно</translation>
 =======
@@ -2614,6 +2610,10 @@
         <source>Not Required</source>
         <translation>Није потребно</translation>
 >>>>>>> eb5190f82... refeactor(text):Finger unclear.And Lift finger info
+=======
+        <source>Ask me always</source>
+        <translation>Увек ме питај</translation>
+>>>>>>> 2e4e1bd90... fix(network): 修复【Pangu-WBY0B 5.7.0.7(C233) + BIOS1.07 V7】Root权限下可以查看用户连接SSID的明文密码
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -5770,11 +5770,13 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::accounts::FingerModel</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"/>
+        <translation>Отисак прста већ постоји</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
         <source>Please scan other fingers</source>
         <translation type="unfinished"/>
     </message>
@@ -5795,7 +5797,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>Очистите прст или прилагодите позицију прста и покушајте поново</translation>
     </message>
@@ -5806,17 +5808,12 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Прилагодите положај прста да очитате цео отисак</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>Отисак прста већ постоји, молимо очитајте остале прсте</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
         <translation>Прст је пребрзо склоњен. Молимо не подижите до обавештења</translation>
     </message>

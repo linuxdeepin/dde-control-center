@@ -1280,22 +1280,12 @@
         <translation>Expandeix l&apos;escriptori a totes les pantalles.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>Només %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Mostra el contingut de la pantalla només a %1.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
         <source>Customize</source>
         <translation>Personalitzeu-ho</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
         <source>Configure the display according to your needs</source>
         <translation>Configureu la pantalla d&apos;acord amb les vostres necessitats.</translation>
     </message>
@@ -2585,18 +2575,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Saved</source>
-        <translation>S&apos;ha desat</translation>
+        <source>Save password for this user</source>
+        <translation>Desa la contrasenya per a aquest usuari.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Ask</source>
-        <translation>Pregunta</translation>
+        <source>Save password for all users</source>
+        <translation>Desa la contrasenya per a tots els usuaris.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Not Required</source>
-        <translation>No cal</translation>
+        <source>Ask me always</source>
+        <translation>Pregunta-m&apos;ho sempre.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -5737,11 +5727,13 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <name>dcc::accounts::FingerModel</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>The fingerprint already exists</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
         <source>Please scan other fingers</source>
         <translation type="unfinished"/>
     </message>
@@ -5762,7 +5754,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>Netegeu-vos el dit o ajusteu-ne la posició i torneu-ho a provar.</translation>
     </message>
@@ -5773,17 +5765,12 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Ajusteu la posició del dit per escanejar-ne tota l&apos;empremta.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>L&apos;empremta ja existeix. Si us plau, escanegeu altres dits.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
         <translation>El dit s&apos;ha mogut massa de pressa. No l&apos;aixequeu fins que s&apos;indiqui.</translation>
     </message>

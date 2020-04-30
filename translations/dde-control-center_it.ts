@@ -1272,22 +1272,12 @@
         <translation>Espandi il desktop tra gli schermi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>Solo %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Mostra i contenuti solo in %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
         <source>Customize</source>
         <translation>Personalizza</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
         <source>Configure the display according to your needs</source>
         <translation>Configura il display secondo le tue preferenze</translation>
     </message>
@@ -2579,6 +2569,7 @@
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <source>Saved</source>
         <translation>Salvato</translation>
     </message>
@@ -2598,14 +2589,19 @@
         <source>Saved</source>
         <translation>Salvato</translation>
 >>>>>>> eb5190f82... refeactor(text):Finger unclear.And Lift finger info
+=======
+        <source>Save password for this user</source>
+        <translation>Salva la password solo per me</translation>
+>>>>>>> 2e4e1bd90... fix(network): 修复【Pangu-WBY0B 5.7.0.7(C233) + BIOS1.07 V7】Root权限下可以查看用户连接SSID的明文密码
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Ask</source>
-        <translation>Chiedi</translation>
+        <source>Save password for all users</source>
+        <translation>Salva la password per tutti gli utenti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <source>Ask me always</source>
         <translation>Chiedi sempre</translation>
@@ -2614,6 +2610,10 @@
         <source>Not Required</source>
         <translation>Non richiesto</translation>
 >>>>>>> eb5190f82... refeactor(text):Finger unclear.And Lift finger info
+=======
+        <source>Ask me always</source>
+        <translation>Chiedi sempre</translation>
+>>>>>>> 2e4e1bd90... fix(network): 修复【Pangu-WBY0B 5.7.0.7(C233) + BIOS1.07 V7】Root权限下可以查看用户连接SSID的明文密码
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -5779,18 +5779,20 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <name>dcc::accounts::FingerModel</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;impronta esiste già</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
         <source>Please scan other fingers</source>
-        <translation type="unfinished"/>
+        <translation>Scansiona un altro dito</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
         <source>Moved too fast</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;hai mosso troppo in fretta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
@@ -5800,11 +5802,11 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="152"/>
         <source>Unclear fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Impronta non chiara</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>Pulisci il lettore o riposiziona il dito prima di riprovare</translation>
     </message>
@@ -5815,17 +5817,12 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Sistema la posizione del dito per scannerizzare l&apos;impronta correttamente</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>L&apos;impronta esiste già, scannerizza una nuova impronta</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
         <translation>Movimento del dito troppo rapito, non spostarlo sino a nuova istruzione</translation>
     </message>
@@ -5892,17 +5889,17 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Scansiona gli angoli della tua impronta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Sistema la posizione del dito per scansionare gli angoli dell&apos;impronta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Solleva il dito e riprova</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
