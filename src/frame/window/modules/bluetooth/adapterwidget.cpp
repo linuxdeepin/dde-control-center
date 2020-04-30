@@ -196,6 +196,7 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     for (const Device *device : adapter->devices()) {
         addDevice(device);
     }
+    m_switch->setChecked(adapter->powered());
     onPowerStatus(adapter->powered());
 }
 
