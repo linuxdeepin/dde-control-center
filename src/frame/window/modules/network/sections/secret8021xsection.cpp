@@ -37,7 +37,7 @@ Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr
     , m_identity(new LineEditWidget(this))
     , m_password(new LineEditWidget(true, this))
     , m_enableWatcher(nullptr)
-    , m_currentPasswordType(NetworkManager::Setting::None)
+    , m_currentPasswordType(NetworkManager::Setting::AgentOwned)
     , m_secretSetting(sSetting)
 {
     initStrMaps();
@@ -167,9 +167,9 @@ void Secret8021xSection::initStrMaps()
 
     PasswordFlagsStrMap = {
         //{tr("Saved"), NetworkManager::Setting::AgentOwned},
-        {tr("Saved"), NetworkManager::Setting::None},
-        {tr("Ask"), NetworkManager::Setting::NotSaved},
-        {tr("Not Required"), NetworkManager::Setting::NotRequired}
+        {tr("Save password for this user"), NetworkManager::Setting::AgentOwned},
+        {tr("Save password for all users"), NetworkManager::Setting::None},
+        {tr("Ask me always"), NetworkManager::Setting::NotSaved}
     };
 
     FastrProvisioningStrMap = {
