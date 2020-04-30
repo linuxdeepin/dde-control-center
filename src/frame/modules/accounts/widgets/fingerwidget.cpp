@@ -45,33 +45,15 @@ FingerWidget::FingerWidget(QWidget *parent)
     , m_isFinished(false)
     , m_titleTimer(new QTimer(this))
     , m_msgTimer(new QTimer(this))
-    , m_liftTimer(new QTimer(this))
 {
     m_titleTimer->setSingleShot(true);
-    m_titleTimer->setInterval(1500);
+    m_titleTimer->setInterval(2000);
     m_msgTimer->setSingleShot(true);
-    m_msgTimer->setInterval(1500);
-    m_liftTimer->setSingleShot(true);
-    m_liftTimer->setInterval(1500);
+    m_msgTimer->setInterval(2000);
     connect(m_titleTimer, &QTimer::timeout, this, [this]{
         m_titleLbl->setText(m_defTitle);
     });
     connect(m_msgTimer, &QTimer::timeout, this, [this]{
-        m_tipLbl->setText(m_defTip);
-    });
-    connect(m_liftTimer, &QTimer::timeout, this, [this]{
-        if (m_pro == 100) {
-            m_defTitle = tr("Fingerprint added");
-            m_defTip = tr("");
-        } else if (m_pro >= 35) {
-            m_defTitle = tr("Place your finger");
-            m_defTip = tr("Place the edges of your fingerprint on the sensor");
-        } else if (m_pro >= 0 && m_pro < 35) {
-            m_defTitle = tr("Place your finger");
-            m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
-        }
-
-        m_titleLbl->setText(m_defTitle);
         m_tipLbl->setText(m_defTip);
     });
 
@@ -89,8 +71,10 @@ FingerWidget::FingerWidget(QWidget *parent)
 
     m_view->setSingleShot(true);
 
+    m_titleLbl->setAlignment(Qt::AlignCenter);
     m_tipLbl->setWordWrap(true);
     m_tipLbl->setMinimumHeight(80);
+    m_tipLbl->setAlignment(Qt::AlignCenter);
 
     QVBoxLayout *layout = new QVBoxLayout;
 
@@ -129,6 +113,7 @@ void FingerWidget::setProsses(int pro)
 {
     m_pro = pro;
     if(m_pro == 0) {
+        m_isStageOne = true;
         m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
         m_defTitle = tr("Place your finger");
         m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
@@ -137,10 +122,19 @@ void FingerWidget::setProsses(int pro)
         idx = idx > 50 ? 50 : idx;
         m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%2.svg")
                                    .arg(m_theme).arg(idx));
-        if (m_pro != 100) {
+        if (m_pro > 0 && m_pro < 35) {
             m_defTitle = tr("Lift your finger");
             m_defTip = tr("Lift your finger and place it on the sensor again");
-        }else {
+        } else if(m_pro >= 35 && m_pro < 100) {
+            if (m_isStageOne == true) {
+                m_isStageOne = false;
+                m_defTitle = tr("Scan the edges of your fingerprint");
+                m_defTip = tr("Adjust the position to scan the edges of your fingerprint");
+            } else {
+                m_defTitle = tr("Scan the edges of your fingerprint");
+                m_defTip = tr("Lift your finger and do that again");
+            }
+        } else {
             m_defTitle = tr("Fingerprint added");
             m_defTip = tr("");
         }
@@ -149,7 +143,6 @@ void FingerWidget::setProsses(int pro)
     m_titleTimer->stop();
     m_titleLbl->setText(m_defTitle);
     m_tipLbl->setText(m_defTip);
-    m_liftTimer->start();
 }
 
 void FingerWidget::reEnter()

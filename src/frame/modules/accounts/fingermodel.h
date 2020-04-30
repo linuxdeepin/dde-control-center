@@ -53,10 +53,10 @@ Q_SIGNALS:
     void vaildChanged(const bool isVaild);
     void thumbsListChanged(const QStringList &thumbs);
 
-    void enrollFailed(QString msg);
+    void enrollFailed(QString title, QString msg);
     void enrollCompleted();
     void enrollStagePass(int pro);
-    void enrollRetry(QString msg);
+    void enrollRetry(QString title, QString msg);
     void enrollDisconnected();
 
     void lockedChanged(bool locked);

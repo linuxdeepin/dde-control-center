@@ -92,6 +92,7 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
         Q_EMIT enrollCompleted();
         break;
     case ET_Failed: {
+        QString title = "Enroll Failed!";
         QString msg = "Enroll Failed!";
         do {
             if (msg.isEmpty()) {
@@ -110,14 +111,15 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
                 msg = "录入中断，请重新录入";
                 break;
             case FC_RepeatTemplet:
-                msg = tr("The fingerprint already exists, please scan other fingers");
+                title = tr("The fingerprint already exists");
+                msg = tr("Please scan other fingers");
                 break;
             case FC_UnkownError:
                 msg = "未知错误，请重新录入";
             }
             break;
         } while(0);
-        Q_EMIT enrollFailed(msg);
+        Q_EMIT enrollFailed(title, msg);
         break;
     }
     case ET_StagePass: {
@@ -133,7 +135,8 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
         break;
     }
     case ET_Retry: {
-        QString msg = "";
+        QString title = "Enroll Retry!";
+        QString msg = "Enroll Retry!";
         do {
             QStringList keys = jsonObject.keys();
             if (!keys.contains("subcode")) {
@@ -142,12 +145,15 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
             auto errCode = jsonObject.value("subcode").toInt();
             switch(errCode) {
             case RC_TouchTooShort: //接触时间过短
+                title = tr("Moved too fast");
                 msg = tr("Finger moved too fast, please do not lift until prompted");
                 break;
             case RC_ErrorFigure: //图像不可用
-                msg = tr("Unclear fingerprint, please clean your finger and try again");
+                title = tr("Unclear fingerprint");
+                msg = tr("Clean your finger or adjust the finger position, and try again");
                 break;
             case RC_RepeatTouchData: //重复率过高
+                title = tr("Already scanned");
                 msg = tr("Adjust the finger position to scan your fingerprint fully");
                 break;
             case RC_RepeatFingerData: //重复手指
@@ -155,7 +161,7 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
                 Q_EMIT
                 break;
             case RC_SwipeTooShort: //按压时间短
-                msg = tr("Finger moved too fast, please do not lift until prompted");
+                msg = tr("Finger moved too fast. Please do not lift until prompted");
                 break;
             case RC_FingerNotCenter: //手指不在中间
                 msg = tr("Adjust the finger position to scan your fingerprint fully");
@@ -166,7 +172,7 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
             }
             break;
         } while(0);
-        Q_EMIT enrollRetry(msg);
+        Q_EMIT enrollRetry(title, msg);
         break;
     }
     case ET_Disconnect:

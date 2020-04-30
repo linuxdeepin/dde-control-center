@@ -54,12 +54,12 @@ public:
     void setUsername(const QString &name);
     void enrollCompleted();
     void enrollStagePass(int pro);
-    void enrollFailed(QString msg);
+    void enrollFailed(QString title, QString msg);
     void setInitStatus();
     void enrollDisconnected();
     void enrollFocusOut();
     void enrollOverTime();
-    void enrollRetry(QString msg);
+    void enrollRetry(QString title, QString msg);
 
 private:
     void initWidget();
