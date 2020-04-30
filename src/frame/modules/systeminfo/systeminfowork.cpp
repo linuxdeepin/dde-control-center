@@ -110,7 +110,7 @@ void SystemInfoWork::activate()
     m_model->setDisk(m_systemInfoInter->diskCap());
 
     QString version;
-    version = QString("%1 %2").arg(DSysInfo::deepinVersion().left(2))
+    version = QString("%1 %2").arg(DSysInfo::deepinVersion())
                               .arg(DSysInfo::deepinTypeDisplayName());
 
     m_model->setVersion(version);
