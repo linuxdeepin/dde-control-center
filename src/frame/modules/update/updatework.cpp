@@ -197,18 +197,24 @@ UpdateWorker::~UpdateWorker()
 
 }
 
+void UpdateWorker::licenseStateChangeSlot()
+{
+    getLicenseState();
+}
+
+
 void UpdateWorker::getLicenseState()
 {
-    QDBusInterface licenseInfo("com.deepin.license.activator",
-                               "/com/deepin/license/activator",
-                               "com.deepin.license.activator",
-                               QDBusConnection::sessionBus());
+    QDBusInterface licenseInfo("com.deepin.license",
+                               "/com/deepin/license/Info",
+                               "com.deepin.license.Info",
+                               QDBusConnection::systemBus());
     if (!licenseInfo.isValid()) {
         qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
         return;
     }
-    QDBusReply<quint32> reply = licenseInfo.call(QDBus::AutoDetect,
-                                   "GetIndicatorData");
+    quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    qDebug() << "Authorization State:" << reply;
     m_model->setSystemActivation(reply);
 }
 
