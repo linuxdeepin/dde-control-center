@@ -97,6 +97,7 @@ public Q_SLOTS:
     void recoveryCanBackup();
     void recoveryStartRestore();
     void onNotifyDownloadInfoChanged();
+    void licenseStateChangeSlot();
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);

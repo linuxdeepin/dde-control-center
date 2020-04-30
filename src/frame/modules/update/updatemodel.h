@@ -145,7 +145,7 @@ public:
     bool getIsRecoveryBackingup(UpdatesStatus state) const;
 
     inline bool systemActivation() const {return m_bSystemActivation;}
-    void setSystemActivation(bool systemactivation);
+    void setSystemActivation(int systemactivation);
 
     inline bool getUpdatablePackages() const {return m_isUpdatablePackages;}
     void isUpdatablePackages(bool isUpdatablePackages);

@@ -113,6 +113,7 @@ void UpdateModule::active()
 {
     UpdateWidget *mainWidget = new UpdateWidget;
     mainWidget->initialize();
+    m_work->getLicenseState();
 
     if (m_model->systemActivation()) {
         mainWidget->setSystemVersion(m_model->systemVersionInfo());
