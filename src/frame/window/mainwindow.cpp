@@ -59,6 +59,8 @@
 #include <QLinearGradient>
 #include <QGSettings>
 #include <QScroller>
+#include <QMouseEvent>
+#include <QResizeEvent>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;

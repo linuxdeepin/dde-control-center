@@ -186,8 +186,8 @@ bool UpdateNotifier::comparePkgLists(QStringList val1, QStringList val2)
 {
     if (val1.length() != val2.length()) return false;
 
-    qSort(val1.begin(), val1.end());
-    qSort(val2.begin(), val2.end());
+    std::sort(val1.begin(), val1.end());
+    std::sort(val2.begin(), val2.end());
 
     return val1 == val2;
 }

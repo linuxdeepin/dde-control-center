@@ -32,6 +32,7 @@
 #include <QRegularExpression>
 #include <QPainter>
 #include <QRect>
+#include <QKeyEvent>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
