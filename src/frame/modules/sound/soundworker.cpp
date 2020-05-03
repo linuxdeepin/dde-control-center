@@ -261,7 +261,11 @@ void SoundWorker::cardsChanged(const QString &cards)
                 if (!include) { port = new Port(m_model); }
 
                 port->setId(portId);
-                port->setName(portName);
+                if (portName == "耳机") {
+                    port->setName(tr("Bluetooth Earphones"));
+                } else {
+                    port->setName(portName);
+                }
                 port->setDirection(Port::Direction(jPort["Direction"].toDouble()));
                 port->setCardId(cardId);
                 port->setCardName(cardName);
