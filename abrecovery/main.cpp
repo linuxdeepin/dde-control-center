@@ -33,6 +33,7 @@ DCORE_USE_NAMESPACE
 
 int main(int argc, char *argv[])
 {
+    qputenv("QT_WAYLAND_SHELL_INTEGRATION", "kwayland-shell");
     DApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
 
