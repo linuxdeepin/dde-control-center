@@ -385,6 +385,10 @@ void BluetoothWorker::setAdapterDiscovering(const QDBusObjectPath &path, bool en
 {
     m_bluetoothInter->SetAdapterDiscovering(path, enable);
 }
+void BluetoothWorker::clearUnpairedDevice()
+{
+    m_bluetoothInter->ClearUnpairedDevice();
+}
 
 } // namespace bluetooth
 } // namespace dcc
