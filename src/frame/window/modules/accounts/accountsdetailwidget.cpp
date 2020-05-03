@@ -365,15 +365,15 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_fingerWidget = new FingerWidget(m_curUser, this);
     m_fingerWidget->setContentsMargins(0, 0, 0, 0);
     m_fingerWidget->layout()->setMargin(0);
-    m_fingerWidget->setVisible(true);
     layout->addSpacing(30);
     layout->addWidget(m_fingerWidget);
 
-    //非当前用户不显示修改密码，自动登录，无密码登录
+    //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
     modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
+    m_fingerWidget->setVisible(isCurUser);
 
     //服务器版本不显示自动登录，无密码登录
     loginGrp->setVisible(!IsServerSystem);

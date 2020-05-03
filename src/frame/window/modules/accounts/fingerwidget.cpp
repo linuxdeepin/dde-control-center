@@ -45,6 +45,10 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     m_clearBtn->setCheckable(true);
 
     TitleLabel *fingetitleLabel = new TitleLabel(tr("Fingerprint Password"));
+    TitleLabel *m_maxFingerTip = new TitleLabel(tr("You can add up to 10 fingerprints"));
+    QFont font;
+    font.setPointSizeF(10);
+    m_maxFingerTip->setFont(font);
 
     m_listGrp->setSpacing(1);
     m_listGrp->setContentsMargins(0, 0, 0, 0);
@@ -57,10 +61,17 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     headLayout->addWidget(fingetitleLabel, 0, Qt::AlignLeft);
     headLayout->addWidget(m_clearBtn, 0, Qt::AlignRight);
 
+    QHBoxLayout *tipLayout = new QHBoxLayout;
+    tipLayout->setSpacing(10);
+    tipLayout->setContentsMargins(10, 0, 10, 0);
+    tipLayout->addWidget(m_maxFingerTip, 0, Qt::AlignLeft);
+
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setSpacing(1);
     mainContentLayout->setMargin(0);
     mainContentLayout->addLayout(headLayout);
+    mainContentLayout->addSpacing(2);
+    mainContentLayout->addLayout(tipLayout);
     mainContentLayout->addSpacing(10);
     mainContentLayout->addWidget(m_listGrp);
     setLayout(mainContentLayout);
@@ -110,7 +121,13 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
         connect(item, &AccounntFingeItem::removeClicked, this, [this, finger] {
             Q_EMIT requestDeleteFingerItem(m_curUser->name(), finger);
         });
-        connect(item, &AccounntFingeItem::editTextFinished, this, [this, finger, item](QString newName) {
+        connect(item, &AccounntFingeItem::editTextFinished, this, [this, finger, item, thumbs](QString newName) {
+            for (int n = 0; n < thumbs.size(); ++n) {
+                if (newName == thumbs.at(n)) {
+                    item->alertTitleRepeat();
+                    return;
+                }
+            }
             item->setTitle(newName);
             Q_EMIT requestRenameFingerItem(m_curUser->name(), finger, newName);
         });
@@ -124,7 +141,7 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
     }
 
     m_clearBtn->setVisible(m_listGrp->itemCount());
-    if (!thumb.isEmpty()) {
+    if (!thumb.isEmpty() && thumbs.size() < 10) {
         m_notUseThumb = thumb.first();
         addFingerButton();
     }
