@@ -89,6 +89,13 @@ void AccounntFingeItem::setTitle(const QString &title)
     }
 }
 
+void AccounntFingeItem::alertTitleRepeat()
+{
+    m_editTitle->setAlert(true);
+    m_editTitle->showAlertMessage(tr("Fingerprint name already exist"), parentWidget());
+    m_editTitle->lineEdit()->selectAll();
+}
+
 void AccounntFingeItem::appendItem(QWidget *widget)
 {
     m_layout->addWidget(widget, 0, Qt::AlignLeft);

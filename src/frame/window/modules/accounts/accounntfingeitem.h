@@ -46,6 +46,7 @@ class AccounntFingeItem : public dcc::widgets::SettingsItem
 public:
     explicit AccounntFingeItem(QWidget *parent = nullptr);
     void setTitle(const QString &title);
+    void alertTitleRepeat();
     void appendItem(QWidget *widget);
     void setShowIcon(bool state);
     void setEditTitle(bool state);
