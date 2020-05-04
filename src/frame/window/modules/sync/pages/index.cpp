@@ -142,6 +142,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_autoSyncSwitch, &SwitchWidget::setChecked);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_listView, &QListView::setVisible);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_networkTip, &QLabel::setVisible);
+    connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_lastSyncTimeLbl, &QLabel::setVisible);
     connect(model, &dcc::cloudsync::SyncModel::syncStateChanged, this, &IndexPage::onStateChanged);
     connect(model, &dcc::cloudsync::SyncModel::lastSyncTimeChanged, this, &IndexPage::onLastSyncTimeChanged);
     connect(model, &dcc::cloudsync::SyncModel::moduleSyncStateChanged, this, &IndexPage::onModuleStateChanged);
@@ -181,6 +182,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     m_autoSyncSwitch->setChecked(model->enableSync());
     m_networkTip->setVisible(model->enableSync());
     m_listView->setVisible(model->enableSync());
+    m_lastSyncTimeLbl->setVisible(model->enableSync());
     onStateChanged(model->syncState());
     onLastSyncTimeChanged(model->lastSyncTime());
 }
@@ -229,7 +231,7 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
     } while (false);
 
     if (!m_autoSyncSwitch->checked()) {
-        m_lastSyncTimeLbl->show();
+        m_lastSyncTimeLbl->hide();
         m_stateLbl->hide();
         m_stateIcon->setRotatePixmap(QPixmap());
         m_stateIcon->stop();
@@ -261,15 +263,14 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
 void IndexPage::SyncTimeLbl(bool checked)
 {
     if (!checked) {
-        m_lastSyncTimeLbl->show();
+        m_lastSyncTimeLbl->hide();
         m_stateLbl->hide();
         m_stateIcon->setRotatePixmap(QPixmap());
         m_stateIcon->stop();
         return;
     } else if(SyncModel::isSyncStateValid(m_state)) {
         onStateChanged(m_state);
-    }
-    else {
+    } else {
         return;
     }
 }
@@ -293,6 +294,7 @@ void IndexPage::onModuleStateChanged(std::pair<SyncType, bool> state)
 void IndexPage::onAutoSyncChanged(bool autoSync)
 {
     m_listView->setVisible(!autoSync);
+    m_lastSyncTimeLbl->setVisible(!autoSync);
 }
 }
 }
