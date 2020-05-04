@@ -107,7 +107,7 @@ void AddFingeDialog::setFingerModel(FingerModel *model)
     connect(m_model, &FingerModel::enrollRetry, this, &AddFingeDialog::enrollRetry);
     connect(m_model, &FingerModel::lockedChanged, this, [this](bool locked) {
         if (locked) {
-            close();
+//            close();
         }
     });
     m_timer->start(1000 * 60);//1min
