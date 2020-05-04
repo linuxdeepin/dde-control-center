@@ -233,8 +233,8 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         QString title(tr("UOS Privacy Policy"));
         QString allowContent(tr("Agree and Join User Experience Program"));
 
-        // license内容
-        QString content = getLicense("/usr/share/deepin-deepinid-client/privacy/deepinid-CN-%1.md", "");
+        // license路径
+        QString content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/deepinid-CN-%1.md", "");
 
         m_process = new QProcess(this);
 
