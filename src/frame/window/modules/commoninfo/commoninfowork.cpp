@@ -232,8 +232,8 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         QString title(tr("UOS Privacy Policy"));
         QString allowContent(tr("Agree and Join User Experience Program"));
 
-        // license内容
-        QString content = getLicense("/usr/share/deepin-deepinid-client/privacy/deepinid-CN-%1.md", "");
+        // license路径
+        QString content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/deepinid-CN-%1.md", "");
 
         m_process = new QProcess(this);
 
@@ -291,7 +291,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     QString allowContent(tr("Agree and Request Root Access"));
 
     // license内容
-    QString content = getdevelopmoveLicense(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
+    QString content = getDevelopModeLicense(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
     QString contentPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);// 临时存储路径
     QString contentPathS =contentPath + "/tmpDeveloperMode.txt" ;
 
