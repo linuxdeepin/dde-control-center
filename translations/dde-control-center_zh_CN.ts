@@ -137,6 +137,11 @@
 <context>
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="95"/>
+        <source>Fingerprint name already exist</source>
+        <translation>指纹名称已存在</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
         <translation>指纹名称只能由字母、数字、中文、下划线组成，且不得超过15个字符。</translation>
@@ -400,6 +405,11 @@
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
         <source>Fingerprint Password</source>
         <translation>指纹密码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
+        <source>You can add up to 10 fingerprints</source>
+        <translation>您最多可录入10个指纹</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
