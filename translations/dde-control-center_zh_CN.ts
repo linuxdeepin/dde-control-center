@@ -138,11 +138,11 @@
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="95"/>
-        <source>Fingerprint name already exist</source>
+        <source>The fingerprint name already exists</source>
         <translation>指纹名称已存在</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="130"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
         <translation>指纹名称只能由字母、数字、中文、下划线组成，且不得超过15个字符。</translation>
     </message>
@@ -397,7 +397,7 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="86"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
@@ -412,12 +412,12 @@
         <translation>您最多可录入10个指纹</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="84"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="153"/>
         <source>Add Fingerprint</source>
         <translation>添加指纹</translation>
     </message>
@@ -2656,48 +2656,63 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="80"/>
         <source>Invalid password</source>
         <translation>密码无效</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="112"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="113"/>
         <source>WEP 40/64/128-bit</source>
         <translation>WEP40/64/128位密钥</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="114"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2个人版</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2企业版</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="119"/>
+        <source>Shared key</source>
+        <translation>共享密钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="120"/>
+        <source>Open system</source>
+        <translation>开放式系统</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="136"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="149"/>
+        <source>Authentication</source>
+        <translation>安全认证类型</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="202"/>
         <source>Key</source>
         <translation>密钥</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="210"/>
         <source>Password</source>
         <translation>请输入密码</translation>
     </message>
@@ -9189,6 +9204,14 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
         <translation>系统音效</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::sound::SoundWorker</name>
+    <message>
+        <location filename="../src/frame/modules/sound/soundworker.cpp" line="265"/>
+        <source>Bluetooth Earphones</source>
+        <translation>蓝牙耳机</translation>
     </message>
 </context>
 <context>

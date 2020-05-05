@@ -137,7 +137,12 @@
 <context>
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="95"/>
+        <source>The fingerprint name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="130"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
         <translation type="unfinished"/>
     </message>
@@ -392,7 +397,7 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="86"/>
         <source>Edit</source>
         <translation>Засах</translation>
     </message>
@@ -402,12 +407,17 @@
         <translation>Хурууны хээн нууц үг</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
+        <source>You can add up to 10 fingerprints</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="84"/>
         <source>Cancel</source>
         <translation>Цуцлах</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="153"/>
         <source>Add Fingerprint</source>
         <translation>Хурууны хээ нэмэх</translation>
     </message>
@@ -2646,48 +2656,63 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="80"/>
         <source>Invalid password</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="112"/>
         <source>None</source>
         <translation>Байхгүй</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="113"/>
         <source>WEP 40/64/128-bit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="114"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 хувийн</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>Аж ахуй нэгжийн WPA/WPA2</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="119"/>
+        <source>Shared key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="120"/>
+        <source>Open system</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
         <source>Security</source>
         <translation>Аюулгүй байдал</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="136"/>
         <source>Required</source>
         <translation>Шаардлагатай</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="149"/>
+        <source>Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="202"/>
         <source>Key</source>
         <translation>Түлхүүр</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="210"/>
         <source>Password</source>
         <translation>Нууц үг</translation>
     </message>
@@ -9178,6 +9203,14 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
         <translation>Дууны эффект</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::sound::SoundWorker</name>
+    <message>
+        <location filename="../src/frame/modules/sound/soundworker.cpp" line="265"/>
+        <source>Bluetooth Earphones</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

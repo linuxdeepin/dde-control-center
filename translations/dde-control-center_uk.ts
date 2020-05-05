@@ -137,7 +137,12 @@
 <context>
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="95"/>
+        <source>The fingerprint name already exists</source>
+        <translation>Відбиток із такою назвою вже існує</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="130"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
         <translation>Назва має складатися лише з латинських літер, цифр і символів підкреслювання. Довжина назви не повинна перевищувати 15 символів.</translation>
     </message>
@@ -392,7 +397,7 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="86"/>
         <source>Edit</source>
         <translation>Змінити</translation>
     </message>
@@ -402,12 +407,17 @@
         <translation>Пароль відбитку пальців</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
+        <source>You can add up to 10 fingerprints</source>
+        <translation>Ви можете додати до 10 відбитків</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="84"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="153"/>
         <source>Add Fingerprint</source>
         <translation>Додати відбиток</translation>
     </message>
@@ -2646,48 +2656,63 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="80"/>
         <source>Invalid password</source>
         <translation>Некоректний пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="112"/>
         <source>None</source>
         <translation>Нічого</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="113"/>
         <source>WEP 40/64/128-bit</source>
         <translation>WEP 40/64/128-бітовий</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="114"/>
         <source>WPA/WPA2 Personal</source>
         <translation>Режим WPA/WPA2 Personal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>Підприємство WPA/WPA2</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="119"/>
+        <source>Shared key</source>
+        <translation>Спільний ключ</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="120"/>
+        <source>Open system</source>
+        <translation>Відкрита система</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
         <source>Security</source>
         <translation>Безпека</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="136"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="149"/>
+        <source>Authentication</source>
+        <translation>Розпізнавання</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="202"/>
         <source>Key</source>
         <translation>Клавіша</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="210"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
@@ -5617,18 +5642,18 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"/>
+        <translation>Відбиток вже існує</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
         <source>Please scan other fingers</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, виконайте сканування інших пальців</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
         <source>Moved too fast</source>
-        <translation type="unfinished"/>
+        <translation>Надто швидкий рух</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
@@ -5638,7 +5663,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="152"/>
         <source>Unclear fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Брудний палець</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
@@ -5722,17 +5747,17 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Сканування країв вашого відбитка</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Скоригуйте позицію для сканування країв вашого відбитка</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Прийміть ваш палець і повторіть спробу</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
@@ -9179,6 +9204,14 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
         <translation>Звукові ефекти</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::sound::SoundWorker</name>
+    <message>
+        <location filename="../src/frame/modules/sound/soundworker.cpp" line="265"/>
+        <source>Bluetooth Earphones</source>
+        <translation>Навушники Bluetooth</translation>
     </message>
 </context>
 <context>

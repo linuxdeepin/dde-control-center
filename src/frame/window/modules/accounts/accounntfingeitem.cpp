@@ -92,7 +92,7 @@ void AccounntFingeItem::setTitle(const QString &title)
 void AccounntFingeItem::alertTitleRepeat()
 {
     m_editTitle->setAlert(true);
-    m_editTitle->showAlertMessage(tr("Fingerprint name already exist"), parentWidget());
+    m_editTitle->showAlertMessage(tr("The fingerprint name already exists"), parentWidget());
     m_editTitle->lineEdit()->selectAll();
 }
 
