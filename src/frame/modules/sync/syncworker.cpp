@@ -129,10 +129,10 @@ void SyncWorker::onGetModuleSyncStateFinished(QDBusPendingCallWatcher *watcher)
 
 void SyncWorker::onLastSyncTimeChanged(qlonglong lastSyncTime)
 {
+    qDebug() << "onLastSyncTimeChanged: " << lastSyncTime;
     if (lastSyncTime == 0) {
         m_model->setSyncState(std::pair<qint32, QString>(100, ""));
-    }
-    else {
+    } else {
         Q_EMIT m_syncInter->StateChanged(m_syncInter->state());
         m_model->setLastSyncTime(lastSyncTime);
     }
