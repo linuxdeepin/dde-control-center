@@ -225,9 +225,9 @@ void AdapterWidget::toggleSwitch(const bool checked)
     } else {
         QTimer::singleShot(1000, this, [=] {
             for (auto conn : m_preConnDevices) {
-                if (conn->device()->state() != Device::StateConnected){
+                if (conn != nullptr && conn->device() != nullptr && conn->device()->state() != Device::StateConnected){
                    Q_EMIT requestConnectDevice(conn->device());
-                }     
+                }
             }
             m_preConnDevices.clear();
         });
