@@ -51,12 +51,15 @@ private:
 
 private:
     QList<QPair<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt>> KeyMgmtStrMap;
+    QList<QPair<QString, NetworkManager::WirelessSecuritySetting::AuthAlg>> AuthAlgStrMap;
 
     dcc::widgets::ComboxWidget *m_keyMgmtChooser;
     dcc::widgets::LineEditWidget *m_passwdEdit;
     Secret8021xEnableWatcher *m_enableWatcher;
+    dcc::widgets::ComboxWidget *m_authAlgChooser;
 
     NetworkManager::WirelessSecuritySetting::KeyMgmt m_currentKeyMgmt;
+    NetworkManager::WirelessSecuritySetting::AuthAlg m_currentAuthAlg;
 
     NetworkManager::WirelessSecuritySetting::Ptr m_wsSetting;
     NetworkManager::Security8021xSetting::Ptr m_s8Setting;

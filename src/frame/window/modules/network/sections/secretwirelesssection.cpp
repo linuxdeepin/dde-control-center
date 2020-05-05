@@ -35,7 +35,9 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
     , m_keyMgmtChooser(new ComboxWidget(this))
     , m_passwdEdit(new LineEditWidget(true, this))
     , m_enableWatcher(new Secret8021xEnableWatcher(this))
+    , m_authAlgChooser(new ComboxWidget(this))
     , m_currentKeyMgmt(NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone)
+    , m_currentAuthAlg(NetworkManager::WirelessSecuritySetting::AuthAlg::Shared)
     , m_wsSetting(wsSeting)
     , m_s8Setting(sSetting)
 {
@@ -45,6 +47,8 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
     const NetworkManager::WirelessSecuritySetting::KeyMgmt &keyMgmt = m_wsSetting->keyMgmt();
     m_currentKeyMgmt = (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown) ?
                        NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone : keyMgmt;
+    m_currentAuthAlg = (m_wsSetting->authAlg() == NetworkManager::WirelessSecuritySetting::AuthAlg::Open) ?
+                        m_wsSetting->authAlg() : NetworkManager::WirelessSecuritySetting::AuthAlg::Shared;
 
     initUI();
     initConnection();
@@ -92,6 +96,7 @@ void SecretWirelessSection::saveSettings()
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
         m_wsSetting->setWepKey0(m_passwdEdit->text());
+        m_wsSetting->setAuthAlg(m_currentAuthAlg);
     } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
         m_wsSetting->setPsk(m_passwdEdit->text());
     }
@@ -108,6 +113,11 @@ void SecretWirelessSection::initStrMaps()
         {tr("WEP 40/128-bit"), NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
         {tr("WPA/WPA2 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk},
         {tr("WPA/WPA2 Enterprise"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap}
+    };
+
+    AuthAlgStrMap = {
+        {tr("Shared key"), NetworkManager::WirelessSecuritySetting::AuthAlg::Shared},
+        {tr("Open system"), NetworkManager::WirelessSecuritySetting::AuthAlg::Open}
     };
 }
 
@@ -136,8 +146,19 @@ void SecretWirelessSection::initUI()
 
     init(m_enableWatcher, eapMethodsWantedList);
 
+    m_authAlgChooser->setTitle(tr("Authentication"));
+    QString curAuthAlgOption = AuthAlgStrMap.at(0).first;
+    for (auto it = AuthAlgStrMap.cbegin(); it != AuthAlgStrMap.cend(); ++it) {
+        m_authAlgChooser->comboBox()->addItem(it->first, it->second);
+        if (m_currentAuthAlg == it->second) {
+            curAuthAlgOption = it->first;
+        }
+    }
+    m_authAlgChooser->setCurrentText(curAuthAlgOption);
+
     insertItem(1, m_keyMgmtChooser);
     insertItem(2, m_passwdEdit);
+    insertItem(3, m_authAlgChooser);
 }
 
 void SecretWirelessSection::initConnection()
@@ -146,6 +167,15 @@ void SecretWirelessSection::initConnection()
         for (auto it = KeyMgmtStrMap.cbegin(); it != KeyMgmtStrMap.cend(); ++it) {
             if (it->first == dataSelected) {
                 onKeyMgmtChanged(it->second);
+                break;
+            }
+        }
+    });
+
+    connect(m_authAlgChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
+        for (auto it = AuthAlgStrMap.cbegin(); it != AuthAlgStrMap.cend(); ++it) {
+            if (it->first == dataSelected) {
+                m_currentAuthAlg = it->second;
                 break;
             }
         }
@@ -164,6 +194,7 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone: {
         m_passwdEdit->setVisible(false);
         m_enableWatcher->setSecretEnable(false);
+        m_authAlgChooser->setVisible(false);
         break;
     }
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep: {
@@ -171,6 +202,7 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
         m_passwdEdit->setTitle(tr("Key"));
         m_passwdEdit->setVisible(true);
         m_enableWatcher->setSecretEnable(false);
+        m_authAlgChooser->setVisible(true);
         break;
     }
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk: {
@@ -178,11 +210,13 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
         m_passwdEdit->setTitle(tr("Password"));
         m_passwdEdit->setVisible(true);
         m_enableWatcher->setSecretEnable(false);
+        m_authAlgChooser->setVisible(false);
         break;
     }
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap: {
         m_passwdEdit->setVisible(false);
         m_enableWatcher->setSecretEnable(true);
+        m_authAlgChooser->setVisible(false);
         break;
     }
     default:
