@@ -72,6 +72,7 @@ protected:
     explicit Secret8021xSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = nullptr);
     // This method must be called by subclass after initialization
     void init(Secret8021xEnableWatcher *watcher, QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsSupportList);
+    void showPasswordFlagsChooser(const bool enable);
 
 private:
     void initStrMaps();

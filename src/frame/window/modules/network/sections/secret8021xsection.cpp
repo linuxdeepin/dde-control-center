@@ -154,6 +154,11 @@ void Secret8021xSection::init(Secret8021xEnableWatcher *watcher,
     onPasswordFlagsChanged(m_currentPasswordType);
 }
 
+void Secret8021xSection::showPasswordFlagsChooser(const bool enable)
+{
+    m_passwordFlagsChooser->setVisible(enable);
+}
+
 void Secret8021xSection::initStrMaps()
 {
     EapMethodStrMap = {
@@ -562,7 +567,7 @@ void Secret8021xSection::onPasswordFlagsChanged(NetworkManager::Setting::SecretF
 {
     m_currentPasswordType = type;
     if (m_enableWatcher->secretEnabled()) {
-        m_password->setVisible(m_currentPasswordType == NetworkManager::Setting::None);
+        m_password->setVisible(m_currentPasswordType != NetworkManager::Setting::NotSaved);
     }
 }
 

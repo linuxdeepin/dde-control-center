@@ -195,6 +195,7 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
         m_passwdEdit->setVisible(false);
         m_enableWatcher->setSecretEnable(false);
         m_authAlgChooser->setVisible(false);
+        showPasswordFlagsChooser(false);
         break;
     }
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep: {
@@ -203,6 +204,7 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
         m_passwdEdit->setVisible(true);
         m_enableWatcher->setSecretEnable(false);
         m_authAlgChooser->setVisible(true);
+        showPasswordFlagsChooser(true);
         break;
     }
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk: {
@@ -211,6 +213,7 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
         m_passwdEdit->setVisible(true);
         m_enableWatcher->setSecretEnable(false);
         m_authAlgChooser->setVisible(false);
+        showPasswordFlagsChooser(true);
         break;
     }
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap: {
