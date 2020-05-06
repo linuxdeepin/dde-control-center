@@ -81,12 +81,12 @@ void AddFingeDialog::initWidget()
 void AddFingeDialog::initData()
 {
     m_cancelBtn->setText((tr("Cancel")));
-    m_addBtn->setText((tr("Add Fingerprint")));
     m_addBtn->setEnabled(false);
+    m_addBtn->hide();
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
     connect(m_addBtn, &DSuggestButton::clicked, this, [=] {
         auto text = m_addBtn->text();
-        if (text == tr("Done") || text == tr("Add Fingerprint")) {
+        if (text == tr("Done")) {
             this->close();
         } else if (text == tr("Scan Again")) {
             setInitStatus();
@@ -126,8 +126,10 @@ void AddFingeDialog::enrollCompleted()
 
     m_isEnrolling = false;
     m_fingeWidget->finished();
+    m_addBtn->show();
     m_addBtn->setText(tr("Done"));
     m_addBtn->setEnabled(true);
+    m_cancelBtn->hide();
     m_cancelBtn->setEnabled(false);
     m_timer->stop();
     Q_EMIT requestStopEnroll(m_username);
@@ -151,6 +153,7 @@ void AddFingeDialog::enrollFailed(QString title, QString msg)
     }
     m_isEnrolling = false;
     m_fingeWidget->setStatueMsg(title, msg, true);
+    m_addBtn->show();
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
     m_timer->stop();
@@ -163,6 +166,7 @@ void AddFingeDialog::enrollDisconnected()
 
     m_isEnrolling = false;
     m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Suspended"), true);
+    m_addBtn->show();
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
     m_timer->stop();
@@ -177,6 +181,7 @@ void AddFingeDialog::enrollFocusOut()
 
     m_isEnrolling = false;
     m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr(""), true);
+    m_addBtn->show();
     m_addBtn->setText(tr("Scan Again"));
     m_cancelBtn->setEnabled(false);
     m_addBtn->setEnabled(false);
@@ -192,6 +197,7 @@ void AddFingeDialog::enrollOverTime()
 
     m_isEnrolling = false;
     m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan time expired"), true);
+    m_addBtn->show();
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
     m_timer->stop();
@@ -215,7 +221,7 @@ void AddFingeDialog::setInitStatus()
 {
     m_isEnrolling = true;
     m_addBtn->setEnabled(false);
-    m_addBtn->setText(tr("Add Fingerprint"));
+    m_addBtn->hide();
     m_timer->start(1000 * 60);//1min
     m_fingeWidget->reEnter();
 }
