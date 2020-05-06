@@ -39,6 +39,7 @@ IndexPage::IndexPage(QWidget *parent)
     , m_listView(new DListView)
     , m_stateIcon(new SyncStateIcon)
     , m_lastSyncTimeLbl(new QLabel)
+    , m_lastSyncTime(0)
     , m_listModel(new QStandardItemModel(this))
 {
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
@@ -232,7 +233,11 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
     case SyncState::Succeed:
         m_lastSyncTimeLbl->show();
         m_stateLbl->hide();
-        m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(16, 16)));
+        if (m_lastSyncTime > 0) {
+            m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(16, 16)));
+        } else {
+            m_stateIcon->setRotatePixmap(QPixmap());
+        }
         m_stateIcon->stop();
         break;
     case SyncState::Syncing:
@@ -252,6 +257,11 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
 
 void IndexPage::onLastSyncTimeChanged(const qlonglong lastSyncTime)
 {
+    m_lastSyncTime = lastSyncTime;
+    if (lastSyncTime == 0) {
+        m_lastSyncTimeLbl->hide();
+        return;
+    }
     m_lastSyncTimeLbl->setText(
         tr("Last Sync: %1")
         .arg(QDateTime::fromMSecsSinceEpoch(lastSyncTime * 1000)

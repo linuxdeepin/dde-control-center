@@ -34,7 +34,7 @@ void SyncWorker::activate()
 
     m_model->setUserinfo(m_deepinId_inter->userInfo());
     onStateChanged(m_syncInter->state());
-    onLastSyncTimeChanged(m_syncInter->lastSyncTime());
+    onLastSyncTimeChanged(m_syncInter->property("LastSyncTime").toLongLong());
 
     refreshSyncState();
 }
@@ -131,8 +131,7 @@ void SyncWorker::onLastSyncTimeChanged(qlonglong lastSyncTime)
 {
     if (lastSyncTime == 0) {
         m_model->setSyncState(std::pair<qint32, QString>(100, ""));
-    }
-    else {
+    } else {
         Q_EMIT m_syncInter->StateChanged(m_syncInter->state());
         m_model->setLastSyncTime(lastSyncTime);
     }

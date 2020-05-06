@@ -84,6 +84,7 @@ private:
     dcc::cloudsync::SyncStateIcon *m_stateIcon;
     QLabel *m_stateLbl;
     QLabel *m_lastSyncTimeLbl;
+    qlonglong m_lastSyncTime;
     QStandardItemModel *m_listModel;
     QMap<dcc::cloudsync::SyncType, QStandardItem *> m_itemMap;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_networkTip;
