@@ -626,7 +626,7 @@ void DisplayWorker::record()
 void DisplayWorker::restore()
 {
     const std::pair<int, QString> lastConfig { m_model->lastConfig() };
-
+    m_model->setDisplayMode(lastConfig.first);
     switch (lastConfig.first) {
     case CUSTOM_MODE: {
         discardChanges();
