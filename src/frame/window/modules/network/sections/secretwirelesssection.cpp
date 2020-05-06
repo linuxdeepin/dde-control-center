@@ -95,10 +95,7 @@ void SecretWirelessSection::saveSettings()
 
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
-        m_wsSetting->setWepKey0(m_passwdEdit->text());
         m_wsSetting->setAuthAlg(m_currentAuthAlg);
-    } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
-        m_wsSetting->setPsk(m_passwdEdit->text());
     }
 
     m_wsSetting->setInitialized(true);
