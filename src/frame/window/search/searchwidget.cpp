@@ -79,6 +79,18 @@ SearchWidget::SearchWidget(QWidget *parent)
         {tr("Join User Experience Program"), false},
         {tr("Display Scaling"), false},
         {tr("Night Shift"), false},
+        {tr("Auto Login"), false},
+        {tr("Login Without Password"), false},
+        {tr("Auto Brightness"), false},
+        {tr("General"), false},
+        {tr("Password is required to wake up the monitor"), false},
+        {tr("Password required to wake up the computer"), false},
+        {tr("Power Saving Mode"), false},
+        {tr("Auto Mode Switch"), false},
+        {tr("Transparency"), false},
+        {tr("Create PPPoE Connection"), false},
+        {tr("Disable the touchpad while typing"), false},
+        {tr("Disable the touchpad when inserting the mouse"), false},
     };
 
     //first : 可移除设备名称
