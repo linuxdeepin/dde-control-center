@@ -64,10 +64,14 @@ void Category::clear()
 void Category::addUserItem(const App &value)
 {
     if (value.isUser) {
+        for (auto r : m_systemAppList) {
+            if (r.Exec == value.Exec) {
+                return;
+            }
+        }
         if (m_userAppList.contains(value)) return;
         m_userAppList << value;
-    }
-    else {
+    } else {
         if (m_systemAppList.contains(value)) return;
         m_systemAppList << value;
     }
@@ -81,9 +85,8 @@ void Category::delUserItem(const App &value)
     bool isRemove = false;
 
     if (value.isUser) {
-       isRemove = m_userAppList.removeOne(value);
-    }
-    else {
+        isRemove = m_userAppList.removeOne(value);
+    } else {
         isRemove = m_systemAppList.removeOne(value);
     }
 
