@@ -238,7 +238,7 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
         m_stateIcon->stop();
         return;
     }
-
+    qDebug() << "syncState: " << syncState << "m_lastSyncTime:" << m_lastSyncTime;
     switch (syncState) {
     case SyncState::Succeed:
         m_lastSyncTimeLbl->show();
