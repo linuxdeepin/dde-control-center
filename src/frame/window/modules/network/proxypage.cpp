@@ -165,8 +165,49 @@ ProxyPage::ProxyPage(QWidget *parent)
 //    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ProxyPage::back);
 //    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::back, Qt::QueuedConnection);
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
-    connect(m_proxyTabs, &DButtonBox::buttonClicked, this, [this](QAbstractButton *value) {
+    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, [this] {
+        onProxyChanged("http", m_model->proxy("http"));
+        onProxyChanged("https", m_model->proxy("https"));
+        onProxyChanged("ftp", m_model->proxy("ftp"));
+        onProxyChanged("socks", m_model->proxy("socks"));
+    });
+    connect(m_autoUrl->dTextEdit(), &DLineEdit::editingFinished, this, [this] {
+        if (m_autoUrl->dTextEdit()->text() != m_model->autoProxy())
+        {
+            applySettings();
+        }
+    });
+
+    connect(m_proxyTabs, &DButtonBox::buttonClicked, this, [this](QAbstractButton * value) {
         onProxyToggled(m_proxyTabs->id(value));
+    });
+    connect(m_httpPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
+        if (str.toInt() < 0) {
+            m_httpPort->setText("0");
+        } else if(str.toInt() > 65535) {
+            m_httpPort->setText("65535");
+        }
+    });
+    connect(m_httpsPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
+        if (str.toInt() < 0) {
+            m_httpsPort->setText("0");
+        } else if(str.toInt() > 65535) {
+            m_httpsPort->setText("65535");
+        }
+    });
+    connect(m_ftpPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
+        if (str.toInt() < 0) {
+            m_ftpPort->setText("0");
+        } else if(str.toInt() > 65535) {
+            m_ftpPort->setText("65535");
+        }
+    });
+    connect(m_socksPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
+        if (str.toInt() < 0) {
+            m_socksPort->setText("0");
+        } else if(str.toInt() > 65535) {
+            m_socksPort->setText("65535");
+        }
     });
 //    connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { Q_EMIT requestSetProxyMethod(ProxyMethodList[index]); });
 //    connect(m_ignoreList, &QPlainTextEdit::textChanged, [=] { Q_EMIT requestSetIgnoreHosts(m_ignoreList->toPlainText()); });
@@ -218,6 +259,7 @@ void ProxyPage::onProxyToggled(const int index)
     // refersh ui
     m_manualWidget->setVisible(index == 1);
     m_autoWidget->setVisible(index == 2);
+    m_buttonTuple->setVisible(index == 1);
 
     setFocus();
 }
