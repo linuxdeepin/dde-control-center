@@ -220,12 +220,11 @@ void BootWidget::setEntryList(const QStringList &list)
 void BootWidget::setBootList()
 {
     int cout = m_bootList->count();
-    int height = 187 + 35 * (cout - 1);
-    int interval = (height - 35 * cout - 10 * (cout - 1)) / 2;
+    int height = (cout + 2) * 35;
 
-    m_listLayout->addSpacing(interval);
+    m_listLayout->addSpacing(10);
     m_listLayout->addWidget(m_bootList);
-    m_background->setFixedHeight(20 + height);
+    m_background->setFixedHeight(35 + height);
 
 }
 
