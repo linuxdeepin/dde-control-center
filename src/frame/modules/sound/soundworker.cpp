@@ -237,7 +237,6 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 
 void SoundWorker::cardsChanged(const QString &cards)
 {
-    qDebug() << cards;
     QMap<uint, QStringList> tmpCardIds;
 
     QJsonDocument doc = QJsonDocument::fromJson(cards.toUtf8());
@@ -246,16 +245,6 @@ void SoundWorker::cardsChanged(const QString &cards)
         QJsonObject jCard = cV.toObject();
         const uint cardId = jCard["Id"].toInt();
         const QString cardName = jCard["Name"].toString();
-        QJsonArray jProfile = jCard["Profiles"].toArray();
-        qDebug() << jProfile;
-        bool inPutPass = false;
-        for (QJsonValue profileV : jProfile) {
-            QJsonObject jProfileObj = profileV.toObject();
-            if (jProfileObj["Name"].toString() == "a2dp_sink") {
-                inPutPass = true;
-                break;
-            }
-        }
         QJsonArray jPorts = jCard["Ports"].toArray();
 
         QStringList tmpPorts;
@@ -278,12 +267,8 @@ void SoundWorker::cardsChanged(const QString &cards)
                 port->setCardName(cardName);
                 port->setIsActive(portId == m_activeSinkPort || portId == m_activeSourcePort);
 
-                if (!include) {
-                    if (port->direction() == Port::Direction::In && inPutPass)
-                        continue;
-                    else
-                        m_model->addPort(port);
-                }
+                if (!include) { m_model->addPort(port); }
+
                 tmpPorts << portId;
             }
         }
