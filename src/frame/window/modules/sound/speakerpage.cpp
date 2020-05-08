@@ -101,7 +101,7 @@ void SpeakerPage::initSlider()
 
     m_speakSlider->setTickInterval(1);
     qDebug() << "speaker volume:" << m_model->speakerVolume();
-    int val = static_cast<int>(m_model->speakerVolume() * 100.0f);
+    int val = qRound(m_model->speakerVolume() * 100.0f);
     if (val > maxRange) {
         val = maxRange;
     }
@@ -124,9 +124,9 @@ void SpeakerPage::initSlider()
     //当底层数据改变后，更新滑动条显示的数据
     connect(m_model, &SoundModel::speakerVolumeChanged, this, [ = ](double v) {
         m_speakSlider->blockSignals(true);
-        m_speakSlider->setValue(static_cast<int>(v * 100));
+        m_speakSlider->setValue(qRound(v * 100));
         m_speakSlider->blockSignals(false);
-        m_outputSlider->setValueLiteral(QString::number(int(v * 100)) + "%");
+        m_outputSlider->setValueLiteral(QString::number(v * 100,'L',0) + "%");
     });
 
     connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
@@ -143,7 +143,7 @@ void SpeakerPage::initSlider()
         m_outputSlider->update();
 
         m_speakSlider->blockSignals(true);
-        m_speakSlider->setValue(static_cast<int>(m_model->speakerVolume() * 100));
+        m_speakSlider->setValue(qRound(m_model->speakerVolume() * 100));
         m_speakSlider->blockSignals(false);
         m_outputSlider->setValueLiteral(QString::number(m_model->speakerVolume() * 100) + "%");
     });
