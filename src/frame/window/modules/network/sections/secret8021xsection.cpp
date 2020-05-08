@@ -55,9 +55,9 @@ Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr
         }
     }
     connect(m_password->dTextEdit(), &DLineEdit::textEdited, this, [ = ](const QString &str) {
-            if (str == "")
-                static_cast<DPasswordEdit*>(m_password->dTextEdit())->setEchoButtonIsVisible(true);
-        });
+        if (str.isEmpty())
+            static_cast<DPasswordEdit*>(m_password->dTextEdit())->setEchoButtonIsVisible(true);
+    });
 }
 
 Secret8021xSection::~Secret8021xSection()
@@ -152,11 +152,6 @@ void Secret8021xSection::init(Secret8021xEnableWatcher *watcher,
     onSecretEnableChanged(m_enableWatcher->secretEnabled());
     onEapMethodChanged(m_currentEapMethod);
     onPasswordFlagsChanged(m_currentPasswordType);
-}
-
-void Secret8021xSection::showPasswordFlagsChooser(const bool enable)
-{
-    m_passwordFlagsChooser->setVisible(enable);
 }
 
 void Secret8021xSection::initStrMaps()
@@ -569,6 +564,7 @@ void Secret8021xSection::onPasswordFlagsChanged(NetworkManager::Setting::SecretF
     if (m_enableWatcher->secretEnabled()) {
         m_password->setVisible(m_currentPasswordType != NetworkManager::Setting::NotSaved);
     }
+    m_enableWatcher->passwdEnableChanged(m_currentPasswordType != NetworkManager::Setting::NotSaved);
 }
 
 void Secret8021xSection::saveUserInputIdentify()

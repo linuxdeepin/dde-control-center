@@ -53,6 +53,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void secretEnableChanged(bool enabled);
+    void passwdEnableChanged(bool enabled);
 
 private:
     bool m_secretEnabled;
@@ -72,7 +73,9 @@ protected:
     explicit Secret8021xSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = nullptr);
     // This method must be called by subclass after initialization
     void init(Secret8021xEnableWatcher *watcher, QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsSupportList);
-    void showPasswordFlagsChooser(const bool enable);
+    dcc::widgets::ComboxWidget *m_passwordFlagsChooser;
+    NetworkManager::Setting::SecretFlagType m_currentPasswordType;
+    QList<QPair<QString, NetworkManager::Setting::SecretFlagType>> PasswordFlagsStrMap;
 
 private:
     void initStrMaps();
@@ -104,7 +107,7 @@ private:
 
 private:
     QList<QPair<QString, NetworkManager::Security8021xSetting::EapMethod>> EapMethodStrMap;
-    QList<QPair<QString, NetworkManager::Setting::SecretFlagType>> PasswordFlagsStrMap;
+
     QList<QPair<QString, NetworkManager::Security8021xSetting::FastProvisioning>> FastrProvisioningStrMap;
     QList<QPair<QString, NetworkManager::Security8021xSetting::AuthMethod>> AuthMethodStrMapFast;
     QList<QPair<QString, NetworkManager::Security8021xSetting::AuthMethod>> AuthMethodStrMapTtls;
@@ -112,13 +115,11 @@ private:
     QList<QPair<QString, NetworkManager::Security8021xSetting::AuthMethod>> AuthMethodStrMapPeap;
 
     dcc::widgets::ComboxWidget *m_eapMethmodChooser;
-    dcc::widgets::ComboxWidget *m_passwordFlagsChooser;
     dcc::widgets::LineEditWidget *m_identity;
     dcc::widgets::LineEditWidget *m_password;
     Secret8021xEnableWatcher *m_enableWatcher;
 
     NetworkManager::Security8021xSetting::EapMethod m_currentEapMethod;
-    NetworkManager::Setting::SecretFlagType m_currentPasswordType;
     NetworkManager::Security8021xSetting::Ptr m_secretSetting;
 
     QList<NetworkManager::Security8021xSetting::EapMethod> m_eapMethodsWantedList;
