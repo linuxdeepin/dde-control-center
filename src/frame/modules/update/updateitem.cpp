@@ -223,10 +223,11 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 QString UpdateItem::elidedChangelog() const
 {
     const QString text = QString(clearHTMLTags(m_info.m_changelog)).replace("\n", "");
-
-    const QFontMetrics fm(m_appChangelog->font());
+    qDebug() << "elidedChangelog text =" << text;
+    const QFontMetrics fm(m_appChangelog->fontMetrics());
     const QRect rect(0, 0, 200, fontMetrics().height() * 1);
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
+    qDebug() << rect << textFlag << rect.contains(fm.boundingRect(rect, textFlag, text));
 
     if (rect.contains(fm.boundingRect(rect, textFlag, text)))
         return text;
