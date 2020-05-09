@@ -51,14 +51,20 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
                         m_wsSetting->authAlg() : NetworkManager::WirelessSecuritySetting::AuthAlg::Shared;
 
     NetworkManager::Setting::SecretFlags passwordFlags;
+    QString strKey;
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         passwordFlags = m_wsSetting->wepKeyFlags();
+        strKey = m_wsSetting->wepKey0();
     } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
         passwordFlags = m_wsSetting->pskFlags();
+        strKey = m_wsSetting->psk();
     }
     for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
         if (passwordFlags.testFlag(it->second)) {
             m_currentPasswordType = it->second;
+            if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
+                m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+            }
             break;
         }
     }
