@@ -49,7 +49,7 @@ SoundWidget::SoundWidget(QWidget *parent)
     layout->addWidget(m_menuList, 1);
     initMenuUI();
 
-   // layout->addStretch(1);
+    //layout->addStretch(1);
     setLayout(layout);
 }
 
@@ -75,7 +75,7 @@ void SoundWidget::initMenuUI()
         { tr("Speaker"), "dcc_speaker", QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)},
         //~ contents_path /sound/Microphone
         { tr("Microphone"), "dcc_noun", QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)},
-///        //~ contents_path /sound/Advanced
+        //~ contents_path /sound/Advanced
         { tr("Advanced"), "dcc_setting", QMetaMethod::fromSignal(&SoundWidget::requestAdvancedPage)},
         //~ contents_path /sound/Sound Effects
         { tr("Sound Effects"), "dcc_sound_effect", QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)}
