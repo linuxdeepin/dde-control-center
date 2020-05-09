@@ -96,7 +96,7 @@ Q_SIGNALS:
     void nameChanged(const QString &name) const;
     void aliasChanged(const QString &alias) const;
     void pairedChanged(const bool &paired) const;
-    void stateChanged(const State &state, bool connectState) const;
+    void stateChanged(const State &state, bool paired) const;
     void trustedChanged(const bool trusted) const;
     void connectingChanged(const bool &connecting) const;
 

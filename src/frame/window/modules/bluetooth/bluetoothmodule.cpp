@@ -62,6 +62,8 @@ void BluetoothModule::preInitialize(bool sync)
 
 void BluetoothModule::initialize()
 {
+    connect(m_bluetoothWorker, &BluetoothWorker::requestConfirmation, this, &BluetoothModule::showPinCode);
+    connect(m_bluetoothWorker, &BluetoothWorker::pinCodeCancel, this, &BluetoothModule::closePinCode);
 }
 
 void BluetoothModule::reset()
@@ -127,4 +129,24 @@ void BluetoothModule::showDeviceDetail(const Adapter *adapter, const Device *dev
 void BluetoothModule::popPage()
 {
     m_frameProxy->popWidget(this);
+}
+
+void BluetoothModule::showPinCode(const QDBusObjectPath &device, const QString &code)
+{
+    qDebug() << "request confirmation: " << device.path() << code;
+
+    PinCodeDialog *dialog = PinCodeDialog::instance(code);
+    m_dialogs[device] = dialog;
+    if (!dialog->isVisible()) {
+        int ret = dialog->exec();
+        closePinCode(device);
+        m_bluetoothWorker->pinCodeConfirm(device, bool(ret));
+    }
+}
+
+void BluetoothModule::closePinCode(const QDBusObjectPath &device)
+{
+    PinCodeDialog *dialog = m_dialogs[device];
+    m_dialogs.remove(device);
+    QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
 }

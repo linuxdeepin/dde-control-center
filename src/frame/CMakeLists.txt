@@ -385,7 +385,7 @@ set(ACCOUNTS_FILES
 # load bluetooth
 set(BLUETOOTH_FILES
 #                modules/bluetooth/bluetoothmodule.cpp
-#                modules/bluetooth/pincodedialog.cpp
+                modules/bluetooth/pincodedialog.cpp
 #                modules/bluetooth/pincodedialog.h
 #                modules/bluetooth/TitleEdit.cpp
 #                modules/bluetooth/TitleEdit.h
