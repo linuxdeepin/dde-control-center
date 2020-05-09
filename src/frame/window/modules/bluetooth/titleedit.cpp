@@ -26,7 +26,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QHBoxLayout>
-#include <DLineEdit>
+#include <DDesktopServices>
 
 DWIDGET_USE_NAMESPACE
 
@@ -56,9 +56,7 @@ TitleEdit::TitleEdit(QWidget *parent)
     connect(m_lineEdit, &DLineEdit::textEdited, this, [ = ](const QString &str){
         if (str.length() > 32) {
             m_lineEdit->lineEdit()->backspace();
-            m_lineEdit->setAlert(true);
-        } else {
-            m_lineEdit->setAlert(false);
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
         }
     });
     connect(editWidget, &DIconButton::clicked, this, &TitleEdit::setEdit);
