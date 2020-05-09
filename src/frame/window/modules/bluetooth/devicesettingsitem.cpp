@@ -125,7 +125,7 @@ void DeviceSettingsItem::setDevice(const Device *device)
         m_deviceItem->setText(alias);
     });
 
-    onDeviceStateChanged(device->state());
+    onDeviceStateChanged(device->state(), device->paired());
     onDevicePairedChanged(device->paired());
 }
 
@@ -153,25 +153,19 @@ DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     return m_deviceItem;
 }
 
-void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
+void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool paired)
 {
     if (state == Device::StateAvailable) {
         setLoading(true);
         return;
     }
     QString tip;
-    switch (state) {
-    case Device::StateConnected: {
+    if (state == Device::StateConnected && paired) {
         tip = tr("Connected");
         setLoading(false);
-        break;
-    }
-    case Device::StateUnavailable:
+    } else if (state == Device::StateUnavailable) {
         tip = tr("Not connected");
         setLoading(false);
-        break;
-    default:
-        break;
     }
     m_textAction->setText(tip);
 }
