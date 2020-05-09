@@ -23,7 +23,6 @@
 #include "interface/moduleinterface.h"
 
 #include <DPinyin>
-
 #include <QDebug>
 #include <QLineEdit>
 #include <QListWidget>
@@ -31,6 +30,8 @@
 #include <QXmlStreamReader>
 #include <QCompleter>
 #include <QRegularExpression>
+#include <QPainter>
+#include <QRect>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -47,6 +48,45 @@ public:
     bool eventFilter(QObject *o, QEvent *e) override;
 };
 
+DCompleterStyledItemDelegate::DCompleterStyledItemDelegate(QObject *parent)
+    : QStyledItemDelegate(parent)
+{
+
+}
+
+void DCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    QPalette::ColorGroup cg = option.state & QStyle::State_Enabled
+                              ? QPalette::Normal : QPalette::Disabled;
+    if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) {
+        cg = QPalette::Inactive;
+    }
+
+    if (option.showDecorationSelected && (option.state & (QStyle::State_Selected | QStyle::State_MouseOver))) {
+        painter->fillRect(option.rect, option.palette.brush(cg, QPalette::Highlight));
+    }
+    QIcon itemIcon = QIcon::fromTheme(index.data(Qt::UserRole + 1).toString());
+    QSize iconSize = QSize(option.rect.height() - 2, option.rect.height() - 2);
+    painter->drawPixmap(QRect(0, option.rect.y(), option.rect.height() - 0, option.rect.height() - 2), itemIcon.pixmap(iconSize));
+
+    // draw text
+    if (option.state & (QStyle::State_Selected | QStyle::State_MouseOver)) {
+        painter->setPen(option.palette.color(cg, QPalette::HighlightedText));
+    }
+    else {
+        painter->setPen(option.palette.color(cg, QPalette::Text));
+    }
+    painter->setFont(option.font);
+    painter->drawText(option.rect.adjusted(option.rect.height() + 8, 0, 0, 0), Qt::AlignVCenter, index.data(Qt::DisplayRole).toString());
+}
+
+QSize DCompleterStyledItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    QSize s = QStyledItemDelegate::sizeHint(option, index);
+    s.setHeight(24);
+    return s;
+}
+
 SearchWidget::SearchWidget(QWidget *parent)
     : DTK_WIDGET_NAMESPACE::DSearchEdit(parent)
     , m_xmlExplain("")
@@ -57,6 +97,7 @@ SearchWidget::SearchWidget(QWidget *parent)
 {
     m_model = new QStandardItemModel(this);
     m_completer = new ddeCompleter(m_model, this);
+    m_completer->popup()->setItemDelegate(&styledItemDelegate);
     m_completer->setFilterMode(Qt::MatchContains);//设置QCompleter支持匹配字符搜索
     m_completer->setCaseSensitivity(Qt::CaseInsensitive);//这个属性可设置进行匹配时的大小写敏感性
     m_completer->setCompletionRole(Qt::UserRole); //设置ItemDataRole
@@ -621,7 +662,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
         m_model->appendRow(new QStandardItem(icon.value(), hanziTxt));
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
         m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
-
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
         SearchDataStruct transdata;
         transdata.chiese = hanziTxt;
         transdata.pinyin = pinyinTxt;
@@ -658,7 +699,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
         m_model->appendRow(new QStandardItem(icon.value(), hanziTxt));
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
         m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
-
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
         SearchDataStruct transdata;
         transdata.chiese = hanziTxt;
         transdata.pinyin = pinyinTxt;
