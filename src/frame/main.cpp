@@ -63,6 +63,9 @@ int main(int argc, char *argv[])
     app.setOrganizationName("deepin");
     app.setApplicationName("dde-control-center");
 #ifdef CVERSION
+    QString verstr(CVERSION);
+    if (verstr.isEmpty())
+	    verstr="4.1";
     app.setApplicationVersion(CVERSION);
 #else
     app.setApplicationVersion("4.0");
