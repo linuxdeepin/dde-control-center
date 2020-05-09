@@ -2362,6 +2362,19 @@
         <translation>HTTP代理</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
+        <source>Optional</source>
+        <translation>选填</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
@@ -9242,7 +9255,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
+        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>
