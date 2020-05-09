@@ -877,6 +877,12 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
             } else {
                 m_searchWidget->addUnExsitData(tr("Cloud Sync"));
             }
+        } else if ("commoninfo" == find_it->first->name()) {
+            if (visible) {
+                m_searchWidget->removeUnExsitData(tr("General Settings"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("General Settings"));
+            }
         }
     } else {
         qWarning() << Q_FUNC_INFO << "Not found module!";
