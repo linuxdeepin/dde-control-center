@@ -30,6 +30,7 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QString>
+#include <DDesktopServices>
 
 using namespace dcc;
 using namespace dcc::bluetooth;
@@ -58,7 +59,6 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     layout->addWidget(m_devNameLabel, 0, Qt::AlignCenter);
     layout->addSpacing(10);
     m_editDevAlias = new QLineEdit;
-    m_editDevAlias->setMaxLength(32);
     m_editDevAlias->setPlaceholderText(device->alias().isEmpty() ? device->name() : device->alias());
     layout->addWidget(m_editDevAlias);
     layout->addSpacing(10);
@@ -77,6 +77,12 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     });
     connect(m_connectButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestConnectDevice(m_device);
+    });
+    connect(m_editDevAlias, &QLineEdit::textEdited, this, [ = ](const QString &str){
+        if (str.length() > 32) {
+            m_editDevAlias->backspace();
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        }
     });
     connect(m_device, &Device::nameChanged, m_devNameLabel, &QLabel::setText);
     connect(m_device, &Device::aliasChanged, m_editDevAlias, &QLineEdit::setText);
