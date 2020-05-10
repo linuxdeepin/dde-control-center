@@ -168,8 +168,8 @@ void BrightnessPage::addSlider()
 
 QString BrightnessPage::brightnessToTickInterval(const double tb) const
 {
-    int tmini = int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
-    int tnum = int(tb * BrightnessMaxScale);
+    int tmini = qRound(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
+    int tnum = qRound(tb * BrightnessMaxScale);
     tnum = tnum > tmini ? tnum : tmini;
     return QString::number(int(tnum)) + "%";
 }
