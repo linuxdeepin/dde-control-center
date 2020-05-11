@@ -589,7 +589,7 @@ bool Secret8021xSection::commonItemsInpuValid()
         m_identity->setIsErr(false);
     }
 
-    if (m_currentPasswordType == NetworkManager::Setting::None) {
+    if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
         if (m_password->text().isEmpty()) {
             valid = false;
             m_password->setIsErr(true);
@@ -651,14 +651,14 @@ void Secret8021xSection::saveCommonItems()
 
     if (m_currentEapMethod == NetworkManager::Security8021xSetting::EapMethodTls) {
         m_secretSetting->setPrivateKeyPasswordFlags(m_currentPasswordType);
-        if (m_currentPasswordType == NetworkManager::Setting::None) {
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             m_secretSetting->setPrivateKeyPassword(m_password->text());
         } else {
             m_secretSetting->setPrivateKeyPassword(QString());
         }
     } else {
         m_secretSetting->setPasswordFlags(m_currentPasswordType);
-        if (m_currentPasswordType == NetworkManager::Setting::None) {
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             m_secretSetting->setPassword(m_password->text());
         } else {
             m_secretSetting->setPassword(QString());

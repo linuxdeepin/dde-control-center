@@ -117,16 +117,17 @@ void SecretWirelessSection::saveSettings()
     } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
         m_wsSetting->setWepKeyFlags(m_currentPasswordType);
-        if (m_currentPasswordType == NetworkManager::Setting::None) {
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             m_wsSetting->setWepKey0(m_passwdEdit->text());
         } else {
             m_wsSetting->setWepKey0(QString());
         }
         m_wsSetting->setAuthAlg(m_currentAuthAlg);
         m_wsSetting->setPskFlags(NetworkManager::Setting::NotRequired);
+        m_wsSetting->setInitialized(true);
     } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
         m_wsSetting->setPskFlags(m_currentPasswordType);
-        if (m_currentPasswordType == NetworkManager::Setting::None) {
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             m_wsSetting->setPsk(m_passwdEdit->text());
         } else {
             m_wsSetting->setPsk(QString());
@@ -134,9 +135,10 @@ void SecretWirelessSection::saveSettings()
         m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::NotSpecified);
         m_wsSetting->setWepKeyFlags(NetworkManager::Setting::NotRequired);
         m_wsSetting->setAuthAlg(NetworkManager::WirelessSecuritySetting::AuthAlg::None);
+        m_wsSetting->setInitialized(true);
+    } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap) {
+        m_wsSetting->setInitialized(false);
     }
-
-    m_wsSetting->setInitialized(true);
 
     Secret8021xSection::saveSettings();
 }
