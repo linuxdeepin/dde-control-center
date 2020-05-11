@@ -124,7 +124,6 @@ void SecretWirelessSection::saveSettings()
         }
         m_wsSetting->setAuthAlg(m_currentAuthAlg);
         m_wsSetting->setPskFlags(NetworkManager::Setting::NotRequired);
-        m_wsSetting->setInitialized(true);
     } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
         m_wsSetting->setPskFlags(m_currentPasswordType);
         if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
@@ -135,10 +134,11 @@ void SecretWirelessSection::saveSettings()
         m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::NotSpecified);
         m_wsSetting->setWepKeyFlags(NetworkManager::Setting::NotRequired);
         m_wsSetting->setAuthAlg(NetworkManager::WirelessSecuritySetting::AuthAlg::None);
-        m_wsSetting->setInitialized(true);
     } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap) {
-        m_wsSetting->setInitialized(false);
+        m_wsSetting->setAuthAlg(NetworkManager::WirelessSecuritySetting::AuthAlg::None);
     }
+
+    m_wsSetting->setInitialized(true);
 
     Secret8021xSection::saveSettings();
 }
