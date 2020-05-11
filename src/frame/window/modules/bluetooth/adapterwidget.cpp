@@ -222,10 +222,22 @@ void AdapterWidget::toggleSwitch(const bool checked)
     onPowerStatus(checked);
     if (!checked) {
         for (auto it : m_myDevices) {
+            if (it->device()->state() == Device::StateConnected) {
+                m_preConnDevices.append(it);
+            }
             if (it->device()->connecting()) {
                 Q_EMIT requestDisconnectDevice(it->device());
             }
         }
+    } else {
+        QTimer::singleShot(1000, this, [=] {
+            for (auto conn : m_preConnDevices) {
+                if (conn != nullptr && conn->device() != nullptr && conn->device()->state() != Device::StateConnected){
+                   Q_EMIT requestConnectDevice(conn->device());
+                }
+            }
+            m_preConnDevices.clear();
+        });
     }
 
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
