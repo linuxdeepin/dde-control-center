@@ -111,7 +111,7 @@ void SecretHotspotSection::initStrMaps()
 {
     KeyMgmtStrMap = {
         {tr("None"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone},
-        {tr("WEP 40/64/128-bit"), NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
+        {tr("WEP"), NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
         {tr("WPA/WPA2 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk},
     };
 }
