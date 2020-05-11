@@ -103,16 +103,19 @@ void DetailPage::onDeviceStatusChanged()
     if (m_device->state() == Device::StateConnected) {
         m_disconnectButton->show();
         m_connectButton->hide();
+        m_ignoreButton->setEnabled(true);
     } else if (m_device->state() == Device::StateAvailable) {
         m_connectButton->show();
         m_connectButton->setText(tr("Connecting"));
         m_connectButton->setDisabled(true);
         m_disconnectButton->hide();
+        m_ignoreButton->setEnabled(false);
     } else {
         m_connectButton->show();
         m_connectButton->setText(tr("Connect"));
         m_connectButton->setEnabled(true);
         m_disconnectButton->hide();
+        m_ignoreButton->setEnabled(true);
     }
 }
 
