@@ -34,7 +34,7 @@ void SyncWorker::activate()
 
     m_model->setUserinfo(m_deepinId_inter->userInfo());
     onStateChanged(m_syncInter->state());
-    onLastSyncTimeChanged(m_syncInter->property("LastSyncTime").toLongLong());
+    onLastSyncTimeChanged(m_syncInter->lastSyncTime());
 
     refreshSyncState();
 }
@@ -80,7 +80,8 @@ void SyncWorker::setAutoSync(bool autoSync)
     m_syncInter->SwitcherSet("enabled", autoSync);
 }
 
-void SyncWorker::onSyncModuleStateChanged(const QString& module, bool enable) {
+void SyncWorker::onSyncModuleStateChanged(const QString& module, bool enable)
+{
     if (module == "enabled") {
         return m_model->setEnableSync(enable);
     }
@@ -129,10 +130,5 @@ void SyncWorker::onGetModuleSyncStateFinished(QDBusPendingCallWatcher *watcher)
 
 void SyncWorker::onLastSyncTimeChanged(qlonglong lastSyncTime)
 {
-    if (lastSyncTime == 0) {
-        m_model->setSyncState(std::pair<qint32, QString>(100, ""));
-    } else {
-        Q_EMIT m_syncInter->StateChanged(m_syncInter->state());
-        m_model->setLastSyncTime(lastSyncTime);
-    }
+    m_model->setLastSyncTime(lastSyncTime);
 }
