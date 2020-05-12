@@ -167,7 +167,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this, [this](bool checked) {
                 qDebug() << "DSwitchButton::clicked:" << checked << ",m_model->is3DWm():" << m_model->is3DWm();
                 m_wmSwitch->setChecked(m_model->is3DWm());
-                Q_EMIT requestSwitchWM();
+                Q_EMIT requestWindowSwitchWM(checked);
         });
     }
     m_centralLayout->addWidget(m_switchWidget);

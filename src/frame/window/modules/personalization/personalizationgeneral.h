@@ -72,6 +72,7 @@ Q_SIGNALS:
     void showThemeWidget();
     void showFontsWidget();
     void requestSwitchWM();
+    void requestWindowSwitchWM(bool value);
     void requestSetOpacity(int value);
     void requestSetActiveColor(const QString &color);
     void requestSetMiniEffect(int effect);

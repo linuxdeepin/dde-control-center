@@ -145,11 +145,21 @@ void ShortcutModel::onParseInfo(const QString &info)
     } else {
         systemShortKeys = systemFilter;
     }
+
 #ifdef DISABLE_SCREEN_RECORDING
     QStringList systemFilterServer = systemFilter;
     systemFilterServer.removeOne("deepin-screen-recorder");
     systemShortKeys = systemFilterServer;
 #endif
+
+    if (false == m_windowSwitchState) {
+        QStringList systemFilterServer = systemFilter;
+        systemFilterServer.removeOne("expose-all-windows");
+        systemFilterServer.removeOne("expose-windows");
+        systemShortKeys = systemFilterServer;
+    } else {
+        systemShortKeys = systemFilter;
+    }
     qDeleteAll(m_infos);
 
     m_infos.clear();
@@ -250,6 +260,18 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
         }
     }
 }
+
+void ShortcutModel::onWindowSwitchChanged(bool value)
+{
+    if (m_windowSwitchState != value) {
+        m_windowSwitchState = value;
+    }
+}
+
+ bool ShortcutModel::getWindowSwitch()
+ {
+     return m_windowSwitchState;
+ }
 
 ShortcutInfo *ShortcutModel::currentInfo() const
 {

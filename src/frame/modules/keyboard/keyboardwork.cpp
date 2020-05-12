@@ -52,7 +52,9 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
      , m_keybindInter(new KeybingdingInter("com.deepin.daemon.Keybinding",
                                           "/com/deepin/daemon/Keybinding",
                                           QDBusConnection::sessionBus(), this))
+     , m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
 {
+    connect(m_wm, &WM::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
     connect(m_keybindInter, SIGNAL(Added(QString,int)), this,SLOT(onAdded(QString,int)));
     connect(m_keybindInter, &KeybingdingInter::Deleted, this, &KeyboardWorker::removed);
 #ifndef DCC_DISABLE_KBLAYOUT
@@ -97,6 +99,11 @@ void KeyboardWorker::resetAll() {
     });
 }
 
+void KeyboardWorker::onGetWindowWM(bool value)
+{
+    m_shortcutModel->onWindowSwitchChanged(value);
+}
+
 void KeyboardWorker::setShortcutModel(ShortcutModel *model)
 {
     m_shortcutModel = model;
@@ -122,6 +129,20 @@ void KeyboardWorker::refreshLang()
 }
 #endif
 
+void KeyboardWorker::windowSwitch()
+{
+    QDBusInterface licenseInfo("com.deepin.wm",
+                               "/com/deepin/wm",
+                               "com.deepin.wm",
+                               QDBusConnection::sessionBus());
+    if (!licenseInfo.isValid()) {
+        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        return;
+    }
+
+    m_shortcutModel->onWindowSwitchChanged(licenseInfo.property("compositingEnabled").toBool());
+}
+
 void KeyboardWorker::active()
 {
     m_keyboardInter->blockSignals(false);
@@ -146,6 +167,7 @@ void KeyboardWorker::active()
 #ifndef DCC_DISABLE_LANGUAGE
     refreshLang();
 #endif
+    windowSwitch();
 }
 
 void KeyboardWorker::deactive()
