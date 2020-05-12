@@ -50,22 +50,29 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
     m_currentAuthAlg = (m_wsSetting->authAlg() == NetworkManager::WirelessSecuritySetting::AuthAlg::Open) ?
                         m_wsSetting->authAlg() : NetworkManager::WirelessSecuritySetting::AuthAlg::Shared;
 
-    NetworkManager::Setting::SecretFlags passwordFlags;
-    QString strKey;
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
-        passwordFlags = m_wsSetting->wepKeyFlags();
-        strKey = m_wsSetting->wepKey0();
-    } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
-        passwordFlags = m_wsSetting->pskFlags();
-        strKey = m_wsSetting->psk();
-    }
-    for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
-        if (passwordFlags.testFlag(it->second)) {
-            m_currentPasswordType = it->second;
-            if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
-                m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+        NetworkManager::Setting::SecretFlags passwordFlags = m_wsSetting->wepKeyFlags();
+        QString strKey = m_wsSetting->wepKey0();
+        for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+            if (passwordFlags.testFlag(it->second)) {
+                m_currentPasswordType = it->second;
+                if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
+                    m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+                }
+                break;
             }
-            break;
+        }
+    } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
+        NetworkManager::Setting::SecretFlags passwordFlags = m_wsSetting->pskFlags();
+        QString strKey = m_wsSetting->psk();
+        for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+            if (passwordFlags.testFlag(it->second)) {
+                m_currentPasswordType = it->second;
+                if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
+                    m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+                }
+                break;
+            }
         }
     }
 
@@ -92,9 +99,7 @@ bool SecretWirelessSection::allInputValid()
                 m_passwdEdit->showAlertMessage(tr("Invalid password"));
             }
         }
-    }
-
-    if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
+    } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
         if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             valid = NetworkManager::wpaPskIsValid(m_passwdEdit->text());
             m_passwdEdit->setIsErr(!valid);
