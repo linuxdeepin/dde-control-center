@@ -93,7 +93,11 @@ void LoadingItem::setVersionVisible(bool state)
 
 void LoadingItem::setSystemVersion(QString version)
 {
-    m_labelText->setText(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion().left(2) + " " + DSysInfo::deepinTypeDisplayName());
+    QString deepinTypeDisplayName = DSysInfo::deepinTypeDisplayName();
+    if (deepinTypeDisplayName == "Personal") {
+        deepinTypeDisplayName = "Home";
+    }
+    m_labelText->setText(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion() + " " + deepinTypeDisplayName);
 }
 
 void LoadingItem::setImage(QImage *image)

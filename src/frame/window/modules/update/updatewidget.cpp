@@ -172,7 +172,11 @@ void UpdateWidget::setSystemVersion(QString version)
     if (m_systemVersion != version) {
         m_systemVersion = version.remove('"');
     }
-    m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion().left(2) + " " + DSysInfo::deepinTypeDisplayName()));
+    QString deepinTypeDisplayName = DSysInfo::deepinTypeDisplayName();
+    if (deepinTypeDisplayName == "Personal") {
+        deepinTypeDisplayName = "Home";
+    }
+    m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion() + " " + deepinTypeDisplayName));
 }
 
 void UpdateWidget::resetUpdateCheckState(bool state)
