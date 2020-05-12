@@ -607,7 +607,9 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
             }
         }
     }
-    Q_EMIT requestConnectAp(m_device->path(), path, uuid);
+    if (m_switch->checked()) {
+        Q_EMIT requestConnectAp(m_device->path(), path, uuid);
+    }
 }
 
 void WirelessPage::showConnectHidePage()
@@ -621,7 +623,6 @@ void WirelessPage::showConnectHidePage()
 
 void WirelessPage::updateActiveAp()
 {
-    qDebug() << "updateActiveAp:" << QThread::currentThreadId();
     bool isWifiConnected = false;
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
         bool isConnected = it.key() == m_device->activeApSsid();
@@ -630,7 +631,6 @@ void WirelessPage::updateActiveAp()
         }
         it.value()->setConnected(isConnected);
         if (m_clickedItem == it.value()) {
-            qDebug() << "click item: " << isConnected;
             bool isReconnect = it.value()->setLoading(!isConnected);
             if (isReconnect) {
                 connect(it.value()->action(), &QAction::triggered, this, [this, it] {
