@@ -96,7 +96,7 @@ void AccountsWidget::setModel(UserModel *model)
     m_createBtn->setVisible(m_userModel->isCreateUserValid());
 
     connect(model, &UserModel::userAdded, this, [this](User * user) {
-        addUser(user, false);
+        addUser(user);
     });
     connect(model, &UserModel::userRemoved, this, &AccountsWidget::removeUser);
     //给账户列表添加用户数据
@@ -195,6 +195,8 @@ void AccountsWidget::addUser(User *user, bool t1)
         m_userItemModel->insertRow(0, item);
 
         m_userList.push_front(user);
+
+        m_userList.pop_back();
 
         m_currentUserAdded = true;
 
