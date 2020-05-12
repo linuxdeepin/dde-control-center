@@ -61,6 +61,7 @@ public Q_SLOTS:
     void setDefault(const QJsonObject &value);
     void setFontSize(const int value);
     void switchWM();
+    void windowSwitchWM(bool value);
     void setOpacity(int opcaity);
     void setActiveColor(const QString &hexColor);
 
@@ -75,6 +76,7 @@ private Q_SLOTS:
     void onGetCurrentWMFinished(QDBusPendingCallWatcher *w);
     void setFontList(FontModel* model, const QString &type, const QString &list);
     void onCompositingAllowSwitch(bool value);
+    void onWindowWM(bool value);
 
 private:
     int sizeToSliderValue(const double value) const;

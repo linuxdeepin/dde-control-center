@@ -145,6 +145,14 @@ void ShortcutModel::onParseInfo(const QString &info)
     } else {
         systemShortKeys = systemFilter;
     }
+    if (false == m_windowSwitchState) {
+        QStringList systemFilterServer = systemFilter;
+        systemFilterServer.removeOne("expose-all-windows");
+        systemFilterServer.removeOne("expose-windows");
+        systemShortKeys = systemFilterServer;
+    } else {
+        systemShortKeys = systemFilter;
+    }
     qDeleteAll(m_infos);
 
     m_infos.clear();
@@ -245,6 +253,18 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
         }
     }
 }
+
+void ShortcutModel::onWindowSwitchChanged(bool value)
+{
+    if (m_windowSwitchState != value) {
+        m_windowSwitchState = value;
+    }
+}
+
+ bool ShortcutModel::getWindowSwitch()
+ {
+     return m_windowSwitchState;
+ }
 
 ShortcutInfo *ShortcutModel::currentInfo() const
 {

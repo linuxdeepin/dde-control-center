@@ -73,10 +73,12 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_dbus, &Appearance::FontSizeChanged, this, &PersonalizationWork::FontSizeChanged);
     connect(m_dbus, &Appearance::Refreshed, this, &PersonalizationWork::onRefreshedChanged);
 
-    connect(m_wmSwitcher, &WMSwitcher::WMChanged, this, &PersonalizationWork::onToggleWM);
+    //connect(m_wmSwitcher, &WMSwitcher::WMChanged, this, &PersonalizationWork::onToggleWM);
     connect(m_dbus, &Appearance::OpacityChanged, this, &PersonalizationWork::refreshOpacity);
     connect(m_dbus, &Appearance::QtActiveColorChanged, this, &PersonalizationWork::refreshActiveColor);
     connect(m_wm, &WM::CompositingAllowSwitchChanged, this, &PersonalizationWork::onCompositingAllowSwitch);
+    connect(m_wm, &WM::compositingEnabledChanged, this, &PersonalizationWork::onWindowWM);
+
 
     m_themeModels["gtk"]           = windowTheme;
     m_themeModels["icon"]          = iconTheme;
@@ -243,6 +245,12 @@ void PersonalizationWork::onToggleWM(const QString &wm)
 {
     qDebug() << "onToggleWM: " << wm;
     m_model->setIs3DWm(wm == "deepin wm");
+}
+
+void PersonalizationWork::onWindowWM(bool value)
+{
+    qDebug() << "onWindowWM: " << value;
+    m_model->setIs3DWm(value);
 }
 
 void PersonalizationWork::onCompositingAllowSwitch(bool value)
@@ -470,6 +478,20 @@ void PersonalizationWork::switchWM()
         }
         watcher->deleteLater();
     });
+}
+
+void PersonalizationWork::windowSwitchWM(bool value)
+{
+    QDBusInterface Interface("com.deepin.wm",
+                                 "/com/deepin/wm",
+                                "org.freedesktop.DBus.Properties",
+                                QDBusConnection::sessionBus());
+
+     QDBusMessage reply = Interface.call("Set","com.deepin.wm","compositingEnabled", QVariant::fromValue(QDBusVariant(value)));
+     if (reply.type() == QDBusMessage::ErrorMessage) {
+         qDebug() << "reply.type() = " << reply.type();
+     }
+
 }
 
 void PersonalizationWork::setOpacity(int opacity)
