@@ -70,7 +70,7 @@ const QString GSettinsWindowWidth = "window-width";
 const QString GSettinsWindowHeight = "window-height";
 const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
 
-const int WidgetMinimumWidget = 768;
+const int WidgetMinimumWidget = 820;
 const int WidgetMinimumHeight = 634;
 
 //此处为带边距的宽度
