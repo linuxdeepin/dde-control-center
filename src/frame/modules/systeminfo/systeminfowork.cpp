@@ -110,8 +110,13 @@ void SystemInfoWork::activate()
     m_model->setDisk(m_systemInfoInter->diskCap());
 
     QString version;
-    version = QString("%1 %2").arg(DSysInfo::deepinVersion())
-                              .arg(DSysInfo::deepinTypeDisplayName());
+    QString deepinVersion = DSysInfo::deepinVersion();
+    QString deepinTypeDisplayName = DSysInfo::deepinTypeDisplayName();
+    if (deepinTypeDisplayName == "Personal") {
+        deepinTypeDisplayName = "Home";
+    }
+    version = QString("%1 %2").arg(deepinVersion)
+                              .arg(deepinTypeDisplayName);
 
     m_model->setVersion(version);
     m_model->setType(QSysInfo::WordSize);
