@@ -292,7 +292,7 @@ int MouseWorker::converToModelMotionAcceleration(double value)
         return 5;
     } else if (value <= 0) {
         return 4;
-    } else if (value <= -0.2) {
+    } else if (value <= 0.2) {
         return 3;
     } else if (value <= 0.4) {
         return 2;
