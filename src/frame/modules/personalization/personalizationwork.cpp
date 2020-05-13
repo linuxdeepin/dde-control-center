@@ -57,7 +57,9 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
       m_model(model),
       m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this)),
       m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this)),
-      m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
+      m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this)),
+      m_effects(new Effects("org.kde.KWin", "/Effects", QDBusConnection::sessionBus(), this))
+
 {
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
@@ -77,6 +79,21 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_dbus, &Appearance::OpacityChanged, this, &PersonalizationWork::refreshOpacity);
     connect(m_dbus, &Appearance::QtActiveColorChanged, this, &PersonalizationWork::refreshActiveColor);
     connect(m_wm, &WM::CompositingAllowSwitchChanged, this, &PersonalizationWork::onCompositingAllowSwitch);
+
+    //获取最小化设置
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_effects->isEffectLoaded("magiclamp"), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] (QDBusPendingCallWatcher *watcher) {
+        qDebug() << watcher->error();
+        if (!watcher->isError()) {
+            QDBusReply<bool> value = watcher->reply();
+            if (value) {
+                m_model->setMiniEffect(1);
+            } else {
+                m_model->setMiniEffect(0);
+            }
+        }
+    });
+
 
     m_themeModels["gtk"]           = windowTheme;
     m_themeModels["icon"]          = iconTheme;
@@ -475,6 +492,21 @@ void PersonalizationWork::switchWM()
 void PersonalizationWork::setOpacity(int opacity)
 {
     m_dbus->setOpacity(sliderValutToOpacity(opacity));
+}
+
+void PersonalizationWork::setMiniEffect(int effect)
+{
+    switch(effect){
+    case 0:
+        qDebug() << "scale";
+        m_effects->unloadEffect("magiclamp");
+        break;
+    case 1:
+        qDebug() << "magiclamp";
+        m_effects->loadEffect("magiclamp");
+        break;
+    default:break;
+    }
 }
 
 void PersonalizationWork::setActiveColor(const QString &hexColor)

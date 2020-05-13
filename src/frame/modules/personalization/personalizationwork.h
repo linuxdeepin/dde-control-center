@@ -36,10 +36,12 @@
 #include <com_deepin_daemon_appearance.h>
 #include <com_deepin_wmswitcher.h>
 #include <com_deepin_wm.h>
+#include <org_kde_kwin_effects.h>
 
 using Appearance = com::deepin::daemon::Appearance;
 using WMSwitcher = com::deepin::WMSwitcher;
 using WM = com::deepin::wm;
+using Effects=org::kde::kwin::Effects;
 
 namespace dcc
 {
@@ -62,6 +64,7 @@ public Q_SLOTS:
     void setFontSize(const int value);
     void switchWM();
     void setOpacity(int opcaity);
+    void setMiniEffect(int effect);
     void setActiveColor(const QString &hexColor);
 
 private Q_SLOTS:
@@ -97,6 +100,7 @@ private:
     Appearance           *m_dbus;
     WMSwitcher *m_wmSwitcher;
     WM *m_wm;
+    Effects *m_effects;
     QMap<QString, ThemeModel*> m_themeModels;
     QMap<QString, FontModel*> m_fontModels;
 };

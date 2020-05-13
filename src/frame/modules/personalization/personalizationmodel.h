@@ -55,6 +55,9 @@ public:
     inline std::pair<int, double> opacity() const { return m_opacity; }
     void setOpacity(std::pair<int, double> opacity);
 
+    inline int miniEffect() const { return m_miniEffect; }
+    void setMiniEffect(const int &effect);
+
     inline QString getActiveColor() {return m_activeColor;}
     void setActiveColor(const QString &color);
 
@@ -64,6 +67,7 @@ public:
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void onOpacityChanged(std::pair<int, double> opacity);
+    void onMiniEffectChanged(int effect);
     void onActiveColorChanged(const QString &color);
     void onCompositingAllowSwitch(bool value);
 
@@ -76,6 +80,7 @@ private:
     FontSizeModel *m_fontSizeModel;
     bool m_is3DWm;
     std::pair<int, double> m_opacity;
+    int m_miniEffect;
     QString m_activeColor;
     bool m_allowSwitch;
 };
