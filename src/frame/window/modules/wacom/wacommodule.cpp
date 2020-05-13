@@ -88,7 +88,7 @@ void WacomModule::deactive()
 
 const QString WacomModule::name() const
 {
-    return QStringLiteral("wacom");
+    return QStringLiteral("tablet");
 }
 
 const QString WacomModule::displayName() const
