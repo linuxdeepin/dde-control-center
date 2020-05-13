@@ -31,6 +31,7 @@
 #include "modules/wacom/wacommodule.h"
 #include "modules/display/displaymodule.h"
 #include "modules/personalization/personalizationmodule.h"
+#include "modules/notification/notificationmodule.h"
 #include "modules/sync/syncmodule.h"
 #include "modules/systeminfo/systeminfomodule.h"
 #include "modules/network/networkmodule.h"
@@ -301,6 +302,8 @@ void MainWindow::initAllModule(QString m)
     using namespace wacom;
     using namespace systeminfo;
     using namespace commoninfo;
+    using namespace notification;
+
 
     m_modules = {
         { new AccountsModule(this), tr("Accounts")},
@@ -310,6 +313,7 @@ void MainWindow::initAllModule(QString m)
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new PersonalizationModule(this), tr("Personalization")},
         { new NetworkModule(this), tr("Network")},
+        { new NotificationModule(this),tr("Notification")},
         { new SoundModule(this), tr("Sound")},
         { new BluetoothModule(this), tr("Bluetooth")},
         { new DatetimeModule(this), tr("Date and Time")},
