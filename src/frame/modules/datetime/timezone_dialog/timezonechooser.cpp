@@ -161,10 +161,7 @@ TimeZoneChooser::TimeZoneChooser()
         m_popup->installEventFilter(this);
 
         DBlurEffectWidget *blurEffect = new DBlurEffectWidget(m_popup);
-        blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
         blurEffect->setMaskColor(Qt::white);
-        blurEffect->setBlurRectXRadius(4);
-        blurEffect->setBlurRectYRadius(4);
 
         QHBoxLayout *layout = new QHBoxLayout;
         layout->setSpacing(0);
