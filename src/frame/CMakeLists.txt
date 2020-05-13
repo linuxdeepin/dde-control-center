@@ -37,8 +37,9 @@ DISABLE_SOUND
 DISABLE_DATETIME
 DISABLE_POWER
 DISABLE_MOUSE
-DISABLE_KAYBOARD
 DISABLE_WACOM
+DISABLE_KAYBOARD
+DISABLE_COMMONINFO
 DISABLE_SYSINFO
 DISABLE_NETWORK_PPPOE
 DISABLE_NETWORK_VPN
@@ -67,13 +68,8 @@ endforeach()
 
 # load files
 set(FRAME_FILES
-                main.cpp
-                dbuscontrolcenterservice.cpp
-                framecontentwrapper.cpp
-                moduleinitthread.cpp
-                navigationview.cpp
-                pluginscontroller.cpp
-                updatenotifier.cpp
+    main.cpp
+    dbuscontrolcenterservice.cpp
 )
 
 set(WINDOW_FILES
@@ -140,12 +136,8 @@ set(WINDOW_FILES
 
 # load interfaces
 set(INTERFACES_FILES
-                interfaces/frameproxyinterface.h
-                interfaces/moduleinterface.h
-                interfaces/plugininterface.h
-
-                ../../include/interface/moduleinterface.h
-                ../../include/interface/frameproxyinterface.h
+    ../../include/interface/moduleinterface.h
+    ../../include/interface/frameproxyinterface.h
 )
 
 # load widgets
@@ -521,7 +513,6 @@ set(SRCS
 
 set(QRC
         notify/images.qrc
-        frame.qrc
         modules/display/display.qrc
         modules/wacom/wacom.qrc
         modules/update/update.qrc
@@ -612,7 +603,6 @@ if (OS_DEEPIN_PROFESSIONAL)
             ${BUILD_MACRO}
             DCC_ENABLE_ADDOMAIN
             DCC_DISABLE_MIRACAST
-            DISABLE_CLOUD_SYNC
             DCC_COMMUNITY_LICENSE
         )
     endif()

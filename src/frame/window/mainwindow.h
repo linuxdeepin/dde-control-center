@@ -21,7 +21,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "navigation/navmodel.h"
 #include "interface/frameproxyinterface.h"
 #include "interface/moduleinterface.h"
 
