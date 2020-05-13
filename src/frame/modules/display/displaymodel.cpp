@@ -113,7 +113,7 @@ void DisplayModel::setScreenWidth(const int w)
 
 void DisplayModel::setDisplayMode(const int mode)
 {
-    if (m_mode != mode) {
+    if (m_mode != mode && mode >= 0 && mode < 5) {
         m_mode = mode;
         Q_EMIT displayModeChanged(m_mode);
     }
@@ -262,4 +262,8 @@ void DisplayModel::setMouseLeftHand(bool isLeft)
 
     m_mouseLeftHand = isLeft;
     Q_EMIT mouseLeftHandChanged(isLeft);
+}
+void DisplayModel::setRefreshRateEnable(bool isEnable)
+{
+    m_RefreshRateEnable = isEnable;
 }

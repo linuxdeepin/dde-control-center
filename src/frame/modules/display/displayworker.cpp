@@ -182,9 +182,13 @@ void DisplayWorker::mergeScreens()
 
     qDebug() << "get best Resolution :" << bestMode.width() << " x " << bestMode.height();
     const auto mode = bestMode;
-    const auto rotate = m_model->primaryMonitor()->rotate();
+    auto rotate = m_model->primaryMonitor()->rotate();
     const auto brightness = m_model->primaryMonitor()->brightness();
-
+    for (auto *mon : m_model->monitorList()) {
+        if (mon->rotate() != rotate) {
+            rotate = 1;
+        }
+    }
     QList<QDBusPendingReply<>> replys;
 
     for (auto *mon : m_model->monitorList()) {
@@ -356,6 +360,14 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
     Q_ASSERT(inter);
 
     inter->SetRotation(rotate).waitForFinished();
+    short xoffset = short(m_model->primaryMonitor()->w());
+    for (auto tm = m_monitors.begin(); tm != m_monitors.end(); ++tm) {
+        if (!tm.key()->enable() || tm.key() == m_model->primaryMonitor()) {
+            continue;
+        }
+        tm.value()->SetPosition(xoffset, 0);
+        xoffset += tm.value()->width();
+    }
     m_displayInter.ApplyChanges();
 }
 
@@ -393,6 +405,93 @@ void DisplayWorker::applyChanges()
     m_displayInter.ApplyChanges().waitForFinished();
 }
 
+void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
+{
+    //如果是灭屏幕，且当前亮的屏幕只有一个，直接返回
+    if (!enabled) {
+        int enableCount = 0;
+        for (auto *tm : m_model->monitorList()) {
+            // pass primary
+            enableCount += tm->enable() ? 1 : 0;
+        }
+        if (enableCount <= 1) {
+            if (m_monitors.size()) {
+                m_monitors.first()->Enable(true);
+            }
+            return;
+        }
+    }
+    const bool ismerge = m_model->isMerge();
+    auto *primary = m_model->primaryMonitor();
+    //如果设置的是主屏，则先改主屏
+    if (monitor == primary) {
+        for (auto *tm : m_model->monitorList()) {
+            // pass primary
+            if (tm == monitor || !tm->enable())
+                continue;
+
+            setPrimaryByName(tm->name());
+            primary = tm;
+            break;
+        }
+    }
+
+    //灭掉屏幕
+    MonitorInter *inter = m_monitors.value(monitor);
+    if (enabled) {
+        auto modes = monitor->modeList();
+        Resolution bestMode = modes.first();
+        qDebug() << "get best Resolution :" << bestMode.width() << " x " << bestMode.height();
+        auto mode = bestMode;
+        if (ismerge) {
+            Resolution currentmode;
+            for (auto *tm : m_model->monitorList()) {
+                if (tm->enable()) {
+                    currentmode = tm->currentMode();
+                    break;
+                }
+            }
+            if (monitor->hasResolutionAndRate(currentmode)) {
+                mode = currentmode;
+            }
+        }
+
+        const auto rotate = m_model->primaryMonitor()->rotate();
+        const auto brightness = m_model->primaryMonitor()->brightness();
+
+        QList<QDBusPendingReply<>> replys;
+        replys << inter->SetModeBySize(mode.width(), mode.height());
+        replys << inter->SetRotation(rotate);
+        replys << inter->Enable(enabled);
+        replys << m_displayInter.SetBrightness(monitor->name(), brightness);
+
+        for (auto r : replys)
+            r.waitForFinished();
+    } else
+        inter->Enable(enabled).waitForFinished();
+    Q_ASSERT(m_monitors.contains(primary));
+    m_monitors[primary]->SetPosition(0, 0).waitForFinished();
+
+    //为亮的屏幕排序
+    int xOffset = primary->w();
+    if (ismerge == false) {
+        for (auto *mon : m_model->monitorList()) {
+            // pass primary
+            if (mon == primary)
+                continue;
+            if (!mon->enable()) {
+                if (monitor == mon && enabled) {
+                } else
+                    continue;
+            }
+            Q_ASSERT(m_monitors.contains(mon));
+            auto *mInter = m_monitors[mon];
+            mInter->SetPosition(xOffset, 0).waitForFinished();
+            xOffset += mon->w();
+        }
+    }
+    m_displayInter.ApplyChanges().waitForFinished();
+}
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 {
     MonitorInter *inter = m_monitors.value(mon);
@@ -520,6 +619,8 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::YChanged, mon, &Monitor::setY);
     connect(inter, &MonitorInter::WidthChanged, mon, &Monitor::setW);
     connect(inter, &MonitorInter::HeightChanged, mon, &Monitor::setH);
+    connect(inter, &MonitorInter::MmWidthChanged, mon, &Monitor::setMmWidth);
+    connect(inter, &MonitorInter::MmHeightChanged, mon, &Monitor::setMmHeight);
     connect(inter, &MonitorInter::RotationChanged, mon, &Monitor::setRotate);
     connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
@@ -541,14 +642,47 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setRotate(inter->rotation());
     mon->setCurrentMode(inter->currentMode());
     mon->setModeList(inter->modes());
+    if (m_model->isRefreshRateEnable() == false) {
+        for (auto resolutionModel : mon->modeList()) {
+            if (qFuzzyCompare(resolutionModel.rate(), 0.0) == false) {
+                m_model->setRefreshRateEnable(true);
+            }
+        }
+    }
     mon->setRotateList(inter->rotations());
     mon->setPrimary(m_displayInter.primary());
+    mon->setMmWidth(inter->mmWidth());
+    mon->setMmHeight(inter->mmHeight());
 
     if (!m_model->brightnessMap().isEmpty()) {
         mon->setBrightness(m_model->brightnessMap()[mon->name()]);
     }
 
     m_model->monitorAdded(mon);
+    auto getDisplayPriority = [](QString name) {
+        if(name.contains("edp",Qt::CaseInsensitive)) {
+            return 1;
+        }
+        else if(name.contains("hdmi",Qt::CaseInsensitive)) {
+            return 2;
+        }
+        else if(name.contains("dvi",Qt::CaseInsensitive)) {
+            return 3;
+        }
+        else if(name.contains("vga",Qt::CaseInsensitive)) {
+            return 3;
+        }
+        else {
+            return 4;
+        }
+    } ;
+    if(m_model->displayMode()==EXTEND_MODE) {
+        int  curPriority=getDisplayPriority(m_model->primary());
+        int  monPriority=getDisplayPriority(mon->name());
+        if(monPriority < curPriority) {
+             m_displayInter.SetPrimary(mon->name());
+        }
+    }
     m_monitors.insert(mon, inter);
 
     inter->setSync(false);

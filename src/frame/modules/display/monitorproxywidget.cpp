@@ -66,7 +66,10 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.fillRect(r, Qt::gray);
+    if (m_monitor->isPrimary()) {
+        painter.fillRect(r, Qt::darkGray);
+    } else
+        painter.fillRect(r, Qt::gray);
     painter.setPen(Qt::darkGray);
     painter.drawRect(r);
 
@@ -77,8 +80,7 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
         painter.drawText(r.width() - width - 20, 30, m_monitor->name());
 
     // draw dock pattern if it's primary screen
-    if (m_monitor->isPrimary())
-    {
+    if (m_monitor->isPrimary()) {
         const int radius = 5;
         QRectF dockRect = r;
         dockRect.setTop(r.bottom() - 15);
@@ -87,13 +89,12 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
         dockRect.moveTop(dockRect.top() + radius);
 
         painter.setPen(Qt::transparent);
-        painter.setBrush(Qt::darkGray);
+        painter.setBrush(Qt::white);
         painter.drawRoundedRect(dockRect, radius, radius);
     }
 
     // draw blue border if under mouse control
-    if (m_underMouseMove)
-    {
+    if (m_underMouseMove) {
         QPen pen(QColor("#2ca7f8"));
         pen.setWidth(4);
         painter.setPen(pen);

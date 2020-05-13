@@ -133,15 +133,6 @@ void MultiScreenSettingPage::initModeList()
 
     QStringList iconList;
     iconList << "dcc_display_copy" << "dcc_display_expansion";
-
-    auto moniList = m_model->monitorList();
-    for (int i = 0; i < moniList.size(); ++i) {
-        auto moniNmae = moniList[i]->name();
-        titleList << tr("%1 only").arg(moniNmae);
-        subTitleList << tr("Show the screen content only on %1").arg(moniNmae);
-        iconList << (i % 2 ? "dcc_display_vga1" : "dcc_display_lvds1");
-    }
-
     titleList << tr("Customize");
     subTitleList << tr("Configure the display according to your needs");
     iconList << "dcc_display_custom";

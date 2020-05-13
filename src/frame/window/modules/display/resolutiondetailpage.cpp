@@ -157,6 +157,15 @@ void ResolutionDetailPage::initResoList()
         if (itemModel->data(idx, Qt::CheckStateRole) == Qt::CheckState::Checked)
             return ;
 
+        for (auto m : moni->modeList()) {
+            auto w = itemModel->itemData(idx)[WidthRole].toInt();
+            auto h = itemModel->itemData(idx)[HeightRole].toInt();
+            auto r = moni->currentMode().rate();
+            if (m.width() == w && m.height() == h && fabs(m.rate() - r) < 0.01) {
+                requestSetResolution(moni, m.id());
+                return;
+            }
+        }
         requestSetResolution(moni, itemModel->itemData(idx)[IdRole].toInt());
     });
     connect(rlist, &DListView::activated, rlist, &QListView::clicked);

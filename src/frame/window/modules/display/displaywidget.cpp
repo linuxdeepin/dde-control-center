@@ -66,6 +66,13 @@ void DisplayWidget::setModel(DisplayModel *model)
     //确保第一次进入onMonitorListChanged会命中一个判断
     m_isMultiScreen = model->monitorList().size() <= 1;
     onMonitorListChanged();
+    if (model->isRefreshRateEnable() == false) {
+        for (int i = 0; i < m_singleModel->rowCount(); i++) {
+            if (m_singleModel->item(i)->text() == tr("Refresh Rate")) {
+                m_singleModel->removeRow(i);
+            }
+        }
+    }
 }
 
 int DisplayWidget::showPath(const QString &path)
@@ -103,15 +110,16 @@ void DisplayWidget::onMonitorListChanged()
 {
     const auto mons = m_model->monitorList();
 
+    m_rotate->setVisible(mons.size() <= 1);
     if (m_isMultiScreen && mons.size() <= 1) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
-
+        m_rotate->show();
         onMenuClicked(m_menuList->model()->index(0, 0));
-    } else if(!m_isMultiScreen && mons.size() > 1) {
+    } else if (!m_isMultiScreen && mons.size() > 1) {
         m_isMultiScreen = true;
         m_menuList->setModel(m_multiModel);
-
+        m_rotate->hide();
         onMenuClicked(m_menuList->model()->index(0, 0));
     }
 }

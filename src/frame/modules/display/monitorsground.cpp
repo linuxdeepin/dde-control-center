@@ -78,8 +78,16 @@ void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
     };
 
     if (!moni) {
+        Monitor *primary = nullptr;
         for (auto mon : model->monitorList()) {
+            if (mon->isPrimary()) {
+                primary = mon;
+                continue;
+            }
             initMW(mon);
+        }
+        if (primary) {
+            initMW(primary);
         }
     } else {
         initMW(moni);
@@ -93,21 +101,12 @@ void MonitorsGround::resetMonitorsView()
     qDebug() << Q_FUNC_INFO;
 
     reloadViewPortSize();
-    for (auto pw : m_monitors.keys())
-        adjust(pw);
-
-//    Monitor *firstMonitor = m_monitors.values().first();
-//    for (auto it = m_monitors.cbegin(); it != m_monitors.cend(); ++it) {
-//        if (firstMonitor->rect() == it.value()->rect()) {
-//            m_model->setIsMerge(true);
-//            continue;
-//        }
-
-//        m_model->setIsMerge(false);
-//    }
-
     if (m_model->isMerge()) {
+        adjustAll();
         return;
+    } else {
+        for (auto pw : m_monitors.keys())
+            adjust(pw);
     }
 
     // recheck settings
@@ -163,6 +162,36 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
 
     pw->setGeometry(x + offsetX, y + offsetY, w, h);
     pw->update();
+}
+
+void MonitorsGround::adjustAll()
+{
+    const double scale = screenScale();
+    int offset = 0;
+    const int offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
+    const int offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
+    MonitorProxyWidget *primarywdt = nullptr;
+    for (auto pw : m_monitors.keys()) {
+        if (pw->name() == m_model->primary()) {
+            primarywdt = pw;
+            continue;
+        }
+        const int w = scale * pw->w() * 0.5;
+        const int h = scale * pw->h() * 0.5;
+        const int x = scale * pw->x();
+        const int y = scale * pw->y();
+
+        pw->setGeometry(x + offsetX + w * 0.5 - offset, y + offsetY + h * 0.5 - offset, w, h);
+        offset += 10;
+    }
+    if (primarywdt) {
+        const int w = scale * primarywdt->w() * 0.5;
+        const int h = scale * primarywdt->h() * 0.5;
+        const int x = scale * primarywdt->x();
+        const int y = scale * primarywdt->y();
+
+        primarywdt->setGeometry(x + offsetX + w * 0.5 - offset, y + offsetY + h * 0.5 - offset, w, h);
+    }
 }
 
 void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)

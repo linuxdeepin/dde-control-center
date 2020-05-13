@@ -95,6 +95,9 @@ public:
 
     inline bool mouseLeftHand() const { return m_mouseLeftHand;}
 
+    inline bool isRefreshRateEnable() const { return m_RefreshRateEnable; }
+    void setRefreshRateEnable(bool isEnable);
+
 Q_SIGNALS:
     void isMergeChange(bool isMerge) const;
     void screenHeightChanged(const int h) const;
@@ -132,7 +135,7 @@ private Q_SLOTS:
 private:
     int m_screenHeight;
     int m_screenWidth;
-    int m_mode;
+    int m_mode{-1};
     double m_uiScale;
     double m_minimumBrightnessScale;
     QString m_primary;
@@ -142,6 +145,7 @@ private:
     bool m_isNightMode;
     bool m_redshiftIsValid;
     bool m_redshiftSetting;
+    bool m_RefreshRateEnable{false};
     bool m_isAutoLightAdjust{false};
     bool m_AutoLightAdjustIsValid{false};
     bool m_allowEnableMultiScaleRatio;

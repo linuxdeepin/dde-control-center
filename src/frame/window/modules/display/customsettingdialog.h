@@ -49,6 +49,8 @@ class MonitorIndicator;
 }
 
 namespace widgets {
+class SettingsGroup;
+class ComboxWidget;
 class BasicListView;
 }
 }
@@ -83,6 +85,7 @@ struct ResolutionDate {
 };
 
 Q_SIGNALS:
+    void monitorAdd(dcc::display::Monitor *mon);
     void requestShowRotateDialog(dcc::display::Monitor *mon);
     void requestRecognize();
     void requestMerge();
@@ -90,6 +93,7 @@ Q_SIGNALS:
     void requestSetMonitorPosition(dcc::display::Monitor *mon, const int x, const int y);
     void requestSetResolution(dcc::display::Monitor *mon, ResolutionDate resolution);
     void requestSetPrimaryMonitor(int idx);
+    void requestEnalbeMonitor(dcc::display::Monitor *mon, bool enable);
 
 
 private Q_SLOTS:
@@ -99,7 +103,7 @@ private Q_SLOTS:
     void onPrimaryMonitorChanged();
     void onChangList(QAbstractButton *btn, bool beChecked);
     void onMonitorModeChange(const Resolution &r);
-
+    void currentIndexChanged(int index);
 private:
     void initUI();
     void initWithModel();
@@ -119,15 +123,19 @@ private:
     dcc::display::Monitor *m_monitor{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
     QVBoxLayout *m_layout{nullptr};
+    QWidget *m_main_select_lab_widget{nullptr};
     std::unique_ptr<dcc::display::MonitorIndicator> m_fullIndication;
     dcc::display::MonitorControlWidget *m_monitroControlWidget{nullptr};
-
+    dcc::widgets::SettingsGroup *m_displaylist{nullptr};
+    dcc::widgets::ComboxWidget *m_displayComboxWidget{nullptr};
     QVBoxLayout *m_listLayout{nullptr};
     QList<DTK_WIDGET_NAMESPACE::DButtonBoxButton *> m_vSegBtn;
     DTK_WIDGET_NAMESPACE::DListView *m_moniList{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_resolutionList{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_rateList{nullptr};
     QStandardItemModel *m_resolutionListModel{nullptr};
+    QStandardItemModel *m_freshListModel{nullptr};
+    QStandardItemModel *m_displayListModel{nullptr};
     QList<CustomSettingDialog *> m_otherDialog;
 };
 }

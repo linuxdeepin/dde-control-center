@@ -216,8 +216,12 @@ void DisplayModule::showCustomSettingDialog()
     auto displayMode = m_displayModel->displayMode();
     Q_ASSERT(displayMode == CUSTOM_MODE);
 
-    for (auto mon : m_displayModel->monitorList())
-        m_displayWorker->setMonitorEnable(mon, true);
+    for (auto mon : m_displayModel->monitorList()){
+        if(mon->enable()==false){
+            m_displayWorker->onMonitorEnable(mon, true);
+        }
+        //m_displayWorker->setMonitorEnable(mon, true);
+    }
 
     CustomSettingDialog *dlg = new CustomSettingDialog();
 
@@ -227,6 +231,9 @@ void DisplayModule::showCustomSettingDialog()
             &DisplayModule::onCustomPageRequestSetResolution);
     connect(dlg, &CustomSettingDialog::requestMerge,
             m_displayWorker, &DisplayWorker::mergeScreens);
+    connect(dlg, &CustomSettingDialog::requestEnalbeMonitor, [=](Monitor *mon, bool enable) {
+        m_displayWorker->onMonitorEnable(mon, enable);
+    });
     connect(dlg, &CustomSettingDialog::requestSplit,
             m_displayWorker, &DisplayWorker::splitScreens);
     connect(dlg, &CustomSettingDialog::requestSetMonitorPosition,
@@ -284,7 +291,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
     } else {
         lastres.w = qint16(m_displayModel->primaryMonitor()->currentMode().width());
         lastres.h = qint16(m_displayModel->primaryMonitor()->currentMode().height());
-        lastres.rate = qint16(m_displayModel->primaryMonitor()->currentMode().rate());
+        lastres.rate = m_displayModel->primaryMonitor()->currentMode().rate();
     }
 
     auto tfunc = [this](Monitor *tmon, CustomSettingDialog::ResolutionDate tmode) {
@@ -297,13 +304,18 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                      << "\t id: " << tmode.id;
             for (auto m : m_displayModel->monitorList()) {
                 for (auto res : m->modeList()) {
-                    if (fabs(r) > 0.000001 && fabs(res.rate() - r) > 0.000001) {
-                        continue;
-                    }
-                    if (res.width() == w && res.height() == h) {
-                        m_displayWorker->setMonitorResolution(m, res.id());
-                        break;
-                    }
+                     if (fabs(r) < 0.000001 ){
+                         if (res.width() == w && res.height() == h) {
+                            m_displayWorker->setMonitorResolution(m, res.id());
+                            break;
+                         }
+                     }
+                     else{
+                         if (res.width() == w && res.height() == h&&abs(res.rate() - r) <0.000001) {
+                                m_displayWorker->setMonitorResolution(m, res.id());
+                                break;
+                         }
+                     }
                 }
             }
         } else {

@@ -81,6 +81,16 @@ void Monitor::setH(const int h)
     Q_EMIT geometryChanged();
 }
 
+void Monitor::setMmWidth(const int mmWidth)
+{
+    m_mmWidth = mmWidth;
+}
+
+void Monitor::setMmHeight(const int mmHeight)
+{
+    m_mmHeight = mmHeight;
+}
+
 void Monitor::setScale(const double scale)
 {
     if (fabs(m_scale - scale) < DoubleZero)
@@ -147,7 +157,14 @@ bool compareResolution(const Resolution &first, const Resolution &second)
     long secondSum = long(second.width()) * second.height();
     if (firstSum > secondSum)
         return true;
-    return false;
+    else if (firstSum == secondSum) {
+        if (first.rate() - second.rate() > 0.000001)
+            return true;
+        else
+            return false;
+    } else
+        return false;
+
 }
 
 void Monitor::setModeList(const ResolutionList &modeList)
@@ -200,7 +217,7 @@ bool Monitor::hasResolution(const Resolution &r)
 bool Monitor::hasResolutionAndRate(const Resolution &r)
 {
     for (auto m : m_modeList) {
-        if ((m.rate() - r.rate()) < 0.000001 &&
+        if (fabs(m.rate() - r.rate()) < 0.000001 &&
                 m.width() == r.width() &&
                 m.height() == r.height()) {
             return true;
