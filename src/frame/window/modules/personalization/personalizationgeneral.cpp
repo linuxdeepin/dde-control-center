@@ -26,6 +26,7 @@
 #include "widgets/titledslideritem.h"
 #include "widgets/settingsitem.h"
 #include "widgets/titlelabel.h"
+#include "widgets/comboxwidget.h"
 
 #include <DStyle>
 #include <DSwitchButton>
@@ -38,6 +39,7 @@
 #include <QRect>
 #include <QPalette>
 #include <QSettings>
+#include <QComboBox>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -62,6 +64,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     , m_centralLayout(new QVBoxLayout())
     , m_wmSwitch(nullptr)
     , m_transparentSlider(nullptr)
+    , m_cmbMiniEffect(new ComboxWidget)
     , m_Themes(new PerssonalizationThemeWidget())
     , m_bgWidget(new QWidget)
     , m_switchWidget(new QWidget)
@@ -144,10 +147,20 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         slider->setPageStep(1);
         winEffectVLayout->addWidget(m_transparentSlider);
 
+        m_cmbMiniEffect->setTitle(tr("Window Miniminze Effect"));
+        m_cmbMiniEffect->addBackground();
+        QStringList options;
+        options << tr("Scale") << tr("Magic Lamp");
+        m_cmbMiniEffect->setComboxOption(options);
+        winEffectVLayout->addWidget(m_cmbMiniEffect);
+
         connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
                 &PersonalizationGeneral::requestSetOpacity);
         connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::sliderMoved, this,
                 &PersonalizationGeneral::requestSetOpacity);
+        connect(m_cmbMiniEffect, &dcc::widgets::ComboxWidget::onIndexChanged, this,
+                &PersonalizationGeneral::requestSetMiniEffect);
+
         connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this, [this](bool checked) {
                 qDebug() << "DSwitchButton::clicked:" << checked << ",m_model->is3DWm():" << m_model->is3DWm();
                 m_wmSwitch->setChecked(m_model->is3DWm());
@@ -178,6 +191,9 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
                 &PersonalizationGeneral::onOpacityChanged);
 
         onOpacityChanged(model->opacity());
+        connect(model, &dcc::personalization::PersonalizationModel::onMiniEffectChanged, this,
+                &PersonalizationGeneral::onMiniEffectChanged);
+        onMiniEffectChanged(model->miniEffect());
     }
 
     connect(model, &dcc::personalization::PersonalizationModel::onActiveColorChanged, this,
@@ -225,6 +241,7 @@ void PersonalizationGeneral::updateWMSwitcher(bool checked)
     }
     if (m_transparentSlider) {
         m_transparentSlider->setVisible(checked);
+        m_cmbMiniEffect->setVisible(checked);
     }
 }
 
@@ -254,6 +271,12 @@ void PersonalizationGeneral::onOpacityChanged(std::pair<int, double> value)
         m_transparentSlider->setValueLiteral(QString::number(value.second));
         m_transparentSlider->slider()->blockSignals(false);
     }
+}
+
+void PersonalizationGeneral::onMiniEffectChanged(int index)
+{
+    if(index < m_cmbMiniEffect->comboBox()->count())
+        m_cmbMiniEffect->comboBox()->setCurrentIndex(index);
 }
 
 void PersonalizationGeneral::onActiveColorChanged(const QString &newColor)

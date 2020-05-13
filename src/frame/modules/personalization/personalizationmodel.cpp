@@ -42,6 +42,7 @@ PersonalizationModel::PersonalizationModel(QObject *parent)
     m_monoFontModel  = new FontModel(this);
     m_fontSizeModel  = new FontSizeModel(this);
     m_is3DWm = true;
+    m_miniEffect = 0;
 }
 
 PersonalizationModel::~PersonalizationModel()
@@ -69,6 +70,15 @@ void PersonalizationModel::setOpacity(std::pair<int, double> opacity)
     m_opacity = opacity;
 
     Q_EMIT onOpacityChanged(opacity);
+}
+
+void PersonalizationModel::setMiniEffect(const int &effect)
+{
+    if(m_miniEffect == effect) return;
+
+    m_miniEffect=effect;
+
+    Q_EMIT onMiniEffectChanged(effect);
 }
 
 void PersonalizationModel::setActiveColor(const QString &color)
