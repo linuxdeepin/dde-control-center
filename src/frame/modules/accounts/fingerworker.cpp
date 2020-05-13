@@ -56,6 +56,8 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     auto defualtDevice = m_fingerPrintInter->defaultDevice();
     qDebug() << "defaultDevice:" << defualtDevice;
     m_model->setIsVaild(!defualtDevice.isEmpty());
+
+    m_fingerPrintInter->setTimeout(INT_MAX);
 }
 
 bool FingerWorker::tryEnroll(const QString &name, const QString &thumb)
