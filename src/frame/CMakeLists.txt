@@ -1079,6 +1079,19 @@ set(WACOM_FILES
 #                window/modules/wacom/pressuresettings.cpp
 )
 
+set(NOTIFICATION_FILES
+    modules/notification/notificationmodel.cpp
+    modules/notification/notificationworker.cpp
+    modules/notification/model/appitemmodel.cpp
+    modules/notification/model/sysitemmodel.cpp
+    window/modules/notification/notificationmodule.cpp
+    window/modules/notification/notificationwidget.cpp
+    window/modules/notification/systemnotifywidget.cpp
+    window/modules/notification/notificationitem.cpp
+    window/modules/notification/timeslotitem.cpp
+    window/modules/notification/appnotifywidget.cpp
+)
+
 # end load
 
 #plugins/calculator/calculatorplugin.cpp
@@ -1124,6 +1137,7 @@ set(SRCS
         ${SYNC_FILES}
         ${SYSTEMINFO_FILES}
         ${PERSONALIZATION_FILES}
+        ${NOTIFICATION_FILES}
 )
 
 set(QRC

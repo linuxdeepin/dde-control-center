@@ -126,5 +126,7 @@
         <file>icons/dcc_common_subscript.svg</file>
         <file>texts/dcc_update_topsettings_32px.svg</file>
         <file>texts/dcc_update_topupdate_32px.svg</file>
+        <file>icons/dcc_nav_notification_42px.svg</file>
+        <file>icons/dcc_nav_notification_84px.svg</file>
     </qresource>
 </RCC>

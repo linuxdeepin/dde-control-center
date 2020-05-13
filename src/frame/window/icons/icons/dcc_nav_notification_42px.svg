@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" height="42" viewBox="0 0 42 42">
+  <defs>
+    <linearGradient id="nav_notifi_42px-c" x1="50%" x2="50%" y1="1.09%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#ECF4FD"/>
+    </linearGradient>
+    <rect id="nav_notifi_42px-b" width="22" height="19" x=".5" y="0" rx="1.25"/>
+    <filter id="nav_notifi_42px-a" width="163.6%" height="173.7%" x="-31.8%" y="-26.3%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.00392156863   0 0 0 0 0.415686275   0 0 0 0 0.756862745  0 0 0 0.2 0"/>
+    </filter>
+    <linearGradient id="nav_notifi_42px-f" x1="50%" x2="50%" y1="1.09%" y2="99.212%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#D3E7FB"/>
+    </linearGradient>
+    <linearGradient id="nav_notifi_42px-g" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#FFF"/>
+    </linearGradient>
+    <rect id="nav_notifi_42px-e" width="19" height="18" x="0" y="0" rx="2"/>
+    <filter id="nav_notifi_42px-d" width="194.7%" height="200%" x="-47.4%" y="-33.3%" filterUnits="objectBoundingBox">
+      <feOffset dy="3" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0053250477   0 0 0 0 0.41702088   0 0 0 0 0.755293252  0 0 0 0.4 0"/>
+    </filter>
+    <linearGradient id="nav_notifi_42px-h" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#44BAFE"/>
+      <stop offset="100%" stop-color="#419EFF"/>
+    </linearGradient>
+    <linearGradient id="nav_notifi_42px-i" x1="50%" x2="50%" y1="1.09%" y2="65.008%">
+      <stop offset="0%" stop-color="#F92D78"/>
+      <stop offset="100%" stop-color="#E01746"/>
+    </linearGradient>
+    <circle id="nav_notifi_42px-j" cx="32" cy="16" r="3.5"/>
+    <filter id="nav_notifi_42px-k" width="114.3%" height="114.3%" x="-7.1%" y="-7.1%" filterUnits="objectBoundingBox">
+      <feOffset dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.646417942   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(7.5 9)">
+      <use fill="#000" filter="url(#nav_notifi_42px-a)" xlink:href="#nav_notifi_42px-b"/>
+      <use fill="url(#nav_notifi_42px-c)" xlink:href="#nav_notifi_42px-b"/>
+      <path fill="#B1D7FE" fill-opacity=".5" d="M2.5,0 L20.5,0 C21.6045695,-2.02906125e-16 22.5,0.8954305 22.5,2 L22.5,5 L22.5,5 L0.5,5 L0.5,2 C0.5,0.8954305 1.3954305,2.02906125e-16 2.5,0 Z"/>
+    </g>
+    <g transform="translate(14 15)">
+      <use fill="#000" filter="url(#nav_notifi_42px-d)" xlink:href="#nav_notifi_42px-e"/>
+      <rect width="18" height="17" x=".5" y=".5" fill="url(#nav_notifi_42px-f)" stroke="url(#nav_notifi_42px-g)" stroke-linejoin="square" rx="2"/>
+      <path fill="url(#nav_notifi_42px-h)" d="M2,1 L17,1 C17.5522847,1 18,1.44771525 18,2 L18,6 L18,6 L1,6 L1,2 C1,1.44771525 1.44771525,1 2,1 Z"/>
+    </g>
+    <use fill="url(#nav_notifi_42px-i)" xlink:href="#nav_notifi_42px-j"/>
+    <use fill="#000" filter="url(#nav_notifi_42px-k)" xlink:href="#nav_notifi_42px-j"/>
+  </g>
+</svg>
