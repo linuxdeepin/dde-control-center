@@ -49,9 +49,12 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_fullnameEdit(new DLineEdit)
     , m_passwdEdit(new DPasswordEdit)
     , m_repeatpasswdEdit(new DPasswordEdit)
+    , m_accountChooser(new DComboBox)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
+    , m_groupTip(new QLabel(tr("Group")))
 {
+    m_groupListView = new DListView(this);
     m_isServerSystem = IsServerSystem;
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
@@ -111,7 +114,6 @@ void CreateAccountPage::resizeEvent(QResizeEvent *e)
 
 void CreateAccountPage::initUsrGroup(QVBoxLayout *layout)
 {
-    m_groupListView = new DListView(this);
     m_groupItemModel = new QStandardItemModel(this);
     m_groupListView->setModel(m_groupItemModel);
     m_groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -131,10 +133,14 @@ void CreateAccountPage::initUsrGroup(QVBoxLayout *layout)
         }
         m_groupItemModel->sort(0);
     });
-    QLabel *groupTip = new QLabel(tr("Group"));
-    layout->addWidget(groupTip);
+    layout->addWidget(m_groupTip);
     layout->addSpacing(List_Interval);
     layout->addWidget(m_groupListView);
+
+    if (m_accountChooser->currentText() != "Customized") {
+        m_groupTip->setVisible(false);
+        m_groupListView->setVisible(false);
+    }
 }
 
 void CreateAccountPage::initWidgets(QVBoxLayout *layout)
@@ -153,6 +159,11 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     m_avatarListWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     layout->addSpacing(7);
     layout->addWidget(m_avatarListWidget, 0, Qt::AlignTop);
+
+    QLabel *accountTypeLabel = new QLabel(tr("Account Type") + ':');
+    layout->addWidget(accountTypeLabel);
+    layout->addWidget(m_accountChooser);
+    layout->addSpacing(7);
 
     QLabel *nameLabel = new QLabel(tr("Username") + ':');
     layout->addWidget(nameLabel);
@@ -232,10 +243,32 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         }
     });
 
+    connect(m_accountChooser, &DComboBox::currentTextChanged, this, &CreateAccountPage::showGroupList);
+
+    m_accountChooser->addItem(tr("Standard"));
+    m_accountChooser->addItem(tr("Administrator"));
+    m_accountChooser->addItem(tr("Customized"));
+
+    if (!m_isServerSystem) {
+        m_accountChooser->setVisible(false);
+        accountTypeLabel->setVisible(false);
+    }
+
     m_nameEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
+}
+
+void CreateAccountPage::showGroupList(const QString index)
+{
+    if (index == "Customized") {
+        m_groupTip->setVisible(true);
+        m_groupListView->setVisible(true);
+    } else {
+        m_groupTip->setVisible(false);
+        m_groupListView->setVisible(false);
+    }
 }
 
 void CreateAccountPage::setModel(UserModel *userModel, User *user)
