@@ -168,11 +168,11 @@ void SpeakerPage::initSlider()
     hlayout->addWidget(volumeBoostTip);
     auto vbWidget = new QWidget(this);
     vbWidget->setLayout(hlayout);
-    vbWidget->setVisible(false);
+    vbWidget->setVisible(m_model->speakerOn());
     m_layout->insertWidget(2, vbWidget);
     connect(volumeBoost, &SwitchWidget::checkedChanged, volumeBoostTip, &DTipLabel::setVisible);
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoostTip, &DTipLabel::setVisible);
-    //connect(m_model, &SoundModel::speakerOnChanged, vbWidget, &QWidget::setVisible);
+    connect(m_model, &SoundModel::speakerOnChanged, vbWidget, &QWidget::setVisible);
 
     //~ contents_path /sound/Speaker
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
