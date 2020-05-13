@@ -52,6 +52,7 @@ void closeSignal(int s) {
 
 int main(int argc, char *argv[])
 {
+    qputenv("QT_WAYLAND_SHELL_INTEGRATION", "kwayland-shell");
     DApplication app(argc, argv);
     app.setOrganizationName("deepin");
     app.setApplicationName("dde-control-center");
