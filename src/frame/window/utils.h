@@ -36,6 +36,8 @@ Q_DECLARE_METATYPE(QMargins)
 
 namespace DCC_NAMESPACE {
 
+const int FRAME_WIDTH = 408;
+const int NAVBAR_WIDTH = 56;
 const QMargins ThirdPageContentsMargins(0, 0, 0, 0);
 const QMargins ScrollAreaMargins(0, 0, 0, 0);
 const QMargins ListViweItemMargin(10, 8, 10, 8);

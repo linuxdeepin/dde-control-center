@@ -29,7 +29,9 @@
 #include <QHBoxLayout>
 
 #include "widgets/labels/tipslabel.h"
-#include "../frame/frame.h"
+#include "../frame/window/utils.h"
+
+using namespace DCC_NAMESPACE;
 
 namespace dcc {
 namespace systeminfo {
