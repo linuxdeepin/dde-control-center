@@ -21,6 +21,7 @@
 
 #pragma once
 
+#include <DComboBox>
 #include "interface/namespace.h"
 #include "modules/accounts/user.h"
 #include "modules/accounts/usermodel.h"
@@ -76,6 +77,7 @@ private:
     void initWidgets(QVBoxLayout *layout);
     void initUsrGroup(QVBoxLayout *layout);
     void createUser();
+    void showGroupList(const QString index);
     bool onPasswordEditFinished(DPasswordEdit *edit);
     int validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
@@ -114,6 +116,7 @@ private:
     DTK_WIDGET_NAMESPACE::DLineEdit *m_fullnameEdit;
     DTK_WIDGET_NAMESPACE::DPasswordEdit *m_passwdEdit;
     DTK_WIDGET_NAMESPACE::DPasswordEdit *m_repeatpasswdEdit;
+    DTK_WIDGET_NAMESPACE::DComboBox *m_accountChooser;
 
     DTK_WIDGET_NAMESPACE::DListView *m_groupListView;
     QStandardItemModel *m_groupItemModel;
@@ -123,6 +126,7 @@ private:
     int m_passwordMinLength;
     int m_passwordMaxLength;
     int m_validate_Required;
+    QLabel *m_groupTip;
 };
 
 }
