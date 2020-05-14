@@ -52,6 +52,7 @@ public:
 
     void setFingerModel(dcc::accounts::FingerModel *model);
     void setUsername(const QString &name);
+    void startFoucosTimer();
     void enrollCompleted();
     void enrollStagePass(int pro);
     void enrollFailed(QString title, QString msg);

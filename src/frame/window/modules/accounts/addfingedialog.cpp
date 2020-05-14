@@ -110,12 +110,16 @@ void AddFingeDialog::setFingerModel(FingerModel *model)
 //            close();
         }
     });
-    m_timer->start(1000 * 60);//1min
 }
 
 void AddFingeDialog::setUsername(const QString &name)
 {
     m_username = name;
+}
+
+void AddFingeDialog::startFoucosTimer()
+{
+    m_timer->start(1000 * 60);//1min
 }
 
 void AddFingeDialog::enrollCompleted()
