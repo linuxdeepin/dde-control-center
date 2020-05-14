@@ -183,9 +183,8 @@ QString UserModel::validatePassword(const QString &password)
 
                           return false;
                       }) < validate_required) {
-        return QString(tr("Password must be contain %1 type charaters")).arg(validate_required);
+        return QString(tr("Password must contain at least %1 types of characters")).arg(validate_required);
     }
 
     return "";
 }
-
