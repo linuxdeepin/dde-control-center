@@ -278,6 +278,7 @@ void AccountsWidget::connectUserWithItem(User *user)
 
         titem->setIcon(QIcon(pixmap));
     });
+    /*
     connect(user, &User::createdTimeChanged, this, [ = ](const quint64 & createdtime) {
         if (user->isCurrentUser()) {
             return;
@@ -302,7 +303,7 @@ void AccountsWidget::connectUserWithItem(User *user)
                 break;
             }
         }
-    });
+    });*/
 }
 
 QPixmap AccountsWidget::pixmapToRound(const QPixmap &src)
