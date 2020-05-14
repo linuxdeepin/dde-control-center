@@ -385,6 +385,7 @@ void MainWindow::initAllModule(QString m)
             group.m_name = it->first->name();
             group.m_action.first = action1;
             group.m_action.second = action2;
+            group.m_index=m_navModel->rowCount();
             m_remindeSubscriptList.append(group);
             if(action2->isVisible())
                 item->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
@@ -574,10 +575,11 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDisplay)
 {
     QPair<DViewItemAction *, DViewItemAction *> m_pair(nullptr, nullptr);
-
+    int index = 0;
     for (const auto &k : m_remindeSubscriptList) {
         if (module == k.m_name) {
             m_pair = k.m_action;
+            index = k.m_index;
         }
     }
 
@@ -588,6 +590,7 @@ void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDispla
     if (m_navView->viewMode() == QListView::IconMode) {
         if (m_pair.first->isVisible() != bIsDisplay) {
             m_pair.first->setVisible(bIsDisplay);
+            m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
         }
     } else {
         if (m_pair.second->isVisible() != bIsDisplay) {
