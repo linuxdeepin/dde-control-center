@@ -431,10 +431,10 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
         return false;
     }
 
-    const QString compStr = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const QString compStr = QString("abcdefghijklmnopqrstuvwxyz");
     if (!compStr.contains(username.at(0))) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The first character must be a letter or number"), -1);
+        edit->showAlertMessage(tr("The first character must be in lower case"), -1);
         return false;
     }
 
