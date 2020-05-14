@@ -484,7 +484,7 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
 
     if(!checkUserName(username)) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Username cannot be a pure number"), -1);
+        edit->showAlertMessage(tr("Your username should not only have numbers"), -1);
         return false;
     }
 
