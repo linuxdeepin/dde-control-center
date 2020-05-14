@@ -227,8 +227,10 @@ void DisplayModule::showCustomSettingDialog()
             &DisplayModule::onCustomPageRequestSetResolution);
     connect(dlg, &CustomSettingDialog::requestMerge,
             m_displayWorker, &DisplayWorker::mergeScreens);
-    connect(dlg, &CustomSettingDialog::requestSplit,
-            m_displayWorker, &DisplayWorker::splitScreens);
+    connect(dlg, &CustomSettingDialog::requestSplit, this, [&](){
+        m_displayWorker->splitScreens();
+        dlg->setModel(m_displayModel);
+     });
     connect(dlg, &CustomSettingDialog::requestSetMonitorPosition,
             m_displayWorker, &DisplayWorker::setMonitorPosition);
     connect(dlg, &CustomSettingDialog::requestRecognize, this,
@@ -239,7 +241,10 @@ void DisplayModule::showCustomSettingDialog()
 
     m_displayModel->setIsMerge(m_displayModel->monitorsIsIntersect());
     QString currentPrimaryName = m_displayModel->primary();
-    dlg->setModel(m_displayModel);
+    QTimer::singleShot(100, this, [&](){
+        dlg->setModel(m_displayModel);
+    });
+
     if (dlg->exec() != QDialog::Accepted) {
         m_displayWorker->restore();
         m_displayWorker->setPrimaryByName(currentPrimaryName);
