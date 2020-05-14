@@ -55,7 +55,6 @@ LoginPage::LoginPage(QWidget *parent)
     m_mainLayout->addWidget(loginBtn, 0, Qt::AlignHCenter);
     m_mainLayout->addSpacing(20);
     DTipLabel *sps = new DTipLabel(tr("Only supported in Mainland China at present"));
-    sps->setWordWrap(true);
     m_mainLayout->addWidget(sps, 0, Qt::AlignHCenter);
     m_mainLayout->addStretch(5);
 
