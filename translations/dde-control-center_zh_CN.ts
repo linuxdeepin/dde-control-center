@@ -377,8 +377,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
-        <source>Username cannot be a pure number</source>
-        <translation>Username cannot be a pure number</translation>
+        <source>Your username should not only have numbers</source>
+        <translation>用户不能只包含数字</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="494"/>
