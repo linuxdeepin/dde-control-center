@@ -568,7 +568,6 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDisplay)
 {
     QPair<DViewItemAction *, DViewItemAction *> m_pair(nullptr, nullptr);
-
     int index = 0;
     for (const auto &k : m_remindeSubscriptList) {
         if (module == k.m_name) {
