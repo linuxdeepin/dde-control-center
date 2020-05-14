@@ -96,7 +96,7 @@ void AccountsWidget::setModel(UserModel *model)
     m_createBtn->setVisible(m_userModel->isCreateUserValid());
 
     connect(model, &UserModel::userAdded, this, [this](User * user) {
-        addUser(user, false);
+        addUser(user);
     });
     connect(model, &UserModel::userRemoved, this, &AccountsWidget::removeUser);
     //给账户列表添加用户数据
@@ -170,6 +170,7 @@ void AccountsWidget::addUser(User *user, bool t1)
     });
 
     if (t1) {
+        handleRequestBack(CreateUserSuccess);
         return;
     }
 
@@ -178,15 +179,7 @@ void AccountsWidget::addUser(User *user, bool t1)
     QPixmap pixmap = pixmapToRound(path);
 
     item->setIcon(QIcon(pixmap));
-
-    //对用户全名做限制，如果长度超过32，就在后面显示...
-    QString fullname = user->displayName();
-    if (fullname.length() > 32) {
-        QString newfullname = fullname.left(32) + QString("...");
-        item->setText(newfullname);
-    } else {
-        item->setText(fullname);
-    }
+    item->setText(user->displayName());
 
     if (user->isCurrentUser()) {
         //如果是当前用户
@@ -195,7 +188,7 @@ void AccountsWidget::addUser(User *user, bool t1)
         m_userItemModel->insertRow(0, item);
 
         m_userList.push_front(user);
-
+        m_userList.pop_back();
         m_currentUserAdded = true;
 
         QTimer::singleShot(0, this, &AccountsWidget::showDefaultAccountInfo);
@@ -247,16 +240,8 @@ void AccountsWidget::connectUserWithItem(User *user)
     connect(user, &User::fullnameChanged, this, [ = ](const QString &) {
         int tindex = m_userList.indexOf(user);
         auto titem = m_userItemModel->item(tindex);
-        if (!titem) {
-            return;
-        }
-        //对用户全名做限制，如果长度超过32，就在后面显示...
-        QString fullname = user->displayName();
-        if (fullname.length() > 32) {
-            QString newfullname = fullname.left(32) + QString("...");
-            titem->setText(newfullname);
-        } else {
-            titem->setText(fullname);
+        if (titem) {
+            titem->setText(user->displayName());
         }
     });
     connect(user, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {

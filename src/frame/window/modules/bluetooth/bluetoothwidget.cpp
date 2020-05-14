@@ -48,6 +48,13 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model)
     QTimer::singleShot(1, this, &BluetoothWidget::setVisibleState);
 }
 
+BluetoothWidget::~BluetoothWidget()
+{
+    for (const Adapter *adapter : m_model->adapters()) {
+        m_bluetoothWorker->setAdapterDiscovering(QDBusObjectPath(adapter->id()), false);
+    }
+}
+
 void BluetoothWidget::setModel(BluetoothModel *model)
 {
     model->disconnect(this);
@@ -79,6 +86,7 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
     connect(adpWidget, &AdapterWidget::requestSetAlias, this, &BluetoothWidget::requestSetAlias);
     connect(adpWidget, &AdapterWidget::requestShowDetail, this, &BluetoothWidget::showDeviceDetail);
     connect(adpWidget, &AdapterWidget::notifyLoadFinished, this, &BluetoothWidget::updateWidget);
+
     m_bluetoothWorker->setAdapterDiscovering(path, true);
     m_valueMap[adapter] = adpWidget;
     return adpWidget;
@@ -144,3 +152,5 @@ void BluetoothWidget::setVisibleState()
 {
     Q_EMIT requestModuleVisible(m_valueMap.size());
 }
+
+

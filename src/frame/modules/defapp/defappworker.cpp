@@ -50,7 +50,7 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 
     connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetListApps);
 
-    m_userLocalPath = QDir::homePath()+ "/.local/share/applications/";
+    m_userLocalPath = QDir::homePath() + "/.local/share/applications/";
 
     // mkdir folder
     QDir dir(m_userLocalPath);
@@ -104,7 +104,7 @@ void DefAppWorker::onDelUserApp(const QString &mime, const App &item)
     if (item.CanDelete) {
         QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
         m_dbusManager->DeleteApp(mimelist, item.Id);
-    } else{
+    } else {
         m_dbusManager->DeleteUserApp(item.Id);
     }
 
@@ -119,7 +119,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
 
     if (isDesktop) {
         QFile file(info.filePath());
-        QString newfile = m_userLocalPath + "deepin-custom-"+ info.fileName();
+        QString newfile = m_userLocalPath + "deepin-custom-" + info.fileName();
         file.copy(newfile);
         file.close();
 
@@ -141,7 +141,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
 
         onGetListApps();
     } else {
-        QFile file(m_userLocalPath +"deepin-custom-" + info.baseName() + ".desktop");
+        QFile file(m_userLocalPath + "deepin-custom-" + info.baseName() + ".desktop");
 
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             return;
@@ -224,6 +224,15 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, cons
 
     QList<App> systemList = category->systemAppList();
     QList<App> userList = category->userAppList();
+    for (App app : list) {
+        if (app.isUser == false) {
+            for (App appUser : userList) {
+                if (appUser.Exec == app.Exec) {
+                    category->delUserItem(appUser);
+                }
+            }
+        }
+    }
 
     for (App app : list) {
         if (!systemList.contains(app) || !userList.contains(app)) {
@@ -238,8 +247,7 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, cons
                 category->delUserItem(app);
             }
         }
-    }
-    else {
+    } else {
         systemList = category->systemAppList();
         for (App app : systemList) {
             if (!list.contains(app)) {
@@ -319,7 +327,7 @@ const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory 
                                    << "video/x-ms-asf" << "application/vnd.rn-realmedia" << "video/x-ms-wmv";
     case Picture:       return QStringList() << "image/jpeg" << "image/pjpeg" << "image/bmp" << "image/x-bmp" << "image/png"
                                    << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
-                                   << "image/x-xpixmap"<< "image/vnd.microsoft.icon";
+                                   << "image/x-xpixmap" << "image/vnd.microsoft.icon";
     case Terminal:      return QStringList() << "application/x-terminal";
     }
     return QStringList();

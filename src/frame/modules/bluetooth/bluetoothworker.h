@@ -51,6 +51,7 @@ public:
 
     void blockDBusSignals(bool block);
 
+
 Q_SIGNALS:
     void deviceEnableChanged();
     void requestConfirmation(const QDBusObjectPath &path, const QString &code);

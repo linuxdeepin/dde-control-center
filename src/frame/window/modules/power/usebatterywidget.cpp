@@ -30,6 +30,7 @@
 #include "window/utils.h"
 
 #include <QPushButton>
+#include <QGSettings>
 
 using namespace dcc::widgets;
 using namespace dcc::power;
@@ -119,7 +120,10 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
-    m_computerSleepOnBattery->setVisible(model->canSleep());
+    //通过gsetting设置电脑待机是否显示
+    QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    auto listModule =  comSlpSettings->get("hide-module").toStringList();
+    m_computerSleepOnBattery->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
     m_suspendOnLidClose->setVisible(model->canSleep());
 }
 

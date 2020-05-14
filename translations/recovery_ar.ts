@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation>عملية إرجاع النظام، الرجاء الإنتظار...</translation>
+        <translation>تتم استعادة النظام، الرجاء الإنتظار...</translation>
     </message>
 </context>
 <context>
@@ -13,7 +13,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="259"/>
         <source>Rollback failed.</source>
-        <translation>عملية الإرجاع لم تتم.</translation>
+        <translation>عملية الاستعادة لم تتم.</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="264"/>
@@ -23,7 +23,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>هل أنت متأكد من عملية الإرجاع من 2% إلى 1%؟</translation>
+        <translation>هل أنت متأكد من استعادة نسخة 1% المأخوذة في 2%؟</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>

@@ -67,6 +67,7 @@ private:
     dcc::widgets::SwitchWidget *m_touchClickStn;
     dcc::widgets::SwitchWidget *m_touchNaturalScroll;
     QVBoxLayout *m_contentLayout;
+    bool m_isNotWayland{false};
 };
 }
 }

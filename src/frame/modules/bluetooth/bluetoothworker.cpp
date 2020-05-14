@@ -129,15 +129,33 @@ void BluetoothWorker::blockDBusSignals(bool block)
 void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powered)
 {
     QDBusObjectPath path(adapter->id());
-    QDBusPendingCall call  = m_bluetoothInter->SetAdapterPowered(path, powered);
-
-    if (powered) {
+    //关闭蓝牙之前删除历史蓝牙设备列表，确保完全是删除后再设置开关
+    if (!powered) {
+        QDBusPendingCall call = m_bluetoothInter->ClearUnpairedDevice();
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, [this, call, adapter] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, [ = ] {
             if (!call.isError()) {
-                setAdapterDiscoverable(adapter->id());
+                QDBusPendingCall adapterPoweredOffCall  = m_bluetoothInter->SetAdapterPowered(path, false);
+                QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(adapterPoweredOffCall, this);
+                connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOffCall, adapter] {
+                    if (!adapterPoweredOffCall.isError()) {
+                        setAdapterDiscoverable(adapter->id());
+                    } else {
+                        qWarning() << adapterPoweredOffCall.error().message();
+                    }
+                });
             } else {
                 qWarning() << call.error().message();
+            }
+        });
+    } else {
+        QDBusPendingCall adapterPoweredOnCall  = m_bluetoothInter->SetAdapterPowered(path, true);
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(adapterPoweredOnCall, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOnCall, adapter] {
+            if (!adapterPoweredOnCall.isError()) {
+                setAdapterDiscoverable(adapter->id());
+            } else {
+                qWarning() << adapterPoweredOnCall.error().message();
             }
         });
     }

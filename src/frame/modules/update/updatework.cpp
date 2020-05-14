@@ -109,7 +109,11 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     m_powerSystemInter->setSync(false);
     m_lastoresessionHelper->setSync(false);
     m_smartMirrorInter->setSync(true, false);
-    m_model->setSystemVersionInfo(m_systemInfoInter->version());
+
+    QString sVersion = QString("%1 %2 %3").arg(DSysInfo::productTypeString().toUpper(),
+                                                 DSysInfo::deepinVersion(),
+                                                 DSysInfo::deepinTypeDisplayName());
+    m_model->setSystemVersionInfo(sVersion);
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);
     connect(m_managerInter, &ManagerInter::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);
@@ -193,18 +197,24 @@ UpdateWorker::~UpdateWorker()
 
 }
 
+void UpdateWorker::licenseStateChangeSlot()
+{
+    getLicenseState();
+}
+
+
 void UpdateWorker::getLicenseState()
 {
-    QDBusInterface licenseInfo("com.deepin.license.activator",
-                               "/com/deepin/license/activator",
-                               "com.deepin.license.activator",
-                               QDBusConnection::sessionBus());
+    QDBusInterface licenseInfo("com.deepin.license",
+                               "/com/deepin/license/Info",
+                               "com.deepin.license.Info",
+                               QDBusConnection::systemBus());
     if (!licenseInfo.isValid()) {
         qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
         return;
     }
-    QDBusReply<quint32> reply = licenseInfo.call(QDBus::AutoDetect,
-                                   "GetIndicatorData");
+    quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    qDebug() << "Authorization State:" << reply;
     m_model->setSystemActivation(reply);
 }
 
@@ -351,10 +361,10 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
             ddeUpdateInfo.m_changelog = tr("System patches");
         }
 
-        if(!DCC_NAMESPACE::IsDesktopSystem) {
-            //app updates are not displayed
-            infos.clear();
-        }
+//        if(!DCC_NAMESPACE::IsDesktopSystem) {
+//            //app updates are not displayed
+//            infos.clear();
+//        }
 
         infos.prepend(ddeUpdateInfo);
     }

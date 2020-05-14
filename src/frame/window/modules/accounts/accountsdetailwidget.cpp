@@ -147,8 +147,13 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     if (fullname.isEmpty()) {
         fullname = tr("Full Name");
         m_fullName->setEnabled(false);
-    } else if (fullname.size() > 32) {
-        fullname = fullname.left(32) + QString("...");
+    } else if (fullname.toLocal8Bit().size() > 32) {
+        for(auto i = 1; i <= fullname.size(); ++i) {
+            if (fullname.left(i).toLocal8Bit().size() > 29) {
+                fullname = fullname.left(i - 1) + QString("...");
+                break;
+            }
+        }
     }
     m_fullName->setText(fullname);
 
@@ -207,8 +212,13 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         if (fullname.isEmpty()) {
             tstr = tr("Full Name");
             m_fullName->setEnabled(false);
-        } else if (fullname.size() > 32) {
-            tstr = fullname.left(32) + QString("...");
+        } else if (fullname.toLocal8Bit().size() > 32) {
+            for(auto i = 1; i <= fullname.size(); ++i) {
+                if (fullname.left(i).toLocal8Bit().size() > 29) {
+                    tstr = fullname.left(i - 1) + QString("...");
+                    break;
+                }
+            }
         }
         m_fullName->setText(tstr);
     });
@@ -328,6 +338,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
             if(age <= 0) {
                 ageEdit->setAlert(true);
+                ageEdit->setAlertMessageAlignment(Qt::AlignRight);
                 ageEdit->showAlertMessage(tr("Please input a number between 1-99999"), pwWidget, 2000);
                 return;
             }
@@ -382,8 +393,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     //当前用户禁止使用删除按钮
-    const bool isOnline = m_curUser->online();
-    deleteAccount->setEnabled(!isOnline);
+    deleteAccount->setEnabled(!m_curUser->isCurrentUser());
 
     //修改密码，删除账户操作
     connect(modifyPassword, &QPushButton::clicked, [ = ] {

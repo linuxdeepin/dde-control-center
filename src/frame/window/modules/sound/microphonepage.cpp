@@ -155,7 +155,6 @@ void MicrophonePage::initSlider()
 
     connect(m_model, &SoundModel::microphoneOnChanged, m_feedbackSlider, &TitledSliderItem::setVisible);
     m_conn = connect(m_model, &SoundModel::microphoneFeedbackChanged, [ = ](double vol2) {
-        qDebug() << "sound input ,start feedback changed" << vol2;
         slider2->setSliderPosition(int(vol2 * 100));
     });
     m_layout->insertWidget(2, m_feedbackSlider);

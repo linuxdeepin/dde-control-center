@@ -84,9 +84,6 @@ BootWidget::BootWidget(QWidget *parent)
     dpLabel.setColor(DPalette::Text, QColor(255, 255, 255));
     DApplicationHelper::instance()->setPalette(m_updatingLabel, dpLabel);
 
-    //m_listLayout->addSpacing(List_Interval);
-    //m_listLayout->addWidget(m_bootList);
-    //m_listLayout->addStretch();
     m_listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter | Qt::AlignBottom);
     m_listLayout->addSpacing(List_Interval);
     m_background->setLayout(m_listLayout);
@@ -194,6 +191,9 @@ void BootWidget::setEntryList(const QStringList &list)
 {
     m_bootItemModel = new QStandardItemModel(this);
     m_bootList->setModel(m_bootItemModel);
+    if (list.count() <= 0) {
+        return;
+    }
 
     for (int i = 0; i < list.count(); i++) {
         const QString entry = list.at(i);
@@ -212,6 +212,7 @@ void BootWidget::setEntryList(const QStringList &list)
             item->setCheckState(Qt::CheckState::Unchecked);
         }
     }
+
     m_bootDelay->setChecked(m_commonInfoModel->bootDelay());
     setBootList();
 }
@@ -225,7 +226,6 @@ void BootWidget::setBootList()
     m_listLayout->addSpacing(interval);
     m_listLayout->addWidget(m_bootList);
     m_background->setFixedHeight(20 + height);
-
 }
 
 

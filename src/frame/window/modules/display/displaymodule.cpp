@@ -53,7 +53,6 @@ DisplayModule::~DisplayModule()
     m_displayWorker->deleteLater();
 }
 
-
 void DisplayModule::initialize()
 {
 }

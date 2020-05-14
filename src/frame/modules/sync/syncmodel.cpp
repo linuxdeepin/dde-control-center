@@ -80,7 +80,6 @@ std::list<std::pair<SyncType, QStringList>> SyncModel::moduleMap()
         { Wallpaper, { "background", "screensaver" } },
         { Theme, { "appearance" } },
         { Power, { "power" } },
-        { Corner, { "screen_edge" } }
     };
 }
 

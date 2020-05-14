@@ -91,6 +91,7 @@ public:
     void setConnected(bool connected);
     bool isConnected();
     void setSortInfo(const APSortInfo &si);
+    APSortInfo sortInfo();
     void setPath(const QString &path);
     QString path() const;
     void setUuid(const QString &uuid);
@@ -182,8 +183,10 @@ private:
     QPointer<ConnectionWirelessEditPage> m_apEditPage;
 
     QString m_editingUuid;
+    QString m_lastConnectSsid;
     QTimer *m_sortDelayTimer;
     QTimer *m_indicatorDelayTimer;
+    QTimer *m_requestWirelessScanTimer;
     QMap<QString, APItem *> m_apItems;
 };
 }   // namespace dcc

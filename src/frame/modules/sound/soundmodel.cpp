@@ -146,9 +146,8 @@ void SoundModel::setMicrophoneVolume(double microphoneVolume)
 #ifndef DCC_DISABLE_FEEDBACK
 void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
 {
-    if (microphoneFeedback != m_microphoneFeedback) {
+    if (!qFuzzyCompare(microphoneFeedback, m_microphoneFeedback)) {
         m_microphoneFeedback = microphoneFeedback;
-        qDebug() << "microphone feedback" << __FUNCTION__;
         Q_EMIT microphoneFeedbackChanged(microphoneFeedback);
     }
 }

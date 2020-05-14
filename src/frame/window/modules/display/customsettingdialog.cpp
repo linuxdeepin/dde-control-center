@@ -71,7 +71,7 @@ void CustomSettingDialog::initUI()
 {
     setMinimumWidth(480);
     setMinimumHeight(600);
-    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint );
+    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_layout = new QVBoxLayout();
@@ -80,7 +80,7 @@ void CustomSettingDialog::initUI()
     auto btnBox = new DButtonBox(this);
     m_layout->addWidget(btnBox, 0, Qt::AlignHCenter);
 
-    auto initlistfunc = [](DListView *list) {
+    auto initlistfunc = [](DListView * list) {
         list->setEditTriggers(DListView::NoEditTriggers);
         list->setSelectionMode(DListView::NoSelection);
         list->setSizeAdjustPolicy(DListView::AdjustToContents);
@@ -374,6 +374,7 @@ void CustomSettingDialog::initMoniList()
             item->setCheckState(enable ? Qt::Checked : Qt::Unchecked);
         });
     }
+
     int vseg_size = m_vSegBtn.size();
     if (vseg_size > 2 && m_vSegBtn[0]->isChecked()) {
         if (m_displaylist == nullptr) {
@@ -477,7 +478,7 @@ void CustomSettingDialog::initConnect()
             this->requestSetResolution(m_monitor, res);
         }
     });
-    connect(m_rateList, &DListView::clicked, this, [this](QModelIndex idx){
+    connect(m_rateList, &DListView::clicked, this, [this](QModelIndex idx) {
         auto lm = m_rateList->model();
         auto check = lm->data(idx, Qt::CheckStateRole);
         if (check == Qt::Checked)

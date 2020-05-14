@@ -141,14 +141,16 @@ void DisplayWidget::initMenuUI()
     if (!IsServerSystem) {
         //~ contents_path /display/Display Scaling
         MenuMethod scaleMenu = {tr("Display Scaling"), "dcc_screen",
-                          QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)};
+                                QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)
+                               };
         m_multMenuList << scaleMenu;
         m_singleMenuList << scaleMenu;
     }
 
     //~ contents_path /display/Refresh Rate
     MenuMethod refreshMenu = {tr("Refresh Rate"), "dcc_refresh_rate",
-                              QMetaMethod::fromSignal(&DisplayWidget::requestShowRefreshRatePage)};
+                              QMetaMethod::fromSignal(&DisplayWidget::requestShowRefreshRatePage)
+                             };
     m_singleMenuList << refreshMenu;
 
     DStandardItem *btn{nullptr};
@@ -173,7 +175,7 @@ void DisplayWidget::initMenuUI()
     connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
     connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);
 
-  //  m_centralLayout->addStretch(1);
+    //  m_centralLayout->addStretch(1);
     m_rotate->setIcon(QIcon::fromTheme("dcc_rotate"));
     //~ contents_path /display/Resolution
     m_rotate->setToolTip(tr("Rotate Screen"));

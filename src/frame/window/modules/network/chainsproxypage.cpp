@@ -33,7 +33,6 @@
 
 #include <DTipLabel>
 
-#include <QComboBox>
 #include <QHBoxLayout>
 #include <QRegularExpression>
 
@@ -51,10 +50,10 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     m_proxyType = new ComboxWidget;
     m_proxyType->setTitle(tr("Proxy Type"));
 
-    QComboBox *cb = m_proxyType->comboBox();
-    cb->addItem("http");
-    cb->addItem("socks4");
-    cb->addItem("socks5");
+    m_comboBox = m_proxyType->comboBox();
+    m_comboBox->addItem("http");
+    m_comboBox->addItem("socks4");
+    m_comboBox->addItem("socks5");
 
     m_addr = new LineEditWidget;
     m_addr->setTitle(tr("IP Address"));
@@ -107,7 +106,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 
     setContent(w);
 
-    connect(btns->leftButton(), &QPushButton::clicked, this, &ChainsProxyPage::back);
+    connect(btns->leftButton(), &QPushButton::clicked, this, &ChainsProxyPage::onRestoreValue);
     connect(btns->rightButton(), &QPushButton::clicked, this, &ChainsProxyPage::onCheckValue);
 }
 
@@ -132,6 +131,15 @@ void ChainsProxyPage::setModel(NetworkModel *model)
     m_password->setText(config.password);
 }
 
+void ChainsProxyPage::onRestoreValue()
+{
+    m_comboBox->setCurrentIndex(0);
+    m_addr->setText("");
+    m_port->setText("0");
+    m_username->setText("");
+    m_password->setText("");
+}
+
 void ChainsProxyPage::onCheckValue()
 {
     m_addr->setIsErr(false);
@@ -153,7 +161,7 @@ void ChainsProxyPage::onCheckValue()
     const QString &addr = m_addr->text();
     if (addr.isEmpty() || !isIPV4(addr)) {
         m_addr->setIsErr(true);
-        m_addr->dTextEdit()->showAlertMessage(tr("Invalid IP address"), this, 2000);
+        m_addr->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_addr, 2000);
         return;
     }
 
@@ -161,7 +169,7 @@ void ChainsProxyPage::onCheckValue()
     const uint port = m_port->text().toUInt(&ok);
     if (!ok) {
         m_port->setIsErr(true);
-        m_port->dTextEdit()->showAlertMessage(tr("Invalid port"), this, 2000);
+        m_port->dTextEdit()->showAlertMessage(tr("Invalid port"), m_port, 2000);
         return;
     }
 

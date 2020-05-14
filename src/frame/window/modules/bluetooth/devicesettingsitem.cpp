@@ -77,6 +77,9 @@ void DeviceSettingsItem::initItemActionList()
 void DeviceSettingsItem::setLoading(const bool loading)
 {
     if (loading) {
+        QPalette pa = m_loadingIndicator->palette();
+        pa.setBrush(QPalette::Highlight,Qt::white);
+        m_loadingIndicator->setPalette(pa);
         m_loadingIndicator->start();
         m_loadingIndicator->show();
         m_loadingAction->setVisible(true);

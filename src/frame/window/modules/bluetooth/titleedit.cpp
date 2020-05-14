@@ -26,6 +26,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QHBoxLayout>
+#include <DLineEdit>
 
 DWIDGET_USE_NAMESPACE
 

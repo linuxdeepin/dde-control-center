@@ -36,8 +36,8 @@ using namespace DCC_NAMESPACE::systeminfo;
 
 QPair<QString, QString> loadLicenses()
 {
-    const QString title = getLicense(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "title");
-    const QString body = getLicense(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "body");
+    const QString title = getLicenseText(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "title");
+    const QString body = getLicenseText(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "body");
     return QPair<QString, QString>(title, body);
 }
 

@@ -141,7 +141,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_navModel = new QStandardItemModel(m_navView);
     m_navView->setModel(m_navModel);
     connect(m_navView, &DListView::activated, this, &MainWindow::onFirstItemClick);
-    connect(m_navView, &DListView::pressed, m_navView, &DListView::activated);
+    connect(m_navView, &DListView::clicked, m_navView, &DListView::activated);
 
     m_searchWidget = new SearchWidget(this);
     m_searchWidget->setMinimumSize(350, 36);
@@ -413,12 +413,13 @@ void MainWindow::loadModules()
         auto *module = qobject_cast<ModuleInterface *>(instance);
         module->setFrameProxy(this);
 
-        if ( tr("Assistive Tools") == module->displayName()) {
-            m_modules.insert(13 , {module, module->displayName()});
-        } else {
-            m_modules.append({module, module->displayName()});
+        if (tr("Assistive Tools") == module->displayName() && !DCC_NAMESPACE::IsDesktopSystem) {
+            for (auto i : m_modules) {
+                if (i.second == tr("Keyboard and Language")) {
+                    m_modules.insert(m_modules.indexOf(i) + 1, {module, module->displayName()});
+                }
+            }
         }
-
     }
 }
 
@@ -703,7 +704,7 @@ void MainWindow::resetNavList(bool isIconMode)
         m_backwardBtn->setEnabled(false);
     } else {
         //The second page will Covered with fill blank areas
-        m_navView->setViewportMargins(ScrollAreaMargins);
+        m_navView->setViewportMargins(QMargins(10, 10, 10, 10));
         m_navView->setViewMode(QListView::ListMode);
         m_navView->setMinimumWidth(first_widget_min_width);
         m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
