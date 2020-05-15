@@ -235,7 +235,9 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     m_nameEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
+    m_passwdEdit->lineEdit()->setAttribute(Qt::WA_InputMethodEnabled, false);
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
+    m_repeatpasswdEdit->lineEdit()->setAttribute(Qt::WA_InputMethodEnabled, false);
 }
 
 void CreateAccountPage::setModel(UserModel *userModel, User *user)
