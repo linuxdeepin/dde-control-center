@@ -51,6 +51,7 @@ void DatetimeModel::setNTP(bool ntp)
 
 void DatetimeModel::set24HourFormat(bool state)
 {
+    qDebug() << Q_FUNC_INFO << "24 Hour status:" << state;
     if (m_bUse24HourType != state) {
         m_bUse24HourType = state;
         Q_EMIT hourTypeChanged(state);

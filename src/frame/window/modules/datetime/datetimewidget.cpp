@@ -137,6 +137,7 @@ void DatetimeWidget::onItemClicked(const QModelIndex &index)
 
 void DatetimeWidget::onHourTypeChanged(const bool &type)
 {
+    qDebug() << Q_FUNC_INFO << "24 Hour status:" <<  type;
     if (m_clockItem) {
         m_hourTypeSwitch->setChecked(type);
         m_clockItem->setTimeHourType(type);
