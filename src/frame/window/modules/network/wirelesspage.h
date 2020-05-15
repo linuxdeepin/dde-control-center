@@ -158,7 +158,6 @@ private Q_SLOTS:
     void showConnectHidePage();
     void onDeviceRemoved();
     void onActivateApFailed(const QString &apPath, const QString &uuid);
-    void refreshLoadingIndicator();
     void onNetworkAdapterChanged(bool checked);
 
 private:
@@ -184,7 +183,6 @@ private:
 
     QString m_editingUuid;
     QTimer *m_sortDelayTimer;
-    QTimer *m_indicatorDelayTimer;
     QTimer *m_requestWirelessScanTimer;
     QMap<QString, APItem *> m_apItems;
 };

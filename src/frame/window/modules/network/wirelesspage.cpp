@@ -231,7 +231,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_clickedItem(nullptr)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
-    , m_indicatorDelayTimer(new QTimer(this))
     , m_requestWirelessScanTimer(new QTimer(this))
 {
     qRegisterMetaType<APSortInfo>();
@@ -255,9 +254,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_modelAP->setSortRole(APItem::SortRole);
     m_sortDelayTimer->setInterval(100);
     m_sortDelayTimer->setSingleShot(true);
-
-    m_indicatorDelayTimer->setInterval(300);
-    m_indicatorDelayTimer->setSingleShot(true);
 
     m_requestWirelessScanTimer->setInterval(60000);
     m_requestWirelessScanTimer->setSingleShot(false);
@@ -334,7 +330,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     });
 
     connect(m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
-    connect(m_indicatorDelayTimer, &QTimer::timeout, this, &WirelessPage::refreshLoadingIndicator);
     connect(m_closeHotspotBtn, &QPushButton::clicked, this, &WirelessPage::onCloseHotspotClicked);
     connect(m_device, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
     connect(m_device, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
@@ -343,10 +338,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_device, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
     connect(m_device, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     connect(m_device, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
-    connect(m_device,
-            &WirelessDevice::activeConnectionsChanged,
-            m_indicatorDelayTimer,
-            static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_device, &WirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
 
     connect(m_requestWirelessScanTimer, &QTimer::timeout, this, [ = ] {
@@ -556,28 +547,9 @@ void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid
     }
 }
 
-void WirelessPage::refreshLoadingIndicator()
-{
-    QString activeSsid;
-    for (auto activeConnObj : m_device->activeConnections()) {
-        if (activeConnObj.value("Vpn").toBool(false)) {
-            continue;
-        }
-
-        if (activeConnObj.value("State").toInt(0) != 1) {
-            break;
-        }
-
-        activeSsid = activeConnObj.value("Id").toString();
-        break;
-    }
-}
-
 void WirelessPage::sortAPList()
 {
     m_modelAP->sort(0, Qt::SortOrder::DescendingOrder);
-
-    m_indicatorDelayTimer->start();
 }
 
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
