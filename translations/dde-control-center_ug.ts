@@ -23,114 +23,209 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Help</source>
         <translation>ياردەم</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Accounts</source>
         <translation>ھېساباتلار</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Cloud Account</source>
         <translation>بۇلۇت ھېساباتى</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Display</source>
         <translation>كۆرسەتكۈچ</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Default Applications</source>
         <translation>سۈكۈتتىكى ئەپلەر</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Personalization</source>
         <translation>خاسلاشتۇرۇش</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Network</source>
         <translation>تور</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
+        <source>Notification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Sound</source>
         <translation>ئاۋاز</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="824"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="826"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Bluetooth</source>
         <translation>كۆكچىش</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Date and Time</source>
         <translation>چېسلا ۋە ۋاقىت</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Power</source>
         <translation>قۇۋۋەت</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Mouse</source>
         <translation>مائۇس</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="836"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="838"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Drawing Tablet</source>
         <translation>سېزىمچان تاختا</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="416"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Keyboard and Language</source>
         <translation>كۇنۇپكا تاختىسى ۋە تىل</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="323"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Updates</source>
         <translation>يېڭىلانمىلار</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="324"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>System Info</source>
         <translation>سىستېما ئۇچۇرى</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="325"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>General Settings</source>
         <translation>ئادەتتىكى تەڭشەكلەر</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="376"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Touchpad</source>
         <translation>سېزىمچان تاختا</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="377"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>TrackPoint</source>
         <translation>ئىز قوغلىغۇچ تېزلىكى</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="412"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Assistive Tools</source>
         <translation>ياردەمچى قوراللار</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="851"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="848"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="850"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Cloud Sync</source>
         <translation>بۇلۇت ماسقەدەملەش</translation>
     </message>
@@ -156,41 +251,69 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="348"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Always</source>
         <translation>ھەمىشە</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="342"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="341"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Please input a number between 1-99999</source>
         <translation>1-99999 ئارىلىقىدا نومۇر كىرگۈزۈڭ</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="382"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Change Password</source>
         <translation>پارولنى ئۆزگەرتىش</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="385"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="384"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Delete Account</source>
         <translation>ھېساباتنى ئۆچۈرۈش</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="388"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="387"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Auto Login</source>
         <translation>ئاپتوماتىك كىرىش</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="392"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="391"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Login Without Password</source>
         <translation>پارولسىز كىرىش</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="465"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="464"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Group</source>
         <translation>گۇرۇپپا</translation>
     </message>
@@ -594,17 +717,27 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="86"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
+=======
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Failed to get root access</source>
         <translation>باشقۇرغۇچى ھوقۇقىغا ئېرىشەلمىدى</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="88"/>
+=======
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Please sign in to your cloud account first</source>
         <translation>ئالدى بىلەن بۇلۇت ھېساباتىڭىزغا كىرىڭ</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="90"/>
         <source>Cannot read your PC information</source>
         <translation>كومپيۇتېرىڭىزنىڭ ئۇچۇرلىرىنى ئوقۇيالمىدى</translation>
@@ -631,16 +764,52 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="234"/>
+=======
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
+        <source>Cannot read your PC information</source>
+        <translation>كومپيۇتېرىڭىزنىڭ ئۇچۇرلىرىنى ئوقۇيالمىدى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
+        <source>No network connection</source>
+        <translation>تور ئۇلىنىشى يوق</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation>گۇۋاھنامە قاچىلاش مەغلۇب بولدى ، root ھوقۇقىغا ئېرىشەلمىدى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation>ئىمزا دەلىللەش مەغلۇپ بولدى ، root ھوقۇقىغا ئېرىشەلمىدى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="232"/>
+        <source>UOS Privacy Policy</source>
+        <translation>UOS مەخپىيەتلىك تۈزۈمى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Agree and Join User Experience Program</source>
         <translation>ئىشلەتكۈچى تەجرىبە پروگراممىسىغا قوشۇلۇش</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="293"/>
+=======
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>The Disclaimer of Developer Mode</source>
         <translation>ئاچقۇچىلار ھالىتىنىڭ ئاگاھلاندۇرۇشى</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="294"/>
+=======
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Agree and Request Root Access</source>
         <translation>يىلتىز زىيارەت قىلىشنى تەلەپ قىلىش ۋە قوشۇلۇش</translation>
     </message>
@@ -722,6 +891,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="106"/>
         <source>Please sign in to your cloud account first</source>
         <translation>ئالدى بىلەن بۇلۇت ھېساباتىڭىزغا كىرىڭ</translation>
+<<<<<<< HEAD
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
@@ -734,6 +904,20 @@
         <translation>تور ئۇلىنىشى يوق</translation>
     </message>
     <message>
+=======
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
+        <source>Cannot read your PC information</source>
+        <translation>كومپيۇتېرىڭىزنىڭ ئۇچۇرلىرىنى ئوقۇيالمىدى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
+        <source>No network connection</source>
+        <translation>تور ئۇلىنىشى يوق</translation>
+    </message>
+    <message>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>گۇۋاھنامە قاچىلاش مەغلۇب بولدى ، root ھوقۇقىغا ئېرىشەلمىدى</translation>
@@ -837,7 +1021,11 @@
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="353"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="401"/>
         <source>Customize</source>
+<<<<<<< HEAD
         <translation> ئۆزى بەلگىلەش</translation>
+=======
+        <translation>ئۆزگىچىلەشتۈرۈش</translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
 </context>
 <context>
@@ -1159,7 +1347,11 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
         <source>Customize</source>
+<<<<<<< HEAD
         <translation> ئۆزى بەلگىلەش</translation>
+=======
+        <translation>ئۆزگىچىلەشتۈرۈش</translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
@@ -1194,7 +1386,11 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+<<<<<<< HEAD
         <translation>سولنى چېكىپ ئايلاندۇرۇڭ،ئوڭنى چېكىپ ئەسلىگە قايتۇرۇڭ ۋە چېكىنىڭ، Ctrl+S نى بېسىپ ساقلاڭ.</translation>
+=======
+        <translation>سولنى چېكىپ ئايلاندۇرۇڭ،ئوڭنى چېكىپ ئەسلىگە قۇيتۇرۇڭ ۋە چېكىنىڭ، Ctrl+S نى بېسىپ ساقلاڭ.</translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="166"/>
@@ -1408,7 +1604,11 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="68"/>
         <source>Workspace</source>
+<<<<<<< HEAD
         <translation>خىزمەت رايونى</translation>
+=======
+        <translation>خىزمەت بوشلۇقى</translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
@@ -1480,7 +1680,11 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="48"/>
         <source>Disable touchpad while typing</source>
+<<<<<<< HEAD
         <translation>خەت يېزىۋاتقاندا سېزىمچان تاختا ئىشلىمىسۇن</translation>
+=======
+        <translation>خەت بېسىۋاتقاندا چەكمە تاختىنى چەكلەڭ</translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
@@ -3702,6 +3906,91 @@
     </message>
 </context>
 <context>
+    <name>dccV20::notification::AppNotifyWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="75"/>
+        <source>Show notifications from %1 on desktop and in the notification center.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="89"/>
+        <source>Play a sound</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="92"/>
+        <source>Show messages on lockscreen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="95"/>
+        <source>Show only in notification center</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="98"/>
+        <source>Show message preview</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::NotificationModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="70"/>
+        <source>Notification</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::NotificationWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="61"/>
+        <source>System Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="72"/>
+        <source>App Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::SystemNotifyWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="50"/>
+        <source>Show icon on Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="78"/>
+        <source>Do Not Disturb</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="84"/>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="107"/>
+        <source>When the screen is locked</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::TimeSlotItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="44"/>
+        <source>From</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="46"/>
+        <source>To</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="50"/>
@@ -3729,29 +4018,63 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="72"/>
+=======
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="75"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Theme</source>
         <translation>ئۇسلۇب</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="81"/>
+=======
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="84"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Accent Color</source>
         <translation type="unfinished"/>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="117"/>
+=======
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="120"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Window Effect</source>
         <translation type="unfinished"/>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="123"/>
+=======
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="126"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Transparency</source>
         <translation type="unfinished"/>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
+<<<<<<< HEAD
+=======
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="149"/>
+        <source>Window Miniminze Effect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="152"/>
+        <source>Scale</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="152"/>
+        <source>Magic Lamp</source>
+        <translation type="unfinished"/>
+    </message>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
 </context>
 <context>
     <name>dccV20::personalization::PersonalizationList</name>
@@ -4048,7 +4371,11 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="435"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="422"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Developer Mode</source>
         <translation>ئاچقۇچىلار ھالىتى</translation>
     </message>
@@ -4066,6 +4393,7 @@
         <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
         <source>Display Scaling</source>
         <translation>چوڭايتىش نىسبىتىنى كۆرسىتىش</translation>
+<<<<<<< HEAD
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
@@ -4134,46 +4462,88 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="101"/>
+=======
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
+        <source>Night Shift</source>
+        <translation>كېچىلىك سىمېنا</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Touchpad</source>
         <translation>سېزىمچان تاختا</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="102"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>TrackPoint</source>
         <translation>ئىز قوغلىغۇچ تېزلىكى</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="103"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Personal Hotspot</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="104"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>On Battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="105"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Wired Network</source>
         <translation>سىملىق تور</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="106"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Wireless Network</source>
         <translation>سىمسىز تور</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="107"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Multiple Displays</source>
         <translation>كۆپ كۆرسىتىش</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="436"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="423"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>End User License Agreement</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="443"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="430"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Cloud Account</source>
         <translation>بۇلۇت ھېساباتى</translation>
     </message>
@@ -4187,13 +4557,21 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="95"/>
+=======
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Input</source>
         <translation>كىرگۈزۈش</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
+=======
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Sound Card:</source>
         <translation type="unfinished"/>
     </message>
@@ -4323,57 +4701,101 @@
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Network Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="151"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Sound Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="152"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="151"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Mouse Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="153"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="152"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Update Settings</source>
         <translation>يېڭىلانما تەڭشىكى</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="154"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="153"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Dock</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="155"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="154"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Launcher</source>
         <translation>ئۈستەليۈزى قوزغاتقۇچ</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="156"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="155"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Wallpaper</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="157"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="156"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Theme</source>
         <translation>ئۇسلۇب</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="157"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Power Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="280"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="255"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Last Sync: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="282"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="257"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>yyyy-MM-dd hh:mm</source>
         <translation type="unfinished"/>
     </message>
@@ -4580,6 +5002,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="159"/>
         <source>Activated</source>
+<<<<<<< HEAD
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4599,6 +5022,27 @@
         <translation type="unfinished"/>
     </message>
     <message>
+=======
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="169"/>
+        <source>View</source>
+        <translation>كۆرۈش</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="167"/>
+        <source>Expired</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="171"/>
+        <source>In trial period</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="175"/>
         <source>Trial expired</source>
         <translation type="unfinished"/>
@@ -5101,53 +5545,94 @@
         <translation>كونترول مەركىزى </translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="250"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="237"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>On Battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="251"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Plugged In</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="252"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>General</source>
         <translation>ئورتاق</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="253"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Mouse</source>
         <translation>مائۇس</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="254"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Touchpad</source>
         <translation>سېزىمچان تاختا</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="255"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>TrackPoint</source>
         <translation>ئىز قوغلىغۇچ تېزلىكى</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="256"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Application Proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="257"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="260"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>System Proxy</source>
         <translation>سىستېما ۋاكالەتچىلىكى</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="258"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Time Settings</source>
         <translation>ۋاقىت تەڭشىكى</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="259"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Change System Timezone</source>
         <translation>سىستېما ۋاقىت رايونىنى ئۆزگەرتىش</translation>
     </message>
@@ -9516,17 +10001,29 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/update/updatework.cpp" line="354"/>
+=======
+        <location filename="../src/frame/modules/update/updatework.cpp" line="350"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Patches</source>
         <translation>ياماقلار</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/update/updatework.cpp" line="355"/>
+=======
+        <location filename="../src/frame/modules/update/updatework.cpp" line="351"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>System patches</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/update/updatework.cpp" line="1053"/>
+=======
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1049"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>System</source>
         <translation>سېستىما</translation>
     </message>

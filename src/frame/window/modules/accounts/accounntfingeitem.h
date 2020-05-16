@@ -24,6 +24,9 @@
 #include "interface/namespace.h"
 #include "widgets/settingsitem.h"
 
+#include "DIconButton"
+#include "DLineEdit"
+
 QT_BEGIN_NAMESPACE
 class QWidget;
 class QHBoxLayout;
@@ -31,6 +34,8 @@ class QStackedWidget;
 class QLabel;
 class QLineEdit;
 QT_END_NAMESPACE
+
+DWIDGET_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace accounts {
@@ -41,11 +46,24 @@ class AccounntFingeItem : public dcc::widgets::SettingsItem
 public:
     explicit AccounntFingeItem(QWidget *parent = nullptr);
     void setTitle(const QString &title);
+    void alertTitleRepeat();
     void appendItem(QWidget *widget);
+    void setShowIcon(bool state);
+    void setEditTitle(bool state);
+    void setHideTitle(bool state);
+    bool onNameEditFinished(DLineEdit *edit);
+
+Q_SIGNALS:
+    void removeClicked();
+    void editClicked(bool state);
+    void editTextFinished(QString finger);
 
 private:
     QHBoxLayout *m_layout;
     QLabel *m_title;
+    DIconButton *m_removeBtn;
+    DIconButton *m_editBtn;
+    DLineEdit *m_editTitle;
 };
 
 }

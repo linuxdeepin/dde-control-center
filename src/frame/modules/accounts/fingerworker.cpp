@@ -32,255 +32,107 @@
 using namespace dcc;
 using namespace dcc::accounts;
 
-const QString FprintService("com.deepin.daemon.Fprintd");
+const QString FingerPrintService("com.deepin.daemon.Authenticate");
+
+#define TEST false
 
 FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
-    , m_fprintdInter(new Fprintd(FprintService, "/com/deepin/daemon/Fprintd", QDBusConnection::systemBus(), this))
-    , m_fprDefaultInter(nullptr)
+    , m_fingerPrintInter(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint",
+                                         QDBusConnection::systemBus(), this))
+    , m_SMInter(new SessionManagerInter("com.deepin.SessionManager", "/com/deepin/SessionManager", QDBusConnection::sessionBus(), this))
 {
-    m_fprintdInter->setSync(false);
-}
+//    m_fingerPrintInter->setSync(false);
 
-void FingerWorker::refreshDevice()
-{
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprintdInter->GetDefaultDevice(), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &FingerWorker::onGetFprDefaultDevFinished);
-
-    //监测指纹设备插入或拔出操作
-    connect(m_fprintdInter, &Fprintd::DevicesChanged, this, &FingerWorker::onHandleDevicesChanged);
-}
-
-void FingerWorker::refreshUserEnrollList(const QString &name)
-{
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprDefaultInter->ListEnrolledFingers(name), this);
-    watcher->setProperty("user", name);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &FingerWorker::onGetListEnrolledFinished);
-}
-
-void FingerWorker::enrollStart(const QString &name, const QString &thumb)
-{
-    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
-    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, name, thumb] {
-        if (watcher->result()) {
-            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-            Q_EMIT requestShowAddThumb(name, thumb);
-        }
-
-        watcher->deleteLater();
+    //处理指纹后端的录入状态信号
+    connect(m_fingerPrintInter, &Fingerprint::EnrollStatus, m_model, [this](const QString &, int code, const QString &msg) {
+        m_model->onEnrollStatusChanged(code, msg);
     });
+    //当前此信号末实现
+    connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::onTouch);
+    connect(m_SMInter, &SessionManagerInter::LockedChanged, m_model, &FingerModel::lockedChanged);
 
-    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::recordFinger, name, thumb);
-    watcher->setFuture(future);
+    auto defualtDevice = m_fingerPrintInter->defaultDevice();
+    qDebug() << "defaultDevice:" << defualtDevice;
+    m_model->setIsVaild(!defualtDevice.isEmpty());
 }
 
-void FingerWorker::reEnrollStart(const QString &thumb)
+bool FingerWorker::tryEnroll(const QString &name, const QString &thumb)
 {
-    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
-    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher] {
-        if (watcher->result()) {
-            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-        }
+    auto call = m_fingerPrintInter->PreAuthEnroll();
+    call.waitForFinished();
+    if (call.isError()) {
+        qDebug() << "call PreAuthEnroll Error : " << call.error();
+        return false;
+    }
+    auto callClaim = m_fingerPrintInter->Claim(name, true);
+    callClaim.waitForFinished();
+    if (callClaim.isError()) {
+        qDebug() << "call Claim Error : " << callClaim.error();
+        return false;
+    }
 
-        watcher->deleteLater();
-    });
+    auto callEnroll =  m_fingerPrintInter->Enroll(thumb);
+    callEnroll.waitForFinished();
+    if (callEnroll.isError()) {
+        qDebug() << "call Enroll Error : " << callClaim.error();
+        m_fingerPrintInter->Claim(name, false);
+        return false;
+    }
 
-    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::reRecordFinger, thumb);
-    watcher->setFuture(future);
+    return true;
 }
 
-void FingerWorker::cleanEnroll(User *user)
+void FingerWorker::refreshUserEnrollList(const QString &id)
 {
-    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
-    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, user] {
-        if (watcher->result()) {
-            m_model->cleanUserThumbs(user->name());
-            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-        }
-
-        watcher->deleteLater();
-    });
-
-    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::cleanFinger, user->name());
-    watcher->setFuture(future);
-}
-
-void FingerWorker::saveEnroll(const QString &name)
-{
-    //当指纹输入完成后，点击完成然后刷新列表，不用停止和释放，会在closeEvent事件中操作
-    qDebug() << "saveEnroll: " << name;
-    refreshUserEnrollList(name);
-    m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-}
-
-void FingerWorker::stopEnroll()
-{
-    QFutureWatcher<void> watcher(this);
-
-    QFuture<void> future = QtConcurrent::run(this, &FingerWorker::releaseEnroll);
-    watcher.setFuture(future);
-}
-
-void FingerWorker::onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w)
-{
-    QDBusPendingReply<QDBusObjectPath> reply = w->reply();
-
-    w->deleteLater();
-
-    const QDBusObjectPath &path = reply.value();
-
-    if (path.path().isEmpty())
-        return;
-
-    m_fprDefaultInter = new Device(FprintService, path.path(), QDBusConnection::systemBus(), this);
-
-    m_model->setIsVaild(m_fprDefaultInter->isValid());
-
-    connect(m_fprDefaultInter, &Device::EnrollStatus, this, &FingerWorker::onEnrollStatus);
-}
-
-void FingerWorker::onGetListEnrolledFinished(QDBusPendingCallWatcher *w)
-{
-    QDBusPendingReply<QStringList> reply = w->reply();
-
-    if (!reply.isError()) {
-        FingerModel::UserThumbs u;
-        u.username = w->property("user").toString();
-        u.userThumbs = reply.value();
-        m_model->addUserThumbs(u);
+    qDebug() << "refreshUserEnrollList" << "id:" << id;
+    auto call = m_fingerPrintInter->ListFingers(id);
+    call.waitForFinished();
+    if (call.isError()) {
+        qDebug() << "call ListFingers Error : " << call.error();
     } else {
-        qDebug() << "onGetListEnrolledFinished: " << reply.error();
+        qDebug() << "ListFingers  : " << call.value();
     }
-
-    w->deleteLater();
+    m_model->setThumbsList(call.value());
 }
 
-void FingerWorker::onEnrollStatus(const QString &value, const bool status)
+void FingerWorker::startEnroll(const QString &name, const QString &thumb)
 {
-    qDebug() << "onEnrollStatus: " << value << "," << status;
-    if (value == "enroll-completed" && status == 1) {
-        m_model->setEnrollStatus(FingerModel::EnrollStatus::Finished);
-        return;
-    }
-
-    if (value == "enroll-retry-scan") {
-        m_model->setEnrollStatus(FingerModel::EnrollStatus::Retry);
-        return;
-    }
-
-    m_model->setEnrollStatus(FingerModel::EnrollStatus::Next);
+    tryEnroll(name, thumb);
 }
 
-bool FingerWorker::recordFinger(const QString &name, const QString &thumb)
+void FingerWorker::stopEnroll(const QString& userName)
 {
-    QDBusPendingCall call = m_fprDefaultInter->EnrollStop();
+    qDebug() << "stopEnroll";
+    auto call = m_fingerPrintInter->StopEnroll();
     call.waitForFinished();
-
-    call = m_fprDefaultInter->Release();
-    call.waitForFinished();
-
-    QDBusInterface inter(FprintService,
-                         "/com/deepin/daemon/Fprintd",
-                         FprintService,
-                         QDBusConnection::systemBus(), this);
-    if (!inter.isValid()) {
-        return false;
-    }
-
-    QDBusReply<void> reply = inter.call("PreAuthEnroll");
-    if (!reply.isValid()) {
-        return false;
-    }
-
-    call = m_fprDefaultInter->Claim(name);
-    call.waitForFinished();
-
     if (call.isError()) {
-        qDebug() << call.error();
-        QProcess::execute("sudo systemctl restart fprintd.service");
-        return false;
+        qDebug() << "call StopEnroll Error : " << call.error();
     }
-
-    call = m_fprDefaultInter->EnrollStart(thumb);
-    call.waitForFinished();
-
-    if (call.isError()) {
-        qDebug() << call.error();
-        return false;
-    }
-
-    return true;
-}
-
-bool FingerWorker::reRecordFinger(const QString &thumb)
-{
-    QDBusPendingCall call = m_fprDefaultInter->EnrollStop();
-    call.waitForFinished();
-
-    if (call.isError()) {
-        qDebug() << call.error();
-        return false;
-    }
-
-    call = m_fprDefaultInter->EnrollStart(thumb);
-    call.waitForFinished();
-
-    if (call.isError()) {
-        qDebug() << call.error();
-        return false;
-    }
-
-    return true;
-}
-
-void FingerWorker::releaseEnroll()
-{
-    QDBusPendingCall call = m_fprDefaultInter->EnrollStop();
-    call.waitForFinished();
-
-    if (call.isError()) {
-        qDebug() << call.error();
-    }
-
-    call = m_fprDefaultInter->Release();
-    call.waitForFinished();
-
-    if (call.isError()) {
-        qDebug() << call.error();
+    auto callClaim = m_fingerPrintInter->Claim(userName, false);
+    callClaim.waitForFinished();
+    if (callClaim.isError()) {
+        qDebug() << "call Claim Error : " << callClaim.error();
     }
 }
 
-bool FingerWorker::cleanFinger(const QString &name)
+void FingerWorker::deleteFingerItem(const QString& userName, const QString& finger)
 {
-    QDBusPendingCall call = m_fprDefaultInter->DeleteEnrolledFingers(name);
+    auto call = m_fingerPrintInter->DeleteFinger(userName, finger);
     call.waitForFinished();
-
     if (call.isError()) {
-        qDebug() << call.error();
-        return false;
+        qDebug() << "call DeleteFinger Error : " << call.error();
     }
-
-    return true;
+    refreshUserEnrollList(userName);
 }
 
-void FingerWorker::onHandleDevicesChanged(const QList<QDBusObjectPath> &value)
+void FingerWorker::renameFingerItem(const QString& userName, const QString& finger, const QString& newName)
 {
-    if (value.size() == 0) {
-        m_model->setIsVaild(false);
-        return;
+    auto call = m_fingerPrintInter->RenameFinger(userName, finger, newName);
+    call.waitForFinished();
+    if (call.isError()) {
+        qDebug() << "call RenameFinger Error : " << call.error();
     }
-
-    const QDBusObjectPath &objpath = value.at(0);
-    if (objpath.path().isEmpty()) {
-        m_model->setIsVaild(false);
-        return;
-    }
-
-    if (m_fprDefaultInter == nullptr) {
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprintdInter->GetDefaultDevice(), this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, &FingerWorker::onGetFprDefaultDevFinished);
-    } else {
-        m_model->setIsVaild(true);
-    }
+    refreshUserEnrollList(userName);
 }

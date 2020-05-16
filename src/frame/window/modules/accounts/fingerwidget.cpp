@@ -41,8 +41,14 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
 {
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
 
-    m_clearBtn = new DCommandLinkButton(tr("Delete fingerprint"));
+    m_clearBtn = new DCommandLinkButton(tr("Edit"));
+    m_clearBtn->setCheckable(true);
+
     TitleLabel *fingetitleLabel = new TitleLabel(tr("Fingerprint Password"));
+    TitleLabel *m_maxFingerTip = new TitleLabel(tr("You can add up to 10 fingerprints"));
+    QFont font;
+    font.setPointSizeF(10);
+    m_maxFingerTip->setFont(font);
 
     m_listGrp->setSpacing(1);
     m_listGrp->setContentsMargins(0, 0, 0, 0);
@@ -55,10 +61,17 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     headLayout->addWidget(fingetitleLabel, 0, Qt::AlignLeft);
     headLayout->addWidget(m_clearBtn, 0, Qt::AlignRight);
 
+    QHBoxLayout *tipLayout = new QHBoxLayout;
+    tipLayout->setSpacing(10);
+    tipLayout->setContentsMargins(10, 0, 10, 0);
+    tipLayout->addWidget(m_maxFingerTip, 0, Qt::AlignLeft);
+
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setSpacing(1);
     mainContentLayout->setMargin(0);
     mainContentLayout->addLayout(headLayout);
+    mainContentLayout->addSpacing(2);
+    mainContentLayout->addLayout(tipLayout);
     mainContentLayout->addSpacing(10);
     mainContentLayout->addWidget(m_listGrp);
     setLayout(mainContentLayout);
@@ -66,8 +79,15 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     //设置字体大小
     DFontSizeManager::instance()->bind(m_clearBtn, DFontSizeManager::T8);
 
-    connect(m_clearBtn, &DCommandLinkButton::clicked, this, [ = ] {
-        Q_EMIT requestCleanThumbs(m_curUser);
+    connect(m_clearBtn, &DCommandLinkButton::clicked, this, [ = ](bool checked) {
+        if (checked) {
+            m_clearBtn->setText(tr("Cancel"));
+        } else {
+            m_clearBtn->setText(tr("Edit"));
+        }
+        for (auto &item : m_vecItem) {
+            item->setShowIcon(checked);
+        }
     });
 }
 
@@ -79,65 +99,67 @@ FingerWidget::~FingerWidget()
 void FingerWidget::setFingerModel(FingerModel *model)
 {
     m_model = model;
+    connect(m_model, &FingerModel::enrollCompleted, this, [this] {
+       Q_EMIT noticeEnrollCompleted(m_curUser->name());
+    });
     connect(model, &FingerModel::thumbsListChanged, this, &FingerWidget::onThumbsListChanged);
     onThumbsListChanged(model->thumbsList());
 }
 
-void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs)
+void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 {
     QStringList thumb = thumbsLists;
-    bool isAddFingeBtn = true;
+    m_vecItem.clear();
     m_listGrp->clear();
-
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
-        auto u = thumbs.at(n);
-        if (u.username != m_curUser->name()) {
-            continue;
-        }
+        QString finger = thumbs.at(n);
+        auto item = new AccounntFingeItem(this);
+        item->setTitle(finger);
+        item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
+        m_listGrp->appendItem(item);
+        connect(item, &AccounntFingeItem::removeClicked, this, [this, finger] {
+            Q_EMIT requestDeleteFingerItem(m_curUser->name(), finger);
+        });
+        connect(item, &AccounntFingeItem::editTextFinished, this, [this, finger, item, thumbs](QString newName) {
+            for (int n = 0; n < thumbs.size(); ++n) {
+                if (newName == thumbs.at(n)) {
+                    item->alertTitleRepeat();
+                    return;
+                }
+            }
+            item->setTitle(newName);
+            Q_EMIT requestRenameFingerItem(m_curUser->name(), finger, newName);
+        });
 
-        int i = 1; // 记录指纹列表项编号
-        qDebug() << "user thumb count: " << u.userThumbs.size();
-        for (const QString &title : u.userThumbs) {
-            AccounntFingeItem *item = new AccounntFingeItem(this);
-            QString finger = tr("Fingerprint") + QString::number(i++);
-            item->setTitle(finger);
-            item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-            DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
-            m_listGrp->appendItem(item);
-            thumb.removeOne(title);
-            qDebug() << "onThumbsListChanged: " << finger;
-        }
+        if(m_clearBtn->isChecked())
+            item->setShowIcon(true);
 
-        if (!thumb.isEmpty()) {
-            m_notUseThumb = thumb.first();
-        }
-
-        if (i == 11) {
-            isAddFingeBtn = false;
-        }
+        m_vecItem.append(item);
+        thumb.removeOne(finger);
+        qDebug() << "onThumbsListChanged: " << finger;
     }
 
-    m_clearBtn -> setVisible(m_listGrp->itemCount());
-
-    if (!thumb.isEmpty()) {
+    m_clearBtn->setVisible(m_listGrp->itemCount());
+    if (!thumb.isEmpty() && thumbs.size() < 10) {
         m_notUseThumb = thumb.first();
-    }
-    if (isAddFingeBtn) {
         addFingerButton();
     }
 }
 
 void FingerWidget::addFingerButton()
 {
-    AccounntFingeItem *addfingeItem = new AccounntFingeItem;
-    DCommandLinkButton *addBtn = new DCommandLinkButton(tr("Add fingerprint"));
-    addfingeItem->setTitle("");
-    addfingeItem->appendItem(addBtn);
-    m_listGrp->insertItem(m_listGrp->itemCount(), addfingeItem);
-    addfingeItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    SettingsItem* addfingerItem = new SettingsItem(this);
+    DCommandLinkButton *addBtn = new DCommandLinkButton(tr("Add Fingerprint"));
+    QHBoxLayout *fingerLayout = new QHBoxLayout(this);
+    fingerLayout->addWidget(addBtn);
+    addfingerItem->setLayout(fingerLayout);
+    m_listGrp->insertItem(m_listGrp->itemCount(), addfingerItem);
+    addfingerItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
+        qDebug() << "try add finger :" <<  m_curUser->name() << m_notUseThumb;
         Q_EMIT requestAddThumbs(m_curUser->name(), m_notUseThumb);
     });
 }

@@ -59,7 +59,6 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
       m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this)),
       m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this)),
       m_effects(new Effects("org.kde.KWin", "/Effects", QDBusConnection::sessionBus(), this))
-
 {
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
@@ -93,7 +92,6 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
             }
         }
     });
-
 
     m_themeModels["gtk"]           = windowTheme;
     m_themeModels["icon"]          = iconTheme;

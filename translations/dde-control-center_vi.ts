@@ -23,114 +23,210 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Help</source>
         <translation>Giúp đỡ</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
         <source>Accounts</source>
         <translation>Tài khoản </translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
+        <source>Accounts</source>
+        <translation>Tài khoản</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Cloud Account</source>
         <translation>Tài khoản đám mây</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Display</source>
         <translation>Hiển thị</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Default Applications</source>
         <translation>Những ứng dụng Mặc định</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Personalization</source>
         <translation>Cá nhân hóa</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Network</source>
         <translation>Mạng</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
+        <source>Notification</source>
+        <translation>Thông báo</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Sound</source>
         <translation>Âm thanh</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="824"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="826"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Date and Time</source>
         <translation>Ngày và Thời gian</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Power</source>
         <translation>Năng lượng</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Mouse</source>
         <translation>Chuột</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="836"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="838"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Drawing Tablet</source>
         <translation>Drawing Tablet</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="416"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Keyboard and Language</source>
         <translation>Bàn phím và Ngôn ngữ</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="323"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Updates</source>
         <translation>Cập nhật</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="324"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>System Info</source>
         <translation>Thông tin hệ thống</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="325"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>General Settings</source>
         <translation>Cài đặt chung</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="376"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Touchpad</source>
         <translation>Miếng cảm ứng</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="377"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>TrackPoint</source>
         <translation>Điểm theo dõi</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="412"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Assistive Tools</source>
         <translation>Công cụ hỗ trợ</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="851"/>
+=======
+        <location filename="../src/frame/window/mainwindow.cpp" line="848"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="850"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Cloud Sync</source>
         <translation>Đồng bộ hóa trên đám mây</translation>
     </message>
@@ -156,41 +252,69 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="348"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Always</source>
         <translation>Luôn luôn</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="342"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="341"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Please input a number between 1-99999</source>
         <translation>Vui lòng nhập một số trong khoảng 1-99999</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="382"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Change Password</source>
         <translation>Đổi mật khẩu</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="385"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="384"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Delete Account</source>
         <translation>Xóa Tài khoản</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="388"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="387"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Auto Login</source>
         <translation>Tự động Đăng nhập</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="392"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="391"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Login Without Password</source>
         <translation>Đăng nhập mà không cần mật khẩu</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="465"/>
+=======
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="464"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Group</source>
         <translation>Nhóm</translation>
     </message>
@@ -200,7 +324,11 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="80"/>
         <source>Accounts</source>
+<<<<<<< HEAD
         <translation>Tài khoản </translation>
+=======
+        <translation>Tài khoản</translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
 </context>
 <context>
@@ -303,7 +431,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="167"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
@@ -594,6 +722,7 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="86"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
         <source>Failed to get root access</source>
@@ -631,16 +760,63 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="234"/>
+=======
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
+        <source>Failed to get root access</source>
+        <translation>Nhận mã truy cập thất bại!</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
+        <source>Please sign in to your cloud account first</source>
+        <translation>Vui lòng đăng nhập vào tài khoản đám mây của bạn trước</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
+        <source>Cannot read your PC information</source>
+        <translation>Không thể đọc thông tin PC của bạn</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
+        <source>No network connection</source>
+        <translation>Không tìm ra được mạng nào</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation>Tải chứng chỉ không thành công, không thể truy cập root</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation>Xác minh chữ ký không thành công, không thể truy cập root</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="232"/>
+        <source>UOS Privacy Policy</source>
+        <translation>Chính sách bảo mật của UOS</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Agree and Join User Experience Program</source>
         <translation>Đồng ý và gia nhập chương trình trải nghiệm người dùng</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="293"/>
+=======
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>The Disclaimer of Developer Mode</source>
         <translation>Tuyên bố miễn trừ trách nhiệm của Chế độ nhà phát triển</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="294"/>
+=======
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Agree and Request Root Access</source>
         <translation>Đồng ý và yêu cầu quyền truy cập root</translation>
     </message>
@@ -651,7 +827,59 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="65"/>
         <source>Request Root Access</source>
         <translation>Yêu cầu quyền truy cập root</translation>
+<<<<<<< HEAD
+=======
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="74"/>
+        <source>Online</source>
+        <translation>Online</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="75"/>
+        <source>Offline</source>
+        <translation>Offline</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="121"/>
+        <source>Please sign in to your cloud account first and continue</source>
+        <translation>Vui lòng đăng nhập vào tài khoản đám mây của bạn trước</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="96"/>
+        <source>Next</source>
+        <translation>Kế tiếp</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="100"/>
+        <source>Export PC Info</source>
+        <translation>Xuất thông tin PC</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="101"/>
+        <source>Import Certificate</source>
+        <translation>Nhập giấy chứng nhận</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="127"/>
+        <source>1. Export your PC information</source>
+        <translation>1. Xuất thông tin PC của bạn</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="128"/>
+        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
+        <translation>2. Truy cập https://www.chinauos.com/developMode để tải xuống chứng chỉ ngoại tuyến</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="129"/>
+        <source>3. Import the certificate</source>
+        <translation>3. Nhập chứng chỉ</translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="74"/>
         <source>Online</source>
@@ -737,6 +965,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>Tải chứng chỉ không thành công, không thể truy cập root</translation>
+<<<<<<< HEAD
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="114"/>
@@ -749,6 +978,20 @@
         <translation>Để làm cho một số tính năng có hiệu quả, cần phải khởi động lại. Khởi động lại bây giờ?</translation>
     </message>
     <message>
+=======
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="114"/>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation>Xác minh chữ ký không thành công, không thể truy cập root</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
+        <source>To make some features effective, a restart is required. Restart now?</source>
+        <translation>Để làm cho một số tính năng có hiệu quả, cần phải khởi động lại. Khởi động lại bây giờ?</translation>
+    </message>
+    <message>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
         <source>Cancel</source>
         <translation>Hủy</translation>
@@ -1647,7 +1890,11 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
         <source>Application Proxy</source>
+<<<<<<< HEAD
         <translation>Ứng dụng Proxy  </translation>
+=======
+        <translation>Ứng dụng Proxy  </translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
@@ -1684,7 +1931,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="91"/>
@@ -2151,7 +2398,11 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="89"/>
         <source>Application Proxy</source>
+<<<<<<< HEAD
         <translation>Ứng dụng Proxy  </translation>
+=======
+        <translation>Ứng dụng Proxy  </translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
@@ -2233,7 +2484,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
 </context>
 <context>
@@ -2358,6 +2609,22 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
+<<<<<<< HEAD
+=======
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
+        <source>Optional</source>
+        <translation>Không bắt buộc</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>HTTP Proxy</source>
         <translation>Ủy quyền HTTP</translation>
     </message>
@@ -2562,7 +2829,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="548"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
 </context>
 <context>
@@ -2606,7 +2873,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="162"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
 </context>
 <context>
@@ -2663,7 +2930,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="178"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
 </context>
 <context>
@@ -2972,7 +3239,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="247"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
@@ -3254,7 +3521,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="178"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
 </context>
 <context>
@@ -3352,7 +3619,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="134"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="138"/>
@@ -3385,7 +3652,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
 </context>
 <context>
@@ -3454,7 +3721,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="180"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="183"/>
@@ -3585,7 +3852,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="187"/>
         <source>Password</source>
-        <translation>Mật mã</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="191"/>
@@ -3702,6 +3969,91 @@
     </message>
 </context>
 <context>
+    <name>dccV20::notification::AppNotifyWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="75"/>
+        <source>Show notifications from %1 on desktop and in the notification center.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="89"/>
+        <source>Play a sound</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="92"/>
+        <source>Show messages on lockscreen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="95"/>
+        <source>Show only in notification center</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="98"/>
+        <source>Show message preview</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::NotificationModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="70"/>
+        <source>Notification</source>
+        <translation>Thông báo</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::NotificationWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="61"/>
+        <source>System Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="72"/>
+        <source>App Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::SystemNotifyWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="50"/>
+        <source>Show icon on Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="78"/>
+        <source>Do Not Disturb</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="84"/>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="107"/>
+        <source>When the screen is locked</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::TimeSlotItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="44"/>
+        <source>From</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="46"/>
+        <source>To</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="50"/>
@@ -3729,18 +4081,27 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="72"/>
+=======
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="75"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Theme</source>
         <translation>Chủ đề</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="81"/>
+=======
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="84"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Accent Color</source>
         <translation>Màu chính</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="117"/>
         <source>Window Effect</source>
         <translation>Hiệu ứng của sổ</translation>
@@ -3750,7 +4111,33 @@
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="123"/>
         <source>Transparency</source>
         <translation>Trong suốt</translation>
+=======
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="120"/>
+        <source>Window Effect</source>
+        <translation>Hiệu ứng của sổ</translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="126"/>
+        <source>Transparency</source>
+        <translation>Trong suốt</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="149"/>
+        <source>Window Miniminze Effect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="152"/>
+        <source>Scale</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="152"/>
+        <source>Magic Lamp</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3874,6 +4261,7 @@
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="58"/>
         <source>On Battery</source>
         <translation>Trên pin</translation>
+<<<<<<< HEAD
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="73"/>
@@ -3881,6 +4269,15 @@
         <translation>Năng lượng</translation>
     </message>
     <message>
+=======
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="73"/>
+        <source>Power</source>
+        <translation>Năng lượng</translation>
+    </message>
+    <message>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="190"/>
         <source>Battery low, please plug in</source>
         <translation>Pin yếu,vui lòng cắm sạc</translation>
@@ -4048,7 +4445,11 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="435"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="422"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Developer Mode</source>
         <translation>Chế độ Phát triển</translation>
     </message>
@@ -4073,6 +4474,7 @@
         <translation>Night Shift</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
         <source>Auto Login</source>
         <translation>Tự động Đăng nhập</translation>
@@ -4134,46 +4536,81 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="101"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Touchpad</source>
         <translation>Miếng cảm ứng</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="102"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>TrackPoint</source>
         <translation>Điểm theo dõi</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="103"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Personal Hotspot</source>
         <translation>Kích hoạt điểm truy cập</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="104"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>On Battery</source>
         <translation>Trên pin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="105"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Wired Network</source>
         <translation>Mạng kết nối dây</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="106"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Wireless Network</source>
         <translation>Mạng không dây</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="107"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Multiple Displays</source>
         <translation>Nhiều màn hình</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="436"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="423"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>End User License Agreement</source>
         <translation>Thỏa thuận cấp phép người dùng cuối</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="443"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="430"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Cloud Account</source>
         <translation>Tài khoản đám mây</translation>
     </message>
@@ -4187,13 +4624,21 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="95"/>
+=======
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Input</source>
         <translation>Đầu vào</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
+=======
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Sound Card:</source>
         <translation>Sound Card:</translation>
     </message>
@@ -4323,57 +4768,101 @@
         <translation>Mật khẩu WLAN của bạn sẽ được đồng bộ hóa nếu Cài đặt mạng được bật</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Network Settings</source>
         <translation>Cài đặt mạng</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="151"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Sound Settings</source>
         <translation>Cài đặt âm thánh</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="152"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="151"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Mouse Settings</source>
         <translation>Cài đặt chuột</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="153"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="152"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Update Settings</source>
         <translation>Những Thiết lập Cập nhật</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="154"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="153"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Dock</source>
         <translation>Dock</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="155"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="154"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Launcher</source>
         <translation>Khởi chạy</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="156"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="155"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Wallpaper</source>
         <translation>Hình nền</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="157"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="156"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Theme</source>
         <translation>Chủ đề</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="157"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Power Settings</source>
         <translation>Cài đặt nguồn</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="280"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="255"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Last Sync: %1</source>
         <translation>Lần đồng bộ cuối cùng: %1</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="282"/>
+=======
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="257"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
@@ -5101,36 +5590,61 @@
         <translation>Trung tâm kiểm soát</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="250"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="237"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>On Battery</source>
         <translation>Trên pin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="251"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Plugged In</source>
         <translation>Plugged In</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="252"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>General</source>
         <translation>Tổng quát</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="253"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Mouse</source>
         <translation>Chuột</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="254"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Touchpad</source>
         <translation>Miếng cảm ứng</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="255"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>TrackPoint</source>
         <translation>Điểm theo dõi</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="256"/>
         <source>Application Proxy</source>
         <translation>Ứng dụng Proxy  </translation>
@@ -5138,16 +5652,33 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="257"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="260"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
+        <source>Application Proxy</source>
+        <translation>Ứng dụng Proxy  </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>System Proxy</source>
         <translation>Ủy thác hệ thống</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="258"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Time Settings</source>
         <translation>Những Thiết lập Thời gian</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/window/search/searchwidget.cpp" line="259"/>
+=======
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Change System Timezone</source>
         <translation>Thay đổi Múi giờ Hệ thống</translation>
     </message>
@@ -9517,17 +10048,29 @@ Nếu không hoạt động, màn hình sẽ được khôi phục sau %1s.</tra
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/update/updatework.cpp" line="354"/>
+=======
+        <location filename="../src/frame/modules/update/updatework.cpp" line="350"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Patches</source>
         <translation>Các bản vá</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/update/updatework.cpp" line="355"/>
+=======
+        <location filename="../src/frame/modules/update/updatework.cpp" line="351"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>System patches</source>
         <translation>Các bản vá Hệ thống.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/frame/modules/update/updatework.cpp" line="1053"/>
+=======
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1049"/>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>System</source>
         <translation>Hệ thống</translation>
     </message>

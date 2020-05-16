@@ -21,76 +21,96 @@
 
 #include "addfingedialog.h"
 
+#include <DTitlebar>
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QCloseEvent>
+#include <QTimer>
 
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
+#define test false
 
-AddFingeDialog::AddFingeDialog(const QString &thumb, QDialog *parent)
-    : QDialog(parent)
-    , m_mainContentLayout(new QVBoxLayout)
-    , m_cancleaddLayout(new QHBoxLayout)
+AddFingeDialog::AddFingeDialog(const QString &thumb, DAbstractDialog *parent)
+    : DAbstractDialog(parent)
+    , m_timer(new QTimer(parent))
+    , m_mainLayout(new QVBoxLayout(this))
+    , m_titleHLayout(new QHBoxLayout)
+    , m_btnHLayout(new QHBoxLayout)
     , m_fingeWidget(new FingerWidget)
-    , m_scanBtn(new QPushButton)
-    , m_doneBtn(new DSuggestButton)
     , m_thumb(thumb)
+    , m_cancelBtn(new QPushButton)
+    , m_addBtn(new DSuggestButton)
 {
     initWidget();
     initData();
 }
 
+AddFingeDialog::~AddFingeDialog()
+{
+}
+
 void AddFingeDialog::initWidget()
 {
-    resize(400, 400);
-    Qt::WindowFlags flags = windowFlags();
-    flags |= Qt::WindowCloseButtonHint;
-    flags |= Qt::WindowMaximizeButtonHint;
-    setWindowFlags(flags);
+    setMinimumSize(QSize(328,391));
+    m_mainLayout->setAlignment(Qt::AlignHCenter);
 
-    setAttribute(Qt::WA_DeleteOnClose, true);//destroy this object when this window is closed
+    DTitlebar *titleIcon = new DTitlebar();
+    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
+    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setMenuVisible(false);
+    titleIcon->setTitle("");
+    m_titleHLayout->addWidget(titleIcon, Qt::AlignTop | Qt::AlignRight);
+    m_mainLayout->addLayout(m_titleHLayout);
+    m_mainLayout->addWidget(m_fingeWidget, 1);
 
-    m_mainContentLayout->setMargin(0);
-    m_mainContentLayout->setSpacing(0);
+    m_btnHLayout->addWidget(m_cancelBtn);
+    m_btnHLayout->addWidget(m_addBtn);
+    m_btnHLayout->setContentsMargins(10, 0, 10, 10);
+    m_mainLayout->addLayout(m_btnHLayout);
 
-    m_cancleaddLayout->setContentsMargins(10, 0, 5, 10);
-    m_cancleaddLayout->addWidget(m_scanBtn);
-    m_cancleaddLayout->addSpacing(10);
-    m_cancleaddLayout->addWidget(m_doneBtn);
+    m_mainLayout->setMargin(0);
+    setLayout(m_mainLayout);
 
-    m_mainContentLayout->addSpacing(20);
-    m_mainContentLayout->addWidget(m_fingeWidget);
-    m_mainContentLayout->addSpacing(50);
-    m_mainContentLayout->addLayout(m_cancleaddLayout);
-    m_mainContentLayout->addSpacing(10);
-
-    setLayout(m_mainContentLayout);
-    m_scanBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    m_doneBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    this->activateWindow();
+    this->setFocus();
 }
 
 void AddFingeDialog::initData()
 {
-    setWindowTitle(tr("Add Fingerprint"));
-
-    m_scanBtn->setText(tr("Scan Again"));
-    m_doneBtn->setText(tr("Done"));
-
-    m_scanBtn->setVisible(false);
-    m_doneBtn->setVisible(false);
-
-    connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::reEnrollStart);
-    connect(m_doneBtn, &QPushButton::clicked, this, &AddFingeDialog::saveThumb);
-    connect(m_fingeWidget, &FingerWidget::playEnd, this, &AddFingeDialog::onViewPlayEnd);
+    m_cancelBtn->setText((tr("Cancel")));
+    m_addBtn->setEnabled(false);
+    m_addBtn->hide();
+    connect(m_cancelBtn, &QPushButton::clicked, this, &AddFingeDialog::close);
+    connect(m_addBtn, &DSuggestButton::clicked, this, [=] {
+        auto text = m_addBtn->text();
+        if (text == tr("Done")) {
+            this->close();
+        } else if (text == tr("Scan Again")) {
+            setInitStatus();
+            Q_EMIT requestEnrollThumb();
+        }
+    });
 }
 
 void AddFingeDialog::setFingerModel(FingerModel *model)
 {
     m_model = model;
-    connect(model, &FingerModel::enrollStatusChanged, this, &AddFingeDialog::onEnrollStatusChanged);
-    onEnrollStatusChanged(model->enrollStatus());
+    m_timer->setSingleShot(true);
+    connect(m_timer, &QTimer::timeout, this, &AddFingeDialog::enrollOverTime);
+    connect(m_model, &FingerModel::enrollCompleted, this, &AddFingeDialog::enrollCompleted);
+    connect(m_model, &FingerModel::enrollStagePass, this, &AddFingeDialog::enrollStagePass);
+    connect(m_model, &FingerModel::enrollFailed, this, &AddFingeDialog::enrollFailed);
+    connect(m_model, &FingerModel::enrollDisconnected, this, &AddFingeDialog::enrollDisconnected);
+    connect(m_model, &FingerModel::enrollRetry, this, &AddFingeDialog::enrollRetry);
+    connect(m_model, &FingerModel::lockedChanged, this, [=](bool locked) {
+        if (locked) {
+//            close();
+        }
+    });
+    m_timer->start(1000 * 60);//1min
 }
 
 void AddFingeDialog::setUsername(const QString &name)
@@ -98,51 +118,133 @@ void AddFingeDialog::setUsername(const QString &name)
     m_username = name;
 }
 
-void AddFingeDialog::reEnrollStart()
+void AddFingeDialog::enrollCompleted()
 {
-    m_scanBtn->setVisible(false);
-    m_doneBtn->setVisible(false);
-
-    Q_EMIT requestReEnrollStart(m_thumb);
-
-    m_fingeWidget->reEnter();
-}
-
-void AddFingeDialog::saveThumb()
-{
-    Q_EMIT requestSaveThumb(m_username);
-    this->close();
-}
-
-void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)
-{
-    switch (status) {
-    case FingerModel::EnrollStatus::Ready:
-        onViewPlayEnd();
-        break;
-    case FingerModel::EnrollStatus::Next:
-        m_fingeWidget->next();
-        m_fingeWidget->setFrequency(tr("Identifying fingerprint"));
-        break;
-    case FingerModel::EnrollStatus::Retry:
-        m_fingeWidget->setFrequency(tr("Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off"));
-        break;
-    case FingerModel::EnrollStatus::Finished:
-        m_fingeWidget->finished();
-        m_fingeWidget->setFrequency(tr("Fingerprint added"));
-        m_scanBtn->setVisible(true);
-        m_doneBtn->setVisible(true);
-        break;
+    if (!m_isEnrolling) {
+        return;
     }
+
+    m_isEnrolling = false;
+    m_fingeWidget->finished();
+    m_addBtn->show();
+    m_addBtn->setText(tr("Done"));
+    m_addBtn->setEnabled(true);
+    m_cancelBtn->hide();
+    m_cancelBtn->setEnabled(false);
+    m_timer->stop();
+    Q_EMIT requestStopEnroll(m_username);
 }
 
-void AddFingeDialog::onViewPlayEnd()
+void AddFingeDialog::enrollStagePass(int pro)
 {
-    m_fingeWidget->setFrequency(tr("Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off"));
+    if (!m_isEnrolling) {
+        return;
+    }
+
+    m_addBtn->setEnabled(false);
+    m_fingeWidget->setProsses(pro);
+    m_timer->start(1000 * 60);//1min
+}
+
+void AddFingeDialog::enrollFailed(QString title, QString msg)
+{
+    if (!m_isEnrolling) {
+        return;
+    }
+    m_isEnrolling = false;
+    m_fingeWidget->setStatueMsg(title, msg, true);
+    m_addBtn->show();
+    m_addBtn->setText(tr("Scan Again"));
+    m_addBtn->setEnabled(true);
+    m_timer->stop();
+
+    Q_EMIT requestStopEnroll(m_username);
+}
+void AddFingeDialog::enrollDisconnected()
+{
+    Q_EMIT requestStopEnroll(m_username);
+
+    m_isEnrolling = false;
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan Suspended"), true);
+    m_addBtn->show();
+    m_addBtn->setText(tr("Scan Again"));
+    m_addBtn->setEnabled(true);
+    m_timer->stop();
+
+    //会出现末知情况，需要与后端确认中断时是否可以停止
+    Q_EMIT requestStopEnroll(m_username);
+}
+
+void AddFingeDialog::enrollFocusOut()
+{
+    Q_EMIT requestStopEnroll(m_username);
+
+    m_isEnrolling = false;
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr(""), true);
+    m_addBtn->show();
+    m_addBtn->setText(tr("Scan Again"));
+    m_cancelBtn->setEnabled(false);
+    m_addBtn->setEnabled(false);
+    m_timer->stop();
+
+    //会出现末知情况，需要与后端确认中断时是否可以停止
+    Q_EMIT requestStopEnroll(m_username);
+}
+
+void AddFingeDialog::enrollOverTime()
+{
+    Q_EMIT requestStopEnroll(m_username);
+
+    m_isEnrolling = false;
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan time expired"), true);
+    m_addBtn->show();
+    m_addBtn->setText(tr("Scan Again"));
+    m_addBtn->setEnabled(true);
+    m_timer->stop();
+
+    //会出现末知情况，需要与后端确认中断时是否可以停止
+    Q_EMIT requestStopEnroll(m_username);
+}
+
+void AddFingeDialog::enrollRetry(QString title, QString msg)
+{
+    if (!m_isEnrolling) {
+        return;
+    }
+
+    m_addBtn->setEnabled(false);
+    m_timer->start(1000 * 60);//1min
+    m_fingeWidget->setStatueMsg(title, msg, false);
+}
+
+void AddFingeDialog::setInitStatus()
+{
+    m_isEnrolling = true;
+    m_addBtn->setEnabled(false);
+    m_addBtn->hide();
+    m_timer->start(1000 * 60);//1min
+    m_fingeWidget->reEnter();
 }
 
 void AddFingeDialog::closeEvent(QCloseEvent *event)
 {
-    Q_EMIT requestStopEnroll();
-    event->accept();
+    if (m_isEnrolling) {
+        Q_EMIT requestStopEnroll(m_username);
+    }
+    QDialog::closeEvent(event);
 }
+
+void AddFingeDialog::focusOutEvent(QFocusEvent *event)
+{
+    this->clearFocus();
+    if (m_isEnrolling) {
+        enrollFocusOut();
+        QTimer::singleShot(1000, this, [=] {
+            m_cancelBtn->setEnabled(true);
+            m_addBtn->setEnabled(true);
+        });
+    }
+    this->setFocus();
+}
+
+

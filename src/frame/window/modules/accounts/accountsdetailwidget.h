@@ -90,6 +90,9 @@ Q_SIGNALS:
     void requestCleanThumbs(dcc::accounts::User *user);
     void requestSetGroups(dcc::accounts::User *user, const QStringList &usrGroups);
     void requsetSetPassWordAge(dcc::accounts::User *user, const int age);
+    void requestDeleteFingerItem(const QString &userName, const QString& finger);
+    void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
+    void noticeEnrollCompleted(QString username);
 
 protected:
     void initUserInfo(QVBoxLayout *layout);
@@ -100,6 +103,7 @@ private Q_SLOTS:
     void deleteUserClicked();
     void changeUserGroup(const QStringList &groups);
     void userGroupClicked(const QModelIndex &index);
+
 private:
     dcc::accounts::User *m_curUser;
     dcc::accounts::UserModel *m_userModel;

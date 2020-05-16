@@ -74,6 +74,7 @@ void NotificationWorker::getDbusAllSetting(const QString &jObj)
     } else {
         obj = QJsonDocument::fromJson(jObj.toUtf8()).object();
     }
+
     if (obj.size() > 0) {
         m_model->setAllSetting(obj);
     }
@@ -101,4 +102,3 @@ void NotificationWorker::getDbusSyssetting(const QString &jObj)
         }
     }
 }
-

@@ -25,6 +25,34 @@
 
 #include "fingermodel.h"
 
+#include <QJsonDocument>
+#include <QJsonObject>
+
+enum EnrollStatusType {
+    ET_Completed = 0,
+    ET_Failed,
+    ET_StagePass,
+    ET_Retry,
+    ET_Disconnect
+};
+
+enum EnrollFailedCode {
+    FC_UnkownError = 1,
+    FC_RepeatTemplet,
+    FC_EnrollBroken,
+    FC_DataFull
+};
+
+enum EnrollRetryCode {
+    RC_TouchTooShort = 1,
+    RC_ErrorFigure,
+    RC_RepeatTouchData,
+    RC_RepeatFingerData,
+    RC_SwipeTooShort,
+    RC_FingerNotCenter,
+    RC_RemoveAndRetry
+};
+
 using namespace dcc;
 using namespace dcc::accounts;
 
@@ -48,44 +76,127 @@ void FingerModel::setIsVaild(bool isVaild)
     Q_EMIT vaildChanged(isVaild);
 }
 
-FingerModel::EnrollStatus FingerModel::enrollStatus() const
+void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
 {
-    return m_enrollStatus;
-}
+//    QString testJson = "{\"process\":\"50\", \"subcode\":{\"1\":\"error01\",\"2\":\"error02\"}}"; //测试代码
+    QJsonDocument jsonDocument;
+    QJsonObject jsonObject;
 
-void FingerModel::setEnrollStatus(const EnrollStatus &enrollStatus)
-{
-    m_enrollStatus = enrollStatus;
-
-    Q_EMIT enrollStatusChanged(enrollStatus);
-}
-
-void FingerModel::addUserThumbs(const FingerModel::UserThumbs &thumbs)
-{
-    for (int i(0); i != m_thumbsList.size(); ++i) {
-        if (m_thumbsList.at(i).username == thumbs.username) {
-            m_thumbsList.removeAt(i);
-            break;
-        }
+    if(!msg.isEmpty()){
+        jsonDocument = QJsonDocument::fromJson(msg.toLocal8Bit().data());
+        jsonObject = jsonDocument.object();
     }
 
+    switch(code) {
+    case ET_Completed:
+        Q_EMIT enrollCompleted();
+        break;
+    case ET_Failed: {
+        QString title = "Enroll Failed!";
+        QString msg = "Enroll Failed!";
+        do {
+            if (msg.isEmpty()) {
+                break;
+            }
+            QStringList keys = jsonObject.keys();
+            if (!keys.contains("subcode")) {
+                break;
+            }
+            auto errCode = jsonObject.value("subcode").toInt();
+            switch(errCode) {
+            case FC_DataFull:
+                msg = "数据满了，不能再录制更多指纹";
+                break;
+            case FC_EnrollBroken:
+                msg = "录入中断，请重新录入";
+                break;
+            case FC_RepeatTemplet:
+                title = tr("The fingerprint already exists");
+                msg = tr("Please scan other fingers");
+                break;
+            case FC_UnkownError:
+                msg = "未知错误，请重新录入";
+            }
+            break;
+        } while(0);
+        Q_EMIT enrollFailed(title, msg);
+        break;
+    }
+    case ET_StagePass: {
+        if (msg.isEmpty()) {
+            break;
+        }
+        QStringList keys = jsonObject.keys();
+        if (!keys.contains("progress")) {
+            break;
+        }
+        auto pro = jsonObject.value("progress").toInt();
+        Q_EMIT enrollStagePass(pro);
+        break;
+    }
+    case ET_Retry: {
+        QString title = "Enroll Retry!";
+        QString msg = "Enroll Retry!";
+        do {
+            QStringList keys = jsonObject.keys();
+            if (!keys.contains("subcode")) {
+                break;
+            }
+            auto errCode = jsonObject.value("subcode").toInt();
+            switch(errCode) {
+            case RC_TouchTooShort: //接触时间过短
+                title = tr("Moved too fast");
+                msg = tr("Finger moved too fast, please do not lift until prompted");
+                break;
+            case RC_ErrorFigure: //图像不可用
+                title = tr("Unclear fingerprint");
+                msg = tr("Clean your finger or adjust the finger position, and try again");
+                break;
+            case RC_RepeatTouchData: //重复率过高
+                title = tr("Already scanned");
+                msg = tr("Adjust the finger position to scan your fingerprint fully");
+                break;
+            case RC_RepeatFingerData: //重复手指
+                title = tr("The fingerprint already exists");
+                msg = tr("Please scan other fingers");
+                break;
+            case RC_SwipeTooShort: //按压时间短
+                msg = tr("Finger moved too fast. Please do not lift until prompted");
+                break;
+            case RC_FingerNotCenter: //手指不在中间
+                msg = tr("Adjust the finger position to scan your fingerprint fully");
+                break;
+            case RC_RemoveAndRetry: // 拿开手指从新扫描
+                msg = tr("Clean your finger or adjust the finger position, and try again");
+                break;
+            }
+            break;
+        } while(0);
+        Q_EMIT enrollRetry(title, msg);
+        break;
+    }
+    case ET_Disconnect:
+        Q_EMIT enrollDisconnected();
+        break;
+    default:
+        break;
+    }
+}
+
+void FingerModel::onTouch(const QString &id, bool pressed)
+{
+
+}
+
+void FingerModel::setThumbsList(const QStringList &thumbs)
+{
+    m_thumbsList.clear();
     m_thumbsList << thumbs;
 
     Q_EMIT thumbsListChanged(m_thumbsList);
 }
 
-void FingerModel::cleanUserThumbs(const QString &user)
-{
-    for (int i(0); i != m_thumbsList.size(); ++i) {
-        if (m_thumbsList[i].username == user) {
-            m_thumbsList.removeAt(i);
-            Q_EMIT thumbsListChanged(m_thumbsList);
-            return;
-        }
-    }
-}
-
-QList<FingerModel::UserThumbs> FingerModel::thumbsList() const
+QStringList FingerModel::thumbsList() const
 {
     return m_thumbsList;
 }

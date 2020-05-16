@@ -31,8 +31,8 @@
 #include "modules/wacom/wacommodule.h"
 #include "modules/display/displaymodule.h"
 #include "modules/personalization/personalizationmodule.h"
-#include "modules/notification/notificationmodule.h"
 #include "modules/sync/syncmodule.h"
+#include "modules/notification/notificationmodule.h"
 #include "modules/systeminfo/systeminfomodule.h"
 #include "modules/network/networkmodule.h"
 #include "modules/defapp/defaultappsmodule.h"
@@ -303,7 +303,6 @@ void MainWindow::initAllModule(QString m)
     using namespace systeminfo;
     using namespace commoninfo;
     using namespace notification;
-
 
     m_modules = {
         { new AccountsModule(this), tr("Accounts")},

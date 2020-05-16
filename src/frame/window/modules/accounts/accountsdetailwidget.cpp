@@ -366,15 +366,15 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_fingerWidget = new FingerWidget(m_curUser, this);
     m_fingerWidget->setContentsMargins(0, 0, 0, 0);
     m_fingerWidget->layout()->setMargin(0);
-    m_fingerWidget->setVisible(false);
     layout->addSpacing(30);
     layout->addWidget(m_fingerWidget);
 
-    //非当前用户不显示修改密码，自动登录，无密码登录
+    //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
     modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
+    m_fingerWidget->setVisible(isCurUser);
 
     //服务器版本不显示自动登录，无密码登录
     loginGrp->setVisible(!IsServerSystem);
@@ -419,7 +419,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             &AccountsDetailWidget::requestAddThumbs);
     connect(m_fingerWidget, &FingerWidget::requestCleanThumbs, this,
             &AccountsDetailWidget::requestCleanThumbs);
-
+    connect(m_fingerWidget, &FingerWidget::requestDeleteFingerItem, this, &AccountsDetailWidget::requestDeleteFingerItem);
+    connect(m_fingerWidget, &FingerWidget::requestRenameFingerItem, this, &AccountsDetailWidget::requestRenameFingerItem);
+    connect(m_fingerWidget, &FingerWidget::noticeEnrollCompleted, this, &AccountsDetailWidget::noticeEnrollCompleted);
     //图像列表操作
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
     this, [ = ](const QString &avatarPath) {

@@ -31,6 +31,8 @@
 #include "modules/accounts/fingermodel.h"
 #include "addfingedialog.h"
 
+#include <DDialog>
+
 #include <QStringList>
 #include <QTimer>
 #include <QDebug>
@@ -60,9 +62,7 @@ void AccountsModule::initialize()
     m_fingerWorker->moveToThread(qApp->thread());
 
     m_accountsWorker->active();
-    m_fingerWorker->refreshDevice();
     connect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
-    connect(m_fingerWorker, &FingerWorker::requestShowAddThumb, this, &AccountsModule::onShowAddThumb);
 }
 
 void AccountsModule::reset()
@@ -146,11 +146,9 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
     w->setAccountModel(m_userModel);
+    m_fingerWorker->refreshUserEnrollList(account->name());
     w->setFingerModel(m_fingerModel);
 
-    if (m_fingerModel->isVaild()) {
-        initFingerData();
-    }
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
@@ -162,8 +160,9 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     });
     connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
     connect(w, &AccountsDetailWidget::requestShowFullnameSettings, m_accountsWorker, &AccountsWorker::setFullname);
-    connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
-    connect(w, &AccountsDetailWidget::requestCleanThumbs, m_fingerWorker, &FingerWorker::cleanEnroll);
+    connect(w, &AccountsDetailWidget::requestAddThumbs, this, &AccountsModule::onShowAddThumb);
+    connect(w, &AccountsDetailWidget::requestDeleteFingerItem, m_fingerWorker, &FingerWorker::deleteFingerItem);
+    connect(w, &AccountsDetailWidget::requestRenameFingerItem, m_fingerWorker, &FingerWorker::renameFingerItem);
     connect(w, &AccountsDetailWidget::requsetSetPassWordAge, m_accountsWorker, &AccountsWorker::setMaxPasswordAge);
     m_frameProxy->pushWidget(this, w);
 }
@@ -207,11 +206,24 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     dlg->setFingerModel(m_fingerModel);
     dlg->setUsername(name);
 
-    connect(dlg, &AddFingeDialog::requestSaveThumb, m_fingerWorker, &FingerWorker::saveEnroll);
-    connect(dlg, &AddFingeDialog::requestReEnrollStart, m_fingerWorker, &FingerWorker::reEnrollStart);
+    connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [ = ] {
+        m_fingerWorker->startEnroll(name, thumb);
+    });
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
 
-    dlg->exec();//Note:destroy this object when this window is closed
+    if (m_fingerWorker->tryEnroll(name, thumb)) {
+        dlg->exec();
+        m_fingerWorker->refreshUserEnrollList(name);
+    } else {
+        DDialog* errorDialog = new DDialog();
+        errorDialog->setMessage(tr("设备已被占用或无法连接！"));
+        errorDialog->exec();
+        connect(errorDialog, &DDialog::closed, m_fingerWorker, [ = ] {
+           m_fingerWorker->stopEnroll(name);
+        });
+        errorDialog->deleteLater();
+    }
+    dlg->deleteLater();
 }
 
 void AccountsModule::onHandleVaildChanged(const bool isVaild)

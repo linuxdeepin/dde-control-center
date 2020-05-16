@@ -41,7 +41,7 @@ class PersonalizationModel : public QObject
     Q_OBJECT
     friend class MouseWorker;
 public:
-    explicit PersonalizationModel(QObject *parent = 0);
+    explicit PersonalizationModel(QObject *parent = nullptr);
     ~PersonalizationModel();
     inline ThemeModel    *getWindowModel()    const {return m_windowModel;}
     inline ThemeModel    *getIconModel()      const {return m_iconModel;}

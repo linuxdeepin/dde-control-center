@@ -52,7 +52,7 @@ class PersonalizationWork : public QObject
 {
     Q_OBJECT
 public:
-    PersonalizationWork(PersonalizationModel *model, QObject *parent = 0);
+    PersonalizationWork(PersonalizationModel *model, QObject *parent = nullptr);
     void active();
     void deactive();
     void onGetList();

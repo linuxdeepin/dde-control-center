@@ -73,8 +73,8 @@ Q_SIGNALS:
     void showFontsWidget();
     void requestSwitchWM();
     void requestSetOpacity(int value);
-    void requestSetActiveColor(const QString &color);
     void requestSetMiniEffect(int effect);
+    void requestSetActiveColor(const QString &color);
 
 private:
     void onOpacityChanged(std::pair<int, double> value);

@@ -29,13 +29,13 @@
 #include "fingermodel.h"
 #include "user.h"
 
-#include <com_deepin_daemon_fprintd.h>
-#include <com_deepin_daemon_fprintd_device.h>
+#include <com_deepin_daemon_authenticate_fingerprint.h>
+#include <com_deepin_sessionmanager.h>
 
 #include <QObject>
 
-using com::deepin::daemon::Fprintd;
-using com::deepin::daemon::fprintd::Device;
+using com::deepin::daemon::authenticate::Fingerprint;
+using SessionManagerInter = com::deepin::SessionManager;
 
 namespace dcc {
 namespace accounts {
@@ -51,28 +51,20 @@ public:
 Q_SIGNALS:
     void requestShowAddThumb(const QString &name, const QString &thumb);
 
-public Q_SLOTS:
-    void refreshUserEnrollList(const QString &name);
-    void enrollStart(const QString &name, const QString &thumb);
-    void reEnrollStart(const QString &thumb);
-    void cleanEnroll(User *user);
-    void saveEnroll(const QString &name);
-    void stopEnroll();
+public:
+    bool tryEnroll(const QString &name, const QString &thumb);
 
-private Q_SLOTS:
-    void onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w);
-    void onGetListEnrolledFinished(QDBusPendingCallWatcher *w);
-    void onEnrollStatus(const QString &value, const bool status);
-    bool recordFinger(const QString &name, const QString &thumb);
-    bool reRecordFinger(const QString &thumb);
-    void releaseEnroll();
-    bool cleanFinger(const QString &name);
-    void onHandleDevicesChanged(const QList<QDBusObjectPath> &value);
+public Q_SLOTS:
+    void refreshUserEnrollList(const QString &id);
+    void startEnroll(const QString &name, const QString &thumb);
+    void stopEnroll(const QString& userName);
+    void deleteFingerItem(const QString& userName, const QString& finger);
+    void renameFingerItem(const QString& userName, const QString& finger, const QString& newName);
 
 private:
     FingerModel *m_model;
-    Fprintd *m_fprintdInter;
-    Device *m_fprDefaultInter;
+    Fingerprint *m_fingerPrintInter;
+    SessionManagerInter *m_SMInter{nullptr};
 };
 
 }

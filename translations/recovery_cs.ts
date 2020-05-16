@@ -5,7 +5,11 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
+<<<<<<< HEAD
         <translation>Návrat k předchozí verzi systému – čekejte prosím…</translation>
+=======
+        <translation>Navracení k předchozí verzi systému – čekejte prosím…</translation>
+>>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
 </context>
 <context>

@@ -48,9 +48,12 @@ public:
 Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(dcc::accounts::User *user);
+    void requestDeleteFingerItem(const QString &userName, const QString& finger);
+    void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
+    void noticeEnrollCompleted(QString userName);
 
 public Q_SLOTS:
-    void onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs);
+    void onThumbsListChanged(const QStringList &thumbs);
 
 private:
     dcc::accounts::User *m_curUser;
@@ -58,6 +61,7 @@ private:
     dcc::widgets::SettingsGroup *m_listGrp;
     QString m_notUseThumb;
     DCommandLinkButton *m_clearBtn;
+    QVector<AccounntFingeItem*> m_vecItem;
 };
 
 }

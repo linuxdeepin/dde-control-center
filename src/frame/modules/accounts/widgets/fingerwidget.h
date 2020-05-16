@@ -26,6 +26,8 @@
 #ifndef FINGERWIDGET_H
 #define FINGERWIDGET_H
 
+#include "widgets/titlelabel.h"
+
 #include <dpicturesequenceview.h>
 #include <QWidget>
 #include <QLabel>
@@ -38,12 +40,17 @@ class FingerWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum enrollStage {
+      enrollFirstStage = 1,
+      enrollSecondStage
+    };
+
     explicit FingerWidget(QWidget *parent = nullptr);
 
-    void setFrequency(const QString &value);
+    void setStatueMsg(const QString &title, const QString &msg, bool reset = true);
 
+    void setProsses(int pro);
     void reEnter();
-    void next();
     void finished();
 
 Q_SIGNALS:
@@ -55,9 +62,17 @@ protected:
 private:
     DPictureSequenceView *m_view;
     QLabel *m_tipLbl;
-    QStringList m_enteringList;
-    QStringList m_finishedList;
+    TitleLabel *m_titleLbl;
     bool m_isFinished;
+
+    QString m_defTip{""};
+    QString m_defTitle{""};
+    int m_pro{0};
+    QTimer *m_titleTimer;
+    QTimer *m_msgTimer;
+    QString m_theme;
+    bool m_reset{false};
+    bool m_isStageOne{true};
 };
 }
 }

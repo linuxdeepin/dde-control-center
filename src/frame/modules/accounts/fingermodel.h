@@ -41,41 +41,28 @@ class FingerModel : public QObject
 public:
     explicit FingerModel(QObject *parent = nullptr);
 
-    struct UserThumbs {
-        QString username;
-        QStringList userThumbs;
-
-        bool operator ==(const UserThumbs &user) {
-            return username == user.username && userThumbs == user.userThumbs;
-        }
-    };
-
-    enum EnrollStatus{
-        Ready,
-        Next,
-        Retry,
-        Finished
-    };
-
     bool isVaild() const;
     void setIsVaild(bool isVaild);
 
-    EnrollStatus enrollStatus() const;
-    void setEnrollStatus(const EnrollStatus &enrollStatus);
+    void setThumbsList(const QStringList &thumbs);
+    QStringList thumbsList() const;
 
-    void addUserThumbs(const UserThumbs &thumbs);
-    void cleanUserThumbs(const QString &user);
-    QList<UserThumbs> thumbsList() const;
-
+    void onEnrollStatusChanged(int code, const QString& msg);
+    void onTouch(const QString &id, bool pressed);
 Q_SIGNALS:
     void vaildChanged(const bool isVaild);
-    void enrollStatusChanged(EnrollStatus status);
-    void thumbsListChanged(const QList<UserThumbs> &thumbs);
+    void thumbsListChanged(const QStringList &thumbs);
 
+    void enrollFailed(QString title, QString msg);
+    void enrollCompleted();
+    void enrollStagePass(int pro);
+    void enrollRetry(QString title, QString msg);
+    void enrollDisconnected();
+
+    void lockedChanged(bool locked);
 private:
-    bool m_isVaild;
-    EnrollStatus m_enrollStatus;
-    QList<UserThumbs> m_thumbsList;
+    bool m_isVaild{false};
+    QList<QString> m_thumbsList;
 };
 }
 }
