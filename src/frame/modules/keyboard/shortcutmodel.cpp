@@ -156,6 +156,7 @@ void ShortcutModel::onParseInfo(const QString &info)
         QStringList systemFilterServer = systemFilter;
         systemFilterServer.removeOne("expose-all-windows");
         systemFilterServer.removeOne("expose-windows");
+        systemFilterServer.removeOne("preview-workspace");
         systemShortKeys = systemFilterServer;
     } else {
         systemShortKeys = systemFilter;
