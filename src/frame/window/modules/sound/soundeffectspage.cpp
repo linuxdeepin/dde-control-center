@@ -190,6 +190,9 @@ void SoundEffectsPage::initList()
             auto action = item->actionList(Qt::Edge::RightEdge)[1];
             auto checkstatus = enable ?
                                DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
+
+            auto index = m_listModel->index(idx, 0);
+            m_effectList->setCurrentIndex(index);
             auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
             action->setIcon(icon);
             m_effectList->update(item->index());

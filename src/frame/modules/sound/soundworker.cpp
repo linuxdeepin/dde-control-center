@@ -321,7 +321,7 @@ void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher) {
     if (!watcher->isError()) {
         QDBusReply<QMap<QString, bool>> value = watcher->reply();
         auto map = value.value();
-
+        refreshSoundEffect();
         for (auto it = map.constBegin(); it != map.constEnd(); ++it) {
             if (!m_model->checkSEExist(it.key())) continue;
 
