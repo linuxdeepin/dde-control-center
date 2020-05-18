@@ -190,6 +190,20 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
                                          "LicenseStateChange",
                                          this,
                                          SLOT(licenseStateChangeSlot()));
+
+    QDBusInterface Interface("com.deepin.lastore",
+                                 "/com/deepin/lastore",
+                                 "com.deepin.lastore.Updater",
+                                 QDBusConnection::systemBus());
+    if (!Interface.isValid()) {
+        qWarning() << "com.deepin.license error ," << Interface.lastError().name();
+        return;
+    }
+
+    bool reply = Interface.property("UpdatablePackages").isValid();
+    m_model->isUpdatablePackages(reply);
+    bool autoCheckSwitch = Interface.property("AutoCheckUpdates").toBool();
+    m_model->isAutoCheckUpdates(autoCheckSwitch);
 }
 
 UpdateWorker::~UpdateWorker()
