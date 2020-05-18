@@ -147,6 +147,12 @@ public:
     inline bool systemActivation() const {return m_bSystemActivation;}
     void setSystemActivation(bool systemactivation);
 
+    inline bool getUpdatablePackages() const {return m_isUpdatablePackages;}
+    void isUpdatablePackages(bool isUpdatablePackages);
+
+    inline bool getAutoCheckUpdates() const {return m_isAutoCheckUpdates;}
+    void isAutoCheckUpdates(bool isAutoCheckUpdates);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -199,6 +205,8 @@ private:
     QString m_systemVersionInfo;
     QMetaEnum m_metaEnum;
     bool m_bSystemActivation;
+    bool m_isUpdatablePackages;
+    bool m_isAutoCheckUpdates;
 };
 
 }
