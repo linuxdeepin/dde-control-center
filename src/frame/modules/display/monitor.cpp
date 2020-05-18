@@ -145,8 +145,10 @@ bool compareResolution(const Resolution &first, const Resolution &second)
 {
     long firstSum = long(first.width()) * first.height();
     long secondSum = long(second.width()) * second.height();
-    if (firstSum > secondSum)
+    if ((firstSum > secondSum)
+     || (firstSum == secondSum && first.rate() - second.rate() > 0.000001)) {
         return true;
+    }
     return false;
 }
 
