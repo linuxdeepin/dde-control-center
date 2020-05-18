@@ -406,6 +406,15 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
                 m_clickedItem = nullptr;
             }
         }
+    } else if (WirelessDevice::Prepare <= stat && stat < WirelessDevice::Activated) {
+        for (auto ls = m_device->connections().cbegin(); ls != m_device->connections().cend(); ++ls) {
+            for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+                if (ls->value("Ssid").toString() == it.key()) {
+                    it.value()->setLoading(true);
+                    m_clickedItem = it.value();
+                }
+            }
+        }
     }
 }
 
