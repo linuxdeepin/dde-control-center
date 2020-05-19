@@ -134,6 +134,12 @@ void SystemInfoWork::activate()
         m_model->setMemory(DSysInfo::memoryTotalSize(), DSysInfo::memoryInstalledSize());
     }
     // m_model->setDisk(DSysInfo::systemDiskSize());
+    QDBusConnection::systemBus().connect("com.deepin.license",
+                                         "/com/deepin/license/Info",
+                                         "com.deepin.license.Info",
+                                         "LicenseStateChange",
+                                         this,
+                                         SLOT(licenseStateChangeSlot()));
 }
 
 void SystemInfoWork::deactivate()
@@ -237,13 +243,6 @@ void SystemInfoWork::setBackground(const QString &path)
 
 void SystemInfoWork::showActivatorDialog()
 {
-    QDBusConnection::systemBus().connect("com.deepin.license",
-                                         "/com/deepin/license/Info",
-                                         "com.deepin.license.Info",
-                                         "LicenseStateChange",
-                                         this,
-                                         SLOT(licenseStateChangeSlot()));
-
     QDBusInterface activator("com.deepin.license.activator",
                              "/com/deepin/license/activator",
                              "com.deepin.license.activator",
