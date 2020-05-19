@@ -35,9 +35,12 @@
 #include "modules/display/recognizedialog.h"
 
 #include <QApplication>
+#include <com_deepin_daemon_keybinding.h>
 
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
+using keybindInter = com::deepin::daemon::Keybinding;
+
 
 DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent)
@@ -220,6 +223,10 @@ void DisplayModule::showCustomSettingDialog()
         m_displayWorker->setMonitorEnable(mon, true);
 
     CustomSettingDialog *dlg = new CustomSettingDialog();
+    keybindInter keybindInter("com.deepin.daemon.Keybinding",
+                                     "/com/deepin/daemon/Keybinding",
+                                     QDBusConnection::sessionBus(), this);
+    keybindInter.DeleteShortcutKeystroke("display", 2, "XF86Display");
 
     connect(dlg, &CustomSettingDialog::requestShowRotateDialog,
             this, &DisplayModule::showRotate);
@@ -246,9 +253,11 @@ void DisplayModule::showCustomSettingDialog()
     });
 
     if (dlg->exec() != QDialog::Accepted) {
+        keybindInter.AddShortcutKeystroke("display",2,"XF86Display");
         m_displayWorker->restore();
         m_displayWorker->setPrimaryByName(currentPrimaryName);
     } else {
+        keybindInter.AddShortcutKeystroke("display",2,"XF86Display");
         m_displayWorker->saveChanges();
     }
 
