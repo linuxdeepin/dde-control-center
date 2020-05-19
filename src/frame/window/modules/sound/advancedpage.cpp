@@ -80,8 +80,8 @@ AdvancedPage::AdvancedPage(QWidget *parent)
         listView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listView->setBackgroundType(DStyledItemDelegate::ClipCornerBackground);
-        listView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        listView->setSizeAdjustPolicy(DListView::AdjustToContentsOnFirstShow);
+        listView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        //listView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         listView->setViewportMargins(ScrollAreaMargins);
         listView->setSpacing(1);
     };
