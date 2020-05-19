@@ -54,6 +54,11 @@ Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr
             break;
         }
     }
+    connect(m_password->dTextEdit(), &DLineEdit::textEdited, this, [ = ](const QString &str) {
+        if (str == "") {
+            static_cast<DPasswordEdit*>(m_password->dTextEdit())->setEchoButtonIsVisible(true);
+        }
+    });
 }
 
 Secret8021xSection::~Secret8021xSection()
@@ -536,9 +541,15 @@ void Secret8021xSection::onEapMethodChanged(NetworkManager::Security8021xSetting
         m_password->setText(m_userInputPasswordMap.value(m_currentEapMethod));
     } else {
         if (m_currentEapMethod == NetworkManager::Security8021xSetting::EapMethodTls) {
-            m_password->setText(m_secretSetting->privateKeyPassword());
+            if (m_secretSetting->privateKeyPassword() != "") {
+                m_password->setText(m_secretSetting->privateKeyPassword());
+                static_cast<DPasswordEdit*>(m_password->dTextEdit())->setEchoButtonIsVisible(false);
+            }
         } else {
-            m_password->setText(m_secretSetting->password());
+            if (m_secretSetting->password() != "") {
+                m_password->setText(m_secretSetting->password());
+                static_cast<DPasswordEdit*>(m_password->dTextEdit())->setEchoButtonIsVisible(false);
+            }
         }
     }
 
