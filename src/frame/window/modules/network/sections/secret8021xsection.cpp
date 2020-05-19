@@ -55,9 +55,10 @@ Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr
         }
     }
     connect(m_password->dTextEdit(), &DLineEdit::textEdited, this, [ = ](const QString &str) {
-            if (str == "")
-                static_cast<DPasswordEdit*>(m_password->dTextEdit())->setEchoButtonIsVisible(true);
-        });
+        if (str == "") {
+            static_cast<DPasswordEdit*>(m_password->dTextEdit())->setEchoButtonIsVisible(true);
+        }
+    });
 }
 
 Secret8021xSection::~Secret8021xSection()
