@@ -212,6 +212,7 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
 
     if (m_fingerWorker->tryEnroll(name, thumb)) {
+        dlg->startFoucosTimer();
         dlg->exec();
         m_fingerWorker->refreshUserEnrollList(name);
     } else {
