@@ -42,7 +42,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 {
     m_systemInfoInter = new SystemInfoInter("com.deepin.daemon.SystemInfo",
                                             "/com/deepin/daemon/SystemInfo",
-                                            QDBusConnection::sessionBus(), this);
+                                            QDBusConnection::systemBus(), this);
     m_systemInfoInter->setSync(false);
 
     m_systemInfo = new QDBusInterface("com.deepin.system.SystemInfo",
@@ -310,9 +310,7 @@ void SystemInfoWork::getLicenseState()
         return;
     }
 
-    QDBusReply<quint32> reply = licenseInfo.call(QDBus::AutoDetect,
-                                   "GetIndicatorData");
-    qDebug() << "authorize result:" << reply;
+   quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
     m_model->setLicenseState(reply);
 }
 
