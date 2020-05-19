@@ -634,8 +634,6 @@ void CustomSettingDialog::onPrimaryMonitorChanged()
 void CustomSettingDialog::onMonitorPress(Monitor *mon)
 {
     m_fullIndication->setGeometry(mon->rect());
-
-    m_fullIndication->setVisible(true);
 }
 
 void CustomSettingDialog::onMonitorRelease(Monitor *mon)
