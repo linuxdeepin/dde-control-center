@@ -23,6 +23,8 @@
 
 #include "interface/namespace.h"
 #include "widgets/contentwidget.h"
+#include <QMouseEvent>
+#include <QLineEdit>
 
 namespace dcc {
 namespace keyboard {
@@ -59,6 +61,9 @@ private:
     dcc::widgets::SettingsGroup *m_generalSettingsGrp;
     dcc::keyboard::KeyboardModel *m_model;
     QVBoxLayout *m_contentLayout;
+    QLineEdit *m_testArea;
+protected:
+    void mousePressEvent(QMouseEvent *event);
 };
 }
 }
