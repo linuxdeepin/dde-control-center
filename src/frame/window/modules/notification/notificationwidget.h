@@ -62,6 +62,7 @@ private:
     QStandardItemModel *m_softwaremodel;
     QVBoxLayout *m_centralLayout;
     dcc::notification::NotificationModel  *m_model;
+    QString m_theme;
 };
 
 }

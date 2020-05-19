@@ -23,10 +23,12 @@
 #include "interface/namespace.h"
 #include "notificationmodel.h"
 #include <com_deepin_dde_notification.h>
+#include <com_deepin_daemon_appearance.h>
 
 #include <QObject>
 
 using Notification = com::deepin::dde::Notification;
+using Appearance = com::deepin::daemon::Appearance;
 
 namespace dcc {
 namespace notification {
@@ -47,10 +49,12 @@ public Q_SLOTS:
     void getDbusAllSetting(const QString &obj = "");
     void getDbusAppsetting(const QString &jObj);
     void getDbusSyssetting(const QString &obj = "");
+    void setIconTheme(const QString &theme);
 
 private:
     NotificationModel *m_model;
     Notification *m_dbus;
+    Appearance *m_theme;
 };
 
 }// namespace msgnotify

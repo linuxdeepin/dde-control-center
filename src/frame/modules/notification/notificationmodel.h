@@ -47,6 +47,8 @@ public:
 
     inline SysItemModel *getSystemModel()const {return m_sysItemModel;}
     inline AppItemModel *getAppModel(const int &index) {return m_appItemModels[index];}
+    inline QString getTheme() {return m_theme;}
+    void setTheme(const QString &theme);
 
 public Q_SLOTS:
     void appAdded(const QString &appNamme);
@@ -54,10 +56,12 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void appListChanged();
+    void themeChanged(const QString &theme);
 
 private:
     SysItemModel *m_sysItemModel;
     QList<AppItemModel *> m_appItemModels;
+    QString m_theme;
 };
 
 }   //namespace notification

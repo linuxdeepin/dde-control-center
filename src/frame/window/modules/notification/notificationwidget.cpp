@@ -78,6 +78,8 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_softwareListView->setModel(m_softwaremodel);
     m_softwareListView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
 
+    m_theme = m_model->getTheme();
+
     //刷新数据
     refreshList();
 
@@ -87,6 +89,9 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     connect(m_softwareListView, &DListView::activated, m_softwareListView, &QListView::clicked);
 
     connect(m_model, &NotificationModel::appListChanged, this, &NotificationWidget::refreshList);
+    connect(m_model, &NotificationModel::themeChanged, this, [ = ](const QString &theme) {
+        m_theme = theme;
+    });
 }
 
 void NotificationWidget::setModel(NotificationModel *model)
@@ -138,7 +143,7 @@ void NotificationWidget::refreshList()
 
 QIcon NotificationWidget::getAppIcon(const QString &appIcon, const QSize &size)
 {
-    QIcon icon = QIcon::fromTheme(appIcon, QIcon::fromTheme("application-x-desktop"));
+    QIcon icon = QIcon::fromTheme(appIcon, QIcon::fromTheme(m_theme, QIcon::fromTheme("application-x-desktop")));
 
     const qreal ratio = devicePixelRatioF();
     QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);

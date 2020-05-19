@@ -31,9 +31,11 @@ NotificationWorker::NotificationWorker(NotificationModel *model, QObject *parent
     : QObject(parent)
     , m_model(model)
     , m_dbus(new Notification(Notification::staticInterfaceName(), Path, QDBusConnection::sessionBus(), this))
+    , m_theme(new Appearance(Appearance::staticInterfaceName(), "/com/deepin/daemon/Appearance", QDBusConnection::sessionBus(), this))
 {
     connect(m_dbus, &Notification::appSettingChanged, this, &NotificationWorker::getDbusAppsetting);
     connect(m_dbus, &Notification::systemSettingChanged, this, &NotificationWorker::getDbusSyssetting);
+    connect(m_theme, &Appearance::IconThemeChanged, this, &NotificationWorker::setIconTheme);
 }
 
 void NotificationWorker::active(bool sync)
@@ -66,6 +68,11 @@ void NotificationWorker::setBusAppnotify(const QString &appName, const QJsonObje
     setBusAppnotify(obj);
 }
 
+void NotificationWorker::setIconTheme(const QString &theme)
+{
+    m_model->setTheme(theme);
+}
+
 void NotificationWorker::getDbusAllSetting(const QString &jObj)
 {
     QJsonObject obj;
@@ -78,6 +85,8 @@ void NotificationWorker::getDbusAllSetting(const QString &jObj)
     if (obj.size() > 0) {
         m_model->setAllSetting(obj);
     }
+
+    m_model->setTheme(m_theme->iconTheme());
 }
 
 void NotificationWorker::getDbusAppsetting(const QString &jObj)
