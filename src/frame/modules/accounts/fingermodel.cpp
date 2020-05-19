@@ -115,7 +115,8 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
                 msg = tr("Please scan other fingers");
                 break;
             case FC_UnkownError:
-                msg = "未知错误，请重新录入";
+                title = tr("Scan failed");
+                msg = tr("");
             }
             break;
         } while(0);
