@@ -35,6 +35,7 @@
 #include <QDebug>
 #include <QSettings>
 #include <QApplication>
+#include<QRegExp>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -329,12 +330,47 @@ void CreateAccountPage::createUser()
     }
 }
 
-bool CreateAccountPage::validatePassword(const QString &password)
+QString CreateAccountPage::validatePassword(const QString &password)
 {
-    QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
-                              QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
+    // NOTE(justforlxz): 配置文件由安装器生成，后续改成PAM模块
+    QSettings setting("/etc/deepin/dde.conf", QSettings::IniFormat);
+    setting.beginGroup("Password");
+    const bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
+    const int password_min_length = setting.value("PASSWORD_MIN_LENGTH").toInt();
+    const int password_max_length = setting.value("PASSWORD_MAX_LENGTH").toInt();
+    const QStringList validate_policy = setting.value("VALIDATE_POLICY").toString().split(";");
+    //const int validate_required = setting.value("VALIDATE_REQUIRED").toInt();
+    QString reversusername;
+    QStringList reversenamelist;
 
-    return containsChar(password, validate_policy);
+    for (int i = m_nameEdit->lineEdit()->text().count() - 1; i > -1; i--) {
+        reversenamelist << m_nameEdit->lineEdit()->text().at(i);
+    }
+    reversusername = reversenamelist.join("");
+
+    if (!strong_password_check) {
+        return "";
+    }
+
+    if (password.size() < password_min_length || password.size() > password_max_length) {
+        return QString(tr("Password must be between %1 and %2 characters")).arg(password_min_length).arg(password_max_length);
+    }
+    // NOTE(justforlxz): 转换为set，如果密码中包含了不存在与validate_policy中的字符，相减以后不为空。"[0-9]"[^\w\s]+
+    int password_character_types = 0;
+    if (password.contains(QRegExp("[0-9]")))
+        password_character_types++;
+    if (password.contains(QRegExp("[A-Z]")))
+        password_character_types++;
+    if (password.contains(QRegExp("[a-z]")))
+        password_character_types++;
+    if (password.contains(QRegExp("((?=[\x21-\x7e]+)[^A-Za-z0-9])")) || password.contains(" "))
+        password_character_types++;
+    if (password_character_types < 2)
+        return QString(tr("The password must have at least 6 characters, and contain at least 2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols"));
+    if (password == m_nameEdit->lineEdit()->text() || password == reversusername) {
+        return QString(tr("Password should not be the repeated or reversed username"));
+    }
+    return "";
 }
 
 bool CreateAccountPage::containsChar(const QString &password, const QString &validate)
@@ -382,12 +418,12 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
         return false;
     }
 
-//    const int maxSize = 512;
-//    if (userpassword.size() > maxSize) {
-//        edit->setAlert(true);
-//        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
-//        return false;
-//    }
+    const int maxSize = 512;
+    if (userpassword.size() > maxSize) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
+        return false;
+    }
 
 //    bool result = validatePassword(userpassword);
 //    if (!result) {
@@ -395,7 +431,8 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
 //        edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
 //        return false;
 //    }
-    auto res = dcc::accounts::UserModel::validatePassword(edit->lineEdit()->text());
+
+    auto res = validatePassword(edit->lineEdit()->text());
     if (!res.isEmpty()) {
         edit->setAlert(true);
         edit->showAlertMessage(res);
@@ -433,10 +470,27 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
         return false;
     }
 
-    const QString compStr = QString("abcdefghijklmnopqrstuvwxyz");
+    auto checkUserName = [=](const QString &name) {
+        bool ret = false;
+        const QString numStr = QString("1234567890");
+        for (const QChar &p : name) {
+            if (!numStr.contains(p)) {
+                return true;
+            }
+        }
+        return ret;
+    };
+
+    if(!checkUserName(username)) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Your username should not only have numbers"), -1);
+        return false;
+    }
+
+    const QString compStr = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     if (!compStr.contains(username.at(0))) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The first character must be in lower case"), -1);
+        edit->showAlertMessage(tr("The first character must be a letter or number"), -1);
         return false;
     }
 

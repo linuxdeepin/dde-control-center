@@ -67,7 +67,7 @@ private:
     void initUsrGroup(QVBoxLayout *layout);
     void createUser();
     bool onPasswordEditFinished(DPasswordEdit *edit);
-    bool validatePassword(const QString &password);
+    QString validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
     bool validateUsername(const QString &username);
     bool onNameEditFinished(DLineEdit *edit);
