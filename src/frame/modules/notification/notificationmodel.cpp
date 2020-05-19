@@ -100,5 +100,13 @@ void NotificationModel::appRemoved(const QString &appName)
     Q_EMIT appListChanged();
 }
 
+void NotificationModel::setTheme(const QString &theme)
+{
+    if (m_theme == theme)
+        return;
+    m_theme = theme;
+    Q_EMIT themeChanged(m_theme);
+}
+
 
 
