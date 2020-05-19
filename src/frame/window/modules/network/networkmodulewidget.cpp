@@ -123,7 +123,6 @@ NetworkModuleWidget::NetworkModuleWidget()
     if (IsServerSystem) {
         handleNMEditor();
     }
-    connect(m_lvnmpages, &QListView::entered, this, &NetworkModuleWidget::onClickCurrentListIndex);
     connect(m_lvnmpages, &DListView::activated, this, &NetworkModuleWidget::onClickCurrentListIndex);
     connect(m_lvnmpages, &DListView::clicked, m_lvnmpages, &DListView::activated);
 }
