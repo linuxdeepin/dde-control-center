@@ -396,7 +396,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     //当前用户禁止使用删除按钮
-    deleteAccount->setEnabled(!m_curUser->isCurrentUser());
+    const bool isOnline = m_curUser->online();
+    if (m_curUser->isCurrentUser()) {
+        deleteAccount->setEnabled(false);
+    } else {
+        deleteAccount->setEnabled(!isOnline);
+    }
 
     connect(m_curUser, &User::onlineChanged, this, [=] (const bool online) {
         deleteAccount->setDisabled(online);
