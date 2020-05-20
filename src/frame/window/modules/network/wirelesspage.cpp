@@ -407,9 +407,9 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
             }
         }
     } else if (WirelessDevice::Prepare <= stat && stat < WirelessDevice::Activated) {
-        for (auto ls = m_device->connections().cbegin(); ls != m_device->connections().cend(); ++ls) {
+        for (auto ls = m_device->activeConnections().cbegin(); ls != m_device->activeConnections().cend(); ++ls) {
             for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-                if (ls->value("Ssid").toString() == it.key()) {
+                if (ls->value("Id").toString() == it.key()) {
                     it.value()->setLoading(true);
                     m_clickedItem = it.value();
                 }
