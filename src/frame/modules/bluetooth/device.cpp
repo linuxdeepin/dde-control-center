@@ -93,6 +93,11 @@ void Device::setConnecting(bool connecting)
     }
 }
 
+void Device::setDeviceType(const QString deviceType)
+{
+    m_deviceType = deviceType2Icon[deviceType];
+}
+
 QDebug &operator<<(QDebug &stream, const Device *device)
 {
     stream << "Device name:" << device->name() << " paired:" << device->paired() << " state:" << device->state();
