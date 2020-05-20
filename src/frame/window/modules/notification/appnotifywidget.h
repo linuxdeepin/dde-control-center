@@ -23,6 +23,7 @@
 #include "interface/namespace.h"
 
 #include <DSwitchButton>
+#include <DLabel>
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -32,6 +33,7 @@ namespace dcc {
 namespace widgets {
 class SwitchWidget;
 class NormalLabel;
+class SettingsGroup;
 }
 
 namespace notification {
@@ -66,6 +68,8 @@ private:
     NotificationItem *m_itemLockShowNotify;//锁屏通知
     NotificationItem *m_itemOnlyInNotifyCenter;//仅通知中心显示
     NotificationItem *m_itemShowNotifyPreview;//显示预览
+    Dtk::Widget::DLabel *m_lblTip;
+    dcc::widgets::SettingsGroup *m_settingsGrp;
 };
 
 }

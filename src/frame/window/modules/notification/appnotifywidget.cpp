@@ -72,32 +72,35 @@ void AppNotifyWidget::initUI()
     hLayoutAllowNotify->addWidget(m_btnAllowNotify, Qt::AlignRight);
     mainLayout->addLayout(hLayoutAllowNotify);
 
-    DLabel *lblTip = new DLabel(tr("Show notifications from %1 on desktop and in the notification center.")
+    m_lblTip = new DLabel(tr("Show notifications from %1 on desktop and in the notification center.")
                                 .arg(m_model->getAppModel(m_index)->getAppName()));
-    DFontSizeManager::instance()->bind(lblTip, DFontSizeManager::T8);
-    lblTip->adjustSize();
-    lblTip->setWordWrap(true);
-    lblTip->setContentsMargins(10, 5, 10, 5);
-    mainLayout->addWidget(lblTip);
+    DFontSizeManager::instance()->bind(m_lblTip, DFontSizeManager::T8);
+    m_lblTip->adjustSize();
+    m_lblTip->setWordWrap(true);
+    m_lblTip->setContentsMargins(10, 5, 10, 5);
+    mainLayout->addWidget(m_lblTip);
 
-    SettingsGroup *settingsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-    settingsGrp->setContentsMargins(0, 0, 0, 0);
-    settingsGrp->layout()->setMargin(0);
-    settingsGrp->setSpacing(4);
+    m_settingsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    m_settingsGrp->setContentsMargins(0, 0, 0, 0);
+    m_settingsGrp->layout()->setMargin(0);
+    m_settingsGrp->setSpacing(4);
 
     m_itemNotifySound = new NotificationItem;
     m_itemNotifySound->setTitle(tr("Play a sound"));
-    settingsGrp->appendItem(m_itemNotifySound);
+    m_settingsGrp->appendItem(m_itemNotifySound);
     m_itemLockShowNotify = new NotificationItem;
     m_itemLockShowNotify->setTitle(tr("Show messages on lockscreen"));
-    settingsGrp->appendItem(m_itemLockShowNotify);
+    m_settingsGrp->appendItem(m_itemLockShowNotify);
     m_itemOnlyInNotifyCenter = new NotificationItem;
     m_itemOnlyInNotifyCenter->setTitle(tr("Show only in notification center"));
-    settingsGrp->appendItem(m_itemOnlyInNotifyCenter);
+    m_settingsGrp->appendItem(m_itemOnlyInNotifyCenter);
     m_itemShowNotifyPreview = new NotificationItem;
     m_itemShowNotifyPreview->setTitle(tr("Show message preview"));
-    settingsGrp->appendItem(m_itemShowNotifyPreview);
-    mainLayout->addWidget(settingsGrp);
+    m_settingsGrp->appendItem(m_itemShowNotifyPreview);
+    mainLayout->addWidget(m_settingsGrp);
+
+    m_settingsGrp->setVisible(m_model->getAppModel(m_index)->isAllowNotify());
+    m_lblTip->setVisible(m_model->getAppModel(m_index)->isAllowNotify());
 }
 
 void AppNotifyWidget::initConnect()
@@ -128,6 +131,8 @@ void AppNotifyWidget::initConnect()
     //set connects: this to module
     connect(m_btnAllowNotify, &DSwitchButton::checkedChanged, this, [ = ](bool state) {
         appModel->setAllowNotify(state);
+        m_lblTip->setVisible(state);
+        m_settingsGrp->setVisible(state);
 
         Q_EMIT requestSetAppSetting(appModel->getAppName(), appModel->convertQJson());
     });
