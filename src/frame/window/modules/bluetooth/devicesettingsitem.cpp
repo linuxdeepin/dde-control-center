@@ -28,6 +28,7 @@
 #include <QHBoxLayout>
 #include <QMouseEvent>
 #include <QTimer>
+#include <DApplicationHelper>
 
 using namespace dcc::widgets;
 using namespace dcc;
@@ -35,8 +36,8 @@ using namespace dcc::bluetooth;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::bluetooth;
 
-#define lightIcon ":/icons/deepin/builtin/light/bluetooth_"
-#define darkIcon ":/icons/deepin/builtin/dark/bluetooth_"
+#define lightIcon ":/icons/deepin/builtin/light/buletooth_"
+#define darkIcon ":icons/deepin/builtin/dark/buletooth_"
 
 DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     : m_device(device)
@@ -204,6 +205,17 @@ DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
         setDevice(m_device);
     }
     m_deviceItem = new DStandardItem;
+    if (DApplicationHelper::instance()->themeType() == DApplicationHelper::LightType) {
+        if (!m_device->deviceType().isEmpty())
+            m_deviceItem->setIcon(QIcon(lightIcon + m_device->deviceType() + "_light.svg"));
+        else
+            m_deviceItem->setIcon(QIcon(lightIcon + QString("other_light.svg")));
+    } else {
+        if (!m_device->deviceType().isEmpty())
+            m_deviceItem->setIcon(QIcon(darkIcon + m_device->deviceType() + "_dark.svg"));
+        else
+            m_deviceItem->setIcon(QIcon(darkIcon + QString("other_dark.svg")));
+    }
     m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
     if (DApplicationHelper::instance()->themeType() == DApplicationHelper::LightType) {
