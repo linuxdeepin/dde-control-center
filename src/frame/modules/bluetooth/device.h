@@ -87,6 +87,9 @@ public:
     inline bool connecting() const { return m_connecting; }
     void setConnecting(bool connecting);
 
+    inline QString deviceType() const { return m_deviceType; }
+    void setDeviceType(const QString deviceType);
+
 Q_SIGNALS:
     void nameChanged(const QString &name) const;
     void aliasChanged(const QString &alias) const;
@@ -99,6 +102,7 @@ private:
     QString m_id;
     QString m_name;
     QString m_alias;
+    QString m_deviceType;
     bool m_paired;
     bool m_trusted;
     bool m_connecting;
