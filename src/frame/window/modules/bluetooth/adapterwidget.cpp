@@ -52,11 +52,11 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     , m_switch(new SwitchWidget(nullptr, m_titleEdit))
 {
     //~ contents_path /bluetooth/My Devices
-    m_myDevicesGroup = new TitleLabel(tr("My devices"));
+    m_myDevicesGroup = new TitleLabel(tr("My Devices"));
     m_myDevicesGroup->setVisible(false);
 
     //~ contents_path /bluetooth/Other Devices
-    m_otherDevicesGroup = new TitleLabel(tr("Other devices"));
+    m_otherDevicesGroup = new TitleLabel(tr("Other Devices"));
     m_spinner = new DSpinner();
     m_spinner->setFixedSize(24, 24);
     m_spinner->start();
