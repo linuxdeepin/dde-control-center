@@ -47,6 +47,7 @@ public:
     explicit SwitchWidget(QWidget *parent = nullptr, QWidget *widget = nullptr);
 
     void setChecked(const bool checked = true);
+    QString title() const;
     void setTitle(const QString &title);
     bool checked() const;
 
