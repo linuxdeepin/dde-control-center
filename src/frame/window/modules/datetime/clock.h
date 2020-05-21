@@ -54,6 +54,7 @@ private:
     bool m_drawTicks;
     bool m_autoNightMode;
     bool n_bIsUseBlackPlat;
+    bool m_isBlack;
     ZoneInfo m_timeZone;
     QPixmap m_plat;
     QPixmap m_hour;
