@@ -134,7 +134,7 @@ void NotificationWidget::refreshList()
     m_softwaremodel->clear();
     for (int i = 0; i < m_model->getAppSize(); ++i) {
         QString softName = m_model->getAppModel(i)->getAppName();
-        QIcon icon = getAppIcon(m_model->getAppModel(i)->getAppName(), QSize(32, 32));
+        QIcon icon = getAppIcon(m_model->getAppModel(i)->getIcon(), QSize(32, 32));
         DStandardItem *item = new DStandardItem(icon, softName);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_softwaremodel->appendRow(item);

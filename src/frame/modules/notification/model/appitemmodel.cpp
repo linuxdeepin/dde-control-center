@@ -39,7 +39,10 @@ AppItemModel::AppItemModel(QObject *parent)
 
 void AppItemModel::setItem(const QString &name, const QJsonObject &item)
 {
-    setSoftName(name);
+    Q_UNUSED(name)
+
+    setSoftName(item["Name"].toString());
+    setIcon(item["Icon"].toString());
     setAllowNotify(item["AllowNotify"].toBool());
     setLockShowNotify(item["LockShowNotify"].toBool());
     setNotifySound(item["NotificationSound"].toBool());
@@ -65,6 +68,15 @@ void AppItemModel::setSoftName(const QString &name)
 
         Q_EMIT softNameChanged(name);
     }
+}
+
+void AppItemModel::setIcon(const QString &icon)
+{
+    if (m_icon == icon)
+        return;
+
+    m_icon = icon;
+    Q_EMIT iconChanged(icon);
 }
 
 void AppItemModel::setAllowNotify(const bool &state)
