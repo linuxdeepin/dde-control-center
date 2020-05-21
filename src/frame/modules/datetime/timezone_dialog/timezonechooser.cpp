@@ -70,6 +70,8 @@ TimeZoneChooser::TimeZoneChooser()
 
     m_searchInput->setMinimumSize(350, 36);
 
+    m_confirmBtn->setEnabled(false);
+
     DPalette pa = DApplicationHelper::instance()->palette(m_title);
     pa.setBrush(QPalette::WindowText, pa.base());
     DApplicationHelper::instance()->setPalette(m_title, pa);
@@ -133,6 +135,7 @@ TimeZoneChooser::TimeZoneChooser()
     connect(m_map, &installer::TimezoneMap::timezoneUpdated, this, [this] {
         m_searchInput->setText("");
         m_searchInput->clearFocus();
+        m_confirmBtn->setEnabled(true);
     });
 
     QTimer::singleShot(0, [this] {
