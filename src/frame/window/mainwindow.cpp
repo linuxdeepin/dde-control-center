@@ -371,8 +371,8 @@ void MainWindow::initAllModule(QString m)
 
     resetNavList(isIcon);
 
-    modulePreInitialize(m);
     QTimer::singleShot(0, this, [ = ]() {
+        modulePreInitialize(m);
         //设置 触控板，指点杆 是否存在
         m_searchWidget->setRemoveableDeviceStatus(tr("Touchpad"), getRemoveableDeviceStatus(tr("Touchpad")));
         m_searchWidget->setRemoveableDeviceStatus(tr("TrackPoint"), getRemoveableDeviceStatus(tr("TrackPoint")));
