@@ -32,6 +32,7 @@
 #include "widgets/tipsitem.h"
 #include "widgets/titlelabel.h"
 #include "window/utils.h"
+#include <networkmanagerqt/settings.h>
 
 #include <DStyle>
 #include <DStyleHelper>
@@ -58,6 +59,7 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 using namespace dde::network;
+using namespace NetworkManager;
 
 APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListView *parent)
     : DStandardItem(text)
@@ -323,6 +325,16 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
                 updateLayout(!m_lvAP->isHidden());
             }
     });
+
+    connect(m_device, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), this, [this, dev]
+    {
+        if (tr("Disconnected") == dev->statusString()) {
+            if (m_clickedItem) {
+                m_clickedItem->setLoading(false);
+            }
+         }
+
+    }, Qt::QueuedConnection);
 
     m_closeHotspotBtn->setText(tr("Close Hotspot"));
 
@@ -626,7 +638,10 @@ void WirelessPage::refreshLoadingIndicator()
                         for(int temp = 0; temp < m_modelAP->rowCount();temp++ ){
                             if(m_modelAP->index(temp,0).data().toString() == m_lastConnectSsid){
                                 QModelIndex indexFromList = m_modelAP->index(temp, 0);
-                                m_lvAP->clicked(indexFromList);
+                                qDebug() << " autoSwitch = " << findConnectionByUuid(m_editingUuid)->settings()->autoconnect();
+                                if (findConnectionByUuid(m_editingUuid)->settings()->autoconnect() && m_disconnectUuid != m_editingUuid) {
+                                    m_lvAP->clicked(indexFromList);
+                                }
                                 m_lvAP->setCurrentIndex(indexFromList);
                                 m_lastConnectSsid = "";
                                 break;
@@ -670,6 +685,8 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
     }
 
     m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid);
+
+    connect(m_apEditPage, &ConnectionEditPage::disconnect, this, &WirelessPage::disconnectWifi);
 
     if (!uuid.isEmpty()) {
         m_editingUuid = uuid;
@@ -727,6 +744,12 @@ void WirelessPage::showConnectHidePage()
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
     connect(m_apEditPage, &ConnectionEditPage::requestFrameAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_apEditPage);
+}
+
+
+void WirelessPage::disconnectWifi(const QString &uuid)
+{
+    m_disconnectUuid = uuid;
 }
 
 void WirelessPage::updateActiveAp()

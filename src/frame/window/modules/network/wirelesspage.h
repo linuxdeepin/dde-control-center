@@ -154,6 +154,7 @@ public Q_SLOTS:
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
     void onDeviceStatusChanged(const dde::network::WirelessDevice::DeviceStatus stat);
+    void disconnectWifi(const QString &uuid);
 
 private Q_SLOTS:
     void sortAPList();
@@ -192,8 +193,8 @@ private:
     QTimer *m_indicatorDelayTimer;
     QTimer *m_requestWirelessScanTimer;
     QMap<QString, APItem *> m_apItems;
-
     AirplanInter  *m_airplaninter;
+    QString m_disconnectUuid;
 };
 }   // namespace dcc
 }   // namespace network
