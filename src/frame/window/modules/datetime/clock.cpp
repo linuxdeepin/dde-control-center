@@ -24,6 +24,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QIcon>
+#include <QTimer>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
@@ -34,7 +35,6 @@ Clock::Clock(QWidget *parent)
     , m_autoNightMode(true)
     , n_bIsUseBlackPlat(true)
 {
-    m_plat = getPixmap(":/datetime/icons/dcc_clock_black.svg", clockSize);
     m_hour = getPixmap(":/datetime/icons/dcc_noun_hour.svg", pointSize);
     m_min = getPixmap(":/datetime/icons/dcc_noun_minute.svg", pointSize);
     m_sec = getPixmap(":/datetime/icons/dcc_noun_second.svg", pointSize);
@@ -62,6 +62,19 @@ void Clock::paintEvent(QPaintEvent *event)
     const QTime time(datetime.time());
     QPainter painter(this);
     painter.setRenderHints(QPainter::HighQualityAntialiasing | QPainter::SmoothPixmapTransform);
+
+    do {
+        const bool nightMode = !(time.hour() >= 6  && time.hour() < 18);
+        if (nightMode == m_isBlack)
+            break;
+        if (nightMode) {
+            m_plat = getPixmap(":/datetime/icons/dcc_clock_black.svg", clockSize);
+            m_isBlack = true;
+        } else {
+            m_plat = getPixmap(":/datetime/icons/dcc_clock_white.svg", clockSize);
+            m_isBlack = false;
+        }
+    } while(false);
 
     // draw plate
     painter.save();
