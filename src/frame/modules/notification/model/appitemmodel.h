@@ -42,6 +42,9 @@ public:
     inline QString getAppName()const {return  m_softName;}
     void setSoftName(const QString &name);
 
+    inline QString getIcon()const {return m_icon;}
+    void setIcon(const QString &icon);
+
     inline bool isAllowNotify()const {return m_isAllowNotify;}
     void setAllowNotify(const bool &state);
 
@@ -59,6 +62,7 @@ public:
 
 Q_SIGNALS:
     void softNameChanged(QString name);
+    void iconChanged(QString icon);
     void allowNotifyChanged(bool state);
     void notifySoundChanged(bool state);
     void lockShowNotifyChanged(bool state);
@@ -67,6 +71,7 @@ Q_SIGNALS:
 
 private:
     QString m_softName;//应用程序名
+    QString m_icon;//应用系统图表
     bool m_isAllowNotify;//允许应用通知
     bool m_isNotifySound;//是否有通知声音
     bool m_isLockShowNotify;//锁屏显示通知
