@@ -1,5 +1,23 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
+    <name>AdapterWidget</name>
+    <message>
+        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="47"/>
+        <source>My devices</source>
+        <translation>Aygıtlarım</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="48"/>
+        <source>Other devices</source>
+        <translation>Diğer aygıtlar</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
+        <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
+        <translation>Yakındaki aygıtları bulmak için bluetooth özelliğini etkinleştir (hoparlör, klavye, fare)</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothDelegate</name>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
@@ -51,7 +69,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
         <source>Personalization</source>
-        <translation>Kişiselleştirme</translation>
+        <translation>Kişiselleştir</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
@@ -69,15 +87,9 @@
         <translation>Ses</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="824"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="826"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="828"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="830"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -97,26 +109,15 @@
         <translation>Fare</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="836"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="838"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="840"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="842"/>
         <source>Drawing Tablet</source>
         <translation>Çizim Tableti</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="416"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="417"/>
         <source>Keyboard and Language</source>
         <translation>Klavye ve Dil</translation>
     </message>
@@ -136,56 +137,41 @@
         <translation>Genel Ayarlar</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
-=======
-        <location filename="../src/frame/window/mainwindow.cpp" line="376"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="377"/>
         <source>Touchpad</source>
         <translation>Dokunmatik Yüzey</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
-=======
-        <location filename="../src/frame/window/mainwindow.cpp" line="377"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="378"/>
         <source>TrackPoint</source>
         <translation>İmleçDenetim</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="412"/>
-=======
-        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="415"/>
         <source>Assistive Tools</source>
         <translation>Yardımcı Araçlar</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="851"/>
-=======
-        <location filename="../src/frame/window/mainwindow.cpp" line="848"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="850"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="852"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="854"/>
         <source>Cloud Sync</source>
         <translation>Bulut Eşitleyici</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="95"/>
+        <source>The fingerprint name already exists</source>
+        <translation>Parmak izi adı zaten var</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="130"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
         <translation>İsim yalnızca harf, rakam ve alt çizgi içermeli ve 15 karakterden fazla olmamalıdır.</translation>
     </message>
 </context>
 <context>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="148"/>
@@ -206,69 +192,41 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="348"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Always</source>
         <translation>Sürekli</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="342"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="341"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Please input a number between 1-99999</source>
         <translation>Lütfen 1-99999 arasında bir sayı girin</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="382"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Change Password</source>
         <translation>Parolayı Değiştir</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="385"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="384"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Delete Account</source>
         <translation>Hesabı Sil</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="388"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="387"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Auto Login</source>
         <translation>Otomatik Giriş</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="392"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="391"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Login Without Password</source>
         <translation>Parola Olmadan Giriş</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="465"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="464"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
         <source>Group</source>
         <translation>Grup</translation>
     </message>
@@ -280,14 +238,6 @@
         <source>Accounts</source>
         <translation>Hesaplar</translation>
     </message>
-<<<<<<< HEAD
-=======
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="219"/>
-        <source>The device is in use or cannot be connected</source>
-        <translation>Aygıt kullanımda veya bağlanamıyor</translation>
-    </message>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
 </context>
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
@@ -313,70 +263,36 @@
 <context>
     <name>dccV20::accounts::AddFingeDialog</name>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
-=======
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="83"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="84"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="218"/>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
-        <source>Add Fingerprint</source>
-        <translation>Parmak İzi Ekle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
-        <source>Scan Again</source>
-        <translation>Tekrar Tara</translation>
-    </message>
-    <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="130"/>
         <source>Done</source>
         <translation>Tamam</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
-        <source>Identifying fingerprint</source>
-        <translation>Parmak izi belirleniyor</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
+        <source>Scan Again</source>
+        <translation>Tekrar Tara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
-        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation>Parmağınızı parmak izi okuyucunun üzerine yerleştirin veya yukarı veya aşağı kaydırın ve sonra kaldırarak çıkarın</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
-        <source>Fingerprint added</source>
-        <translation>Parmak izi eklendi</translation>
-=======
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
         <source>Scan Suspended</source>
         <translation>Tarama Askıya Alındı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="179"/>
-        <source>Please scan one second later</source>
-        <translation>Lütfen bir saniye sonra tarayın</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
         <source>Scan time expired</source>
         <translation>Tarama süresi doldu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="211"/>
-        <source>Already scanned</source>
-        <translation>Zaten tarandı</translation>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
     </message>
 </context>
 <context>
@@ -488,40 +404,29 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
-<<<<<<< HEAD
-        <source>Delete fingerprint</source>
-        <translation>Parmak izini sil</translation>
-=======
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="86"/>
         <source>Edit</source>
         <translation>Düzenle</translation>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
         <source>Fingerprint Password</source>
         <translation>Parmak İzi Parolası</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
-        <source>Fingerprint</source>
-        <translation>Parmak İzi</translation>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
+        <source>You can add up to 10 fingerprints</source>
+        <translation>En fazla 10 parmak izi ekleyebilirsiniz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
-        <source>Add fingerprint</source>
-        <translation>Parmak izi ekle</translation>
-=======
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="84"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="153"/>
         <source>Add Fingerprint</source>
         <translation>Parmak İzi Ekle</translation>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
     </message>
 </context>
 <context>
@@ -562,7 +467,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="118"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="119"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="151"/>
@@ -598,19 +503,19 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="56"/>
-        <source>My devices</source>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="55"/>
+        <source>My Devices</source>
         <translation>Aygıtlarım</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="60"/>
-        <source>Other devices</source>
-        <translation>Diğer aygıtlar</translation>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="59"/>
+        <source>Other Devices</source>
+        <translation>Diğer Aygıtlar</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="74"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Yakındaki aygıtları bulmak için bluetooth özelliğini etkinleştir (hoparlör, klavye, fare)</translation>
     </message>
@@ -655,11 +560,7 @@
         <translation>Bağlandı</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
-=======
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="166"/>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
         <source>Not connected</source>
         <translation>Bağlı değil</translation>
     </message>
@@ -667,34 +568,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="80"/>
         <source>Updating...</source>
         <translation>Güncelleniyor...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="93"/>
         <source>Startup Delay</source>
         <translation>Başlangıç ​​Gecikmesi</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="97"/>
         <source>Theme</source>
         <translation>Tema</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="99"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>İlk önyükleme yapmak için önyükleme menüsündeki seçeneği tıklatın ve arka planı değiştirmek için bir resmi sürükleyip bırakın.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="104"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>Önyükleme menüsünde görüntülemek için temayı etkinleştir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="128"/>
         <source>Boot Menu</source>
         <translation>Önyükleme Menüsü</translation>
     </message>
@@ -1158,52 +1059,47 @@
 <context>
     <name>dccV20::display::CustomSettingDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
-        <source>Main Screen</source>
-        <translation>Ana Ekran</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="94"/>
+        <source>Displays</source>
+        <translation>Ekranlar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="100"/>
         <source>Resolution</source>
         <translation>Çözünürlük</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="105"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="177"/>
         <source>Refresh Rate</source>
         <translation>Yenileme Hızı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="135"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="139"/>
         <source>Save</source>
         <translation>Kaydet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="272"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="281"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="334"/>
         <source>Recommended</source>
         <translation> Önerilen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="371"/>
-        <source>inch</source>
-        <translation>inç</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="372"/>
-        <source>Resolution %1x%2</source>
-        <translation>Çözünürlük %1x%2</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="404"/>
+        <source>Monitor Connected (Multiple)</source>
+        <translation>Monitör Bağlı (Çoklu)</translation>
     </message>
 </context>
 <context>
@@ -1289,25 +1185,12 @@
         <translation>Masaüstünü ekranların boyutuna genişlet</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>Sadece %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Ekran içeriğini yalnızca %1 üstünde göster</translation>
-    </message>
-    <message>
-=======
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="136"/>
         <source>Customize</source>
         <translation>Özelleştir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="137"/>
         <source>Configure the display according to your needs</source>
         <translation>Ekranı ihtiyaçlarınıza göre yapılandırın</translation>
     </message>
@@ -1383,7 +1266,7 @@
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="70"/>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="83"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="79"/>
@@ -1808,7 +1691,7 @@
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
@@ -2124,7 +2007,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="241"/>
@@ -2368,7 +2251,7 @@
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="80"/>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="87"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="83"/>
@@ -2502,6 +2385,19 @@
         <translation>Otomatik</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="108"/>
+        <source>Optional</source>
+        <translation>İsteğe bağlı</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
         <source>HTTP Proxy</source>
         <translation>HTTP Vekil Sunucusu</translation>
@@ -2553,159 +2449,159 @@
         <translation>Güvenlik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="156"/>
         <source>TLS</source>
         <translation>TLS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="157"/>
         <source>MD5</source>
         <translation>MD5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="158"/>
         <source>LEAP</source>
         <translation>LEAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="159"/>
         <source>FAST</source>
         <translation>FAST</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="160"/>
         <source>Tunneled TLS</source>
         <translation>Tünellenmiş TLS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
         <source>Protected EAP</source>
         <translation>Korumalı EAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
         <source>Saved</source>
         <translation>Kaydedildi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
         <source>Ask</source>
         <translation>Sor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
         <source>Not Required</source>
         <translation>Zorunlu Değil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Disabled</source>
         <translation>Devre Dışı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
         <source>Anonymous</source>
         <translation>Anonim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="174"/>
         <source>Authenticated</source>
         <translation>Kimlik Doğrulandı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="175"/>
         <source>Both</source>
         <translation>İkisi de</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="191"/>
         <source>Automatic</source>
         <translation>Otomatik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="192"/>
         <source>Version 0</source>
         <translation>Sürüm 0</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="193"/>
         <source>Version 1</source>
         <translation>Sürüm 1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="205"/>
         <source>EAP Auth</source>
         <translation>EAP Kimlik Doğrulaması</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="229"/>
         <source>Identity</source>
         <translation>Kimlik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="235"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="245"/>
         <source>Required</source>
         <translation>Gerekli</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
         <source>Pwd Options</source>
         <translation>Parola Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="340"/>
         <source>Private Key</source>
         <translation>Özel Anahtar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="348"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="424"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="456"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="452"/>
         <source>CA Cert</source>
         <translation>CA Sertifikası</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="348"/>
         <source>User Cert</source>
         <translation>Kullanıcı Sertifikası</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="374"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="420"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="452"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="370"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="448"/>
         <source>Anonymous ID</source>
         <translation>Anonim Kimlik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="374"/>
         <source>Provisioning</source>
         <translation>Sağlama</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="386"/>
         <source>PAC file</source>
         <translation>PAC dosyası</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="394"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="428"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="471"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="467"/>
         <source>Inner Auth</source>
         <translation>İç Kimlik Doğrulaması</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="460"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="456"/>
         <source>PEAP Version</source>
         <translation>PEAP Sürümü</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="555"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="546"/>
         <source>Private Pwd</source>
         <translation>Özel Parola</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="548"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
@@ -2798,7 +2694,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="171"/>
@@ -3158,7 +3054,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="289"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="294"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
@@ -3482,7 +3378,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="135"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="117"/>
@@ -3574,7 +3470,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
@@ -3714,7 +3610,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="192"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="207"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="173"/>
@@ -3828,7 +3724,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="124"/>
         <source>Required</source>
-        <translation>Zorunlu</translation>
+        <translation>Gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="127"/>
@@ -3892,7 +3788,7 @@
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="72"/>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Uygulama Bildirimleri</translation>
     </message>
 </context>
 <context>
@@ -3985,7 +3881,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="149"/>
         <source>Window Miniminze Effect</source>
-        <translation type="unfinished"/>
+        <translation>Pencere Küçültme Efekti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="152"/>
@@ -3995,7 +3891,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="152"/>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>Sihirli Işık</translation>
     </message>
 </context>
 <context>
@@ -4030,7 +3926,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="63"/>
         <source>Personalization</source>
-        <translation>Kişiselleştir</translation>
+        <translation>Kişiselleştirme</translation>
     </message>
 </context>
 <context>
@@ -4085,32 +3981,48 @@
 <context>
     <name>dccV20::power::GeneralWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="41"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
         <source>Power Saving Mode</source>
         <translation>Güç Tasarrufu Kipi</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="42"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
         <source>Auto Mode Switch</source>
         <translation>Otomatik Kip Anahtarı</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="72"/>
         <source>Password is required to wake up the computer</source>
         <translation>Bilgisayarı uyandırmak için parola gerekli</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="44"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="74"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Ekranı uyandırmak için parola gerekli</translation>
         <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
+        <source>Battery</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="75"/>
+        <source>Display capacity and remaining charging time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="76"/>
+        <source>Maximum capacity</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4282,146 +4194,143 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="116"/>
         <source>Server</source>
         <translation>Sunucu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="117"/>
         <source>Window Effect</source>
         <translation>Pencere Efekti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="435"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="118"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="476"/>
         <source>Developer Mode</source>
         <translation>Geliştirici Kipi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="119"/>
         <source>User Experience Program</source>
         <translation>Kullanıcı Deneyimi Programı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="120"/>
         <source>Join User Experience Program</source>
         <translation>Kullanıcı Deneyimi Programına Katılın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="121"/>
         <source>Display Scaling</source>
-        <translation>Görüntü Ölçeklendirme</translation>
+        <translation>Görüntü Ölçeği</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
         <source>Night Shift</source>
         <translation>Gece Kipi</translation>
-<<<<<<< HEAD
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
         <source>Auto Login</source>
         <translation>Otomatik Giriş</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="83"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="124"/>
         <source>Login Without Password</source>
         <translation>Parola Olmadan Giriş</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
         <source>Auto Brightness</source>
         <translation>Otomatik Parlaklık</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="85"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
         <source>General</source>
         <translation>Genel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="86"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Ekranı uyandırmak için parola gerekli</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="87"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
         <source>Password is required to wake up the computer</source>
         <translation>Bilgisayarı uyandırmak için parola gerekli</translation>
-=======
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>Power Saving Mode</source>
         <translation>Güç Tasarrufu Kipi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
         <source>Auto Mode Switch</source>
         <translation>Otomatik Kip Anahtarı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
         <source>Transparency</source>
         <translation>Saydamlık</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
         <source>Create PPPoE Connection</source>
         <translation>PPPoE Bağlantısı Oluştur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
         <source>Disable the touchpad while typing</source>
         <translation>Yazarken dokunmatik yüzeyi devre dışı bırak</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Fare takılıyken dokunmatik yüzeyi devre dışı bırak</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="101"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
         <source>Touchpad</source>
         <translation>Dokunmatik Yüzey</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
         <source>TrackPoint</source>
         <translation>İmleçDenetim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
         <source>Personal Hotspot</source>
         <translation>Kişisel Bağlantı Noktası</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="104"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
         <source>On Battery</source>
         <translation>Bataryada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
         <source>Wired Network</source>
         <translation>Kablolu Ağ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="106"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
         <source>Wireless Network</source>
         <translation>Kablosuz Ağ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="148"/>
         <source>Multiple Displays</source>
         <translation>Çoklu Ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="436"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="477"/>
         <source>End User License Agreement</source>
         <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="443"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="484"/>
         <source>Cloud Account</source>
         <translation>Bulut Hesap</translation>
     </message>
@@ -4551,94 +4460,77 @@
 <context>
     <name>dccV20::sync::IndexPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="45"/>
         <source>Auto Sync</source>
         <translation>Otomatik Eşitle</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="48"/>
         <source>Syncing...</source>
         <translation>Eşitleniyor...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="95"/>
         <source>Sign Out</source>
         <translation>Oturumu Kapat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
         <translation>Ağ Ayarları açıksa WLAN parolanız eşitlenecektir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="152"/>
         <source>Network Settings</source>
         <translation>Ağ Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="153"/>
         <source>Sound Settings</source>
         <translation>Ses Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="154"/>
         <source>Mouse Settings</source>
         <translation>Fare Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="155"/>
         <source>Update Settings</source>
         <translation>Güncelleme Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="156"/>
         <source>Dock</source>
         <translation>Görev Çubuğu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="157"/>
         <source>Launcher</source>
         <translation>Başlatıcı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
         <source>Wallpaper</source>
         <translation>Duvar Kâğıdı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="159"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="160"/>
         <source>Power Settings</source>
         <translation>Güç Ayarları</translation>
     </message>
     <message>
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="280"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="255"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
-        <source>Corner Settings</source>
-        <translation>Köşe Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="256"/>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="292"/>
         <source>Last Sync: %1</source>
         <translation>Son Eşitlenme: %1</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="282"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="257"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="294"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
@@ -4716,11 +4608,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="92"/>
         <source>Restore</source>
-<<<<<<< HEAD
         <translation>Geri Al</translation>
-=======
-        <translation>Geri Yükle</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="121"/>
@@ -4917,11 +4805,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="22"/>
         <source>Restore</source>
-<<<<<<< HEAD
         <translation>Geri Al</translation>
-=======
-        <translation>Geri Yükle</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
 </context>
 <context>
@@ -5065,7 +4949,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n uygulama güncellemesi mevcut</numerusform><numerusform>%n uygulama güncellemesi mevcut</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -5075,11 +4959,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-<<<<<<< HEAD
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-=======
-        <translation><numerusform>Yeni sistem dağıtımı ve %n uygulama güncellemesi mevcut</numerusform><numerusform>Yeni sistem dağıtımı ve %n uygulama güncellemesi mevcut</numerusform></translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <translation><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi mevcut</numerusform><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi mevcut</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5180,34 +5060,34 @@
 <context>
     <name>dccV20::update::UpdateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="60"/>
         <source>Updates</source>
         <translation>Güncellemeler</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="63"/>
         <source>Update Settings</source>
         <translation>Güncelleme Ayarları</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="73"/>
         <source>Last Update</source>
         <translation>Son Güncelleme</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="120"/>
         <source>Return</source>
         <translation>Geri Dön</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="170"/>
         <source>Current Edition</source>
         <translation>Mevcut Sürüm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="184"/>
         <source>Update History</source>
         <translation>Güncelleme Geçmişi</translation>
     </message>
@@ -5263,45 +5143,39 @@
 <context>
     <name>DisplayControlModel</name>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="87"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <source>Copy</source>
         <translation>Kopyala</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="89"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
         <translation>Genişlet</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="91"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
         <translation>Yanlız %1 üzerinde görüntülenir</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="99"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
+        <source>New Custom Settings</source>
+        <translation>Yeni Özel Ayarlar</translation>
+    </message>
+    <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>Ekran içeriğini bir ya da daha fazla ekrana kopyala</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="101"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation>Ekran içeriğini farklı ekranlarda farklı içerikler görüntülenecek şekilde genişlet</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="103"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
         <translation>Ekran içerikleri yalnız %1 üzerinde görüntülenir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
-        <source>New Custom Settings</source>
-        <translation>Yeni Özel Ayarlar</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
@@ -5332,14 +5206,6 @@
     </message>
 </context>
 <context>
-    <name>NavigationBar</name>
-    <message>
-        <location filename="../src/frame/navigationbar.cpp" line="242"/>
-        <source>Navigation</source>
-        <translation>Gezinme</translation>
-    </message>
-</context>
-<context>
     <name>NotifyDelegate</name>
     <message>
         <location filename="../src/frame/notify/notifydelegate.cpp" line="197"/>
@@ -5354,7 +5220,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n gün önce</numerusform><numerusform>%n gün önce</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5373,58 +5239,58 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="76"/>
+        <location filename="../src/frame/main.cpp" line="79"/>
         <source>Control Center</source>
         <translation>Kontrol Merkezi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="250"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="291"/>
         <source>On Battery</source>
         <translation>Bataryada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="251"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="292"/>
         <source>Plugged In</source>
         <translation>Fişe Takılı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="252"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="293"/>
         <source>General</source>
         <translation>Genel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="253"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="294"/>
         <source>Mouse</source>
         <translation>Fare</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="254"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="295"/>
         <source>Touchpad</source>
         <translation>Dokunmatik Yüzey</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="255"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="296"/>
         <source>TrackPoint</source>
         <translation>İmleçDenetim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="297"/>
         <source>Application Proxy</source>
         <translation>Uygulama Vekil Sunucusu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="257"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="260"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="298"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="301"/>
         <source>System Proxy</source>
         <translation>Sistem Vekil Sunucusu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="258"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="299"/>
         <source>Time Settings</source>
         <translation>Zaman Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="259"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="300"/>
         <source>Change System Timezone</source>
         <translation>Sistem Saat Dilimini Değiştir</translation>
     </message>
@@ -5455,16 +5321,6 @@
         <location filename="../src/dialogs/reminderdialog.cpp" line="44"/>
         <source>Reboot</source>
         <translation>Yeniden başlat</translation>
-    </message>
-</context>
-<context>
-    <name>RotateDialog</name>
-    <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="137"/>
-        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
-If no operation, the display will be restored after %1s.</source>
-        <translation>Döndürmek için sol tık, geri yüklemek ve çıkmak için sağ tık, kaydetmek için Ctrl+S tuşlarına bas.
-Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
@@ -5516,79 +5372,6 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
-    <name>SoundEffectPage</name>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
-        <source>Boot up</source>
-        <translation>Önyükleme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
-        <source>Shut down</source>
-        <translation>Kapat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Log out</source>
-        <translation>Oturumu kapat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
-        <source>Wake up</source>
-        <translation>Uyan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
-        <source>Volume +/-</source>
-        <translation>Ses +/-</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
-        <source>Notification</source>
-        <translation>Bildirim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="22"/>
-        <source>Low battery</source>
-        <translation>Düşük batarya</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
-        <source>Send icon in Launcher to Desktop</source>
-        <translation>Başlatıcı&apos;dan Masaüstüne simge gönder</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
-        <source>Empty Trash</source>
-        <translation>Çöpü Boşalt</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
-        <source>Plug in</source>
-        <translation>Fişe tak</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="26"/>
-        <source>Plug out</source>
-        <translation>Fişten çıkar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
-        <source>Removable device connected</source>
-        <translation>Çıkarılabilir aygıt bağlandı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
-        <source>Removable device removed</source>
-        <translation>Çıkarılabilir aygıt kaldırıldı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
-        <source>Error</source>
-        <translation>Hata</translation>
-    </message>
-</context>
-<context>
     <name>TimeoutDialog</name>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
@@ -5603,7 +5386,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
         <source>Restore</source>
-        <translation>Geri Yükle</translation>
+        <translation>Geri Al</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
@@ -5679,104 +5462,11 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::accounts::ADDialog</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
-        <source>Leave domain</source>
-        <translation>Etki alanından ayrıl</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
-        <source>Join domain</source>
-        <translation>Etki alanına katıl</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="61"/>
-        <source>Domain Server</source>
-        <translation>Etki alanı sunucusu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="62"/>
-        <source>Admin account</source>
-        <translation>Yönetici hesabı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="63"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="72"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::AccountsDetailWidget</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="51"/>
-        <source>Modify Avatar</source>
-        <translation>Avatarı Değiştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="54"/>
-        <source>Modify Fullname</source>
-        <translation>Tam Adı Değiştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="57"/>
-        <source>Modify Password</source>
-        <translation>Parolayı Değiştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="60"/>
-        <source>Auto Login</source>
-        <translation>Otomatik Giriş</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="64"/>
-        <source>Login Without Password</source>
-        <translation>Parola Olmadan Giriş</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="68"/>
-        <source>Delete Account</source>
-        <translation>Hesabı Sil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="71"/>
-        <source>Unable to delete, current user logged in</source>
-        <translation>Oturum açmış mevcut kullanıcı silinemez</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="74"/>
-        <source>Fingerprint Password</source>
-        <translation>Parmak İzi Parolası</translation>
-    </message>
-</context>
-<context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="43"/>
-        <source>Create Account</source>
-        <translation>Hesap Oluştur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="149"/>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Accounts</source>
         <translation>Hesaplar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
-        <source>Leave domain</source>
-        <translation>Etki alanından ayrıl</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
-        <source>Join domain</source>
-        <translation>Etki alanına katıl</translation>
     </message>
 </context>
 <context>
@@ -5813,264 +5503,99 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::accounts::AddFingerPage</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="42"/>
-        <source>Add Fingerprint</source>
-        <translation>Parmak İzi Ekle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
-        <source>Re-enter</source>
-        <translation>Tekrar-gir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="56"/>
-        <source>Done</source>
-        <translation>Tamam</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="108"/>
-        <source>Identifying fingerprint</source>
-        <translation>Parmak izi belirleniyor</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
-        <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation>Parmak izi tanınamadı. Parmağınızı parmak izi okuyucuya koyup yukarıya doğru kaydırdıktan sonra kaldırın</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
-        <source>Added successfully</source>
-        <translation>Ekleme başarılı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation>Parmağınızı parmak izi okuyucuya koyup yukarıya doğru kaydırdıktan sonra kaldırın ve aynı işlemi yeniden yapın</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::CreatePage</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="53"/>
-        <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="54"/>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="56"/>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="59"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="55"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="58"/>
-        <source>Repeat password</source>
-        <translation>Parolayı tekrarla</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="67"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="68"/>
-        <source>Create</source>
-        <translation>Oluştur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="88"/>
-        <source>New Account</source>
-        <translation>Yeni Hesap</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
-        <source>Username can&apos;t be empty</source>
-        <translation>Kullanıcı adı boş olamaz</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="163"/>
-        <source>Password can&apos;t be empty</source>
-        <translation>Parola boş olamaz</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
-        <source>The password should be different from the username</source>
-        <translation>Parola kullanıcı adından farklı olmalı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="271"/>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="274"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Parola, İngilizce harfler (büyük/küçük harf duyarlı), sayılar veya özel semboller içermelidir (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-</context>
-<context>
-<<<<<<< HEAD
-=======
     <name>dcc::accounts::FingerModel</name>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
-        <source>The fingerprint already exists, please scan other fingers</source>
-        <translation>Parmak izi zaten var, lütfen diğer parmakları tarayın</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <source>The fingerprint already exists</source>
+        <translation>Parmak izi zaten var</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="145"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
-        <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>Parmak çok hızlı hareket etti. Lütfen istenene kadar kaldırmayın</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
+        <source>Please scan other fingers</source>
+        <translation>Lütfen diğer parmaklarınızı tarayın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <source>Moved too fast</source>
+        <translation>Çok hızlı taşındı</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
+        <source>Finger moved too fast, please do not lift until prompted</source>
+        <translation>Parmak çok hızlı hareket etti, lütfen istenene kadar kaldırmayın</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="152"/>
+        <source>Unclear fingerprint</source>
+        <translation>Net olmayan parmak izi</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>Parmağınızı temizleyin veya parmak konumunu ayarlayın ve tekrar deneyin</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="151"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="156"/>
+        <source>Already scanned</source>
+        <translation>Zaten tarandı</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Parmak izinizi tamamen taramak için parmak konumunu ayarlayın</translation>
     </message>
-</context>
-<context>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
-    <name>dcc::accounts::FingerPage</name>
     <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
-        <source>Fingerprint List</source>
-        <translation>Parmak İzi Listesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="46"/>
-        <source>Fingerprint Password</source>
-        <translation>Parmak İzi Parolası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
-        <source>Add Fingerprint</source>
-        <translation>Parmak İzi Ekle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="52"/>
-        <source>Clear Fingerprint</source>
-        <translation>Parmak İzini Temizle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="56"/>
-        <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation>Parmak izi parolası, sistem oturum açma ve uygulama kimlik doğrulaması gibi durumlarda kullanılır. Parola istendiğinde parmak izinizi tarayın.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
-        <source>Fingerprint</source>
-        <translation>Parmak İzi</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>Parmak çok hızlı hareket etti. Lütfen istenene kadar kaldırmayın</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="49"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
         <source>Place your finger</source>
         <translation>Parmağınızı yerleştirin</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="122"/>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Parmak izinizin kenarlarını sensöre yerleştirin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="124"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation>Kaldırmanız istenene kadar parmağınızı sensöre sıkıca yerleştirin</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="142"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
+        <source>Lift your finger</source>
+        <translation>Parmağınızı kaldırın</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>Parmağınızı kaldırın ve yeniden algılayıcıya koyun</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <source>Scan the edges of your fingerprint</source>
+        <translation>Parmak izinizin kenarlarını tarayın</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation>Parmak izinizin kenarlarını taramak için konumu ayarlayın</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <source>Lift your finger and do that again</source>
+        <translation>Parmağınızı kaldırın ve tekrar yapın</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
         <source>Fingerprint added</source>
         <translation>Parmak izi eklendi</translation>
-    </message>
-</context>
-<context>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
-    <name>dcc::accounts::ModifyFullNamePage</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="44"/>
-        <source>Fullname:</source>
-        <translation>Tam Ad:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="48"/>
-        <source>OK</source>
-        <translation>Tamam</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="63"/>
-        <source>Fullname Settings</source>
-        <translation>Tam Ad Ayarları</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::ModifyPasswordPage</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="50"/>
-        <source>Current Password</source>
-        <translation>Mevcut Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="52"/>
-        <source>New Password</source>
-        <translation>Yeni Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="54"/>
-        <source>Repeat Password</source>
-        <translation>Parolayı Tekrarla</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="56"/>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="57"/>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="58"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="62"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="64"/>
-        <source>Accept</source>
-        <translation>Onayla</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="117"/>
-        <source>New password should differ from the current one</source>
-        <translation>Yeni parola mevcut paroladan farklı olmalıdır</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="156"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="215"/>
-        <source>The password should be different from the username</source>
-        <translation>Parola kullanıcı adından farklı olmalı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="223"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Parola, İngilizce harfler (büyük/küçük harf duyarlı), sayılar veya özel semboller içermelidir (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -6097,29 +5622,9 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::bluetooth::AdapterWidget</name>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="47"/>
-        <source>My devices</source>
-        <translation>Aygıtlarım</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="48"/>
-        <source>Other devices</source>
-        <translation>Diğer aygıtlar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
-        <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Yakındaki aygıtları bulmak için bluetooth özelliğini etkinleştir (hoparlör, klavye, fare)</translation>
-    </message>
-</context>
-<context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="155"/>
-        <location filename="../src/frame/navigationbar.cpp" line="208"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -6135,19 +5640,6 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Disconnect</source>
         <translation>Bağlantıyı kes</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::bluetooth::DeviceSettingsItem</name>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="125"/>
-        <source>Connected</source>
-        <translation>Bağlandı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="130"/>
-        <source>Not connected</source>
-        <translation>Bağlı değil</translation>
     </message>
 </context>
 <context>
@@ -6169,181 +5661,19 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::cloudsync::SyncStateWidget</name>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
-        <source>Syncing</source>
-        <translation>Eşitleniyor</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
-        <source>Logout</source>
-        <translation>Oturumu Kapat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
-        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Üzgünüz, şu anda bölgenizde desteklenmiyor ve yakında geliyor</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
-        <source>Auto Sync</source>
-        <translation>Otomatik Eşitle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
-        <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
-        <translation>Bu seçenek etkinleştirildiğinde, Kontrol Merkezi, Başlatıcı ve Görev Çubuğu ayarları otomatik olarak eşitlenir.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
-        <source>Network Settings</source>
-        <translation>Ağ Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
-        <source>Sound Settings</source>
-        <translation>Ses Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
-        <source>Mouse Settings</source>
-        <translation>Fare Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
-        <source>Update Settings</source>
-        <translation>Güncelleme Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
-        <source>Dock</source>
-        <translation>Görev Çubuğu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
-        <source>Launcher</source>
-        <translation>Başlatıcı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
-        <source>Wallpaper</source>
-        <translation>Duvar Kâğıdı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
-        <source>Theme</source>
-        <translation>Tema</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
-        <source>Power Settings</source>
-        <translation>Güç Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
-        <source>Corner Settings</source>
-        <translation>Köşe Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="214"/>
-        <source>Last Sync: %1</source>
-        <translation>Son Eşitlenme: %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="216"/>
-        <source>yyyy-MM-dd hh:mm</source>
-        <translation>yyyy-MM-dd hh:mm</translation>
-    </message>
-</context>
-<context>
     <name>dcc::cloudsync::SyncWidget</name>
     <message>
-        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
-        <source>Login</source>
-        <translation>Oturum aç</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
         <source>Cloud Sync</source>
         <translation>Bulut Eşitleyici</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
-        <source>Only supported in Mainland China at present</source>
-        <translation>Şu anda yalnız Çin içinde destekleniyor</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::datetime::DateSettings</name>
-    <message>
-        <location filename="../src/frame/modules/datetime/datesettings.cpp" line="63"/>
-        <source>Change Time Settings</source>
-        <translation>Zaman Ayarlarını Değiştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datesettings.cpp" line="68"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datesettings.cpp" line="69"/>
-        <source>Confirm</source>
-        <translation>Onayla</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::datetime::DateWidget</name>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="56"/>
-        <source>Year</source>
-        <translation>Yıl</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="59"/>
-        <source>Month</source>
-        <translation>Ay</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="62"/>
-        <source>Day</source>
-        <translation>Gün</translation>
     </message>
 </context>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="46"/>
-        <source>Auto-Sync</source>
-        <translation>Otomatik-Eşitle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
-        <source>Add Timezone</source>
-        <translation>Saat Dilimi Ekle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Time and Date</source>
         <translation>Saat ve Tarih</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="61"/>
-        <source>Change System Timezone</source>
-        <translation>Sistem Saat Dilimini Değiştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="69"/>
-        <source>Time Settings</source>
-        <translation>Zaman Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="74"/>
-        <source>Timezone List</source>
-        <translation>Saat Dilimi Listesi</translation>
     </message>
 </context>
 <context>
@@ -6407,203 +5737,17 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="152"/>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Default Applications</source>
         <translation>Varsayılan Uygulamalar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
-        <source>Webpage</source>
-        <translation>Web sayfası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
-        <source>Mail</source>
-        <translation>Posta</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="57"/>
-        <source>Text</source>
-        <translation>Metin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="58"/>
-        <source>Music</source>
-        <translation>Müzik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="59"/>
-        <source>Video</source>
-        <translation>Video</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="60"/>
-        <source>Picture</source>
-        <translation>Resim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="61"/>
-        <source>Terminal</source>
-        <translation>Uçbirim</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::defapp::DefCategoryAddWidget</name>
-    <message>
-        <location filename="../src/frame/modules/defapp/widgets/defcategoryaddwidget.cpp" line="44"/>
-        <source>Add</source>
-        <translation>Ekle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
-        <source>Open Desktop file</source>
-        <translation>Masaüstü Dosyası Aç</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::defapp::DefaultAppsWidget</name>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappwidget.cpp" line="46"/>
-        <location filename="../src/frame/modules/defapp/defappwidget.cpp" line="50"/>
-        <source>Default Applications</source>
-        <translation>Varsayılan Uygulamalar</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::BrightnessPage</name>
-    <message>
-        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="58"/>
-        <source>Brightness</source>
-        <translation>Parlaklık</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="81"/>
-        <source>Night Shift</source>
-        <translation>Gece Kipi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="86"/>
-        <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation>Ekran tonu gözlerinizi korumak için konumunuza göre otomatik olarak ayarlanır</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="95"/>
-        <source>Auto Brightness</source>
-        <translation>Otomatik Parlaklık</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::CustomConfigPage</name>
-    <message>
-        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="43"/>
-        <source>Modify</source>
-        <translation>Değiştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="45"/>
-        <source>Delete</source>
-        <translation>Sil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="48"/>
-        <source>Please switch to current mode before modifying the settings</source>
-        <translation>Lütfen ayarları değiştirmeden önce geçerli kipe geçin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="50"/>
-        <source>Please switch to another mode before deleting the settings</source>
-        <translation>Lütfen ayarları silmeden önce başka bir kipe geçin</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::DisplayModule</name>
-    <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="258"/>
-        <source>Wireless Screen Projection</source>
-        <translation>Kablosuz Ekran Yansıtması</translation>
     </message>
 </context>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
-        <source>Display Scaling</source>
-        <translation>Görüntü Ölçeği</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
-        <source>Rotate</source>
-        <translation>Döndür</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
-        <source>Custom Settings</source>
-        <translation>Özel Ayarlar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
-        <source>Resolution</source>
-        <translation>Çözünürlük</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
-        <source>Brightness</source>
-        <translation>Parlaklık</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
-        <source>Scaling Settings</source>
-        <translation>Ölçeklendirme Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Display</source>
         <translation>Ekran</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
-        <source>Wireless Screen Projection</source>
-        <translation>Kablosuz Ekran Yansıtması</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::MiracastNoDeviceWidget</name>
-    <message>
-        <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="43"/>
-        <source>Scanning devices, please wait...</source>
-        <translation>Aygıtlar taranıyor, lütfen bekleyin...</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="44"/>
-        <source>No available device found</source>
-        <translation>Kullanılabilecek bir aygıt bulunamadı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="47"/>
-        <source>Refresh</source>
-        <translation>Yenile</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::MiracastPage</name>
-    <message>
-        <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
-        <source>WLAN will be disconnected when screen projection is enabled</source>
-        <translation>Ekran yansıtma etkinleştirildiğinde WLAN bağlantısı kesilecek</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
-        <source>Refresh</source>
-        <translation>Yenile</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/miracastsettings.cpp" line="69"/>
-        <source>Device List</source>
-        <translation>Aygıt Listesi</translation>
     </message>
 </context>
 <context>
@@ -6653,81 +5797,6 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::display::ResolutionDetailPage</name>
-    <message>
-        <location filename="../src/frame/modules/display/resolutiondetailpage.cpp" line="41"/>
-        <source>Resolution</source>
-        <translation>Çözünürlük</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/resolutiondetailpage.cpp" line="80"/>
-        <source> (Recommended)</source>
-        <translation> (Önerilen)</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::ScalingPage</name>
-    <message>
-        <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
-        <source>Some applications in multi-screens may not scale as the settings.</source>
-        <translation>Birden çok ekran kullanılırken bazı uygulamalar ayarlandığı gibi ölçeklendirilmez</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
-        <source>Display Scaling</source>
-        <translation>Görüntü Ölçeği</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
-        <source>Display scaling for %1</source>
-        <translation>%1 için görüntü ölçeği</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
-        <source>Display scaling for all monitors</source>
-        <translation>Tüm ekranlar için görüntü ölçeği</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::keyboard::CustomContent</name>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="51"/>
-        <source>Shortcuts</source>
-        <translation>Kısayollar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="60"/>
-        <source>Name</source>
-        <translation>İsim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="61"/>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="65"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="64"/>
-        <source>Command</source>
-        <translation>Komut</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="83"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="85"/>
-        <source>Add</source>
-        <translation>Ekle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="116"/>
-        <source>This shortcut conflicts with %1, click on Save to make this shortcut effective immediately</source>
-        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Kaydet üzerine tıkla</translation>
-    </message>
-</context>
-<context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="51"/>
@@ -6767,7 +5836,7 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="122"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıklayın</translation>
+        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıkla</translation>
     </message>
 </context>
 <context>
@@ -6781,25 +5850,6 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="112"/>
         <source>Please enter a shortcut</source>
         <translation>Lütfen bir kısayol gir</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::keyboard::KeyboardDetails</name>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="49"/>
-        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="51"/>
-        <source>Keyboard Layout</source>
-        <translation>Klavye Düzeni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
-        <source>Switch Layouts (Multiple)</source>
-        <translation>Düzenleri Değiştir (Çoklu)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
-        <source>Add Keyboard Layout</source>
-        <translation>Klavye Düzeni Ekle</translation>
     </message>
 </context>
 <context>
@@ -6824,79 +5874,9 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="160"/>
-        <location filename="../src/frame/navigationbar.cpp" line="213"/>
         <source>Keyboard and Language</source>
         <translation>Klavye ve Dil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="52"/>
-        <source>Repeat Delay</source>
-        <translation>Yineleme Gecikmesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
-        <source>Short</source>
-        <translation>Kısa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
-        <source>Long</source>
-        <translation>Uzun</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="65"/>
-        <source>Repeat Rate</source>
-        <translation>Yineleme Hızı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
-        <source>Slow</source>
-        <translation>Yavaş</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
-        <source>Fast</source>
-        <translation>Hızlı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="79"/>
-        <source>Please Test Here</source>
-        <translation>Lütfen Burada Test Et</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="93"/>
-        <source>Enable Numeric Keyboard</source>
-        <translation>Sayısal Klavyeyi Etkinleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="97"/>
-        <source>Caps Lock Prompt</source>
-        <translation>Büyük Harf Kilidi Bildirimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="103"/>
-        <source>Keyboard Layout</source>
-        <translation>Klavye Düzeni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="111"/>
-        <source>System Language</source>
-        <translation>Sistem Dili</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
-        <source>Shortcuts</source>
-        <translation>Kısayollar</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::keyboard::LangWidget</name>
-    <message>
-        <location filename="../src/frame/modules/keyboard/langwidget.cpp" line="48"/>
-        <source>System Language</source>
-        <translation>Sistem Dili</translation>
     </message>
 </context>
 <context>
@@ -6936,44 +5916,6 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::keyboard::ShortcutWidget</name>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="55"/>
-        <source>System</source>
-        <translation>Sistem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="56"/>
-        <source>Window</source>
-        <translation>Pencere</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="57"/>
-        <source>WorkSpace</source>
-        <translation>Çalışma Alanı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="65"/>
-        <source>Custom Shortcut</source>
-        <translation>Özel Kısayol</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="78"/>
-        <source>Add Custom Shortcut</source>
-        <translation>Özel Kısayol Ekle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
-        <source>Restore Defaults</source>
-        <translation>Varsayılanları Geri Yükle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
-        <source>Shortcuts</source>
-        <translation>Kısayollar</translation>
-    </message>
-</context>
-<context>
     <name>dcc::mouse::DouTestWidget</name>
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
@@ -6985,84 +5927,9 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="46"/>
-        <source>Mouse and Touchpad</source>
-        <translation>Fare ve Dokunmatik Yüzey</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="159"/>
-        <location filename="../src/frame/navigationbar.cpp" line="212"/>
         <source>Mouse</source>
         <translation>Fare</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="50"/>
-        <source>TouchPad</source>
-        <translation>Dokunmatik Yüzey</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="51"/>
-        <source>TrackPoint</source>
-        <translation>İmleçDenetim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="53"/>
-        <source>Left Hand</source>
-        <translation>Solak Düzeni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="54"/>
-        <source>Disable the touchpad while typing</source>
-        <translation>Yazarken dokunmatik yüzeyi devre dışı bırak</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="55"/>
-        <source>Double-click Speed</source>
-        <translation>Çift Tıklama Hızı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="58"/>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="64"/>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="70"/>
-        <source>Pointer Speed</source>
-        <translation>İşaretçi Hızı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="59"/>
-        <source>Mouse Acceleration</source>
-        <translation>Fare Hızlandırması</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="60"/>
-        <source>Scroll Speed</source>
-        <translation>Kaydırma Hızı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="61"/>
-        <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Fare takılıyken dokunmatik yüzeyi devre dışı bırak</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="66"/>
-        <source>Natural Scrolling</source>
-        <translation>Doğal Kaydırma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="65"/>
-        <source>Tap to Click</source>
-        <translation>Tıklamak için Dokun</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Slow</source>
-        <translation>Yavaş</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Fast</source>
-        <translation>Hızlı</translation>
     </message>
 </context>
 <context>
@@ -7098,2211 +5965,27 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::network::ChainsProxyPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
-        <source>Application Proxy</source>
-        <translation>Uygulama Vekil Sunucusu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
-        <source>Proxy Type</source>
-        <translation>Vekil Sunucu Türü</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="52"/>
-        <source>IP address</source>
-        <translation>IP adresi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="53"/>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="57"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="56"/>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="60"/>
-        <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="61"/>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="65"/>
-        <source>Optional</source>
-        <translation>İsteğe bağlı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="64"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Yapılandırıldıktan sonra Başlatıcı&apos;daki uygulama bağlamı menüsünde &quot;Vekil Sunucu Kullan&quot; seçeneğini işaretleyin.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="89"/>
-        <source>OK</source>
-        <translation>Tamam</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::ChainsTypePage</name>
-    <message>
-        <location filename="../src/frame/modules/network/chainstypepage.cpp" line="37"/>
-        <source>Proxy Type</source>
-        <translation>Vekil Sunucu Türü</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::ConnectionEditPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
-        <source>Disconnect</source>
-        <translation>Bağlantıyı kes</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
-        <source>Delete</source>
-        <translation>Sil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
-        <source>Save</source>
-        <translation>Kaydet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="344"/>
-        <source>Wired Connection %1</source>
-        <translation>Kablolu Bağlantı %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="348"/>
-        <source>Wireless Connection %1</source>
-        <translation>Kablosuz Bağlantı %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="352"/>
-        <source>PPPoE Connection %1</source>
-        <translation>PPPoE Bağlantısı %1</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::ConnectionHotspotEditPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/connectionhotspoteditpage.cpp" line="47"/>
-        <source>hotspot</source>
-        <translation>bağlantı noktası</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::ConnectionVpnEditPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="155"/>
-        <source>Export</source>
-        <translation>Dışarı aktar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="166"/>
-        <source>VPN L2TP %1</source>
-        <translation>VPN L2TP %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="170"/>
-        <source>VPN PPTP %1</source>
-        <translation>VPN PPTP %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="174"/>
-        <source>VPN VPNC %1</source>
-        <translation>VPN VPNC %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="178"/>
-        <source>VPN OpenVPN %1</source>
-        <translation>VPN OpenVPN %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="182"/>
-        <source>VPN StrongSwan %1</source>
-        <translation>VPN StrongSwan %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="186"/>
-        <source>VPN OpenConnect %1</source>
-        <translation>VPN OpenConnect %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="190"/>
-        <source>VPN SSTP %1</source>
-        <translation>VPN SSTP %1</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::EthernetSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="37"/>
-        <source>Ethernet</source>
-        <translation>Ethernet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="54"/>
-        <source>Not Bind</source>
-        <translation>Bağlı Değil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="96"/>
-        <source>Device MAC Addr</source>
-        <translation>Aygıtın MAC Adresi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="111"/>
-        <source>Cloned MAC Addr</source>
-        <translation>Kopyalanmış MAC Adresi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="124"/>
-        <source>Customize MTU</source>
-        <translation>MTU Değerini Özelleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="127"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::GenericHotspotSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="31"/>
-        <source>General</source>
-        <translation>Genel</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="63"/>
-        <source>Name</source>
-        <translation>İsim</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::GenericSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="31"/>
-        <source>General</source>
-        <translation>Genel</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="62"/>
-        <source>Name</source>
-        <translation>İsim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
-        <source>Auto connect</source>
-        <translation>Otomatik bağlan</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::HotspotPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/hotspotpage.cpp" line="61"/>
-        <location filename="../src/frame/modules/network/hotspotpage.cpp" line="83"/>
-        <source>Hotspot</source>
-        <translation>Bağlantı Noktası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/hotspotpage.cpp" line="62"/>
-        <source>Add Settings</source>
-        <translation>Ayar Ekle</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::IpvxSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="32"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="52"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
-        <source>Auto</source>
-        <translation>Otomatik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="216"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
-        <source>Manual</source>
-        <translation>Elle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="222"/>
-        <source>Ignore</source>
-        <translation>Yoksay</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
-        <source>Method</source>
-        <translation>Yöntem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
-        <source>IP Address</source>
-        <translation>IP Adresi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="295"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
-        <source>Gateway</source>
-        <translation>Ağ Geçidi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
-        <source>Primary DNS</source>
-        <translation>Birincil DNS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
-        <source>Secondary DNS</source>
-        <translation>İkincil DNS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
-        <source>Only applied in corresponding resources</source>
-        <translation>Sadece ilgili kaynaklarda uygulanır</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
-        <source>Netmask</source>
-        <translation>Ağ Maskesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="305"/>
-        <source>Prefix</source>
-        <translation>Ön Ek</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::NetworkDetailPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="94"/>
-        <source>Network Details</source>
-        <translation>Ağ Ayrıntıları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="139"/>
-        <source>Hotspot</source>
-        <translation>Bağlantı Noktası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="144"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="154"/>
-        <source>Security</source>
-        <translation>Güvenlik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="160"/>
-        <source>Interface</source>
-        <translation>Arayüz</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="165"/>
-        <source>MAC</source>
-        <translation>MAC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="171"/>
-        <source>Band</source>
-        <translation>Bant</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="180"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="185"/>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="210"/>
-        <source>Gateway</source>
-        <translation>Ağ Geçidi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="190"/>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="215"/>
-        <source>Primary DNS</source>
-        <translation>Birincil DNS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="195"/>
-        <source>Netmask</source>
-        <translation>Ağ Maskesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="205"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="220"/>
-        <source>Prefix</source>
-        <translation>Ön Ek</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="226"/>
-        <source>Speed</source>
-        <translation>Hız</translation>
-    </message>
-</context>
-<context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="57"/>
-        <source>DSL</source>
-        <translation>DSL</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="61"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="65"/>
-        <source>System Proxy</source>
-        <translation>Sistem Vekil Sunucusu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
-        <source>Application Proxy</source>
-        <translation>Uygulama Vekil Sunucusu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
-        <source>Network Details</source>
-        <translation>Ağ Ayrıntıları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="154"/>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Network</source>
         <translation>Ağ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="237"/>
-        <source>Wired Network Card%1</source>
-        <translation>Kablolu Ağ Aygıtı%1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="238"/>
-        <source>Wired Network%1</source>
-        <translation>Kablolu Ağ%1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="242"/>
-        <source>Wired Network Card</source>
-        <translation>Kablolu Ağ Aygıtı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="243"/>
-        <source>Wired Network</source>
-        <translation>Kablolu Ağ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="252"/>
-        <source>Hotspot</source>
-        <translation>Bağlantı Noktası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="257"/>
-        <source>Shared</source>
-        <translation>Paylaşılmış</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="266"/>
-        <source>Wireless Network Card%1</source>
-        <translation>Kablosuz Ağ Aygıtı%1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="267"/>
-        <source>Wireless Network%1</source>
-        <translation>Kablosuz Ağ%1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="271"/>
-        <source>Wireless Network Card</source>
-        <translation>Kablosuz Ağ Aygıtı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="272"/>
-        <source>Wireless Network</source>
-        <translation>Kablosuz Ağ</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::PPPOESection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="31"/>
-        <source>PPPoE</source>
-        <translation>PPPoE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="78"/>
-        <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="79"/>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="86"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="82"/>
-        <source>Service</source>
-        <translation>Servis</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="85"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::PPPSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="31"/>
-        <source>PPP</source>
-        <translation>PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="86"/>
-        <source>Refuse EAP Authentication</source>
-        <translation>EAP Kimlik Doğrulamasını Reddet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="87"/>
-        <source>Refuse PAP Authentication</source>
-        <translation>PAP Kimlik Doğrulamasını Reddet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="88"/>
-        <source>Refuse CHAP Authentication</source>
-        <translation>CHAP Kimlik Doğrulamasını Reddet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="89"/>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation>MSCHAP Kimlik Doğrulamasını Reddet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="90"/>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>MSCHAPv2 Kimlik Doğrulamasını Reddet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="91"/>
-        <source>No BSD Data Compression</source>
-        <translation>BSD Veri Sıkıştırması Yapma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
-        <source>No Deflate Data Compression</source>
-        <translation>Veri Küçültme Sıkıştırması Yapma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="93"/>
-        <source>No TCP Header Compression</source>
-        <translation>TCP Üst Bilgi Sıkıştırması Yapma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="94"/>
-        <source>No Protocol Field Compression</source>
-        <translation>İletişim Kuralı Alanı Sıkıştırması Yapma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="95"/>
-        <source>No Address/Control Compression</source>
-        <translation>Adres/Denetim Sıkıştırması Yapma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="96"/>
-        <source>Send PPP Echo Packets</source>
-        <translation>PPP Echo Paketleri Gönder</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="104"/>
-        <source>Use MPPE</source>
-        <translation>MPPE Kullan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="107"/>
-        <source>128-bit MPPE</source>
-        <translation>128-bit MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="110"/>
-        <source>Stateful MPPE</source>
-        <translation>Durumsal MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::PppoePage</name>
-    <message>
-        <location filename="../src/frame/modules/network/pppoepage.cpp" line="52"/>
-        <source>Create PPPoE Connection</source>
-        <translation>PPPoE Bağlantısı Oluştur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/pppoepage.cpp" line="66"/>
-        <source>PPP</source>
-        <translation>PPP</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::ProxyPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="58"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="59"/>
-        <source>Confirm</source>
-        <translation>Onayla</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="61"/>
-        <source>None</source>
-        <translation>Yok</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="62"/>
-        <source>Manual</source>
-        <translation>Elle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="63"/>
-        <source>Auto</source>
-        <translation>Otomatik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="68"/>
-        <source>HTTP Proxy</source>
-        <translation>HTTP Vekil Sunucusu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="70"/>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="75"/>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="80"/>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="85"/>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="73"/>
-        <source>HTTPS Proxy</source>
-        <translation>HTTPS Vekil Sunucusu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="78"/>
-        <source>FTP Proxy</source>
-        <translation>FTP Vekil Sunucusu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="83"/>
-        <source>SOCKS Proxy</source>
-        <translation>SOCKS Vekil Sunucusu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="92"/>
-        <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Yukarıdaki bilgisayar ve etki alanları için vekil sunucu yapılandırmaları yoksay</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="95"/>
-        <source>Configuration URL</source>
-        <translation>Yapılandırma Adresi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="152"/>
-        <source>System Proxy</source>
-        <translation>Sistem Vekil Sunucusu</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::Secret8021xSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="31"/>
-        <source>Security</source>
-        <translation>Güvenlik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="153"/>
-        <source>TLS</source>
-        <translation>TLS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="154"/>
-        <source>MD5</source>
-        <translation>MD5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="155"/>
-        <source>LEAP</source>
-        <translation>LEAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="156"/>
-        <source>FAST</source>
-        <translation>FAST</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="157"/>
-        <source>Tunneled TLS</source>
-        <translation>Tünellenmiş TLS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="158"/>
-        <source>Protected EAP</source>
-        <translation>Korumalı EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="163"/>
-        <source>Saved</source>
-        <translation>Kaydedildi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="164"/>
-        <source>Ask</source>
-        <translation>Sor</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="165"/>
-        <source>Not Required</source>
-        <translation>Zorunlu Değil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="169"/>
-        <source>Disabled</source>
-        <translation>Devre Dışı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Anonymous</source>
-        <translation>Anonim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Authenticated</source>
-        <translation>Kimlik Doğrulandı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Both</source>
-        <translation>İkisi de</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="188"/>
-        <source>Automatic</source>
-        <translation>Otomatik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="189"/>
-        <source>Version 0</source>
-        <translation>Sürüm 0</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="190"/>
-        <source>Version 1</source>
-        <translation>Sürüm 1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="202"/>
-        <source>EAP Auth</source>
-        <translation>EAP Kimlik Doğrulaması</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="214"/>
-        <source>Identity</source>
-        <translation>Kimlik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="216"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="224"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
-        <source>Pwd Options</source>
-        <translation>Parola Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="302"/>
-        <source>Private Key</source>
-        <translation>Özel Anahtar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="306"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="387"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="423"/>
-        <source>CA Cert</source>
-        <translation>CA Sertifikası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="310"/>
-        <source>User Cert</source>
-        <translation>Kullanıcı Sertifikası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="332"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="383"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="419"/>
-        <source>Anonymous ID</source>
-        <translation>Anonim Kimlik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="336"/>
-        <source>Provisioning</source>
-        <translation>Sağlama</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="348"/>
-        <source>PAC file</source>
-        <translation>PAC dosyası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="352"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="391"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="438"/>
-        <source>Inner Auth</source>
-        <translation>İç Kimlik Doğrulaması</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="427"/>
-        <source>PEAP Version</source>
-        <translation>PEAP Sürümü</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="523"/>
-        <source>Private Pwd</source>
-        <translation>Özel Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="525"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::SecretHotspotSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="104"/>
-        <source>None</source>
-        <translation>Yok</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="105"/>
-        <source>WEP 40/128-bit</source>
-        <translation>WEP 40/128-bit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="106"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Kişisel</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="112"/>
-        <source>Security</source>
-        <translation>Güvenlik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="118"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="148"/>
-        <source>Key</source>
-        <translation>Anahtar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="154"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::SecretWiredSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwiredsection.cpp" line="32"/>
-        <source>Security Required</source>
-        <translation>Zorunlu Güvenlik</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::SecretWirelessSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="106"/>
-        <source>None</source>
-        <translation>Yok</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="107"/>
-        <source>WEP 40/128-bit</source>
-        <translation>WEP 40/128-bit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="108"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Kişisel</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="109"/>
-        <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 Kurumsal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="115"/>
-        <source>Security</source>
-        <translation>Güvenlik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="121"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="163"/>
-        <source>Key</source>
-        <translation>Anahtar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="170"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnAdvOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
-        <source>VPN Advanced</source>
-        <translation>VPN Gelişmiş</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
-        <source>Customize Gateway Port</source>
-        <translation>Ağ Geçidi Port Özelleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
-        <source>Gateway Port</source>
-        <translation>Ağ Geçidi Port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
-        <source>Customize Renegotiation Interval</source>
-        <translation>Yeniden Görüşme Sıklığını Özelleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
-        <source>Renegotiation Interval</source>
-        <translation>Yeniden Görüşme Sıklığı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
-        <source>Use LZO Data Compression</source>
-        <translation>LZO Veri Sıkıştırması Kullan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
-        <source>Use TCP Connection</source>
-        <translation>TCP Bağlantısı Kullan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
-        <source>Use TAP Device</source>
-        <translation>TAP Aygıtı Kullan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
-        <source>Customize Tunnel MTU</source>
-        <translation>Tünel MTU Değerini Özelleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
-        <source>Customize UDP Fragment Size</source>
-        <translation>UDP Parça Boyutunu Özelleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
-        <source>UDP Fragment Size</source>
-        <translation>UDP Parça Boyutu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
-        <source>Restrict Tunnel TCP MSS</source>
-        <translation>Tünel TCP MSS&apos;yi Kısıtla</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
-        <source>Randomize Remote Hosts</source>
-        <translation>Uzak Ana Bilgisayarları Rastgele Ayarla</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnAdvVPNCSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
-        <source>VPN Advanced</source>
-        <translation>VPN Gelişmiş</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="140"/>
-        <source>Cisco (default)</source>
-        <translation>Cisco (varsayılan)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
-        <source>Netscreen</source>
-        <translation>Netscreen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="144"/>
-        <source>Secure (default)</source>
-        <translation>Güvenli (varsayılan)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
-        <source>Weak</source>
-        <translation>Zayıf</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="161"/>
-        <source>None</source>
-        <translation>Yok</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="149"/>
-        <source>NAT-T When Available (default)</source>
-        <translation>Kullanılabildiğinde NAT-T (varsayılan)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
-        <source>NAT-T Always</source>
-        <translation>Her Zaman NAT-T</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
-        <source>Cisco UDP</source>
-        <translation>Cisco UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
-        <source>Disabled</source>
-        <translation>Devre Dışı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="155"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
-        <source>DH Group 1</source>
-        <translation>1. DH Grubu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
-        <source>DH Group 2 (default)</source>
-        <translation>2. DH Grubu (varsayılan)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
-        <source>DH Group 5</source>
-        <translation>5. DH Grubu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="160"/>
-        <source>Server (default)</source>
-        <translation>Sunucu (varsayılan)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
-        <source>DH Group 2</source>
-        <translation>2. DH Grubu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="170"/>
-        <source>Domain</source>
-        <translation>Etki Alanı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="173"/>
-        <source>Vendor</source>
-        <translation>Yayınlayan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="179"/>
-        <source>Version</source>
-        <translation>Sürüm</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="182"/>
-        <source>Encryption</source>
-        <translation>Şifreleme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
-        <source>NAT Traversal Mode</source>
-        <translation>NAT Geçiş Kipi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
-        <source>IKE DH Group</source>
-        <translation>IKE DH Grubu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="200"/>
-        <source>Forward Secrecy</source>
-        <translation>İletme Gizliliği</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
-        <source>Local Port</source>
-        <translation>Yerel Port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
-        <source>Disable Dead Peer Detection</source>
-        <translation>Ölü Eş Algılamayı Devre Dışı Bırak</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnIpsecSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
-        <source>VPN IPsec</source>
-        <translation>VPN IPsec</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
-        <source>Enable IPsec</source>
-        <translation>IPsec Kullanılsın</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
-        <source>Group Name</source>
-        <translation>Grup Adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
-        <source>Group ID</source>
-        <translation>Grup Kimliği</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
-        <source>Pre-Shared Key</source>
-        <translation>Ön Paylaşımlı Anahtar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
-        <source>Phase1 Algorithms</source>
-        <translation>1. Aşama Algoritmaları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
-        <source>Phase2 Algorithms</source>
-        <translation>2. Aşama Algoritmaları</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnOpenConnectSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
-        <source>Gateway</source>
-        <translation>Ağ Geçidi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
-        <source>CA Cert</source>
-        <translation>CA Sertifikası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
-        <source>Proxy</source>
-        <translation>Vekil Sunucu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
-        <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Cisco Güvenli Masaüstü Trojanına İzin Ver</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
-        <source>CSD Script</source>
-        <translation>CSD Betiği</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
-        <source>User Cert</source>
-        <translation>Kullanıcı Sertifikası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
-        <source>Private Key</source>
-        <translation>Özel Anahtar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
-        <source>Use FSID for Key Passphrase</source>
-        <translation>Anahtar Parolası için FSID kullan</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="115"/>
-        <source>Certificates (TLS)</source>
-        <translation>Sertifikalar (TLS)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="243"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
-        <source>Certificates with Password (TLS)</source>
-        <translation>Parolalı Sertifikalar (TLS)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
-        <source>Static Key</source>
-        <translation>Statik Anahtar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="123"/>
-        <source>Saved</source>
-        <translation>Kaydedildi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
-        <source>Ask</source>
-        <translation>Sor</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
-        <source>Not Required</source>
-        <translation>Zorunlu Değil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="131"/>
-        <source>Gateway</source>
-        <translation>Ağ Geçidi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="229"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="245"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
-        <source>Auth Type</source>
-        <translation>Kimlik Doğrulama Türü</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
-        <source>CA Cert</source>
-        <translation>CA Sertifikası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
-        <source>User Cert</source>
-        <translation>Kullanıcı Sertifikası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
-        <source>Private Key</source>
-        <translation>Özel Anahtar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
-        <source>Pwd Options</source>
-        <translation>Parola Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
-        <source>Private Pwd</source>
-        <translation>Özel Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="227"/>
-        <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
-        <source>Customize Key Direction</source>
-        <translation>Anahtar Yönünü Özelleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
-        <source>Key Direction</source>
-        <translation>Anahtar Yönü</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
-        <source>Remote IP</source>
-        <translation>Uzak IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
-        <source>Local IP</source>
-        <translation>Yerel IP</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnPPPSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
-        <source>VPN PPP</source>
-        <translation>VPN PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
-        <source>All Available (default)</source>
-        <translation>Tüm Kullanılabilenler (varsayılan)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
-        <source>40-bit (less secure)</source>
-        <translation>40 bit (daha az güvenli)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
-        <source>128-bit (most secure)</source>
-        <translation>128 bit (en güvenli)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
-        <source>Refuse EAP Authentication</source>
-        <translation>EAP Kimlik Doğrulamasını Reddet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
-        <source>Refuse PAP Authentication</source>
-        <translation>PAP Kimlik Doğrulamasını Reddet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
-        <source>Refuse CHAP Authentication</source>
-        <translation>CHAP Kimlik Doğrulamasını Reddet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation>MSCHAP Kimlik Doğrulamasını Reddet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>MSCHAPv2 Kimlik Doğrulamasını Reddet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
-        <source>No BSD Data Compression</source>
-        <translation>BSD Veri Sıkıştırması Yapma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
-        <source>No Deflate Data Compression</source>
-        <translation>Veri Küçültme Sıkıştırması Yapma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
-        <source>No TCP Header Compression</source>
-        <translation>TCP Üst Bilgi Sıkıştırması Yapma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
-        <source>No Protocol Field Compression</source>
-        <translation>İletişim Kuralı Alanı Sıkıştırması Yapma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
-        <source>No Address/Control Compression</source>
-        <translation>Adres/Denetim Sıkıştırması Yapma</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
-        <source>Send PPP Echo Packets</source>
-        <translation>PPP Echo Paketleri Gönder</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
-        <source>Use MPPE</source>
-        <translation>MPPE Kullan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
-        <source>Security</source>
-        <translation>Güvenlik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
-        <source>Stateful MPPE</source>
-        <translation>Durumsal MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="76"/>
-        <source>VPN Status</source>
-        <translation>VPN Durumu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="79"/>
-        <source>Create VPN</source>
-        <translation>VPN Oluştur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="82"/>
-        <source>Import VPN</source>
-        <translation>VPN&apos;yi İçe Aktar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="101"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="242"/>
-        <source>Import Error</source>
-        <translation>İçe Aktarma Hatası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="244"/>
-        <source>OK</source>
-        <translation>Tamam</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="266"/>
-        <source>L2TP</source>
-        <translation>L2TP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="269"/>
-        <source>PPTP</source>
-        <translation>PPTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="272"/>
-        <source>VPNC</source>
-        <translation>VPNC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="275"/>
-        <source>OpenVPN</source>
-        <translation>OpenVPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="278"/>
-        <source>StrongSwan</source>
-        <translation>StrongSwan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="281"/>
-        <source>OpenConnect</source>
-        <translation>OpenConnect</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="284"/>
-        <source>SSTP</source>
-        <translation>SSTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="311"/>
-        <source>New VPN</source>
-        <translation>Yeni VPN</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnProxySection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
-        <source>VPN Proxy</source>
-        <translation>VPN Vekil Sunucu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="135"/>
-        <source>Not Required</source>
-        <translation>Zorunlu Değil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="136"/>
-        <source>HTTP</source>
-        <translation>HTTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="137"/>
-        <source>SOCKS</source>
-        <translation>SOCKS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
-        <source>Proxy Type</source>
-        <translation>Vekil Sunucu Türü</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
-        <source>Server IP</source>
-        <translation>Sunucu IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="154"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="157"/>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
-        <source>Retry Indefinitely When Failed</source>
-        <translation>Başarısız Olduğunda Sürekli Dene</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
-        <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="169"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnSSTPSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="79"/>
-        <source>CA File</source>
-        <translation>CA Dosyası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
-        <source>Ignore Certificate Warnings</source>
-        <translation>Sertifika Uyarılarını Yoksay</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
-        <source>Use TLS Hostname Extensions</source>
-        <translation>TLS Sunucu Adı Eklentileri Kullan</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnSecOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
-        <source>VPN Security</source>
-        <translation>VPN Güvenliği</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="75"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="96"/>
-        <source>Default</source>
-        <translation>Varsayılan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="76"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="97"/>
-        <source>None</source>
-        <translation>Yok</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
-        <source>Cipher</source>
-        <translation>Şifre</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
-        <source>HMAC Auth</source>
-        <translation>HMAC Kimlik Doğrulama</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
-        <source>Saved</source>
-        <translation>Kaydedildi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
-        <source>Ask</source>
-        <translation>Sor</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
-        <source>Not Required</source>
-        <translation>Zorunlu Değil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
-        <source>Gateway</source>
-        <translation>Ağ Geçidi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="115"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="129"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
-        <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
-        <source>Pwd Options</source>
-        <translation>Parola Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="132"/>
-        <source>NT Domain</source>
-        <translation>NT Etki Alanı</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnSstpProxySection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
-        <source>VPN Proxy</source>
-        <translation>VPN Vekil Sunucu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
-        <source>Server IP</source>
-        <translation>Sunucu IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
-        <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnStrongSwanSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="172"/>
-        <source>Private Key</source>
-        <translation>Özel Anahtar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
-        <source>SSH Agent</source>
-        <translation>SSH İstemci</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
-        <source>Smartcard</source>
-        <translation>Akıllı kart</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
-        <source>EAP</source>
-        <translation>EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="146"/>
-        <source>Pre-Shared Key</source>
-        <translation>Ön Paylaşımlı Anahtar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
-        <source>Gateway</source>
-        <translation>Ağ Geçidi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
-        <source>CA Cert</source>
-        <translation>CA Sertifikası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
-        <source>Auth Type</source>
-        <translation>Kimlik Doğrulama Türü</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
-        <source>User Cert</source>
-        <translation>Kullanıcı Sertifikası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="175"/>
-        <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="178"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="181"/>
-        <source>Request an Inner IP Address</source>
-        <translation>İç IP Adresi İste</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
-        <source>Enforce UDP Encapsulation</source>
-        <translation>UDP Enkapsülasyonu Kullan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
-        <source>Use IP Compression</source>
-        <translation>IP Sıkıştırmasını Kullan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
-        <source>Enable Custom Cipher Proposals</source>
-        <translation>Özel Şifreleme Tekliflerini Etkinleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
-        <source>IKE</source>
-        <translation>IKE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="196"/>
-        <source>ESP</source>
-        <translation>ESP</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnTLSSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
-        <source>VPN TLS Authentication</source>
-        <translation>VPN TLS Kimlik Doğrulaması</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="79"/>
-        <source>Default</source>
-        <translation>Varsayılan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="80"/>
-        <source>Client</source>
-        <translation>İstemci</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
-        <source>Server</source>
-        <translation>Sunucu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
-        <source>Subject Match</source>
-        <translation>Konu Eşleşmesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
-        <source>Remote Cert Type</source>
-        <translation>Uzak Sertifika Türü</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
-        <source>Key File</source>
-        <translation>Anahtar Dosyası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="103"/>
-        <source>Customize Key Direction</source>
-        <translation>Anahtar Yönünü Özelleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="106"/>
-        <source>Key Direction</source>
-        <translation>Anahtar Yönü</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnVPNCSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="159"/>
-        <source>Saved</source>
-        <translation>Kaydedildi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="160"/>
-        <source>Ask</source>
-        <translation>Sor</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
-        <source>Not Required</source>
-        <translation>Zorunlu Değil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
-        <source>Gateway</source>
-        <translation>Ağ Geçidi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="168"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="172"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="182"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="186"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="196"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
-        <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
-        <source>Pwd Options</source>
-        <translation>Parola Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
-        <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="185"/>
-        <source>Group Name</source>
-        <translation>Grup Adı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
-        <source>Group Pwd</source>
-        <translation>Grup Parolası</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
-        <source>Use Hybrid Authentication</source>
-        <translation>Karma Kimlik Doğrulaması Kullan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
-        <source>CA File</source>
-        <translation>CA Dosyası</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::WiredPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/wiredpage.cpp" line="59"/>
-        <source>Setting List</source>
-        <translation>Ayar Listesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
-        <source>Plug in the network cable first</source>
-        <translation>Önce ağ kablosunu takın</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
-        <source>Add Settings</source>
-        <translation>Ayar Ekle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>
-        <source>Select Settings</source>
-        <translation>Ayarları Seç</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::WirelessPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="64"/>
-        <source>Connect to hidden network</source>
-        <translation>Gizli ağa bağlan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
-        <source>Close Hotspot</source>
-        <translation>Erişim Noktasını Kapat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
-        <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation>Kablosuz bir ağa bağlanmak için erişim noktası paylaşımını devre dışı bırak</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
-        <source>WLAN</source>
-        <translation>WLAN</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::WirelessSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="55"/>
-        <source>Not Bind</source>
-        <translation>Bağlı Değil</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="113"/>
-        <source>Required</source>
-        <translation>Gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="116"/>
-        <source>Device MAC Addr</source>
-        <translation>Aygıtın MAC Adresi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="144"/>
-        <source>Customize MTU</source>
-        <translation>MTU Değerini Özelleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="147"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::FontListWidget</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontlistwidget.cpp" line="89"/>
-        <source> (Unsupported font)</source>
-        <translation>(Desteklenmeyen yazı tipi)</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::FontSettingsWidget</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="45"/>
-        <source>Standard Font</source>
-        <translation>Standart Yazı Tipi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
-        <source>Monospaced Font</source>
-        <translation>Sabit Aralıklı Yazı Tipi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
-        <source> (Unsupported font)</source>
-        <translation>(Desteklenmeyen yazı tipi)</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::FontSizeWidget</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsizewidget.cpp" line="41"/>
-        <source>Size</source>
-        <translation>Boyut</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::FontsWidget</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
-        <source>Font</source>
-        <translation>Yazı Tipi</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::PersonalizationModule</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="118"/>
-        <source>Standard Font</source>
-        <translation>Standart Yazı Tipi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="127"/>
-        <source>Monospaced Font</source>
-        <translation>Sabit Aralıklı Yazı Tipi</translation>
     </message>
 </context>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="48"/>
-        <source>Transparency</source>
-        <translation>Saydamlık</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
-        <source>Window Effect</source>
-        <translation>Pencere Efekti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="72"/>
-        <source>Theme</source>
-        <translation>Tema</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="73"/>
-        <source>Font</source>
-        <translation>Yazı Tipi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="79"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Personalization</source>
-        <translation>Kişiselleştir</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::Theme</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/themewidget/theme.cpp" line="84"/>
-        <source>Default</source>
-        <translation>Varsayılan</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::ThemeWidget</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="40"/>
-        <source>Window Theme</source>
-        <translation>Pencere Teması</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
-        <source>Icon Theme</source>
-        <translation>Simge Teması</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
-        <source>Cursor Theme</source>
-        <translation>İmleç Teması</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
-        <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>Kişiselleştirme</translation>
     </message>
 </context>
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="46"/>
-        <source>Plugged in</source>
-        <translation>Fişe takılı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="47"/>
-        <source>On battery</source>
-        <translation>Bataryada</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="48"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="50"/>
-        <source>Monitor will suspend after</source>
-        <translation>Ekranın askıya alınma süresi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="49"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="51"/>
-        <source>Computer will suspend after</source>
-        <translation>Bilgisayarın askıya alınma süresi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="62"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="202"/>
-        <source>Never</source>
-        <translation>Asla</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
-        <source>Password is required to wake up the monitor</source>
-        <translation>Ekranı uyandırmak için parola gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
-        <source>Password is required to wake up the computer</source>
-        <translation>Bilgisayarı uyandırmak için parola gerekli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="107"/>
-        <source>Suspend on lid close</source>
-        <translation>Kapak kapandığında askıya al</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="110"/>
-        <source>Power Saving Mode</source>
-        <translation>Güç Tasarrufu Kipi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="111"/>
-        <source>Auto Mode Switch</source>
-        <translation>Otomatik Kip Anahtarı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="122"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>Power Management</source>
         <translation>Güç Yönetimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="190"/>
-        <source>1 Minute</source>
-        <translation>1 Dakika</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="192"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="194"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="196"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="198"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="204"/>
-        <source>%1 Minutes</source>
-        <translation>%1 Dakika</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="200"/>
-        <source>1 Hour</source>
-        <translation>1 Saat</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::sound::AdvancedPage</name>
-    <message>
-        <location filename="../src/frame/modules/sound/advancedpage.cpp" line="37"/>
-        <source>Output</source>
-        <translation>Çıkış</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/advancedpage.cpp" line="38"/>
-        <source>Input</source>
-        <translation>Giriş</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/advancedpage.cpp" line="40"/>
-        <source>Advanced</source>
-        <translation>Gelişmiş</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::sound::SoundEffectPage</name>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="43"/>
-        <source>Sound Effects</source>
-        <translation>Ses Etkileri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
-        <source>System Sound Effect</source>
-        <translation>Sistem Ses Etkisi</translation>
     </message>
 </context>
 <context>
@@ -9394,100 +6077,9 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="43"/>
-        <source>Output Volume</source>
-        <translation>Ses Çıkışı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="44"/>
-        <source>Left/Right Balance</source>
-        <translation>Sol/Sağ Dengesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="47"/>
-        <source>Input Volume</source>
-        <translation>Ses Girişi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="49"/>
-        <source>Feedback Volume</source>
-        <translation>Geri Bildirim Sesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="156"/>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Sound</source>
         <translation>Ses</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="60"/>
-        <source>Speaker</source>
-        <translation>Hoparlör</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="83"/>
-        <source>Microphone</source>
-        <translation>Mikrofon</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="106"/>
-        <source>Advanced</source>
-        <translation>Gelişmiş</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
-        <source>Sound Effects</source>
-        <translation>Ses Etkileri</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::sync::SyncWidget</name>
-    <message>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
-        <source>Cloud Sync</source>
-        <translation>Bulut Eşitleyici</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::systeminfo::BootWidget</name>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="62"/>
-        <source>Updating...</source>
-        <translation>Güncelleniyor...</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
-        <source>Startup Delay</source>
-        <translation>Başlangıç ​​Gecikmesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="76"/>
-        <source>Theme</source>
-        <translation>Tema</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="78"/>
-        <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
-        <translation>Hızlı önyükleme ayarı için önyükleme menüsündeki seçeneği tıklatabilir ve arka planı değiştirmek için bir resmi sürükleyip bırakabilirsiniz.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
-        <source>Switch theme on to view it in boot menu</source>
-        <translation>Önyükleme menüsünde görüntülemek için temayı etkinleştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
-        <source>Boot Menu</source>
-        <translation>Önyükleme Menüsü</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::systeminfo::CopyrightWidget</name>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/copyrightwidget.cpp" line="70"/>
-        <source>Edition License</source>
-        <translation>Sürüm Lisansı</translation>
     </message>
 </context>
 <context>
@@ -9501,95 +6093,19 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="50"/>
-        <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Telif Hakları © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
-        <location filename="../src/frame/navigationbar.cpp" line="217"/>
         <source>System Information</source>
         <translation>Sistem Bilgileri</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="81"/>
-        <source>Distribution:</source>
-        <translation>Dağıtım:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="86"/>
-        <source>Distribution Release:</source>
-        <translation>Dağıtım Sürümü:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="91"/>
-        <source>Edition:</source>
-        <translation>Sürüm:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="95"/>
-        <source>Type:</source>
-        <translation>Tür:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="98"/>
-        <source>Processor:</source>
-        <translation>İşlemci:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="102"/>
-        <source>Memory:</source>
-        <translation>Bellek:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="106"/>
-        <source>Disk:</source>
-        <translation>Disk:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="119"/>
-        <source>Edition License</source>
-        <translation>Sürüm Lisansı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="122"/>
-        <source>End User License Agreement</source>
-        <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="126"/>
-        <source>Boot Menu</source>
-        <translation>Önyükleme Menüsü</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
-        <source>%1Bit</source>
-        <translation>%1Bit</translation>
-    </message>
-    <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="188"/>
         <source>www.deepin.org</source>
         <translation>www.deepin.org</translation>
-=======
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
-        <source>Deepin Community</source>
-        <translation>Deepin Topluluğu</translation>
->>>>>>> e3739f91c... feat(translations):Modify 'Scan Overtime' to 'Scan time expired'
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
         <translation>Telif Hakkı© 2019-2020 UnionTech Software Technology Co., LTD</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::systeminfo::UserLicense</name>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/userlicense.cpp" line="15"/>
-        <source>End User License Agreement</source>
-        <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
     </message>
 </context>
 <context>
@@ -9626,24 +6142,6 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::update::MirrorsWidget</name>
-    <message>
-        <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="42"/>
-        <source>Test Speed</source>
-        <translation>Hız Testi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="46"/>
-        <source>Switch Mirror</source>
-        <translation>Yansı Değiştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="141"/>
-        <source>Retest</source>
-        <translation>Yeniden Dene</translation>
-    </message>
-</context>
-<context>
     <name>dcc::update::ResultItem</name>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="70"/>
@@ -9664,112 +6162,9 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
-        <source>Please restart to use the system and applications properly after updated</source>
-        <translation>Güncelledikten sonra sistem ve uygulamaların doğru çalışması için yeniden başlatın</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
-        <source>Network disconnected, please retry after connected</source>
-        <translation>Ağ bağlantısı kesildi, lütfen bağlandıktan sonra tekrar dene</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
-        <location filename="../src/frame/navigationbar.cpp" line="216"/>
         <source>Update</source>
         <translation>Güncelle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
-        <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Güncelleme uzun sürebilir. Lütfen işlem sürerken bilgisayarı kapatmayın ya da yeniden başlatmayın</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
-        <source>Checking for updates, please wait...</source>
-        <translation>Güncellemeler denetleniyor, lütfen bekleyin...</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="181"/>
-        <source>Download and install updates</source>
-        <translation>Güncellemeleri indir ve kur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="190"/>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="294"/>
-        <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% indirildi (Duraklatmak için tıkla)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="195"/>
-        <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% indirildi (Sürdürmek için tıkla)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="201"/>
-        <source>Install updates</source>
-        <translation>Güncellemeleri kur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="208"/>
-        <source>Your system is up to date</source>
-        <translation>Sisteminiz güncel</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="213"/>
-        <source>Updating, please wait...</source>
-        <translation>Güncelleniyor, lütfen bekleyin...</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="227"/>
-        <source>The newest system installed, restart to take effect</source>
-        <translation>En yeni sistem kuruldu, etkin olması için yeniden başlat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="237"/>
-        <source>Insufficient disk space, unable to update system.</source>
-        <translation>Disk alanı yetersiz olduğundan sistem güncellenemiyor.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
-        <source>Dependency error, failed to detect the updates</source>
-        <translation>Bağımlılık sorunu, güncellemeler belirlenemedi</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
-        <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
-        <source>New system edition detected</source>
-        <translation>Yeni sistem sürümü bulundu</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
-        <source>Downloaded</source>
-        <translation>İndirildi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="280"/>
-        <source>Download size: %1</source>
-        <translation>İndirme boyutu: %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="302"/>
-        <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Pil düzeyiniz %50 değerinin altında, lütfen devam etmek için fişe takın</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="304"/>
-        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Lütfen yeniden başlatmak için yeterli güç sağlayın ve makinenizi kapatmayın veya fişten çekmeyin</translation>
     </message>
 </context>
 <context>
@@ -9787,170 +6182,35 @@ Hiçbir işlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::update::UpdateSettings</name>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="50"/>
-        <source>Update Settings</source>
-        <translation>Güncelleme Ayarları</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
-        <source>Auto Clear Package Cache</source>
-        <translation>Paket Önbelleğini Otomatik Temizle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
-        <source>Updates Notification</source>
-        <translation>Güncelleme Bildirimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="68"/>
-        <source>Auto-download Updates</source>
-        <translation>Güncellemeleri Otomatik İndir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
-        <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Bu seçenek etkinleştirildiğinde, güncellemeler kablosuz ya da kablolu ağdan otomatik olarak indirilir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
-        <source>System Source Detection</source>
-        <translation>Sistem Kaynağı Algılaması</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
-        <source>Prompt the notification if system update mirror has been modified</source>
-        <translation>Sistem güncelleme yansısı değiştirilirse bildirim görüntülenir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
-        <source>Smart Mirror Switch</source>
-        <translation>Akıllı Yansı Değiştir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
-        <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Bu seçenek etkinleştirildiğinde, otomatik olarak en hızlı yansı sitesine geçilir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="114"/>
-        <source>Switch Mirror</source>
-        <translation>Yansı Değiştir</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::update::UpdateView</name>
-    <message>
-        <location filename="../src/frame/modules/update/updateview.cpp" line="40"/>
-        <location filename="../src/frame/modules/update/updateview.cpp" line="52"/>
-        <source>Update</source>
-        <translation>Güncelle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
-        <source>Update Settings</source>
-        <translation>Güncelleme Ayarları</translation>
-    </message>
-</context>
-<context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/modules/update/updatework.cpp" line="354"/>
-=======
-        <location filename="../src/frame/modules/update/updatework.cpp" line="350"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/modules/update/updatework.cpp" line="360"/>
         <source>Patches</source>
         <translation>Yamalar</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/modules/update/updatework.cpp" line="355"/>
-=======
-        <location filename="../src/frame/modules/update/updatework.cpp" line="351"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/modules/update/updatework.cpp" line="361"/>
         <source>System patches</source>
         <translation>Sistem yamaları</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1053"/>
-=======
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1049"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1059"/>
         <source>System</source>
         <translation>Sistem</translation>
     </message>
 </context>
 <context>
-    <name>dcc::wacom::WacomModePage</name>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="37"/>
-        <source>Pen</source>
-        <translation>Kalem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="38"/>
-        <source>Mouse</source>
-        <translation>Fare</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::wacom::WacomSettings</name>
-    <message>
-        <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
-        <source>Pressure Sensitivity</source>
-        <translation>Basınç Duyarlığı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
-        <source>Light</source>
-        <translation>Açık</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
-        <source>Heavy</source>
-        <translation>Ağır</translation>
-    </message>
-</context>
-<context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
-        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="50"/>
-        <source>Mode</source>
-        <translation>Kip</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="161"/>
-        <location filename="../src/frame/navigationbar.cpp" line="215"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
-        <source>Mouse</source>
-        <translation>Fare</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
-        <source>Pen</source>
-        <translation>Kalem</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::widgets::ConnectWidget</name>
-    <message>
-        <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
-        <source>Connected</source>
-        <translation>Bağlandı</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="77"/>
+        <location filename="../src/frame/main.cpp" line="80"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>Kontrol Merkezi, sistem ayarları için seçenekler sunar.</translation>
     </message>

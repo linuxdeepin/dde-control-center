@@ -1,5 +1,23 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
 <context>
+    <name>AdapterWidget</name>
+    <message>
+        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="47"/>
+        <source>My devices</source>
+        <translation>Pajisjet e mia</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="48"/>
+        <source>Other devices</source>
+        <translation>Pajisje të tjera</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
+        <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
+        <translation>Që të gjenden pajisje atypari (altoparlantë, tastierë, mi), aktivizoni bluetooth-in</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothDelegate</name>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
@@ -23,70 +41,37 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
         <source>Help</source>
         <translation>Ndihmë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="306"/>
-=======
-        <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
-        <source>Help</source>
-        <translation>Ndihme</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Accounts</source>
         <translation>Llogari</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="308"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Cloud Account</source>
         <translation>Llogari Në Re</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="309"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Display</source>
         <translation>Ekran</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="310"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Default Applications</source>
         <translation>Aplikacione Parazgjedhje</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="311"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Personalization</source>
         <translation>Personalizim</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="312"/>
-        <source>Network</source>
-        <translation>Rrjet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
         <source>Network</source>
         <translation>Rrjet</translation>
@@ -98,140 +83,92 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Sound</source>
         <translation>Zë</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="314"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="827"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="824"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="826"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="828"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="830"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="315"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Date and Time</source>
         <translation>Datë dhe Kohë</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="316"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Power</source>
         <translation>Energji</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Mouse</source>
         <translation>Mi</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="318"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="839"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="836"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="838"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="840"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="842"/>
         <source>Drawing Tablet</source>
         <translation>Tablet Vizatimi</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="319"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="416"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="417"/>
         <source>Keyboard and Language</source>
         <translation>Tastierë dhe Gjuhë</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="320"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="323"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Updates</source>
         <translation>Përditësime</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="324"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>System Info</source>
         <translation>Të dhëna Sistemi</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
-=======
         <location filename="../src/frame/window/mainwindow.cpp" line="325"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>General Settings</source>
         <translation>Rregullime të Përgjithshme</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
-=======
-        <location filename="../src/frame/window/mainwindow.cpp" line="376"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="377"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="378"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="412"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="415"/>
         <source>Assistive Tools</source>
         <translation>Teknologji Ndihmuese</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="851"/>
-=======
-        <location filename="../src/frame/window/mainwindow.cpp" line="377"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="414"/>
-        <source>Assistive Tools</source>
-        <translation>Teknologji Ndihmuese</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="848"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="850"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/mainwindow.cpp" line="852"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="854"/>
         <source>Cloud Sync</source>
         <translation>Njëkohësim Në Re</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccounntFingeItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="95"/>
+        <source>The fingerprint name already exists</source>
+        <translation>Emri i shenjës së gishtit ekziston tashmë</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="130"/>
+        <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
+        <translation>Emri duhet të përmbajë vetëm shkronja, numra dhe nënvijë, dhe jo më shumë se 15 shenja.</translation>
     </message>
 </context>
 <context>
@@ -255,69 +192,41 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="348"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Always</source>
         <translation>Përherë</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="342"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="341"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Please input a number between 1-99999</source>
         <translation>Ju lutemi, jepni një numër mes 1-99999</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="382"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Change Password</source>
         <translation>Ndryshoni Fjalëkalimin</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="385"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="384"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Delete Account</source>
         <translation>Fshini Llogarinë</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="388"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="387"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Auto Login</source>
         <translation>Vetëhyrje</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="392"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="391"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Login Without Password</source>
         <translation>Hyrje Pa Fjalëkalim</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="465"/>
-=======
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="464"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
         <source>Group</source>
         <translation>Grup</translation>
     </message>
@@ -335,11 +244,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="59"/>
         <source>Create Account</source>
-<<<<<<< HEAD
         <translation>Krijoje Llogarinë</translation>
-=======
-        <translation>Krijoni Llogari</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
@@ -352,50 +257,42 @@
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="140"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="150"/>
         <source>Standard User</source>
-<<<<<<< HEAD
         <translation>Përdorues Standard</translation>
-=======
-        <translation>Përdorues Sstandard</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AddFingeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
-        <source>Add Fingerprint</source>
-        <translation>Shtoni Shenja Gishti</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="83"/>
+        <source>Cancel</source>
+        <translation>Anuloje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="78"/>
-<<<<<<< HEAD
-        <source>Scan Again</source>
-        <translation>Riskanoje</translation>
-=======
-        <source>Scan again</source>
-        <translation>Riskano</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="130"/>
         <source>Done</source>
         <translation>U bë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
-        <source>Identifying fingerprint</source>
-        <translation>Po identifikohen shenja gishti</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
+        <source>Scan Again</source>
+        <translation>Riskanoje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
-        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation>Vendoseni gishtin tuaj te lexuesi i shenjave të gishti, ose rrëshqiteni për sipër ose për poshtë, dhe mandej hiqeni</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
+        <source>Scan Suspended</source>
+        <translation>Skanimi u Pezullua</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
-        <source>Fingerprint added</source>
-        <translation>U shtuan shenja gishti</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
+        <source>Scan time expired</source>
+        <translation>Koha e skanimit skadoi</translation>
     </message>
 </context>
 <context>
@@ -507,23 +404,29 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
-        <source>Delete fingerprint</source>
-        <translation>Fshi shenjë gishti</translation>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="86"/>
+        <source>Edit</source>
+        <translation>Përpunim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
         <source>Fingerprint Password</source>
-        <translation>Fjalëkalim Shenjash Gishti</translation>
+        <translation>Fjalëkalim Shenjash Gishtash</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="102"/>
-        <source>Fingerprint</source>
-        <translation>Shenja gishti</translation>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
+        <source>You can add up to 10 fingerprints</source>
+        <translation>Mund të shtoni deri në 10 shenja gishtash</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="133"/>
-        <source>Add fingerprint</source>
-        <translation>Shtoni shenjë gishti</translation>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="84"/>
+        <source>Cancel</source>
+        <translation>Anuloje</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="153"/>
+        <source>Add Fingerprint</source>
+        <translation>Shtoni Shenja Gishtash</translation>
     </message>
 </context>
 <context>
@@ -600,19 +503,19 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="56"/>
-        <source>My devices</source>
-        <translation>Pajisjet e mia</translation>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="55"/>
+        <source>My Devices</source>
+        <translation>Pajisjet e Mia</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="60"/>
-        <source>Other devices</source>
-        <translation>Pajisje të tjera</translation>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="59"/>
+        <source>Other Devices</source>
+        <translation>Pajisje të Tjera</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="74"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Që të gjenden pajisje atypari (altoparlantë, tastierë, mi), aktivizoni Bluetooth-in</translation>
     </message>
@@ -654,11 +557,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="165"/>
         <source>Connected</source>
-<<<<<<< HEAD
         <translation>E lidhur</translation>
-=======
-        <translation>U lidh</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="170"/>
@@ -669,34 +568,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="80"/>
         <source>Updating...</source>
         <translation>Po përditësohet…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="93"/>
         <source>Startup Delay</source>
         <translation>Vonesë Nisjeje</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="97"/>
         <source>Theme</source>
         <translation>Temë</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="99"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>Klikoni mbi mundësinë te menuja e nisjeve, për ta caktuar si nisjen e parë, dhe të tërhiqni dhe lini një foto që të ndryshohet sfondi.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="104"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>Aktivizoni temën që ta shihni te menu nisjesh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="128"/>
         <source>Boot Menu</source>
         <translation>Menu Nisjesh</translation>
     </message>
@@ -726,11 +625,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
-<<<<<<< HEAD
-        <translation>Program Përvojë Përdorues</translation>
-=======
-        <translation>Program Përvojë Përdoruesi</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <translation>Program Përshtypjesh Përdoruesi</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
@@ -742,36 +637,22 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="86"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
-=======
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Failed to get root access</source>
         <translation>S’u arrit të hyhej si rrënjë</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="88"/>
-=======
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="87"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Please sign in to your cloud account first</source>
         <translation>Ju lutemi, së pari hyni te llogaria juaj në re</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="90"/>
-=======
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="89"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Cannot read your PC information</source>
         <translation>S’lexohen dot të dhëna mbi PC-në tuaj</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="92"/>
         <source>No network connection</source>
         <translation>S’ka lidhje rrjeti</translation>
@@ -793,47 +674,16 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="234"/>
-=======
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
-        <source>No network connection</source>
-        <translation>S’ka lidhje rrjeti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
-        <source>Certificate loading failed, unable to get root access</source>
-        <translation>Ngarkimi i dëshmisë dështoi, s’arrihet të merret hyrje si rrënjë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
-        <source>Signature verification failed, unable to get root access</source>
-        <translation>Verifikimi i nënshkrimit dështoi, s’arrihet të merret hyrje si rrënjë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="232"/>
-        <source>UOS Privacy Policy</source>
-        <translation>Rregulla Privatësie UOS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Agree and Join User Experience Program</source>
-        <translation>Shprehni Pajtimin dhe Merrni Pjesë Te Programi Përvojë Përdoruesi</translation>
+        <translation>Shprehni Pajtimin dhe Merrni Pjesë Te Programi i Përshtypjeve të Përdoruesit</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="293"/>
-=======
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>The Disclaimer of Developer Mode</source>
         <translation>Klauzolë e Mënyrës Zhvillues</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="294"/>
-=======
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Agree and Request Root Access</source>
         <translation>Shprehni Pajtimin dhe Kërko Hyrje Si Rrënjë</translation>
     </message>
@@ -864,43 +714,13 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="96"/>
         <source>Next</source>
-<<<<<<< HEAD
         <translation>Pasuesja</translation>
-=======
-        <translation>Pasuesi</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="100"/>
         <source>Export PC Info</source>
         <translation>Eksporto të Dhëna PC-je</translation>
-<<<<<<< HEAD
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="101"/>
-        <source>Import Certificate</source>
-        <translation>Importoni Dëshmi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="127"/>
-        <source>1. Export your PC information</source>
-        <translation>1. Eksporto të Dhëna PC-je</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="128"/>
-        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation>2. Shkoni te https://www.chinauos.com/developMode që të shkarkoni një dëshmi &lt;em&gt;offline&lt;/em&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="129"/>
-        <source>3. Import the certificate</source>
-        <translation>3. Importoni dëshminë</translation>
-=======
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-</context>
-<context>
-    <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="101"/>
         <source>Import Certificate</source>
@@ -945,7 +765,6 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="106"/>
         <source>Please sign in to your cloud account first</source>
         <translation>Ju lutemi, së pari hyni te llogaria juaj në re</translation>
-<<<<<<< HEAD
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
@@ -973,35 +792,6 @@
         <translation>Për t’i vënë në fuqi disa veçori, lypset rinisje. Të bëhet rinisje tani?</translation>
     </message>
     <message>
-=======
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
-        <source>Cannot read your PC information</source>
-        <translation>S’lexohen dot të dhëna mbi PC-në tuaj</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
-        <source>No network connection</source>
-        <translation>S’ka lidhje rrjeti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
-        <source>Certificate loading failed, unable to get root access</source>
-        <translation>Ngarkimi i dëshmisë dështoi, s’arrihet të merret hyrje si rrënjë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="114"/>
-        <source>Signature verification failed, unable to get root access</source>
-        <translation>Verifikimi i nënshkrimit dështoi, s’arrihet të merret hyrje si rrënjë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
-        <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation>Për t’i vënë në fuqi disa veçori, lypset rinisje. Të bëhet rinisje tani?</translation>
-    </message>
-    <message>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
         <source>Cancel</source>
         <translation>Anuloje</translation>
@@ -1022,17 +812,13 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="46"/>
         <source>Join User Experience Program</source>
-        <translation>Merrni Pjesë Te Programi Përvojë Përdoruesi</translation>
+        <translation>Merrni Pjesë Te Programi i Përshtypjeve të Përdoruesit</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
-<<<<<<< HEAD
-        <translation>Pjesëmarrja te Programi Përvojë Përdoruesi do të thotë se na akordoni dhe autorizoni grumbullimin dhe përdorimin e të dhënave të pajisjes tuaj. Nëse refuzoni koleksionin tonë dhe përdorni të dhënat e përmendura më sipër, mos merrni pjesë te Programi Përvojë Përdoruesi. Për hollësi, ju lutemi, referojuni Rregullave të Privatësisë për UOS (https://www.chinauos.com/agreement/experience).</translation>
-=======
-        <translation>Pjesëmarrja te Programi Përvojë Përdoruesi do të thotë se na akordoni dhe autorizoni grumbullimin dhe përdorimin e të dhënave të pajisjes tuaj. Nëse refuzoni koleksionin tonë dhe përdorni të dhënat e përmendura më sipër, mos merrni pjesë te Program Përvojë Përdoruesi. Për hollësi, ju lutemi, referojuni Rregullave të Privatësisë për UOS (https://www.chinauos.com/agreement/experience).</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <translation>Pjesëmarrja te Programi i Përshtypjeve të Përdoruesve do të thotë se na akordoni dhe autorizoni grumbullimin dhe përdorimin e të dhënave të pajisjes tuaj. Nëse refuzoni koleksionin tonë dhe përdorni të dhënat e përmendura më sipër, mos merrni pjesë te User Experience Program. Për hollësi, ju lutemi, referojuni Rregullave të Privatësisë për UOS (https://www.chinauos.com/agreement/experience).</translation>
     </message>
 </context>
 <context>
@@ -1184,11 +970,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="256"/>
         <source>Open Desktop file</source>
-<<<<<<< HEAD
         <translation>Hap kartelë Desktopi</translation>
-=======
-        <translation>Hap kartelë Dekstopi</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="316"/>
@@ -1270,63 +1052,54 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="74"/>
         <source>Auto Brightness</source>
-<<<<<<< HEAD
         <translation>Vetëndriçim</translation>
-=======
-        <translation>Ndriçim i Automatizuar</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::display::CustomSettingDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
-        <source>Main Screen</source>
-        <translation>Skena Kryesore</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="94"/>
+        <source>Displays</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="100"/>
         <source>Resolution</source>
         <translation>Qartësi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="105"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="177"/>
         <source>Refresh Rate</source>
         <translation>Shpejtësi rifreskimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="135"/>
         <source>Cancel</source>
         <translation>Anuloje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="139"/>
         <source>Save</source>
         <translation>Ruaje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="272"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="281"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="334"/>
         <source>Recommended</source>
         <translation>E këshilluar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="371"/>
-        <source>inch</source>
-        <translation>inç</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="372"/>
-        <source>Resolution %1x%2</source>
-        <translation>Qartësi %1x%2</translation>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="404"/>
+        <source>Monitor Connected (Multiple)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1349,7 +1122,7 @@
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="71"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="151"/>
         <source>Refresh Rate</source>
-        <translation>Shpejtësi rifreskimi</translation>
+        <translation>Shpejtësi Rifreskimi</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
     <message>
@@ -1412,22 +1185,12 @@
         <translation>Shtrije desktopin nëpër ekrane</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
-        <source>%1 only</source>
-        <translation>Vetëm %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
-        <source>Show the screen content only on %1</source>
-        <translation>Shfaqe lëndën e ekranit vetëm në %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="136"/>
         <source>Customize</source>
         <translation>Përshtateni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="137"/>
         <source>Configure the display according to your needs</source>
         <translation>Formësojeni ekranin sipas nevojave tuaja</translation>
     </message>
@@ -1569,13 +1332,13 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="98"/>
         <source>Numeric Keypad</source>
-        <translation>Tastiera numerike</translation>
+        <translation type="unfinished"/>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="103"/>
         <source>Caps Lock Prompt</source>
-        <translation>Kycja e kapakeve</translation>
+        <translation type="unfinished"/>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
@@ -1654,11 +1417,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="57"/>
         <source>Shortcuts</source>
-<<<<<<< HEAD
         <translation>Shkurtore</translation>
-=======
-        <translation>Rruge e shkurter</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
@@ -1692,11 +1451,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="116"/>
         <source>Restore Defaults</source>
-<<<<<<< HEAD
         <translation>Rikthe Parazgjedhjet</translation>
-=======
-        <translation>Rikthe te Paracaktuarat</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="142"/>
@@ -2088,11 +1843,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="185"/>
         <source>Export</source>
-<<<<<<< HEAD
         <translation>Eksporto</translation>
-=======
-        <translation>Eksportoje</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="202"/>
@@ -2135,7 +1886,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="59"/>
         <source>Not Bind</source>
-        <translation>Jo e lidhur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="101"/>
@@ -2249,7 +2000,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="239"/>
         <source>IP Address</source>
-        <translation>Vendndodhje IP</translation>
+        <translation>Adresë IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
@@ -2475,21 +2226,13 @@
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="353"/>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="363"/>
         <source>Disabled</source>
-<<<<<<< HEAD
         <translation>I çaktivizuar</translation>
-=======
-        <translation>E çaktivizuar</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="373"/>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
         <source>Disconnected</source>
-<<<<<<< HEAD
         <translation>E shkëputur</translation>
-=======
-        <translation>Po shkëputet</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
 </context>
 <context>
@@ -2596,7 +2339,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
-        <translation>Gjendje  MPPE</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2642,6 +2385,19 @@
         <translation>Auto</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="108"/>
+        <source>Optional</source>
+        <translation>Opsionale</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
         <source>HTTP Proxy</source>
         <translation>Ndërmjetës HTTP</translation>
@@ -2651,23 +2407,6 @@
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="91"/>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
-<<<<<<< HEAD
-=======
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
-        <source>Optional</source>
-        <translation>Opsionale</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
-        <source>HTTP Proxy</source>
-        <translation>Ndërmjetës HTTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="99"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Port</source>
         <translation>Portë</translation>
     </message>
@@ -2757,11 +2496,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Disabled</source>
-<<<<<<< HEAD
         <translation>I çaktivizuar</translation>
-=======
-        <translation>E çaktivizuar</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
@@ -2841,7 +2576,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="374"/>
         <source>Provisioning</source>
-        <translation>Provisioni</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="386"/>
@@ -2907,11 +2642,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="156"/>
         <source>Key</source>
-<<<<<<< HEAD
         <translation>Kyç</translation>
-=======
-        <translation>Tast</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="162"/>
@@ -2968,11 +2699,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="171"/>
         <source>Key</source>
-<<<<<<< HEAD
         <translation>Kyç</translation>
-=======
-        <translation>Tast</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="178"/>
@@ -2985,7 +2712,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>VPN e avancuare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
@@ -3000,12 +2727,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation>Ndrysho Njohjen e Intervalit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
-        <translation>Intervali i njohjes</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
@@ -3045,7 +2772,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation>Kufizo Tunalin TCP MSS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
@@ -3058,7 +2785,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
         <source>VPN Advanced</source>
-        <translation>VPN e avancuare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
@@ -3068,7 +2795,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="143"/>
         <source>Netscreen</source>
-        <translation>Netscreen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
@@ -3104,11 +2831,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="154"/>
         <source>Disabled</source>
-<<<<<<< HEAD
-        <translation>I çaktivizuar</translation>
-=======
         <translation>E çaktivizuar</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
@@ -3160,7 +2883,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="198"/>
         <source>NAT Traversal Mode</source>
-        <translation>menyra e udhetimit NAT</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="208"/>
@@ -3170,7 +2893,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="218"/>
         <source>Forward Secrecy</source>
-        <translation>Perpara sekretet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="228"/>
@@ -3208,7 +2931,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
         <source>Pre-Shared Key</source>
-        <translation>Celes i para-shperndare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
@@ -3480,7 +3203,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="176"/>
         <source>Stateful MPPE</source>
-        <translation>Gjendje  MPPE</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3737,7 +3460,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="146"/>
         <source>Pre-Shared Key</source>
-        <translation>Celes i para-shperndare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
@@ -3830,7 +3553,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="89"/>
         <source>Subject Match</source>
-        <translation>Objekti u perputh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="92"/>
@@ -3991,7 +3714,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
         <source>Not Bind</source>
-        <translation>Jo e lidhur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="123"/>
@@ -4022,63 +3745,37 @@
 <context>
     <name>dccV20::notification::AppNotifyWidget</name>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="50"/>
-        <source>Size</source>
-        <translation>Madhësi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="81"/>
-        <source>Standard Font</source>
-        <translation>Shkronja Standarde</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="99"/>
-        <source>Monospaced Font</source>
-        <translation>Shkronja Monospace</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="225"/>
-        <source> (Unsupported font)</source>
-        <translation> (Shkronja të pambuluara)</translation>
-=======
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="75"/>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq njoftime prej %1 në desktop dhe te qendra e njoftimeve.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="89"/>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Luaj një tingull</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="92"/>
         <source>Show messages on lockscreen</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq mesazhe kur ekrani është i kyçur</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="95"/>
         <source>Show only in notification center</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq vetëm në qendër njoftimesh</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="98"/>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <translation>Shfaq paraparje mesazhi</translation>
     </message>
 </context>
 <context>
     <name>dccV20::notification::NotificationModule</name>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="72"/>
-=======
         <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="70"/>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Njoftim</translation>
     </message>
 </context>
 <context>
@@ -4086,12 +3783,12 @@
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="61"/>
         <source>System Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Njoftime Sistemi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="72"/>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Njoftime Aplikacionesh</translation>
     </message>
 </context>
 <context>
@@ -4099,22 +3796,22 @@
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="50"/>
         <source>Show icon on Dock</source>
-        <translation type="unfinished"/>
+        <translation>Shfaqe ikonën në Panel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="78"/>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Mos Më Shqetëso</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="84"/>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Njoftimet e aplikacioneve s’do të shfaqen në desktop dhe tingujt do të heshtohen, por mund të shihni krejt mesazhet te qendra e njoftimeve.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="107"/>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Kur ekrani është i kyçur</translation>
     </message>
 </context>
 <context>
@@ -4122,12 +3819,12 @@
     <message>
         <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="44"/>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>Nga</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="46"/>
         <source>To</source>
-        <translation type="unfinished"/>
+        <translation>Për</translation>
     </message>
 </context>
 <context>
@@ -4159,39 +3856,17 @@
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="75"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Theme</source>
         <translation>Temë</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="81"/>
-=======
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="84"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Accent Color</source>
         <translation>Ngjyrë Theksimi</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="117"/>
-        <source>Window Effect</source>
-        <translation>Efekt Dritaresh</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="123"/>
-        <source>Transparency</source>
-        <translation>Tejdukshmëri</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::personalization::PersonalizationList</name>
-    <message>
-=======
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="120"/>
         <source>Window Effect</source>
         <translation>Efekt Dritaresh</translation>
@@ -4206,23 +3881,22 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="149"/>
         <source>Window Miniminze Effect</source>
-        <translation type="unfinished"/>
+        <translation>Efekt Minimizimi Dritareje</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="152"/>
         <source>Scale</source>
-        <translation type="unfinished"/>
+        <translation>Shkallë</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="152"/>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>Llambë Magjike</translation>
     </message>
 </context>
 <context>
     <name>dccV20::personalization::PersonalizationList</name>
     <message>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="48"/>
         <source>General</source>
         <translation>Të përgjithshme</translation>
@@ -4260,7 +3934,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="100"/>
         <source>Light</source>
-        <translation>E lehtë</translation>
+        <translation>E çelët</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="102"/>
@@ -4283,7 +3957,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="77"/>
         <source>Light</source>
-        <translation>E lehtë</translation>
+        <translation>E çelët</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
@@ -4307,32 +3981,48 @@
 <context>
     <name>dccV20::power::GeneralWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="41"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
         <source>Power Saving Mode</source>
         <translation>Mënyrë Kursim Energjie</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="42"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
         <source>Auto Mode Switch</source>
-        <translation>Auto Menyra e ndryshimit</translation>
+        <translation>Mënyrë Këmbim i Vetvetishëm</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="72"/>
         <source>Password is required to wake up the computer</source>
         <translation>Që të zgjohet kompjuteri, lypset fjalëkalim</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="44"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="74"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Që të zgjohet monitor, lypset fjalëkalim</translation>
         <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
+        <source>Battery</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="75"/>
+        <source>Display capacity and remaining charging time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="76"/>
+        <source>Maximum capacity</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4341,7 +4031,6 @@
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="58"/>
         <source>On Battery</source>
         <translation>Nën Bateri</translation>
-<<<<<<< HEAD
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="73"/>
@@ -4349,15 +4038,6 @@
         <translation>Energji</translation>
     </message>
     <message>
-=======
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="73"/>
-        <source>Power</source>
-        <translation>Energji</translation>
-    </message>
-    <message>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="190"/>
         <source>Battery low, please plug in</source>
         <translation>Bateri e pakët, ju lutemi, vëreni në prizë</translation>
@@ -4443,11 +4123,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="172"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="181"/>
         <source>%1 Minutes</source>
-<<<<<<< HEAD
         <translation>%1 Minutash</translation>
-=======
-        <translation>%1 Minuta</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="175"/>
@@ -4507,11 +4183,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="196"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="205"/>
         <source>%1 Minutes</source>
-<<<<<<< HEAD
         <translation>%1 Minutash</translation>
-=======
-        <translation>%1 Minuta</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="199"/>
@@ -4522,201 +4194,143 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="116"/>
         <source>Server</source>
         <translation>Shërbyes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="117"/>
         <source>Window Effect</source>
         <translation>Efekt Dritaresh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="77"/>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="435"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="422"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="118"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="476"/>
         <source>Developer Mode</source>
         <translation>Mënyra Zhvillues</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="119"/>
         <source>User Experience Program</source>
-        <translation>Program Përvojë Përdorues</translation>
+        <translation>Program Përshtypjesh Përdoruesi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="120"/>
         <source>Join User Experience Program</source>
-        <translation>Merrni Pjesë Te Programi Përvojë Përdoruesi</translation>
-<<<<<<< HEAD
+        <translation>Merrni Pjesë Te Programi i Përshtypjeve të Përdoruesit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="121"/>
         <source>Display Scaling</source>
         <translation>Ripërmasim Ekrani</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
         <source>Night Shift</source>
         <translation>Turn Nate</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
         <source>Auto Login</source>
         <translation>Vetëhyrje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="83"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="124"/>
         <source>Login Without Password</source>
         <translation>Hyrje Pa Fjalëkalim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
         <source>Auto Brightness</source>
         <translation>Vetëndriçim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="85"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
         <source>General</source>
         <translation>Të përgjithshme</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="86"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Që të zgjohet monitor, lypset fjalëkalim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="87"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
         <source>Password is required to wake up the computer</source>
         <translation>Që të zgjohet kompjuteri, lypset fjalëkalim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>Power Saving Mode</source>
         <translation>Mënyrë Kursim Energjie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Mënyrë Këmbim i Vetvetishëm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
         <source>Transparency</source>
         <translation>Tejdukshmëri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
         <source>Create PPPoE Connection</source>
         <translation>Krijoni Lidhje PPPoE</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
         <source>Disable the touchpad while typing</source>
         <translation>Çaktivizoje touchpad-in teksa shtypet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Çaktivizoje touchpad-in, kur futet miu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="101"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
         <source>Personal Hotspot</source>
         <translation>Hotspot Personal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="104"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
         <source>On Battery</source>
         <translation>Nën Bateri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
         <source>Wired Network</source>
         <translation>Rrjet Me Fill</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="106"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
         <source>Wireless Network</source>
         <translation>Rrjet Pa Fill</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="107"/>
-=======
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
-        <source>Display Scaling</source>
-        <translation>Ripërmasim Ekrani</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="81"/>
-        <source>Night Shift</source>
-        <translation>Turn Nate</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="88"/>
-        <source>Touchpad</source>
-        <translation>Touchpad</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="89"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="90"/>
-        <source>Personal Hotspot</source>
-        <translation>Hotspot Personal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="91"/>
-        <source>On Battery</source>
-        <translation>Nën Bateri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="92"/>
-        <source>Wired Network</source>
-        <translation>Rrjet Me Fill</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="93"/>
-        <source>Wireless Network</source>
-        <translation>Rrjet Pa Fill</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="94"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="148"/>
         <source>Multiple Displays</source>
         <translation>Ekrane të Shumtë</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="436"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="423"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="477"/>
         <source>End User License Agreement</source>
         <translation>Marrëveshje Licence Përdoruesi (EULA)</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="443"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="430"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="484"/>
         <source>Cloud Account</source>
         <translation>Llogari Në Re</translation>
     </message>
@@ -4730,21 +4344,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="95"/>
-=======
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Input</source>
         <translation>Hyrje</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
-=======
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <source>Sound Card:</source>
         <translation>Kartë Zëri:</translation>
     </message>
@@ -4759,11 +4365,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="103"/>
         <source>Input Volume</source>
-<<<<<<< HEAD
         <translation>Volum Në Hyrje</translation>
-=======
-        <translation>Volumi në hyrje</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
@@ -4831,11 +4433,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="157"/>
         <source>Volume Boost</source>
-<<<<<<< HEAD
         <translation>Përforcim Volumi</translation>
-=======
-        <translation>Përfocim Volumi</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="164"/>
@@ -4862,121 +4460,77 @@
 <context>
     <name>dccV20::sync::IndexPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="45"/>
         <source>Auto Sync</source>
         <translation>Vetë-njëkohësohu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="48"/>
         <source>Syncing...</source>
         <translation>Po njëkohësohet…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="95"/>
         <source>Sign Out</source>
         <translation>Dilni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
         <translation>Fjalëkalimi juaj për WLAN do të njëkohësohet nëse Rregullime Rrjeti janë të aktivizuara</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="152"/>
         <source>Network Settings</source>
         <translation>Rregullime Rrjeti</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="151"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="150"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="153"/>
         <source>Sound Settings</source>
         <translation>Rregullime Zëri</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="152"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="151"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="154"/>
         <source>Mouse Settings</source>
         <translation>Rregullime Miu</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="153"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="152"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="155"/>
         <source>Update Settings</source>
         <translation>Rregullime Përditësimi</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="154"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="153"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="156"/>
         <source>Dock</source>
         <translation>Panel</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="155"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="154"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="157"/>
         <source>Launcher</source>
         <translation>Nisës</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="156"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="155"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
         <source>Wallpaper</source>
         <translation>Sfond</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="157"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="156"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="159"/>
         <source>Theme</source>
         <translation>Temë</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="158"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="157"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="160"/>
         <source>Power Settings</source>
         <translation>Rregullime Energjie</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="280"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="255"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="292"/>
         <source>Last Sync: %1</source>
         <translation>Njëkohësimi i Fundit Më: %1</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="282"/>
-=======
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="257"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="294"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>dd-MM-yyyy hh:mm</translation>
     </message>
@@ -5135,11 +4689,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="81"/>
         <source>Type:</source>
-<<<<<<< HEAD
         <translation>Lloj:</translation>
-=======
-        <translation>Lloji:</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -5321,7 +4871,6 @@
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="71"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Rrjeti u shkëput, ju lutemi, riprovoni pasi të jetë lidhur</translation>
-<<<<<<< HEAD
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="80"/>
@@ -5329,15 +4878,6 @@
         <translation>Sistemi juaj s’është i autorizuar, ju lutemi, së pari aktivizojeni</translation>
     </message>
     <message>
-=======
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="80"/>
-        <source>Your system is not authorized, please activate first</source>
-        <translation>Sistemi juaj s’është i autorizuar, ju lutemi, së pari aktivizojeni</translation>
-    </message>
-    <message>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="101"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>Ky përditësim mund të zgjasë një kohë të gjatë, ju lutemi, mos e fikni apo rinisni gjatë procesit</translation>
@@ -5520,34 +5060,34 @@
 <context>
     <name>dccV20::update::UpdateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="60"/>
         <source>Updates</source>
         <translation>Përditësime</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="63"/>
         <source>Update Settings</source>
         <translation>Rregullime Përditësimi</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="73"/>
         <source>Last Update</source>
         <translation>Përditësimi i Fundit Më</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="120"/>
         <source>Return</source>
-        <translation>kthehu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="170"/>
         <source>Current Edition</source>
         <translation>Edicioni i Tanishëm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="184"/>
         <source>Update History</source>
         <translation>Historik Përditësimesh</translation>
     </message>
@@ -5603,45 +5143,39 @@
 <context>
     <name>DisplayControlModel</name>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="87"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <source>Copy</source>
         <translation>Kopjoje</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="89"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
         <translation>Zgjeroje</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="91"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
         <translation>Shfaqur Vetëm në %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="99"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
+        <source>New Custom Settings</source>
+        <translation>Rregullime të Reja Vetjake</translation>
+    </message>
+    <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>Kopjo lëndë ekrani te një ose më tepër ekrane</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="101"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation>Zgjeroje lëndën e ekranit që të shfaqë lëndë të ndryshme në ekrane të ndryshëm</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="103"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
         <translation>Lënda e ekranit shfaqet vetëm në %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
-        <source>New Custom Settings</source>
-        <translation>Rregullime të Reja Vetjake</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
@@ -5667,14 +5201,6 @@
     <name>NavModel</name>
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="187"/>
-        <source>Navigation</source>
-        <translation>Lëvizje</translation>
-    </message>
-</context>
-<context>
-    <name>NavigationBar</name>
-    <message>
-        <location filename="../src/frame/navigationbar.cpp" line="242"/>
         <source>Navigation</source>
         <translation>Lëvizje</translation>
     </message>
@@ -5713,99 +5239,58 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="76"/>
+        <location filename="../src/frame/main.cpp" line="79"/>
         <source>Control Center</source>
         <translation>Qendër Kontrolli</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="250"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="237"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="291"/>
         <source>On Battery</source>
         <translation>Nën Bateri</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="251"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="238"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="292"/>
         <source>Plugged In</source>
         <translation>Në Prizë</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="252"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="239"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="293"/>
         <source>General</source>
         <translation>Të përgjithshme</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="253"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="240"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="294"/>
         <source>Mouse</source>
         <translation>Mi</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="254"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="241"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="295"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="255"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="242"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="296"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="256"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="243"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="297"/>
         <source>Application Proxy</source>
         <translation>Ndërmjetës Aplikacioni</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="257"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="260"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="244"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="247"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="298"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="301"/>
         <source>System Proxy</source>
         <translation>Ndërmjetës Sistemi</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="258"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="245"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="299"/>
         <source>Time Settings</source>
         <translation>Rregullime Kohe</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="259"/>
-=======
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="246"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="300"/>
         <source>Change System Timezone</source>
         <translation>Ndryshoni Zonë Kohore Sistemi</translation>
     </message>
@@ -5839,25 +5324,11 @@
     </message>
 </context>
 <context>
-    <name>RotateDialog</name>
-    <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="137"/>
-        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
-If no operation, the display will be restored after %1s.</source>
-        <translation>Klikoni me të majtin për ta rrotulluar, klikoni me të djathtin për ta rikthyer dhe dalë, shtypni Ctrl+S për ta ruajtur.
-Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
-    </message>
-</context>
-<context>
     <name>SearchInput</name>
     <message>
         <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
-<<<<<<< HEAD
         <translation>Kërkim</translation>
-=======
-        <translation>Kerko</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
 </context>
 <context>
@@ -5865,11 +5336,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     <message>
         <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
-<<<<<<< HEAD
         <translation>S’ka përfundime kërkimi</translation>
-=======
-        <translation>Ska rezultate nga kerkimi</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="142"/>
@@ -5902,83 +5369,6 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
         <location filename="../src/frame/settingswidget.cpp" line="90"/>
         <source>All Settings</source>
         <translation>Krejt Rregullimet</translation>
-    </message>
-</context>
-<context>
-    <name>SoundEffectPage</name>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
-        <source>Boot up</source>
-        <translation>Ndize</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
-        <source>Shut down</source>
-        <translation>Fike</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Log out</source>
-        <translation>Dilni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
-        <source>Wake up</source>
-<<<<<<< HEAD
-        <translation>Zgjohuni</translation>
-=======
-        <translation>Zgjohu</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
-        <source>Volume +/-</source>
-        <translation>Volum +/-</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
-        <source>Notification</source>
-        <translation>Njoftim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="22"/>
-        <source>Low battery</source>
-        <translation>Bateri e pakët</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
-        <source>Send icon in Launcher to Desktop</source>
-        <translation>Dërgoje ikonën te Nisës në Desktop</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
-        <source>Empty Trash</source>
-        <translation>Zbraz Hedhurinat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
-        <source>Plug in</source>
-        <translation>Fute</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="26"/>
-        <source>Plug out</source>
-        <translation>Nxirre</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
-        <source>Removable device connected</source>
-        <translation>U lidh pajisje e heqshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
-        <source>Removable device removed</source>
-        <translation>U hoq pajisje e heqshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
-        <source>Error</source>
-        <translation>Gabim</translation>
     </message>
 </context>
 <context>
@@ -6072,116 +5462,11 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::accounts::ADDialog</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
-        <source>Leave domain</source>
-        <translation>Braktise përkatësinë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
-        <source>Join domain</source>
-        <translation>Lidhu me përkatësinë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="61"/>
-        <source>Domain Server</source>
-        <translation>Shërbyes Përkatësie</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="62"/>
-        <source>Admin account</source>
-        <translation>Llogari përgjegjësi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="63"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="72"/>
-        <source>Cancel</source>
-        <translation>Anuloje</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::AccountsDetailWidget</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="51"/>
-        <source>Modify Avatar</source>
-        <translation>Ndryshoni Avatarin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="54"/>
-        <source>Modify Fullname</source>
-        <translation>Ndryshoni Emrin e plotë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="57"/>
-        <source>Modify Password</source>
-        <translation>Ndryshoni Fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="60"/>
-        <source>Auto Login</source>
-        <translation>Vetëhyrje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="64"/>
-        <source>Login Without Password</source>
-        <translation>Hyrje Pa Fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="68"/>
-        <source>Delete Account</source>
-<<<<<<< HEAD
-        <translation>Fshini Llogarinë</translation>
-=======
-        <translation>Fshini Llogari</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="71"/>
-        <source>Unable to delete, current user logged in</source>
-        <translation>S’arrihet të fshihet, përdoruesi i tanishëm është i futur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="74"/>
-        <source>Fingerprint Password</source>
-<<<<<<< HEAD
-        <translation>Fjalëkalim Shenjash Gishti</translation>
-=======
-        <translation>Fjalëkalim Shenjash Gishtash</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-</context>
-<context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="43"/>
-        <source>Create Account</source>
-<<<<<<< HEAD
-        <translation>Krijoje Llogarinë</translation>
-=======
-        <translation>Krijoni Llogari</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="149"/>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Accounts</source>
         <translation>Llogari</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
-        <source>Leave domain</source>
-        <translation>Braktise përkatësinë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
-        <source>Join domain</source>
-        <translation>Lidhu me përkatësinë</translation>
     </message>
 </context>
 <context>
@@ -6209,7 +5494,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="418"/>
         <source>AD domain settings</source>
-        <translation>Rregullimet e zones AD</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="487"/>
@@ -6218,244 +5503,99 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::accounts::AddFingerPage</name>
+    <name>dcc::accounts::FingerModel</name>
     <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="42"/>
-        <source>Add Fingerprint</source>
-<<<<<<< HEAD
-        <translation>Shtoni Shenja Gishti</translation>
-=======
-        <translation>Shtoni Shenja Gishtash</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <source>The fingerprint already exists</source>
+        <translation>Shenja e gishtit ekziston tashmë</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
-        <source>Re-enter</source>
-        <translation>Rijepeni</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="161"/>
+        <source>Please scan other fingers</source>
+        <translation>Ju lutemi, skanoni gishta të tjerë</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="56"/>
-        <source>Done</source>
-        <translation>U bë</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
+        <source>Moved too fast</source>
+        <translation>U lëviz shumë shpejt</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="108"/>
-        <source>Identifying fingerprint</source>
-<<<<<<< HEAD
-        <translation>Po identifikohen shenja gishti</translation>
-=======
-        <translation>Po identifikohen shenja gishtash</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
+        <source>Finger moved too fast, please do not lift until prompted</source>
+        <translation>Gishti lëvizi shumë shpejt, ju lutemi, mos e ngrini para se t’ju kërkohet</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
-        <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-<<<<<<< HEAD
-        <translation>S’u arrit të identifikohen shenja gishti, vendosni gishtin tuaj te lexuesi i shenjave të gishtave, rrëshqiteni për sipër dhe hiqeni</translation>
-=======
-        <translation>S’u arrit të identifikohen shenja gishtash, vendosni gishtin tuaj te lexuesi i shenjave të gishtave, rrëshqiteni për sipër dhe hiqeni</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="152"/>
+        <source>Unclear fingerprint</source>
+        <translation>Shenjë gishti e paqartë</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
-        <source>Added successfully</source>
-        <translation>U shtua me sukses</translation>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>Pastroni gishtin ose rregulloni pozicion gishti, dhe riprovoni</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-<<<<<<< HEAD
-        <translation>Vendosni gishtin tuaj te lexuesi i shenjave të gishtit, rrëshqiteni për sipër, mandej përsëriteni</translation>
-=======
-        <translation>Vendosni gishtin tuaj te lexuesi i shenjave të gishtave, rrëshqiteni për sipër, mandej përsëriteni</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="156"/>
+        <source>Already scanned</source>
+        <translation>Skanuar tashmë</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
+        <source>Adjust the finger position to scan your fingerprint fully</source>
+        <translation>Rregullojeni pozicionin e gishtit që të skanohet plotësisht shenja e gishtit</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>Gishti u lëviz shumë shpejt. Ju lutemi, mos e ngrini, pa jua kërkuar</translation>
     </message>
 </context>
 <context>
-    <name>dcc::accounts::CreatePage</name>
+    <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="53"/>
-        <source>Username</source>
-        <translation>Emër përdoruesi</translation>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
+        <source>Place your finger</source>
+        <translation>Vendosni gishtin</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="54"/>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="56"/>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="59"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation>Vendoseni gishtin gishtin tuaj pa e lëvizur te ndijuesi, deri sa t’ju kërkohet ta hiqni</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="55"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
+        <source>Lift your finger</source>
+        <translation>Hiqeni gishtin</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="58"/>
-        <source>Repeat password</source>
-        <translation>Përsëritni fjalëkalimin</translation>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>Ngrijeni gishtin dhe rivendoseni te ndijuesi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="67"/>
-        <source>Cancel</source>
-        <translation>Anuloje</translation>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <source>Scan the edges of your fingerprint</source>
+        <translation>Skanoni skajet e shenjës tuaj të gishtit</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="68"/>
-        <source>Create</source>
-        <translation>Krijoje</translation>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation>Rregullojeni pozicionin që të skanohen skajet e shenjës së gishtit tuaj</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="88"/>
-        <source>New Account</source>
-        <translation>Llogari e Re</translation>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <source>Lift your finger and do that again</source>
+        <translation>Ngrijeni gishtin dhe ribëjeni</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
-        <source>Username can&apos;t be empty</source>
-        <translation>Emri i përdoruesit s’mund të jetë i zbrazët</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="163"/>
-        <source>Password can&apos;t be empty</source>
-        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
-        <source>The password should be different from the username</source>
-        <translation>Fjalëkalimi duhet të jetë i ndryshëm nga emri juaj i përdoruesit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="271"/>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="274"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Fjalëkalimet mund të përmbajnë vetëm shkronja anglisht (bëhet dallimi mes shkrimit me të mëdha dhe të vogla), numra ose simbole speciale (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::FingerPage</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
-        <source>Fingerprint List</source>
-<<<<<<< HEAD
-        <translation>Listë Shenjash Gishti</translation>
-=======
-        <translation>Listë Shenjash Gishtash</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="46"/>
-        <source>Fingerprint Password</source>
-<<<<<<< HEAD
-        <translation>Fjalëkalim Shenjash Gishti</translation>
-=======
-        <translation>Fjalëkalim Shenjash Gishtash</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
-        <source>Add Fingerprint</source>
-<<<<<<< HEAD
-        <translation>Shtoni Shenja Gishti</translation>
-=======
-        <translation>Shtoni Shenja Gishtash</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="52"/>
-        <source>Clear Fingerprint</source>
-<<<<<<< HEAD
-        <translation>Spastro Shenja Gishti</translation>
-=======
-        <translation>Spastro Shenja Gishtash</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="56"/>
-        <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation>Për hyrje në sistem, autorizim aplikacione dhe skena të tjera, përdoret fjalëkalim shenje gishti. Kur duhet fjalëkalim, skanoni shenjën e gishtit.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
-        <source>Fingerprint</source>
-<<<<<<< HEAD
-        <translation>Shenja gishti</translation>
-=======
-        <translation>Shenja gishtash</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::ModifyFullNamePage</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="44"/>
-        <source>Fullname:</source>
-        <translation>Emër i plotë:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="48"/>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="63"/>
-        <source>Fullname Settings</source>
-        <translation>Rregullime Emri të Plotë</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::ModifyPasswordPage</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="50"/>
-        <source>Current Password</source>
-        <translation>Fjalëkalimi i Tanishëm</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="52"/>
-        <source>New Password</source>
-        <translation>Fjalëkalimi i Ri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="54"/>
-        <source>Repeat Password</source>
-        <translation>Rijepeni Fjalëkalimin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="56"/>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="57"/>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="58"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="62"/>
-        <source>Cancel</source>
-        <translation>Anuloje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="64"/>
-        <source>Accept</source>
-        <translation>Pranoje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="117"/>
-        <source>New password should differ from the current one</source>
-        <translation>Fjalëkalimi i ri duhet të jetë i ndryshëm nga ai i tanishmi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="156"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="215"/>
-        <source>The password should be different from the username</source>
-        <translation>Fjalëkalimi duhet të jetë i ndryshëm nga emri juaj i përdoruesit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="223"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Fjalëkalimet mund të përmbajnë vetëm shkronja anglisht (bëhet dallimi mes shkrimit me të mëdha dhe të vogla), numra ose simbole speciale (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <source>Fingerprint added</source>
+        <translation>U shtuan shenja gishtash</translation>
     </message>
 </context>
 <context>
@@ -6482,29 +5622,9 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::bluetooth::AdapterWidget</name>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="47"/>
-        <source>My devices</source>
-        <translation>Pajisjet e mia</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="48"/>
-        <source>Other devices</source>
-        <translation>Pajisje të tjera</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
-        <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Që të gjenden pajisje atypari (altoparlantë, tastierë, mi), aktivizoni bluetooth-in</translation>
-    </message>
-</context>
-<context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="155"/>
-        <location filename="../src/frame/navigationbar.cpp" line="208"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -6520,19 +5640,6 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
         <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Disconnect</source>
         <translation>Shkëputu</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::bluetooth::DeviceSettingsItem</name>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="125"/>
-        <source>Connected</source>
-        <translation>E lidhur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="130"/>
-        <source>Not connected</source>
-        <translation>Jo e lidhur</translation>
     </message>
 </context>
 <context>
@@ -6554,181 +5661,19 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::cloudsync::SyncStateWidget</name>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
-        <source>Syncing</source>
-        <translation>Po njëkohësohet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
-        <source>Logout</source>
-        <translation>Dalje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
-        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Na ndjeni, hëpërhë s’mbulohet për rajonin tuaj, dhe do të vijë së shpejti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
-        <source>Auto Sync</source>
-        <translation>Vetë-njëkohësohu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
-        <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
-        <translation>Që të njëkohësohen automatikisht pjesë të rregullimeve për Qendër Kontrolli, Nisës dhe Panel, aktivizojeni.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
-        <source>Network Settings</source>
-        <translation>Rregullime Rrjeti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
-        <source>Sound Settings</source>
-        <translation>Rregullime Zëri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
-        <source>Mouse Settings</source>
-        <translation>Rregullime Miu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
-        <source>Update Settings</source>
-        <translation>Rregullime Përditësimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
-        <source>Dock</source>
-        <translation>Panel</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
-        <source>Launcher</source>
-        <translation>Nisës</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
-        <source>Wallpaper</source>
-        <translation>Sfond</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
-        <source>Theme</source>
-        <translation>Temë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
-        <source>Power Settings</source>
-        <translation>Rregullime Energjie</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
-        <source>Corner Settings</source>
-        <translation>Rregullime Këndi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="214"/>
-        <source>Last Sync: %1</source>
-        <translation>Njëkohësimi i Fundit Më: %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="216"/>
-        <source>yyyy-MM-dd hh:mm</source>
-        <translation>dd-MM-yyyy hh:mm</translation>
-    </message>
-</context>
-<context>
     <name>dcc::cloudsync::SyncWidget</name>
     <message>
-        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
-        <source>Login</source>
-        <translation>Hyrje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
         <source>Cloud Sync</source>
         <translation>Njëkohësim Në Re</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
-        <source>Only supported in Mainland China at present</source>
-        <translation>Tani për tani, e mbuluar vetëm në Kinën kontinentale</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::datetime::DateSettings</name>
-    <message>
-        <location filename="../src/frame/modules/datetime/datesettings.cpp" line="63"/>
-        <source>Change Time Settings</source>
-        <translation>Ndryshoni Rregullime Kohe</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datesettings.cpp" line="68"/>
-        <source>Cancel</source>
-        <translation>Anuloje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datesettings.cpp" line="69"/>
-        <source>Confirm</source>
-        <translation>Ripohojeni</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::datetime::DateWidget</name>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="56"/>
-        <source>Year</source>
-        <translation>Vit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="59"/>
-        <source>Month</source>
-        <translation>Muaj</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="62"/>
-        <source>Day</source>
-        <translation>Ditë</translation>
     </message>
 </context>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="46"/>
-        <source>Auto-Sync</source>
-        <translation>Vetë-njëkohësohu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
-        <source>Add Timezone</source>
-        <translation>Shtoni Zonë Kohore</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Time and Date</source>
         <translation>Kohë dhe Datë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="61"/>
-        <source>Change System Timezone</source>
-        <translation>Ndryshoni Zonë Kohore Sistemi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="69"/>
-        <source>Time Settings</source>
-        <translation>Rregullime Kohe</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="74"/>
-        <source>Timezone List</source>
-        <translation>Listë Zonash Kohore</translation>
     </message>
 </context>
 <context>
@@ -6792,207 +5737,17 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="152"/>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Default Applications</source>
         <translation>Aplikacione Parazgjedhje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
-        <source>Webpage</source>
-        <translation>Faqe web</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
-        <source>Mail</source>
-        <translation>Postë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="57"/>
-        <source>Text</source>
-        <translation>Tekst</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="58"/>
-        <source>Music</source>
-        <translation>Muzikë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="59"/>
-        <source>Video</source>
-        <translation>Video</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="60"/>
-        <source>Picture</source>
-        <translation>Foto</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="61"/>
-        <source>Terminal</source>
-        <translation>Terminal</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::defapp::DefCategoryAddWidget</name>
-    <message>
-        <location filename="../src/frame/modules/defapp/widgets/defcategoryaddwidget.cpp" line="44"/>
-        <source>Add</source>
-        <translation>Shto</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
-        <source>Open Desktop file</source>
-<<<<<<< HEAD
-        <translation>Hap kartelë Desktopi</translation>
-=======
-        <translation>Hap kartelë Dekstopi</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-</context>
-<context>
-    <name>dcc::defapp::DefaultAppsWidget</name>
-    <message>
-        <location filename="../src/frame/modules/defapp/defappwidget.cpp" line="46"/>
-        <location filename="../src/frame/modules/defapp/defappwidget.cpp" line="50"/>
-        <source>Default Applications</source>
-        <translation>Aplikacione Parazgjedhje</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::BrightnessPage</name>
-    <message>
-        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="58"/>
-        <source>Brightness</source>
-        <translation>Ndriçim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="81"/>
-        <source>Night Shift</source>
-        <translation>Turn Nate</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="86"/>
-        <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation>Për të mbrojtur sytë tuaj, toni i ekranit do të vetërregullohet, përmes hamendësimit të vendndodhjes tuaj</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/brightnesspage.cpp" line="95"/>
-        <source>Auto Brightness</source>
-        <translation>Vetëndriçim</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::CustomConfigPage</name>
-    <message>
-        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="43"/>
-        <source>Modify</source>
-        <translation>Ndryshoje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="45"/>
-        <source>Delete</source>
-        <translation>Fshije</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="48"/>
-        <source>Please switch to current mode before modifying the settings</source>
-        <translation>Ju lutemi, përpara ndryshimit të rregullimeve, kaloni te mënyra e tanishme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/customconfigpage.cpp" line="50"/>
-        <source>Please switch to another mode before deleting the settings</source>
-        <translation>Ju lutemi, përpara ndryshimit të rregullimeve, kaloni nën një mënyrë tjetër</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::DisplayModule</name>
-    <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="258"/>
-        <source>Wireless Screen Projection</source>
-        <translation>Projektin Ekrani Pa Fill</translation>
     </message>
 </context>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
-        <source>Display Scaling</source>
-        <translation>Ripërmasim Ekrani</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
-        <source>Rotate</source>
-        <translation>Rrotulloje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
-        <source>Custom Settings</source>
-        <translation>Rregullime Vetjake</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
-        <source>Resolution</source>
-        <translation>Qartësi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
-        <source>Brightness</source>
-        <translation>Ndriçim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
-        <source>Scaling Settings</source>
-        <translation>Rregullime Ripërmasimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Display</source>
         <translation>Ekran</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
-        <source>Wireless Screen Projection</source>
-        <translation>Projektin Ekrani Pa Fill</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::MiracastNoDeviceWidget</name>
-    <message>
-        <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="43"/>
-        <source>Scanning devices, please wait...</source>
-        <translation>Po skanohet pajisje, ju lutemi, pritni…</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="44"/>
-        <source>No available device found</source>
-        <translation>S’u gjetën pajisje gati</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="47"/>
-        <source>Refresh</source>
-        <translation>Rifreskoje</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::MiracastPage</name>
-    <message>
-        <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
-        <source>WLAN will be disconnected when screen projection is enabled</source>
-        <translation>Kur aktivizohet projektimi i ekranit, WLAN-i do të shkëputet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
-        <source>Refresh</source>
-        <translation>Rifreskoje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/miracastsettings.cpp" line="69"/>
-        <source>Device List</source>
-        <translation>Listë Pajisjesh</translation>
     </message>
 </context>
 <context>
@@ -7000,17 +5755,17 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="47"/>
         <source>Recognize</source>
-        <translation>Njohe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="54"/>
         <source>Split</source>
-        <translation>Ndaje</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="61"/>
         <source>Merge</source>
-        <translation>Bashko</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7033,7 +5788,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="179"/>
         <source>Primary</source>
-        <translation>Kryesore</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="346"/>
@@ -7042,90 +5797,11 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::display::ResolutionDetailPage</name>
-    <message>
-        <location filename="../src/frame/modules/display/resolutiondetailpage.cpp" line="41"/>
-        <source>Resolution</source>
-        <translation>Qartësi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/resolutiondetailpage.cpp" line="80"/>
-        <source> (Recommended)</source>
-        <translation> (E këshilluar)</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::ScalingPage</name>
-    <message>
-        <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
-        <source>Some applications in multi-screens may not scale as the settings.</source>
-        <translation>Disa aplikacionin nën mënyrën “shumë ekrane” mund të mos kryejnë ripërmasim sipas rregullimeve.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
-        <source>Display Scaling</source>
-        <translation>Ripërmasim Ekrani</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
-        <source>Display scaling for %1</source>
-        <translation>Ripërmasim ekrani për %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
-        <source>Display scaling for all monitors</source>
-        <translation>Ripërmasim ekrani për krejt monitorët</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::keyboard::CustomContent</name>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="51"/>
-        <source>Shortcuts</source>
-        <translation>Shkurtore</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="60"/>
-        <source>Name</source>
-        <translation>Emër</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="61"/>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="65"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="64"/>
-        <source>Command</source>
-        <translation>Urdhër</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="83"/>
-        <source>Cancel</source>
-        <translation>Anuloje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="85"/>
-        <source>Add</source>
-        <translation>Shto</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="116"/>
-        <source>This shortcut conflicts with %1, click on Save to make this shortcut effective immediately</source>
-        <translation>Kjo shkurtore ka përplasje me %1, klikoni mbi Shtoje për ta bërë këtë shkurtore të hyjë në fuqi menjëherë</translation>
-    </message>
-</context>
-<context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="51"/>
         <source>Shortcuts</source>
-<<<<<<< HEAD
         <translation>Shkurtore</translation>
-=======
-        <translation>Rruge e shkurter</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="61"/>
@@ -7177,25 +5853,6 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::keyboard::KeyboardDetails</name>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="49"/>
-        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="51"/>
-        <source>Keyboard Layout</source>
-        <translation>Skemë Tastiere</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
-        <source>Switch Layouts (Multiple)</source>
-        <translation>Këmbeni Skema (Shumë)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
-        <source>Add Keyboard Layout</source>
-        <translation>Shtoni Skemë Tastiere</translation>
-    </message>
-</context>
-<context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="49"/>
@@ -7217,79 +5874,9 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="160"/>
-        <location filename="../src/frame/navigationbar.cpp" line="213"/>
         <source>Keyboard and Language</source>
         <translation>Tastierë dhe Gjuhë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="52"/>
-        <source>Repeat Delay</source>
-        <translation>Vonesë Përsëritjesh</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
-        <source>Short</source>
-        <translation>E shkurtër</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
-        <source>Long</source>
-        <translation>E gjatë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="65"/>
-        <source>Repeat Rate</source>
-        <translation>Shpejtësi Përsëritjesh</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
-        <source>Slow</source>
-        <translation>Ngadalë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
-        <source>Fast</source>
-        <translation>Shpejt</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="79"/>
-        <source>Please Test Here</source>
-        <translation>Ju lutemi, Provojeni Këtu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="93"/>
-        <source>Enable Numeric Keyboard</source>
-        <translation>Aktivizo Tastierë Numerike</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="97"/>
-        <source>Caps Lock Prompt</source>
-        <translation>Kycja e kapakeve</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="103"/>
-        <source>Keyboard Layout</source>
-        <translation>Skemë Tastiere</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="111"/>
-        <source>System Language</source>
-        <translation>Gjuhë Sistemi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
-        <source>Shortcuts</source>
-        <translation>Shkurtore</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::keyboard::LangWidget</name>
-    <message>
-        <location filename="../src/frame/modules/keyboard/langwidget.cpp" line="48"/>
-        <source>System Language</source>
-        <translation>Gjuhë Sistemi</translation>
     </message>
 </context>
 <context>
@@ -7312,11 +5899,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="59"/>
         <source>Shortcuts</source>
-<<<<<<< HEAD
         <translation>Shkurtore</translation>
-=======
-        <translation>Rruge e shkurter</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="92"/>
@@ -7333,44 +5916,6 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::keyboard::ShortcutWidget</name>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="55"/>
-        <source>System</source>
-        <translation>Sistem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="56"/>
-        <source>Window</source>
-        <translation>Dritare</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="57"/>
-        <source>WorkSpace</source>
-        <translation>Hapësirë Pune</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="65"/>
-        <source>Custom Shortcut</source>
-        <translation>Shkurtore Vetjake</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="78"/>
-        <source>Add Custom Shortcut</source>
-        <translation>Shtoni Shkurtore Vetjake</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
-        <source>Restore Defaults</source>
-        <translation>Rikthe Parazgjedhjet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
-        <source>Shortcuts</source>
-        <translation>Shkurtore</translation>
-    </message>
-</context>
-<context>
     <name>dcc::mouse::DouTestWidget</name>
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
@@ -7382,84 +5927,9 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="46"/>
-        <source>Mouse and Touchpad</source>
-        <translation>Mi dhe Touchpad</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="159"/>
-        <location filename="../src/frame/navigationbar.cpp" line="212"/>
         <source>Mouse</source>
         <translation>Mi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="50"/>
-        <source>TouchPad</source>
-        <translation>Touchpad</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="51"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="53"/>
-        <source>Left Hand</source>
-        <translation>Mëngjarash</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="54"/>
-        <source>Disable the touchpad while typing</source>
-        <translation>Çaktivizoje touchpad-in teksa shtypet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="55"/>
-        <source>Double-click Speed</source>
-        <translation>Shpejtësi Dyklikimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="58"/>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="64"/>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="70"/>
-        <source>Pointer Speed</source>
-        <translation>Shpejtësi Kursori</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="59"/>
-        <source>Mouse Acceleration</source>
-        <translation>Përshpejtim Miu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="60"/>
-        <source>Scroll Speed</source>
-        <translation>Shpejtësi Rrëshqitjeje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="61"/>
-        <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Çaktivizoje touchpad-in, kur futet miu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="66"/>
-        <source>Natural Scrolling</source>
-        <translation>Rrëshqitje Natyrale</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="65"/>
-        <source>Tap to Click</source>
-        <translation>Për Klikim, prekeni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Slow</source>
-        <translation>Ngadalë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Fast</source>
-        <translation>Shpejt</translation>
     </message>
 </context>
 <context>
@@ -7468,7 +5938,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
         <source>Palm Detection</source>
-        <translation>Njohja e shpines</translation>
+        <translation type="unfinished"/>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -7495,2243 +5965,27 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::network::ChainsProxyPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
-        <source>Application Proxy</source>
-        <translation>Ndërmjetës Aplikacioni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
-        <source>Proxy Type</source>
-        <translation>Lloj Ndërmjetësi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="52"/>
-        <source>IP address</source>
-        <translation>Adresë IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="53"/>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="57"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="56"/>
-        <source>Port</source>
-        <translation>Portë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="60"/>
-        <source>Username</source>
-        <translation>Emër përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="61"/>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="65"/>
-        <source>Optional</source>
-        <translation>Opsionale</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="64"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Pas formësimit, i vini shenjë “Përdor ndërmjetës” te menuja e kontekstit të aplikacionit te Nisësi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
-        <source>Cancel</source>
-        <translation>Anuloje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="89"/>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::ChainsTypePage</name>
-    <message>
-        <location filename="../src/frame/modules/network/chainstypepage.cpp" line="37"/>
-        <source>Proxy Type</source>
-        <translation>Lloj Ndërmjetësi</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::ConnectionEditPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
-        <source>Disconnect</source>
-        <translation>Shkëputu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
-        <source>Delete</source>
-        <translation>Fshije</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
-        <source>Cancel</source>
-        <translation>Anuloje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
-        <source>Save</source>
-        <translation>Ruaje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="344"/>
-        <source>Wired Connection %1</source>
-        <translation>Lidhje Me Fill %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="348"/>
-        <source>Wireless Connection %1</source>
-        <translation>Lidhje Pa Fill %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="352"/>
-        <source>PPPoE Connection %1</source>
-        <translation>Lidhje PPPoE %1</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::ConnectionHotspotEditPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/connectionhotspoteditpage.cpp" line="47"/>
-        <source>hotspot</source>
-        <translation>hotspot</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::ConnectionVpnEditPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="155"/>
-        <source>Export</source>
-<<<<<<< HEAD
-        <translation>Eksporto</translation>
-=======
-        <translation>Eksportoje</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="166"/>
-        <source>VPN L2TP %1</source>
-        <translation>VPN L2TP %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="170"/>
-        <source>VPN PPTP %1</source>
-        <translation>VPN PPTP %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="174"/>
-        <source>VPN VPNC %1</source>
-        <translation>VPN VPNC %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="178"/>
-        <source>VPN OpenVPN %1</source>
-        <translation>VPN OpenVPN %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="182"/>
-        <source>VPN StrongSwan %1</source>
-        <translation>VPN StrongSwan %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="186"/>
-        <source>VPN OpenConnect %1</source>
-        <translation>VPN OpenConnect %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="190"/>
-        <source>VPN SSTP %1</source>
-        <translation>VPN SSTP %1</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::EthernetSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="37"/>
-        <source>Ethernet</source>
-        <translation>Ethernet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="54"/>
-        <source>Not Bind</source>
-        <translation>Jo e lidhur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="96"/>
-        <source>Device MAC Addr</source>
-        <translation>Adresë Mac Pajisjeje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="111"/>
-        <source>Cloned MAC Addr</source>
-        <translation>Adresë Mac e Klonuar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="124"/>
-        <source>Customize MTU</source>
-        <translation>Përshtatni MTU-në</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="127"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::GenericHotspotSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="31"/>
-        <source>General</source>
-        <translation>Të përgjithshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="63"/>
-        <source>Name</source>
-        <translation>Emër</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::GenericSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="31"/>
-        <source>General</source>
-        <translation>Të përgjithshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="62"/>
-        <source>Name</source>
-        <translation>Emër</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
-        <source>Auto connect</source>
-        <translation>Vetëlidhu</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::HotspotPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/hotspotpage.cpp" line="61"/>
-        <location filename="../src/frame/modules/network/hotspotpage.cpp" line="83"/>
-        <source>Hotspot</source>
-        <translation>Hotspot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/hotspotpage.cpp" line="62"/>
-        <source>Add Settings</source>
-        <translation>Shtoni Rregullime</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::IpvxSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="32"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="52"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
-        <source>Auto</source>
-        <translation>Auto</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="216"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
-        <source>Manual</source>
-        <translation>Dorazi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="222"/>
-        <source>Ignore</source>
-        <translation>Shpërfille</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
-        <source>Method</source>
-        <translation>Metodë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
-        <source>IP Address</source>
-        <translation>Vendndodhje IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="295"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
-        <source>Gateway</source>
-        <translation>Kanal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
-        <source>Primary DNS</source>
-        <translation>DNS Parësore</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
-        <source>Secondary DNS</source>
-        <translation>DNS Dytësore</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
-        <source>Only applied in corresponding resources</source>
-        <translation>Aplikuar vetëm në burime përkatëse</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
-        <source>Netmask</source>
-        <translation>NetMask-ë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="305"/>
-        <source>Prefix</source>
-        <translation>Parashtesë</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::NetworkDetailPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="94"/>
-        <source>Network Details</source>
-        <translation>Hollësi Rrjeti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="139"/>
-        <source>Hotspot</source>
-        <translation>Hotspot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="144"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="154"/>
-        <source>Security</source>
-        <translation>Siguri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="160"/>
-        <source>Interface</source>
-        <translation>Ndërfaqe</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="165"/>
-        <source>MAC</source>
-        <translation>MAC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="171"/>
-        <source>Band</source>
-        <translation>Bandë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="180"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="185"/>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="210"/>
-        <source>Gateway</source>
-        <translation>Kanal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="190"/>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="215"/>
-        <source>Primary DNS</source>
-        <translation>DNS Parësore</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="195"/>
-        <source>Netmask</source>
-        <translation>NetMask-ë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="205"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="220"/>
-        <source>Prefix</source>
-        <translation>Parashtesë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="226"/>
-        <source>Speed</source>
-        <translation>Shpejtësi</translation>
-    </message>
-</context>
-<context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="57"/>
-        <source>DSL</source>
-        <translation>DSL</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="61"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="65"/>
-        <source>System Proxy</source>
-        <translation>Ndërmjetës Sistemi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
-        <source>Application Proxy</source>
-        <translation>Ndërmjetës Aplikacioni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
-        <source>Network Details</source>
-        <translation>Hollësi Rrjeti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="154"/>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Network</source>
         <translation>Rrjet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="237"/>
-        <source>Wired Network Card%1</source>
-        <translation>Rrjeti i Lidhur Karta%1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="238"/>
-        <source>Wired Network%1</source>
-        <translation>Rrjeti i Lidhur%1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="242"/>
-        <source>Wired Network Card</source>
-        <translation>Kartë Rrjeti Me Fill</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="243"/>
-        <source>Wired Network</source>
-        <translation>Rrjet Me Fill</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="252"/>
-        <source>Hotspot</source>
-        <translation>Hotspot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="257"/>
-        <source>Shared</source>
-        <translation>E përbashkët</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="266"/>
-        <source>Wireless Network Card%1</source>
-        <translation>Rrjeti Wireless Karta%1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="267"/>
-        <source>Wireless Network%1</source>
-        <translation>Rrjeti Wireless%1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="271"/>
-        <source>Wireless Network Card</source>
-        <translation>Kartë Rrjeti Pa Fill</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="272"/>
-        <source>Wireless Network</source>
-        <translation>Rrjet Pa Fill</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::PPPOESection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="31"/>
-        <source>PPPoE</source>
-        <translation>PPPoE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="78"/>
-        <source>Username</source>
-        <translation>Emër përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="79"/>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="86"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="82"/>
-        <source>Service</source>
-        <translation>Shërbim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="85"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::PPPSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="31"/>
-        <source>PPP</source>
-        <translation>PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="86"/>
-        <source>Refuse EAP Authentication</source>
-        <translation>Hidh tej Mirëfilltësim EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="87"/>
-        <source>Refuse PAP Authentication</source>
-        <translation>Hidh tej Mirëfilltësim PAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="88"/>
-        <source>Refuse CHAP Authentication</source>
-        <translation>Hidh tej Mirëfilltësim CHAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="89"/>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation>Hidh tej Mirëfilltësim MSCHAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="90"/>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Hidh tej Mirëfilltësim MSCHAPv2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="91"/>
-        <source>No BSD Data Compression</source>
-        <translation>Pa Ngjeshje BSD të Dhënash</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
-        <source>No Deflate Data Compression</source>
-        <translation>Përdor Ngjeshje të Dhënash LZO</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="93"/>
-        <source>No TCP Header Compression</source>
-        <translation>Pa Ngjeshje Kryesh TCP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="94"/>
-        <source>No Protocol Field Compression</source>
-        <translation>Pa Ngjeshje Fushe Protokolli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="95"/>
-        <source>No Address/Control Compression</source>
-        <translation>Pa Ngjeshje Adrese/Kontrolli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="96"/>
-        <source>Send PPP Echo Packets</source>
-        <translation>Dërgo Paketa Jehone PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="104"/>
-        <source>Use MPPE</source>
-        <translation>Përdor MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="107"/>
-        <source>128-bit MPPE</source>
-        <translation>128-bit MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="110"/>
-        <source>Stateful MPPE</source>
-        <translation>Gjendje  MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::PppoePage</name>
-    <message>
-        <location filename="../src/frame/modules/network/pppoepage.cpp" line="52"/>
-        <source>Create PPPoE Connection</source>
-        <translation>Krijoni Lidhje PPPoE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/pppoepage.cpp" line="66"/>
-        <source>PPP</source>
-        <translation>PPP</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::ProxyPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="58"/>
-        <source>Cancel</source>
-        <translation>Anuloje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="59"/>
-        <source>Confirm</source>
-        <translation>Ripohojeni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="61"/>
-        <source>None</source>
-        <translation>Asnjë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="62"/>
-        <source>Manual</source>
-        <translation>Dorazi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="63"/>
-        <source>Auto</source>
-        <translation>Auto</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="68"/>
-        <source>HTTP Proxy</source>
-        <translation>Ndërmjetës HTTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="70"/>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="75"/>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="80"/>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="85"/>
-        <source>Port</source>
-        <translation>Portë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="73"/>
-        <source>HTTPS Proxy</source>
-        <translation>Ndërmjetës HTTPS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="78"/>
-        <source>FTP Proxy</source>
-        <translation>Ndërmjetës FTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="83"/>
-        <source>SOCKS Proxy</source>
-        <translation>Ndërmjetës SOCKS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="92"/>
-        <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Shpërfill formësime ndërmjetësi për strehët dhe përkatësitë më sipër</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="95"/>
-        <source>Configuration URL</source>
-        <translation>URL Formësimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="152"/>
-        <source>System Proxy</source>
-        <translation>Ndërmjetës Sistemi</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::Secret8021xSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="31"/>
-        <source>Security</source>
-        <translation>Siguri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="153"/>
-        <source>TLS</source>
-        <translation>TLS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="154"/>
-        <source>MD5</source>
-        <translation>MD5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="155"/>
-        <source>LEAP</source>
-        <translation>LEAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="156"/>
-        <source>FAST</source>
-        <translation>FAST</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="157"/>
-        <source>Tunneled TLS</source>
-        <translation>TLS përmes tuneli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="158"/>
-        <source>Protected EAP</source>
-        <translation>EAP i mbrojtur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="163"/>
-        <source>Saved</source>
-        <translation>U ruajt</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="164"/>
-        <source>Ask</source>
-        <translation>Pyet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="165"/>
-        <source>Not Required</source>
-        <translation>Jo e Domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="169"/>
-        <source>Disabled</source>
-<<<<<<< HEAD
-        <translation>I çaktivizuar</translation>
-=======
-        <translation>E çaktivizuar</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="170"/>
-        <source>Anonymous</source>
-        <translation>I paemër</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="171"/>
-        <source>Authenticated</source>
-        <translation>I mirëfilltësuar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="172"/>
-        <source>Both</source>
-        <translation>Të dyja</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="188"/>
-        <source>Automatic</source>
-        <translation>Automatik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="189"/>
-        <source>Version 0</source>
-        <translation>Version 0</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="190"/>
-        <source>Version 1</source>
-        <translation>Version 1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="202"/>
-        <source>EAP Auth</source>
-        <translation>Mirëfilltësim EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="214"/>
-        <source>Identity</source>
-        <translation>Identitet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="216"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="224"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
-        <source>Pwd Options</source>
-        <translation>Mundësi Fjalëkalimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="302"/>
-        <source>Private Key</source>
-        <translation>Kyç Privat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="306"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="387"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="423"/>
-        <source>CA Cert</source>
-        <translation>Dëshmi AD-je</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="310"/>
-        <source>User Cert</source>
-        <translation>Dëshmi Përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="332"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="383"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="419"/>
-        <source>Anonymous ID</source>
-        <translation>ID anonime</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="336"/>
-        <source>Provisioning</source>
-        <translation>Provisioni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="348"/>
-        <source>PAC file</source>
-        <translation>Kartelë Pac</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="352"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="391"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="438"/>
-        <source>Inner Auth</source>
-        <translation>Mirëfilltësim i Brendshëm</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="427"/>
-        <source>PEAP Version</source>
-        <translation>Version PEAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="523"/>
-        <source>Private Pwd</source>
-        <translation>Fjalëkalim Privat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="525"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::SecretHotspotSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="104"/>
-        <source>None</source>
-        <translation>Asnjë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="105"/>
-        <source>WEP 40/128-bit</source>
-        <translation>WEP 40/128-bit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="106"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Personal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="112"/>
-        <source>Security</source>
-        <translation>Siguri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="118"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="148"/>
-        <source>Key</source>
-        <translation>Kyç</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="154"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::SecretWiredSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwiredsection.cpp" line="32"/>
-        <source>Security Required</source>
-        <translation>Lypset Siguri</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::SecretWirelessSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="106"/>
-        <source>None</source>
-        <translation>Asnjë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="107"/>
-        <source>WEP 40/128-bit</source>
-        <translation>WEP 40/128-bit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="108"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Personal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="109"/>
-        <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 Ndërmarrjeje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="115"/>
-        <source>Security</source>
-        <translation>Siguri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="121"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="163"/>
-        <source>Key</source>
-        <translation>Kyç</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="170"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnAdvOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
-        <source>VPN Advanced</source>
-        <translation>VPN e avancuare</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
-        <source>Customize Gateway Port</source>
-        <translation>Përshtatni Portë Kanali</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
-        <source>Gateway Port</source>
-        <translation>Portë Kanali</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
-        <source>Customize Renegotiation Interval</source>
-        <translation>Ndrysho Njohjen e Intervalit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
-        <source>Renegotiation Interval</source>
-        <translation>Intervali i njohjes</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
-        <source>Use LZO Data Compression</source>
-        <translation>Përdor Ngjeshje të Dhënash LZO</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
-        <source>Use TCP Connection</source>
-        <translation>Përdor Lidhje TCP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
-        <source>Use TAP Device</source>
-        <translation>Përdor Pajisje TAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
-        <source>Customize Tunnel MTU</source>
-        <translation>Përshtatni MTU Tuneli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
-        <source>Customize UDP Fragment Size</source>
-        <translation>Përshtatni Madhësi Fragmenti UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
-        <source>UDP Fragment Size</source>
-        <translation>Madhësi Fragmenti UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
-        <source>Restrict Tunnel TCP MSS</source>
-        <translation>Kufizo Tunalin TCP MSS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
-        <source>Randomize Remote Hosts</source>
-        <translation>Strehë të Largëta Kuturu</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnAdvVPNCSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
-        <source>VPN Advanced</source>
-        <translation>VPN e avancuare</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="140"/>
-        <source>Cisco (default)</source>
-        <translation>Cisco (parazgjedhje)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
-        <source>Netscreen</source>
-        <translation>Netscreen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="144"/>
-        <source>Secure (default)</source>
-        <translation>I sigurt (parazgjedhje)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
-        <source>Weak</source>
-        <translation>I dobët</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="161"/>
-        <source>None</source>
-        <translation>Asnjë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="149"/>
-        <source>NAT-T When Available (default)</source>
-        <translation>NAT-T Kur Mundet (parazgjedhje)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
-        <source>NAT-T Always</source>
-        <translation>NAT-T Përherë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
-        <source>Cisco UDP</source>
-        <translation>UDP Cisco</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
-        <source>Disabled</source>
-<<<<<<< HEAD
-        <translation>I çaktivizuar</translation>
-=======
-        <translation>E çaktivizuar</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="155"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
-        <source>DH Group 1</source>
-        <translation>DH Grupi 1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
-        <source>DH Group 2 (default)</source>
-        <translation>DH Grupi 2 (parazgjedhje)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
-        <source>DH Group 5</source>
-        <translation>DH Grupi 5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="160"/>
-        <source>Server (default)</source>
-        <translation>Shërbyes (parazgjedhje)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
-        <source>DH Group 2</source>
-        <translation>DH Grupi 2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="170"/>
-        <source>Domain</source>
-        <translation>Përkatësi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="173"/>
-        <source>Vendor</source>
-        <translation>Prodhues</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="179"/>
-        <source>Version</source>
-        <translation>Version</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="182"/>
-        <source>Encryption</source>
-        <translation>Fshehtëzim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
-        <source>NAT Traversal Mode</source>
-        <translation>menyra e udhetimit NAT</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
-        <source>IKE DH Group</source>
-        <translation>GRUP IKE DH</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="200"/>
-        <source>Forward Secrecy</source>
-        <translation>Perpara sekretet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
-        <source>Local Port</source>
-        <translation>Portë Vendore</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
-        <source>Disable Dead Peer Detection</source>
-        <translation>Çaktivizo Pikasje Ortaku të Vdekur</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnIpsecSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
-        <source>VPN IPsec</source>
-        <translation>VPN IPsec</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
-        <source>Enable IPsec</source>
-        <translation>Aktivizo IPsec</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
-        <source>Group Name</source>
-        <translation>Emër Grupi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
-        <source>Group ID</source>
-        <translation>ID Grupi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
-        <source>Pre-Shared Key</source>
-        <translation>Celes i para-shperndare</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
-        <source>Phase1 Algorithms</source>
-        <translation>Algoritme Phase1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
-        <source>Phase2 Algorithms</source>
-        <translation>Algoritme Phase2</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnOpenConnectSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
-        <source>Gateway</source>
-        <translation>Kanal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
-        <source>CA Cert</source>
-        <translation>Dëshmi AD-je</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
-        <source>Proxy</source>
-        <translation>Ndërmjetës</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
-        <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Lejo Cisco Secure Desktop Trojan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
-        <source>CSD Script</source>
-        <translation>Programth CSD</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
-        <source>User Cert</source>
-        <translation>Dëshmi Përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
-        <source>Private Key</source>
-        <translation>Kyç Privat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
-        <source>Use FSID for Key Passphrase</source>
-        <translation>Për Frazëkalim Kyçesh përdor FSID</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="115"/>
-        <source>Certificates (TLS)</source>
-        <translation>Dëshmi (TLS)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="243"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
-        <source>Certificates with Password (TLS)</source>
-        <translation>Dëshmi me Fjalëkalime (TLS)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
-        <source>Static Key</source>
-        <translation>Kyç Statik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="123"/>
-        <source>Saved</source>
-        <translation>U ruajt</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
-        <source>Ask</source>
-        <translation>Pyet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
-        <source>Not Required</source>
-        <translation>Jo e Domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="131"/>
-        <source>Gateway</source>
-        <translation>Kanal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="229"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="245"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
-        <source>Auth Type</source>
-        <translation>Lloj Mirëfilltësimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
-        <source>CA Cert</source>
-        <translation>Dëshmi AD-je</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
-        <source>User Cert</source>
-        <translation>Dëshmi Përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
-        <source>Private Key</source>
-        <translation>Kyç Privat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
-        <source>Pwd Options</source>
-        <translation>Mundësi Fjalëkalimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
-        <source>Private Pwd</source>
-        <translation>Fjalëkalim Privat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="227"/>
-        <source>Username</source>
-        <translation>Emër përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
-        <source>Customize Key Direction</source>
-        <translation>Përshtatni Drejtim Kyçi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
-        <source>Key Direction</source>
-        <translation>Drejtim Kyçi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
-        <source>Remote IP</source>
-        <translation>IP e largët</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
-        <source>Local IP</source>
-        <translation>IP vendore</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnPPPSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
-        <source>VPN PPP</source>
-        <translation>VPN PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
-        <source>All Available (default)</source>
-        <translation>Krejt të Gatshmet (parazgjedhje)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
-        <source>40-bit (less secure)</source>
-        <translation>40-bit (më pak i sigurt)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
-        <source>128-bit (most secure)</source>
-        <translation>128-bit (më i sigurti)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
-        <source>Refuse EAP Authentication</source>
-        <translation>Hidh tej Mirëfilltësim EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
-        <source>Refuse PAP Authentication</source>
-        <translation>Hidh tej Mirëfilltësim PAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
-        <source>Refuse CHAP Authentication</source>
-        <translation>Hidh tej Mirëfilltësim CHAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation>Hidh tej Mirëfilltësim MSCHAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Hidh tej Mirëfilltësim MSCHAPv2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
-        <source>No BSD Data Compression</source>
-        <translation>Pa Ngjeshje BSD të Dhënash</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
-        <source>No Deflate Data Compression</source>
-        <translation>Përdor Ngjeshje të Dhënash LZO</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
-        <source>No TCP Header Compression</source>
-        <translation>Pa Ngjeshje Kryesh TCP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
-        <source>No Protocol Field Compression</source>
-        <translation>Pa Ngjeshje Fushe Protokolli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
-        <source>No Address/Control Compression</source>
-        <translation>Pa Ngjeshje Adrese/Kontrolli</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
-        <source>Send PPP Echo Packets</source>
-        <translation>Dërgo Paketa Jehone PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
-        <source>Use MPPE</source>
-        <translation>Përdor MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
-        <source>Security</source>
-        <translation>Siguri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
-        <source>Stateful MPPE</source>
-        <translation>Gjendje  MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="76"/>
-        <source>VPN Status</source>
-        <translation>Gjendje VPN-je</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="79"/>
-        <source>Create VPN</source>
-        <translation>Krijoni VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="82"/>
-        <source>Import VPN</source>
-        <translation>Importo VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="101"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="242"/>
-        <source>Import Error</source>
-        <translation>Gabim Importimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="244"/>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="266"/>
-        <source>L2TP</source>
-        <translation>L2TP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="269"/>
-        <source>PPTP</source>
-        <translation>PPTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="272"/>
-        <source>VPNC</source>
-        <translation>VPNC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="275"/>
-        <source>OpenVPN</source>
-        <translation>OpenVPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="278"/>
-        <source>StrongSwan</source>
-        <translation>StrongSwan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="281"/>
-        <source>OpenConnect</source>
-        <translation>OpenConnect</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="284"/>
-        <source>SSTP</source>
-        <translation>SSTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="311"/>
-        <source>New VPN</source>
-        <translation>VPN e re</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnProxySection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
-        <source>VPN Proxy</source>
-        <translation>Ndërmjetës VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="135"/>
-        <source>Not Required</source>
-        <translation>Jo e Domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="136"/>
-        <source>HTTP</source>
-        <translation>HTTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="137"/>
-        <source>SOCKS</source>
-        <translation>SOCKS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
-        <source>Proxy Type</source>
-        <translation>Lloj Ndërmjetësi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
-        <source>Server IP</source>
-        <translation>IP Shërbyesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="154"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="157"/>
-        <source>Port</source>
-        <translation>Portë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
-        <source>Retry Indefinitely When Failed</source>
-        <translation>Riprovo Pambarim Kur Dështohet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
-        <source>Username</source>
-        <translation>Emër përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="169"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnSSTPSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="79"/>
-        <source>CA File</source>
-        <translation>Kartelë AD</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
-        <source>Ignore Certificate Warnings</source>
-        <translation>Shpërfill Sinjalizime Mbi Dëshminë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
-        <source>Use TLS Hostname Extensions</source>
-        <translation>Përdor Zgjerime TLS Strehëemrash</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnSecOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
-        <source>VPN Security</source>
-        <translation>Siguri VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="75"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="96"/>
-        <source>Default</source>
-        <translation>Parazgjedhje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="76"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="97"/>
-        <source>None</source>
-        <translation>Asnjë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
-        <source>Cipher</source>
-        <translation>Shifër</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
-        <source>HMAC Auth</source>
-        <translation>Mirëfilltësim HMAC</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
-        <source>Saved</source>
-        <translation>U ruajt</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
-        <source>Ask</source>
-        <translation>Pyet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
-        <source>Not Required</source>
-        <translation>Jo e Domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
-        <source>Gateway</source>
-        <translation>Kanal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="115"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="129"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
-        <source>Username</source>
-        <translation>Emër përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
-        <source>Pwd Options</source>
-        <translation>Mundësi Fjalëkalimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="132"/>
-        <source>NT Domain</source>
-        <translation>Përkatësi NT</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnSstpProxySection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
-        <source>VPN Proxy</source>
-        <translation>Ndërmjetës VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
-        <source>Server IP</source>
-        <translation>IP Shërbyesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
-        <source>Port</source>
-        <translation>Portë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
-        <source>Username</source>
-        <translation>Emër përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnStrongSwanSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="172"/>
-        <source>Private Key</source>
-        <translation>Kyç Privat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
-        <source>SSH Agent</source>
-        <translation>Agjent SSH</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
-        <source>Smartcard</source>
-        <translation>Kartë e mençur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
-        <source>EAP</source>
-        <translation>EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="146"/>
-        <source>Pre-Shared Key</source>
-        <translation>Celes i para-shperndare</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
-        <source>Gateway</source>
-        <translation>Kanal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
-        <source>CA Cert</source>
-        <translation>Dëshmi AD-je</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
-        <source>Auth Type</source>
-        <translation>Lloj Mirëfilltësimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
-        <source>User Cert</source>
-        <translation>Dëshmi Përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="175"/>
-        <source>Username</source>
-        <translation>Emër përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="178"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="181"/>
-        <source>Request an Inner IP Address</source>
-        <translation>Kërko doemos një Adresë IP të Brendshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
-        <source>Enforce UDP Encapsulation</source>
-        <translation>Detyro Kapsulizim UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
-        <source>Use IP Compression</source>
-        <translation>Përdor Ngjeshje IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
-        <source>Enable Custom Cipher Proposals</source>
-        <translation>Aktivizo Propozime të Përshtatura Shifre</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
-        <source>IKE</source>
-        <translation>IKE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="196"/>
-        <source>ESP</source>
-        <translation>ESP</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnTLSSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
-        <source>VPN TLS Authentication</source>
-        <translation>Mirëfilltësim TLS VPN-je</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="79"/>
-        <source>Default</source>
-        <translation>Parazgjedhje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="80"/>
-        <source>Client</source>
-        <translation>Klient</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
-        <source>Server</source>
-        <translation>Shërbyes</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
-        <source>Subject Match</source>
-        <translation>Objekti u perputh</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
-        <source>Remote Cert Type</source>
-        <translation>Lloj Dëshmie të Largët</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
-        <source>Key File</source>
-        <translation>Kartelë Kyçesh</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="103"/>
-        <source>Customize Key Direction</source>
-        <translation>Përshtatni Drejtim Kyçi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="106"/>
-        <source>Key Direction</source>
-        <translation>Drejtim Kyçi</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::VpnVPNCSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="159"/>
-        <source>Saved</source>
-        <translation>U ruajt</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="160"/>
-        <source>Ask</source>
-        <translation>Pyet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
-        <source>Not Required</source>
-        <translation>Jo e Domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
-        <source>Gateway</source>
-        <translation>Kanal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="168"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="172"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="182"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="186"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="196"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
-        <source>Username</source>
-        <translation>Emër përdoruesi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
-        <source>Pwd Options</source>
-        <translation>Mundësi Fjalëkalimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
-        <source>Password</source>
-        <translation>Fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="185"/>
-        <source>Group Name</source>
-        <translation>Emër Grupi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
-        <source>Group Pwd</source>
-        <translation>Fjalëkalim Grupi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
-        <source>Use Hybrid Authentication</source>
-        <translation>Përdor Mirëfilltësim Hibrid</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
-        <source>CA File</source>
-        <translation>Kartelë AD</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::WiredPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/wiredpage.cpp" line="59"/>
-        <source>Setting List</source>
-        <translation>Lista e rrregullimeve</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
-        <source>Plug in the network cable first</source>
-        <translation>Së pari futni kabllon e rrjetit në vend</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
-        <source>Add Settings</source>
-        <translation>Shtoni Rregullime</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>
-        <source>Select Settings</source>
-        <translation>Përzgjidhni Rregullime</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::WirelessPage</name>
-    <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="64"/>
-        <source>Connect to hidden network</source>
-        <translation>Lidhu në rrjet të fshehtë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
-        <source>Close Hotspot</source>
-        <translation>Mbylle Hotspot-in</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
-        <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation>Nëse doni të lidheni me një rrjet pa fill, ju lutemi, së pari, çaktivizoni hotspot-in</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
-        <source>WLAN</source>
-        <translation>WLAN</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::WirelessSection</name>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="55"/>
-        <source>Not Bind</source>
-        <translation>Jo e lidhur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="113"/>
-        <source>Required</source>
-        <translation>E domosdoshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="116"/>
-        <source>Device MAC Addr</source>
-        <translation>Adresë Mac Pajisjeje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="144"/>
-        <source>Customize MTU</source>
-        <translation>Përshtatni MTU-në</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="147"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::FontListWidget</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontlistwidget.cpp" line="89"/>
-        <source> (Unsupported font)</source>
-        <translation> (Shkronja të pambuluara)</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::FontSettingsWidget</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="45"/>
-        <source>Standard Font</source>
-        <translation>Shkronja Standarde</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
-        <source>Monospaced Font</source>
-        <translation>Shkronja Monospace</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
-        <source> (Unsupported font)</source>
-        <translation> (Shkronja të pambuluara)</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::FontSizeWidget</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontsizewidget.cpp" line="41"/>
-        <source>Size</source>
-        <translation>Madhësi</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::FontsWidget</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
-        <source>Font</source>
-        <translation>Shkronja</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::PersonalizationModule</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="118"/>
-        <source>Standard Font</source>
-        <translation>Shkronja Standarde</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="127"/>
-        <source>Monospaced Font</source>
-        <translation>Shkronja Monospace</translation>
     </message>
 </context>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="48"/>
-        <source>Transparency</source>
-        <translation>Tejdukshmëri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
-        <source>Window Effect</source>
-        <translation>Efekt Dritaresh</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="72"/>
-        <source>Theme</source>
-        <translation>Temë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="73"/>
-        <source>Font</source>
-        <translation>Shkronja</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="79"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Personalization</source>
         <translation>Personalizim</translation>
     </message>
 </context>
 <context>
-    <name>dcc::personalization::Theme</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/themewidget/theme.cpp" line="84"/>
-        <source>Default</source>
-        <translation>Parazgjedhje</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::ThemeWidget</name>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="40"/>
-        <source>Window Theme</source>
-        <translation>Temë Dritaresh</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
-        <source>Icon Theme</source>
-        <translation>Temë Ikonash</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
-        <source>Cursor Theme</source>
-        <translation>Temë Kursori</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
-        <source>Theme</source>
-        <translation>Temë</translation>
-    </message>
-</context>
-<context>
     <name>dcc::power::PowerWidget</name>
     <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="46"/>
-        <source>Plugged in</source>
-        <translation>Në prizë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="47"/>
-        <source>On battery</source>
-        <translation>Nën bateri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="48"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="50"/>
-        <source>Monitor will suspend after</source>
-        <translation>Monitori do të pezullohet pas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="49"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="51"/>
-        <source>Computer will suspend after</source>
-        <translation>Kompjuteri do të pezullohet pas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="62"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="202"/>
-        <source>Never</source>
-        <translation>Kurrë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
-<<<<<<< HEAD
-        <source>Password is required to wake up the monitor</source>
-=======
-        <source>Password required to wake up the monitor</source>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-        <translation>Që të zgjohet monitor, lypset fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
-<<<<<<< HEAD
-        <source>Password is required to wake up the computer</source>
-=======
-        <source>Password required to wake up the computer</source>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-        <translation>Që të zgjohet kompjuteri, lypset fjalëkalim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="107"/>
-        <source>Suspend on lid close</source>
-        <translation>Pezulloje kur mbyllet kapaku</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="110"/>
-        <source>Power Saving Mode</source>
-        <translation>Mënyrë Kursim Energjie</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="111"/>
-        <source>Auto Mode Switch</source>
-        <translation>Auto Menyra e ndryshimit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="122"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>Power Management</source>
         <translation>Administrim Energjie</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="190"/>
-        <source>1 Minute</source>
-<<<<<<< HEAD
-        <translation>1 Minute</translation>
-=======
-        <translation>1 Minutë</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="192"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="194"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="196"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="198"/>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="204"/>
-        <source>%1 Minutes</source>
-<<<<<<< HEAD
-        <translation>%1 Minutash</translation>
-=======
-        <translation>%1 Minuta</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="200"/>
-        <source>1 Hour</source>
-<<<<<<< HEAD
-        <translation>1 Ore</translation>
-=======
-        <translation>1 Orë</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-</context>
-<context>
-    <name>dcc::sound::AdvancedPage</name>
-    <message>
-        <location filename="../src/frame/modules/sound/advancedpage.cpp" line="37"/>
-        <source>Output</source>
-        <translation>Dalje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/advancedpage.cpp" line="38"/>
-        <source>Input</source>
-        <translation>Hyrje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/advancedpage.cpp" line="40"/>
-        <source>Advanced</source>
-        <translation>Të mëtejshme</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::sound::SoundEffectPage</name>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="43"/>
-        <source>Sound Effects</source>
-        <translation>Efekte Zanore</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
-        <source>System Sound Effect</source>
-        <translation>Efekt Zanor Sistemi</translation>
     </message>
 </context>
 <context>
@@ -9740,7 +5994,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="67"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="84"/>
         <source>Boot up</source>
-        <translation>Ndize</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="68"/>
@@ -9823,108 +6077,9 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="43"/>
-        <source>Output Volume</source>
-<<<<<<< HEAD
-        <translation>Volum Në Dalje</translation>
-=======
-        <translation>Volumi në dalje</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="44"/>
-        <source>Left/Right Balance</source>
-        <translation>Balancë Majtas/Djathtas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="47"/>
-        <source>Input Volume</source>
-<<<<<<< HEAD
-        <translation>Volum Në Hyrje</translation>
-=======
-        <translation>Volumi në hyrje</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="49"/>
-        <source>Feedback Volume</source>
-        <translation>Volumi i Reagmit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="156"/>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Sound</source>
         <translation>Zë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="60"/>
-        <source>Speaker</source>
-        <translation>Altoparlant</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="83"/>
-        <source>Microphone</source>
-        <translation>Mikrofon</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="106"/>
-        <source>Advanced</source>
-        <translation>Të mëtejshme</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
-        <source>Sound Effects</source>
-        <translation>Efekte Zanore</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::sync::SyncWidget</name>
-    <message>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
-        <source>Cloud Sync</source>
-        <translation>Njëkohësim Në Re</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::systeminfo::BootWidget</name>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="62"/>
-        <source>Updating...</source>
-        <translation>Po përditësohet…</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
-        <source>Startup Delay</source>
-        <translation>Vonesë Nisjeje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="76"/>
-        <source>Theme</source>
-        <translation>Temë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="78"/>
-        <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
-        <translation>Mund të klikoni mbi mundësinë te menuja e nisjeve, për ta caktuar si nisjen e parë, dhe të tërhiqni dhe lini një figurë për zëvendësim sfondi.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
-        <source>Switch theme on to view it in boot menu</source>
-        <translation>Aktivizoni temën që ta shihni te menu nisjesh</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
-        <source>Boot Menu</source>
-        <translation>Menu Nisjesh</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::systeminfo::CopyrightWidget</name>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/copyrightwidget.cpp" line="70"/>
-        <source>Edition License</source>
-        <translation>Licencë Edicioni</translation>
     </message>
 </context>
 <context>
@@ -9932,81 +6087,15 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="173"/>
         <source>available</source>
-        <translation>disponueshme</translation>
+        <translation>i passhëm</translation>
     </message>
 </context>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="50"/>
-        <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Të drejta kopjimi © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
-        <location filename="../src/frame/navigationbar.cpp" line="217"/>
         <source>System Information</source>
         <translation>Të dhëna Mbi Sistemin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="81"/>
-        <source>Distribution:</source>
-        <translation>Shpërndarje:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="86"/>
-        <source>Distribution Release:</source>
-        <translation>Hedhje në qarkullim Shpërndarjeje:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="91"/>
-        <source>Edition:</source>
-<<<<<<< HEAD
-        <translation>Edicion:</translation>
-=======
-        <translation>Edicioni:</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="95"/>
-        <source>Type:</source>
-        <translation>Lloj:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="98"/>
-        <source>Processor:</source>
-        <translation>Procesor:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="102"/>
-        <source>Memory:</source>
-        <translation>Kujtesë:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="106"/>
-        <source>Disk:</source>
-        <translation>Disk:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="119"/>
-        <source>Edition License</source>
-        <translation>Licencë Edicioni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="122"/>
-        <source>End User License Agreement</source>
-        <translation>Marrëveshje Licence Përdoruesi (EULA)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="126"/>
-        <source>Boot Menu</source>
-        <translation>Menu Nisjesh</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
-        <source>%1Bit</source>
-        <translation>%1Bit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="188"/>
@@ -10017,14 +6106,6 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
         <translation>Të drejta kopjimi© 2019-2020 UnionTech Software Technology Co., LTD</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::systeminfo::UserLicense</name>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/userlicense.cpp" line="15"/>
-        <source>End User License Agreement</source>
-        <translation>Marrëveshje Licence Përdoruesi (EULA)</translation>
     </message>
 </context>
 <context>
@@ -10061,24 +6142,6 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::update::MirrorsWidget</name>
-    <message>
-        <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="42"/>
-        <source>Test Speed</source>
-        <translation>Testoni Shpejtësinë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="46"/>
-        <source>Switch Mirror</source>
-        <translation>Ndërroni Pasqyrë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="141"/>
-        <source>Retest</source>
-        <translation>Ritestoje</translation>
-    </message>
-</context>
-<context>
     <name>dcc::update::ResultItem</name>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="70"/>
@@ -10099,112 +6162,9 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
-        <source>Please restart to use the system and applications properly after updated</source>
-        <translation>Që të përdorni si duhet sistemin dhe aplikacionet pas përditësimesh, ju lutemi, riniseni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
-        <source>Network disconnected, please retry after connected</source>
-        <translation>Rrjeti u shkëput, ju lutemi, riprovoni pasi të jetë lidhur</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
-        <location filename="../src/frame/navigationbar.cpp" line="216"/>
         <source>Update</source>
         <translation>Përditësoje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
-        <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Ky përditësim mund të zgjasë një kohë të gjatë, ju lutemi, mos e fikni apo rinisni gjatë procesit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
-        <source>Checking for updates, please wait...</source>
-        <translation>Po kontrollohet për përditësime, ju lutemi, pritni…</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="181"/>
-        <source>Download and install updates</source>
-        <translation>Shkarko dhe instaloni përditësime</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="190"/>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="294"/>
-        <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% të shkarkuara (Klikoni që të ndalet)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="195"/>
-        <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% të shkarkuara (Klikoni që të vazhdohet)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="201"/>
-        <source>Install updates</source>
-        <translation>Instalo përditësime</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="208"/>
-        <source>Your system is up to date</source>
-        <translation>Sistemi juaj është i përditësuar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="213"/>
-        <source>Updating, please wait...</source>
-        <translation>Po përditësohet, ju lutemi, pritni…</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="227"/>
-        <source>The newest system installed, restart to take effect</source>
-        <translation>U instaluar sistemi më i ri, riniseni që të hyjë në fuqi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="237"/>
-        <source>Insufficient disk space, unable to update system.</source>
-        <translation>Hapësirë disku e pamjaftueshme, s’arrihet të përditësohet sistemi.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
-        <source>Dependency error, failed to detect the updates</source>
-        <translation>Gabim varësish, s’u arrit të zbulohen përditësimet</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
-        <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
-        <source>New system edition detected</source>
-        <translation>U pikas edicion i ri sistemi</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
-        <source>Downloaded</source>
-        <translation>Të shkarkuara</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="280"/>
-        <source>Download size: %1</source>
-        <translation>Madhësi shkarkimi: %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="302"/>
-        <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Bateria juaj është më pak se 50%, ju lutemi, vëreni në prizë që të vazhdohet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="304"/>
-        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Ju lutemi, që të riniset, sigurohuni për energji të mjaftueshme dhe mos e fikni apo të hiqni prizën e makinës tuaj</translation>
     </message>
 </context>
 <context>
@@ -10222,170 +6182,35 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::update::UpdateSettings</name>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="50"/>
-        <source>Update Settings</source>
-        <translation>Rregullime Përditësimi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
-        <source>Auto Clear Package Cache</source>
-        <translation>Vetëspastro Fshehtinë Pakete</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
-        <source>Updates Notification</source>
-        <translation>Njoftim Përditësimesh</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="68"/>
-        <source>Auto-download Updates</source>
-        <translation>Vetëshkarkoji Përditësimet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
-        <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Aktivizojeni që të shkarkohen automatikisht përditësimet në rrjet me ose pa fill</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
-        <source>System Source Detection</source>
-        <translation>Pikasje Burimesh Sistemi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
-        <source>Prompt the notification if system update mirror has been modified</source>
-        <translation>Shfaq njoftimin, nëse është ndryshuar pasqyra e përditësimit të sistemit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
-        <source>Smart Mirror Switch</source>
-        <translation>Ndërrim i Mençur Pasqyre</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
-        <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Aktivizojeni që të lidhet automatikisht me sajtin pasqyrë më të shpejtë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="114"/>
-        <source>Switch Mirror</source>
-        <translation>Ndërroni Pasqyrë</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::update::UpdateView</name>
-    <message>
-        <location filename="../src/frame/modules/update/updateview.cpp" line="40"/>
-        <location filename="../src/frame/modules/update/updateview.cpp" line="52"/>
-        <source>Update</source>
-        <translation>Përditësoje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
-        <source>Update Settings</source>
-        <translation>Rregullime Përditësimi</translation>
-    </message>
-</context>
-<context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/modules/update/updatework.cpp" line="354"/>
-=======
-        <location filename="../src/frame/modules/update/updatework.cpp" line="350"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/modules/update/updatework.cpp" line="360"/>
         <source>Patches</source>
         <translation>Arnime</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/modules/update/updatework.cpp" line="355"/>
-=======
-        <location filename="../src/frame/modules/update/updatework.cpp" line="351"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/modules/update/updatework.cpp" line="361"/>
         <source>System patches</source>
         <translation>Arnime sistemi</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1053"/>
-=======
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1049"/>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1059"/>
         <source>System</source>
         <translation>Sistem</translation>
     </message>
 </context>
 <context>
-    <name>dcc::wacom::WacomModePage</name>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="37"/>
-        <source>Pen</source>
-        <translation>Penë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="38"/>
-        <source>Mouse</source>
-        <translation>Mi</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::wacom::WacomSettings</name>
-    <message>
-        <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
-        <source>Pressure Sensitivity</source>
-        <translation>Ndjeshmëri Trysnie</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
-        <source>Light</source>
-        <translation>E lehtë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
-        <source>Heavy</source>
-        <translation>E fortë</translation>
-    </message>
-</context>
-<context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
-        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="50"/>
-        <source>Mode</source>
-        <translation>Mënyrë</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="161"/>
-        <location filename="../src/frame/navigationbar.cpp" line="215"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
-        <source>Mouse</source>
-        <translation>Mi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
-        <source>Pen</source>
-        <translation>Penë</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::widgets::ConnectWidget</name>
-    <message>
-        <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
-        <source>Connected</source>
-        <translation>E lidhur</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="77"/>
+        <location filename="../src/frame/main.cpp" line="80"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>Qendra e Kontrollit furnizon mundësitë për rregullime sistemi.</translation>
     </message>

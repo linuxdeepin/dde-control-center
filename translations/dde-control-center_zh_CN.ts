@@ -670,7 +670,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
         <source>UOS Privacy Policy</source>
-        <translation>UOS隐私协议</translation>
+        <translation>UOS隐私政策</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="234"/>
@@ -3981,32 +3981,48 @@
 <context>
     <name>dccV20::power::GeneralWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="41"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
         <source>Power Saving Mode</source>
         <translation>节能模式</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="42"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
         <source>Auto Mode Switch</source>
         <translation>自动切换节能模式</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="72"/>
         <source>Password is required to wake up the computer</source>
         <translation>待机恢复时需要密码</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="44"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="74"/>
         <source>Password is required to wake up the monitor</source>
         <translation>唤醒显示器时需要密码</translation>
         <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
+        <source>Battery</source>
+        <translation>电池</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="75"/>
+        <source>Display capacity and remaining charging time</source>
+        <translation>显示剩余电量及剩余充电时间</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="76"/>
+        <source>Maximum capacity</source>
+        <translation>最大容量</translation>
     </message>
 </context>
 <context>
