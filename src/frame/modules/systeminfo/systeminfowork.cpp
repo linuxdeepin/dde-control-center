@@ -42,7 +42,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 {
     m_systemInfoInter = new SystemInfoInter("com.deepin.daemon.SystemInfo",
                                             "/com/deepin/daemon/SystemInfo",
-                                            QDBusConnection::systemBus(), this);
+                                            QDBusConnection::sessionBus(), this);
     m_systemInfoInter->setSync(false);
 
     m_systemInfo = new QDBusInterface("com.deepin.system.SystemInfo",
@@ -134,12 +134,6 @@ void SystemInfoWork::activate()
         m_model->setMemory(DSysInfo::memoryTotalSize(), DSysInfo::memoryInstalledSize());
     }
     // m_model->setDisk(DSysInfo::systemDiskSize());
-    QDBusConnection::systemBus().connect("com.deepin.license",
-                                         "/com/deepin/license/Info",
-                                         "com.deepin.license.Info",
-                                         "LicenseStateChange",
-                                         this,
-                                         SLOT(licenseStateChangeSlot()));
 }
 
 void SystemInfoWork::deactivate()
@@ -243,6 +237,13 @@ void SystemInfoWork::setBackground(const QString &path)
 
 void SystemInfoWork::showActivatorDialog()
 {
+    QDBusConnection::systemBus().connect("com.deepin.license",
+                                         "/com/deepin/license/Info",
+                                         "com.deepin.license.Info",
+                                         "LicenseStateChange",
+                                         this,
+                                         SLOT(licenseStateChangeSlot()));
+
     QDBusInterface activator("com.deepin.license.activator",
                              "/com/deepin/license/activator",
                              "com.deepin.license.activator",
@@ -300,16 +301,18 @@ void SystemInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
 
 void SystemInfoWork::getLicenseState()
 {
-    QDBusInterface licenseInfo("com.deepin.license.activator",
-                               "/com/deepin/license/activator",
-                               "com.deepin.license.activator",
-                               QDBusConnection::sessionBus());
+    QDBusInterface licenseInfo("com.deepin.license",
+                               "/com/deepin/license/Info",
+                               "com.deepin.license.Info",
+                               QDBusConnection::systemBus());
+
     if (!licenseInfo.isValid()) {
         qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
         return;
     }
 
-   quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    qDebug() << "authorize result:" << reply;
     m_model->setLicenseState(reply);
 }
 
