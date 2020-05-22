@@ -269,6 +269,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     modifydelLayout->addWidget(modifyPassword);
     modifydelLayout->addSpacing(10);
     modifydelLayout->addWidget(deleteAccount);
+    modifydelLayout->setStretchFactor(modifyPassword,1);
+    modifydelLayout->setStretchFactor(deleteAccount,1);
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
 
@@ -435,8 +437,11 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         return;
     }
     m_userModel = model;
-    m_autoLogin->setVisible(m_userModel->isAutoLoginValid() && !IsServerSystem);
-    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginValid() && !IsServerSystem);
+    // 临时关闭免密码登录、自动登录
+    m_autoLogin->setVisible(false);
+    m_nopasswdLogin->setVisible(false);
+//    m_autoLogin->setVisible(m_userModel->isAutoLoginValid() && !IsServerSystem);
+//    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginValid() && !IsServerSystem);
 
     if (!m_groupItemModel)
         return;

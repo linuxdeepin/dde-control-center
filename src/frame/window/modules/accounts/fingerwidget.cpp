@@ -59,12 +59,13 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     headLayout->setSpacing(0);
     headLayout->setContentsMargins(10, 0, 10, 0);
     headLayout->addWidget(fingetitleLabel, 0, Qt::AlignLeft);
-    headLayout->addWidget(m_clearBtn, 0, Qt::AlignRight);
 
     QHBoxLayout *tipLayout = new QHBoxLayout;
     tipLayout->setSpacing(10);
     tipLayout->setContentsMargins(10, 0, 10, 0);
     tipLayout->addWidget(m_maxFingerTip, 0, Qt::AlignLeft);
+    tipLayout->addWidget(m_clearBtn, 0, Qt::AlignRight);
+    tipLayout->addSpacing(25);
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setSpacing(1);
@@ -81,7 +82,7 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
 
     connect(m_clearBtn, &DCommandLinkButton::clicked, this, [ = ](bool checked) {
         if (checked) {
-            m_clearBtn->setText(tr("Cancel"));
+            m_clearBtn->setText(tr("Done"));
         } else {
             m_clearBtn->setText(tr("Edit"));
         }

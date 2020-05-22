@@ -45,15 +45,33 @@ FingerWidget::FingerWidget(QWidget *parent)
     , m_isFinished(false)
     , m_titleTimer(new QTimer(this))
     , m_msgTimer(new QTimer(this))
+    , m_liftTimer(new QTimer(this))
 {
     m_titleTimer->setSingleShot(true);
     m_titleTimer->setInterval(2000);
     m_msgTimer->setSingleShot(true);
     m_msgTimer->setInterval(2000);
+    m_liftTimer->setSingleShot(true);
+    m_liftTimer->setInterval(1000);
     connect(m_titleTimer, &QTimer::timeout, this, [this]{
         m_titleLbl->setText(m_defTitle);
     });
     connect(m_msgTimer, &QTimer::timeout, this, [this]{
+        m_tipLbl->setText(m_defTip);
+    });
+    connect(m_liftTimer, &QTimer::timeout, this, [this]{
+        if (m_pro > 0 && m_pro < 35) {
+            m_defTitle = tr("Place your finger");
+            m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
+        } else if (m_pro >= 35 && m_pro < 100) {
+            m_defTitle = tr("Scan the edges of your fingerprint");
+            m_defTip = tr("Place the edges of your fingerprint on the sensor");
+        } else {
+            m_liftTimer->stop();
+            return;
+        }
+
+        m_titleLbl->setText(m_defTitle);
         m_tipLbl->setText(m_defTip);
     });
 
@@ -92,6 +110,7 @@ void FingerWidget::setStatueMsg(const QString &title, const QString &msg, bool r
     m_reset = reset;
     m_msgTimer->stop();
     m_titleTimer->stop();
+    m_liftTimer->stop();
 
     m_titleLbl->setText(title);
     m_tipLbl->setText(msg);
@@ -125,6 +144,7 @@ void FingerWidget::setProsses(int pro)
         if (m_pro > 0 && m_pro < 35) {
             m_defTitle = tr("Lift your finger");
             m_defTip = tr("Lift your finger and place it on the sensor again");
+            m_liftTimer->start();
         } else if(m_pro >= 35 && m_pro < 100) {
             if (m_isStageOne == true) {
                 m_isStageOne = false;
@@ -133,6 +153,7 @@ void FingerWidget::setProsses(int pro)
             } else {
                 m_defTitle = tr("Scan the edges of your fingerprint");
                 m_defTip = tr("Lift your finger and do that again");
+                m_liftTimer->start();
             }
         } else {
             m_defTitle = tr("Fingerprint added");
