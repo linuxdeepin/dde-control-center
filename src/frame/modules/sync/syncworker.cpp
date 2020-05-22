@@ -15,10 +15,22 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     , m_syncInter(new SyncInter(SYNC_INTERFACE, "/com/deepin/sync/Daemon", QDBusConnection::sessionBus(), this))
     , m_deepinId_inter(new DeepinId(SYNC_INTERFACE, "/com/deepin/deepinid", QDBusConnection::sessionBus(), this))
 {
+    //采用的是DBus直接获取属性值的方式
+    QDBusInterface Interface("com.deepin.sync.Daemon",
+                        "/com/deepin/sync/Daemon",
+                        "org.freedesktop.DBus.Properties",
+                        QDBusConnection::sessionBus());
+    QDBusMessage reply = Interface.call("Get", "com.deepin.sync.Daemon", "UserInfo");
+    QVariant variant = reply.arguments().first();
+    QDBusArgument argument = variant.value<QDBusVariant>().variant().value<QDBusArgument>();
+    qDebug() << argument.currentSignature() << argument.currentType();
+    QVariantMap userInfo;
+    argument >> userInfo;
+    m_model->setUserinfo(userInfo);
+
     m_syncInter->setSync(false, false);
     m_deepinId_inter->setSync(false, false);
 
-    connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &SyncModel::setUserinfo, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
@@ -33,7 +45,6 @@ void SyncWorker::activate()
     m_syncInter->blockSignals(false);
     m_deepinId_inter->blockSignals(false);
 
-    m_model->setUserinfo(m_deepinId_inter->userInfo());
     onStateChanged(m_syncInter->state());
     onLastSyncTimeChanged(m_syncInter->lastSyncTime());
 
