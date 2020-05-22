@@ -388,10 +388,11 @@ void CustomSettingDialog::initMoniList()
         Q_ASSERT(listModel->rowCount() == m_model->monitorList().size());
 
         auto monis = m_model->monitorList();
-        for (int idx = 0 ; idx < listModel->rowCount(); ++idx)
-        {
+        for (int idx = 0 ; idx < listModel->rowCount(); ++idx) {
             auto item = listModel->item(idx);
-            item->setCheckState(monis[idx] == m_model->primaryMonitor() ? Qt::Checked : Qt::Unchecked);
+            if (idx < monis.size()) {
+                item->setCheckState(monis[idx] == m_model->primaryMonitor() ? Qt::Checked : Qt::Unchecked);
+            }
         }
     });
 }
@@ -576,9 +577,6 @@ void CustomSettingDialog::resetDialog()
     //当收到屏幕变化的消息后，屏幕数据还是旧的
     //需要用QTimer把对窗口的改变放在屏幕数据应用后
     QTimer::singleShot(sender() ? 1000 : 0, this, [ = ] {
-        m_monitroControlWidget->adjustSize();
-        adjustSize();
-
         auto rt = rect();
         if (rt.width() > m_monitor->w())
             rt.setWidth(m_monitor->w());
