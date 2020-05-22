@@ -158,56 +158,56 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="225"/>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Puno ime je predugo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="242"/>
         <source>The full name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Puno ime već postoji</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
         <source>Validity Days</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
         <source>Always</source>
         <translation>Uvijek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="342"/>
         <source>Please input a number between 1-99999</source>
-        <translation type="unfinished"/>
+        <translation>Molim unesite broj između 1-99999</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
         <source>Change Password</source>
         <translation>Promijeni lozinku</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="385"/>
         <source>Delete Account</source>
         <translation>Izbriši račun</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="388"/>
         <source>Auto Login</source>
         <translation>Automatska prijava</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="392"/>
         <source>Login Without Password</source>
         <translation>Prijava bez lozinke</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="471"/>
         <source>Group</source>
         <translation>Grupa</translation>
     </message>
@@ -238,7 +238,7 @@
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="140"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="150"/>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Standardni korisnik</translation>
     </message>
 </context>
 <context>
@@ -250,28 +250,28 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="134"/>
         <source>Done</source>
         <translation>Učinjeno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="157"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="205"/>
         <source>Scan Again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="168"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="183"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan Suspended</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan time expired</source>
         <translation type="unfinished"/>
     </message>
@@ -343,7 +343,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="317"/>
         <source>Go to Settings</source>
-        <translation type="unfinished"/>
+        <translation>Idi u postavke</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="355"/>
@@ -377,23 +377,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
-        <source>Username cannot be a pure number</source>
+        <source>Your username should not only have numbers</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="494"/>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Prvi znak mora biti slovo ili broj</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
         <source>The full name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Puno ime već postoji</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="519"/>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Puno ime je predugo</translation>
     </message>
 </context>
 <context>
@@ -468,7 +468,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="151"/>
         <source>Go to Settings</source>
-        <translation type="unfinished"/>
+        <translation>Idi u postavke</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
@@ -483,7 +483,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Lozinka može sadržavati samo engleska slova (osjetljiva na veliko i malo slovo), brojeve i posebne simbole (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="251"/>
@@ -651,7 +651,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="91"/>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Nema mrežne veze</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
@@ -694,7 +694,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="74"/>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>Na mreži</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="75"/>
@@ -770,7 +770,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Nema mrežne veze</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
@@ -1190,7 +1190,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
         <source>Configure the display according to your needs</source>
-        <translation type="unfinished"/>
+        <translation>Konfigurirajte zaslon u skladu s vašim potrebama</translation>
     </message>
 </context>
 <context>
@@ -1730,12 +1730,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="156"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Neispravna IP adresa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="164"/>
         <source>Invalid port</source>
-        <translation type="unfinished"/>
+        <translation>Neispravni port</translation>
     </message>
 </context>
 <context>
@@ -1773,7 +1773,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="204"/>
         <source>Are you sure you want to delete this configuration?</source>
-        <translation type="unfinished"/>
+        <translation>Jeste li sigurni da želite izbrisati ovu konfiguraciju?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="380"/>
@@ -1791,7 +1791,7 @@
         <translation>Bežična veza: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE veza %1</translation>
     </message>
@@ -1930,7 +1930,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="70"/>
         <source>The name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Ime već postoji</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="100"/>
@@ -2053,7 +2053,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="539"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="548"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Neispravna IP adresa</translation>
     </message>
 </context>
 <context>
@@ -2659,65 +2659,65 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>Invalid password</source>
         <translation>Neispravna lozinka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="154"/>
         <source>None</source>
         <translation>Nijedan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="155"/>
         <source>WEP</source>
         <translation>WEP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="156"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 osobni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="157"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 Poduzeće</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
         <source>Shared key</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="162"/>
         <source>Open system</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="168"/>
         <source>Security</source>
         <translation>Sigurnost</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="178"/>
         <source>Required</source>
         <translation>Potrebno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="191"/>
         <source>Authentication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="232"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="270"/>
         <source>Key</source>
         <translation>Ključ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="238"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="283"/>
         <source>Password</source>
         <translation>Lozinka</translation>
     </message>
@@ -3698,28 +3698,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
         <source>Connect to hidden network</source>
         <translation>Povezivanje na skrivenu mrežu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
         <source>Wireless Network Adapter</source>
         <translation>Adapter bežične mreže</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
         <source>Close Hotspot</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="307"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -4188,13 +4188,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="96"/>
         <source>Input</source>
         <translation>Unos</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
         <source>Sound Card:</source>
         <translation>Zvučna kartica:</translation>
     </message>
@@ -4435,7 +4435,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="18"/>
         <source>Backup</source>
-        <translation type="unfinished"/>
+        <translation>Sigurnosna kopija</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="30"/>
@@ -4463,7 +4463,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="121"/>
         <source>Save User Data</source>
-        <translation type="unfinished"/>
+        <translation>Spremi korisničke podatke</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="123"/>
@@ -4598,7 +4598,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="166"/>
         <source>Expired</source>
-        <translation type="unfinished"/>
+        <translation>Isteklo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="170"/>
@@ -4650,7 +4650,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="21"/>
         <source>Backup</source>
-        <translation type="unfinished"/>
+        <translation>Sigurnosna kopija</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="22"/>
@@ -5735,43 +5735,51 @@ Ako nema operacija, monitor će se obnoviti nakon %1s.</translation>
 <context>
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="136"/>
         <source>Place your finger</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="65"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="137"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
-        <source>Lift your finger</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="150"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="153"/>
         <source>Scan the edges of your fingerprint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="144"/>
+        <source>Lift your finger</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="151"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="154"/>
         <source>Lift your finger and do that again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="158"/>
         <source>Fingerprint added</source>
         <translation>Otisak prsta dodan</translation>
     </message>

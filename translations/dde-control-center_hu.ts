@@ -139,12 +139,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="95"/>
         <source>The fingerprint name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Az ujjlenyomat neve már létezik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="130"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
-        <translation type="unfinished"/>
+        <translation>A névnek csak betűket, számokat és aláhúzást kell tartalmaznia, és legfeljebb 15 karakter lehet.</translation>
     </message>
 </context>
 <context>
@@ -166,48 +166,48 @@
         <translation>A teljes név már létezik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
         <source>Validity Days</source>
         <translation>Érvényességi napok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
         <source>Always</source>
         <translation>Mindig</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="342"/>
         <source>Please input a number between 1-99999</source>
         <translation>Kérjük, írjon be egy számot 1-99999 között</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
         <source>Change Password</source>
         <translation>Jelszóváltoztatás</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="385"/>
         <source>Delete Account</source>
         <translation>Felhasználói fiók törlése</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="388"/>
         <source>Auto Login</source>
         <translation>Automatikus belépés</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="392"/>
         <source>Login Without Password</source>
         <translation>Bejelentkezés jelszó nélkül</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="471"/>
         <source>Group</source>
         <translation>Csoport</translation>
     </message>
@@ -250,30 +250,31 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="134"/>
         <source>Done</source>
         <translation>Kész</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="157"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="205"/>
         <source>Scan Again</source>
         <translation>Szkennelj újra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="168"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="183"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>A szkennelés felfüggesztve
+</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan time expired</source>
-        <translation type="unfinished"/>
+        <translation>A szkennelési idő lejárt</translation>
     </message>
 </context>
 <context>
@@ -353,12 +354,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="369"/>
         <source>The password must have at least 6 characters, and contain at least 2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>A jelszónak legalább 6 karakterből kell állnia, és tartalmaznia kell a rendelkezésre álló négy karaktertípus közül legalább 2-t: kisbetűk, nagybetűk, számok és szimbólumok.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="372"/>
         <source>Password should not be the repeated or reversed username</source>
-        <translation type="unfinished"/>
+        <translation>A jelszó nem lehet ismételt vagy fordított felhasználónév</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="425"/>
@@ -377,8 +378,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
-        <source>Username cannot be a pure number</source>
-        <translation type="unfinished"/>
+        <source>Your username should not only have numbers</source>
+        <translation>A felhasználónevednek nem csak számokkal kell rendelkeznie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="494"/>
@@ -412,7 +413,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
         <source>You can add up to 10 fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Legfeljebb 10 ujjlenyomatot adhat hozzá</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="84"/>
@@ -1793,7 +1794,7 @@
         <translation>Vezetéknélküli csatlakozás %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE csatlakozás %1</translation>
     </message>
@@ -2662,65 +2663,65 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>Invalid password</source>
         <translation>Érvénytelen jelszó</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="154"/>
         <source>None</source>
         <translation>Nincs</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="155"/>
         <source>WEP</source>
         <translation>WEP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="156"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 Személyes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="157"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 vállalati</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
         <source>Shared key</source>
-        <translation type="unfinished"/>
+        <translation>Közös kulcs</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="162"/>
         <source>Open system</source>
-        <translation type="unfinished"/>
+        <translation>Nyitott rendszer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="168"/>
         <source>Security</source>
         <translation>Biztonság</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="178"/>
         <source>Required</source>
         <translation>Szükséges</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="191"/>
         <source>Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Hitelesítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="232"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="270"/>
         <source>Key</source>
         <translation>Kulcs</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="238"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="283"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
@@ -3701,28 +3702,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
         <source>Connect to hidden network</source>
         <translation>Kapcsolódás rejtett hálózathoz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
         <source>Wireless Network Adapter</source>
         <translation>Vezeték nélküli kártya</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
         <source>Close Hotspot</source>
         <translation>Hotspot bezárása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>A vezeték nélküli hálózat kapcsolódásahoz először kapcsolja ki a hotspot-ot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="307"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -4191,13 +4192,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="96"/>
         <source>Input</source>
         <translation>Bemenet</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
         <source>Sound Card:</source>
         <translation>Hangkártya:</translation>
     </message>
@@ -5738,43 +5739,51 @@ Ha nem működik, a képernyőbeállítás visszaáll %1 másodperc elteltével.
 <context>
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="136"/>
         <source>Place your finger</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="65"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="137"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
-        <source>Lift your finger</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="150"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="153"/>
         <source>Scan the edges of your fingerprint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="144"/>
+        <source>Lift your finger</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="151"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="154"/>
         <source>Lift your finger and do that again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="158"/>
         <source>Fingerprint added</source>
         <translation>Ujjlenyomat hozzáadva</translation>
     </message>

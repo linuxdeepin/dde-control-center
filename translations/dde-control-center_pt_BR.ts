@@ -12,7 +12,7 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>Clique no ícone para ativar o bluetooth</translation>
+        <translation>Clique no ícone para ativar o Bluetooth</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
@@ -166,48 +166,48 @@
         <translation>O nome completo já existe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
         <source>Validity Days</source>
         <translation>Dias Válidos</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
         <source>Always</source>
         <translation>Sempre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="342"/>
         <source>Please input a number between 1-99999</source>
         <translation>Digite um número entre 1-99999</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
         <source>Change Password</source>
         <translation>Alterar Senha</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="385"/>
         <source>Delete Account</source>
         <translation>Excluir Conta</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="388"/>
         <source>Auto Login</source>
         <translation>Login automático</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="392"/>
         <source>Login Without Password</source>
         <translation>Login sem senha</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="471"/>
         <source>Group</source>
         <translation>Grupo</translation>
     </message>
@@ -250,28 +250,28 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="134"/>
         <source>Done</source>
         <translation>Concluído</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="157"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="205"/>
         <source>Scan Again</source>
         <translation>Ler Novamente</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="168"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="183"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan Suspended</source>
         <translation>Leitura Suspensa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan time expired</source>
         <translation>O tempo de verificação expirou</translation>
     </message>
@@ -377,7 +377,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
-        <source>Username cannot be a pure number</source>
+        <source>Your username should not only have numbers</source>
         <translation>O nome de usuário não pode conter apenas números</translation>
     </message>
     <message>
@@ -513,7 +513,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="75"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation>Ative o bluetooth para detectar dispositivos próximos (alto-falante, teclado, mouse...)</translation>
+        <translation>Ative o Bluetooth para detectar dispositivos próximos (alto-falante, teclado, mouse...)</translation>
     </message>
 </context>
 <context>
@@ -1791,7 +1791,7 @@
         <translation>Conexão Wi-Fi %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
         <source>PPPoE Connection %1</source>
         <translation>Conexão PPPoE %1</translation>
     </message>
@@ -2659,65 +2659,65 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>Invalid password</source>
         <translation>Senha inválida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="154"/>
         <source>None</source>
         <translation>Nenhum</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="155"/>
         <source>WEP</source>
         <translation>WEP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="156"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 Pessoal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="157"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 Empresarial</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
         <source>Shared key</source>
         <translation>Chave compartilhada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="162"/>
         <source>Open system</source>
         <translation>Sistema aberto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="168"/>
         <source>Security</source>
         <translation>Segurança</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="178"/>
         <source>Required</source>
         <translation>Obrigatório</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="191"/>
         <source>Authentication</source>
         <translation>Autenticação</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="232"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="270"/>
         <source>Key</source>
         <translation>Chave</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="238"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="283"/>
         <source>Password</source>
         <translation>Senha</translation>
     </message>
@@ -3698,28 +3698,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
         <source>Connect to hidden network</source>
         <translation>Conectar-se à rede oculta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
         <source>Wireless Network Adapter</source>
         <translation>Placa de Rede Wi-Fi</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
         <source>Close Hotspot</source>
         <translation>Fechar Hotspot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Desative o hotspot para conectar-se ao Wi-Fi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="307"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -4188,13 +4188,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="96"/>
         <source>Input</source>
         <translation>Entrada</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
         <source>Sound Card:</source>
         <translation>Placa de Som:</translation>
     </message>
@@ -5735,43 +5735,51 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
 <context>
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="136"/>
         <source>Place your finger</source>
         <translation>Posicione o dedo</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="65"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="137"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation>Posicione o dedo firmemente sobre o sensor, até que lhe seja solicitado a levantá-lo</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
-        <source>Lift your finger</source>
-        <translation>Levante o dedo</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation>Levante o dedo e posicione-o sobre o sensor</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="150"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="153"/>
         <source>Scan the edges of your fingerprint</source>
         <translation>Digitalize as laterais da sua impressão digital</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation>Posicione as laterais da impressão digital sobre o sensor</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="144"/>
+        <source>Lift your finger</source>
+        <translation>Levante o dedo</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>Levante o dedo e posicione-o sobre o sensor</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="151"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
         <translation>Posicione corretamente o dedo para digitalizar as laterais da sua impressão digital</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="154"/>
         <source>Lift your finger and do that again</source>
         <translation>Levante o dedo e digitalize novamente</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="158"/>
         <source>Fingerprint added</source>
         <translation>Impressão digital adicionada</translation>
     </message>
@@ -5887,7 +5895,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Ative o bluetooth para detectar dispositivos próximos (alto-falante, teclado, mouse)</translation>
+        <translation>Ative o Bluetooth para detectar dispositivos próximos (alto-falante, teclado, mouse)</translation>
     </message>
 </context>
 <context>
@@ -5931,7 +5939,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>O PIN para conectar-se ao dispositivo bluetooth é:</translation>
+        <translation>O PIN para conectar-se ao dispositivo Bluetooth é:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>

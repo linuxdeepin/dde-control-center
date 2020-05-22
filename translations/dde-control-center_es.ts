@@ -166,48 +166,48 @@
         <translation>El nombre completo ya existe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
         <source>Validity Days</source>
         <translation>Días vigentes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
         <source>Always</source>
         <translation>Siempre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="342"/>
         <source>Please input a number between 1-99999</source>
         <translation>Por favor ingrese un número entre 1 y 99999</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
         <source>Change Password</source>
         <translation>Cambiar contraseña</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="385"/>
         <source>Delete Account</source>
         <translation>Borrar cuenta</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="388"/>
         <source>Auto Login</source>
         <translation>Inicio de sesión automático</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="392"/>
         <source>Login Without Password</source>
         <translation>Iniciar sesión sin contraseña</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="471"/>
         <source>Group</source>
         <translation>Grupo</translation>
     </message>
@@ -250,28 +250,28 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="89"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="134"/>
         <source>Done</source>
         <translation>Finalizar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="157"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="205"/>
         <source>Scan Again</source>
         <translation>Escanear de nuevo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="168"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="183"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan Suspended</source>
         <translation>Escaneo suspendido</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan time expired</source>
         <translation>Tiempo de escaneo agotado</translation>
     </message>
@@ -377,8 +377,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
-        <source>Username cannot be a pure number</source>
-        <translation>El nombre de usuario no puede ser sólo números</translation>
+        <source>Your username should not only have numbers</source>
+        <translation>Su nombre de usuario no sólo debe contener números</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="494"/>
@@ -621,7 +621,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
-        <translation>Programa de experiencia de usuario</translation>
+        <translation>Experiencia de usuario</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
@@ -1673,7 +1673,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="49"/>
         <source>Application Proxy</source>
-        <translation>Proxy para la aplicación</translation>
+        <translation>Proxy para aplicaciones</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="52"/>
@@ -1791,7 +1791,7 @@
         <translation>Conexión inalámbrica %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
         <source>PPPoE Connection %1</source>
         <translation>Conexión PPPoE %1</translation>
     </message>
@@ -2177,7 +2177,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="89"/>
         <source>Application Proxy</source>
-        <translation>Proxy para la aplicación</translation>
+        <translation>Proxy para aplicaciones</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
@@ -2659,65 +2659,65 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>Invalid password</source>
         <translation>Contraseña inválida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="154"/>
         <source>None</source>
         <translation>Ninguno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="155"/>
         <source>WEP</source>
         <translation>WEP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="156"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 Personal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="157"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 Enterprise</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
         <source>Shared key</source>
         <translation>Clave compartida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="162"/>
         <source>Open system</source>
         <translation>Sistema abierto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="168"/>
         <source>Security</source>
         <translation>Seguridad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="178"/>
         <source>Required</source>
         <translation>Requerido</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="191"/>
         <source>Authentication</source>
         <translation>Autenticación</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="232"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="270"/>
         <source>Key</source>
         <translation>Clave</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="238"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="283"/>
         <source>Password</source>
         <translation>Contraseña</translation>
     </message>
@@ -3669,7 +3669,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
         <source>Plug in the network cable first</source>
-        <translation>Conecte en el cable de red primero</translation>
+        <translation>Conecte el cable de red</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="82"/>
@@ -3698,28 +3698,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
         <source>Connect to hidden network</source>
         <translation>Conectar a red oculta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
         <source>Wireless Network Adapter</source>
         <translation>Tarjeta de red inalámbrica</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
         <source>Close Hotspot</source>
         <translation> Cerrar conexión compartida </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Desactive la conexión compartida si desea conectarse a una red inalámbrica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="307"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -4188,13 +4188,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="96"/>
         <source>Input</source>
         <translation>Entrada</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="152"/>
         <source>Sound Card:</source>
         <translation>Tarjeta de sonido:</translation>
     </message>
@@ -4382,7 +4382,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="268"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation>yyyy-MM-dd hh:mm</translation>
+        <translation>aaaa-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
@@ -4715,7 +4715,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Reinicie el equipo para aplicar los cambios y pueda usarlo con normalidad</translation>
+        <translation>Reinicie el equipo para aplicar los cambios y poder usarlo con normalidad</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="71"/>
@@ -4784,7 +4784,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="306"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Error de dependencia, no se detectaron las actualizaciones.</translation>
+        <translation>Error de dependencias, no se encontraron actualizaciones.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
@@ -4799,7 +4799,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n actualización de aplicaciones disponible</numerusform><numerusform>%n actualizaciones de aplicaciones disponibles</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4809,7 +4809,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nueva edición del sistema y %n actualización de aplicaciones disponible</numerusform><numerusform>Nueva edición del sistema y %n actualizaciones de aplicaciones disponibles</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5032,7 +5032,7 @@
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation>Nuevos ajustes personalizados</translation>
+        <translation>Nuevo ajuste personalizado</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
@@ -5085,7 +5085,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>Hace %n día</numerusform><numerusform>Hace %n dia(s)</numerusform></translation>
+        <translation><numerusform>Hace %n día</numerusform><numerusform>Hace %n días</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5165,12 +5165,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Reinicie el equipo para aplicar los cambios y pueda usarlo con normalidad</translation>
+        <translation>Reinicie el equipo para aplicar los cambios y poder usarlo con normalidad</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation>Asegúrese de que hayan guardado todos los datos</translation>
+        <translation>Asegúrese de que todos los datos se hayan guardado</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="41"/>
@@ -5230,7 +5230,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/widgets/settingshead.cpp" line="102"/>
         <source>Done</source>
-        <translation>Hecho</translation>
+        <translation>Finalizar</translation>
     </message>
 </context>
 <context>
@@ -5291,7 +5291,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
-        <translation>Papelera vacía</translation>
+        <translation>Vaciar papelera</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
@@ -5352,17 +5352,17 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Error de dependencias, no se detectaron las actualizaciones.</translation>
+        <translation>Error de dependencias, no se encontraron actualizaciones.</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
-        <translation>Detectando falla de actualización</translation>
+        <translation>Buscando falla de actualización</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
-        <translation>Actualizaciones detectadas, clic para verlas</translation>
+        <translation>Nuevas actualizaciones, haga clic para verlas</translation>
     </message>
 </context>
 <context>
@@ -5659,7 +5659,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="118"/>
         <source>Scan failed</source>
-        <translation type="unfinished"/>
+        <translation>Escaneo fallido</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
@@ -5735,43 +5735,51 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
 <context>
     <name>dcc::accounts::FingerWidget</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="118"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="136"/>
         <source>Place your finger</source>
         <translation>Coloque su dedo</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="119"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="65"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="137"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
         <translation>Coloque su dedo firmemente en el sensor hasta que le pida que lo levante</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="126"/>
-        <source>Lift your finger</source>
-        <translation>Suelte su dedo</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="127"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation>Suelte su dedico y colóquelo en el sensor de nuevo</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="131"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="134"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="150"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="153"/>
         <source>Scan the edges of your fingerprint</source>
         <translation>Escaneé los bordes de su huella dactilar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="132"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation>Coloque los bordes de su huella dactilar en el sensor</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="144"/>
+        <source>Lift your finger</source>
+        <translation>Suelte su dedo</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>Suelte su dedico y colóquelo en el sensor de nuevo</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="151"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
         <translation>Ajuste la posición para escanear los bordes de su huella dactilar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="135"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="154"/>
         <source>Lift your finger and do that again</source>
         <translation>Levante su dedo y colóquelo en el sensor nuevamente</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
+        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="158"/>
         <source>Fingerprint added</source>
         <translation>Huella dactilar añadida</translation>
     </message>
@@ -5931,7 +5939,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>El PIN para conectar al dispositivo Bluetooth es:</translation>
+        <translation>El PIN para conectar el dispositivo Bluetooth es:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -6690,7 +6698,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="57"/>
         <source>Replace</source>
-        <translation>Reemplazo</translation>
+        <translation>Reemplazar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="59"/>
@@ -6847,7 +6855,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
         <source>Palm Detection</source>
-        <translation>Detección de Palma</translation>
+        <translation>Detección de palma</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -8781,7 +8789,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
         <source>Plug in the network cable first</source>
-        <translation>Conecte en el cable de red primero</translation>
+        <translation>Conecte el cable de red</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
@@ -9107,7 +9115,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="98"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="99"/>
         <source>Wake up</source>
-        <translation>Wake up</translation>
+        <translation>Despertar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="71"/>
@@ -9136,7 +9144,7 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="75"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="91"/>
         <source>Empty Trash</source>
-        <translation>Papelera vacía</translation>
+        <translation>Vaciar papelera</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="76"/>
@@ -9512,22 +9520,22 @@ Si no se realiza ninguna acción, la pantalla se restaurará después de %1s.</t
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Error de dependencias, no se detectaron las actualizaciones.</translation>
+        <translation>Error de dependencias, no se encontraron actualizaciones.</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>%n actualización de aplicación detectadas</numerusform><numerusform>%n actualizacion(es) de aplicación detectadas</numerusform></translation>
+        <translation><numerusform>Hay %n actualización de aplicaciones</numerusform><numerusform>Hay %n actualizaciones de aplicaciones</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
         <source>New system edition detected</source>
-        <translation>Nueva edición del sistema detectada</translation>
+        <translation>Hay una nueva edición del sistema</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Se han detectado nueva edición sistema y %n actualización de aplicación.</numerusform><numerusform>Se han detectado nueva edición sistema y %n actualizacion(es) de aplicación.</numerusform></translation>
+        <translation><numerusform>Hay una nueva edición sistema y %n actualización de aplicaciones</numerusform><numerusform>Hay una nueva edición sistema y %n actualizaciones de aplicaciones</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
