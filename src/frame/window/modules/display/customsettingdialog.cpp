@@ -144,6 +144,11 @@ void CustomSettingDialog::initUI()
     m_fullIndication = std::unique_ptr<MonitorIndicator>(new MonitorIndicator());
     m_fullIndication->show();
     m_fullIndication->setVisible(false);
+    for(auto pBtn : m_vSegBtn)
+    {
+        pBtn->setFocusPolicy(Qt::StrongFocus);
+    }
+
 }
 
 void CustomSettingDialog::setModel(DisplayModel *model)
