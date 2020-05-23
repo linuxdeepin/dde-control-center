@@ -29,6 +29,7 @@ public Q_SLOTS:
     void loginUser();
     void logoutUser();
     void setAutoSync(bool autoSync);
+    void userInfoChanged(QDBusMessage msg);
 
 private:
     void onSyncModuleStateChanged(const QString& module, bool enable);
