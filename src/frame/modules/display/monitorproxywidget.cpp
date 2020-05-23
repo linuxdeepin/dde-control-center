@@ -121,6 +121,7 @@ void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
     if (!(e->buttons() & Qt::LeftButton))
         return;
 
+    this->parentWidget()->update();
     move(pos() + e->globalPos() - m_lastPos);
     m_lastPos = e->globalPos();
 
