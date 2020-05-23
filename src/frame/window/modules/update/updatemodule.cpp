@@ -196,11 +196,9 @@ void UpdateModule::onNotifyDealMirrorWidget(bool state)
 
 void UpdateModule::notifyDisplayReminder(UpdatesStatus status)
 {
-    if (m_model->getUpdatablePackages()) {
-        if (m_model->getAutoCheckUpdates()) {
-            m_frameProxy->setModuleSubscriptVisible(name(), true);
+    if (m_model->getUpdatablePackages() && m_model->getAutoCheckUpdates()) {
+        m_frameProxy->setModuleSubscriptVisible(name(), true);
             return;
-        }
     } else {
         m_frameProxy->setModuleSubscriptVisible(name(), false);
         return;
