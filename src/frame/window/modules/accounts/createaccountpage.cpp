@@ -137,7 +137,7 @@ void CreateAccountPage::initUsrGroup(QVBoxLayout *layout)
     layout->addSpacing(List_Interval);
     layout->addWidget(m_groupListView);
 
-    if (m_accountChooser->currentText() != "Customized") {
+    if (m_accountChooser->currentIndex() != 2) {
         m_groupTip->setVisible(false);
         m_groupListView->setVisible(false);
     }
@@ -262,7 +262,9 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
 
 void CreateAccountPage::showGroupList(const QString index)
 {
-    if (index == "Customized") {
+    Q_UNUSED(index)
+
+    if (m_accountChooser->currentIndex() == 2) {
         m_groupTip->setVisible(true);
         m_groupListView->setVisible(true);
     } else {
