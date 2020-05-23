@@ -465,6 +465,10 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
         replys << inter->Enable(enabled);
         replys << m_displayInter.SetBrightness(monitor->name(), brightness);
 
+        //防止customsettingdialog起的时候monitor的属性值不对
+        monitor->setW(mode.width());
+        monitor->setH(mode.height());
+
         for (auto r : replys)
             r.waitForFinished();
     } else
