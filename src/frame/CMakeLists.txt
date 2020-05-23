@@ -99,6 +99,7 @@ set(WINDOW_FILES
     window/modules/display/rotatedialog.cpp
     window/modules/display/refreshratepage.cpp
     window/modules/display/multiscreensettingpage.cpp
+    window/modules/display/multiscreendetailpage.cpp
     window/modules/display/customsettingdialog.cpp
     window/modules/display/touchpanel/screensetting.cpp
     window/modules/power/powermodule.cpp

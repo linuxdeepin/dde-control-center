@@ -26,6 +26,7 @@
 #include "rotatedialog.h"
 #include "scalingpage.h"
 #include "multiscreensettingpage.h"
+#include "multiscreendetailpage.h"
 #include "refreshratepage.h"
 #include "window/utils.h"
 
@@ -87,12 +88,19 @@ void DisplayModule::active()
             this, &DisplayModule::showMultiScreenSettingPage);
     connect(m_displayWidget, &DisplayWidget::requestShowCustomConfigPage,
             this, &DisplayModule::showCustomSettingDialog);
+    connect(m_displayWidget, &DisplayWidget::requestShowMultiResolutionPage,
+            this, &DisplayModule::showMultiResolutionPage);
+    connect(m_displayWidget, &DisplayWidget::requestShowMultiRefreshRatePage,
+            this, &DisplayModule::showMultiRefreshRatePage);
 
     m_frameProxy->pushWidget(this, m_displayWidget);
     if (m_displayWidget->isMultiMode()) {
-        showMultiScreenSettingPage();
+        if (m_displayWidget->isShowMultiscreen())
+            showMultiScreenSettingPage();
+        else
+            showBrightnessPage();
     } else {
-        showResolutionDetailPage();
+        showMultiResolutionPage();
     }
 }
 
@@ -259,6 +267,22 @@ void DisplayModule::showRefreshRotePage()
 
     m_frameProxy->pushWidget(this, page);
 
+}
+
+void DisplayModule::showMultiResolutionPage()
+{
+    auto page = new MultiScreenDetailPage(true);
+    page->setModel(m_displayModel);
+
+    m_frameProxy->pushWidget(this, page);
+}
+
+void DisplayModule::showMultiRefreshRatePage()
+{
+    auto page = new MultiScreenDetailPage(false);
+    page->setModel(m_displayModel);
+
+    m_frameProxy->pushWidget(this, page);
 }
 
 void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mode)
