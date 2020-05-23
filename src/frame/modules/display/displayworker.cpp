@@ -479,9 +479,12 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
             // pass primary
             if (mon == primary)
                 continue;
-            if (!mon->enable()) {
-                if (monitor == mon && enabled) {
-                } else
+            if (monitor == mon) {
+                if(!enabled)
+                    continue;
+            }
+            else {
+                if(!mon->enable())
                     continue;
             }
             Q_ASSERT(m_monitors.contains(mon));

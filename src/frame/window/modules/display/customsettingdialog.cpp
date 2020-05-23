@@ -597,6 +597,10 @@ void CustomSettingDialog::resetMonitorObject(Monitor *moni)
     connect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::resetDialog);
     connect(m_monitor, &Monitor::enableChanged, this, [ = ](bool enable) {
         if (m_model->isMerge() == false) {
+            if(m_monitor->isPrimary()) {   //对后端可能传递的错误信号规避
+                return;
+            }
+
             setVisible(enable);
             resetDialog();
         }

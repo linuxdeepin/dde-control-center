@@ -143,7 +143,7 @@ void Monitor::setRotateList(const QList<quint16> &rotateList)
 
 void Monitor::setCurrentMode(const Resolution &resolution)
 {
-    if (m_currentMode == resolution)
+    if (m_currentMode == resolution ||resolution.id() == 0)  //对后端可能传递的错误信号规避
         return;
 
     m_currentMode = resolution;
