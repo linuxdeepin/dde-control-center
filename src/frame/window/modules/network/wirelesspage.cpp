@@ -667,7 +667,9 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
             }
         }
     }
-    Q_EMIT requestConnectAp(m_device->path(), path, uuid);
+    if (m_switch && m_switch->checked()) {
+        Q_EMIT requestConnectAp(m_device->path(), path, uuid);
+    }
 }
 
 void WirelessPage::showConnectHidePage()
