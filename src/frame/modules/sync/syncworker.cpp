@@ -31,6 +31,13 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     m_syncInter->setSync(false, false);
     m_deepinId_inter->setSync(false, false);
 
+    QDBusConnection::sessionBus().connect("com.deepin.sync.Daemon",
+                                          "/com/deepin/sync/Daemon",
+                                          "org.freedesktop.DBus.Properties",
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this, SLOT(userInfoChanged(QDBusMessage)));
+
     connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
@@ -75,6 +82,22 @@ void SyncWorker::setSync(std::pair<SyncType, bool> state)
             }
         }
     }
+}
+
+void SyncWorker::userInfoChanged(QDBusMessage msg)
+{
+    QList<QVariant> arguments = msg.arguments();
+
+    QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+    if (changedProps.empty()) {
+        qDebug() << "userInfoChanged changedProps=" << changedProps;
+        return;
+    }
+    QVariantMap userInfo;
+    QDBusArgument arg = changedProps.value("UserInfo").value<QDBusArgument>();
+    arg >> userInfo;
+    qDebug() << userInfo;
+    m_model->setUserinfo(userInfo);
 }
 
 void SyncWorker::loginUser()
