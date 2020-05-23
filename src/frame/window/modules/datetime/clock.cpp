@@ -65,7 +65,7 @@ void Clock::paintEvent(QPaintEvent *event)
 
     do {
         const bool nightMode = !(time.hour() >= 6  && time.hour() < 18);
-        if (nightMode == m_isBlack)
+        if (nightMode == m_isBlack && !m_plat.isNull())
             break;
         if (nightMode) {
             m_plat = getPixmap(":/datetime/icons/dcc_clock_black.svg", clockSize);
