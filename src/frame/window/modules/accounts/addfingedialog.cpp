@@ -196,7 +196,7 @@ void AddFingeDialog::enrollOverTime()
     Q_EMIT requestStopEnroll(m_username);
 
     m_isEnrolling = false;
-    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Scan time expired"), true);
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), "", true);
     m_addBtn->show();
     m_addBtn->setText(tr("Scan Again"));
     m_addBtn->setEnabled(true);
