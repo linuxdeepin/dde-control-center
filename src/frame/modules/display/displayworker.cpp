@@ -83,7 +83,9 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
             m_model, &DisplayModel::setAutoLightAdjust);
     connect(m_mouseInter, &MouseInter::LeftHandedChanged, m_model, &DisplayModel::setMouseLeftHand);
 
+    qWarning() << "=displayworker-m_displayInter==num:" << m_displayInter.brightness().size();
     onMonitorsBrightnessChanged(m_displayInter.brightness());
+    model->setBrightnessMap(m_displayInter.brightness());
     model->setScreenHeight(m_displayInter.screenHeight());
     model->setScreenWidth(m_displayInter.screenWidth());
     model->setConfigList(m_displayInter.customIdList());
@@ -361,7 +363,7 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 
 void DisplayWorker::setMonitorRotateAll(const quint16 rotate)
 {
-    qDebug()<<rotate;
+    qDebug() << rotate;
     for (auto *mi : m_monitors)
         mi->SetRotation(rotate).waitForFinished();
 
@@ -545,6 +547,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setPrimary(m_displayInter.primary());
 
     if (!m_model->brightnessMap().isEmpty()) {
+        qWarning() << "=displayworker-moniter==name:" << mon->name() << "=displayworker-moniter==set value:" << m_model->brightnessMap()[mon->name()];
         mon->setBrightness(m_model->brightnessMap()[mon->name()]);
     }
 

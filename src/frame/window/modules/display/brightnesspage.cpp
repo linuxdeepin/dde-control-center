@@ -124,6 +124,8 @@ void BrightnessPage::addSlider()
         slider->setLeftIcon(QIcon::fromTheme("dcc_brightnesslow"));
         slider->setRightIcon(QIcon::fromTheme("dcc_brightnesshigh"));
         slider->setIconSize(QSize(24, 24));
+
+        qWarning() << "=BrightnessPage-addSlider==disply name:" << monList[i]->name() << "=BrightnessPage-addSlider==display brightness" << monList[i]->brightness();
         slider->setTickInterval(int((BrightnessMaxScale - miniScale) / 5.0));
         slider->setValue(int(brightness * BrightnessMaxScale));
         slider->setPageStep(1);
