@@ -76,6 +76,32 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
         }
     }
 
+    if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
+        NetworkManager::Setting::SecretFlags passwordFlags = m_wsSetting->wepKeyFlags();
+        QString strKey = m_wsSetting->wepKey0();
+        for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+            if (passwordFlags.testFlag(it->second)) {
+                m_currentPasswordType = it->second;
+                if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
+                    m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+                }
+                break;
+            }
+        }
+    } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
+        NetworkManager::Setting::SecretFlags passwordFlags = m_wsSetting->pskFlags();
+        QString strKey = m_wsSetting->psk();
+        for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+            if (passwordFlags.testFlag(it->second)) {
+                m_currentPasswordType = it->second;
+                if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
+                    m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+                }
+                break;
+            }
+        }
+    }
+
     initUI();
     initConnection();
 
