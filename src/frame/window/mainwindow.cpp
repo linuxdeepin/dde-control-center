@@ -786,6 +786,14 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
                 }
             }
         }
+        if ((moduleName == "keyboard") && (widgetPages.size() >= 1)) {
+            for (auto ite : m_modules) {
+                if (ite.first->name() == moduleName) {
+                    ite.first->load(widget);
+                    return;
+                }
+            }
+        }
         return;
     }
 
