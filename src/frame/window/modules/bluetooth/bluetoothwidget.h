@@ -31,7 +31,6 @@ class BluetoothModel;
 class BluetoothWorker;
 class Device;
 class Adapter;
-class PinCodeDialog;
 }
 }
 

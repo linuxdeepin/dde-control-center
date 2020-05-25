@@ -61,6 +61,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_spinner = new DSpinner();
     m_spinner->setFixedSize(24, 24);
     m_spinner->start();
+    m_spinner->setVisible(false);
     QHBoxLayout *phlayout = new QHBoxLayout;
     phlayout->addWidget(m_otherDevicesGroup);
     phlayout->addWidget(m_spinner);

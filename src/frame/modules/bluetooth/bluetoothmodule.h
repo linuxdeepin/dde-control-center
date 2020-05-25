@@ -38,7 +38,6 @@ class BluetoothModel;
 class BluetoothWorker;
 class Device;
 class Adapter;
-class PinCodeDialog;
 
 class BluetoothModule : public QObject, public ModuleInterface
 {
@@ -68,7 +67,6 @@ private:
     BluetoothWidget *m_bluetoothView;
     BluetoothModel *m_bluetoothModel;
     BluetoothWorker *m_bluetoothWorker;
-    QMap<QDBusObjectPath, PinCodeDialog*> m_dialogs;
 };
 
 }

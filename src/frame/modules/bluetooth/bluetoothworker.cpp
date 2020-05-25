@@ -43,51 +43,6 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync) :
     connect(m_bluetoothInter, &DBusBluetooth::DeviceAdded, this, &BluetoothWorker::addDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DeviceRemoved, this, &BluetoothWorker::removeDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
-    connect(m_bluetoothInter, &DBusBluetooth::Cancelled, this, &BluetoothWorker::pinCodeCancel);
-    connect(m_bluetoothInter, &DBusBluetooth::PinCancle, this, [=] (const QString &device) {
-        QJsonDocument doc = QJsonDocument::fromJson(device.toUtf8());
-        QJsonObject obj = doc.object();
-        const QString strPath = obj["Path"].toString();
-        PinCodeDialog *dialog = m_dialogs[strPath];
-        if (dialog != nullptr) {
-            m_dialogs.remove(strPath);
-            dialog->deleteLater();
-        }
-    });
-
-    connect(m_bluetoothInter, &DBusBluetooth::RequestAuthorization, this, [] (const QDBusObjectPath &in0) {
-        qDebug() << "request authorization: " << in0.path();
-    });
-
-    connect(m_bluetoothInter, &DBusBluetooth::RequestConfirmation, this, &BluetoothWorker::requestConfirmation);
-
-    connect(m_bluetoothInter, &DBusBluetooth::RequestPasskey, this, [] (const QDBusObjectPath &in0) {
-        qDebug() << "request passkey: " << in0.path();
-    });
-
-    connect(m_bluetoothInter, &DBusBluetooth::RequestPinCode, this, [] (const QDBusObjectPath &in0) {
-        qDebug() << "request pincode: " << in0.path();
-    });
-
-    connect(m_bluetoothInter, &DBusBluetooth::DisplayPasskey, this, [=] (const QDBusObjectPath &in0, uint in1, uint in2) {
-        qDebug() << "request display passkey: " << in0.path() << in1 << in2;
-
-        PinCodeDialog *dialog = PinCodeDialog::instance(QString::number(in1), false);
-        m_dialogs[in0.path()] = dialog;
-        if (!dialog->isVisible()) {
-            dialog->exec();
-        }
-    });
-
-    connect(m_bluetoothInter, &DBusBluetooth::DisplayPinCode, this, [=] (const QDBusObjectPath &in0, const QString &in1) {
-        qDebug() << "request display pincode: " << in0.path() << in1;
-
-        PinCodeDialog *dialog = PinCodeDialog::instance(in1, false);
-        m_dialogs[in0.path()] = dialog;
-        if (!dialog->isVisible()) {
-            dialog->exec();
-        }
-    });
 
     m_bluetoothInter->setSync(sync);
 
@@ -394,16 +349,6 @@ void BluetoothWorker::setDeviceAlias(const Device *device, const QString &alias)
     m_bluetoothInter->SetDeviceAlias(path, alias);
 }
 
-void BluetoothWorker::pinCancel(const Device *device)
-{
-    const QString strPath = device->id();
-    PinCodeDialog *dialog = m_dialogs[strPath];
-    if (dialog != nullptr) {
-        m_dialogs.remove(strPath);
-        dialog->deleteLater();
-    }
-}
-
 void BluetoothWorker::setAdapterDiscoverable(const QString &path)
 {
     QDBusObjectPath dPath(path);
@@ -413,10 +358,6 @@ void BluetoothWorker::setAdapterDiscoverable(const QString &path)
     m_bluetoothInter->RequestDiscovery(dPath);
 }
 
-void BluetoothWorker::pinCodeConfirm(const QDBusObjectPath &path, bool value)
-{
-    m_bluetoothInter->Confirm(path, value);
-}
 void BluetoothWorker::setAdapterDiscovering(const QDBusObjectPath &path, bool enable)
 {
     m_bluetoothInter->SetAdapterDiscovering(path, enable);
