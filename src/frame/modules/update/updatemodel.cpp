@@ -49,7 +49,7 @@ void DownloadInfo::setDownloadProgress(double downloadProgress)
 
 UpdateModel::UpdateModel(QObject *parent)
     : QObject(parent)
-    , m_status(UpdatesStatus::Checking)
+    , m_status(UpdatesStatus::Default)
     , m_downloadInfo(nullptr)
     , m_updateProgress(0.0)
     , m_upgradeProgress(0.0)
@@ -350,6 +350,34 @@ void UpdateModel::setSourceCheck(bool sourceCheck)
 
     Q_EMIT sourceCheckChanged(sourceCheck);
 }
+
+void UpdateModel::setLastCheckUpdateTime(const QString &lastTime)
+{
+    qDebug() << "Last check time:" << lastTime;
+    m_lastCheckUpdateTime = lastTime.left(QString("0000-00-00 00:00:00").size());
+}
+
+void UpdateModel::setHistoryAppInfos(const QList<AppUpdateInfo> &infos)
+{
+    m_historyAppInfos = infos;
+}
+
+void UpdateModel::setAutoCheckUpdateCircle(const int interval)
+{
+    m_autoCheckUpdateCircle = interval;
+}
+
+bool UpdateModel::enterCheckUpdate()
+{
+    qDebug() << "last update time:" << m_lastCheckUpdateTime << "check circle:" << m_autoCheckUpdateCircle;
+    return QDateTime::fromString(m_lastCheckUpdateTime, "yyyy-MM-dd hh:mm:ss").secsTo(QDateTime::currentDateTime()) > m_autoCheckUpdateCircle * 3600;
+}
+
+void UpdateModel::setBootAutoCheckUpdate(const bool bootCheck)
+{
+    m_bootAutoCheckUpdate = bootCheck;
+}
+
 #endif
 
 }

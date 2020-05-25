@@ -111,6 +111,9 @@ void UpdateModule::active()
     m_updateWidget = mainWidget;
 
     connect(m_model, &UpdateModel::downloadInfoChanged, m_work, &UpdateWorker::onNotifyDownloadInfoChanged);
+    connect(m_model, &UpdateModel::beginCheckUpdate, m_work, &UpdateWorker::checkForUpdates);
+    connect(m_model, &UpdateModel::updateHistoryAppInfos, m_work, &UpdateWorker::refreshHistoryAppsInfo, Qt::DirectConnection);
+    connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work, &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
 
     connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [=]() {
         m_mirrorsWidget = new MirrorsWidget(m_model);
@@ -167,6 +170,10 @@ int UpdateModule::load(QString path)
         } else if (path == "Update Settings/Mirror List") {
             hasPage = 0;
             m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateSettingMir);
+        } else if (path == "Checking") {
+            m_model->setStatus(UpdatesStatus::Checking);
+            hasPage = 0;
+            m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
         }
     }
 
@@ -175,10 +182,7 @@ int UpdateModule::load(QString path)
 
 QStringList UpdateModule::availPage() const
 {
-    QStringList list;
-    list << "Mirror List";
-
-    return list;
+    return QStringList() << "Update Settings" << "Update" << "Update Settings/Mirror List" << "Checking";
 }
 
 void UpdateModule::onNotifyDealMirrorWidget(bool state)

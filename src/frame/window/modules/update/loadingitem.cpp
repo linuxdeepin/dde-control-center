@@ -125,7 +125,8 @@ void LoadingItem::setImageOrTextVisible(bool state)
 
     QString path = "";
     if (state) {
-        path = ":/update/updatev20/dcc_all_updated.svg";
+        //path = ":/update/updatev20/dcc_all_updated.svg";
+        path = ":/update/themes/common/icons/success.svg";
     } else {
         path = ":/update/updatev20/dcc_checking_update.svg";
     }

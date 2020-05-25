@@ -27,6 +27,7 @@
 #include <QWidget>
 
 class AppUpdateInfo;
+class QPushButton;
 
 QT_BEGIN_NAMESPACE
 class QSettings;
@@ -106,6 +107,9 @@ private:
     bool m_bRecoverRestoring;
     dcc::ContentWidget *m_updateList;
     dcc::widgets::TipsLabel *m_authorizationPrompt;
+
+    QPushButton *m_checkUpdateBtn;
+    dcc::widgets::TipsLabel *m_lastCheckTimeTip;
 };
 
 }// namespace datetime

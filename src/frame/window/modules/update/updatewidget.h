@@ -80,7 +80,6 @@ public:
     void resetUpdateCheckState(bool state = true);
     void mouseDoubleClickEvent(QMouseEvent *event);
 
-    QList<AppUpdateInfo> getTestApplistInfo();
     void refreshWidget(UpdateType type = UpdateCheck);
 
 private:

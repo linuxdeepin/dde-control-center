@@ -63,19 +63,30 @@ Q_SIGNALS:
     void requestSetSourceCheck(const bool check);
 #endif
     void requestEnableSmartMirror(bool enable);
-
+    void requestSetBootAutoCheck(bool check);
 private:
     dcc::update::UpdateModel *m_model;
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     dcc::widgets::SwitchWidget *m_sourceCheck;
 #endif
-    dcc::widgets::SwitchWidget *m_autoCleanCache;
-    dcc::widgets::SwitchWidget *m_autoCheckUpdate;
-    dcc::widgets::SwitchWidget *m_autoDownloadSwitch;
+    dcc::widgets::SwitchWidget *m_bootCheckUpdate; //系统启动自动检测更新配置
+    dcc::widgets::SwitchWidget *m_autoCleanCache; //自动清除缓存包配置
+    dcc::widgets::SwitchWidget *m_autoCheckUpdate; //更新提醒配置
+    dcc::widgets::SwitchWidget *m_autoDownloadSwitch; //自动下载更新配置
     dcc::widgets::SwitchWidget *m_smartMirrorBtn;
     dcc::widgets::NextPageWidget *m_updateMirrors;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_updateLbl;
     dcc::widgets::SettingsGroup *m_mirrorGrp;
+
+    //定时下载更新
+    dcc::widgets::SwitchWidget *m_timerDownload;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_timerDownloadLbl;
+    QLabel *m_setTimerLbl;
+
+    //闲时下载更新
+    dcc::widgets::SwitchWidget *m_freeTimeDownload;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_freeTimeDownloadLbl;
+    QLabel *m_setFreeTimeLbl;
 };
 
 }// namespace datetime

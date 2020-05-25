@@ -147,6 +147,18 @@ public:
     inline bool systemActivation() const {return m_bSystemActivation;}
     void setSystemActivation(int systemactivation);
 
+    const QString& lastCheckUpdateTime() const {return m_lastCheckUpdateTime;}
+    void setLastCheckUpdateTime(const QString& lastTime);
+
+    const QList<AppUpdateInfo>& historyAppInfos() const {return m_historyAppInfos;}
+    void setHistoryAppInfos(const QList<AppUpdateInfo>& infos);
+
+    int autoCheckUpdateCircle() const {return m_autoCheckUpdateCircle;}
+    void setAutoCheckUpdateCircle(const int interval);
+    bool enterCheckUpdate();
+
+    bool bootAutoCheckUpdate() const {return m_bootAutoCheckUpdate;}
+    void setBootAutoCheckUpdate(const bool bootCheck);
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -172,7 +184,10 @@ Q_SIGNALS:
     void recoverRestoringChanged(bool recoverRestoring);
     void systemVersionChanged(QString version);
     void setSystemActivationChanged(bool systemactivation);
-
+    void beginCheckUpdate();
+    void updateCheckUpdateTime();
+    void updateHistoryAppInfos();
+    void bootAutoCheckChanged(const bool bootCheck);
 private:
     UpdatesStatus m_status;
     DownloadInfo *m_downloadInfo;
@@ -199,6 +214,11 @@ private:
     QString m_systemVersionInfo;
     QMetaEnum m_metaEnum;
     bool m_bSystemActivation;
+
+    QString m_lastCheckUpdateTime; //上次检查更新时间
+    QList<AppUpdateInfo> m_historyAppInfos; //历史更新应用列表
+    int m_autoCheckUpdateCircle; //决定进入检查更新界面是否自动检查,单位：小时
+    bool m_bootAutoCheckUpdate; //系统启动是否自动检测更新
 };
 
 }

@@ -96,6 +96,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
     m_layout->addWidget(recentHistoryWidget);
 
+    m_label->setVisible(false);
     m_historyBtn->setVisible(false);
     m_updateHistoryText->setVisible(false);
     m_recentHistoryApplist->setVisible(false);
@@ -117,11 +118,12 @@ void UpdateWidget::initialize()
         resetUpdateCheckState();
 
         if (state) {
+            m_model->updateHistoryAppInfos();
             m_historyBtn->setLabelText(tr("Return"));
             m_updateHistoryText->setVisible(true);
             m_applistGroup->setVisible(true);
             m_recentHistoryApplist->setVisible(true);
-            onAppendApplist(getTestApplistInfo());
+            onAppendApplist(m_model->historyAppInfos());
         } else {
             m_applistGroup->setVisible(false);
         }
@@ -148,6 +150,7 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
     connect(updateSetting, &UpdateSettings::requestShowMirrorsView, this, &UpdateWidget::pushMirrorsView);
     connect(updateSetting, &UpdateSettings::requestSetAutoCleanCache, m_work, &UpdateWorker::setAutoCleanCache);
     connect(updateSetting, &UpdateSettings::requestSetAutoCheckUpdates, m_work, &UpdateWorker::setAutoCheckUpdates);
+    connect(updateSetting, &UpdateSettings::requestSetBootAutoCheck, m_work, &UpdateWorker::setBootAutoCheckUpdate);
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     connect(updateSetting, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWorker::setSourceCheck);
 #endif
@@ -173,7 +176,7 @@ void UpdateWidget::setSystemVersion(QString version)
         m_systemVersion = version;
     }
 
-    m_label->setText(m_systemVersion);
+    m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(m_systemVersion));
 }
 
 void UpdateWidget::resetUpdateCheckState(bool state)
@@ -190,35 +193,6 @@ void UpdateWidget::mouseDoubleClickEvent(QMouseEvent *event)
     Q_UNUSED(event)
 }
 
-//Used to test in "Recent update"
-QList<AppUpdateInfo> UpdateWidget::getTestApplistInfo()
-{
-    QList<AppUpdateInfo> applist;
-
-    AppUpdateInfo date5;
-    date5.m_avilableVersion = "深度截图";
-    date5.m_changelog = "深度截图";
-    date5.m_currentVersion = "15.11.18";
-    date5.m_icon = "/lastore/metadata/deepin-screenshot/meta/icons/deepin-screenshot.svg";
-    date5.m_name = "Deepin";
-    date5.m_packageId = "dde";
-
-    applist.append(date5);
-
-    AppUpdateInfo date;
-    for (int i = 0; i < 10; i++) {
-        date.m_avilableVersion = "雷鸟邮件";
-        date.m_changelog = "雷鸟邮件";
-        date.m_currentVersion = "15.11.19";
-        date.m_icon = "/lastore/metadata/thunderbird/meta/icons/thunderbird.svg";
-        date.m_name = "Deepin";
-        date.m_packageId = "dde";
-        applist.append(date);
-    }
-
-    return applist;
-}
-
 void UpdateWidget::refreshWidget(UpdateType type)
 {
     displayUpdateContent(type);
@@ -232,12 +206,12 @@ void UpdateWidget::refreshWidget(UpdateType type)
 
 void UpdateWidget::showCheckUpdate()
 {
-    qDebug() << Q_FUNC_INFO << " current update status : " << m_model->status();
+    const UpdatesStatus& status = m_model->status();
+    qDebug() << Q_FUNC_INFO << " current update status : " << status;
 
-    if (m_model->systemActivation()) {
-         m_work->checkForUpdates();
+    if (status == Checking || status == UpdateModel::Default) {
+        m_label->setVisible(true);
     }
-
     m_mainLayout->setCurrentIndex(0);
     // prohibit dde-offline-upgrader from showing while this page is showing.
     QDBusConnection::sessionBus().registerService(OfflineUpgraderService);
@@ -291,6 +265,7 @@ void UpdateWidget::onNotifyUpdateState(int state)
     m_historyBtn->setVisible(false);
 
     switch (m_updateState) {
+    case UpdatesStatus::Default:
     case Checking:
         m_label->setVisible(true);
         break;
