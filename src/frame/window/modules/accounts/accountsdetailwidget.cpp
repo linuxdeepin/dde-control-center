@@ -155,7 +155,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
             }
         }
     }
-    m_fullName->setText(fullname);
+    m_fullName->setText(fullname.toHtmlEscaped());
 
     m_fullNameBtn = new DIconButton(this);
     m_fullNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
