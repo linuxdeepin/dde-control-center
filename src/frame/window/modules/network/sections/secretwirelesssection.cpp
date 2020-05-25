@@ -46,6 +46,32 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
     m_currentKeyMgmt = (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown) ?
                        NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone : keyMgmt;
 
+    if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
+        NetworkManager::Setting::SecretFlags passwordFlags = m_wsSetting->wepKeyFlags();
+        QString strKey = m_wsSetting->wepKey0();
+        for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+            if (passwordFlags.testFlag(it->second)) {
+                m_currentPasswordType = it->second;
+                if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
+                    m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+                }
+                break;
+            }
+        }
+    } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
+        NetworkManager::Setting::SecretFlags passwordFlags = m_wsSetting->pskFlags();
+        QString strKey = m_wsSetting->psk();
+        for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+            if (passwordFlags.testFlag(it->second)) {
+                m_currentPasswordType = it->second;
+                if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
+                    m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+                }
+                break;
+            }
+        }
+    }
+
     initUI();
     initConnection();
 
@@ -61,19 +87,23 @@ bool SecretWirelessSection::allInputValid()
     bool valid = true;
 
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
-        valid = NetworkManager::wepKeyIsValid(m_passwdEdit->text(),
-                                              NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
-        m_passwdEdit->setIsErr(!valid);
-        if (!valid && !m_passwdEdit->text().isEmpty()) {
-            m_passwdEdit->showAlertMessage(tr("Invalid password"));
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
+            valid = NetworkManager::wepKeyIsValid(m_passwdEdit->text(),
+                                                  NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
+            m_passwdEdit->setIsErr(!valid);
+            if (!valid && !m_passwdEdit->text().isEmpty()) {
+                m_passwdEdit->showAlertMessage(tr("Invalid password"));
+            }
         }
     }
 
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
-        valid = NetworkManager::wpaPskIsValid(m_passwdEdit->text());
-        m_passwdEdit->setIsErr(!valid);
-        if (!valid && !m_passwdEdit->text().isEmpty()) {
-            m_passwdEdit->showAlertMessage(tr("Invalid password"));
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
+            valid = NetworkManager::wpaPskIsValid(m_passwdEdit->text());
+            m_passwdEdit->setIsErr(!valid);
+            if (!valid && !m_passwdEdit->text().isEmpty()) {
+                m_passwdEdit->showAlertMessage(tr("Invalid password"));
+            }
         }
     }
 
@@ -91,9 +121,22 @@ void SecretWirelessSection::saveSettings()
 
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
-        m_wsSetting->setWepKey0(m_passwdEdit->text());
+        m_wsSetting->setWepKeyFlags(m_currentPasswordType);
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
+            m_wsSetting->setWepKey0(m_passwdEdit->text());
+        } else {
+            m_wsSetting->setWepKey0(QString());
+        }
+        m_wsSetting->setPskFlags(NetworkManager::Setting::NotRequired);
     } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
-        m_wsSetting->setPsk(m_passwdEdit->text());
+        m_wsSetting->setPskFlags(m_currentPasswordType);
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
+            m_wsSetting->setPsk(m_passwdEdit->text());
+        } else {
+            m_wsSetting->setPsk(QString());
+        }
+        m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::NotSpecified);
+        m_wsSetting->setWepKeyFlags(NetworkManager::Setting::NotRequired);
     }
 
     m_wsSetting->setInitialized(true);
@@ -137,7 +180,8 @@ void SecretWirelessSection::initUI()
     init(m_enableWatcher, eapMethodsWantedList);
 
     insertItem(1, m_keyMgmtChooser);
-    insertItem(2, m_passwdEdit);
+    insertItem(2, m_passwordFlagsChooser);
+    insertItem(3, m_passwdEdit);
 }
 
 void SecretWirelessSection::initConnection()
@@ -152,6 +196,29 @@ void SecretWirelessSection::initConnection()
     });
 
     connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretWirelessSection::saveUserInputPassword);
+    connect(m_enableWatcher, &Secret8021xEnableWatcher::passwdEnableChanged, this,  [ = ](const bool enabled) {
+        switch (m_currentKeyMgmt) {
+        case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone:
+        case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap: {
+            m_passwdEdit->setVisible(false);
+            break;
+        }
+        case NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep: {
+            m_passwdEdit->setText(m_wsSetting->wepKey0());
+            m_passwdEdit->setTitle(tr("Key"));
+            m_passwdEdit->setVisible(enabled);
+            break;
+        }
+        case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk: {
+            m_passwdEdit->setText(m_wsSetting->psk());
+            m_passwdEdit->setTitle(tr("Password"));
+            m_passwdEdit->setVisible(enabled);
+            break;
+        }
+        default:
+            break;
+        }
+    });
 }
 
 void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt)
@@ -164,20 +231,31 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone: {
         m_passwdEdit->setVisible(false);
         m_enableWatcher->setSecretEnable(false);
+        m_passwordFlagsChooser->setVisible(false);
         break;
     }
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep: {
-        m_passwdEdit->setText(m_wsSetting->wepKey0());
-        m_passwdEdit->setTitle(tr("Key"));
-        m_passwdEdit->setVisible(true);
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
+            m_passwdEdit->setText(m_wsSetting->wepKey0());
+            m_passwdEdit->setTitle(tr("Key"));
+            m_passwdEdit->setVisible(true);
+        } else {
+            m_passwdEdit->setVisible(false);
+        }
         m_enableWatcher->setSecretEnable(false);
+        m_passwordFlagsChooser->setVisible(true);
         break;
     }
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk: {
-        m_passwdEdit->setText(m_wsSetting->psk());
-        m_passwdEdit->setTitle(tr("Password"));
-        m_passwdEdit->setVisible(true);
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
+            m_passwdEdit->setText(m_wsSetting->psk());
+            m_passwdEdit->setTitle(tr("Password"));
+            m_passwdEdit->setVisible(true);
+        } else {
+            m_passwdEdit->setVisible(false);
+        }
         m_enableWatcher->setSecretEnable(false);
+        m_passwordFlagsChooser->setVisible(true);
         break;
     }
     case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap: {
