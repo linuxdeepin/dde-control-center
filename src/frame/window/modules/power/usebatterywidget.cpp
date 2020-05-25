@@ -114,6 +114,7 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::screenBlackDelayChangedOnBattery, this, &UseBatteryWidget::setScreenBlackDelayOnBattery);
     connect(model, &PowerModel::sleepOnLidOnBatteryCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
     connect(model, &PowerModel::batteryLockScreenDelayChanged, this, &UseBatteryWidget::setAutoLockScreenOnBattery);
+    connect(model, &PowerModel::suspendChanged, m_suspendOnLidClose, &SwitchWidget::setVisible);
 
     setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
@@ -124,7 +125,7 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
     auto listModule =  comSlpSettings->get("hide-module").toStringList();
     m_computerSleepOnBattery->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
-    m_suspendOnLidClose->setVisible(model->canSleep());
+    m_suspendOnLidClose->setVisible(model->canSleep() && model->getSuspend());
 }
 
 void UseBatteryWidget::setScreenBlackDelayOnBattery(const int delay)

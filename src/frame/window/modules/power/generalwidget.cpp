@@ -86,6 +86,7 @@ void GeneralWidget::setModel(const PowerModel *model)
 {
     connect(model, &PowerModel::screenBlackLockChanged, m_wakeDisplayNeedPassword, &SwitchWidget::setChecked);
     connect(model, &PowerModel::sleepLockChanged, m_wakeComputerNeedPassword, &SwitchWidget::setChecked);
+    connect(model, &PowerModel::suspendChanged, m_wakeComputerNeedPassword, &SwitchWidget::setVisible);
 
 #ifndef DCC_DISABLE_POWERSAVE
     connect(model, &PowerModel::autoPowerSavingModeChanged, m_autoIntoSaveEnergyMode, &SwitchWidget::setChecked);
@@ -103,5 +104,5 @@ void GeneralWidget::setModel(const PowerModel *model)
     m_lowBatteryMode->setChecked(model->powerSaveMode());
 #endif
 
-    m_wakeComputerNeedPassword->setVisible(model->canSleep());
+    m_wakeComputerNeedPassword->setVisible(model->canSleep() && model->getSuspend());
 }

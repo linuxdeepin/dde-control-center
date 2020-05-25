@@ -23,6 +23,7 @@
 #include "interface/moduleinterface.h"
 
 #include <QObject>
+#include <QGSettings>
 #include <types/zoneinfo.h>
 
 namespace dcc {
@@ -76,6 +77,8 @@ private:
     QTimer *m_timer;
     QPointer<PowerWidget> m_widget;
     double m_nBatteryPercentage;
+    QGSettings *m_powerSetting;
+    bool m_isSuspend;
 };
 
 

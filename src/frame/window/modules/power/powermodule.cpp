@@ -35,6 +35,7 @@ using namespace dcc;
 using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
+#define GSETTING_SHOW_SUSPEND "show-suspend"
 
 PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
@@ -78,6 +79,9 @@ void PowerModule::active()
     m_widget = new PowerWidget;
 
     m_widget->initialize(m_model->haveBettary());
+
+    m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    m_isSuspend = m_powerSetting->get(GSETTING_SHOW_SUSPEND).toBool();
 
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::requestRemoveBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
@@ -133,6 +137,7 @@ void PowerModule::showGeneral()
 
     GeneralWidget *general = new GeneralWidget(m_widget, m_widget->getIsUseBattety());
     general->setModel(m_model);
+    m_model->setSuspend(m_isSuspend);
     m_frameProxy->pushWidget(this, general);
 
     connect(general, &GeneralWidget::requestSetWakeDisplay, m_work, &PowerWorker::setScreenBlackLock);
@@ -155,6 +160,7 @@ void PowerModule::showUseElectric()
     if (!m_widget->getIsUseBattety()) {
         electric->setLidClose(m_widget->getIsUseBattety());
     }
+    m_model->setSuspend(m_isSuspend);
 
     electric->setAutoLockScreenOnPower(m_model->getPowerLockScreenDelay());
     connect(electric, &UseElectricWidget::requestSetScreenBlackDelayOnPower, m_work, &PowerWorker::setScreenBlackDelayOnPower);
@@ -170,6 +176,7 @@ void PowerModule::showUseBattery()
 
     UseBatteryWidget *battery = new UseBatteryWidget;
     battery->setModel(m_model);
+    m_model->setSuspend(m_isSuspend);
     m_frameProxy->pushWidget(this, battery);
 
     connect(battery, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery, m_work, &PowerWorker::setScreenBlackDelayOnBattery);

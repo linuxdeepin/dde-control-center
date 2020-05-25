@@ -119,6 +119,8 @@ void UseElectricWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::screenBlackDelayChangedOnPower, this, &UseElectricWidget::setScreenBlackDelayOnPower);
     connect(model, &PowerModel::sleepOnLidOnPowerCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
     connect(model, &PowerModel::powerLockScreenDelayChanged, this, &UseElectricWidget::setLockScreenAfter);
+    connect(model, &PowerModel::suspendChanged, m_computerSleepOnPower, &TitledSliderItem::setVisible);
+    connect(model, &PowerModel::suspendChanged, m_suspendOnLidClose, &SwitchWidget::setVisible);
 
     setScreenBlackDelayOnPower(model->screenBlackDelayOnPower());
     if (!IsServerSystem) {
@@ -135,7 +137,8 @@ void UseElectricWidget::setModel(const PowerModel *model)
         auto listModule =  comSlpSettings->get("hide-module").toStringList();
         m_computerSleepOnPower->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
     }
-    m_suspendOnLidClose->setVisible(model->canSleep());
+    m_suspendOnLidClose->setVisible(model->canSleep() && model->getSuspend());
+    m_computerSleepOnPower->setVisible(model->getSuspend());
 }
 
 void UseElectricWidget::setLidClose(bool state)

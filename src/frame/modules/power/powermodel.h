@@ -91,6 +91,9 @@ public:
 
     bool getDoubleCompare(const double value1, const double value2);
 
+    inline bool getSuspend() const { return m_isSuspend; }
+    void setSuspend(bool suspend);
+
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void canSleepChanged(const bool canSleep);
@@ -110,6 +113,7 @@ Q_SIGNALS:
     void batteryLockScreenDelayChanged(const int batteryLockScreenTime);
     void powerLockScreenDelayChanged(const int powerLockScreenTime);
     void batteryPercentageChanged(double batteryPercentage);
+    void suspendChanged(bool supendState);
 
 private:
     bool m_lidPresent;
@@ -130,6 +134,7 @@ private:
     int m_batteryLockScreenDelay;
     int m_powerLockScreenDelay;
     double m_batteryPercentage;
+    bool m_isSuspend;
 };
 
 }
