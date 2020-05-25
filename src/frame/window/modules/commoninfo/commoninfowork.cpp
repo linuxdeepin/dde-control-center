@@ -232,21 +232,8 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         QString title(tr("UOS Privacy Policy"));
         QString allowContent(tr("Agree and Join User Experience Program"));
 
-        // license内容
-        QString content = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "");
-        QString contentPath("/tmp/tempLic.txt"); // 临时存储路径
-        m_licenseFile = new QFile(contentPath);
-        // 如果文件不存在，则创建文件
-        if (!m_licenseFile->exists()) {
-            m_licenseFile->open(QIODevice::WriteOnly);
-            m_licenseFile->close();
-        }
-        // 写入文件内容
-        if (!m_licenseFile->open(QFile::ReadWrite | QIODevice::Text | QIODevice::Truncate))
-            return;
-        m_licenseFile->write(content.toLocal8Bit());
-        m_licenseFile->close();
-
+        // license路径
+        QString content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/deepinid-CN-%1.md", "");
         m_process = new QProcess(this);
 
         auto pathType = "-c";
@@ -255,7 +242,9 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         if (!sl.contains(QLocale::system().name()))
             pathType = "-e";
         m_process->start("dde-license-dialog",
-                                      QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent);
+                         QStringList() << "-t" << title << pathType << content << "-a" << allowContent);
+        qDebug()<<" Deliver content QStringList() = "<<"dde-license-dialog"
+               << "-t" << title << pathType << content << "-a" << allowContent;
         connect(m_process, &QProcess::stateChanged, this, [pMainWindow](QProcess::ProcessState state) {
             if (pMainWindow) {
                 pMainWindow->setEnabled(state != QProcess::Running);
