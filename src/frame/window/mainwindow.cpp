@@ -441,9 +441,10 @@ void MainWindow::loadModules()
         module->setFrameProxy(this);
 
         if (tr("Assistive Tools") == module->displayName() && !DCC_NAMESPACE::IsDesktopSystem) {
-            for (auto i : m_modules) {
-                if (i.second == tr("Keyboard and Language")) {
-                    m_modules.insert(m_modules.indexOf(i) + 1, {module, module->displayName()});
+            for (auto iter : m_modules) {
+                if (iter.second == tr("Keyboard and Language")) {
+                    m_modules.insert(m_modules.indexOf(iter) + 1, {module, module->displayName()});
+                    break;
                 }
             }
         }
