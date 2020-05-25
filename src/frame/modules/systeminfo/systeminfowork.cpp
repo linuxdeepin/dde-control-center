@@ -87,7 +87,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     connect(m_systemInfoInter, &__SystemInfo::DistroVerChanged, m_model, &SystemInfoModel::setDistroVer);
     // connect(m_systemInfoInter, &__SystemInfo::VersionChanged, m_model, &SystemInfoModel::setVersion);
     // connect(m_systemInfoInter, &__SystemInfo::SystemTypeChanged, m_model, &SystemInfoModel::setType);
-    connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
+    //connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
     // connect(m_systemInfoInter, &__SystemInfo::MemoryCapChanged, m_model, &SystemInfoModel::setMemory);
     connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
     //预留接口
@@ -126,6 +126,13 @@ void SystemInfoWork::activate()
 
     m_model->setVersion(version);
     m_model->setType(QSysInfo::WordSize);
+    if (DSysInfo::cpuModelName().contains("Hz")) {
+        m_model->setProcessor(DSysInfo::cpuModelName());
+    } else {
+        m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
+                              .arg(m_systemInfo->property("CPUMaxMHz").toULongLong() / 1000));
+    }
+
     // m_model->setProcessor(QString("%1 x %2").arg(DSysInfo::cpuModelName())
     //                                         .arg(QThread::idealThreadCount()));
     if (m_systemInfo->isValid()) {
