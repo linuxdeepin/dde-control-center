@@ -150,7 +150,6 @@ public Q_SLOTS:
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
     void onDeviceStatusChanged(const dde::network::WirelessDevice::DeviceStatus stat);
-    void disconnectWifi(const QString &uuid);
 
 private Q_SLOTS:
     void sortAPList();
@@ -159,7 +158,6 @@ private Q_SLOTS:
     void showConnectHidePage();
     void onDeviceRemoved();
     void onActivateApFailed(const QString &apPath, const QString &uuid);
-    void refreshLoadingIndicator();
     void onNetworkAdapterChanged(bool checked);
 
 private:
@@ -184,12 +182,9 @@ private:
     QPointer<ConnectionWirelessEditPage> m_apEditPage;
 
     QString m_editingUuid;
-    QString m_lastConnectSsid;
     QTimer *m_sortDelayTimer;
-    QTimer *m_indicatorDelayTimer;
     QTimer *m_requestWirelessScanTimer;
     QMap<QString, APItem *> m_apItems;
-    QString m_disconnectUuid;
 };
 }   // namespace dcc
 }   // namespace network
