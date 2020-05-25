@@ -416,12 +416,15 @@ void MainWindow::loadModules()
         auto *module = qobject_cast<ModuleInterface *>(instance);
         module->setFrameProxy(this);
 
-        if ( tr("Assistive Tools") == module->displayName()) {
-            m_modules.insert(13 , {module, module->displayName()});
-        } else {
-            m_modules.append({module, module->displayName()});
-        }
+        if (tr("Assistive Tools") == module->displayName() && !DCC_NAMESPACE::IsDesktopSystem) {
+            auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+                    return data.second == tr("Keyboard and Language");
+                });
 
+                if (res != m_modules.end()) {
+                    m_modules.insert(m_modules.indexOf(*res) + 1, {module, module->displayName()});
+                }
+        }
     }
 }
 
