@@ -126,7 +126,6 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     connect(m_updateInter, &__Updater::AutoDownloadUpdatesChanged, m_model, &UpdateModel::setAutoDownloadUpdates);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
     connect(m_updateInter, &UpdateInter::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoCheckUpdates);
-
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
 
@@ -250,6 +249,11 @@ void UpdateWorker::activate()
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     refreshMirrors();
 #endif
+    double interval = 50.0;
+    QString checkTime;
+    interval = m_updateInter->GetCheckIntervalAndTime(checkTime);
+    m_model->setLastCheckUpdateTime(checkTime);
+    m_model->setAutoCheckUpdateCircle(static_cast<int>(interval));
 
     m_model->setAutoCleanCache(m_managerInter->autoClean());
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
@@ -1178,6 +1182,22 @@ void UpdateWorker::setOnBattery(bool onBattery)
     const bool low = m_onBattery ? m_batteryPercentage < 50 : false;
     // const bool low = m_onBattery ? m_batterySystemPercentage < 50 : false;
     m_model->setLowBattery(low);
+}
+
+void UpdateWorker::refreshHistoryAppsInfo()
+{
+    //m_model->setHistoryAppInfos(m_updateInter->getHistoryAppsInfo());
+    m_model->setHistoryAppInfos(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()));
+}
+
+void UpdateWorker::refreshLastTimeAndCheckCircle()
+{
+    double interval = 50.0;
+    QString checkTime;
+    interval = m_updateInter->GetCheckIntervalAndTime(checkTime);
+
+    m_model->setAutoCheckUpdateCircle(static_cast<int>(interval));
+    m_model->setLastCheckUpdateTime(checkTime);
 }
 
 }

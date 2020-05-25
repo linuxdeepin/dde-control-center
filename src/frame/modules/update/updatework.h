@@ -100,6 +100,8 @@ public Q_SLOTS:
     void onNotifyDownloadInfoChanged();
     void licenseStateChangeSlot();
 
+    void refreshHistoryAppsInfo();
+    void refreshLastTimeAndCheckCircle();
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
     void setDownloadJob(const QString &jobPath);

@@ -54,22 +54,46 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->setSpacing(0);
     layout->addSpacing(71);
 
+    QLabel *autoLbl = new QLabel(QString("<h3>%1</h3>").arg(tr("Automatic Updating Settings")));
+    autoLbl->setAlignment(Qt::AlignLeft);
+
     SettingsGroup *ug = new SettingsGroup;
+
+    m_bootCheckUpdate = new SwitchWidget;
+    m_bootCheckUpdate->setTitle(tr("Check for Updates"));
 
     m_autoCleanCache = new SwitchWidget;
     //~ contents_path /update/Update Settings
-    m_autoCleanCache->setTitle(tr("Auto Clear Package Cache"));
+    m_autoCleanCache->setTitle(tr("Clear Package Cache"));
 
     m_autoCheckUpdate = new SwitchWidget;
     //~ contents_path /update/Update Settings
     m_autoCheckUpdate->setTitle(tr("Updates Notification"));
 
     m_autoDownloadSwitch = new SwitchWidget;
-    m_autoDownloadSwitch->setTitle(tr("Auto Download Updates"));
-
+    m_autoDownloadSwitch->setTitle(tr("Download Updates"));
     m_updateLbl = new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"));
     m_updateLbl->setWordWrap(true);
     m_updateLbl->setAlignment(Qt::AlignLeft);
+
+    //自动下载更新控件初始化
+    m_timerDownload = new SwitchWidget;
+    m_timerDownload->setTitle(tr("定时下载可用更新"));
+    m_timerDownloadLbl = new DTipLabel(tr("当前设置时间为："));
+    m_timerDownloadLbl->setWordWrap(true);
+    m_timerDownloadLbl->setAlignment(Qt::AlignLeft);
+    m_setTimerLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg(tr("更改")));
+
+    //闲时下载更新控件初始化
+    m_freeTimeDownload = new SwitchWidget;
+    m_freeTimeDownload->setTitle(tr("闲时下载更新"));
+    m_freeTimeDownloadLbl = new DTipLabel(tr("当前使用时间段："));
+    m_freeTimeDownloadLbl->setWordWrap(true);
+    m_freeTimeDownloadLbl->setAlignment(Qt::AlignLeft);
+    m_setFreeTimeLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg(tr("更改")));
+
+    layout->addWidget(autoLbl);
+    layout->addSpacing(8);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal") {
@@ -92,6 +116,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 #endif
 
     ug->setSpacing(List_Interval);
+    ug->appendItem(m_bootCheckUpdate);
     ug->appendItem(m_autoCleanCache);
     ug->appendItem(m_autoCheckUpdate);
     ug->appendItem(m_autoDownloadSwitch);
@@ -103,6 +128,27 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     updateLblLayout->addWidget(m_updateLbl);
     layout->addLayout(updateLblLayout);
     layout->addSpacing(15);
+
+    auto setDownloadTimeCtrlLayout = [&](SwitchWidget * setSwitch, DTipLabel * timeInfoLbl, QLabel * changeLbl) {
+        SettingsGroup *timeDownloadGrp = new SettingsGroup;
+        timeDownloadGrp->appendItem(setSwitch);
+        layout->addWidget(timeDownloadGrp);
+        layout->addSpacing(8);
+        QHBoxLayout *downloadLblLayout = new QHBoxLayout;
+        downloadLblLayout->addSpacing(TipLeftInterver);
+        downloadLblLayout->addWidget(timeInfoLbl);
+        downloadLblLayout->addSpacing(30);
+        downloadLblLayout->addWidget(changeLbl);
+        layout->addLayout(downloadLblLayout);
+        layout->addSpacing(8);
+        //功能暂时隐藏
+        timeDownloadGrp->setVisible(false);
+    };
+
+    //定时下载更新布局
+    setDownloadTimeCtrlLayout(m_timerDownload, m_timerDownloadLbl, m_setTimerLbl);
+    //闲时下载更新布局
+    setDownloadTimeCtrlLayout(m_freeTimeDownload, m_freeTimeDownloadLbl, m_setFreeTimeLbl);
 
     if (SystemTypeName != "Professional" && SystemTypeName != "Personal") {
         m_smartMirrorBtn = new SwitchWidget;
@@ -146,6 +192,15 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
     connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCheckUpdates);
     connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
+    connect(m_bootCheckUpdate, &SwitchWidget::checkedChanged, m_model, &UpdateModel::setBootAutoCheckUpdate);
+    connect(m_bootCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetBootAutoCheck);
+    //connect(m_setTimerLbl, &QLabel::linkActivated,);
+    //connect(m_setFreeTimeLbl, &QLabel::linkActivated,);
+    //定时、闲时下载功能需添加时再显示
+    m_timerDownloadLbl->setVisible(false);
+    m_setTimerLbl->setVisible(false);
+    m_freeTimeDownloadLbl->setVisible(false);
+    m_setFreeTimeLbl->setVisible(false);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal") {
@@ -192,11 +247,13 @@ void UpdateSettings::setModel(UpdateModel *model)
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoDownloadSwitch, &SwitchWidget::setVisible);
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_updateLbl, &DTipLabel::setVisible);
+    connect(model, &UpdateModel::bootAutoCheckChanged, m_bootCheckUpdate, &SwitchWidget::setChecked);
 
     m_autoDownloadSwitch->setVisible(model->autoCheckUpdates());
     m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
     m_updateLbl->setVisible(model->autoCheckUpdates());
+    m_bootCheckUpdate->setChecked(m_model->bootAutoCheckUpdate());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal") {

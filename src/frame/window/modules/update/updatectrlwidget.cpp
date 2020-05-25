@@ -34,6 +34,7 @@
 #include <types/appupdateinfolist.h>
 #include <QVBoxLayout>
 #include <QSettings>
+#include <QPushButton>
 
 #define UpgradeWarningSize 500
 
@@ -64,6 +65,8 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_bRecoverRestoring(false)
     , m_updateList(new ContentWidget)
     , m_authorizationPrompt(new TipsLabel)
+    , m_checkUpdateBtn(new QPushButton)
+    , m_lastCheckTimeTip(new TipsLabel)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -103,6 +106,10 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_upgradeWarningGroup->setVisible(false);
     m_upgradeWarningGroup->appendItem(m_upgradeWarning);
 
+    m_checkUpdateBtn->setVisible(false);
+    m_lastCheckTimeTip->setAlignment(Qt::AlignCenter);
+    m_lastCheckTimeTip->setVisible(false);
+
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
@@ -119,6 +126,10 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     layout->addWidget(m_checkUpdateItem);
     layout->addWidget(m_reminderTip);
     layout->addWidget(m_noNetworkTip);
+    layout->addSpacing(20);
+    layout->addWidget(m_checkUpdateBtn);
+    layout->addSpacing(5);
+    layout->addWidget(m_lastCheckTimeTip);
     layout->addStretch();
     setLayout(layout);
 
@@ -135,12 +146,10 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 
     connect(m_progress, &DownloadProgressBar::clicked, this, &UpdateCtrlWidget::onProgressBarClicked);
     connect(m_fullProcess, &DownloadProgressBar::clicked, this, &UpdateCtrlWidget::onProgressBarClicked);
-
-    if (m_model->systemActivation()) {
-        m_checkUpdateItem->setVisible(true);
-    } else {
-        m_checkUpdateItem->setVisible(false);
-    }
+    connect(m_checkUpdateBtn, &QPushButton::clicked, m_model, &UpdateModel::beginCheckUpdate);
+    connect(m_checkUpdateBtn, &QPushButton::clicked, [this] {
+        this->setFocus();
+    });
 }
 
 UpdateCtrlWidget::~UpdateCtrlWidget()
@@ -223,13 +232,27 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_checkUpdateItem->setProgressBarVisible(false);
     m_checkUpdateItem->setImageAndTextVisible(false);
     m_summary->setVisible(false);
+    m_checkUpdateBtn->setVisible(false);
+    m_lastCheckTimeTip->setVisible(false);
+
+    auto showCheckButton = [this](const QString & caption) {
+        m_model->updateCheckUpdateTime();
+        m_checkUpdateBtn->setText(caption);
+        m_checkUpdateBtn->setVisible(true);
+        m_lastCheckTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
+        m_lastCheckTimeTip->setVisible(true);
+    };
 
     switch (m_status) {
+    case UpdatesStatus::Default:
+        showCheckButton(tr("Check for Updates"));
+        break;
     case UpdatesStatus::NoAtive:
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(ShowStatus::NoActive);
         break;
     case UpdatesStatus::Checking:
+        m_model->beginCheckUpdate();
         m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setProgressBarVisible(true);
@@ -245,6 +268,8 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         setDownloadInfo(m_model->downloadInfo());
         setLowBattery(m_model->lowBattery());
         setShowInfo(m_model->systemActivation());
+        m_checkUpdateBtn->setText(tr("Check Again"));
+        m_checkUpdateBtn->setVisible(true);
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
@@ -274,6 +299,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkUpdateItem->setMessage(tr("Your system is up to date"));
         m_checkUpdateItem->setImageOrTextVisible(true);
         m_checkUpdateItem->setSystemVersion(m_systemVersion);
+        showCheckButton(tr("Check for Updates"));
         break;
     case UpdatesStatus::Installing:
         m_progress->setVisible(true);
@@ -289,6 +315,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::UpdateFailed:
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(ShowStatus::IsFailed);
+        showCheckButton(tr("Check Again"));
         break;
     case UpdatesStatus::NeedRestart:
         m_checkUpdateItem->setVisible(true);
@@ -298,16 +325,19 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(ShowStatus::IsFailed);
         m_noNetworkTip->setVisible(true);
+        showCheckButton(tr("Check Again"));
         break;
     case UpdatesStatus::NoSpace:
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(ShowStatus::IsFailed);
         m_resultItem->setMessage(tr("Update failed: insufficient disk space"));
+        showCheckButton(tr("Check Again"));
         break;
     case UpdatesStatus::DeependenciesBrokenError:
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(ShowStatus::IsFailed);
         m_resultItem->setMessage(tr("Dependency error, failed to detect the updates"));
+        showCheckButton(tr("Check Again"));
         break;
     case UpdatesStatus::RecoveryBackingup:
     case UpdatesStatus::RecoveryBackingSuccessed:
@@ -433,7 +463,13 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
 
     setUpdateProgress(m_model->updateProgress());
     setProgressValue(m_model->upgradeProgress());
-    setStatus(m_model->status());
+
+    if (m_model->enterCheckUpdate()) {
+        setStatus(UpdatesStatus::Checking);
+    } else {
+        setStatus(m_model->status());
+    }
+
     setLowBattery(m_model->lowBattery());
     setDownloadInfo(m_model->downloadInfo());
 
