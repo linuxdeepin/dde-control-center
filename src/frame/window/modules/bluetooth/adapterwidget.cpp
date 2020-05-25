@@ -230,8 +230,6 @@ void AdapterWidget::toggleSwitch(const bool checked)
     }
 
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
-    //每次开启蓝牙都应该清空之前device
-    Q_EMIT requestClearUnpairedDevice();
 }
 
 void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool paired)
