@@ -77,7 +77,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
 
     QDBusInterface inter("com.deepin.system.Power", "/com/deepin/system/Power", "com.deepin.system.Power", QDBusConnection::systemBus());
     double capacity = inter.property("BatteryCapacity").toDouble();
-    m_ShowTimeToFullTips->setText("%" + QString::number(int(capacity)));
+    m_ShowTimeToFullTips->setText(QString::number(int(capacity)) + "%");
 
     DFontSizeManager::instance()->bind(m_titleWidget, DFontSizeManager::T4, 75);
     m_titleWidget->setMargin(5);
