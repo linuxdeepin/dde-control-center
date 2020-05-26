@@ -133,8 +133,8 @@ void Monitor::setRotateList(const QList<quint16> &rotateList)
 
 void Monitor::setCurrentMode(const Resolution &resolution)
 {
-    if (m_currentMode == resolution)
-        return;
+//    if (m_currentMode == resolution)
+//        return;
 
     m_currentMode = resolution;
 
