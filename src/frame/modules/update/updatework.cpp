@@ -32,6 +32,7 @@
 #include <QJsonDocument>
 
 #define MIN_NM_ACTIVE 50
+#define UPDATE_PACKAGE_SIZE 0
 
 namespace dcc {
 namespace update {
@@ -195,9 +196,14 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
         qWarning() << "com.deepin.license error ," << Interface.lastError().name();
         return;
     }
-
-    bool reply = Interface.property("UpdatablePackages").isValid();
-    m_model->isUpdatablePackages(reply);
+    QList<QString> updatablePackages;
+    updatablePackages << Interface.property("UpdatablePackages").toStringList();
+    qDebug() << "UpdatablePackages = " << updatablePackages.count();
+    if (updatablePackages.count() > UPDATE_PACKAGE_SIZE) {
+        m_model->isUpdatablePackages(true);
+    } else {
+        m_model->isUpdatablePackages(false);
+    }
     bool autoCheckSwitch = Interface.property("AutoCheckUpdates").toBool();
     m_model->isAutoCheckUpdates(autoCheckSwitch);
 }
