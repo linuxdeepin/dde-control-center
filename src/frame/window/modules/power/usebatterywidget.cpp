@@ -115,17 +115,15 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::sleepOnLidOnBatteryCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
     connect(model, &PowerModel::batteryLockScreenDelayChanged, this, &UseBatteryWidget::setAutoLockScreenOnBattery);
     connect(model, &PowerModel::suspendChanged, m_suspendOnLidClose, &SwitchWidget::setVisible);
+    connect(model, &PowerModel::suspendChanged, m_computerSleepOnBattery, &TitledSliderItem::setVisible);
 
     setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
     m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
-    //通过gsetting设置电脑待机是否显示
-    QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    auto listModule =  comSlpSettings->get("hide-module").toStringList();
-    m_computerSleepOnBattery->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
     m_suspendOnLidClose->setVisible(model->canSleep() && model->getSuspend());
+    m_computerSleepOnBattery->setVisible(model->getSuspend());
 }
 
 void UseBatteryWidget::setScreenBlackDelayOnBattery(const int delay)
