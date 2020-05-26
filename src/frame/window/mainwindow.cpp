@@ -687,7 +687,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
     if (m_topWidget) {
         m_topWidget->setFixedSize(event->size());
-        m_topWidget->curWidget()->setMinimumWidth(third_widget_min_width + 30);
+        m_topWidget->curWidget()->setMinimumWidth(dstWidth / 2 - 40);
         m_topWidget->setFixedHeight(height() - this->titlebar()->height());
     }
 }
@@ -1110,7 +1110,7 @@ void FourthColWidget::initWidget(QWidget *showWidget, ModuleInterface *module)
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
-    showWidget->setMinimumWidth(third_widget_min_width + 30);
+    showWidget->setMinimumWidth(this->parentWidget()->width() / 2 - 40);
     showWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     showWidget->setAutoFillBackground(true);
 
