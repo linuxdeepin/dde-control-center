@@ -148,6 +148,10 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 
 void MonitorsGround::adjust(MonitorProxyWidget *pw)
 {
+    bool bSingle = false;
+    if(1 == m_monitors.count())
+        bSingle = true;
+
     qDebug() << "adjust" << pw->name();
 
     const double scale = screenScale();
@@ -160,7 +164,13 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     const int x = scale * pw->x();
     const int y = scale * pw->y();
 
-    pw->setGeometry(x + offsetX, y + offsetY, w, h);
+    if(bSingle)
+    {
+        pw->setGeometry((width()-w)/2, (height()-h)/2, scale * pw->w(), scale * pw->h());
+        this->setEnabled(false);//单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发方大
+    }
+    else
+        pw->setGeometry(x + offsetX, y + offsetY, w, h);
     pw->update();
 }
 
@@ -261,8 +271,8 @@ bool MonitorsGround::isScreenPerfect() const
 
 double MonitorsGround::screenScale() const
 {
-    const double scaleW = VIEW_WIDTH / m_viewPortWidth;
-    const double scaleH = VIEW_HEIGHT / m_viewPortHeight;
+    const double scaleW = double(width()) / m_viewPortWidth;
+    const double scaleH = double(height()) / m_viewPortHeight;
 
     return std::min(scaleW, scaleH);
 }
