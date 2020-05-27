@@ -232,7 +232,11 @@ void Frame::onDelayKillerTimeout()
     {
         if (isVisible())
             return m_delayKillerTimer->start();
+<<<<<<< HEAD
         qDebug() << "Killer Timeout, now quiiting...";
+=======
+        qWarning() << "Killer Timeout, now quiiting...";
+>>>>>>> 350d90799... Revert "feat:add BUILD_MACRO to control display modules,delete unused files"
         qApp->quit();
     } else {
 #ifndef DCC_KEEP_SETTINGS_LIVE
