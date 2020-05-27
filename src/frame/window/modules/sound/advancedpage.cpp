@@ -170,6 +170,8 @@ void AdvancedPage::addPort(const Port *port)
     } else {
         m_inputModel->appendRow(pi);
     }
+    m_outputModel->sort(0);
+    m_inputModel->sort(0);
 }
 
 void AdvancedPage::removePort(const QString &portId, const uint &cardId)
