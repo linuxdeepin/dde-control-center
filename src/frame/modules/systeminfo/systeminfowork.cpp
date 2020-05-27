@@ -59,6 +59,10 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "/com/deepin/daemon/Grub2/Theme",
                                         QDBusConnection::systemBus(), this);
 
+    m_activeInfo = new QDBusInterface("com.deepin.license",
+                                      "/com/deepin/license/Info",
+                                      "com.deepin.license.Info",
+                                      QDBusConnection::systemBus(),this);
 #if 0
     //预留接口
     m_dbusActivator = new GrubThemeDbus("com.deepin.license",
@@ -69,6 +73,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_dbusGrub->setSync(false, false);
     m_dbusGrubTheme->setSync(false, false);
 
+    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
     connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
     connect(m_dbusGrub, &GrubDbus::TimeoutChanged, this, [this] (const int &value) {
@@ -237,13 +242,6 @@ void SystemInfoWork::setBackground(const QString &path)
 
 void SystemInfoWork::showActivatorDialog()
 {
-    QDBusConnection::systemBus().connect("com.deepin.license",
-                                         "/com/deepin/license/Info",
-                                         "com.deepin.license.Info",
-                                         "LicenseStateChange",
-                                         this,
-                                         SLOT(licenseStateChangeSlot()));
-
     QDBusInterface activator("com.deepin.license.activator",
                              "/com/deepin/license/activator",
                              "com.deepin.license.activator",
