@@ -50,6 +50,8 @@
 #include <QScreen>
 #include <QString>
 
+#include <unistd.h>
+
 /*
  * Implementation of adaptor class DBusControlCenter
  */
@@ -102,6 +104,13 @@ const QRect DBusControlCenterService::rect() const
     }
 
     return parent()->geometry();
+}
+
+void DBusControlCenterService::exitProc()
+{
+    pid_t pid = getpid();
+    qDebug() << "exit pid:" << pid;
+    exit(0);
 }
 
 //int DBusControlCenterService::x() const
