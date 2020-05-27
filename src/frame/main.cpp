@@ -23,6 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "frame.h"
 #include "dbuscontrolcenterservice.h"
 #include "window/mainwindow.h"
 

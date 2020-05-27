@@ -35,9 +35,11 @@
 #include "modules/systeminfo/systeminfomodule.h"
 #include "modules/network/networkmodule.h"
 #include "modules/defapp/defaultappsmodule.h"
+#include "moduleinitthread.h"
 #include "modules/update/mirrorswidget.h"
 #include "widgets/multiselectlistview.h"
 #include "mainwindow.h"
+#include "constant.h"
 #include "search/searchwidget.h"
 #include "dtitlebar.h"
 #include "utils.h"
@@ -301,55 +303,23 @@ void MainWindow::initAllModule(QString m)
     using namespace commoninfo;
 
     m_modules = {
-#ifndef DISABLE_ACCOUNT
         { new AccountsModule(this), tr("Accounts")},
-#endif
-#ifndef DISABLE_CLOUD_SYNC
         //~ contents_path /cloudsync/Cloud Sync
         { new SyncModule(this), tr("Cloud Account")},
-#endif
-#ifndef DISABLE_DISPALY
         { new DisplayModule(this), tr("Display")},
-#endif
-#ifndef DISABLE_DEFAULT_APPLICATIONS
         { new DefaultAppsModule(this), tr("Default Applications")},
-#endif
-#ifndef DISABLE_PERSONALIZATION
         { new PersonalizationModule(this), tr("Personalization")},
-#endif
-#ifndef DISABLE_NETWORK
         { new NetworkModule(this), tr("Network")},
-#endif
-#ifndef DISABLE_SOUND
         { new SoundModule(this), tr("Sound")},
-#endif
-#ifndef DISABLE_BLUETOOTH
         { new BluetoothModule(this), tr("Bluetooth")},
-#endif
-#ifndef DISABLE_DATETIME
         { new DatetimeModule(this), tr("Date and Time")},
-#endif
-#ifndef DISABLE_POWER
         { new PowerModule(this), tr("Power")},
-#endif
-#ifndef DISABLE_MOUSE
         { new MouseModule(this), tr("Mouse")},
-#endif
-#ifndef DISABLE_WACOM
         { new WacomModule(this), tr("Drawing Tablet")},
-#endif
-#ifndef DISABLE_KAYBOARD
         { new KeyboardModule(this), tr("Keyboard and Language")},
-#endif
-#ifndef DISABLE_SYS_UPDATE
         { new UpdateModule(this), tr("Updates")},
-#endif
-#ifndef DISABLE_SYSINFO
         { new SystemInfoModule(this), tr("System Info")},
-#endif
-#ifndef DISABLE_COMMONINFO
         { new CommonInfoModule(this), tr("General Settings")},
-#endif
     };
 
     loadModules();

@@ -1,5 +1,6 @@
 #include "syncmodule.h"
 
+#include "interfaces/frameproxyinterface.h"
 #include "../../../modules/sync/syncworker.h"
 #include "../../../modules/sync/syncmodel.h"
 
