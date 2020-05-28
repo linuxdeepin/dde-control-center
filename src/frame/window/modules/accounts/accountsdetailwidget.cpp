@@ -191,6 +191,12 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     layout->addWidget(m_avatarListWidget);
 
     connect(m_curUser, &User::currentAvatarChanged, m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
+    connect(m_inputLineEdit, &DLineEdit::textEdited, this, [ = ] {
+        if (m_inputLineEdit->isAlert()){
+            m_inputLineEdit->hideAlertMessage();
+            m_inputLineEdit->setAlert(false);
+        }
+    });
 
     //点击用户图像
     connect(avatar, &AvatarWidget::clicked, this, [ = ](const QString &iconPath) {
@@ -528,13 +534,16 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
 void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
 {
     qDebug() << "change edit status : " << sender();
-
-    m_fullName->setVisible(!edit);
-    m_fullNameBtn->setVisible(!edit);
-    m_inputLineEdit->setVisible(edit);
-
-    if (edit) {
-        m_inputLineEdit->setText(m_curUser->fullname());
-        m_inputLineEdit->lineEdit()->selectAll();
-    }
+    auto inputFullName = m_inputLineEdit->lineEdit()->text();
+//    m_inputLineEdit->setText(m_curUser->fullname());
+    m_inputLineEdit->lineEdit()->selectAll();
+        if (inputFullName.size() > 100) {
+            m_inputLineEdit->setVisible(!edit);
+            m_inputLineEdit->setAlert(!edit);
+            m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
+        } else {
+            m_fullName->setVisible(!edit);
+            m_fullNameBtn->setVisible(!edit);
+            m_inputLineEdit->setVisible(edit);
+        }
 }
