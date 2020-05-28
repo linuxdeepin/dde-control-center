@@ -170,10 +170,5 @@ SettingsItem *SettingsGroup::getItem(int index)
 
     return nullptr;
 }
-
-void SettingsGroup::insertWidget(QWidget *widget)
-{
-    m_layout->insertWidget(m_layout->count(), widget);
-}
 }
 }
