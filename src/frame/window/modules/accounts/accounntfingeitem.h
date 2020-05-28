@@ -52,6 +52,8 @@ public:
     void setEditTitle(bool state);
     void setHideTitle(bool state);
     bool onNameEditFinished(DLineEdit *edit);
+    //判断账户名是否符合规则
+    bool validateName(const QString &password);
 
 Q_SIGNALS:
     void removeClicked();

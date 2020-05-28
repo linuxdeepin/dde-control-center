@@ -120,12 +120,35 @@ void AccounntFingeItem::setHideTitle(bool state)
     m_editTitle->setVisible(state);
 }
 
+bool AccounntFingeItem::validateName(const QString &password)
+{
+    QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
+                              QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ")/* + QString("~!@#$%^&*()[]{}\\|/?,.<>")*/;
+    for (const QChar &p : password)
+    {
+        if (validate_policy.contains(p)) {
+            continue;
+        }
+        else {
+            ushort uNum = p.unicode();
+            if(uNum >= 0x4E00 && uNum <= 0x9FA5)
+            {
+                continue;// 这个字符是中文
+            }
+            else {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 bool AccounntFingeItem::onNameEditFinished(DLineEdit *edit)
 {
     QString editName = edit->lineEdit()->text();
     if (editName.isEmpty())
         return false;
-    if(editName.size() >15 ) {
+    if(editName.size() >15 || validateName(editName) == false) {
         edit->setAlert(true);
         edit->showAlertMessage(tr("The name must only contain letters, numbers and underline, and no more than 15 characters."), parentWidget());
         edit->lineEdit()->selectAll();
