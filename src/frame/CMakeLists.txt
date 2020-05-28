@@ -227,8 +227,7 @@ set(WIDGETS_FILES
                 ../../include/widgets/timeoutdialog.h
                 widgets/multiselectlistview.cpp
                 ../../include/widgets/multiselectlistview.h
-                widgets/powerdisplaywidget.cpp
-                ../../include/widgets/powerdisplaywidget.h
+
                 widgets/widgets.qrc
 )
 
