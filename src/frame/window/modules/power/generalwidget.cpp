@@ -20,6 +20,7 @@
  */
 #include "generalwidget.h"
 #include "widgets/switchwidget.h"
+#include "widgets/powerdisplaywidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/labels/normallabel.h"
 #include "modules/power/powermodel.h"
@@ -29,11 +30,23 @@
 #include <QListView>
 #include <QStandardItemModel>
 #include <QFont>
+#include <QGSettings>
+#include <QDBusInterface>
+
+#include <DFontSizeManager>
+
+DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
 using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
+
+static QGSettings *GSettings()
+{
+    static QGSettings settings("com.deepin.dde.dock.module.power");
+    return &settings;
+}
 
 GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     : QWidget(parent)
@@ -42,6 +55,9 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto Mode Switch")))
     , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer")))
     , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor")))
+    , m_titleWidget(new QLabel(tr("Battery")))
+    , m_powerShowTimeToFull(new SwitchWidget(tr("Display capacity and remaining charging time")))
+    , m_ShowTimeToFullTips(new PowerDisplayWidget(this))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -56,7 +72,6 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     m_wakeComputerNeedPassword->setTitle(tr("Password is required to wake up the computer"));
     //~ contents_path /power/General
     m_wakeDisplayNeedPassword->setTitle(tr("Password is required to wake up the monitor"));
-
     m_powerShowTimeToFull->setTitle(tr("Display capacity and remaining charging time"));
     m_ShowTimeToFullTips->setTitle(tr("Maximum capacity"));
 
@@ -71,7 +86,13 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     generalSettingsGrp->appendItem(m_autoIntoSaveEnergyMode);
     generalSettingsGrp->appendItem(m_wakeComputerNeedPassword);
     generalSettingsGrp->appendItem(m_wakeDisplayNeedPassword);
+    generalSettingsGrp->insertWidget(m_titleWidget);
+    generalSettingsGrp->appendItem(m_powerShowTimeToFull);
+    generalSettingsGrp->appendItem(m_ShowTimeToFullTips);
 
+    m_titleWidget->setVisible(bIsBattery);
+    m_powerShowTimeToFull->setVisible(bIsBattery);
+    m_ShowTimeToFullTips->setVisible(bIsBattery);
     m_lowBatteryMode->setVisible(bIsBattery);
     m_autoIntoSaveEnergyMode->setVisible(bIsBattery);
 
@@ -85,6 +106,10 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     connect(m_autoIntoSaveEnergyMode, &SwitchWidget::checkedChanged, this, &GeneralWidget::requestSetAutoIntoSaveEnergyMode);
     connect(m_wakeComputerNeedPassword, &SwitchWidget::checkedChanged, this, &GeneralWidget::requestSetWakeComputer);
     connect(m_wakeDisplayNeedPassword, &SwitchWidget::checkedChanged, this, &GeneralWidget::requestSetWakeDisplay);
+    connect(m_powerShowTimeToFull, &SwitchWidget::checkedChanged, this, &GeneralWidget::setPowerDisplay);
+    connect(GSettings(), &QGSettings::changed, this, &GeneralWidget::onGSettingsChanged);
+
+    onGSettingsChanged("showtimetofull");
 }
 
 GeneralWidget::~GeneralWidget()
@@ -114,4 +139,29 @@ void GeneralWidget::setModel(const PowerModel *model)
 #endif
 
     m_wakeComputerNeedPassword->setVisible(model->canSleep());
+}
+
+void GeneralWidget::setPowerDisplay(const bool &state)
+{
+    if (GSettings()->keys().contains("showtimetofull")) {
+        blockSignals(true);
+        const bool isEnable = GSettings()->keys().contains("showtimetofull") && GSettings()->get("showtimetofull").toBool();
+        bool gstate = isEnable && GSettings()->get("showtimetofull").toBool();
+        if (gstate != state)
+            GSettings()->set("showtimetofull", state);
+        blockSignals(false);
+    }
+}
+
+void GeneralWidget::onGSettingsChanged(const QString &key)
+{
+    if (key != "showtimetofull") {
+        return;
+    }
+
+    if (GSettings()->keys().contains("showtimetofull")) {
+        const bool isEnable = GSettings()->keys().contains("showtimetofull") && GSettings()->get("showtimetofull").toBool();
+        bool state = isEnable && GSettings()->get("showtimetofull").toBool();
+        m_powerShowTimeToFull->setChecked(state);
+    }
 }

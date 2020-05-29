@@ -55,7 +55,6 @@ SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
     mainLayout->setSpacing(0);
 
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
-    mainLayout->addStretch();
     mainLayout->addWidget(m_switchBtn, 0, Qt::AlignVCenter);
 
     m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -70,6 +69,16 @@ void SwitchWidget::setChecked(const bool checked)
     m_switchBtn->blockSignals(true);
     m_switchBtn->setChecked(checked);
     m_switchBtn->blockSignals(false);
+}
+
+QString SwitchWidget::title() const
+{
+    QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
+    if (label) {
+        return label->text();
+    }
+
+   return QString();
 }
 
 void SwitchWidget::setTitle(const QString &title)
