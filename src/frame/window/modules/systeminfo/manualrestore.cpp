@@ -170,6 +170,9 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     fileDialog->setFileMode(QFileDialog::Directory);
     m_directoryChooseWidget->setFileDialog(fileDialog);
 
+    QString radioButtonStyleSheet("border-style: none; outline: 0px;");
+    m_systemRestore->radioButton()->setStyleSheet(radioButtonStyleSheet);
+    m_manualRestore->radioButton()->setStyleSheet(radioButtonStyleSheet);
     m_systemRestore->radioButton()->setChecked(true);
 
     connect(m_backupBtn, &QPushButton::clicked, this, &ManualRestore::restore, Qt::QueuedConnection);
