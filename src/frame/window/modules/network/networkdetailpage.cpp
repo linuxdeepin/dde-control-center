@@ -125,13 +125,14 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         SettingsGroup *grp = new SettingsGroup;
         const QString type = info.value("ConnectionType").toString();
         const bool isHotspot = type == "wireless-hotspot";
+        const bool isWireless = type == "wireless";
         QJsonObject hotspotInfo;
+        hotspotInfo = info.value("Hotspot").toObject();
         if (isHotspot) {
             SettingsHead *head = new SettingsHead();
             head->setTitle(tr("Hotspot"));
             head->setEditEnable(false);
             grp->appendItem(head, SettingsGroup::NoneBackground);
-            hotspotInfo = info.value("Hotspot").toObject();
 
             const QString ssid = hotspotInfo.value("Ssid").toString();
             appendInfo(grp, tr("SSID"), ssid);
@@ -144,7 +145,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             grp->appendItem(head, SettingsGroup::NoneBackground);
         }
         // encrypt method
-        if (isHotspot) {
+        if (isHotspot || isWireless) {
             const QString securityType = info.value("Security").toString();
             appendInfo(grp, tr("Security"), securityType);
         }
@@ -156,11 +157,24 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         const QString mac = info.value("HwAddress").toString();
         if (!mac.isEmpty())
             appendInfo(grp, tr("MAC"), mac);
+        //protocol
+        const QString protocol = info.value("Protocol").toString();
+        if (!protocol.isEmpty())
+            appendInfo(grp, tr("Protocol"), protocol);
+        //channel
+        const QString channel = QString::number(hotspotInfo.value("Channel").toInt());
+        if (!channel.isEmpty())
+            appendInfo(grp, tr("Channel"), channel);
         // band
         if (isHotspot) {
             const QString band = hotspotInfo.value("Band").toString();
             appendInfo(grp, tr("Band"), band);
         } else {
+            if (isWireless) {
+                const QString band = hotspotInfo.value("Band").toString();
+                QString bandInfo = band == "a" ? "5G" : (band == "bg" ? "2.4G" : "automatic");
+                appendInfo(grp, tr("Band"), bandInfo);
+            }
             // ipv4 info
             const auto ipv4 = info.value("Ip4").toObject();
             if (!ipv4.isEmpty()) {
