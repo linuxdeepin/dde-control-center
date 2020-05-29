@@ -27,11 +27,7 @@
 #define FINGERMODEL_H
 
 #include <QObject>
-
-static const QStringList thumbsLists =  { "right-little-finger","left-index-finger",
-                                          "right-index-finger", "left-middle-finger" ,
-                                          "right-thumb" , "left-ring-finger" ,"left-little-finger" ,
-                                          "right-middle-finger" , "left-thumb" ,"right-ring-finger"};
+#include <QMap>
 
 namespace dcc {
 namespace accounts {
@@ -46,6 +42,7 @@ public:
 
     void setThumbsList(const QStringList &thumbs);
     QStringList thumbsList() const;
+    QMap<QString, QString> getPredefineThumbsName() const { return m_predefineThumbsNames; }
 
     void onEnrollStatusChanged(int code, const QString& msg);
     void onTouch(const QString &id, bool pressed);
@@ -63,6 +60,7 @@ Q_SIGNALS:
 private:
     bool m_isVaild{false};
     QList<QString> m_thumbsList;
+    QMap<QString, QString> m_predefineThumbsNames;
 };
 }
 }
