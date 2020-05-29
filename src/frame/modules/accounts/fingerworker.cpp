@@ -91,6 +91,8 @@ void FingerWorker::refreshUserEnrollList(const QString &id)
     call.waitForFinished();
     if (call.isError()) {
         qDebug() << "call ListFingers Error : " << call.error();
+        m_model->setThumbsList(QStringList());
+        return;
     } else {
         qDebug() << "ListFingers  : " << call.value();
     }
