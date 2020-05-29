@@ -40,7 +40,7 @@ namespace widgets {
 SwitchWidget::SwitchWidget(const QString &title, QWidget *parent)
     : SwitchWidget(parent, new NormalLabel(title))
 {
-
+    m_switchBtn->setAccessibleName(title);
 }
 
 SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
@@ -91,6 +91,7 @@ void SwitchWidget::setTitle(const QString &title)
     }
 
     setAccessibleName(title);
+    m_switchBtn->setAccessibleName(title);
 }
 
 bool SwitchWidget::checked() const

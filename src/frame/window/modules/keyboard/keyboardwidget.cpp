@@ -62,6 +62,7 @@ void KeyboardWidget::init()
         keyboardItem->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_listviewModel->appendRow(keyboardItem);
     }
+    m_keyboardListView->setAccessibleName("List_keyboardlist");
     m_keyboardListView->setFrameShape(QFrame::NoFrame);
     m_keyboardListView->setModel(m_listviewModel);
     m_keyboardListView->setEditTriggers(QAbstractItemView::NoEditTriggers);

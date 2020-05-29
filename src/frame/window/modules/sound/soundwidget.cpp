@@ -43,6 +43,7 @@ SoundWidget::SoundWidget(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
 
+    m_menuList->setAccessibleName("List_soundmenulist");
     m_menuList->setEditTriggers(DListView::NoEditTriggers);
     m_menuList->setFrameShape(QFrame::NoFrame);
     m_menuList->setViewportMargins(ScrollAreaMargins);

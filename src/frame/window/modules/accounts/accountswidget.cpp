@@ -52,17 +52,17 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     , m_userItemModel(new QStandardItemModel(this))
     , m_saveClickedRow(0)
 {
-    setObjectName("Accounts");
-
     m_createBtn->setFixedSize(50, 50);
     //~ contents_path /accounts/New Account
     m_createBtn->setToolTip(tr("Create Account"));
+    m_createBtn->setAccessibleName(tr("Create Account"));
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout();
     mainContentLayout->setMargin(0);
     mainContentLayout->addWidget(m_userlistView);
     mainContentLayout->addWidget(m_createBtn, 0, Qt::AlignHCenter);
 
+    m_userlistView->setAccessibleName("List_userlist");
     m_userlistView->setFrameShape(QFrame::NoFrame);
     m_userlistView->setViewportMargins(ScrollAreaMargins);
     m_userlistView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);

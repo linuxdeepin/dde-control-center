@@ -212,6 +212,7 @@ void AvatarListWidget::addItemFromDefaultDir()
         QString iconpath = list.at(i).filePath();
 
         DStandardItem *item = new DStandardItem();
+        item->setAccessibleText(iconpath);
         auto ratio = devicePixelRatioF();
 
         auto pxPath = iconpath;

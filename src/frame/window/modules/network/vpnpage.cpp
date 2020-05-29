@@ -83,6 +83,7 @@ VpnPage::VpnPage(QWidget *parent)
     , m_lvprofiles(new DListView)
     , m_modelprofiles(new QStandardItemModel(this))
 {
+    m_lvprofiles->setAccessibleName("List_vpnList");
     m_lvprofiles->setModel(m_modelprofiles);
     m_lvprofiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);

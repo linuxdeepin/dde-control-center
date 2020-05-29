@@ -66,7 +66,7 @@ const QString PersonalizationModule::displayName() const
 void PersonalizationModule::active()
 {
     PersonalizationList *firstWidget = new PersonalizationList();
-
+    firstWidget->setAccessibleName("personanization");
     connect(firstWidget, &PersonalizationList::requestShowGeneral, this, &PersonalizationModule::showGenaralWidget);
     connect(firstWidget, &PersonalizationList::requestShowIconTheme, this, &PersonalizationModule::showIconThemeWidget);
     connect(firstWidget, &PersonalizationList::requestShowCursorTheme, this, &PersonalizationModule::showCursorThemeWidget);
@@ -116,6 +116,7 @@ void PersonalizationModule::showGenaralWidget()
     m_work->refreshTheme();
 
     PersonalizationGeneral *widget = new PersonalizationGeneral;
+    widget->setAccessibleName("personalizationgeneral");
 
     widget->setModel(m_model);
     connect(widget->getThemeWidget(), &PerssonalizationThemeWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);

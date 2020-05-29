@@ -69,6 +69,7 @@ ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
 void ThemeItem::setTitle(const QString &title)
 {
     m_title->setText(title);
+    m_itemPic->setAccessibleName(title);
     m_mainLayout->setAlignment(m_title, Qt::AlignCenter);
 }
 

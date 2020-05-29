@@ -62,6 +62,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     m_model = new IndexModel();
     m_view = new IndexView();
 
+    m_view->setAccessibleName("List_keyboardmenulist");
     m_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_view->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     //m_view->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);

@@ -59,14 +59,20 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
     m_reducedBtn->setParent(m_lineEdit);
 
     if (m_type == Year) {
+        m_addBtn->setAccessibleName("yearadd");
+        m_reducedBtn->setAccessibleName("yearreduced");
         m_label->setText(tr("Year"));
-        m_lineEdit->setAccessibleName("TimeYear");
+        m_lineEdit->setAccessibleName(tr("Year"));
     } else if (m_type == Month) {
+        m_addBtn->setAccessibleName("monthadd");
+        m_reducedBtn->setAccessibleName("monthreduced");
         m_label->setText(tr("Month"));
-        m_lineEdit->setAccessibleName("TimeMonth");
+        m_lineEdit->setAccessibleName(tr("Month"));
     } else {
+        m_addBtn->setAccessibleName("dayadd");
+        m_reducedBtn->setAccessibleName("dayreduced");
         m_label->setText(tr("Day"));
-        m_lineEdit->setAccessibleName("TimeDay");
+        m_lineEdit->setAccessibleName(tr("Day"));
     }
 
     m_lineEdit->setAlignment(Qt::AlignVCenter | Qt::AlignRight);

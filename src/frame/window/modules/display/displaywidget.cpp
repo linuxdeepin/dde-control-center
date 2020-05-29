@@ -177,6 +177,7 @@ void DisplayWidget::initMenuUI()
         m_singleModel->appendRow(btn);
     }
 
+    m_menuList->setAccessibleName("List_displaymenulist");
     m_menuList->setEditTriggers(DListView::NoEditTriggers);
     m_menuList->setFrameShape(QFrame::NoFrame);
     m_menuList->setViewportMargins(ScrollAreaMargins);

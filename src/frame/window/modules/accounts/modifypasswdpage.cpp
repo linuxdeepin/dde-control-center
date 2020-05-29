@@ -115,8 +115,11 @@ void ModifyPasswdPage::initWidget()
     });
 
     m_oldPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
+    m_oldPasswordEdit->setAccessibleName("oldpasswordedit");
     m_newPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
+    m_newPasswordEdit->setAccessibleName("newpasswordedit");
     m_repeatPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
+    m_repeatPasswordEdit->setAccessibleName("repeatpasswordedit");
 
     cancleBtn->setMinimumSize(165, 36);
     saveBtn->setMinimumSize(165, 36);

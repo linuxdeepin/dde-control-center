@@ -87,6 +87,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     };
 
     m_outputList = new DListView;
+    m_outputList->setAccessibleName("List_outputlist");
     setListFucn(m_outputList);
     contentLayout->addWidget(m_outputList);
     contentLayout->addSpacing(10);
@@ -97,6 +98,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     contentLayout->addWidget(label);
     m_inputList = new DListView;
+    m_inputList->setAccessibleName("List_inputlist");
     setListFucn(m_inputList);
     contentLayout->addWidget(m_inputList);
     contentLayout->addStretch();
@@ -166,8 +168,10 @@ void AdvancedPage::addPort(const Port *port)
         pi->setCheckState(Qt::CheckState::Checked);
 
     if (port->direction() == Port::Out) {
+        pi->setAccessibleText(port->name() + "_output");
         m_outputModel->appendRow(pi);
     } else {
+        pi->setAccessibleText(port->name() + "_input");
         m_inputModel->appendRow(pi);
     }
 }

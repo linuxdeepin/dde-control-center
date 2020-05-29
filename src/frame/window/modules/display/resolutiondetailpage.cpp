@@ -185,6 +185,7 @@ void ResolutionDetailPage::initResoList()
 
     m_mainLayout->addWidget(rlist, 0);
     m_resoList = rlist;
+    m_resoList->setAccessibleName("List_resolutionlist");
 }
 
 void ResolutionDetailPage::stopScroller()

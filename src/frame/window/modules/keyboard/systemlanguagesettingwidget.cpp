@@ -50,6 +50,7 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
 
     m_model = new QStandardItemModel(this);
     m_view = new DListView();
+    m_view->setAccessibleName("List_languagelist");
     m_view->setFrameShape(QFrame::NoFrame);
     m_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

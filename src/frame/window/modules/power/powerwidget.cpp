@@ -77,6 +77,7 @@ void PowerWidget::initialize(bool hasBattery)
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         model->appendRow(item);
     }
+    m_listview->setAccessibleName("List_powermenulist");
     m_listview->setFrameShape(QFrame::NoFrame);
     m_listview->setModel(model);
     m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);

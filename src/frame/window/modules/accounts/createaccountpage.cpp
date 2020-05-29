@@ -147,6 +147,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     layout->addWidget(titleLabel);
 
     m_avatarListWidget = new AvatarListWidget(m_newUser, this);
+    m_avatarListWidget->setAccessibleName("List_useravatarlist");
     m_avatarListWidget->setAvatarSize(QSize(40, 40));
     m_avatarListWidget->setViewportMargins(0, 0, 0, 0);
     m_avatarListWidget->setSpacing(14);
@@ -155,21 +156,25 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     layout->addWidget(m_avatarListWidget, 0, Qt::AlignTop);
 
     QLabel *nameLabel = new QLabel(tr("Username") + ':');
+    m_nameEdit->setAccessibleName("username_edit");
     layout->addWidget(nameLabel);
     layout->addWidget(m_nameEdit);
     layout->addSpacing(7);
 
     QLabel *fullnameLabel = new QLabel(tr("Full Name") + ':');
+    m_fullnameEdit->setAccessibleName("fullname_edit");
     layout->addWidget(fullnameLabel);
     layout->addWidget(m_fullnameEdit);
     layout->addSpacing(7);
 
     QLabel *passwdLabel = new QLabel(tr("Password") + ':');
+    m_passwdEdit->setAccessibleName("passwd_edit");
     layout->addWidget(passwdLabel);
     layout->addWidget(m_passwdEdit);
     layout->addSpacing(7);
 
     QLabel *repeatpasswdLabel = new QLabel(tr("Repeat Password") + ':');
+    m_repeatpasswdEdit->setAccessibleName("repeatpasswd_edit");
     layout->addWidget(repeatpasswdLabel);
     layout->addWidget(m_repeatpasswdEdit);
     layout->addSpacing(7);

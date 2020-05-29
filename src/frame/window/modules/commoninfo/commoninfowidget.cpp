@@ -52,6 +52,7 @@ dcc::widgets::MultiSelectListView *CommonInfoWidget::getCommonListView()
 
 void CommonInfoWidget::initWidget()
 {
+    m_listView->setAccessibleName("List_commonlist");
     m_listView->setViewportMargins(ScrollAreaMargins);
     m_listView->setFrameShape(QFrame::NoFrame);
     m_listView->setEditTriggers(QListView::NoEditTriggers);

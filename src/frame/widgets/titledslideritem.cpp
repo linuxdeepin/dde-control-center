@@ -49,8 +49,7 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     , m_valueLabel(new NormalLabel)
     , m_slider(new DCCSlider)
 {
-    m_slider->slider()->setAccessibleName(title);
-
+    m_slider->qtSlider()->setAccessibleName(title);
 
     QMargins zeroMg(8, 8, 8, 8);
 

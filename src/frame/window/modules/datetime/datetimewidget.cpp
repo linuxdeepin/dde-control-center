@@ -44,7 +44,7 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
     , m_clockItem(new ClockItem(this))
     , m_model(nullptr)
 {
-    setObjectName("Datetime");
+    m_listview->setAccessibleName("settinglist");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     init();
 }
@@ -70,6 +70,7 @@ void DatetimeWidget::init()
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         model->appendRow(item);
     }
+    m_listview->setAccessibleName("List_datetimesettingList");
     m_listview->setFrameShape(QFrame::NoFrame);
     m_listview->setModel(model);
     m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);

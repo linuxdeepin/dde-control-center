@@ -36,7 +36,7 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     , m_model(new QStandardItemModel(this))
     , m_centralLayout(new QVBoxLayout())
 {
-    setObjectName("personanization");
+    m_categoryListView->setAccessibleName("List_categorylist");
     m_categoryListView->setResizeMode(QListView::Adjust);
     m_categoryListView->setMovement(QListView::Static);
     m_categoryListView->setFrameShape(QFrame::NoFrame);
@@ -61,6 +61,7 @@ PersonalizationList::PersonalizationList(QWidget *parent)
 
     for (int i = 0; i < menus.size(); ++i) {
         DStandardItem *item = new DStandardItem(QIcon::fromTheme(icons.at(i)), menus.at(i));
+        item->setAccessibleText(menus.at(i));
 
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_model->appendRow(item);

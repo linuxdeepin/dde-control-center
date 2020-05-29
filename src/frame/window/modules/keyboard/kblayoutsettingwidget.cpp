@@ -60,6 +60,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     mainLayout->addLayout(headLayout);
 
     m_kbLayoutModel = new QStandardItemModel(m_kbLayoutListView);
+    m_kbLayoutListView->setAccessibleName("List_kblayoutlist");
     m_kbLayoutListView->setModel(m_kbLayoutModel);
     m_kbLayoutListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_kbLayoutListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
@@ -87,6 +88,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
         shortCutItem->setData(iter.key(), SwitchValueRole);
         m_switchLayoutModel->appendRow(shortCutItem);
     }
+    m_switchLayoutListView->setAccessibleName("List_kbswitchlayoutlist");
     m_switchLayoutListView->setModel(m_switchLayoutModel);
     m_switchLayoutListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_switchLayoutListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
