@@ -54,6 +54,7 @@ void RefreshRatePage::setModel(DisplayModel *model)
 void RefreshRatePage::initRateList()
 {
     DListView *list = new DListView();
+    list->setAccessibleName("List_refreshratelist");
     list->setAutoScroll(false);
     list->setFrameShape(QFrame::NoFrame);
     list->setSelectionMode(DListView::NoSelection);

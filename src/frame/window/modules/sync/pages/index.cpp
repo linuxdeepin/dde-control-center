@@ -48,6 +48,7 @@ IndexPage::IndexPage(QWidget *parent)
     m_stateLbl = new QLabel(tr("Syncing..."));
 
     m_stateLbl->hide();
+    m_listView->setAccessibleName("List_indexlist");
     m_listView->setSelectionMode(QListView::NoSelection);
     m_listView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_listView->setEditTriggers(QListView::NoEditTriggers);

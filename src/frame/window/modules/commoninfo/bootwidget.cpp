@@ -58,6 +58,7 @@ BootWidget::BootWidget(QWidget *parent)
     m_listLayout->setMargin(0);
 
     m_bootList = new DListView();
+    m_bootList->setAccessibleName("List_bootlist");
     m_bootList->setAutoScroll(false);
     m_bootList->setFrameShape(QFrame::NoFrame);
     m_bootList->setDragDropMode(QListView::DragDrop);

@@ -105,18 +105,20 @@ MainWindow::MainWindow(QWidget *parent)
 {
     //Initialize view and layout structure
     QWidget *content = new QWidget(this);
-
+    content->setObjectName("contentwindow");
     m_contentLayout = new QHBoxLayout(content);
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
     m_contentLayout->setSpacing(0);
     m_rightContentLayout = new QHBoxLayout();
 
     m_rightView = new DBackgroundGroup(m_rightContentLayout);
+    m_rightView->setObjectName("modulepage");
     m_rightView->setItemSpacing(2);
     m_rightView->setItemMargins(QMargins(10, 10, 10, 10));
     m_rightView->setContentsMargins(10, 10, 10, 10);
 
     m_navView = new dcc::widgets::MultiSelectListView(this);
+    m_navView->setAccessibleName("Form_mainmenulist");
     m_navView->setFrameShape(QFrame::Shape::NoFrame);
     m_navView->setEditTriggers(QListView::NoEditTriggers);
     m_navView->setResizeMode(QListView::Adjust);
@@ -157,6 +159,7 @@ MainWindow::MainWindow(QWidget *parent)
     } else {
         qDebug() << "get title bar menu :" << menu;
     }
+    menu->setAccessibleName("titlebarmenu");
     titlebar->setMenu(menu);
 
     auto action = new QAction(tr("Help"));
@@ -176,6 +179,7 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     m_backwardBtn = new DIconButton(this);
+    m_backwardBtn->setAccessibleName("backwardbtn");
     m_backwardBtn->setEnabled(false);
     m_backwardBtn->setIcon(QStyle::SP_ArrowBack);
     titlebar->addWidget(m_backwardBtn, Qt::AlignLeft | Qt::AlignVCenter);
@@ -345,6 +349,7 @@ void MainWindow::initAllModule(QString m)
         item->setEditable(false);
         item->setIcon(it->first->icon());
         item->setText(it->second);
+        item->setAccessibleText(it->second);
 
         //目前只有"update"模块需要使用右上角的角标，其他模块还是使用旧的位置数据设置
         //若其他地方需要使用右上角的角标，可在下面if处使用“||”添加对应模块的name()值

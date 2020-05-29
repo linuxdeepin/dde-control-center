@@ -82,6 +82,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
 
     m_myDeviceListView = new DListView(this);
     m_myDeviceModel = new QStandardItemModel(m_myDeviceListView);
+    m_myDeviceListView->setAccessibleName("List_mydevicelist");
     m_myDeviceListView->setFrameShape(QFrame::NoFrame);
     m_myDeviceListView->setModel(m_myDeviceModel);
     m_myDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -94,6 +95,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
 
     m_otherDeviceListView = new DListView(this);
     m_otherDeviceModel = new QStandardItemModel(m_otherDeviceListView);
+    m_otherDeviceListView->setAccessibleName("List_otherdevicelist");
     m_otherDeviceListView->setFrameShape(QFrame::NoFrame);
     m_otherDeviceListView->setModel(m_otherDeviceModel);
     m_otherDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);

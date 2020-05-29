@@ -75,17 +75,23 @@ void PerssonalizationThemeWidget::onAddItem(const QJsonObject &json)
         if (title == "deepin") {
             //~ contents_path /personalization/General
             theme->setTitle(tr("Light"));
+            theme->setAccessibleName("Light");
         } else if (title == "deepin-dark") {
             //~ contents_path /personalization/General
             theme->setTitle(tr("Dark"));
+            theme->setAccessibleName("Dark");
         } else if (title == "deepin-auto") {
             //~ contents_path /personalization/General
             theme->setTitle(tr("Auto"));
+            theme->setAccessibleName("Auto");
         } else {
             theme->setTitle(title);
+            theme->setAccessibleName(title);
+
         }
     } else {
         theme->setTitle(title == "deepin" ? QString("deepin (%1)").arg(tr("Default")) : title);
+        theme->setAccessibleName(title == "deepin" ? QString("deepin (%1)").arg(tr("Default")) : title);
     }
 
     theme->setSelected(title == m_model->getDefault());

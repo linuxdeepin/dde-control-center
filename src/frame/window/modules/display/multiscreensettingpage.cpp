@@ -39,6 +39,7 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
     mainLayout->setMargin(0);
     mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
+    m_modeList->setAccessibleName("List_multiscreenList");
     m_modeList->setEditTriggers(DListView::NoEditTriggers);
     m_modeList->setSelectionMode(DListView::NoSelection);
     m_modeList->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);

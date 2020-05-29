@@ -47,6 +47,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_layout(new QVBoxLayout)
 {
     m_sw = new SwitchWidget(nullptr, new TitleLabel(tr("Speaker")));
+    m_sw->setAccessibleName(tr("Speaker"));
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(m_sw);

@@ -50,6 +50,7 @@ SystemInfoWidget::SystemInfoWidget(QWidget *parent)
 
 void SystemInfoWidget::initWidget()
 {
+    m_listView->setAccessibleName("List_ systeminfomenulist");
     m_listView->setFrameShape(QFrame::NoFrame);
     m_listView->setEditTriggers(QListView::NoEditTriggers);
     m_listView->setModel(m_itemModel);

@@ -62,6 +62,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
 //    m_layout->addWidget(tlabe);
 //    m_layout->addSpacing(10);
 
+    m_effectList->setAccessibleName("List_effectlist");
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);
     m_effectList->setEditTriggers(DListView::NoEditTriggers);

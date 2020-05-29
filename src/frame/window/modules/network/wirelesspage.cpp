@@ -248,6 +248,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
+    m_lvAP->setAccessibleName("List_wirelesslist");
     m_lvAP->setModel(m_modelAP);
     m_lvAP->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvAP->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);

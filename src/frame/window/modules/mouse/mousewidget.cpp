@@ -42,6 +42,7 @@ MouseWidget::MouseWidget(QWidget *parent)
     setObjectName("Mouse");
     m_contentLayout = new QVBoxLayout(this);
     m_mouseListView = new dcc::widgets::MultiSelectListView(this);
+    m_mouseListView->setAccessibleName("List_mouselist");
     m_contentLayout->setMargin(0);
     m_contentLayout->addWidget(m_mouseListView);
     setLayout(m_contentLayout);
@@ -67,6 +68,7 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
         mouseItem->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_listviewModel->appendRow(mouseItem);
     }
+    m_mouseListView->setAccessibleName("List_mousemenulist");
     m_mouseListView->setFrameShape(QFrame::NoFrame);
     m_mouseListView->setModel(m_listviewModel);
     m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);

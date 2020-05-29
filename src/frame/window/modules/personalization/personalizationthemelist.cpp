@@ -38,6 +38,7 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     QStandardItemModel *model = new QStandardItemModel(this);
+    m_listview->setAccessibleName("List_perssonalizationthemelist");
     m_listview->setModel(model);
     m_listview->setEditTriggers(QListView::NoEditTriggers);
     m_listview->setSelectionMode(QAbstractItemView::NoSelection);

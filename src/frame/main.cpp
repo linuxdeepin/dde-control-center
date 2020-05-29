@@ -26,6 +26,7 @@
 #include "frame.h"
 #include "dbuscontrolcenterservice.h"
 #include "window/mainwindow.h"
+#include "window/accessible.h"
 
 #include <DApplication>
 #include <DDBusSender>
@@ -35,6 +36,7 @@
 #include <QScreen>
 #include <QStyle>
 #include <QGSettings>
+#include <QAccessible>
 
 #include <signal.h>
 #include <unistd.h>
@@ -86,6 +88,8 @@ int main(int argc, char *argv[])
 
     DLogManager::registerConsoleAppender();
     DLogManager::registerFileAppender();
+
+    QAccessible::installFactory(accessibleFactory);
 
     // take care of command line options
     QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");

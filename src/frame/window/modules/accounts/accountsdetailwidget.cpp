@@ -158,11 +158,13 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     m_fullName->setText(fullname.toHtmlEscaped());
 
     m_fullNameBtn = new DIconButton(this);
+    m_fullNameBtn->setAccessibleName("fullName_btn");
     m_fullNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
     m_fullNameBtn->setIconSize(QSize(12, 12));
     m_fullNameBtn->setFlat(true);//设置背景透明
 
     m_inputLineEdit = new DLineEdit();
+    m_inputLineEdit->setAccessibleName("fullName_edit");
     m_inputLineEdit->setMinimumWidth(220);
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_inputLineEdit->setVisible(false);
@@ -182,6 +184,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     layout->addLayout(fullnameLayout);
 
     m_avatarListWidget = new AvatarListWidget(m_curUser, this);
+    m_avatarListWidget->setAccessibleName("List_useravatarlist");
     m_avatarListWidget->setVisible(false);
     m_avatarListWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     m_avatarListWidget->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);

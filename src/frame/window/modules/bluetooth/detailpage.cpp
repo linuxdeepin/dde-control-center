@@ -52,6 +52,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     layout->setSpacing(0);
     layout->setMargin(0);
     DIconButton *backWidgetBtn = new DIconButton(this);
+    backWidgetBtn->setAccessibleName("back_btn");
     backWidgetBtn->setFlat(true);
     backWidgetBtn->setFixedSize(30, 48);
     backWidgetBtn->setIcon(QStyle::SP_ArrowBack);

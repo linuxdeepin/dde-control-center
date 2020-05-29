@@ -86,6 +86,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     };
 
     m_outputList = new DListView;
+    m_outputList->setAccessibleName("List_outputlist");
     setListFucn(m_outputList);
     contentLayout->addWidget(m_outputList);
     contentLayout->addSpacing(10);
@@ -96,6 +97,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     contentLayout->addWidget(label);
     m_inputList = new DListView;
+    m_inputList->setAccessibleName("List_inputlist");
     setListFucn(m_inputList);
     contentLayout->addWidget(m_inputList);
 
@@ -163,13 +165,18 @@ void AdvancedPage::addPort(const Port *port)
 
     if (port->isActive()) {
         pi->setCheckState(Qt::CheckState::Checked);
-        if (port->direction() == Port::Out) {
-            m_outputModel->appendRow(pi);
-            //这里加个判断，是因为盘古机器上没有内置麦克风，但是会出现这个多余的
-        } else if (port->id() != "analog-input-mic") {
-            m_inputModel->appendRow(pi);
-        }
     }
+
+    if (port->direction() == Port::Out) {
+        pi->setAccessibleText(port->name() + "_output");
+        m_outputModel->appendRow(pi);
+    } else if (port->id() != "analog-input-mic") {
+        m_inputModel->appendRow(pi);
+    } else {
+        pi->setAccessibleText(port->name() + "_input");
+        m_inputModel->appendRow(pi);
+    }
+
     m_outputModel->sort(0);
     m_inputModel->sort(0);
 }

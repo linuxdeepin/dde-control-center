@@ -89,13 +89,13 @@ DateSettings::DateSettings(QWidget *parent)
     cancelButton->setText(tr("Cancel"));
     confirmButton->setText(tr("Confirm"));
 
-    cancelButton->setAccessibleName("TimeCancel");
-    confirmButton->setAccessibleName("TimeConfirm");
-
     QDate date(QDate::currentDate());
     m_yearWidget->setValue(date.year());
+    m_yearWidget->setAccessibleName("yearwidget");
     m_monthWidget->setValue(date.month());
+    m_monthWidget->setAccessibleName("monthwidget");
     m_dayWidget->setValue(date.day());
+    m_dayWidget->setAccessibleName("daywidget");
 
     QLabel *centerLabel = new QLabel(" : ");
     QFont font;

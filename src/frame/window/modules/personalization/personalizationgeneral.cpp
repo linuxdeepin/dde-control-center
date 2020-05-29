@@ -95,6 +95,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     for (QString aColor : ACTIVE_COLORS) {
         RoundColorWidget *colorItem = new RoundColorWidget(aColor, this);
+        colorItem->setAccessibleName(aColor);
         colorItem->setFixedSize(20 + 2 * totalSpace, 40);
         colorLayout->addWidget(colorItem);
         connect(colorItem, &RoundColorWidget::clicked, this, &PersonalizationGeneral::onActiveColorClicked);
@@ -111,6 +112,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         m_switchWidget->setLayout(winEffectVLayout);
 
         m_wmSwitch = new DSwitchButton();
+        m_wmSwitch->setAccessibleName("switchbutton");
         QHBoxLayout *swswitchLayout = new QHBoxLayout();
         SettingsItem *switem = new dcc::widgets::SettingsItem;
         switem->addBackground();
@@ -135,6 +137,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         m_transparentSlider->slider()->setRightIcon(QIcon::fromTheme("dcc_transparency_high"));
         m_transparentSlider->slider()->setIconSize(QSize(24, 24));
         dcc::widgets::DCCSlider *slider = m_transparentSlider->slider();
+        slider->setAccessibleName("transparency");
         //设计效果图变更：去掉刻度数字显示
     //    QStringList annotions;
     //    annotions << "0.1" << "0.2" << "0.4" << "0.5" << "0.65" << "0.8" << "1.0";

@@ -218,6 +218,7 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
     for (; it != list.end(); ++it) {
         ShortcutInfo *info = *it;
         ShortcutItem *item = new ShortcutItem();
+        item->setAccessibleName(info->name);
         connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
         item->setShortcutInfo(info);
         item->setTitle(info->name);

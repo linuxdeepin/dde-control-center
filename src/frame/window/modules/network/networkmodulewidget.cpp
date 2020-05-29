@@ -57,6 +57,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     process.close();
 
     setObjectName("Network");
+    m_lvnmpages->setAccessibleName("List_networkmenulist");
     m_lvnmpages->setFrameShape(QFrame::NoFrame);
     m_lvnmpages->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvnmpages->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
