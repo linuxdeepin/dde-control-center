@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 #ifdef CVERSION
     QString verstr(CVERSION);
     if (verstr.isEmpty())
-	    verstr="4.1";
+        verstr="4.1";
     app.setApplicationVersion(CVERSION);
 #else
     app.setApplicationVersion("4.0");

@@ -71,6 +71,7 @@ FingerModel::FingerModel(QObject *parent) : QObject(parent)
     m_predefineThumbsNames.insert("Fingerprint8", tr("Fingerprint8"));
     m_predefineThumbsNames.insert("Fingerprint9", tr("Fingerprint9"));
     m_predefineThumbsNames.insert("Fingerprint10", tr("Fingerprint10"));
+    m_progress = 0;
 }
 
 bool FingerModel::isVaild() const
@@ -91,7 +92,7 @@ void FingerModel::setIsVaild(bool isVaild)
 void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
 {
 //    QString testJson = "{\"process\":\"50\", \"subcode\":{\"1\":\"error01\",\"2\":\"error02\"}}"; //测试代码
-    qDebug() << "onEnrollStatusChanged code is: " << code << ",msg is: " << msg;
+    qDebug() << "onEnrollStatusChanged,code is: " << code << ",msg is: " << msg;
     QJsonDocument jsonDocument;
     QJsonObject jsonObject;
 
@@ -102,9 +103,11 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
 
     switch(code) {
     case ET_Completed:
+        m_progress = 0;
         Q_EMIT enrollCompleted();
         break;
     case ET_Failed: {
+        m_progress = 0;
         QString title = "Enroll Failed!";
         QString msg = "Enroll Failed!";
         do {
@@ -137,10 +140,20 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
     }
     case ET_StagePass: {
         if (msg.isEmpty()) {
+            Q_EMIT enrollStagePass(m_progress);
+            m_progress = m_progress + 20;
+            if (m_progress >= 80) {
+                m_progress = m_progress + 5;
+            }
             break;
         }
         QStringList keys = jsonObject.keys();
         if (!keys.contains("progress")) {
+            Q_EMIT enrollStagePass(m_progress);
+            m_progress = m_progress + 20;
+            if (m_progress >= 80) {
+                m_progress = m_progress + 5;
+            }
             break;
         }
         auto pro = jsonObject.value("progress").toInt();

@@ -46,6 +46,8 @@ public:
 
     void onEnrollStatusChanged(int code, const QString& msg);
     void onTouch(const QString &id, bool pressed);
+
+    void resetProgress() { m_progress = 0; }
 Q_SIGNALS:
     void vaildChanged(const bool isVaild);
     void thumbsListChanged(const QStringList &thumbs);
@@ -59,6 +61,7 @@ Q_SIGNALS:
     void lockedChanged(bool locked);
 private:
     bool m_isVaild{false};
+    int m_progress;
     QList<QString> m_thumbsList;
     QMap<QString, QString> m_predefineThumbsNames;
 };

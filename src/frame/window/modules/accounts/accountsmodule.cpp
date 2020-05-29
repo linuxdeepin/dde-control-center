@@ -203,6 +203,7 @@ void AccountsModule::onShowPasswordPage(User *account)
 void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 {
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
+    m_fingerModel->resetProgress();
     dlg->setFingerModel(m_fingerModel);
     dlg->setUsername(name);
 

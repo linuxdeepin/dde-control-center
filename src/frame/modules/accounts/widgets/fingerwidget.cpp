@@ -112,15 +112,15 @@ void FingerWidget::setStatueMsg(const QString &title, const QString &msg, bool r
 void FingerWidget::setProsses(int pro)
 {
     m_pro = pro;
-    if(m_pro == 0) {
+    if (m_pro == 0) {
         m_isStageOne = true;
-        m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
+        m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
         m_defTitle = tr("Place your finger");
         m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
     } else {
-        int idx = m_pro/2;
+        int idx = m_pro / 2;
         idx = idx > 50 ? 50 : idx;
-        m_view->setPictureSequence(QStringList() <<QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%2.svg")
+        m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/fingerprint_animation_light_%2.svg")
                                    .arg(m_theme).arg(idx));
         if (m_pro > 0 && m_pro < 35) {
             m_defTitle = tr("Lift your finger");
