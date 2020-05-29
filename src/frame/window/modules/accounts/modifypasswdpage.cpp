@@ -60,6 +60,15 @@ void ModifyPasswdPage::initWidget()
     mainContentLayout->addWidget(titleLabel, 0, Qt::AlignHCenter);
     mainContentLayout->addSpacing(40);
 
+    QRegExp reg("^((?![\u4e00-\u9fa5]).)*");
+    QValidator*validator = new QRegExpValidator(reg);
+    m_oldPasswordEdit->lineEdit()->setAttribute(Qt::WA_InputMethodEnabled, false);
+    m_oldPasswordEdit->lineEdit()->setValidator(validator);
+    m_newPasswordEdit->lineEdit()->setAttribute(Qt::WA_InputMethodEnabled, false);
+    m_newPasswordEdit->lineEdit()->setValidator(validator);
+    m_repeatPasswordEdit->lineEdit()->setAttribute(Qt::WA_InputMethodEnabled, false);
+    m_repeatPasswordEdit->lineEdit()->setValidator(validator);
+
     QLabel *oldPasswdLabel = new QLabel(tr("Current Password") + ":");
     mainContentLayout->addWidget(oldPasswdLabel);
     mainContentLayout->addWidget(m_oldPasswordEdit);
