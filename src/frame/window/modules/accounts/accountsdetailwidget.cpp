@@ -220,7 +220,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
                 }
             }
         }
-        m_fullName->setText(tstr);
+        m_fullName->setText(tstr.toHtmlEscaped());
     });
 
     //点击用户全名编辑按钮
