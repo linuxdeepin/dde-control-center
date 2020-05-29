@@ -233,12 +233,16 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         }
     });
 
+    QRegExp reg("^((?![\u4e00-\u9fa5]).)*");
+    QValidator*validator = new QRegExpValidator(reg);
     m_nameEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_passwdEdit->lineEdit()->setAttribute(Qt::WA_InputMethodEnabled, false);
+    m_passwdEdit->lineEdit()->setValidator(validator);
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_repeatpasswdEdit->lineEdit()->setAttribute(Qt::WA_InputMethodEnabled, false);
+    m_repeatpasswdEdit->lineEdit()->setValidator(validator);
 }
 
 void CreateAccountPage::setModel(UserModel *userModel, User *user)
