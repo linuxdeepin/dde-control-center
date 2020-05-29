@@ -227,11 +227,11 @@ void DisplayWorker::splitScreens()
     int xOffset = primary->w();
     for (auto *mon : mList) {
         // pass primary
-        if (mon == primary)
-            continue;
-
         Q_ASSERT(m_monitors.contains(mon));
         auto *mInter = m_monitors[mon];
+        mInter->SetRotation(1).waitForFinished();
+        if (mon == primary)
+            continue;
 
         mInter->SetPosition(xOffset, 0).waitForFinished();
         xOffset += mon->w();
