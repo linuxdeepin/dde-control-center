@@ -70,6 +70,27 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "com.deepin.license.Info", this);
 #endif
 
+    QDBusInterface Interface("com.deepin.daemon.SystemInfo",
+                             "/com/deepin/daemon/SystemInfo",
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::sessionBus());
+    QDBusMessage reply = Interface.call("Get", "com.deepin.daemon.SystemInfo", "CPUMaxMHz");
+    QList<QVariant> outArgs = reply.arguments();
+    double cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
+    if (DSysInfo::cpuModelName().contains("Hz")) {
+        m_model->setProcessor(DSysInfo::cpuModelName());
+    } else {
+        m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
+                              .arg(cpuMaxMhz / 1000));
+    }
+
+    QDBusConnection::sessionBus().connect("com.deepin.daemon.SystemInfo",
+                                          "/com/deepin/daemon/SystemInfo",
+                                          "org.freedesktop.DBus.Properties",
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this, SLOT(processChanged(QDBusMessage)));
+
     m_dbusGrub->setSync(false, false);
     m_dbusGrubTheme->setSync(false, false);
 
@@ -116,7 +137,7 @@ void SystemInfoWork::activate()
     m_model->setDistroVer(m_systemInfoInter->distroVer());
     // m_model->setVersion(m_systemInfoInter->version());
     // m_model->setType(m_systemInfoInter->systemType());
-    m_model->setProcessor(m_systemInfoInter->processor());
+    //m_model->setProcessor(m_systemInfoInter->processor());
     // m_model->setMemory(m_systemInfoInter->memoryCap());
     m_model->setDisk(m_systemInfoInter->diskCap());
 
@@ -131,12 +152,6 @@ void SystemInfoWork::activate()
 
     m_model->setVersion(version);
     m_model->setType(QSysInfo::WordSize);
-    if (DSysInfo::cpuModelName().contains("Hz")) {
-        m_model->setProcessor(DSysInfo::cpuModelName());
-    } else {
-        m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
-                              .arg(m_systemInfo->property("CPUMaxMHz").toULongLong() / 1000));
-    }
 
     // m_model->setProcessor(QString("%1 x %2").arg(DSysInfo::cpuModelName())
     //                                         .arg(QThread::idealThreadCount()));
@@ -151,6 +166,18 @@ void SystemInfoWork::activate()
 void SystemInfoWork::deactivate()
 {
 
+}
+
+void SystemInfoWork::processChanged(QDBusMessage msg)
+{
+    QList<QVariant> outArgs = msg.arguments();
+    double cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
+    if (DSysInfo::cpuModelName().contains("Hz")) {
+        m_model->setProcessor(DSysInfo::cpuModelName());
+    } else {
+        m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
+                              .arg(cpuMaxMhz / 1000));
+    }
 }
 
 void SystemInfoWork::loadGrubSettings()

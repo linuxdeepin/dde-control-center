@@ -159,7 +159,7 @@ void SystemInfoModel::setProcessor(const QString &processor)
         return;
 
     m_processor = processor;
-    processorChanged(m_processor);
+    processorChanged(processor);
 }
 
 void SystemInfoModel::setMemory(qulonglong totalMemory, qulonglong installedMemory)

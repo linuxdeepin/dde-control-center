@@ -64,6 +64,7 @@ public Q_SLOTS:
     void setBackground(const QString &path);
     void showActivatorDialog();
     void licenseStateChangeSlot();
+    void processChanged(QDBusMessage msg);
 
 private:
     void getEntryTitles();
