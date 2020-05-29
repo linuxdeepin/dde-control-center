@@ -119,11 +119,8 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
         item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
         m_listGrp->appendItem(item);
-        connect(item, &AccounntFingeItem::removeClicked, this, [this, finger, item] {
-            item->setShowIcon(false);
-            QTimer::singleShot(100,this,[=] {
-                Q_EMIT requestDeleteFingerItem(m_curUser->name(), finger);
-            });
+        connect(item, &AccounntFingeItem::removeClicked, this, [this, finger] {
+            Q_EMIT requestDeleteFingerItem(m_curUser->name(), finger);
         });
         connect(item, &AccounntFingeItem::editTextFinished, this, [this, finger, item, thumbs](QString newName) {
             for (int n = 0; n < thumbs.size(); ++n) {
