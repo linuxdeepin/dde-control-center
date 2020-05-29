@@ -31,7 +31,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QTimer>
-
+#include <QFont>
 DWIDGET_USE_NAMESPACE
 
 using namespace dcc;
@@ -142,6 +142,9 @@ void FingerWidget::setProsses(int pro)
     m_msgTimer->stop();
     m_titleTimer->stop();
     m_titleLbl->setText(m_defTitle);
+    auto font = m_titleLbl->font();
+    font.setWeight(QFont::DemiBold);
+    m_titleLbl->setFont(font);
     m_tipLbl->setText(m_defTip);
 }
 
