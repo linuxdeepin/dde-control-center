@@ -543,7 +543,11 @@ void DisplayWorker::monitorAdded(const QString &path)
         auto maxHScale = value.height() / 768.0;
         auto maxScale = maxWScale < maxHScale ? maxWScale : maxHScale;
         if((maxScale - m_model->uiScale()) < 0.01 && maxScale >= 1.0) {
-            setUiScale(maxScale);
+            double scale =1.0;
+            for (int idx = 0; idx * 0.25 + 1.0 <= maxScale; ++idx) {
+                scale = idx * 0.25 + 1.0 ;
+            }
+            setUiScale(scale);
         }
     });
     connect(inter, &MonitorInter::ModesChanged, mon, &Monitor::setModeList);
