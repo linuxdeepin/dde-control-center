@@ -81,6 +81,7 @@ public Q_SLOTS:
     void onRemoveItem(const QString &id, int type);
     void onShortcutChanged(dcc::keyboard::ShortcutInfo *info);
     void onKeyEvent(bool press, const QString &shortcut);
+    void onResetFinished();
 
 private:
     QWidget *m_searchWidget;
@@ -91,6 +92,9 @@ private:
     QVBoxLayout *m_layout;
     QVBoxLayout *m_searchLayout;
     DFloatingButton *m_addCustomShortcut;
+
+    // 正在恢复默认快捷键，不能用禁用按钮，因为会导致焦点切换，体验不好
+    bool m_bIsResting = false;
 
     dcc::widgets::SettingsHead *m_head;
     dcc::widgets::SettingsGroup *m_systemGroup;

@@ -136,7 +136,14 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     setLayout(vlayout);
 
     connect(m_addCustomShortcut, &DFloatingButton::clicked, this, &ShortCutSettingWidget::customShortcut);
-    connect(m_resetBtn, &QPushButton::clicked, this, &ShortCutSettingWidget::requestReset);
+
+    connect(m_resetBtn, &QPushButton::clicked, this, [ = ] {
+        if (!m_bIsResting) {
+            m_bIsResting = true;
+            Q_EMIT requestReset();
+        }
+    });
+
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
     setWindowTitle(tr("Shortcut"));
@@ -427,5 +434,10 @@ void ShortCutSettingWidget::onKeyEvent(bool press, const QString &shortcut)
 
     // update shortcut to item
     current->item->setShortcut(shortcut);
+}
+
+void ShortCutSettingWidget::onResetFinished()
+{
+    m_bIsResting = false;
 }
 

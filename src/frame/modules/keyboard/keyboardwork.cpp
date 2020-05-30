@@ -92,6 +92,8 @@ void KeyboardWorker::resetAll() {
         if (reply->isError()) {
             qWarning() << Q_FUNC_INFO << reply->error();
         }
+
+        Q_EMIT onResetFinished();
     });
 }
 
