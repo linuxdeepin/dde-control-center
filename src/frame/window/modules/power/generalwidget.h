@@ -21,15 +21,19 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "widgets/dccslider.h"
+#include "widgets/powerdisplaywidget.h"
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QLabel>
 
 namespace dcc {
 namespace widgets {
 class SwitchWidget;
-class PowerDisplayWidget;
+class TitledSliderItem;
 class NormalLabel;
+class TitleValueItem;
 }
 
 namespace power {
@@ -37,7 +41,6 @@ class PowerModel;
 }
 }
 
-class QLabel;
 namespace DCC_NAMESPACE {
 namespace power {
 
@@ -51,25 +54,47 @@ public:
     void setModel(const dcc::power::PowerModel *model);
 
 private:
+    //初始化使用到的 slider 控件
+    void initSlider();
+
+private:
     QVBoxLayout *m_layout;
+    //add Energy Saving Mode
+    QVBoxLayout *m_layEnergySavingMode;
+    dcc::widgets::SwitchWidget *m_swLowPowerAutoIntoSaveEnergyMode;
+    //---------------------------------------------
+
+    //add battery info
+    dcc::widgets::SwitchWidget *m_showBatteryCapacity;
+    dcc::widgets::TitleValueItem *m_batteryCapacity;
+    //---------------------------------------------
+
     dcc::widgets::SwitchWidget *m_lowBatteryMode;
     dcc::widgets::SwitchWidget *m_autoIntoSaveEnergyMode;
     dcc::widgets::SwitchWidget *m_wakeComputerNeedPassword;
     dcc::widgets::SwitchWidget *m_wakeDisplayNeedPassword;
+
+    dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
+    dcc::widgets::TitledSliderItem *m_sldLowerBrightness = nullptr;
+
     QLabel *m_titleWidget;
     dcc::widgets::SwitchWidget *m_powerShowTimeToFull;
     dcc::widgets::PowerDisplayWidget *m_ShowTimeToFullTips;
 
+
 Q_SIGNALS:
-    void requestSetLowBatteryMode(const bool &state);
-    void requestSetAutoIntoSaveEnergyMode(const bool &state);
-    void requestSetWakeComputer(const bool &state);
-    void requestSetWakeDisplay(const bool &state);
-    void requestSetPowerDisplay(const bool &state);
+    void requestSetLowBatteryMode(const bool &state);//同节能模式
+    void requestSetPowerSavingModeAutoWhenQuantifyLow(const bool &state);//低电量自动切换节能模式
+    void requestSetPowerSavingModeAuto(const bool &state);//自动切换节能模式
+    void requestSetWakeComputer(const bool &state);//待机恢复输入密码
+    void requestSetWakeDisplay(const bool &state);//唤醒显示器输入密码
+    void requestSetPowerSaveMode(const bool &state);//节能模式
+    void requestSetPowerSavingModeLowerBrightnessThreshold(const int &level);//节能模式亮度降低
 
 public Q_SLOTS:
     void setPowerDisplay(const bool &state);
     void onGSettingsChanged(const QString &key);
 };
+
 }// namespace datetime
 }// namespace DCC_NAMESPACE

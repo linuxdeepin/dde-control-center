@@ -139,9 +139,16 @@ void PowerModule::showGeneral()
     connect(general, &GeneralWidget::requestSetWakeComputer, m_work, &PowerWorker::setSleepLock);
 
 #ifndef DCC_DISABLE_POWERSAVE
-    connect(general, &GeneralWidget::requestSetAutoIntoSaveEnergyMode, m_work, &PowerWorker::setAutoEnablePowerSave);
+    connect(general, &GeneralWidget::requestSetPowerSavingModeAuto, m_work, &PowerWorker::setAutoEnablePowerSave);
     connect(general, &GeneralWidget::requestSetLowBatteryMode, m_work, &PowerWorker::setEnablePowerSave);
 #endif
+
+    connect(general, &GeneralWidget::requestSetPowerSaveMode, m_work, &PowerWorker::setEnablePowerSave);
+    //-----------------sp2 add-------------------
+    connect(general, &GeneralWidget::requestSetPowerSavingModeAutoWhenQuantifyLow, m_work, &PowerWorker::setPowerSavingModeAutoWhenQuantifyLow);
+    connect(general, &GeneralWidget::requestSetPowerSavingModeAuto, m_work, &PowerWorker::setPowerSavingModeAuto);
+    connect(general, &GeneralWidget::requestSetPowerSavingModeLowerBrightnessThreshold, m_work, &PowerWorker::setPowerSavingModeLowerBrightnessThreshold);
+    //-------------------------------------------
 }
 
 void PowerModule::showUseElectric()
@@ -161,6 +168,12 @@ void PowerModule::showUseElectric()
     connect(electric, &UseElectricWidget::requestSetSleepDelayOnPower, m_work, &PowerWorker::setSleepDelayOnPower);
     connect(electric, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed, m_work, &PowerWorker::setSleepOnLidOnPowerClosed);//Suspend on lid close
     connect(electric, &UseElectricWidget::requestSetAutoLockScreenOnPower, m_work, &PowerWorker::setLockScreenDelayOnPower);
+
+    //-----------------sp2 add-------------------
+    connect(electric, &UseElectricWidget::requestSetLinePowerPressPowerBtnAction, m_work, &PowerWorker::setLinePowerPressPowerBtnAction);
+    connect(electric, &UseElectricWidget::requestSetLinePowerLidClosedAction, m_work, &PowerWorker::setLinePowerLidClosedAction);
+    //-------------------------------------------
+
     m_frameProxy->pushWidget(this, electric);
 }
 
@@ -176,6 +189,14 @@ void PowerModule::showUseBattery()
     connect(battery, &UseBatteryWidget::requestSetSleepDelayOnBattery, m_work, &PowerWorker::setSleepDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetAutoLockScreenOnBattery, m_work, &PowerWorker::setLockScreenDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed, m_work, &PowerWorker::setSleepOnLidOnBatteryClosed);//Suspend on lid close
+
+    //-----------------sp2 add-------------------
+    connect(battery, &UseBatteryWidget::requestSetBatteryPressPowerBtnAction, m_work, &PowerWorker::setBatteryPressPowerBtnAction);
+    connect(battery, &UseBatteryWidget::requestSetBatteryLidClosedAction, m_work, &PowerWorker::setBatteryLidClosedAction);
+    connect(battery, &UseBatteryWidget::requestSetLowPowerNotifyEnable, m_work, &PowerWorker::setLowPowerNotifyEnable);
+    connect(battery, &UseBatteryWidget::requestSetLowPowerNotifyThreshold, m_work, &PowerWorker::setLowPowerNotifyThreshold);
+    connect(battery, &UseBatteryWidget::requestSetLowPowerAutoSleepThreshold, m_work, &PowerWorker::setLowPowerAutoSleepThreshold);
+    //-------------------------------------------
 }
 
 void PowerModule::onBatteryPercentageChanged(const double value)

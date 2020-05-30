@@ -91,6 +91,38 @@ public:
 
     bool getDoubleCompare(const double value1, const double value2);
 
+    //--------------sp2 add---------------------------
+    inline bool powerSavingModeAutoWhenQuantifyLow() const { return m_bPowerSavingModeAutoWhenQuantifyLow; }
+    void setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode);
+
+    inline bool powerSavingModeAuto() const { return m_bPowerSavingModeAuto; }
+    void setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode);
+
+    inline int powerSavingModeLowerBrightnessThreshold() const { return m_dPowerSavingModeLowerBrightnessThreshold; }
+    void setPowerSavingModeLowerBrightnessThreshold(int dPowerSavingModeLowerBrightnessThreshold);
+
+    inline int linePowerPressPowerBtnAction() const { return m_nLinePowerPressPowerBtnAction; }
+    void setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction);
+
+    inline int linePowerLidClosedAction() const { return m_nLinePowerLidClosedAction; }
+    void setLinePowerLidClosedAction(int nLinePowerLidClosedAction);
+
+    inline int batteryPressPowerBtnAction() const { return m_nBatteryPressPowerBtnAction; }
+    void setBatteryPressPowerBtnAction(int nBatteryPressPowerBtnAction);
+
+    inline int batteryLidClosedAction() const { return m_nBatteryLidClosedAction; }
+    void setBatteryLidClosedAction(int nBatteryLidClosedAction);
+
+    inline bool lowPowerNotifyEnable() const { return m_bLowPowerNotifyEnable; }
+    void setLowPowerNotifyEnable(bool bLowPowerNotifyEnable);
+
+    inline int lowPowerNotifyThreshold() const { return m_dLowPowerNotifyThreshold; }
+    void setLowPowerNotifyThreshold(int dLowPowerNotifyThreshold);
+
+    inline int lowPowerAutoSleepThreshold() const { return m_dLowPowerAutoSleepThreshold; }
+    void setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold);
+    //-----------------------------------------------
+
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void canSleepChanged(const bool canSleep);
@@ -110,9 +142,24 @@ Q_SIGNALS:
     void batteryLockScreenDelayChanged(const int batteryLockScreenTime);
     void powerLockScreenDelayChanged(const int powerLockScreenTime);
     void batteryPercentageChanged(double batteryPercentage);
+    //------------------------sp2 add-------------------------------
+    void powerSavingModeAutoWhenQuantifyLowChanged(const bool state);
+    void powerSavingModeAutoChanged(const bool state);
+    void powerSavingModeLowerBrightnessThresholdChanged(const int level);
+    //electric
+    void linePowerPressPowerBtnActionChanged(const int reply);
+    void linePowerLidClosedActionChanged(const int reply);
+    //battery
+    void batteryPressPowerBtnActionChanged(const int reply);
+    void batteryLidClosedActionChanged(const int reply);
+    void lowPowerNotifyEnableChanged(const bool state);
+    void lowPowerNotifyThresholdChanged(const int value);
+    void lowPowerAutoSleepThresholdChanged(const int value);
+    //--------------------------------------------------------------
+
 
 private:
-    bool m_lidPresent;
+    bool m_lidPresent;//以此判断是否为笔记本
     bool m_sleepOnLidOnPowerClose;
     bool m_sleepOnLidOnBatteryClose;
     bool m_screenBlackLock;
@@ -130,6 +177,18 @@ private:
     int m_batteryLockScreenDelay;
     int m_powerLockScreenDelay;
     double m_batteryPercentage;
+    //---------------sp2 add------------------
+    bool m_bPowerSavingModeAutoWhenQuantifyLow;
+    bool m_bPowerSavingModeAuto;
+    int m_dPowerSavingModeLowerBrightnessThreshold;
+    int m_nLinePowerPressPowerBtnAction;
+    int m_nLinePowerLidClosedAction;
+    int m_nBatteryPressPowerBtnAction;
+    int m_nBatteryLidClosedAction;
+    bool m_bLowPowerNotifyEnable;
+    int m_dLowPowerNotifyThreshold;
+    int m_dLowPowerAutoSleepThreshold;
+    //--------------------------------------
 };
 
 }
