@@ -131,30 +131,13 @@ void BrightnessPage::addSlider()
         slider->setPageStep(1);
 
 
-//        auto onValueChanged = [ = ](int pos) {
-//            this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
-//            this->requestAmbientLightAdjustBrightness(false);
-//        };
+        auto onValueChanged = [ = ](int pos) {
+            this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
+            this->requestAmbientLightAdjustBrightness(false);
+        };
 
-        connect(slider, &DCCSlider::valueChanged, this, [=](int value){
-            this->requestSetMonitorBrightness(monList[i], value / BrightnessMaxScale);
-            QProcess *process = new QProcess(this);
-
-            QString cmd = "stop";
-            QString serverCmd = "disable";
-
-            connect(process, static_cast<void (QProcess::*)(int exitCode)>(&QProcess::finished), this, [ = ] {
-                process->close();
-                process->deleteLater();
-            });
-
-            process->start("bash", QStringList() << "-c" << QString("systemctl --user %1 redshift.service && systemctl --user %2 redshift.service")
-                           .arg(serverCmd)
-                           .arg(cmd));
-        });
-
-//        connect(slider, &DCCSlider::valueChanged, this, onValueChanged);
-//        connect(slider, &DCCSlider::sliderMoved, this, onValueChanged);
+        connect(slider, &DCCSlider::valueChanged, this, onValueChanged);
+        connect(slider, &DCCSlider::sliderMoved, this, onValueChanged);
 
         connect(monList[i], &Monitor::brightnessChanged, this, [ = ](const double rb) {
             slider->blockSignals(true);

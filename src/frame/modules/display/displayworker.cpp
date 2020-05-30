@@ -472,6 +472,9 @@ void DisplayWorker::setNightMode(const bool nightmode)
         process->deleteLater();
         // reload
         updateNightModeStatus();
+
+        if (nightmode == false)
+            m_displayInter.RefreshBrightness();
     });
 
     process->start("bash", QStringList() << "-c" << QString("systemctl --user %1 redshift.service && systemctl --user %2 redshift.service")
