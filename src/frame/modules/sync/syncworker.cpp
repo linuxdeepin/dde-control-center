@@ -89,7 +89,7 @@ void SyncWorker::userInfoChanged(QDBusMessage msg)
     QList<QVariant> arguments = msg.arguments();
 
     QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-    if (changedProps.empty()) {
+    if (changedProps.empty() || changedProps.keys().first().compare("UserInfo")) {
         qDebug() << "userInfoChanged changedProps=" << changedProps;
         return;
     }
