@@ -152,6 +152,7 @@ void PowerModel::setPowerSaveMode(bool powerSaveMode)
 }
 #endif
 
+
 void PowerModel::setHaveBettary(bool haveBettary)
 {
     if (haveBettary == m_haveBettary)
@@ -175,6 +176,96 @@ void PowerModel::setBatteryPercentage(double batteryPercentage)
 bool PowerModel::getDoubleCompare(const double value1, const double value2)
 {
     return ((value1 - value2 >= -EPSINON) && (value1 - value2 <= EPSINON));
+}
+
+void PowerModel::setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode)
+{
+    if (bLowBatteryAutoIntoSaveEnergyMode != m_bPowerSavingModeAutoWhenQuantifyLow) {
+        m_bPowerSavingModeAutoWhenQuantifyLow = bLowBatteryAutoIntoSaveEnergyMode;
+
+        Q_EMIT powerSavingModeAutoWhenQuantifyLowChanged(bLowBatteryAutoIntoSaveEnergyMode);
+    }
+}
+
+void PowerModel::setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode)
+{
+    if (bAutoIntoSaveEnergyMode != m_bPowerSavingModeAuto) {
+        m_bPowerSavingModeAuto = bAutoIntoSaveEnergyMode;
+
+        Q_EMIT powerSavingModeAutoChanged(bAutoIntoSaveEnergyMode);
+    }
+}
+
+void PowerModel::setPowerSavingModeLowerBrightnessThreshold(int dPowerSavingModeLowerBrightnessThreshold)
+{
+    if (dPowerSavingModeLowerBrightnessThreshold != m_dPowerSavingModeLowerBrightnessThreshold) {
+        m_dPowerSavingModeLowerBrightnessThreshold = dPowerSavingModeLowerBrightnessThreshold;
+
+        Q_EMIT powerSavingModeLowerBrightnessThresholdChanged(dPowerSavingModeLowerBrightnessThreshold);
+    }
+}
+
+void PowerModel::setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction)
+{
+    if (nLinePowerPressPowerBtnAction != m_nLinePowerPressPowerBtnAction) {
+        m_nLinePowerPressPowerBtnAction = nLinePowerPressPowerBtnAction;
+
+        Q_EMIT linePowerPressPowerBtnActionChanged(nLinePowerPressPowerBtnAction);
+    }
+}
+
+void PowerModel::setLinePowerLidClosedAction(int nLinePowerLidClosedAction)
+{
+    if (nLinePowerLidClosedAction != m_nLinePowerLidClosedAction) {
+        m_nLinePowerLidClosedAction = nLinePowerLidClosedAction;
+
+        Q_EMIT linePowerLidClosedActionChanged(nLinePowerLidClosedAction);
+    }
+}
+
+void PowerModel::setBatteryPressPowerBtnAction(int nBatteryPressPowerBtnAction)
+{
+    if (nBatteryPressPowerBtnAction != m_nBatteryPressPowerBtnAction) {
+        m_nBatteryPressPowerBtnAction = nBatteryPressPowerBtnAction;
+
+        Q_EMIT batteryPressPowerBtnActionChanged(nBatteryPressPowerBtnAction);
+    }
+}
+
+void PowerModel::setBatteryLidClosedAction(int nBatteryLidClosedAction)
+{
+    if (nBatteryLidClosedAction != m_nBatteryLidClosedAction) {
+        m_nBatteryLidClosedAction = nBatteryLidClosedAction;
+
+        Q_EMIT batteryLidClosedActionChanged(nBatteryLidClosedAction);
+    }
+}
+
+void PowerModel::setLowPowerNotifyEnable(bool bLowPowerNotifyEnable)
+{
+    if (bLowPowerNotifyEnable != m_bLowPowerNotifyEnable) {
+        m_bLowPowerNotifyEnable = bLowPowerNotifyEnable;
+
+        Q_EMIT lowPowerNotifyEnableChanged(bLowPowerNotifyEnable);
+    }
+}
+
+void PowerModel::setLowPowerNotifyThreshold(int dLowPowerNotifyThreshold)
+{
+    if (dLowPowerNotifyThreshold != m_dLowPowerNotifyThreshold) {
+        m_dLowPowerNotifyThreshold = dLowPowerNotifyThreshold;
+
+        Q_EMIT lowPowerNotifyThresholdChanged(dLowPowerNotifyThreshold);
+    }
+}
+
+void PowerModel::setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold)
+{
+    if (dLowPowerAutoSleepThreshold != m_dLowPowerAutoSleepThreshold) {
+        m_dLowPowerAutoSleepThreshold = dLowPowerAutoSleepThreshold;
+
+        Q_EMIT lowPowerAutoSleepThresholdChanged(dLowPowerAutoSleepThreshold);
+    }
 }
 
 void PowerModel::setSleepLock(bool sleepLock)

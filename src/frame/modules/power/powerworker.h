@@ -64,6 +64,18 @@ public Q_SLOTS:
     void setLockScreenDelayOnPower(const int delay);
     void setResponseBatteryLockScreenDelay(const int delay);
     void setResponsePowerLockScreenDelay(const int delay);
+    //------------sp2 add-----------------------
+    void setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode);
+    void setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode);
+    void setPowerSavingModeLowerBrightnessThreshold(int dPowerSavingModeLowerBrightnessThreshold);
+    void setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction);
+    void setLinePowerLidClosedAction(int nLinePowerLidClosedAction);
+    void setBatteryPressPowerBtnAction(int nBatteryPressPowerBtnAction);
+    void setBatteryLidClosedAction(int nBatteryLidClosedAction);
+    void setLowPowerNotifyEnable(bool bLowPowerNotifyEnable);
+    void setLowPowerNotifyThreshold(int dLowPowerNotifyThreshold);
+    void setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold);
+    //------------------------------------------
 
 #ifndef DCC_DISABLE_POWERSAVE
     void setEnablePowerSave(const bool isEnable);

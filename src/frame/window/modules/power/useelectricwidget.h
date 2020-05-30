@@ -34,6 +34,7 @@ namespace dcc {
 namespace widgets {
 class TitledSliderItem;
 class SwitchWidget;
+class ComboxWidget;
 }
 
 namespace power {
@@ -59,6 +60,8 @@ Q_SIGNALS:
     void requestSetSleepDelayOnPower(const int delay) const;
     void requestSetAutoLockScreenOnPower(const int delay) const;
     void requestSetSleepOnLidOnPowerClosed(const bool sleep) const;
+    void requestSetLinePowerPressPowerBtnAction(const int reply) const;//按下电源
+    void requestSetLinePowerLidClosedAction(const int reply) const;//合上盖子
 
 public Q_SLOTS:
     void setScreenBlackDelayOnPower(const int delay);
@@ -74,7 +77,10 @@ private:
     dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
     dcc::widgets::TitledSliderItem *m_computerSleepOnPower = nullptr;
     dcc::widgets::TitledSliderItem *m_autoLockScreen = nullptr;
-    dcc::widgets::SwitchWidget *m_suspendOnLidClose = nullptr;
+//    dcc::widgets::SwitchWidget *m_suspendOnLidClose = nullptr;
+
+    dcc::widgets::ComboxWidget *m_cmbPowerBtn;    //电源按钮
+    dcc::widgets::ComboxWidget *m_cmbCloseLid;    //盒盖
 };
 
 }// namespace datetime

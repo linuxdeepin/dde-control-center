@@ -28,10 +28,13 @@
 #include "widgets/settingsgroup.h"
 #include "modules/power/powermodel.h"
 #include "window/utils.h"
+#include "widgets/comboxwidget.h"
+#include "widgets/contentwidget.h"
 
 #include <QPushButton>
-#include <QGSettings>
+#include <QComboBox>
 
+using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::power;
 using namespace DCC_NAMESPACE;
@@ -43,7 +46,12 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_computerSleepOnBattery(new TitledSliderItem(tr("Computer will suspend after")))
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
-    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
+    , m_sldLowBatteryHint(new TitledSliderItem(tr("Low battery level")))
+    , m_sldAutoSuspend(new TitledSliderItem(tr("Auto suspend battery level")))
+//    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
+    , m_swBatteryHint(new SwitchWidget(tr("Low Battery Notification")))
+    , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
+    , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -58,20 +66,66 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
     //~ contents_path /power/On Battery
     //~ child_page On Battery
-    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
+//    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
+
+
+    QStringList options;
+    options << tr("Shut down") << tr("Suspend") << tr("Sleep")
+            << tr("Turn off the monitor") << tr("Do nothing");
+    m_cmbPowerBtn->setComboxOption(options);
+    options.pop_front();
+    m_cmbCloseLid->setComboxOption(options);
+
+
+    options.clear();
+    for (int i = 0; i <= 15; i++) {
+        options.append(QString());
+    }
+    options[0] = "10%";
+    options[5] = "15%";
+    options[10] = "20%";
+    options[15] = "25%";
+    m_sldLowBatteryHint->setAnnotations(options);
+    m_sldLowBatteryHint->slider()->setRange(10, 25);
+    m_sldLowBatteryHint->slider()->setType(DCCSlider::Vernier);
+    m_sldLowBatteryHint->slider()->setTickPosition(QSlider::NoTicks);
+
+    options.clear();
+    for (int i = 0; i <= 8; i++) {
+        options.append(QString("%1%").arg(i + 1));
+    }
+    m_sldAutoSuspend->setAnnotations(options);
+    m_sldAutoSuspend->slider()->setRange(1, 9);
+    m_sldAutoSuspend->slider()->setType(DCCSlider::Vernier);
+    m_sldAutoSuspend->slider()->setTickPosition(QSlider::NoTicks);
 
     SettingsGroup *batterySettingsGrp = new SettingsGroup;
     batterySettingsGrp->setSpacing(List_Interval);
     batterySettingsGrp->appendItem(m_monitorSleepOnBattery);
     batterySettingsGrp->appendItem(m_computerSleepOnBattery);
     batterySettingsGrp->appendItem(m_autoLockScreen);
-    batterySettingsGrp->appendItem(m_suspendOnLidClose);
+//    batterySettingsGrp->appendItem(m_suspendOnLidClose);
+    batterySettingsGrp->appendItem(m_cmbCloseLid);
+    batterySettingsGrp->appendItem(m_cmbPowerBtn);
+    batterySettingsGrp->appendItem(m_swBatteryHint);
+    batterySettingsGrp->appendItem(m_sldLowBatteryHint);
+    batterySettingsGrp->appendItem(m_sldAutoSuspend);
+
 
     m_layout->setMargin(0);
     m_layout->addWidget(batterySettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);
-    setLayout(m_layout);
+//    setLayout(m_layout);
+    //add scroll
+    ContentWidget *contentWgt = new ContentWidget;
+    QWidget *mainWgt = new TranslucentFrame;
+    mainWgt->setLayout(m_layout);
+    contentWgt->setContent(mainWgt);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setMargin(0);
+    mainLayout->addWidget(contentWgt);
+    setLayout(mainLayout);
 
     QStringList annos;
     annos << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
@@ -100,7 +154,12 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     connect(m_monitorSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery);
     connect(m_computerSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetSleepDelayOnBattery);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetAutoLockScreenOnBattery);
-    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed);
+//    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed);
+    connect(m_swBatteryHint, &SwitchWidget::checkedChanged, this, &UseBatteryWidget::requestSetLowPowerNotifyEnable);
+    connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, &UseBatteryWidget::requestSetBatteryPressPowerBtnAction);
+    connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
+        Q_EMIT requestSetBatteryLidClosedAction(nIndex + 1);
+    });
 }
 
 UseBatteryWidget::~UseBatteryWidget()
@@ -112,19 +171,52 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 {
     connect(model, &PowerModel::sleepDelayChangedOnBattery, this, &UseBatteryWidget::setSleepDelayOnBattery);
     connect(model, &PowerModel::screenBlackDelayChangedOnBattery, this, &UseBatteryWidget::setScreenBlackDelayOnBattery);
-    connect(model, &PowerModel::sleepOnLidOnBatteryCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
+//    connect(model, &PowerModel::sleepOnLidOnBatteryCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
     connect(model, &PowerModel::batteryLockScreenDelayChanged, this, &UseBatteryWidget::setAutoLockScreenOnBattery);
 
     setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
-    m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
+//    m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
-    //通过gsetting设置电脑待机是否显示
-    QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    auto listModule =  comSlpSettings->get("hide-module").toStringList();
-    m_computerSleepOnBattery->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
-    m_suspendOnLidClose->setVisible(model->canSleep());
+    m_computerSleepOnBattery->setVisible(model->canSleep());
+//    m_suspendOnLidClose->setVisible(model->canSleep());
+
+
+    //--------------sp2 add-----------------
+    m_cmbCloseLid->setVisible(model->lidPresent());
+    m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() >= 1 ? model->batteryLidClosedAction() - 1 : model->batteryLidClosedAction());
+    connect(model, &PowerModel::batteryLidClosedActionChanged, this, [ = ](const int reply) {
+        if (reply - 1 < m_cmbCloseLid->comboBox()->count() && reply >= 1)
+            m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
+    });
+
+    m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction());
+    connect(model, &PowerModel::batteryPressPowerBtnActionChanged, this, [ = ](const int reply) {
+        if (reply < m_cmbPowerBtn->comboBox()->count())
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
+    });
+
+    m_swBatteryHint->setChecked(model->lowPowerNotifyEnable());
+    connect(model, &PowerModel::lowPowerNotifyEnableChanged, m_swBatteryHint, &SwitchWidget::setChecked);
+
+    onLowPowerNotifyThreshold(model->lowPowerNotifyThreshold());
+    connect(model, &PowerModel::lowPowerNotifyThresholdChanged, this, &UseBatteryWidget::onLowPowerNotifyThreshold);
+    connect(m_sldLowBatteryHint->slider(), &DCCSlider::valueChanged, this, [ = ](int value) {
+        Q_EMIT  requestSetLowPowerNotifyThreshold(value);
+    });
+
+    onLowPowerAutoSleepThreshold(model->lowPowerAutoSleepThreshold());
+    connect(model, &PowerModel::lowPowerAutoSleepThresholdChanged, this, &UseBatteryWidget::onLowPowerAutoSleepThreshold);
+    connect(m_sldAutoSuspend->slider(), &DCCSlider::valueChanged, this, [ = ](int value) {
+        Q_EMIT  requestSetLowPowerAutoSleepThreshold(value);
+    });
+    //--------------------------------------
+
+    //todo: visible set
+//    m_cmbCloseLid->setVisible(model->lidPresent());
+//    m_cmbSuspendBtn->setVisible(model->());
+    //todo: m_cmbPowerBtn;  m_cmbCloseLid;  m_cmbSuspendBtn; init combox current index
 }
 
 void UseBatteryWidget::setScreenBlackDelayOnBattery(const int delay)
@@ -149,6 +241,22 @@ void UseBatteryWidget::setAutoLockScreenOnBattery(const int delay)
     m_autoLockScreen->slider()->setValue(delay);
     m_autoLockScreen->setValueLiteral(delayToLiteralString(delay));
     m_autoLockScreen->slider()->blockSignals(false);
+}
+
+void UseBatteryWidget::onLowPowerNotifyThreshold(const int value)
+{
+    m_sldLowBatteryHint->slider()->blockSignals(true);
+    m_sldLowBatteryHint->slider()->setValue(value);
+    m_sldLowBatteryHint->setValueLiteral(QString("%1%").arg(value));
+    m_sldLowBatteryHint->slider()->blockSignals(false);
+}
+
+void UseBatteryWidget::onLowPowerAutoSleepThreshold(const int value)
+{
+    m_sldAutoSuspend->slider()->blockSignals(true);
+    m_sldAutoSuspend->slider()->setValue(value);
+    m_sldAutoSuspend->setValueLiteral(QString("%1%").arg(value));
+    m_sldAutoSuspend->slider()->blockSignals(false);
 }
 
 QString UseBatteryWidget::delayToLiteralString(const int delay) const

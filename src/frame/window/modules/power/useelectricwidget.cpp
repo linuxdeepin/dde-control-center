@@ -22,7 +22,7 @@
 
 #include <QPushButton>
 #include <QtMath>
-#include <QGSettings>
+#include <QComboBox>
 
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
@@ -32,6 +32,7 @@
 #include "widgets/settingsgroup.h"
 #include "modules/power/powermodel.h"
 #include "window/utils.h"
+#include "widgets/comboxwidget.h"
 
 using namespace dcc::widgets;
 using namespace dcc::power;
@@ -43,7 +44,9 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     , m_layout(new QVBoxLayout)
     , m_monitorSleepOnPower(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
-    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
+//    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
+    , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
+    , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -56,12 +59,12 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
     //~ contents_path /power/Plugged In
     //~ child_page Plugged In
-    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
+//    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     SettingsGroup *powerSettingsGrp = new SettingsGroup;
     powerSettingsGrp->setSpacing(List_Interval);
     powerSettingsGrp->appendItem(m_monitorSleepOnPower);
-    if (!IsServerSystem){
+    if (!IsServerSystem) {
         m_computerSleepOnPower = new TitledSliderItem(tr("Computer will suspend after"));
         //~ contents_path /power/Plugged In
         //~ child_page Plugged In
@@ -75,8 +78,17 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
         powerSettingsGrp->appendItem(m_computerSleepOnPower);
     }
 
+    QStringList options;
+    options << tr("Shut down") << tr("Suspend") << tr("Sleep")
+            << tr("Turn off the monitor") << tr("Do nothing");
+    m_cmbPowerBtn->setComboxOption(options);
+    options.pop_front();
+    m_cmbCloseLid->setComboxOption(options);
+
+
     powerSettingsGrp->appendItem(m_autoLockScreen);
-    powerSettingsGrp->appendItem(m_suspendOnLidClose);
+    powerSettingsGrp->appendItem(m_cmbCloseLid);
+    powerSettingsGrp->appendItem(m_cmbPowerBtn);
 
     m_layout->setMargin(0);
     m_layout->addWidget(powerSettingsGrp);
@@ -106,7 +118,12 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
 
     connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetScreenBlackDelayOnPower);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetAutoLockScreenOnPower);
-    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed);
+//    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed);
+    connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, &UseElectricWidget::requestSetLinePowerPressPowerBtnAction);
+    connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
+        Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 1);
+    });
+
 }
 
 UseElectricWidget::~UseElectricWidget()
@@ -117,7 +134,7 @@ UseElectricWidget::~UseElectricWidget()
 void UseElectricWidget::setModel(const PowerModel *model)
 {
     connect(model, &PowerModel::screenBlackDelayChangedOnPower, this, &UseElectricWidget::setScreenBlackDelayOnPower);
-    connect(model, &PowerModel::sleepOnLidOnPowerCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
+//    connect(model, &PowerModel::sleepOnLidOnPowerCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
     connect(model, &PowerModel::powerLockScreenDelayChanged, this, &UseElectricWidget::setLockScreenAfter);
 
     setScreenBlackDelayOnPower(model->screenBlackDelayOnPower());
@@ -126,19 +143,35 @@ void UseElectricWidget::setModel(const PowerModel *model)
         setSleepDelayOnPower(model->sleepDelayOnPower());
     }
 
-    m_suspendOnLidClose->setChecked(model->sleepOnLidOnPowerClose());
+//    m_suspendOnLidClose->setChecked(model->sleepOnLidOnPowerClose());
     setLockScreenAfter(model->getPowerLockScreenDelay());
 
-    //通过gsetting设置电脑待机是否显示
-    QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    auto listModule =  comSlpSettings->get("hide-module").toStringList();
-    m_computerSleepOnPower->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
-    m_suspendOnLidClose->setVisible(model->canSleep());
+    if (m_computerSleepOnPower) {
+        m_computerSleepOnPower->setVisible(model->canSleep());
+    }
+//    m_suspendOnLidClose->setVisible(model->canSleep());
+
+    //--------------sp2 add-----------------
+    m_cmbCloseLid->setVisible(model->lidPresent());
+    int nLidAction = model->linePowerLidClosedAction();
+    m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction >= 1 ? nLidAction - 1 : nLidAction);
+    connect(model, &PowerModel::linePowerLidClosedActionChanged, this, [=](const int reply){
+        if (reply - 1 < m_cmbCloseLid->comboBox()->count())
+            m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
+    });
+
+    m_cmbPowerBtn->comboBox()->setCurrentIndex(model->linePowerPressPowerBtnAction());
+    connect(model, &PowerModel::linePowerPressPowerBtnActionChanged, this, [=](const int reply){
+        if (reply < m_cmbPowerBtn->comboBox()->count())
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
+    });
+    //--------------------------------------
 }
 
 void UseElectricWidget::setLidClose(bool state)
 {
-    m_suspendOnLidClose->setVisible(state);
+//    m_suspendOnLidClose->setVisible(state);
+    m_cmbCloseLid->setVisible(state);
 }
 
 void UseElectricWidget::setScreenBlackDelayOnPower(const int delay)
