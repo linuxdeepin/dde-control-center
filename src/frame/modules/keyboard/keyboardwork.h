@@ -100,6 +100,8 @@ Q_SIGNALS:
     void requestSetAutoHide(const bool visible);
     void onDatasChanged(QList<MetaData> datas);
     void onLettersChanged(QList<QString> letters);
+    // 快捷键恢复默认完成
+    void onResetFinished();
 
 public Q_SLOTS:
 #ifndef DCC_DISABLE_LANGUAGE
