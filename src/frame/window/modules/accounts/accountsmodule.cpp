@@ -32,7 +32,7 @@
 #include "addfingedialog.h"
 
 #include <DDialog>
-
+#include <QtConcurrent>
 #include <QStringList>
 #include <QTimer>
 #include <QDebug>
@@ -211,13 +211,29 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
 
-    if (m_fingerWorker->tryEnroll(name, thumb)) {
-        dlg->startFoucosTimer();
-        dlg->exec();
-        m_fingerWorker->refreshUserEnrollList(name);
-    } else {
-        m_fingerWorker->stopEnroll(name);
-        //V20更改设备抢占方法，已经不需要该弹窗
+    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(m_fingerWorker);
+    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, dlg, name] {
+        bool result = watcher->result();
+        if (result) {
+            dlg->startFoucosTimer();
+            dlg->exec();
+            m_fingerWorker->refreshUserEnrollList(name);
+        } else {
+            m_fingerWorker->stopEnroll(name);
+        }
+        dlg->deleteLater();
+        watcher->deleteLater();
+    });
+    QFuture<bool> future = QtConcurrent::run(m_fingerWorker, &FingerWorker::tryEnroll, name, thumb);
+    watcher->setFuture(future);
+
+//    if (m_fingerWorker->tryEnroll(name, thumb)) {
+//        dlg->startFoucosTimer();
+//        dlg->exec();
+//        m_fingerWorker->refreshUserEnrollList(name);
+//    } else {
+//        m_fingerWorker->stopEnroll(name);
+//        V20更改设备抢占方法，已经不需要该弹窗
 //        DDialog* errorDialog = new DDialog();
 //        errorDialog->setMessage(tr("The device is in use or cannot be connected"));
 //        errorDialog->exec();
@@ -225,8 +241,8 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 //           m_fingerWorker->stopEnroll(name);
 //        });
 //        errorDialog->deleteLater();
-    }
-    dlg->deleteLater();
+//    }
+//    dlg->deleteLater();
 }
 
 void AccountsModule::onHandleVaildChanged(const bool isVaild)
