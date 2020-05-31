@@ -341,7 +341,11 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
 
     if (!dummystatus.isNull()) {
         if (dev->enabled()) {
-            dummystatus->setText(dev->statusString());
+            if (dev->type() == NetworkDevice::Wireless && dev->info().value("ActiveAp").toString() != "/") {
+                dummystatus->setText(tr("Connected"));
+            } else {
+                dummystatus->setText(dev->statusString());
+            }
         } else {
             dummystatus->setText(tr("Disabled"));
         }
