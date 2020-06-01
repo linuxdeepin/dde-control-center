@@ -60,6 +60,9 @@ public:
     inline bool isShowNotifyPreview()const {return m_isShowNotifyPreview;}
     void setShowNotifyPreview(const bool &state);
 
+    inline QString getActName()const {return m_actName;}
+    void setActName(const QString &name);
+
 Q_SIGNALS:
     void softNameChanged(QString name);
     void iconChanged(QString icon);
@@ -72,6 +75,7 @@ Q_SIGNALS:
 private:
     QString m_softName;//应用程序名
     QString m_icon;//应用系统图表
+    QString m_actName;//传入后端应用名
     bool m_isAllowNotify;//允许应用通知
     bool m_isNotifySound;//是否有通知声音
     bool m_isLockShowNotify;//锁屏显示通知
