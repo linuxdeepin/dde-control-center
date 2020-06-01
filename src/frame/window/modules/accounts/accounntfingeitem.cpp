@@ -49,16 +49,16 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
 
     m_removeBtn->setFlat(true);
     m_removeBtn->setIcon(DStyle::StandardPixmap::SP_DeleteButton);
-    m_removeBtn->setFixedSize(QSize(48, 48));
+    m_removeBtn->setFixedSize(QSize(30, 30));
     m_removeBtn->setIconSize(QSize(24, 24));
     m_removeBtn->setVisible(false);
 
-    m_layout->setContentsMargins(20, 0, 10, 0);
+    m_layout->setContentsMargins(20, 5, 0, 5);
     m_layout->addWidget(m_title, 0, Qt::AlignLeft);
     m_layout->addWidget(m_editBtn, 0, Qt::AlignLeft);
     m_layout->addWidget(m_editTitle, 0 , Qt::AlignLeft);
     m_layout->addStretch();
-    m_layout->addWidget(m_removeBtn);
+    m_layout->addWidget(m_removeBtn, 0, Qt::AlignVCenter);
     setLayout(m_layout);
 
     connect(m_removeBtn, &DIconButton::clicked, this, &AccounntFingeItem::removeClicked);
