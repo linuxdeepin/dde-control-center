@@ -111,34 +111,34 @@ void BrightnessPage::addSlider()
         //单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name());
         slideritem->addBackground();
-
-        qDebug() << "MinimumBrightness:   " << m_displayModel->minimumBrightnessScale();
-        int miniScale = int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
-        double brightness = monList[i]->brightness();
-        slideritem->setValueLiteral(brightnessToTickInterval(brightness));
-
         DCCSlider *slider = slideritem->slider();
-        slider->setRange(miniScale, int(BrightnessMaxScale));
-        slider->setType(DCCSlider::Vernier);
-        slider->setTickPosition(QSlider::TicksBelow);
-        slider->setLeftIcon(QIcon::fromTheme("dcc_brightnesslow"));
-        slider->setRightIcon(QIcon::fromTheme("dcc_brightnesshigh"));
-        slider->setIconSize(QSize(24, 24));
-        slider->setTickInterval(int((BrightnessMaxScale - miniScale) / 5.0));
-        slider->setValue(int(brightness * BrightnessMaxScale));
-        slider->setPageStep(1);
+        int maxBacklight = (int)m_displayModel->maxBacklightBrightness();
+        if (maxBacklight == 0) {
+            qDebug() << "MinimumBrightness:   " << m_displayModel->minimumBrightnessScale();
+            int miniScale = int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
+            double brightness = monList[i]->brightness();
+            slideritem->setValueLiteral(brightnessToTickInterval(brightness));
 
+            slider->setRange(miniScale, int(BrightnessMaxScale));
+            slider->setType(DCCSlider::Vernier);
+            slider->setTickPosition(QSlider::TicksBelow);
+            slider->setLeftIcon(QIcon::fromTheme("dcc_brightnesslow"));
+            slider->setRightIcon(QIcon::fromTheme("dcc_brightnesshigh"));
+            slider->setIconSize(QSize(24, 24));
+            slider->setTickInterval(int((BrightnessMaxScale - miniScale) / 5.0));
+            slider->setValue(int(brightness * BrightnessMaxScale));
+            slider->setPageStep(1);
 
-        auto onValueChanged = [ = ](int pos) {
+            auto onValueChanged = [ = ](int pos) {
             this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
             this->requestAmbientLightAdjustBrightness(false);
-        };
+            };
 
-        connect(slider, &DCCSlider::valueChanged, this, onValueChanged);
-        connect(slider, &DCCSlider::sliderMoved, this, onValueChanged);
+            connect(slider, &DCCSlider::valueChanged, this, onValueChanged);
+            connect(slider, &DCCSlider::sliderMoved, this, onValueChanged);
 
-        connect(monList[i], &Monitor::brightnessChanged, this, [ = ](const double rb) {
-            slider->blockSignals(true);
+            connect(monList[i], &Monitor::brightnessChanged, this, [ = ](const double rb) {
+                slider->blockSignals(true);
             if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
                 slideritem->setValueLiteral(QString("%1%").arg(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale)));
                 slider->setValue(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
@@ -147,10 +147,10 @@ void BrightnessPage::addSlider()
                 slider->setValue(int(rb * BrightnessMaxScale));
             }
             slider->blockSignals(false);
-        });
+            });
 
-        connect(m_displayModel, &DisplayModel::minimumBrightnessScaleChanged,
-        this, [ = ](const double ms) {
+            connect(m_displayModel, &DisplayModel::minimumBrightnessScaleChanged,
+                    this, [ = ](const double ms) {
             double rb = monList[i]->brightness();
             int tmini = int(ms * PercentageNum);
             slider->setMinimum(tmini);
@@ -160,8 +160,67 @@ void BrightnessPage::addSlider()
             slideritem->setValueLiteral(brightnessToTickInterval(rb));
             slider->setValue(int(rb * BrightnessMaxScale));
             slider->blockSignals(false);
-        });
+            });
+        }
+        else {
+            qDebug() << "MinimumBrightness:   " << m_displayModel->minimumBrightnessScale();
+            int miniScale = int(m_displayModel->minimumBrightnessScale() * maxBacklight + 0.00001);
+            if (miniScale == 0) {
+                miniScale = 1;
+            }
+            double brightness = monList[i]->brightness();
+            //slideritem->setValueLiteral(brightnessToTickInterval(brightness));
 
+
+            slider->setRange(miniScale, maxBacklight);
+            slider->setType(DCCSlider::Vernier);
+            slider->setTickPosition(QSlider::TicksBelow);
+            slider->setLeftIcon(QIcon::fromTheme("dcc_brightnesslow"));
+            slider->setRightIcon(QIcon::fromTheme("dcc_brightnesshigh"));
+            slider->setIconSize(QSize(24, 24));
+            slider->setTickInterval(1);
+            slider->setValue(int(brightness * (maxBacklight)));
+            slider->setPageStep(1);
+            QStringList speedList;
+            for (int i(miniScale); i <= maxBacklight; i++) {
+                //speedList << QString::number(i);
+                speedList << "";
+            }
+            slideritem->setAnnotations(speedList);
+
+            auto onValueChanged = [ = ](int pos) {
+                this->requestSetMonitorBrightness(monList[i], pos / double(maxBacklight));
+                this->requestAmbientLightAdjustBrightness(false);
+            };
+
+            connect(slider, &DCCSlider::valueChanged, this, onValueChanged);
+            connect(slider, &DCCSlider::sliderMoved, this, onValueChanged);
+
+            connect(monList[i], &Monitor::brightnessChanged, this, [ = ](const double rb) {
+                slider->blockSignals(true);
+                if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
+                    //slideritem->setValueLiteral(QString("%1%").arg(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale)));
+                    slider->setValue(int(m_displayModel->minimumBrightnessScale() * maxBacklight));
+                } else {
+                    //slideritem->setValueLiteral(QString("%1%").arg(int(rb * BrightnessMaxScale)));
+                    slider->setValue(int(rb * maxBacklight));
+                }
+                slider->blockSignals(false);
+            });
+
+            connect(m_displayModel, &DisplayModel::minimumBrightnessScaleChanged,
+            this, [ = ](const double ms) {
+                double rb = monList[i]->brightness();
+                int tmini = int(ms * PercentageNum);
+                slider->setMinimum(tmini);
+                slider->setTickInterval(int((BrightnessMaxScale - tmini) / 5.0));
+
+                slider->blockSignals(true);
+                slideritem->setValueLiteral(brightnessToTickInterval(rb));
+                slider->setValue(int(rb * BrightnessMaxScale));
+                slider->blockSignals(false);
+            });
+        }
         m_centralLayout->addWidget(slideritem);
     }
 }

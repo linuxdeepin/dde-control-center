@@ -106,6 +106,8 @@ public:
     inline bool isRefreshRateEnable() const { return m_RefreshRateEnable; }
     void setRefreshRateEnable(bool isEnable);
 
+    inline uint maxBacklightBrightness() const { return m_maxBacklightBrightness; }
+
 Q_SIGNALS:
     void isMergeChange(bool isMerge) const;
     void screenHeightChanged(const int h) const;
@@ -126,6 +128,7 @@ Q_SIGNALS:
     void mouseLeftHandChanged(bool isLeft) const;
     void touchscreenListChanged() const;
     void touchscreenMapChanged() const;
+    void maxBacklightBrightnessChanged (uint value);
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -141,7 +144,7 @@ private Q_SLOTS:
     void monitorRemoved(Monitor *mon);
     void setAutoLightAdjustIsValid(bool);
     void setMouseLeftHand(bool isLeft);
-
+    void setmaxBacklightBrightness(const uint value);
 private:
     int m_screenHeight;
     int m_screenWidth;
@@ -165,6 +168,7 @@ private:
     TouchscreenInfoList m_touchscreenList;
     TouchscreenMap m_touchMap;
     std::pair<int, QString> m_lastConfig;
+    uint m_maxBacklightBrightness{0};
 };
 
 } // namespace display

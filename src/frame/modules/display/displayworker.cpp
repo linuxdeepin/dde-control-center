@@ -77,6 +77,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     connect(&m_displayInter, &DisplayInter::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
     connect(&m_displayInter, &DisplayInter::CurrentCustomIdChanged, model, &DisplayModel::setCurrentConfig);
     connect(&m_displayInter, &DisplayInter::CustomIdListChanged, model, &DisplayModel::setConfigList);
+    connect(&m_displayInter, &DisplayInter::MaxBacklightBrightnessChanged, model, &DisplayModel::setmaxBacklightBrightness);
 //    connect(&m_displayInter, &DisplayInter::HasCustomConfigChanged, model, &DisplayModel::setHasConfig);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
 
@@ -90,6 +91,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     onMonitorsBrightnessChanged(m_displayInter.brightness());
     model->setScreenHeight(m_displayInter.screenHeight());
     model->setScreenWidth(m_displayInter.screenWidth());
+    model->setmaxBacklightBrightness(m_displayInter.maxBacklightBrightness());
     model->setConfigList(m_displayInter.customIdList());
     model->setCurrentConfig(m_displayInter.currentCustomId());
 //    model->setHasConfig(m_displayInter.hasCustomConfig());
