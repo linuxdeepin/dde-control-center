@@ -134,26 +134,26 @@ void AppNotifyWidget::initConnect()
         m_lblTip->setVisible(state);
         m_settingsGrp->setVisible(state);
 
-        Q_EMIT requestSetAppSetting(appModel->getAppName(), appModel->convertQJson());
+        Q_EMIT requestSetAppSetting(appModel->getActName(), appModel->convertQJson());
     });
     connect(m_itemLockShowNotify, &NotificationItem::stateChanged, this, [ = ](bool state) {
         appModel->setLockShowNotify(state);
 
-        Q_EMIT requestSetAppSetting(appModel->getAppName(), appModel->convertQJson());
+        Q_EMIT requestSetAppSetting(appModel->getActName(), appModel->convertQJson());
     });
     connect(m_itemNotifySound, &NotificationItem::stateChanged, this, [ = ](bool state) {
         appModel->setNotifySound(state);
 
-        Q_EMIT requestSetAppSetting(appModel->getAppName(), appModel->convertQJson());
+        Q_EMIT requestSetAppSetting(appModel->getActName(), appModel->convertQJson());
     });
     connect(m_itemShowNotifyPreview, &NotificationItem::stateChanged, this, [ = ](bool state) {
         appModel->setShowNotifyPreview(state);
 
-        Q_EMIT requestSetAppSetting(appModel->getAppName(), appModel->convertQJson());
+        Q_EMIT requestSetAppSetting(appModel->getActName(), appModel->convertQJson());
     });
     connect(m_itemOnlyInNotifyCenter, &NotificationItem::stateChanged, this, [ = ](bool state) {
         appModel->setOnlyInNotifyCenter(state);
 
-        Q_EMIT requestSetAppSetting(appModel->getAppName(), appModel->convertQJson());
+        Q_EMIT requestSetAppSetting(appModel->getActName(), appModel->convertQJson());
     });
 }

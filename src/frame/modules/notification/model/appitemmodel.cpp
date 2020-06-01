@@ -39,8 +39,7 @@ AppItemModel::AppItemModel(QObject *parent)
 
 void AppItemModel::setItem(const QString &name, const QJsonObject &item)
 {
-    Q_UNUSED(name)
-
+    m_actName = name;
     setSoftName(item["Name"].toString());
     setIcon(item["Icon"].toString());
     setAllowNotify(item["AllowNotify"].toBool());
@@ -53,12 +52,21 @@ void AppItemModel::setItem(const QString &name, const QJsonObject &item)
 QJsonObject AppItemModel::convertQJson()
 {
     QJsonObject json;
+    json.insert("Name", m_softName);
+    json.insert("Icon", m_icon);
     json.insert("AllowNotify", isAllowNotify());
     json.insert("LockShowNotify", isLockShowNotify());
     json.insert("NotificationSound", isNotifySound());
     json.insert("OnlyInNotifyCenter", isOnlyInNotifyCenter());
     json.insert("ShowNotifyPreview", isShowNotifyPreview());
     return json;
+}
+
+void AppItemModel::setActName(const QString &name)
+{
+    if (m_actName != name) {
+        m_actName = name;
+    }
 }
 
 void AppItemModel::setSoftName(const QString &name)
