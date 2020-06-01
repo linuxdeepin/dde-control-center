@@ -36,8 +36,6 @@ TimeSlotItem::TimeSlotItem(QWidget *parent)
     , m_editStart(new DTimeEdit)
     , m_editEnd(new DTimeEdit)
 {
-    setFixedHeight(45);
-
     m_editStart->setDisplayFormat("h:mm");
     m_editEnd->setDisplayFormat("h:mm");
 
