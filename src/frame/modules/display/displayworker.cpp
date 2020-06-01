@@ -229,6 +229,7 @@ void DisplayWorker::splitScreens()
         // pass primary
         Q_ASSERT(m_monitors.contains(mon));
         auto *mInter = m_monitors[mon];
+        mInter->SetMode(mon->modeList().first().id()).waitForFinished();
         mInter->SetRotation(1).waitForFinished();
         if (mon == primary)
             continue;
