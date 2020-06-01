@@ -277,24 +277,22 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &sear
     ContentWidget *p = nullptr;
 
     if (dev->type() == NetworkDevice::Wireless) {
-        if (m_wirelessPage.isNull()) {
-            m_wirelessPage = new WirelessPage(static_cast<WirelessDevice *>(dev));
-            p = m_wirelessPage;
-            m_networkWorker->queryDeviceStatus(dev->path());
-            connect(m_wirelessPage, &WirelessPage::back, this, &NetworkModule::popPage);
-            connect(m_wirelessPage, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
-            connect(m_wirelessPage, &WirelessPage::requestWirelessScan, m_networkWorker, &NetworkWorker::requestWirelessScan);
-            connect(m_wirelessPage, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
-            connect(m_wirelessPage, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
-            connect(m_wirelessPage, &WirelessPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
-            connect(m_wirelessPage, &WirelessPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
-            connect(m_wirelessPage, &WirelessPage::requestNextPage, [ = ](ContentWidget * const w) {
-                m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
-            });
-            connect(m_wirelessPage, &WirelessPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
+        m_wirelessPage = new WirelessPage(static_cast<WirelessDevice *>(dev));
+        p = m_wirelessPage;
+        m_networkWorker->queryDeviceStatus(dev->path());
+        connect(m_wirelessPage, &WirelessPage::back, this, &NetworkModule::popPage);
+        connect(m_wirelessPage, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
+        connect(m_wirelessPage, &WirelessPage::requestWirelessScan, m_networkWorker, &NetworkWorker::requestWirelessScan);
+        connect(m_wirelessPage, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
+        connect(m_wirelessPage, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
+        connect(m_wirelessPage, &WirelessPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
+        connect(m_wirelessPage, &WirelessPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
+        connect(m_wirelessPage, &WirelessPage::requestNextPage, [ = ](ContentWidget * const w) {
+            m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
+        });
+        connect(m_wirelessPage, &WirelessPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
 
-            m_wirelessPage->setModel(m_networkModel);
-        }
+        m_wirelessPage->setModel(m_networkModel);
         m_wirelessPage->jumpByUuid(searchPath);
     } else if (dev->type() == NetworkDevice::Wired) {
         p = new WiredPage(static_cast<WiredDevice *>(dev));
