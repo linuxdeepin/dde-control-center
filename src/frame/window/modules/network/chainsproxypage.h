@@ -28,7 +28,7 @@
 
 #include "widgets/contentwidget.h"
 #include "interface/namespace.h"
-
+#include <QComboBox>
 #include <QObject>
 
 namespace dde {
@@ -62,6 +62,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onCheckValue();
+    void onRestoreValue();
     bool isIPV4(const QString &ipv4);
 
 private:
@@ -71,7 +72,7 @@ private:
     dcc::widgets::LineEditWidget *m_port;
     dcc::widgets::LineEditWidget *m_username;
     dcc::widgets::LineEditWidget *m_password;
-
+    QComboBox *m_comboBox;
 };
 }
 }
