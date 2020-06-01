@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="819"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="823"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,8 +87,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="831"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="835"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
         <source>Drawing Tablet</source>
         <translation>Tablet graficzny</translation>
     </message>
@@ -113,23 +113,23 @@
         <translation>Ustawienia Główne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>Touchpad</source>
         <translation>Panel dotykowy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>TrackPoint</source>
         <translation>Manipulator punktowy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
         <source>Assistive Tools</source>
         <translation>Narzędzia pomocnicze</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="843"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="847"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
         <source>Cloud Sync</source>
         <translation>Synchronizacja z chmurą</translation>
     </message>
@@ -420,7 +420,7 @@
         <translation>Gotowe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="154"/>
         <source>Add Fingerprint</source>
         <translation>Dodaj odcisk palca</translation>
     </message>
@@ -2220,15 +2220,20 @@
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="346"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="353"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="345"/>
+        <source>Connected</source>
+        <translation>Połączono</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="367"/>
         <source>Disabled</source>
         <translation>Wyłączone</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="373"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="383"/>
         <source>Disconnected</source>
         <translation>Rozłączono</translation>
     </message>
@@ -3780,25 +3785,25 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="73"/>
         <source>Theme</source>
         <translation>Motyw</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="82"/>
         <source>Accent Color</source>
         <translation>Akcent Kolor</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="118"/>
         <source>Window Effect</source>
         <translation>Efekt okna</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="124"/>
         <source>Transparency</source>
         <translation>Przejrzystość</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
@@ -5095,7 +5100,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="76"/>
+        <location filename="../src/frame/main.cpp" line="81"/>
         <source>Control Center</source>
         <translation>Centrum Kontroli</translation>
     </message>
@@ -9718,7 +9723,7 @@ W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="77"/>
+        <location filename="../src/frame/main.cpp" line="82"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>Centrum sterowania udostępnia opcje ustawień systemowych.</translation>
     </message>

@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="819"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="823"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,8 +87,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="831"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="835"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
         <source>Drawing Tablet</source>
         <translation>Tablet Vizatimi</translation>
     </message>
@@ -113,23 +113,23 @@
         <translation>Rregullime të Përgjithshme</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
         <source>Assistive Tools</source>
         <translation>Teknologji Ndihmuese</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="843"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="847"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
         <source>Cloud Sync</source>
         <translation>Njëkohësim Në Re</translation>
     </message>
@@ -420,7 +420,7 @@
         <translation>U bë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="154"/>
         <source>Add Fingerprint</source>
         <translation>Shtoni Shenja Gishtash</translation>
     </message>
@@ -621,7 +621,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
-        <translation>Program Përshtypjesh Përdoruesi</translation>
+        <translation>User Experience Program</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
@@ -671,7 +671,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
         <source>Agree and Join User Experience Program</source>
-        <translation>Shprehni Pajtimin dhe Merrni Pjesë Te Programi i Përshtypjeve të Përdoruesit</translation>
+        <translation>Shprehni Pajtimin dhe Merrni Pjesë Te Programi “User Experience Program”</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="290"/>
@@ -808,13 +808,13 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="46"/>
         <source>Join User Experience Program</source>
-        <translation>Merrni Pjesë Te Programi i Përshtypjeve të Përdoruesit</translation>
+        <translation>Merrni Pjesë Te programi “User Experience Program”</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
-        <translation>Pjesëmarrja te Programi i Përshtypjeve të Përdoruesve do të thotë se na akordoni dhe autorizoni grumbullimin dhe përdorimin e të dhënave të pajisjes tuaj. Nëse refuzoni koleksionin tonë dhe përdorni të dhënat e përmendura më sipër, mos merrni pjesë te User Experience Program. Për hollësi, ju lutemi, referojuni Rregullave të Privatësisë për UOS (https://www.chinauos.com/agreement/experience).</translation>
+        <translation>Pjesëmarrja te programi “User Experience Program” do të thotë se na akordoni dhe autorizoni grumbullimin dhe përdorimin e të dhënave të pajisjes tuaj. Nëse refuzoni koleksionin tonë dhe përdorni të dhënat e përmendura më sipër, mos merrni pjesë te “User Experience Program”. Për hollësi, ju lutemi, referojuni Rregullave të Privatësisë për UOS (https://www.chinauos.com/agreement/experience).</translation>
     </message>
 </context>
 <context>
@@ -2220,15 +2220,20 @@
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="346"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="353"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="345"/>
+        <source>Connected</source>
+        <translation>E lidhur</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="367"/>
         <source>Disabled</source>
         <translation>E çaktivizuar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="373"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="383"/>
         <source>Disconnected</source>
         <translation>E shkëputur</translation>
     </message>
@@ -2727,7 +2732,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation type="unfinished"/>
+        <translation>VPN e Thelluar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
@@ -2800,7 +2805,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
         <source>VPN Advanced</source>
-        <translation type="unfinished"/>
+        <translation>VPN e Thelluar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
@@ -3780,25 +3785,25 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="73"/>
         <source>Theme</source>
         <translation>Temë</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="82"/>
         <source>Accent Color</source>
         <translation>Ngjyrë Theksimi</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="118"/>
         <source>Window Effect</source>
         <translation>Efekt Dritaresh</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="124"/>
         <source>Transparency</source>
         <translation>Tejdukshmëri</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
@@ -4106,12 +4111,12 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="78"/>
         <source>User Experience Program</source>
-        <translation>Program Përshtypjesh Përdoruesi</translation>
+        <translation>User Experience Program</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="79"/>
         <source>Join User Experience Program</source>
-        <translation>Merrni Pjesë Te Programi i Përshtypjeve të Përdoruesit</translation>
+        <translation>Merrni Pjesë Te programi “User Experience Program”</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="80"/>
@@ -5094,7 +5099,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="76"/>
+        <location filename="../src/frame/main.cpp" line="81"/>
         <source>Control Center</source>
         <translation>Qendër Kontrolli</translation>
     </message>
@@ -5241,7 +5246,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>Nisu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -7792,7 +7797,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation type="unfinished"/>
+        <translation>VPN e Thelluar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
@@ -7865,7 +7870,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation type="unfinished"/>
+        <translation>VPN e Thelluar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="140"/>
@@ -9085,7 +9090,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="67"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="84"/>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>Nisu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="68"/>
@@ -9714,7 +9719,7 @@ Nëse s’ka veprime, ekrani do të rikthehet pas %1s.</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="77"/>
+        <location filename="../src/frame/main.cpp" line="82"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>Qendra e Kontrollit furnizon mundësitë për rregullime sistemi.</translation>
     </message>

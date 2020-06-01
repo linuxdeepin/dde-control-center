@@ -65,8 +65,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="313"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="819"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="821"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="823"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="825"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -87,8 +87,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="317"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="831"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="833"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="835"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="837"/>
         <source>Drawing Tablet</source>
         <translation>Tableta Desen</translation>
     </message>
@@ -113,23 +113,23 @@
         <translation>Setări Generale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>Touchpad</source>
         <translation>Panou tactil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>TrackPoint</source>
         <translation>Instrument Indicator</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="411"/>
         <source>Assistive Tools</source>
         <translation>Instrumente de asistență</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="843"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="845"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="847"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="849"/>
         <source>Cloud Sync</source>
         <translation>Sincronizare Cloud</translation>
     </message>
@@ -158,7 +158,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="225"/>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Numele complet este prea lung</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="242"/>
@@ -353,12 +353,13 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="369"/>
         <source>The password must have at least 6 characters, and contain at least 2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Parola trebuie să aibă cel puțin 6 caractere și să conțină cel puțin 2 din cele patru tipuri de caractere disponibile: litere mici, litere mari, cifre și simboluri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="372"/>
         <source>Password should not be the repeated or reversed username</source>
-        <translation type="unfinished"/>
+        <translation>Parola nu trebuie să fie numele de utilizator repetat sau inversat
+ </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="425"/>
@@ -383,7 +384,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="494"/>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Primul caracter trebuie să fie o literă sau un număr</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
@@ -393,7 +394,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="519"/>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Numele complet este prea lung</translation>
     </message>
 </context>
 <context>
@@ -420,7 +421,7 @@
         <translation>Efectuat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="154"/>
         <source>Add Fingerprint</source>
         <translation>Adăugați o amprentă</translation>
     </message>
@@ -2220,15 +2221,20 @@
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="346"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="353"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="345"/>
+        <source>Connected</source>
+        <translation>Conectat</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="367"/>
         <source>Disabled</source>
         <translation>Dezactivat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="373"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="383"/>
         <source>Disconnected</source>
         <translation>Deconectat</translation>
     </message>
@@ -3780,25 +3786,25 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="73"/>
         <source>Theme</source>
         <translation>Tema</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="82"/>
         <source>Accent Color</source>
         <translation>Culoare accent</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="118"/>
         <source>Window Effect</source>
         <translation>Efect Fereastră</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="124"/>
         <source>Transparency</source>
         <translation>Transparență</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
@@ -5094,7 +5100,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="76"/>
+        <location filename="../src/frame/main.cpp" line="81"/>
         <source>Control Center</source>
         <translation>Centru Control</translation>
     </message>
@@ -9714,7 +9720,7 @@ Dacă nu există nicio operațiune, afișajul va fi restaurat după% 1s.</transl
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="77"/>
+        <location filename="../src/frame/main.cpp" line="82"/>
         <source>Control Center provides the options for system settings.</source>
         <translation type="unfinished"/>
     </message>
