@@ -35,6 +35,7 @@ namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
 class DCCSlider;
+class GLineEdit;
 }
 }
 
@@ -45,6 +46,13 @@ class GeneralKBSettingWidget : public dcc::ContentWidget
     Q_OBJECT
 public:
     explicit GeneralKBSettingWidget(dcc::keyboard::KeyboardModel *model, QWidget *parent = nullptr);
+    class GLineEdit: public QLineEdit
+    {
+        void focusOutEvent(QFocusEvent *) override
+        {
+            clear();
+        }
+    };
 Q_SIGNALS:
     void requestKBDelayChanged(const int value);
     void requestKBSpeedChanged(const int value);
@@ -61,7 +69,7 @@ private:
     dcc::widgets::SettingsGroup *m_generalSettingsGrp;
     dcc::keyboard::KeyboardModel *m_model;
     QVBoxLayout *m_contentLayout;
-    QLineEdit *m_testArea;
+    GLineEdit *m_testArea;
 protected:
     void mousePressEvent(QMouseEvent *event);
 };
