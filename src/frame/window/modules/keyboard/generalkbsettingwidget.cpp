@@ -38,13 +38,6 @@ using namespace DCC_NAMESPACE::keyboard;
 using namespace dcc;
 using namespace dcc::keyboard;
 using namespace dcc::widgets;
-class GLineEdit: public QLineEdit
-{
-    void focusOutEvent(QFocusEvent *) override
-    {
-        clear();
-    }
-};
 
 GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *parent)
     : dcc::ContentWidget(parent)
@@ -80,7 +73,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     speeds << tr("Fast");
     speedItem->setAnnotations(speeds);
 
-    GLineEdit *m_testArea = new GLineEdit();
+    m_testArea = new GLineEdit();
     m_testArea->setFixedWidth(200);
     //~ contents_path /keyboard/General
     m_testArea->setPlaceholderText(tr("Test here"));
