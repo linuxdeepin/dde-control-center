@@ -350,6 +350,7 @@ void UpdateModel::setSourceCheck(bool sourceCheck)
 
     Q_EMIT sourceCheckChanged(sourceCheck);
 }
+#endif
 
 void UpdateModel::setLastCheckUpdateTime(const QString &lastTime)
 {
@@ -377,8 +378,6 @@ void UpdateModel::setBootAutoCheckUpdate(const bool bootCheck)
 {
     m_bootAutoCheckUpdate = bootCheck;
 }
-
-#endif
 
 }
 }
