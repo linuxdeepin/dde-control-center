@@ -416,8 +416,10 @@ void CustomSettingDialog::initMoniList()
         m_main_select_lab_widget->setVisible(false);
     }
     if (m_isPrimary && m_model->isMerge() == false) {
-        m_displaylist->setVisible(true);
-        m_main_select_lab_widget->setVisible(true);
+        if(m_vSegBtn.at(0)->isChecked()) {
+            m_displaylist->setVisible(true);
+            m_main_select_lab_widget->setVisible(true);
+        }
     }
 }
 
@@ -695,7 +697,7 @@ void CustomSettingDialog::onPrimaryMonitorChanged()
 {
     initMoniList();
     resetMonitorObject(m_model->primaryMonitor());
-    bool flag = m_isPrimary && (m_model->isMerge() == false);
+    bool flag = m_isPrimary && (m_model->isMerge() == false) && m_vSegBtn.at(0)->isChecked();
     if (m_displaylist) {
         m_displaylist->setVisible(flag);
     }
