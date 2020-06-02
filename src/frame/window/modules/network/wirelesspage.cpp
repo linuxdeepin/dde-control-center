@@ -271,6 +271,12 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setVisible(dev->enabled());
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
+        //关闭无线网诺销毁无线网络编辑界面
+        if (!enabled) {
+            if (!m_apEditPage.isNull()) {
+                m_apEditPage->onDeviceRemoved();
+            }
+        }
         m_switch->setChecked(enabled);
         if (m_lvAP) {
             m_lvAP->setVisible(enabled);
