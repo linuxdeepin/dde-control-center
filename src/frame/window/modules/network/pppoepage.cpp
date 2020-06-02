@@ -55,6 +55,7 @@ PppoePage::PppoePage(QWidget *parent)
 {
     m_createBtn->setMinimumSize(QSize(47, 47));
     m_createBtn->setToolTip(tr("Create PPPoE Connection"));
+    m_createBtn->setAccessibleName(tr("Create PPPoE Connection"));
 
     m_lvsettings->setAccessibleName("List_pppoelist");
     m_lvsettings->setModel(m_modelSettings);

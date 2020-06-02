@@ -202,6 +202,7 @@ void ConnectionEditPage::initConnection()
 
     connect(m_removeBtn, &QPushButton::clicked, this, [ = ]() {
         DDialog dialog(this);
+        dialog.setAccessibleName("Form_" + tr("Are you sure you want to delete this configuration?"));
         dialog.setTitle(tr("Are you sure you want to delete this configuration?"));
         QStringList btns;
         btns << tr("Cancel");
