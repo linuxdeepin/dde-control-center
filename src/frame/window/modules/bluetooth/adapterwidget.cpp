@@ -220,6 +220,7 @@ void AdapterWidget::onPowerStatus(bool bPower)
 
 void AdapterWidget::toggleSwitch(const bool checked)
 {
+    m_switch->m_switchBtn->setDisabled(true);
     onPowerStatus(checked);
     if (!checked) {
         for (auto it : m_myDevices) {
@@ -345,4 +346,10 @@ void AdapterWidget::removeDevice(const QString &deviceId)
 const Adapter *AdapterWidget::adapter() const
 {
     return m_adapter;
+}
+
+//打开或关闭蓝牙必须等到dbus返回消息才能操作，避免开关蓝牙操作过快
+void AdapterWidget::setSwitchBtnEnable()
+{
+    m_switch->m_switchBtn->setDisabled(false);
 }

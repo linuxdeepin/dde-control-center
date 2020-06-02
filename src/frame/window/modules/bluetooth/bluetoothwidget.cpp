@@ -86,7 +86,9 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
     connect(adpWidget, &AdapterWidget::requestSetAlias, this, &BluetoothWidget::requestSetAlias);
     connect(adpWidget, &AdapterWidget::requestShowDetail, this, &BluetoothWidget::showDeviceDetail);
     connect(adpWidget, &AdapterWidget::notifyLoadFinished, this, &BluetoothWidget::updateWidget);
-
+    connect(m_bluetoothWorker, &BluetoothWorker::poweredCallback, this, [=] {
+        adpWidget->setSwitchBtnEnable();
+    });
     m_bluetoothWorker->setAdapterDiscovering(path, true);
     m_valueMap[adapter] = adpWidget;
     return adpWidget;

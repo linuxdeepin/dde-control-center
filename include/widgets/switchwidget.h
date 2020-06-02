@@ -64,6 +64,8 @@ protected:
 
 private:
     QWidget *m_leftWidget;
+
+public:
     Dtk::Widget::DSwitchButton *m_switchBtn;
 };
 

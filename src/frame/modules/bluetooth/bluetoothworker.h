@@ -53,6 +53,7 @@ public:
 
 Q_SIGNALS:
     void deviceEnableChanged();
+    void poweredCallback();
 
 public Q_SLOTS:
     void setAdapterPowered(const Adapter *adapter, const bool &powered);
