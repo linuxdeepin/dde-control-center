@@ -314,7 +314,7 @@ SET_LABEL_ACCESSIBLE(QLabel, m_w->text().isEmpty() ? "qlabel" : m_w->text())
 // Dtk控件
 SET_FORM_ACCESSIBLE(DBackgroundGroup, m_w->objectName().isEmpty() ? "dbackgroundgroup" : m_w->objectName())
 SET_BUTTON_ACCESSIBLE(DSwitchButton, m_w->text().isEmpty() ? "switchbutton" : m_w->text())
-SET_BUTTON_ACCESSIBLE(DFloatingButton,  m_w->objectName().isEmpty() ? "DFloatingButton" : m_w->objectName())
+SET_BUTTON_ACCESSIBLE(DFloatingButton,  m_w->toolTip().isEmpty() ? "DFloatingButton" : m_w->toolTip())
 SET_EDITABLE_ACCESSIBLE(DLineEdit, "DLineEdit")
 SET_FORM_ACCESSIBLE(DSearchEdit, m_w->objectName().isEmpty() ? "DSearchEdit" : m_w->objectName())
 SET_BUTTON_ACCESSIBLE(DIconButton, m_w->objectName().isEmpty() ? "DIconButton" : m_w->objectName())
@@ -322,6 +322,7 @@ SET_BUTTON_ACCESSIBLE(DCommandLinkButton, "DCommandLinkButton")
 SET_LABEL_ACCESSIBLE(DLabel, m_w->text().isEmpty() ? m_w->objectName().isEmpty() ? "DLabel" : m_w->objectName() : m_w->text())
 SET_FORM_ACCESSIBLE(DTitlebar, m_w->objectName().isEmpty() ? "DTitlebar" : m_w->objectName())
 SET_SLIDER_ACCESSIBLE(DSlider, "dslider")
+
 
 QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
 {
