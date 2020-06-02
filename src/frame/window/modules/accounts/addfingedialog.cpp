@@ -28,6 +28,7 @@
 #include <QPushButton>
 #include <QCloseEvent>
 #include <QTimer>
+#include <QDebug>
 
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
@@ -46,6 +47,7 @@ AddFingeDialog::AddFingeDialog(const QString &thumb, DAbstractDialog *parent)
 {
     initWidget();
     initData();
+    QWidget::installEventFilter(this);
 }
 
 AddFingeDialog::~AddFingeDialog()
@@ -234,17 +236,23 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
     QDialog::closeEvent(event);
 }
 
-void AddFingeDialog::focusOutEvent(QFocusEvent *event)
+bool AddFingeDialog::eventFilter(QObject *o, QEvent *e)
 {
-    this->clearFocus();
-    if (m_isEnrolling) {
-        enrollFocusOut();
-        QTimer::singleShot(1000, this, [=] {
-            m_cancelBtn->setEnabled(true);
-            m_addBtn->setEnabled(true);
-        });
+    if (o == this) {
+       if (QEvent::WindowDeactivate == e->type()) {
+            clearFocus();
+            if (m_isEnrolling) {
+                enrollFocusOut();
+                QTimer::singleShot(1000, this, [=] {
+                    m_cancelBtn->setEnabled(true);
+                    m_addBtn->setEnabled(true);
+                });
+            }
+            setFocus();
+            return true ;
+       } else {
+           return false ;
+       }
     }
-    this->setFocus();
+    return false ;
 }
-
-

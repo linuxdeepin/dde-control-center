@@ -73,7 +73,7 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
     });
     connect(m_editTitle->lineEdit(), &QLineEdit::editingFinished, this, [this] {
         m_editTitle->lineEdit()->clearFocus();
-        if(onNameEditFinished(m_editTitle)) {
+        if (onNameEditFinished(m_editTitle)) {
             Q_EMIT editTextFinished(m_editTitle->text());
         }
         setEditTitle(false);
@@ -148,7 +148,7 @@ bool AccounntFingeItem::onNameEditFinished(DLineEdit *edit)
     QString editName = edit->lineEdit()->text();
     if (editName.isEmpty())
         return false;
-    if(editName.size() >15 || validateName(editName) == false) {
+    if (editName.size() >15 || validateName(editName) == false) {
         edit->setAlert(true);
         edit->showAlertMessage(tr("The name must only contain letters, numbers and underline, and no more than 15 characters."), parentWidget());
         edit->lineEdit()->selectAll();

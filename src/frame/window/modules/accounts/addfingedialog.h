@@ -67,8 +67,7 @@ private:
 
 protected:
     void closeEvent(QCloseEvent *event) override;
-    void focusOutEvent(QFocusEvent *event) override;
-
+    bool eventFilter(QObject *o, QEvent *e) override;
 Q_SIGNALS:
     void requestSaveThumb(const QString &name);
     void requestStopEnroll(const QString &thumb);

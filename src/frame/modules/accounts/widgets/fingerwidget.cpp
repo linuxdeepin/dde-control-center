@@ -50,10 +50,10 @@ FingerWidget::FingerWidget(QWidget *parent)
     m_titleTimer->setInterval(2000);
     m_msgTimer->setSingleShot(true);
     m_msgTimer->setInterval(2000);
-    connect(m_titleTimer, &QTimer::timeout, this, [this]{
+    connect(m_titleTimer, &QTimer::timeout, this, [this] {
         m_titleLbl->setText(m_defTitle);
     });
-    connect(m_msgTimer, &QTimer::timeout, this, [this]{
+    connect(m_msgTimer, &QTimer::timeout, this, [this] {
         m_tipLbl->setText(m_defTip);
     });
 
@@ -125,7 +125,7 @@ void FingerWidget::setProsses(int pro)
         if (m_pro > 0 && m_pro < 35) {
             m_defTitle = tr("Lift your finger");
             m_defTip = tr("Lift your finger and place it on the sensor again");
-        } else if(m_pro >= 35 && m_pro < 100) {
+        } else if (m_pro >= 35 && m_pro < 100) {
             if (m_isStageOne == true) {
                 m_isStageOne = false;
                 m_defTitle = tr("Scan the edges of your fingerprint");

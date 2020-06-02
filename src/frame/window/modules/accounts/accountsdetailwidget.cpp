@@ -239,8 +239,8 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         auto uerList = m_userModel->userList();
         //判断账户全名是否被其他用户所用
         auto userList = m_userModel->userList();
-        if(m_inputLineEdit->text() != m_curUser->fullname()){
-            for(auto u : userList){
+        if (m_inputLineEdit->text() != m_curUser->fullname()) {
+            for (auto u : userList) {
                 if(u->fullname() == m_inputLineEdit->text() && u->fullname() != nullptr){
                     m_inputLineEdit->setAlert(true);
                     m_inputLineEdit->showAlertMessage(tr("The full name already exists"), -1);
