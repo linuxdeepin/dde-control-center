@@ -568,7 +568,8 @@ bool IpvxSection::isIpv4Address(const QString &ip)
             || ipAddr.protocol() != QAbstractSocket::NetworkLayerProtocol::IPv4Protocol) {
         return false;
     }
-    return true;
+    QRegExp regExpIP("((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])[\\.]){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])");
+    return regExpIP.exactMatch(ip);
 }
 
 bool IpvxSection::isIpv6Address(const QString &ip)
@@ -581,7 +582,8 @@ bool IpvxSection::isIpv6Address(const QString &ip)
     if (ipAddr == QHostAddress(QHostAddress::LocalHostIPv6)) {
         return false;
     }
-    return true;
+    QRegExp regExpIP("^([\\da-fA-F]{1,4}:){7}([\\da-fA-F]{1,4})$");
+    return regExpIP.exactMatch(ip);
 }
 
 bool IpvxSection::isIpv4SubnetMask(const QString &ip)
@@ -597,7 +599,9 @@ bool IpvxSection::isIpv4SubnetMask(const QString &ip)
         if ((mask & (1 << 31)) == 0)
             return false; // Highest bit is now zero, but mask is non-zero.
     }
-    return true; // Mask was, or became 0.
+    QRegExp regExpIP("^((128|192)|2(24|4[08]|5[245]))(\\.(0|(128|192)|2((24)|(4[08])|(5[245])))){3}$");
+    return regExpIP.exactMatch(ip);
+//    return true; // Mask was, or became 0.
 }
 
 QList<QHostAddress> IpvxSection::dnsList()
