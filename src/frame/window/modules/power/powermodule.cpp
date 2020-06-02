@@ -141,9 +141,10 @@ void PowerModule::showGeneral()
 #ifndef DCC_DISABLE_POWERSAVE
     connect(general, &GeneralWidget::requestSetPowerSavingModeAuto, m_work, &PowerWorker::setAutoEnablePowerSave);
     connect(general, &GeneralWidget::requestSetLowBatteryMode, m_work, &PowerWorker::setEnablePowerSave);
+    connect(general, &GeneralWidget::requestSetPowerSaveMode, m_work, &PowerWorker::setEnablePowerSave);
 #endif
 
-    connect(general, &GeneralWidget::requestSetPowerSaveMode, m_work, &PowerWorker::setEnablePowerSave);
+
     //-----------------sp2 add-------------------
     connect(general, &GeneralWidget::requestSetPowerSavingModeAutoWhenQuantifyLow, m_work, &PowerWorker::setPowerSavingModeAutoWhenQuantifyLow);
     connect(general, &GeneralWidget::requestSetPowerSavingModeAuto, m_work, &PowerWorker::setPowerSavingModeAuto);
