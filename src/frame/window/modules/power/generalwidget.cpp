@@ -59,7 +59,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     , m_showBatteryCapacity(new SwitchWidget(tr("Show battery capacity")))
     , m_batteryCapacity(new TitleValueItem)
     , m_lowBatteryMode(new SwitchWidget(tr("Power Saving Mode")))
-    , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto Mode Switch")))
+    , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on battery")))
     , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer")))
     , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor")))
     , m_titleWidget(new QLabel(tr("Battery")))
@@ -74,7 +74,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     //~ contents_path /power/General
     m_lowBatteryMode->setTitle(tr("Power Saving Mode"));
     //~ contents_path /power/General
-    m_autoIntoSaveEnergyMode->setTitle(tr("Auto Mode Switch"));
+    m_autoIntoSaveEnergyMode->setTitle(tr("Auto power saving on battery"));
     //~ contents_path /power/General
     m_wakeComputerNeedPassword->setTitle(tr("Password is required to wake up the computer"));
     //~ contents_path /power/General
@@ -142,7 +142,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
 
     m_layout->addLayout(m_layEnergySavingMode);
 
-    label = new TitleLabel(tr("Wakeup Setting"));
+    label = new TitleLabel(tr("Wakeup Settings"));
     DFontSizeManager::instance()->bind(label, DFontSizeManager::T3);
 
 
