@@ -138,6 +138,14 @@ void ChainsProxyPage::onRestoreValue()
     m_port->setText("0");
     m_username->setText("");
     m_password->setText("");
+
+    ProxyConfig config;
+    config.port = 0;
+    config.url.clear();
+    Q_EMIT requestSet(config);
+    Q_EMIT back();
+    return;
+    
 }
 
 void ChainsProxyPage::onCheckValue()
