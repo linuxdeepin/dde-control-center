@@ -44,7 +44,7 @@ bool contains(const QList<Resolution> &container, const Resolution &item)
 DisplayModel::DisplayModel(QObject *parent)
     : QObject(parent)
     , m_uiScale(1)
-    , m_redshiftSetting(false)
+    //, m_redshiftSetting(false)
     , m_allowEnableMultiScaleRatio(false)
     , m_isMerged(false)
 {
@@ -211,14 +211,14 @@ void DisplayModel::setTouchMap(const TouchscreenMap &touchMap)
     Q_EMIT touchscreenMapChanged();
 }
 
-void DisplayModel::setRedshiftSetting(bool redshiftSetting)
+/*void DisplayModel::setRedshiftSetting(bool redshiftSetting)
 {
     if (m_redshiftSetting == redshiftSetting) return;
 
     m_redshiftSetting = redshiftSetting;
 
     Q_EMIT redshiftSettingChanged(redshiftSetting);
-}
+}*/
 
 void DisplayModel::setAutoLightAdjust(bool ala)
 {
@@ -234,6 +234,26 @@ bool DisplayModel::redshiftIsValid() const
     return m_redshiftIsValid;
 }
 
+void DisplayModel::setAdjustCCTmode(int mode)
+{
+    if (m_adjustCCTMode == mode)
+        return;
+
+    m_adjustCCTMode = mode;
+
+    Q_EMIT adjustCCTmodeChanged(mode);
+}
+
+void DisplayModel::setColorTemperature(int value)
+{
+    if (m_colorTemperature == value)
+        return;
+
+    m_colorTemperature = value;
+
+    Q_EMIT colorTemperatureChanged(value);
+}
+
 void DisplayModel::setRedshiftIsValid(bool redshiftIsValid)
 {
     if (m_redshiftIsValid == redshiftIsValid)
@@ -241,10 +261,10 @@ void DisplayModel::setRedshiftIsValid(bool redshiftIsValid)
 
     m_redshiftIsValid = redshiftIsValid;
 
-    Q_EMIT redshiftVaildChanged(redshiftIsValid);
+    Q_EMIT colorTemperatureChanged(redshiftIsValid);
 }
 
-bool DisplayModel::isNightMode() const
+/*bool DisplayModel::isNightMode() const
 {
     return m_isNightMode;
 }
@@ -257,7 +277,7 @@ void DisplayModel::setIsNightMode(bool isNightMode)
     m_isNightMode = isNightMode;
 
     Q_EMIT nightModeChanged(isNightMode);
-}
+}*/
 
 void DisplayModel::setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio)
 {

@@ -75,8 +75,13 @@ public:
 
     bool redshiftIsValid() const;
 
-    inline bool redshiftSetting() const { return m_redshiftSetting; }
-    void setRedshiftSetting(bool redshiftSetting);
+    inline int adjustCCTMode() const {return  m_adjustCCTMode; }
+    void setAdjustCCTmode(int mode);
+
+    inline int colorTemperature() const {return  m_colorTemperature; }
+    void setColorTemperature(int value);
+    /*inline bool redshiftSetting() const { return m_redshiftSetting; }
+    void setRedshiftSetting(bool redshiftSetting);*/
 
     inline bool autoLightAdjustIsValid() const { return m_AutoLightAdjustIsValid;}
 
@@ -122,13 +127,15 @@ Q_SIGNALS:
     void monitorListChanged() const;
     void nightModeChanged(const bool nightmode) const;
     void redshiftVaildChanged(const bool isvalid) const;
-    void redshiftSettingChanged(const bool setting) const;
+    //void redshiftSettingChanged(const bool setting) const;
     void autoLightAdjustSettingChanged(bool setting) const;
     void autoLightAdjustVaildChanged(bool isvalid) const;
     void mouseLeftHandChanged(bool isLeft) const;
     void touchscreenListChanged() const;
     void touchscreenMapChanged() const;
     void maxBacklightBrightnessChanged (uint value);
+    void adjustCCTmodeChanged(int mode);
+    void colorTemperatureChanged(int value);
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -149,15 +156,17 @@ private:
     int m_screenHeight;
     int m_screenWidth;
     int m_mode{-1};
+    int m_colorTemperature{0};    //当前色温对应的颜色值
+    int m_adjustCCTMode{0};       //当前自动调节色温模式   0  不开启      1  自动调节    2 手动调节
     double m_uiScale;
     double m_minimumBrightnessScale;
     QString m_primary;
     QString m_currentConfig;
     QStringList m_configList;
     QList<Monitor *> m_monitors;
-    bool m_isNightMode;
+    //bool m_isNightMode;
     bool m_redshiftIsValid;
-    bool m_redshiftSetting;
+    //bool m_redshiftSetting;
     bool m_RefreshRateEnable{false};
     bool m_isAutoLightAdjust{false};
     bool m_AutoLightAdjustIsValid{false};

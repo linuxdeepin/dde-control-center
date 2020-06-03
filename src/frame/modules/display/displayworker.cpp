@@ -78,26 +78,30 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     connect(&m_displayInter, &DisplayInter::CurrentCustomIdChanged, model, &DisplayModel::setCurrentConfig);
     connect(&m_displayInter, &DisplayInter::CustomIdListChanged, model, &DisplayModel::setConfigList);
     connect(&m_displayInter, &DisplayInter::MaxBacklightBrightnessChanged, model, &DisplayModel::setmaxBacklightBrightness);
+    connect(&m_displayInter, &DisplayInter::ColorTemperatureModeChanged, model, &DisplayModel::setAdjustCCTmode);
+    connect(&m_displayInter, &DisplayInter::ColorTemperatureManualChanged, model, &DisplayModel::setColorTemperature);
 //    connect(&m_displayInter, &DisplayInter::HasCustomConfigChanged, model, &DisplayModel::setHasConfig);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
 
     ///////display redSfit/autoLight
     connect(m_powerInter, &PowerInter::HasAmbientLightSensorChanged,
             m_model, &DisplayModel::autoLightAdjustVaildChanged);
-    connect(m_powerInter, &PowerInter::AmbientLightAdjustBrightnessChanged,
-            m_model, &DisplayModel::setAutoLightAdjust);
+    /*connect(m_powerInter, &PowerInter::AmbientLightAdjustBrightnessChanged,
+            m_model, &DisplayModel::setAutoLightAdjust);*/
     connect(m_mouseInter, &MouseInter::LeftHandedChanged, m_model, &DisplayModel::setMouseLeftHand);
 
     onMonitorsBrightnessChanged(m_displayInter.brightness());
     model->setScreenHeight(m_displayInter.screenHeight());
     model->setScreenWidth(m_displayInter.screenWidth());
+    model->setAdjustCCTmode(m_displayInter.colorTemperatureMode());
+    model->setColorTemperature(m_displayInter.colorTemperatureManual());
     model->setmaxBacklightBrightness(m_displayInter.maxBacklightBrightness());
     model->setConfigList(m_displayInter.customIdList());
     model->setCurrentConfig(m_displayInter.currentCustomId());
 //    model->setHasConfig(m_displayInter.hasCustomConfig());
 
     m_model->setAutoLightAdjustIsValid(m_powerInter->hasAmbientLightSensor());
-    m_model->setAutoLightAdjust(m_powerInter->ambientLightAdjustBrightness());
+    //m_model->setAutoLightAdjust(m_powerInter->ambientLightAdjustBrightness());
 
     m_model->setMouseLeftHand(m_mouseInter->leftHanded());
 
@@ -506,6 +510,16 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
     }
     m_displayInter.ApplyChanges().waitForFinished();
 }
+
+void DisplayWorker::setColorTemperature(int value)
+{
+    m_displayInter.SetColorTemperature(value);
+}
+
+void DisplayWorker::SetMethodAdjustCCT(int mode)
+{
+    m_displayInter.SetMethodAdjustCCT(mode);
+}
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 {
     MonitorInter *inter = m_monitors.value(mon);
@@ -590,7 +604,7 @@ void DisplayWorker::setNightMode(const bool nightmode)
                    .arg(serverCmd)
                    .arg(cmd));
 
-    m_model->setRedshiftSetting(nightmode);
+    //m_model->setRedshiftSetting(nightmode);
 }
 
 //void DisplayWorker::loadRotations(Monitor * const mon)
@@ -725,7 +739,7 @@ void DisplayWorker::monitorRemoved(const QString &path)
 
 void DisplayWorker::updateNightModeStatus()
 {
-    QProcess *process = new QProcess;
+    /*QProcess *process = new QProcess;
 
     connect(process, &QProcess::readyRead, this, [ = ] {
         m_model->setIsNightMode(process->readAll().replace("\n", "") == "active");
@@ -734,7 +748,7 @@ void DisplayWorker::updateNightModeStatus()
         process->deleteLater();
     });
 
-    process->start("systemctl", QStringList() << "--user" << "is-active" << "redshift.service");
+    process->start("systemctl", QStringList() << "--user" << "is-active" << "redshift.service");*/
 }
 
 void DisplayWorker::onGSettingsChanged(const QString &key)

@@ -31,7 +31,6 @@
 #include "widgets/dccslider.h"
 #include "widgets/switchwidget.h"
 #include "widgets/titledslideritem.h"
-
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QList>
@@ -55,11 +54,17 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->setSpacing(10);
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
 
+    m_tempratureColorTitle = new TitleLabel(tr("Color Temperature"));     //亮度
+    auto font = m_tempratureColorTitle->font();
+    font.setWeight(QFont::DemiBold);
+    m_tempratureColorTitle->setFont(font);
+    m_centralLayout->addWidget(m_tempratureColorTitle, 0, Qt::AlignLeft);
+
     m_nightShift = new SwitchWidget;
     //~ contents_path /display/Brightness
     m_nightShift->setTitle(tr("Night Shift"));
+    m_nightShift->addBackground();
     m_centralLayout->addWidget(m_nightShift);
-
 ///    //~ contents_path /display/Brightness
     m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"));
     m_nightTips->setWordWrap(true);
@@ -68,9 +73,17 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_nightTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     m_nightTips->setContentsMargins(10, 0, 0, 0);
     m_centralLayout->addWidget(m_nightTips);
+    //~ contents_path /display/Brightness
 
+
+    m_nightManual = new SwitchWidget;
+    //~ contents_path /display/Brightness
+    m_nightManual->setTitle(tr("Change Color Temperature"));
+    m_nightManual->addBackground();
+    m_centralLayout->addWidget(m_nightManual);
     m_autoLightMode = new SwitchWidget;
     //~ contents_path /display/Brightness
+
     m_autoLightMode->setTitle(tr("Auto Brightness"));
     m_centralLayout->addWidget(m_autoLightMode);
 
@@ -82,34 +95,71 @@ void BrightnessPage::setMode(DisplayModel *model)
     m_displayModel = model;
 
     connect(m_autoLightMode, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestAmbientLightAdjustBrightness);
-    connect(m_displayModel, &DisplayModel::nightModeChanged, m_nightShift, &SwitchWidget::setChecked);
+    connect(m_displayModel, &DisplayModel::adjustCCTmodeChanged, this, [ = ](int  mode) {
+        setAdjustCCTmode(mode);
+    });
     connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_nightShift, &SwitchWidget::setVisible);
+    connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_tempratureColorTitle, &TitleLabel::setVisible);
+
     connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_nightTips, &QLabel::setVisible);
 
-    connect(m_nightShift, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestSetNightMode);
-    connect(m_displayModel, &DisplayModel::redshiftSettingChanged, m_nightShift->switchButton(), &DSwitchButton::setDisabled);
+    connect(m_nightManual, &SwitchWidget::checkedChanged, this, [ = ](const bool   enable) {
+        if(enable == true) {
+            Q_EMIT requestSetMethodAdjustCCT(2);
+        }
+        else
+             Q_EMIT requestSetMethodAdjustCCT(0);
+    });
+    connect(m_nightShift, &SwitchWidget::checkedChanged, this, [ = ](const bool   enable) {
+        if(enable == true) {
+            Q_EMIT requestSetMethodAdjustCCT(1);
+        }
+        else
+            Q_EMIT requestSetMethodAdjustCCT(0);
+    });
     connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, m_autoLightMode, &SwitchWidget::setVisible);
     connect(m_displayModel, &DisplayModel::autoLightAdjustSettingChanged, m_autoLightMode, &SwitchWidget::setChecked);
 
     m_autoLightMode->setVisible(model->autoLightAdjustIsValid());
     m_autoLightMode->setChecked(model->isAudtoLightAdjust());
-
+    int cctmode = model->adjustCCTMode(); //0不调节色温  1  自动调节   2手动调节
     m_nightShift->setVisible(model->redshiftIsValid());
+    m_tempratureColorTitle->setVisible(model->redshiftIsValid());
+    m_nightManual->setVisible(model->redshiftIsValid());
     m_nightTips->setVisible(model->redshiftIsValid());
-    m_nightShift->setChecked(model->isNightMode());
-    m_nightShift->setDisabled(model->redshiftSetting());
-
+    setAdjustCCTmode(cctmode);
     addSlider();
     m_centralLayout->addStretch(1);
+}
+
+void BrightnessPage::setAdjustCCTmode(int mode)
+{
+    m_nightShift->blockSignals(true);
+    m_nightManual->blockSignals(true);
+    m_nightShift->switchButton()->setChecked(mode == 1);
+    m_nightManual->switchButton()->setChecked(mode == 2);
+    if(m_cctItem){
+        m_cctItem->blockSignals(true);
+        m_cctItem->setVisible(m_displayModel->adjustCCTMode() ==2);
+        m_cctItem->blockSignals(false);
+    }
+
+    m_nightShift->blockSignals(false);
+    m_nightManual->blockSignals(false);
 }
 
 void BrightnessPage::addSlider()
 {
     auto monList = m_displayModel->monitorList();
-
+    TitleLabel *headTitle = new TitleLabel(tr("Brigntness"));     //亮度
+    auto font = headTitle->font();
+    font.setWeight(QFont::DemiBold);
+    headTitle->setFont(font);
+    m_centralLayout->insertWidget(0, headTitle, 0, Qt::AlignLeft);
     for (int i = 0; i < monList.size(); ++i) {
         //单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name());
+
         slideritem->addBackground();
         DCCSlider *slider = slideritem->slider();
         int maxBacklight = (int)m_displayModel->maxBacklightBrightness();
@@ -118,7 +168,6 @@ void BrightnessPage::addSlider()
             int miniScale = int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
             double brightness = monList[i]->brightness();
             slideritem->setValueLiteral(brightnessToTickInterval(brightness));
-
             slider->setRange(miniScale, int(BrightnessMaxScale));
             slider->setType(DCCSlider::Vernier);
             slider->setTickPosition(QSlider::TicksBelow);
@@ -129,9 +178,10 @@ void BrightnessPage::addSlider()
             slider->setValue(int(brightness * BrightnessMaxScale));
             slider->setPageStep(1);
 
+
             auto onValueChanged = [ = ](int pos) {
-            this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
-            this->requestAmbientLightAdjustBrightness(false);
+                this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
+                this->requestAmbientLightAdjustBrightness(false);
             };
 
             connect(slider, &DCCSlider::valueChanged, this, onValueChanged);
@@ -139,27 +189,27 @@ void BrightnessPage::addSlider()
 
             connect(monList[i], &Monitor::brightnessChanged, this, [ = ](const double rb) {
                 slider->blockSignals(true);
-            if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
-                slideritem->setValueLiteral(QString("%1%").arg(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale)));
-                slider->setValue(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
-            } else {
-                slideritem->setValueLiteral(QString("%1%").arg(int(rb * BrightnessMaxScale)));
-                slider->setValue(int(rb * BrightnessMaxScale));
-            }
-            slider->blockSignals(false);
+                if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
+                    slideritem->setValueLiteral(QString("%1%").arg(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale)));
+                    slider->setValue(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
+                } else {
+                    slideritem->setValueLiteral(QString("%1%").arg(int(rb * BrightnessMaxScale)));
+                    slider->setValue(int(rb * BrightnessMaxScale));
+                }
+                slider->blockSignals(false);
             });
 
             connect(m_displayModel, &DisplayModel::minimumBrightnessScaleChanged,
                     this, [ = ](const double ms) {
-            double rb = monList[i]->brightness();
-            int tmini = int(ms * PercentageNum);
-            slider->setMinimum(tmini);
-            slider->setTickInterval(int((BrightnessMaxScale - tmini) / 5.0));
+                double rb = monList[i]->brightness();
+                int tmini = int(ms * PercentageNum);
+                slider->setMinimum(tmini);
+                slider->setTickInterval(int((BrightnessMaxScale - tmini) / 5.0));
 
-            slider->blockSignals(true);
-            slideritem->setValueLiteral(brightnessToTickInterval(rb));
-            slider->setValue(int(rb * BrightnessMaxScale));
-            slider->blockSignals(false);
+                slider->blockSignals(true);
+                slideritem->setValueLiteral(brightnessToTickInterval(rb));
+                slider->setValue(int(rb * BrightnessMaxScale));
+                slider->blockSignals(false);
             });
         }
         else {
@@ -170,8 +220,6 @@ void BrightnessPage::addSlider()
             }
             double brightness = monList[i]->brightness();
             //slideritem->setValueLiteral(brightnessToTickInterval(brightness));
-
-
             slider->setRange(miniScale, maxBacklight);
             slider->setType(DCCSlider::Vernier);
             slider->setTickPosition(QSlider::TicksBelow);
@@ -221,8 +269,49 @@ void BrightnessPage::addSlider()
                 slider->blockSignals(false);
             });
         }
-        m_centralLayout->addWidget(slideritem);
+        m_centralLayout->insertWidget(1, slideritem);
     }
+    m_cctItem = new TitledSliderItem("", this);
+    m_cctItem->addBackground();
+    DCCSlider *cctSlider = m_cctItem->slider();
+    cctSlider->setRange(0, 100);
+    cctSlider->setType(DCCSlider::Vernier);
+    cctSlider->setTickPosition(QSlider::TicksBelow);
+    cctSlider->setTickInterval(10);
+    cctSlider->setPageStep(1);
+    cctSlider->setValue(colorTemperatureToValue(m_displayModel->colorTemperature()));
+    if(m_displayModel->redshiftIsValid()) {
+        m_cctItem->setVisible(m_displayModel->adjustCCTMode() ==2);
+    }
+    else
+        m_cctItem->setVisible(false);
+    connect(m_displayModel, &DisplayModel::colorTemperatureChanged, this, [ = ](int  value) {
+        cctSlider->blockSignals(true);
+        cctSlider->setValue(colorTemperatureToValue(value));
+        cctSlider->blockSignals(false);
+    });
+
+    connect(cctSlider, &DCCSlider::valueChanged, this, [ = ](int pos) {
+        int kelvin = pos > 50 ? (6500 - (pos - 50) * 100) : (6500 + (50 - pos) * 300);
+        this->requestSetColorTemperature(kelvin);
+    });
+    QStringList fscaleList ;
+    fscaleList << tr("Cool") << tr("Warm");
+
+    m_cctItem->setAnnotations(fscaleList);
+    m_centralLayout->addWidget(m_cctItem);
+}
+
+int BrightnessPage::colorTemperatureToValue(int kelvin)
+{
+    //色温范围有效值10000-25000  值越大，色温越冷，不开启色温时值为6500,超过18000基本看不出变化，小于1500色温实际效果没法看，无实际价值
+    //此处取有效至1500-21500
+    if (kelvin >= 6500)
+        return 50 - (kelvin - 6500) / 300;
+    else if (kelvin < 6500 && kelvin >= 1000)
+        return 50 - (kelvin - 6500) / 100;
+    else
+        return 0;
 }
 
 QString BrightnessPage::brightnessToTickInterval(const double tb) const

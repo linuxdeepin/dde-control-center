@@ -76,6 +76,8 @@ public Q_SLOTS:
     void applyChanges();
     //响应自定义模式下，禁用/启用指定屏幕并排列位置
     void onMonitorEnable(Monitor *monitor, const bool enabled);
+    void setColorTemperature(int value);
+    void SetMethodAdjustCCT(int mode);
 
 #ifndef DCC_DISABLE_ROTATE
     void setMonitorRotateAll(const quint16 rotate);

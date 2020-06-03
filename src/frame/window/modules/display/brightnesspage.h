@@ -23,9 +23,10 @@
 #define BRIGHTNESSPAGE_H_V20
 
 #include "interface/namespace.h"
+#include "widgets/titlelabel.h"
 
 #include <DTipLabel>
-
+#include <dswitchbutton.h>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -60,14 +61,17 @@ public:
 
 public:
     void setMode(dcc::display::DisplayModel *model);
+    void setAdjustCCTmode(int mode);
 
 Q_SIGNALS:
     void requestSetMonitorBrightness(dcc::display::Monitor *, const double);
     void requestSetNightMode(bool);
     void requestAmbientLightAdjustBrightness(bool);
-
+    void requestSetColorTemperature(int value);
+    void requestSetMethodAdjustCCT(int mode);
 private:
     void addSlider();
+    int colorTemperatureToValue(int kelvin);
     QString brightnessToTickInterval(const double tb) const;
 
 private:
@@ -75,9 +79,11 @@ private:
 
     QVBoxLayout *m_centralLayout{nullptr};
     DTK_WIDGET_NAMESPACE::DTipLabel *m_nightTips{nullptr};
+    TitleLabel *m_tempratureColorTitle;
     QList<dcc::widgets::TitledSliderItem *> m_sliders;
-
+    dcc::widgets::TitledSliderItem*  m_cctItem{nullptr};
     dcc::widgets::SwitchWidget *m_nightShift{nullptr};
+    dcc::widgets::SwitchWidget *m_nightManual{nullptr};
     dcc::widgets::SwitchWidget *m_autoLightMode{nullptr};
 };
 

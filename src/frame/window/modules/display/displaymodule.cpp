@@ -153,13 +153,13 @@ void DisplayModule::showBrightnessPage()
 
     BrightnessPage *page = new BrightnessPage;
     page->setMode(m_displayModel);
-
+    connect(page, &BrightnessPage::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
     connect(page, &BrightnessPage::requestSetMonitorBrightness,
             m_displayWorker, &DisplayWorker::setMonitorBrightness);
     connect(page, &BrightnessPage::requestAmbientLightAdjustBrightness,
             m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
-    connect(page, &BrightnessPage::requestSetNightMode,
-            m_displayWorker, &DisplayWorker::setNightMode);
+    connect(page, &BrightnessPage::requestSetMethodAdjustCCT,
+                m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
 
     m_frameProxy->pushWidget(this, page);
 }
