@@ -388,7 +388,7 @@ void CustomSettingDialog::initMoniList()
         }
         if (m_displayComboxWidget == nullptr) {
             m_displayComboxWidget = new ComboxWidget(m_displaylist);
-            m_displayComboxWidget->setTitle("Main Screen");
+            m_displayComboxWidget->setTitle(tr("Main Screen"));
             m_displaylist->appendItem(m_displayComboxWidget);
             m_layout->setAlignment(m_displayComboxWidget, Qt::AlignLeft);
         } else {
