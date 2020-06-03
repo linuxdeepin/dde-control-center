@@ -126,8 +126,8 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         const QString type = info.value("ConnectionType").toString();
         const bool isHotspot = type == "wireless-hotspot";
         const bool isWireless = type == "wireless";
-        QJsonObject hotspotInfo;
-        hotspotInfo = info.value("Hotspot").toObject();
+        const QJsonObject &hotspotInfo = info.value("Hotspot").toObject();
+
         if (isHotspot) {
             SettingsHead *head = new SettingsHead();
             head->setTitle(tr("Hotspot"));
@@ -144,10 +144,32 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             head->setEditEnable(false);
             grp->appendItem(head, SettingsGroup::NoneBackground);
         }
+
+        if (isWireless) {
+            // protocol
+            const QString &protocol = info.value("Protocol").toString();
+            if (!protocol.isEmpty())
+                appendInfo(grp, tr("Protocol"), protocol);
+
+            // security type
+            const QString &securityType = info.value("Security").toString();
+            appendInfo(grp, tr("Security Type"), securityType);
+
+            // band
+            const QString &band = hotspotInfo.value("Band").toString();
+            QString bandInfo = band == "a" ? "5G" : (band == "bg" ? "2.4G" : "automatic");
+            appendInfo(grp, tr("Band"), bandInfo);
+
+            // channel
+            const QString &channel = QString::number(hotspotInfo.value("Channel").toInt());
+            if (!channel.isEmpty())
+                appendInfo(grp, tr("Channel"), channel);
+        }
+
         // encrypt method
-        if (isHotspot || isWireless) {
+        if (isHotspot) {
             const QString securityType = info.value("Security").toString();
-            appendInfo(grp, tr("Security"), securityType);
+            appendInfo(grp, tr("Security Type"), securityType);
         }
         // device interface
         const auto device = info.value("DeviceInterface").toString();
@@ -157,24 +179,11 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         const QString mac = info.value("HwAddress").toString();
         if (!mac.isEmpty())
             appendInfo(grp, tr("MAC"), mac);
-        //protocol
-        const QString protocol = info.value("Protocol").toString();
-        if (!protocol.isEmpty())
-            appendInfo(grp, tr("Protocol"), protocol);
-        //channel
-        const QString channel = QString::number(hotspotInfo.value("Channel").toInt());
-        if (!channel.isEmpty())
-            appendInfo(grp, tr("Channel"), channel);
         // band
         if (isHotspot) {
             const QString band = hotspotInfo.value("Band").toString();
             appendInfo(grp, tr("Band"), band);
         } else {
-            if (isWireless) {
-                const QString band = hotspotInfo.value("Band").toString();
-                QString bandInfo = band == "a" ? "5G" : (band == "bg" ? "2.4G" : "automatic");
-                appendInfo(grp, tr("Band"), bandInfo);
-            }
             // ipv4 info
             const auto ipv4 = info.value("Ip4").toObject();
             if (!ipv4.isEmpty()) {
