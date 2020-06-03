@@ -30,6 +30,7 @@
 
 #include <QObject>
 #include <QMap>
+#include "modules/display/displaymodel.h"
 
 static const QMap<QString, QString> DisplaykeyMap = { {"exclam", "!"}, {"at", "@"}, {"numbersign", "#"}, {"dollar", "$"}, {"percent", "%"},
     {"asciicircum", "^"}, {"ampersand", "&"}, {"asterisk", "*"}, {"parenleft", "("},
@@ -123,6 +124,7 @@ private:
     QList<ShortcutInfo *> m_searchList;
     ShortcutInfo *m_currentInfo;
     bool m_windowSwitchState;
+    dcc::display::DisplayModel m_dis;
 };
 
 }
