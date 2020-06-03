@@ -40,7 +40,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_lowBatteryMode(new SwitchWidget(tr("Power Saving Mode")))
-    , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto Mode Switch")))
+    , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on battery")))
     , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer")))
     , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor")))
 {
@@ -52,7 +52,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     //~ contents_path /power/General
     m_lowBatteryMode->setTitle(tr("Power Saving Mode"));
     //~ contents_path /power/General
-    m_autoIntoSaveEnergyMode->setTitle(tr("Auto Mode Switch"));
+    m_autoIntoSaveEnergyMode->setTitle(tr("Auto power saving on battery"));
     //~ contents_path /power/General
     m_wakeComputerNeedPassword->setTitle(tr("Password is required to wake up the computer"));
     //~ contents_path /power/General
