@@ -63,9 +63,9 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
 
 
     //--------------------sp2 add----------------------------
-    connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeAutoWhenQuantifyLowChanged, m_powerModel, &PowerModel::setPowerSavingModeAutoWhenQuantifyLow);
+    connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeAutoWhenBatteryLowChanged, m_powerModel, &PowerModel::setPowerSavingModeAutoWhenQuantifyLow);
     connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setPowerSavingModeAuto);
-    connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeLowerBrightnessThresholdChanged, m_powerModel, &PowerModel::setPowerSavingModeLowerBrightnessThreshold);
+    connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeBrightnessDropPercentChanged, m_powerModel, &PowerModel::setPowerSavingModeLowerBrightnessThreshold);
     connect(m_powerInter, &PowerInter::LinePowerPressPowerBtnActionChanged, m_powerModel, &PowerModel::setLinePowerPressPowerBtnAction);
     connect(m_powerInter, &PowerInter::LinePowerLidClosedActionChanged, m_powerModel, &PowerModel::setLinePowerLidClosedAction);
     connect(m_powerInter, &PowerInter::BatteryPressPowerBtnActionChanged, m_powerModel, &PowerModel::setBatteryPressPowerBtnAction);
@@ -96,8 +96,8 @@ void PowerWorker::active(bool isSync)
     m_powerModel->setSleepOnLidOnPowerClose(m_powerInter->lidClosedSleep());
 //    m_powerModel->setSleepOnLidOnBatteryClose(m_powerInter->batteryLidClosedSleep());
     m_powerModel->setHaveBettary(m_sysPowerInter->hasBattery());
-    m_powerModel->setPowerSavingModeAutoWhenQuantifyLow(m_sysPowerInter->powerSavingModeAutoWhenQuantifyLow());
-    m_powerModel->setPowerSavingModeLowerBrightnessThreshold(m_sysPowerInter->powerSavingModeLowerBrightnessThreshold());
+    m_powerModel->setPowerSavingModeAutoWhenQuantifyLow(m_sysPowerInter->powerSavingModeAutoWhenBatteryLow());
+    m_powerModel->setPowerSavingModeLowerBrightnessThreshold(m_sysPowerInter->powerSavingModeBrightnessDropPercent());
     m_powerModel->setLowPowerAutoSleepThreshold(m_powerInter->lowPowerAutoSleepThreshold());
     m_powerModel->setLowPowerNotifyThreshold(m_powerInter->lowPowerNotifyThreshold());
     m_powerModel->setLinePowerPressPowerBtnAction(m_powerInter->linePowerPressPowerBtnAction());
@@ -197,7 +197,7 @@ void PowerWorker::setResponsePowerLockScreenDelay(const int delay)
 
 void PowerWorker::setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode)
 {
-    m_sysPowerInter->setPowerSavingModeAutoWhenQuantifyLow(bLowBatteryAutoIntoSaveEnergyMode);
+    m_sysPowerInter->setPowerSavingModeAutoWhenBatteryLow(bLowBatteryAutoIntoSaveEnergyMode);
 }
 
 void PowerWorker::setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode)
@@ -207,7 +207,7 @@ void PowerWorker::setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode)
 
 void PowerWorker::setPowerSavingModeLowerBrightnessThreshold(int dPowerSavingModeLowerBrightnessThreshold)
 {
-    m_sysPowerInter->setPowerSavingModeLowerBrightnessThreshold(dPowerSavingModeLowerBrightnessThreshold);
+    m_sysPowerInter->setPowerSavingModeBrightnessDropPercent(dPowerSavingModeLowerBrightnessThreshold);
 }
 
 void PowerWorker::setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction)
