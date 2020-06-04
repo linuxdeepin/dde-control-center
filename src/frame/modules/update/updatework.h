@@ -94,7 +94,7 @@ public Q_SLOTS:
 
     void refreshHistoryAppsInfo();
     void refreshLastTimeAndCheckCircle();
-    void setBootAutoCheckUpdate(const bool bootCheck);
+    void setUpdateNotify(const bool notify);
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
     void setDownloadJob(const QString &jobPath);

@@ -374,9 +374,15 @@ bool UpdateModel::enterCheckUpdate()
     return QDateTime::fromString(m_lastCheckUpdateTime, "yyyy-MM-dd hh:mm:ss").secsTo(QDateTime::currentDateTime()) > m_autoCheckUpdateCircle * 3600;
 }
 
-void UpdateModel::setBootAutoCheckUpdate(const bool bootCheck)
+void UpdateModel::setUpdateNotify(const bool notify)
 {
-    m_bootAutoCheckUpdate = bootCheck;
+    if (m_updateNotify == notify) {
+        return;
+    }
+
+    m_updateNotify = notify;
+
+    Q_EMIT updateNotifyChanged(notify);
 }
 
 }
