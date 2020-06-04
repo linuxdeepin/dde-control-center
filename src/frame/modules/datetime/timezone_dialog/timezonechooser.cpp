@@ -61,7 +61,8 @@ TimeZoneChooser::TimeZoneChooser()
     , m_cancelBtn(new QPushButton(tr("Cancel")))
     , m_confirmBtn(new DSuggestButton(tr("Confirm")))
 {
-    setWindowFlags(Qt::Dialog | Qt::WindowStaysOnTopHint);
+//    setWindowFlags(Qt::Dialog | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
 

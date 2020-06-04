@@ -221,6 +221,13 @@ void TimezoneMap::remark() {
     const int zone_dy = zone_pos.y() - dot_->height() / 2 - kDotVerticalMargin;
     const QPoint zone_pin_relative_pos(zone_pos.x(), zone_dy);
     const QPoint zone_pin_pos(this->mapToParent(zone_pin_relative_pos));
+
+    if (zone_pin_pos.x() < 100) {
+        // 左侧位置不够，箭头放到左边
+        zone_pin_->setArrowDirection(TooltipPin::ArrowLeft);
+    } else {
+        zone_pin_->setArrowDirection(TooltipPin::ArrowDown);
+    }
     zone_pin_->popup(zone_pin_pos);
 
     const QPoint dot_relative_pos(zone_pos.x() - dot_->width() / 2,
