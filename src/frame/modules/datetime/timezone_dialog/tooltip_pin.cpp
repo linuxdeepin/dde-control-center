@@ -97,7 +97,7 @@ void TooltipPin::paintEvent(QPaintEvent* event) {
         trianglePolygon << QPoint(10, 0);
         trianglePolygon << QPoint(0, 8);
         trianglePolygon << QPoint(10, 18);
-        painter.drawRoundedRect(QRect(QPoint(5, 0), QSize(kWidth - kTriangleHeight, kHeight / 2 + 3)), 8, 8);
+        painter.drawRoundedRect(QRect(QPoint(7, 0), QSize(kWidth - kTriangleHeight, kHeight / 2 + 3)), 4, 4);
         // Rect + Triangle;
         arrowPath.addPolygon(trianglePolygon);
         painter.drawPath(arrowPath);
