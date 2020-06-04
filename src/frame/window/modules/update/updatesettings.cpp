@@ -59,16 +59,16 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
     SettingsGroup *ug = new SettingsGroup;
 
-    m_bootCheckUpdate = new SwitchWidget;
-    m_bootCheckUpdate->setTitle(tr("Check for Updates"));
-
     m_autoCleanCache = new SwitchWidget;
     //~ contents_path /update/Update Settings
     m_autoCleanCache->setTitle(tr("Clear Package Cache"));
 
     m_autoCheckUpdate = new SwitchWidget;
     //~ contents_path /update/Update Settings
-    m_autoCheckUpdate->setTitle(tr("Updates Notification"));
+    m_autoCheckUpdate->setTitle(tr("Check for Updates"));
+
+    m_updateNotify = new SwitchWidget;
+    m_updateNotify->setTitle(tr("Updates Notification"));
 
     m_autoDownloadSwitch = new SwitchWidget;
     m_autoDownloadSwitch->setTitle(tr("Download Updates"));
@@ -116,9 +116,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 #endif
 
     ug->setSpacing(List_Interval);
-    ug->appendItem(m_bootCheckUpdate);
-    ug->appendItem(m_autoCleanCache);
     ug->appendItem(m_autoCheckUpdate);
+    ug->appendItem(m_autoCleanCache);
+    ug->appendItem(m_updateNotify);
     ug->appendItem(m_autoDownloadSwitch);
 
     layout->addWidget(ug);
@@ -191,9 +191,8 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
     connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
     connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCheckUpdates);
+    connect(m_updateNotify, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetUpdateNotify);
     connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
-    connect(m_bootCheckUpdate, &SwitchWidget::checkedChanged, m_model, &UpdateModel::setBootAutoCheckUpdate);
-    connect(m_bootCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetBootAutoCheck);
     //connect(m_setTimerLbl, &QLabel::linkActivated,);
     //connect(m_setFreeTimeLbl, &QLabel::linkActivated,);
     //定时、闲时下载功能需添加时再显示
@@ -245,15 +244,15 @@ void UpdateSettings::setModel(UpdateModel *model)
     connect(model, &UpdateModel::autoDownloadUpdatesChanged, this, setAutoDownload);
     connect(model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoDownloadSwitch, &SwitchWidget::setVisible);
-    connect(model, &UpdateModel::autoCheckUpdatesChanged, m_updateLbl, &DTipLabel::setVisible);
-    connect(model, &UpdateModel::bootAutoCheckChanged, m_bootCheckUpdate, &SwitchWidget::setChecked);
+    connect(model, &UpdateModel::updateNotifyChanged, m_updateNotify, &SwitchWidget::setChecked);
+    connect(model, &UpdateModel::updateNotifyChanged, m_autoDownloadSwitch, &SwitchWidget::setVisible);
+    connect(model, &UpdateModel::updateNotifyChanged, m_updateLbl, &DTipLabel::setVisible);
 
-    m_autoDownloadSwitch->setVisible(model->autoCheckUpdates());
+    m_autoDownloadSwitch->setVisible(model->updateNotify());
     m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
+    m_updateNotify->setChecked(model->updateNotify());
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
-    m_updateLbl->setVisible(model->autoCheckUpdates());
-    m_bootCheckUpdate->setChecked(m_model->bootAutoCheckUpdate());
+    m_updateLbl->setVisible(model->updateNotify());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal") {

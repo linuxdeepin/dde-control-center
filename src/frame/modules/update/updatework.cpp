@@ -126,6 +126,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     connect(m_updateInter, &__Updater::AutoDownloadUpdatesChanged, m_model, &UpdateModel::setAutoDownloadUpdates);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
     connect(m_updateInter, &UpdateInter::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoCheckUpdates);
+    connect(m_updateInter, &UpdateInter::UpdateNotifyChanged, m_model, &UpdateModel::setUpdateNotify);
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
 
@@ -258,6 +259,7 @@ void UpdateWorker::activate()
     m_model->setAutoCleanCache(m_managerInter->autoClean());
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
+    m_model->setUpdateNotify(m_updateInter->updateNotify());
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
 #endif
@@ -652,10 +654,6 @@ void UpdateWorker::downloadAndDistUpgrade()
 void UpdateWorker::setAutoCheckUpdates(const bool autocheckUpdates)
 {
     m_updateInter->SetAutoCheckUpdates(autocheckUpdates);
-
-    if (!autocheckUpdates) {
-        setAutoDownloadUpdates(false);
-    }
 }
 
 void UpdateWorker::setAutoDownloadUpdates(const bool &autoDownload)
@@ -1200,5 +1198,13 @@ void UpdateWorker::refreshLastTimeAndCheckCircle()
     m_model->setLastCheckUpdateTime(checkTime);
 }
 
+void UpdateWorker::setUpdateNotify(const bool notify)
+{
+    m_updateInter->SetUpdateNotify(notify);
+
+    if (!notify) {
+        setAutoDownloadUpdates(false);
+    }
+}
 }
 }
