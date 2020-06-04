@@ -32,14 +32,13 @@ namespace systeminfo{
 
 static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision = 1)
 {
-    static QString type[] = {" B", " KB", " MB", " GB", " TB"};
-
+    static QStringList type = {" B", " KB", " MB", " GB", " TB"};
     qulonglong lc = cap;
     double dc = cap;
     double ds = size;
 
-    for(size_t p = 0; p < sizeof(type); ++p) {
-        if (cap < pow(size, p + 1) || p == sizeof(type) - 1) {
+    for(size_t p = 0; p < type.count(); ++p) {
+        if (cap < pow(size, p + 1) || p == type.count() - 1) {
             if (!precision) {
                 return QString::number(round(lc / pow(size, p))) + type[p];
             }
