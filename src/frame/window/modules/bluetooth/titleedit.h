@@ -23,7 +23,11 @@
 
 #include "interface/namespace.h"
 
+#include <DLineEdit>
+
 #include <QWidget>
+
+DWIDGET_USE_NAMESPACE
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -48,7 +52,7 @@ public Q_SLOTS:
 
 private:
     QLabel *m_name;
-    QLineEdit *m_lineEdit;
+    DLineEdit *m_lineEdit;
 };
 }
 }
