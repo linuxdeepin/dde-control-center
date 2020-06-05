@@ -77,6 +77,9 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_softwareListView->setViewportMargins(ScrollAreaMargins);
     m_softwareListView->setModel(m_softwaremodel);
     m_softwareListView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
+    m_softwareListView->setViewportMargins(QMargins(0, 0, 15, 0));
+    m_softwareListView->setSpacing(0);
+    m_softwareListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     m_theme = m_model->getTheme();
 
@@ -89,7 +92,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     connect(m_softwareListView, &DListView::activated, m_softwareListView, &QListView::clicked);
 
     connect(m_model, &NotificationModel::appListChanged, this, &NotificationWidget::refreshList);
-    connect(m_model, &NotificationModel::themeChanged, this, [ = ](const QString &theme) {
+    connect(m_model, &NotificationModel::themeChanged, this, [ = ](const QString & theme) {
         m_theme = theme;
     });
 }
