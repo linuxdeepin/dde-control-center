@@ -34,7 +34,7 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetting, bool isHotSpot, QFrame *parent)
-    : AbstractSection(tr("WLAN"), parent)
+    : AbstractSection("WLAN", parent)
     , m_apSsid(new LineEditWidget(this))
     , m_deviceMacLine(new ComboxWidget(this))
     //, m_clonedMac(new LineEditWidget(this))

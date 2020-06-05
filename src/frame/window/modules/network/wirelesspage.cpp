@@ -304,7 +304,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 #ifdef QT_DEBUG
     setTitle(m_device->path());
 #else
-    setTitle(tr("WLAN"));
+    setTitle("WLAN");
 #endif
 
     connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex &idx) {
