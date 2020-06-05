@@ -80,7 +80,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
         listView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listView->setBackgroundType(DStyledItemDelegate::ClipCornerBackground);
-        listView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        listView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         listView->setViewportMargins(ScrollAreaMargins);
         listView->setSpacing(1);
     };
@@ -95,10 +95,11 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     label->setContentsMargins(titleLeftMargin, 0, 0, 0);
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     contentLayout->addWidget(label);
+    contentLayout->addSpacing(10);
     m_inputList = new DListView;
     setListFucn(m_inputList);
     contentLayout->addWidget(m_inputList);
-    contentLayout->addStretch();
+    contentLayout->addStretch(10);
 
     connect(m_inputList, &DListView::clicked, this, [this](const QModelIndex & idx) {
         this->requestSetPort(m_inputList->model()->data(idx, Qt::WhatsThisPropertyRole).value<const Port *>());
@@ -137,6 +138,12 @@ void AdvancedPage::initList()
     for (auto port : ports) {
         addPort(port);
     }
+}
+
+void AdvancedPage::resizeEvent(QResizeEvent *event)
+{
+    m_inputList->setFixedWidth(this->width());
+    m_outputList->setFixedWidth(this->width());
 }
 
 void AdvancedPage::addPort(const Port *port)

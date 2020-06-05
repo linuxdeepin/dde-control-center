@@ -67,6 +67,8 @@ private Q_SLOTS:
 
 private:
     void initList();
+protected:
+    void resizeEvent(QResizeEvent *event) override;
 
 private:
     QScrollArea *m_contentArea{nullptr};
