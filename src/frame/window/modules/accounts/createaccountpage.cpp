@@ -561,6 +561,12 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
         return false;
     }
 
+    if(username.contains(QRegExp("^\\d+$"))) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Your username should not only have numbers"), -1);
+        return false;
+    }
+
     if (!validateUsername(username)) {
         edit->setAlert(true);
         return false;
