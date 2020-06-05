@@ -43,6 +43,7 @@ using namespace dcc::widgets;
 #include "widgets/dccslider.h"
 
 #include <DStyle>
+#include <DFontSizeManager>
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -59,7 +60,9 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_sw(new SwitchWidget)
 {
     QHBoxLayout *hlayout = new QHBoxLayout;
-    m_sw = new SwitchWidget(nullptr, new TitleLabel(tr("Microphone")));
+    TitleLabel *lblTitle = new TitleLabel(tr("Microphone"));
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
+    m_sw = new SwitchWidget(nullptr, lblTitle);
     hlayout->addWidget(m_sw);
 
     m_layout->setSpacing(25);

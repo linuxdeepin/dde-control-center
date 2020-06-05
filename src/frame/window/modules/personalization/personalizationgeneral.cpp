@@ -31,6 +31,7 @@
 #include <DStyle>
 #include <DSwitchButton>
 #include <DPalette>
+#include <DFontSizeManager>
 #include <DApplicationHelper>
 
 #include <QVBoxLayout>
@@ -73,6 +74,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     //appearance
     //~ contents_path /personalization/General
     QLabel *themeL = new TitleLabel(tr("Theme"));
+    DFontSizeManager::instance()->bind(themeL, DFontSizeManager::T5, QFont::DemiBold);
     themeL->setMargin(10);
     m_centralLayout->addWidget(themeL);
     //pictures and types
@@ -82,6 +84,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     //active colors
     //~ contents_path /personalization/General
     QLabel *activeL = new TitleLabel(tr("Accent Color"));
+    DFontSizeManager::instance()->bind(activeL, DFontSizeManager::T5, QFont::DemiBold);
     activeL->setMargin(10);
     m_centralLayout->addWidget(activeL);
 

@@ -27,6 +27,7 @@
 
 #include <DStyle>
 #include <DTipLabel>
+#include <DFontSizeManager>
 
 #include <QAction>
 #include <QHBoxLayout>
@@ -43,7 +44,9 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
 {
-    m_sw = new SwitchWidget(nullptr, new TitleLabel(tr("Speaker")));
+    TitleLabel *lblTitle = new TitleLabel(tr("Speaker"));
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
+    m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->setAccessibleName(tr("Speaker"));
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);

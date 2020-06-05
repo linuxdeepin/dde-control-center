@@ -67,7 +67,7 @@ void AppNotifyWidget::initUI()
 
     QHBoxLayout *hLayoutAllowNotify = new QHBoxLayout;
     DLabel *lblAllowNotify = new DLabel(m_model->getAppModel(m_index)->getAppName());
-    DFontSizeManager::instance()->bind(lblAllowNotify, DFontSizeManager::T3);
+    DFontSizeManager::instance()->bind(lblAllowNotify, DFontSizeManager::T5, QFont::DemiBold);
     hLayoutAllowNotify->addWidget(lblAllowNotify, Qt::AlignLeft);
     hLayoutAllowNotify->addWidget(m_btnAllowNotify, Qt::AlignRight);
     mainLayout->addLayout(hLayoutAllowNotify);
@@ -83,7 +83,7 @@ void AppNotifyWidget::initUI()
     m_settingsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_settingsGrp->setContentsMargins(0, 0, 0, 0);
     m_settingsGrp->layout()->setMargin(0);
-    m_settingsGrp->setSpacing(4);
+    m_settingsGrp->setSpacing(1);
 
     m_itemNotifySound = new NotificationItem;
     m_itemNotifySound->setTitle(tr("Play a sound"));
