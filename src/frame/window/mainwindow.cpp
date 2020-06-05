@@ -49,6 +49,7 @@
 #include <DIconButton>
 #include <DApplicationHelper>
 #include <DSlider>
+#include <DStyledItemDelegate>
 
 #include <QScrollArea>
 #include <QHBoxLayout>
@@ -123,6 +124,11 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setEditTriggers(QListView::NoEditTriggers);
     m_navView->setResizeMode(QListView::Adjust);
     m_navView->setAutoScroll(true);
+
+    DStyledItemDelegate * styledItemDelegate = static_cast<DStyledItemDelegate *>(m_navView->itemDelegate());
+    if (styledItemDelegate) {
+        styledItemDelegate->setBackgroundType(DStyledItemDelegate::NoBackground);
+    }
 
     QScroller::grabGesture(m_navView->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_navView->viewport());
