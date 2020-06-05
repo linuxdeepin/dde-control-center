@@ -124,6 +124,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         swswitchLayout->addWidget(m_wmSwitch);
         winEffectVLayout->addWidget(switem);
         switem->setVisible(false);
+        winEffectVLayout->setContentsMargins(0, 0, 0, 0);
 
         //~ contents_path /personalization/General
         m_transparentSlider = new dcc::widgets::TitledSliderItem(tr("Transparency"));

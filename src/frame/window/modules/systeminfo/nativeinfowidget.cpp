@@ -117,7 +117,7 @@ void NativeInfoWidget::initWidget()
     m_mainLayout->setSpacing(10);
     m_mainLayout->addWidget(logoGroup);
     m_mainLayout->addWidget(infoGroup);
-    m_mainLayout->addStretch();
+    m_mainLayout->addStretch(10);
     setLayout(m_mainLayout);
 
     connect(m_model, &SystemInfoModel::versionChanged, this, &NativeInfoWidget::setEdition);

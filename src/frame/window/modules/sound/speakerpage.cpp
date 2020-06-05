@@ -164,6 +164,7 @@ void SpeakerPage::initSlider()
     connect(volumeBoost, &SwitchWidget::checkedChanged, this, &SpeakerPage::requestIncreaseVolume);
     hlayout->addWidget(volumeBoost);
     volumeBoost->setVisible(false);//去掉音量增强
+    hlayout->setContentsMargins(0, 0, 0, 0);
 
     //下方提示
     auto volumeBoostTip = new DTipLabel(tr("If the volume is louder than 100%, it may distort audio and be harmful to your speaker"), this);

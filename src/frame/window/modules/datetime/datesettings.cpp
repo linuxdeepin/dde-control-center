@@ -80,6 +80,7 @@ DateSettings::DateSettings(QWidget *parent)
 
     //~ contents_path /datetime/Time Settings
     m_autoSyncTimeSwitch->setTitle(tr("Auto Sync"));
+    m_autoSyncTimeSwitch->addBackground();
 
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
