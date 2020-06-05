@@ -153,7 +153,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         slider->setPageStep(1);
         winEffectVLayout->addWidget(m_transparentSlider);
 
-        m_cmbMiniEffect->setTitle(tr("Window Miniminze Effect"));
+        m_cmbMiniEffect->setTitle(tr("Window Minimize Effect"));
         m_cmbMiniEffect->addBackground();
         QStringList options;
         options << tr("Scale") << tr("Magic Lamp");
