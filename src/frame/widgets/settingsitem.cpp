@@ -26,6 +26,7 @@
 #include "widgets/settingsitem.h"
 
 #include <DPalette>
+#include <DStyle>
 
 #include <QStyle>
 #include <QVBoxLayout>
@@ -66,6 +67,7 @@ void SettingsItem::addBackground()
     m_bgGroup->setContentsMargins(0, 0, 0, 0);
     m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
     m_bgGroup->setLineWidth(0);
+    DStyle::setFrameRadius(m_bgGroup, 8);
 
     //将 m_bgGroup 沉底
     m_bgGroup->lower();
