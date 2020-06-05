@@ -75,12 +75,12 @@ void Device::setPaired(bool paired)
     }
 }
 
-void Device::setState(const State &state, bool paired)
+void Device::setState(const State &state, bool connectState)
 {
-    if (state != m_state || m_connectState != paired) {
+    if (state != m_state || m_connectState != connectState) {
         m_state = state;
-        m_connectState = paired;
-        Q_EMIT stateChanged(state, paired);
+        m_connectState = connectState;
+        Q_EMIT stateChanged(state, connectState);
     }
 }
 
