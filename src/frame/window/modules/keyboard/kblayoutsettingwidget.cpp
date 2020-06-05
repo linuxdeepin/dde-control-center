@@ -50,11 +50,14 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
     mainLayout->setMargin(0);
+    mainLayout->setSpacing(List_Interval);
     QHBoxLayout *headLayout = new QHBoxLayout();
     headLayout->setMargin(0);
+
     TitleLabel *headTitle = new TitleLabel(tr("Keyboard Layout"));
     headLayout->addWidget(headTitle);
     headLayout->addStretch();
+
     m_editKBLayout = new DCommandLinkButton(tr("Edit"));
     headLayout->addWidget(m_editKBLayout);
     mainLayout->addLayout(headLayout);

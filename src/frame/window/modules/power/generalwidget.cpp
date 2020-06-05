@@ -54,7 +54,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     , m_showBatteryCapacity(new SwitchWidget(tr("Show battery capacity")))
     , m_batteryCapacity(new TitleValueItem)
     , m_lowBatteryMode(new SwitchWidget(tr("Power Saving Mode")))
-    , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto Mode Switch")))
+    , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on battery")))
     , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer")))
     , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor")))
     , m_titleWidget(new QLabel(tr("Battery")))
@@ -67,7 +67,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     //~ contents_path /power/General
     m_lowBatteryMode->setTitle(tr("Power Saving Mode"));
     //~ contents_path /power/General
-    m_autoIntoSaveEnergyMode->setTitle(tr("Auto Mode Switch"));
+    m_autoIntoSaveEnergyMode->setTitle(tr("Auto power saving on battery"));
     //~ contents_path /power/General
     m_wakeComputerNeedPassword->setTitle(tr("Password is required to wake up the computer"));
     //~ contents_path /power/General
@@ -91,11 +91,10 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     saveEnergySettingsGrp->appendItem(m_autoIntoSaveEnergyMode);
     saveEnergySettingsGrp->appendItem(m_sldLowerBrightness);
     //Power Saving Mode tittle
-    TitleLabel *label = new TitleLabel(tr("Power Saving Mode Settings"));
-    DFontSizeManager::instance()->bind(label, DFontSizeManager::T3);
+    TitleLabel *label = new TitleLabel(tr("Power Saving Settings"));
+    DFontSizeManager::instance()->bind(label, DFontSizeManager::T5, QFont::DemiBold);
     m_layEnergySavingMode->addWidget(label);
     m_layEnergySavingMode->addWidget(saveEnergySettingsGrp);
-    m_layEnergySavingMode->addSpacing(10);
     //---------------------------------------------------------
     //add battery info
     m_powerShowTimeToFull->setTitle(tr("Display capacity and remaining charging time"));
@@ -103,7 +102,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     QDBusInterface inter("com.deepin.system.Power", "/com/deepin/system/Power", "com.deepin.system.Power", QDBusConnection::systemBus());
     double capacity = inter.property("BatteryCapacity").toDouble();
     m_ShowTimeToFullTips->setText(QString::number(int(capacity)) + "%");
-    DFontSizeManager::instance()->bind(m_titleWidget, DFontSizeManager::T3, 65);
+    DFontSizeManager::instance()->bind(m_titleWidget, DFontSizeManager::T5, QFont::DemiBold);
     m_titleWidget->setMargin(5);
     //-------------------------------------------------------
     generalSettingsGrp->appendItem(m_wakeComputerNeedPassword);
@@ -115,14 +114,13 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     m_powerShowTimeToFull->setVisible(bIsBattery);
     m_ShowTimeToFullTips->setVisible(bIsBattery);
     m_layout->addLayout(m_layEnergySavingMode);
-    label = new TitleLabel(tr("Wakeup Setting"));
-    DFontSizeManager::instance()->bind(label, DFontSizeManager::T3);
+    label = new TitleLabel(tr("Wakeup Settings"));
+    DFontSizeManager::instance()->bind(label, DFontSizeManager::T5, QFont::DemiBold);
     m_layout->addWidget(label);
     m_layout->addWidget(generalSettingsGrp);
-    m_layout->setSpacing(5);
+    m_layout->setSpacing(List_Interval);
     m_layout->setMargin(0);
     m_layout->setAlignment(Qt::AlignTop);
-    m_layout->setSpacing(5);
 //    setLayout(m_layout);
     ContentWidget *contentWgt = new ContentWidget;
     QWidget *mainWgt = new TranslucentFrame;

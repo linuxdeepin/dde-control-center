@@ -52,8 +52,8 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     , m_settingWidget(nullptr)
 {
     QVBoxLayout *layout = new QVBoxLayout();
-    layout->setSpacing(20);
     layout->setMargin(0);
+    layout->setSpacing(List_Interval);
 
     QHBoxLayout *headLayout = new QHBoxLayout();
     headLayout->setMargin(0);

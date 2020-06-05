@@ -68,10 +68,11 @@ AdvancedPage::AdvancedPage(QWidget *parent)
 
     const int titleLeftMargin = 15;
     //~ contents_path /sound/Advanced
-    TitleLabel *label = new TitleLabel(tr("Output"));
-    label->setContentsMargins(titleLeftMargin, 0, 0, 0);
-    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    contentLayout->addWidget(label);
+    TitleLabel *labelOutput = new TitleLabel(tr("Output"));
+    DFontSizeManager::instance()->bind(labelOutput, DFontSizeManager::T5, QFont::DemiBold);
+    labelOutput->setContentsMargins(titleLeftMargin, 0, 0, 0);
+    labelOutput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    contentLayout->addWidget(labelOutput);
 
     auto setListFucn = [](DListView * listView) {
         listView->setEditTriggers(DListView::NoEditTriggers);
@@ -92,11 +93,11 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     contentLayout->addSpacing(10);
 
     //~ contents_path /sound/Advanced
-    label = new TitleLabel(tr("Input"));
-    label->setContentsMargins(titleLeftMargin, 0, 0, 0);
-    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    contentLayout->addWidget(label);
-    contentLayout->addSpacing(10);
+    TitleLabel *labelInput = new TitleLabel(tr("Input"));
+    DFontSizeManager::instance()->bind(labelInput, DFontSizeManager::T5, QFont::DemiBold);
+    labelInput->setContentsMargins(titleLeftMargin, 0, 0, 0);
+    labelInput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    contentLayout->addWidget(labelInput);
     m_inputList = new DListView;
     m_inputList->setAccessibleName("List_inputlist");
     setListFucn(m_inputList);
