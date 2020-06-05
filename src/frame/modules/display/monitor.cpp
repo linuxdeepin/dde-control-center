@@ -158,7 +158,7 @@ bool compareResolution(const Resolution &first, const Resolution &second)
     if (firstSum > secondSum)
         return true;
     else if (firstSum == secondSum) {
-        if (first.rate() - second.rate() > 0.000001)
+        if ((first.rate() - second.rate()) > 0.000001)
             return true;
         else
             return false;
