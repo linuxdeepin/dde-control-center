@@ -61,6 +61,15 @@ CommonInfoModule::~CommonInfoModule()
     m_commonModel = nullptr;
 }
 
+void CommonInfoModule::preInitialize(bool sync)
+{
+#ifdef DCC_DISABLE_GRUB
+    m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), false);
+#else
+    m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), true);
+#endif
+}
+
 void CommonInfoModule::initialize()
 {
     m_commonModel = new CommonInfoModel();
