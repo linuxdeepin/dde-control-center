@@ -49,7 +49,8 @@ SystemRestore::SystemRestore(BackupAndRestoreModel* model, QWidget *parent)
 
     backupBtn->setChecked(true);
 
-    connect(m_backupPage, &ManualBackup::requestSetBackupDirectory, this, &SystemRestore::requestSetBackupDirectory);
+    connect(m_backupPage, &ManualBackup::requestSetManualBackupDirectory, this, &SystemRestore::requestSetManualBackupDirectory);
+    connect(m_backupPage, &ManualBackup::requestSetSystemBackupDirectory, this, &SystemRestore::requestSetSystemBackupDirectory);
     connect(m_restorePage, &ManualRestore::requestManualRestore, this, &SystemRestore::requestManualRestore);
     connect(m_restorePage, &ManualRestore::requestSystemRestore, this, &SystemRestore::requestSystemRestore);
 }

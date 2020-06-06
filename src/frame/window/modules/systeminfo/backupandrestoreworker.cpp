@@ -43,6 +43,25 @@ void BackupAndRestoreWorker::manualBackup(const QString &directory)
     m_model->setBackupButtonEnabled(false);
 }
 
+void BackupAndRestoreWorker::systemBackup(const QString &directory)
+{
+    m_model->setBackupDirectory(directory);
+
+    QFutureWatcher<ErrorType> *watcher = new QFutureWatcher<ErrorType>(this);
+    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher] {
+        const ErrorType type = watcher->result();
+        qDebug() << Q_FUNC_INFO << "result type: " << type;
+        m_model->setManualBackupErrorType(type);
+        m_model->setBackupButtonEnabled(true);
+        watcher->deleteLater();
+    });
+
+    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doSystemBackup);
+    watcher->setFuture(future);
+
+    m_model->setBackupButtonEnabled(false);
+}
+
 void BackupAndRestoreWorker::manualRestore(const QString &directory)
 {
     m_model->setRestoreDirectory(directory);
@@ -103,6 +122,41 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
     if (process->exitCode() == 5) {
         return ErrorType::SpaceError;
     }
+
+    if (process->exitCode() != 0) {
+        return ErrorType::ToolError;
+    }
+
+    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
+    watcher->waitForFinished();
+    if (watcher->isError()) {
+        qWarning() << Q_FUNC_INFO << watcher->error();
+        return ErrorType::GrubError;
+    }
+
+    QThread::sleep(5);
+
+    DDBusSender()
+    .service("com.deepin.dde.shutdownFront")
+    .path("/com/deepin/dde/shutdownFront")
+    .interface("com.deepin.dde.shutdownFront")
+    .method("Restart")
+    .call();
+
+    return ErrorType::NoError;
+}
+
+ErrorType BackupAndRestoreWorker::doSystemBackup()
+{
+    const QString& choosePath { m_model->backupDirectory()};
+
+    if (choosePath.isEmpty() || !choosePath.startsWith("/media")) {
+        return ErrorType::PathError;
+    }
+
+    QSharedPointer<QProcess> process(new QProcess);
+    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_backup" << "--path" << choosePath);
+    process->waitForFinished(-1);
 
     if (process->exitCode() != 0) {
         return ErrorType::ToolError;

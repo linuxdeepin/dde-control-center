@@ -19,7 +19,8 @@ public:
     SystemRestore(BackupAndRestoreModel* model, QWidget *parent = nullptr);
 
 Q_SIGNALS:
-    void requestSetBackupDirectory(const QString& path);
+    void requestSetManualBackupDirectory(const QString& path);
+    void requestSetSystemBackupDirectory(const QString& path);
     void requestSystemRestore(bool formatData) const;
     void requestManualRestore(const QString& directory) const;
 

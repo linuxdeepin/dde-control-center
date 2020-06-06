@@ -256,20 +256,6 @@ void ManualRestore::restore()
             return;
         }
 
-
-        //don't format data(save user data)
-        if (!formatData) {
-            DDialog reboot;
-
-            reboot.setMessage(tr("The username created after system restore must be consistent with the one used when backup"));
-
-            reboot.addButton(tr("Cancel"));
-            buttonIndex = reboot.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
-            if (buttonIndex != reboot.exec()) {
-                return;
-            }
-        }
-
         Q_EMIT requestSystemRestore(formatData);
         m_loadingIndicator->setVisible(true);
         m_backupBtn->setVisible(false);

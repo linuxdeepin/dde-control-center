@@ -19,11 +19,13 @@ public:
 
 public Q_SLOTS:
     void manualBackup(const QString& directory);
+    void systemBackup(const QString& directory);
     void manualRestore(const QString& directory);
     void systemRestore(bool formatData);
 
 private:
     ErrorType doManualBackup();
+    ErrorType doSystemBackup();
     ErrorType doManualRestore();
     ErrorType doSystemRestore();
 
