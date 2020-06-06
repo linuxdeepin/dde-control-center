@@ -146,6 +146,7 @@ SearchWidget::SearchWidget(QWidget *parent)
         {tr("Wired Network"), "Wired Network"},
         {tr("Wireless Network"), "WirelessPage"},
         {tr("Multiple Displays"), "Multiple Displays"},
+        {tr("Boot Menu"), "Boot Menu"},
     };
 
     //用于区分可移除设备数据，和常驻设备数据（记录页面信息）
