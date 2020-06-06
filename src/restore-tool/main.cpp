@@ -64,6 +64,7 @@ QStringList userList() {
 enum class ActionType {
     Null,
     ManualBackup,
+    SystemBackup,
     ManualRestore,
     SystemRestore,
 };
@@ -96,6 +97,7 @@ int main(int argc, char *argv[])
 
     const QMap<QString, ActionType> typeMap {
         {"manual_backup", ActionType::ManualBackup},
+        {"system_backup", ActionType::SystemBackup},
         {"manual_restore", ActionType::ManualRestore},
         {"system_restore", ActionType::SystemRestore}
     };
@@ -176,7 +178,7 @@ int main(int argc, char *argv[])
         rootUUID = getUUID(QString("%1/backup/system.info").arg(mountPoint));
     }
 
-    if (actionType == ActionType::ManualBackup || actionType == ActionType::ManualRestore) {
+    if (actionType == ActionType::ManualBackup || actionType == ActionType::SystemBackup || actionType == ActionType::ManualRestore) {
         QProcess* findRealtive = new QProcess;
         findRealtive->setProgram("mount");
         findRealtive->setArguments({"-f"});
@@ -235,9 +237,12 @@ int main(int argc, char *argv[])
         }
 
         if (actionType == ActionType::ManualBackup) {
-            return "Backup";
+            return "ManualBackup";
         }
 
+        if (actionType == ActionType::SystemBackup) {
+            return "SystemBackup";
+        }
         Q_UNREACHABLE();
     }();
 
@@ -253,7 +258,7 @@ int main(int argc, char *argv[])
                 QJsonObject{
                     { "message", "fix bootloader order" },
                     { "progress", false },
-                    { "enable", actionType == ActionType::ManualBackup },
+                    { "enable", actionType == ActionType::ManualBackup || actionType == ActionType::SystemBackup},
                     { "command", "fix-bootloader" },
                     { "args", QJsonArray{ QString("UUID:%1").arg(bootUUID),
                                           QString("UUID:%1").arg(rootUUID),
@@ -289,9 +294,19 @@ int main(int argc, char *argv[])
                              { "args", QJsonArray{ QString("UUID:%1").arg(UUID),
                                                    "backup/system.dim",
                                                    QString("UUID:%1").arg(rootUUID) } } },
+                QJsonObject{ { "message", "starting backup root & boot partition" },
+                             { "progress", true },
+                             { "enable", actionType == ActionType::SystemBackup },
+                             { "command", "create-backup-image" },
+                             { "args", QJsonArray{ QString("UUID:%1").arg(bootUUID),
+                                                   QString("UUID:%1").arg(realtiveUUID),
+                                                   QString("%1/%2").arg(realtivePath).arg(timeDirectory),
+                                                   "boot.dim",
+                                                   "boot.md5"
+                                                  } } },
                 QJsonObject{ { "message", "starting backup root partition" },
                              { "progress", true },
-                             { "enable", actionType == ActionType::ManualBackup },
+                             { "enable", actionType == ActionType::ManualBackup || actionType == ActionType::SystemBackup},
                              { "command", "create-backup-image" },
                              { "args", QJsonArray{ QString("UUID:%1").arg(rootUUID),
                                                    QString("UUID:%1").arg(realtiveUUID),

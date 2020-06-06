@@ -1,17 +1,24 @@
 #include "manualbackup.h"
 #include "backupandrestoremodel.h"
 
+#include <DFontSizeManager>
+#include <DListView>
+#include <DStandardItem>
+
 #include <QVBoxLayout>
 #include <QLabel>
 #include <DBackgroundGroup>
 #include <QPushButton>
+#include <QStandardItemModel>
 #include <QDir>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::systeminfo;
+DWIDGET_USE_NAMESPACE
 
 ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     : QWidget(parent)
+    , m_actionType(ActionType::ManualBackup)
     , m_model(model)
     , m_directoryChooseWidget(new DFileChooserEdit)
     , m_tipsLabel(new QLabel)
@@ -24,25 +31,37 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     mainLayout->setMargin(0);
     mainLayout->setSpacing(5);
 
-    QHBoxLayout* chooseLayout = new QHBoxLayout;
-    chooseLayout->setMargin(0);
-    chooseLayout->setSpacing(0);
-    chooseLayout->addWidget(new QLabel(tr("Set backup directory")), 0, Qt::AlignVCenter);
-    chooseLayout->addSpacing(5);
-    chooseLayout->addWidget(m_directoryChooseWidget, 0, Qt::AlignVCenter);
+    QLabel *backupType = new QLabel(tr("Backup Type"));
+    QLabel *savePath = new QLabel(tr("Save to"));
+    DFontSizeManager::instance()->bind(backupType, DFontSizeManager::T3);
+    DFontSizeManager::instance()->bind(savePath, DFontSizeManager::T3);
+    DListView *backupTypeView = new DListView;
+    backupTypeView->setMaximumHeight(80);
+    backupTypeView->setItemSpacing(5);
+    backupTypeView->setFrameShape(QFrame::NoFrame);
+    backupTypeView->setViewportMargins({});
+    backupTypeView->setMovement(QListView::Static);
+    backupTypeView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
+    backupTypeView->setAutoScroll(false);
+    backupTypeView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    backupTypeView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    backupTypeView->setSelectionMode(QAbstractItemView::NoSelection);
 
-    QWidget* bgWidget = new QWidget;
-    bgWidget->setLayout(chooseLayout);
+    QStandardItemModel *itemModel = new QStandardItemModel;
+    DStandardItem *manualBackupItem = new DStandardItem;
+    DStandardItem *systemBackupItem = new DStandardItem;
+    manualBackupItem->setCheckState(Qt::Checked);
+    manualBackupItem->setText(tr("Full Backup"));
+    systemBackupItem->setText(tr("System Backup"));
+    itemModel->appendRow(manualBackupItem);
+    itemModel->appendRow(systemBackupItem);
+    backupTypeView->setModel(itemModel);
 
-    QVBoxLayout* bgLayout = new QVBoxLayout;
-    bgLayout->addWidget(bgWidget);
+    mainLayout->addWidget(backupType, 0);
+    mainLayout->addWidget(backupTypeView, 0, Qt::AlignVCenter);
+    mainLayout->addWidget(savePath, 0, Qt::AlignLeft);
+    mainLayout->addWidget(m_directoryChooseWidget);
 
-    DBackgroundGroup* bgGroup = new DBackgroundGroup;
-    bgGroup->setLayout(bgLayout);
-    bgGroup->setBackgroundRole(QPalette::Window);
-    bgGroup->setItemSpacing(1);
-
-    mainLayout->addWidget(bgGroup);
     mainLayout->addWidget(m_tipsLabel);
     mainLayout->addStretch();
     mainLayout->addWidget(m_backupBtn);
@@ -66,6 +85,14 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
         m_backupBtn->setEnabled(model->backupButtonEnabled() && !text.isEmpty());
     });
     connect(model, &BackupAndRestoreModel::manualBackupErrorTypeChanged, this, &ManualBackup::onManualBackupErrorTypeChanged);
+
+    connect(backupTypeView, &DListView::clicked, this, [ = ](const QModelIndex &index){
+        for (int i = 0; i < itemModel->rowCount(); i++) {
+            itemModel->item(i, 0)->setCheckState(Qt::Unchecked);
+        }
+        itemModel->item(index.row(), 0)->setCheckState(Qt::Checked);
+        m_actionType = index.row() > 0 ? ActionType::SystemBackup : ActionType::ManualBackup;
+    });
 
     m_backupBtn->setEnabled(!model->backupDirectory().isEmpty());
     m_backupBtn->setVisible(model->backupButtonEnabled());
@@ -98,7 +125,10 @@ void ManualBackup::backup()
     if (!choosePath.isEmpty()) {
         m_backupBtn->setVisible(false);
         m_loadingIndicator->setVisible(true);
-        Q_EMIT requestSetBackupDirectory(choosePath);
+        if (m_actionType == ActionType::ManualBackup)
+            Q_EMIT requestSetManualBackupDirectory(choosePath);
+        else
+            Q_EMIT requestSetSystemBackupDirectory(choosePath);
     }
 }
 

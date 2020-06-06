@@ -21,7 +21,8 @@ public:
     explicit ManualBackup(BackupAndRestoreModel* model, QWidget* parent = nullptr);
 
 Q_SIGNALS:
-    void requestSetBackupDirectory(const QString& path);
+    void requestSetManualBackupDirectory(const QString& path);
+    void requestSetSystemBackupDirectory(const QString& path);
 
 private Q_SLOTS:
     void onChoose();
@@ -29,6 +30,11 @@ private Q_SLOTS:
     void onManualBackupErrorTypeChanged(ErrorType type);
 
 private:
+    enum class ActionType{
+        ManualBackup,
+        SystemBackup
+    };
+    ActionType m_actionType;
     BackupAndRestoreModel* m_model;
     DFileChooserEdit* m_directoryChooseWidget;
     QLabel          * m_tipsLabel;

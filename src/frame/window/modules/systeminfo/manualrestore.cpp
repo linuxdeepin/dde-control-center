@@ -258,23 +258,6 @@ void ManualRestore::restore()
             }
         }
 
-        DDialog reboot;
-
-        if (formatData) {
-            reboot.setMessage(tr("You should reboot the computer to erase all content and settings, reboot now?"));
-        }
-        else {
-            reboot.setMessage(tr("You should reboot the computer to reset all settings, reboot now?"));
-        }
-
-        reboot.addButton(tr("Cancel"));
-        {
-            int result = reboot.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
-            if (reboot.exec() != result) {
-                return;
-            }
-        }
-
         Q_EMIT requestSystemRestore(formatData);
         m_loadingIndicator->setVisible(true);
         m_backupBtn->setVisible(false);

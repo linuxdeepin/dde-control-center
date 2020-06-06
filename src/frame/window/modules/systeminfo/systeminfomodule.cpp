@@ -135,7 +135,8 @@ void SystemInfoModule::onShowEndUserLicenseAgreementPage()
 
 void SystemInfoModule::onShowSystemRestore() {
     SystemRestore* restore = new SystemRestore(m_backupAndRestoreModel);
-    connect(restore, &SystemRestore::requestSetBackupDirectory, m_backupAndRestoreWorker, &BackupAndRestoreWorker::manualBackup);
+    connect(restore, &SystemRestore::requestSetManualBackupDirectory, m_backupAndRestoreWorker, &BackupAndRestoreWorker::manualBackup);
+    connect(restore, &SystemRestore::requestSetSystemBackupDirectory, m_backupAndRestoreWorker, &BackupAndRestoreWorker::systemBackup);
     connect(restore, &SystemRestore::requestManualRestore, m_backupAndRestoreWorker, &BackupAndRestoreWorker::manualRestore);
     connect(restore, &SystemRestore::requestSystemRestore, m_backupAndRestoreWorker, &BackupAndRestoreWorker::systemRestore);
 
