@@ -360,6 +360,7 @@ void DisplayWorker::onCreateConfigFinshed(QDBusPendingCallWatcher *w)
     const QString &name = w->property("ConfigName").toString();
 
     Q_EMIT m_model->configCreated(name);
+    m_model->setDisplayMode(0);
 
     w->deleteLater();
 }
@@ -505,6 +506,8 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
             Q_ASSERT(m_monitors.contains(mon));
             auto *mInter = m_monitors[mon];
             mInter->SetPosition(xOffset, 0).waitForFinished();
+            monitor->setW(xOffset);
+            monitor->setH(0);
             xOffset += mon->w();
         }
     }
