@@ -51,6 +51,7 @@ public:
         void focusOutEvent(QFocusEvent *) override
         {
             clear();
+            update();
         }
     };
 Q_SIGNALS:
