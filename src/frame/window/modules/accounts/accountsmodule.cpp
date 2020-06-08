@@ -205,13 +205,13 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 {
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
     dlg->setFingerModel(m_fingerModel);
+    dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
     dlg->setUsername(name);
-
+    m_pMainWindow = static_cast<MainWindow *>(m_frameProxy);
     connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [ = ] {
         m_fingerWorker->startEnroll(name, thumb);
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
-
     QEventLoop eventLoop(this);
     QFutureWatcher<bool> watcher(this);
 
@@ -238,8 +238,25 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 //        });
 //        errorDialog->deleteLater();
 
+        connect(dlg, &AddFingeDialog::requesetCloseDlg, this, [=](const QString &thumb) {
+            m_fingerWorker->refreshUserEnrollList(thumb);
+            if (m_pMainWindow) {
+                m_pMainWindow->setEnabled(true);
+            }
+            dlg->deleteLater();
+        });
+        if (m_fingerWorker->tryEnroll(name, thumb)) {
+            if (m_pMainWindow) {
+                m_pMainWindow->setEnabled(false);
+            }
+            dlg->show();
+            dlg->setFocus();
+            dlg->activateWindow();
+        } else {
+            m_fingerWorker->stopEnroll(name);
+            dlg->deleteLater();
+        }
     }
-    dlg->deleteLater();
 }
 
 void AccountsModule::onHandleVaildChanged(const bool isVaild)

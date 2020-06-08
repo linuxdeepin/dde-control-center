@@ -22,6 +22,7 @@
 #pragma once
 
 #include "interface/moduleinterface.h"
+#include "../../mainwindow.h"
 
 #include <com_deepin_daemon_accounts.h>
 
@@ -72,6 +73,7 @@ private:
     dcc::accounts::FingerWorker *m_fingerWorker{nullptr};
     dcc::accounts::FingerModel *m_fingerModel{nullptr};
     AccountsWidget *m_accountsWidget = nullptr;
+    MainWindow *m_pMainWindow = nullptr;
 };
 
 }   // namespace accounts
