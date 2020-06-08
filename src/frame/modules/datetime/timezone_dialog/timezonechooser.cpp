@@ -162,6 +162,7 @@ TimeZoneChooser::TimeZoneChooser()
         m_popup = completer->popup();
         m_popup->setObjectName("TimezoneCompleter");
         m_popup->setAttribute(Qt::WA_TranslucentBackground);
+        m_popup->setWindowFlags(Qt::Popup | Qt::Sheet);
         m_popup->installEventFilter(this);
 
         DBlurEffectWidget *blurEffect = new DBlurEffectWidget(m_popup);
