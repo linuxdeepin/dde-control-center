@@ -91,6 +91,10 @@
 #include "./modules/network/networkdetailpage.h"
 #include "./modules/network/hotspotpage.h"
 
+#include "./modules/notification/notificationwidget.h"
+#include "./modules/notification/systemnotifywidget.h"
+#include "./modules/notification/appnotifywidget.h"
+
 #include "./modules/power/powerwidget.h"
 #include "./modules/power/generalwidget.h"
 #include "./modules/power/useelectricwidget.h"
@@ -247,6 +251,12 @@ SET_FORM_ACCESSIBLE(PowerWidget, "PowerWidget")
 SET_FORM_ACCESSIBLE(GeneralWidget, "GeneralWidget")
 SET_FORM_ACCESSIBLE(UseElectricWidget, "UseElectricWidget")
 SET_FORM_ACCESSIBLE(UseBatteryWidget, "UseBatteryWidget")
+
+// 通知模块
+using namespace DCC_NAMESPACE::notification;
+SET_FORM_ACCESSIBLE(NotificationWidget, "NotificationWidget");
+SET_FORM_ACCESSIBLE(SystemNotifyWidget, "SystemNotifyWidget");
+SET_FORM_ACCESSIBLE(AppNotifyWidget, "AppNotifyWidget");
 
 // 声音模块
 using namespace DCC_NAMESPACE::sound;
