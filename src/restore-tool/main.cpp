@@ -319,7 +319,7 @@ int main(int argc, char *argv[])
                              { "enable", actionType == ActionType::ManualRestore },
                              { "command", "restore-partitions" },
                              { "args", QJsonArray{ QString("UUID:%1").arg(realtiveUUID),
-                                                   QString("%1/system.dim").arg(realtivePath),
+                                                   QString("%1").arg(realtivePath),
                                                    QString("UUID:%1").arg(rootUUID)
                                                   } } },
                 QJsonObject{ { "message", "restore user info" },
