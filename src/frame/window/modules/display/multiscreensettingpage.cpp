@@ -82,10 +82,10 @@ void MultiScreenSettingPage::onItemClicked(const QModelIndex &index)
         break;
     }
 
-    if (index.row() == m_listModel->rowCount() - 1) {
+    /*if (index.row() == m_listModel->rowCount() - 1) {
         Q_EMIT requestCustomMode();
         return;
-    }
+    }*/
 
     auto moniName = m_model->monitorList()[index.row() - 2]->name();
     Q_EMIT requestOnlyMonitor(moniName);
@@ -113,9 +113,12 @@ void MultiScreenSettingPage::onDisplayModeChanged()
         }
         break;
     }
-    case CUSTOM_MODE:
-        m_currIdx = m_listModel->index(m_listModel->rowCount() - 1, 0);
-        break;
+    case CUSTOM_MODE: {
+        m_modeList->clearSelection();
+        return;
+        /*m_currIdx = m_listModel->index(m_listModel->rowCount() - 1, 0);*/
+        //break;
+        }
     }
 
     if (m_currIdx.isValid())
@@ -142,9 +145,9 @@ void MultiScreenSettingPage::initModeList()
         iconList << (i % 2 ? "dcc_display_vga1" : "dcc_display_lvds1");
     }
 
-    titleList << tr("Customize");
+    /*titleList << tr("Customize");
     subTitleList << tr("Configure the display according to your needs");
-    iconList << "dcc_display_custom";
+    iconList << "dcc_display_custom";*/
 
     for (int idx = 0; idx < titleList.size(); ++idx) {
         auto item = new DStandardItem;
