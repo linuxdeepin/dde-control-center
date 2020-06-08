@@ -73,6 +73,7 @@ Q_SIGNALS:
     void requestStopEnroll(const QString &thumb);
     void requestReEnrollThumb();
     void requestEnrollThumb();
+    void requesetCloseDlg(const QString &name);
 
 private:
     QTimer *m_timer;

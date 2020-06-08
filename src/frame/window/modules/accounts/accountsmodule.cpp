@@ -205,28 +205,31 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
     m_fingerModel->resetProgress();
     dlg->setFingerModel(m_fingerModel);
+    dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
     dlg->setUsername(name);
-
+    m_pMainWindow = static_cast<MainWindow *>(m_frameProxy);
     connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [ = ] {
         m_fingerWorker->startEnroll(name, thumb);
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
-
+    connect(dlg, &AddFingeDialog::requesetCloseDlg, this, [=](const QString &thumb) {
+        m_fingerWorker->refreshUserEnrollList(thumb);
+        if (m_pMainWindow) {
+            m_pMainWindow->setEnabled(true);
+        }
+        dlg->deleteLater();
+    });
     if (m_fingerWorker->tryEnroll(name, thumb)) {
-        dlg->exec();
-        m_fingerWorker->refreshUserEnrollList(name);
+        if (m_pMainWindow) {
+            m_pMainWindow->setEnabled(false);
+        }
+        dlg->show();
+        dlg->setFocus();
+        dlg->activateWindow();
     } else {
         m_fingerWorker->stopEnroll(name);
-        //V20更改设备抢占方法，已经不需要该弹窗
-//        DDialog* errorDialog = new DDialog();
-//        errorDialog->setMessage(tr("The device is in use or cannot be connected"));
-//        errorDialog->exec();
-//        connect(errorDialog, &DDialog::closed, m_fingerWorker, [ = ] {
-//           m_fingerWorker->stopEnroll(name);
-//        });
-//        errorDialog->deleteLater();
+        dlg->deleteLater();
     }
-    dlg->deleteLater();
 }
 
 void AccountsModule::onHandleVaildChanged(const bool isVaild)

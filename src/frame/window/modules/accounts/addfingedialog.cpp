@@ -233,6 +233,7 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
     if (m_isEnrolling) {
         Q_EMIT requestStopEnroll(m_username);
     }
+    Q_EMIT requesetCloseDlg(m_username);
     QDialog::closeEvent(event);
 }
 
