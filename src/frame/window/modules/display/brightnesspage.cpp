@@ -151,7 +151,7 @@ void BrightnessPage::setAdjustCCTmode(int mode)
 void BrightnessPage::addSlider()
 {
     auto monList = m_displayModel->monitorList();
-    TitleLabel *headTitle = new TitleLabel(tr("Brigntness"));     //亮度
+    TitleLabel *headTitle = new TitleLabel(tr("Brightness"));     //亮度
     auto font = headTitle->font();
     font.setWeight(QFont::DemiBold);
     headTitle->setFont(font);

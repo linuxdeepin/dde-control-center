@@ -106,7 +106,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     saveEnergySettingsGrp->appendItem(m_sldLowerBrightness);
 
     //Power Saving Mode tittle
-    TitleLabel *label = new TitleLabel(tr("Power Saving Mode Settings"));
+    TitleLabel *label = new TitleLabel(tr("Power Saving Settings"));
     DFontSizeManager::instance()->bind(label, DFontSizeManager::T5, QFont::DemiBold);
     m_layEnergySavingMode->addWidget(label);
     m_layEnergySavingMode->addWidget(saveEnergySettingsGrp);
