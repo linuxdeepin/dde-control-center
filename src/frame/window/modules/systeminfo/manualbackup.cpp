@@ -4,6 +4,7 @@
 #include <DFontSizeManager>
 #include <DListView>
 #include <DStandardItem>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -21,11 +22,14 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     , m_actionType(ActionType::ManualBackup)
     , m_model(model)
     , m_directoryChooseWidget(new DFileChooserEdit)
-    , m_tipsLabel(new QLabel)
+    , m_tipsLabel(new DTipLabel)
     , m_backupBtn(new QPushButton(tr("Backup")))
     , m_loadingIndicator(new DWaterProgress)
 {
     m_tipsLabel->setWordWrap(true);
+    auto pa = DApplicationHelper::instance()->palette(m_tipsLabel);
+    pa.setBrush(DPalette::TextTips, Qt::red);
+    DApplicationHelper::instance()->setPalette(m_tipsLabel, pa);
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
@@ -106,6 +110,11 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     onManualBackupErrorTypeChanged(model->manualBackupErrorType());
 }
 
+void ManualBackup::setTipsVisible(const bool &visible)
+{
+    m_tipsLabel->setVisible(visible);
+}
+
 void ManualBackup::onChoose()
 {
     m_backupBtn->setEnabled(false);
@@ -136,11 +145,7 @@ void ManualBackup::onManualBackupErrorTypeChanged(ErrorType type)
 
     switch (type) {
     case ErrorType::PathError: {
-        m_tipsLabel->setText(tr("Invalid path"));
-        break;
-    }
-    case ErrorType::ToolError: {
-        m_tipsLabel->setText(tr("Tool execution error"));
+        m_tipsLabel->setText(tr("The storage location cannot be in source disk, please reselect"));
         break;
     }
     default: {

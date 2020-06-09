@@ -1,6 +1,8 @@
 #include "manualrestore.h"
 #include "backupandrestoremodel.h"
 
+#include <DApplicationHelper>
+
 #include <QVBoxLayout>
 #include <QLabel>
 #include <DBackgroundGroup>
@@ -88,12 +90,16 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     , m_model(model)
     , m_saveUserDataCheckBox(new QCheckBox)
     , m_directoryChooseWidget(new DFileChooserEdit)
-    , m_tipsLabel(new QLabel)
+    , m_tipsLabel(new DTipLabel)
     , m_backupBtn(new QPushButton(tr("Restore")))
     , m_actionType(ActionType::RestoreSystem)
     , m_loadingIndicator(new DWaterProgress)
 {
     m_tipsLabel->setWordWrap(true);
+
+    auto pa = DApplicationHelper::instance()->palette(m_tipsLabel);
+    pa.setBrush(DPalette::TextTips, Qt::red);
+    DApplicationHelper::instance()->setPalette(m_tipsLabel, pa);
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
@@ -191,6 +197,11 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     m_loadingIndicator->start();
 }
 
+void ManualRestore::setTipsVisible(const bool &visible)
+{
+    m_tipsLabel->setVisible(visible);
+}
+
 void ManualRestore::onItemChecked()
 {
     QRadioButton* button = qobject_cast<QRadioButton*>(sender());
@@ -220,10 +231,6 @@ void ManualRestore::onManualRestoreErrorChanged(ErrorType errorType)
         }
         case ErrorType::GrubError: {
             m_tipsLabel->setText(tr("Grub authentication failed"));
-            break;
-        }
-        case ErrorType::ToolError: {
-            m_tipsLabel->setText(tr("Tool execution error"));
             break;
         }
         default: {
