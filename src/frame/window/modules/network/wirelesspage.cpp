@@ -125,7 +125,7 @@ void APItem::setSignalStrength(int ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(4)));
     else if (55 < ss && 65 >= ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(6)));
-    else
+    else if (65 < ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(8)));
 
     APSortInfo si = data(SortRole).value<APSortInfo>();
@@ -347,7 +347,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     setContent(mainWidget);
 
-    connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex &idx) {
+    connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex & idx) {
         if (idx.data(APItem::PathRole).toString().length() == 0) {
             this->showConnectHidePage();
             return;
@@ -529,7 +529,6 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     const bool isSecure = apInfo.value("Secured").toBool();
 
     APItem *it = m_apItems[ssid];
-
     if (5 >= strength && !it->checkState() && ssid != m_device->activeApSsid()) {
         if (nullptr == m_clickedItem) {
             m_lvAP->setRowHidden(it->row(), true);
