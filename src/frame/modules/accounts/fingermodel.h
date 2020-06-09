@@ -42,7 +42,7 @@ public:
 
     void setThumbsList(const QStringList &thumbs);
     QStringList thumbsList() const;
-    QMap<QString, QString> getPredefineThumbsName() const { return m_predefineThumbsNames; }
+    QList<QPair<QString, QString>> getPredefineThumbsName() const { return m_predefineThumbsNames; }
 
     void onEnrollStatusChanged(int code, const QString& msg);
     void onTouch(const QString &id, bool pressed);
@@ -63,7 +63,7 @@ private:
     bool m_isVaild{false};
     int m_progress;
     QList<QString> m_thumbsList;
-    QMap<QString, QString> m_predefineThumbsNames;
+    QList<QPair<QString, QString>> m_predefineThumbsNames;
 };
 }
 }

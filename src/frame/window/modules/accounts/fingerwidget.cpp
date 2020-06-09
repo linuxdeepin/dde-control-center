@@ -109,18 +109,16 @@ void FingerWidget::setFingerModel(FingerModel *model)
 
 void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 {
-    QMap<QString, QString> thumb = m_model->getPredefineThumbsName();
+    QList<QPair<QString, QString>> thumb = m_model->getPredefineThumbsName();
     m_vecItem.clear();
     m_listGrp->clear();
-    QStringList changedThumbs = thumbs;
-    changedThumbs.sort();
-    for (int n = 0; n < 10 && n < changedThumbs.size(); ++n) {
-        QString finger = changedThumbs.at(n);
+    for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
+        QString finger = thumbs.at(n);
         QString fingerName = finger;
-        QMap<QString, QString>::const_iterator iter;
+        QList<QPair<QString, QString>>::const_iterator iter;
         for (iter = m_model->getPredefineThumbsName().constBegin(); iter != m_model->getPredefineThumbsName().constEnd(); ++iter) {
-            if (iter.key() == finger) {
-                fingerName = iter.value();
+            if (iter->first == finger) {
+                fingerName = iter->second;
                 break;
             }
         }
@@ -136,9 +134,9 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
                 Q_EMIT requestDeleteFingerItem(m_curUser->name(), finger);
             });
         });
-        connect(item, &AccounntFingeItem::editTextFinished, this, [this, finger, item, changedThumbs](QString newName) {
-            for (int n = 0; n < changedThumbs.size(); ++n) {
-                if (newName == changedThumbs.at(n)) {
+        connect(item, &AccounntFingeItem::editTextFinished, this, [this, finger, item, thumbs](QString newName) {
+            for (int n = 0; n < thumbs.size(); ++n) {
+                if (newName == thumbs.at(n)) {
                     item->alertTitleRepeat();
                     return;
                 }
@@ -151,14 +149,15 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
             item->setShowIcon(true);
 
         m_vecItem.append(item);
-        thumb.remove(finger);
+        QPair<QString, QString> fingerItem = qMakePair(finger, fingerName);
+        thumb.removeOne(fingerItem);
 
         qDebug() << "onThumbsListChanged: " << finger;
     }
 
     m_clearBtn->setVisible(m_listGrp->itemCount());
     if (!thumb.isEmpty() && thumbs.size() < 10) {
-        m_notUseThumb = thumb.begin().key();
+        m_notUseThumb = thumb.begin()->first;
         addFingerButton();
     }
 }

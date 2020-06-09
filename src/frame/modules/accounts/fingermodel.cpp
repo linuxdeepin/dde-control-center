@@ -60,17 +60,19 @@ using namespace dcc::accounts;
 FingerModel::FingerModel(QObject *parent) : QObject(parent)
 {
     m_isVaild = false;
-    m_predefineThumbsNames.clear();
-    m_predefineThumbsNames.insert("Fingerprint1", tr("Fingerprint 1"));
-    m_predefineThumbsNames.insert("Fingerprint2", tr("Fingerprint 2"));
-    m_predefineThumbsNames.insert("Fingerprint3", tr("Fingerprint 3"));
-    m_predefineThumbsNames.insert("Fingerprint4", tr("Fingerprint 4"));
-    m_predefineThumbsNames.insert("Fingerprint5", tr("Fingerprint 5"));
-    m_predefineThumbsNames.insert("Fingerprint6", tr("Fingerprint 6"));
-    m_predefineThumbsNames.insert("Fingerprint7", tr("Fingerprint 7"));
-    m_predefineThumbsNames.insert("Fingerprint8", tr("Fingerprint 8"));
-    m_predefineThumbsNames.insert("Fingerprint9", tr("Fingerprint 9"));
-    m_predefineThumbsNames.insert("Fingerprint10", tr("Fingerprint 10"));
+
+    m_predefineThumbsNames = {
+        {"Fingerprint1", tr("Fingerprint 1")},
+        {"Fingerprint2", tr("Fingerprint 2")},
+        {"Fingerprint3", tr("Fingerprint 3")},
+        {"Fingerprint4", tr("Fingerprint 4")},
+        {"Fingerprint5", tr("Fingerprint 5")},
+        {"Fingerprint6", tr("Fingerprint 6")},
+        {"Fingerprint7", tr("Fingerprint 7")},
+        {"Fingerprint8", tr("Fingerprint 8")},
+        {"Fingerprint9", tr("Fingerprint 9")},
+        {"Fingerprint10", tr("Fingerprint 10")}
+    };
     m_progress = 0;
 }
 
@@ -216,10 +218,11 @@ void FingerModel::onTouch(const QString &id, bool pressed)
 
 void FingerModel::setThumbsList(const QStringList &thumbs)
 {
-    m_thumbsList.clear();
-    m_thumbsList << thumbs;
-
-    Q_EMIT thumbsListChanged(m_thumbsList);
+    if (thumbs != m_thumbsList) {
+        m_thumbsList.clear();
+        m_thumbsList << thumbs;
+        Q_EMIT thumbsListChanged(m_thumbsList);
+    }
 }
 
 QStringList FingerModel::thumbsList() const
