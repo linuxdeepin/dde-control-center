@@ -116,7 +116,17 @@ void APItem::setSignalStrength(int ss)
         setIcon(QPixmap());
         return;
     }
-    setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(ss / 10 & ~1)));
+    if (5 >= ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(0)));
+    else if (5 < ss && 30 >= ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(2)));
+    else if (30 < ss && 55 >= ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(4)));
+    else if (55 < ss && 65 >= ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(6)));
+    else if (65 < ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(8)));
+//    setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(ss / 10 & ~1)));
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = ss;
     si.ssid = text();
@@ -232,7 +242,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
     , m_indicatorDelayTimer(new QTimer(this))
-    ,m_requestWirelessScanTimer(new QTimer(this))
+    , m_requestWirelessScanTimer(new QTimer(this))
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -312,7 +322,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     setTitle(tr("WLAN"));
 #endif
 
-    connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex &idx) {
+    connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex & idx) {
         if (idx.data(APItem::PathRole).toString().length() == 0) {
             this->showConnectHidePage();
             return;
@@ -350,9 +360,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_device, &WirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
 
-    connect(m_requestWirelessScanTimer, &QTimer::timeout, this, [=] {
-           Q_EMIT requestDeviceAPList(m_device->path());
-           Q_EMIT requestWirelessScan();
+    connect(m_requestWirelessScanTimer, &QTimer::timeout, this, [ = ] {
+        Q_EMIT requestDeviceAPList(m_device->path());
+        Q_EMIT requestWirelessScan();
     });
     // init data
     const QJsonArray mApList = m_device->apList();
@@ -364,7 +374,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     m_requestWirelessScanTimer->start();
 
-    QTimer::singleShot(100, this, [=] {
+    QTimer::singleShot(100, this, [ = ] {
         Q_EMIT requestDeviceAPList(m_device->path());
         Q_EMIT requestWirelessScan();
     });
@@ -430,8 +440,9 @@ void WirelessPage::jumpByUuid(const QString &uuid)
 {
     if (uuid.isEmpty()) return;
 
-    QTimer::singleShot(50, this, [=] {
-        if (m_apItems.contains(connectionSsid(uuid))) {
+    QTimer::singleShot(50, this, [ = ] {
+        if (m_apItems.contains(connectionSsid(uuid)))
+        {
             onApWidgetEditRequested("", uuid);
         }
     });
@@ -476,6 +487,15 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     const bool isSecure = apInfo.value("Secured").toBool();
 
     APItem *it = m_apItems[ssid];
+
+    if (5 >= strength)
+    {
+        m_modelAP->removeRow(it->row());
+        m_apItems.remove(ssid);
+        m_modelAP->sort(0);
+        return;
+    }
+
     APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
     m_apItems[ssid]->setSortInfo(si);
 
@@ -556,18 +576,18 @@ void WirelessPage::refreshLoadingIndicator()
         if (activeConnObj.value("Vpn").toBool(false)) {
             continue;
         }
-        if( activeConnObj.value("Id").toString()  == m_lastConnectSsid ){
+        if (activeConnObj.value("Id").toString()  == m_lastConnectSsid) {
             for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-                if( it.value()->sortInfo().ssid == m_lastConnectSsid){
-                        for(int temp = 0; temp < m_modelAP->rowCount();temp++ ){
-                            if(m_modelAP->index(temp,0).data().toString() == m_lastConnectSsid){
-                                QModelIndex indexFromList = m_modelAP->index(temp, 0);
-                                m_lvAP->clicked(indexFromList);
-                                m_lvAP->setCurrentIndex(indexFromList);
-                                m_lastConnectSsid = "";
-                                break;
-                            }
+                if (it.value()->sortInfo().ssid == m_lastConnectSsid) {
+                    for (int temp = 0; temp < m_modelAP->rowCount(); temp++) {
+                        if (m_modelAP->index(temp, 0).data().toString() == m_lastConnectSsid) {
+                            QModelIndex indexFromList = m_modelAP->index(temp, 0);
+                            m_lvAP->clicked(indexFromList);
+                            m_lvAP->setCurrentIndex(indexFromList);
+                            m_lastConnectSsid = "";
+                            break;
                         }
+                    }
                 }
             }
             continue;
