@@ -117,12 +117,10 @@ void ManualBackup::setTipsVisible(const bool &visible)
 
 void ManualBackup::onChoose()
 {
-    m_backupBtn->setEnabled(false);
     m_tipsLabel->hide();
 
     // TODO(justforlxz): need send signal to worker -> model;
-    m_model->setBackupButtonEnabled(!m_directoryChooseWidget->lineEdit()->text().isEmpty());
-    m_backupBtn->setEnabled(true);
+    m_backupBtn->setEnabled(!m_directoryChooseWidget->lineEdit()->text().isEmpty());
 }
 
 void ManualBackup::backup()
@@ -158,6 +156,10 @@ void ManualBackup::onManualBackupErrorTypeChanged(ErrorType type)
     }
     case ErrorType::ToolError: {
         m_tipsLabel->setText(tr("Tool execution error"));
+        break;
+    }
+    case ErrorType::GrubError: {
+        m_tipsLabel->setText(tr("Grub authentication failed"));
         break;
     }
     default: {
