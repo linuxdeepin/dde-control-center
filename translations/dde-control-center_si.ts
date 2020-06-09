@@ -818,8 +818,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
-        <translation>පරිශීලක අත්දැකීම් වැඩසටහනට සම්බන්ධ වීම යනු ඔබගේ උපාංගය, පද්ධතිය සහ යෙදුම්වල තොරතුරු රැස් කිරීමට සහ භාවිතා කිරීමට ඔබ අපට අවසර දී ඇති බවයි. ඉහත සඳහන් තොරතුරු එකතු කිරීම සහ භාවිතය ඔබ ප්‍රතික්ෂේප කරන්නේ නම්, පරිශීලක අත්දැකීම් වැඩසටහනට සම්බන්ධ නොවන්න. වැඩි විස්තර සඳහා කරුණාකර UOS රහස්‍යතා ප්‍රතිපත්තිය (https://www.chinauos.com/agreement/experience) වෙත යොමු වන්න.</translation>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6007,23 +6007,23 @@
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="197"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="198"/>
         <source>Confirm</source>
         <translation>තහවුරු කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="193"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="194"/>
         <source>Add Timezone</source>
         <translation>කාල කලාපය එක් කරන්න</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="194"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="195"/>
         <source>Add</source>
         <translation>එක් කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="197"/>
         <source>Change Timezone</source>
         <translation>කාල කලාපය වෙනස් කරන්න</translation>
     </message>
