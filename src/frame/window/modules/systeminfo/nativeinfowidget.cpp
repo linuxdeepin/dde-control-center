@@ -30,6 +30,7 @@
 #include <QSettings>
 #include <QIcon>
 #include <QScrollArea>
+#include <QScroller>
 #include <QDebug>
 #include <DSysInfo>
 
@@ -119,6 +120,12 @@ void NativeInfoWidget::initWidget()
     m_mainLayout->addWidget(infoGroup);
     m_mainLayout->addStretch();
     setLayout(m_mainLayout);
+
+    QScroller::grabGesture(this->window(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(this->window());
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
 
     connect(m_model, &SystemInfoModel::versionChanged, this, &NativeInfoWidget::setEdition);
     connect(m_model, &SystemInfoModel::typeChanged, this, &NativeInfoWidget::setType);
