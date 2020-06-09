@@ -7,6 +7,7 @@
 #include <dfilechooseredit.h>
 #include <com_deepin_daemon_grub2.h>
 #include <DWaterProgress>
+#include <DTipLabel>
 
 DWIDGET_USE_NAMESPACE
 
@@ -25,6 +26,8 @@ class ManualRestore : public QWidget
     Q_OBJECT
 public:
     explicit ManualRestore(BackupAndRestoreModel* model, QWidget *parent = nullptr);
+
+    void setTipsVisible(const bool &visible);
 
 Q_SIGNALS:
     void requestSystemRestore(bool formatData) const;
@@ -45,7 +48,7 @@ private:
     BackupAndRestoreModel* m_model;
     QCheckBox* m_saveUserDataCheckBox;
     DFileChooserEdit* m_directoryChooseWidget;
-    QLabel          * m_tipsLabel;
+    DTipLabel          * m_tipsLabel;
     QPushButton* m_backupBtn;
     RestoreItem* m_systemRestore;
     RestoreItem* m_manualRestore;

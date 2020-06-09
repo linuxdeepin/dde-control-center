@@ -43,7 +43,8 @@ SystemRestore::SystemRestore(BackupAndRestoreModel* model, QWidget *parent)
             {backupBtn, m_backupPage},
             {restoreBtn, m_restorePage},
         };
-
+        m_backupPage->setTipsVisible(false);
+        m_restorePage->setTipsVisible(false);
         stackedLayout->setCurrentWidget(page[button]);
     });
 
