@@ -29,12 +29,12 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
-    mainLayout->setSpacing(5);
+    mainLayout->setSpacing(10);
 
     QLabel *backupType = new QLabel(tr("Backup Type"));
     QLabel *savePath = new QLabel(tr("Save to"));
-    DFontSizeManager::instance()->bind(backupType, DFontSizeManager::T3);
-    DFontSizeManager::instance()->bind(savePath, DFontSizeManager::T3);
+    DFontSizeManager::instance()->bind(backupType, DFontSizeManager::T5);
+    DFontSizeManager::instance()->bind(savePath, DFontSizeManager::T5);
     DListView *backupTypeView = new DListView;
     backupTypeView->setMaximumHeight(80);
     backupTypeView->setItemSpacing(5);
@@ -71,9 +71,7 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
 
     m_tipsLabel->hide();
 
-    QFileDialog* fileDialog = new QFileDialog(this);
-    fileDialog->setFileMode(QFileDialog::Directory);
-    m_directoryChooseWidget->setFileDialog(fileDialog);
+    m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
 
     connect(model, &BackupAndRestoreModel::backupButtonEnabledChanged, this, [=](bool enable) {
         m_backupBtn->setVisible(enable);
