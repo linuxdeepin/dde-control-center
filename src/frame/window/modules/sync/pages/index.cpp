@@ -15,6 +15,7 @@
 
 #include <QScrollArea>
 #include <QScrollBar>
+#include <QScroller>
 #include <QLabel>
 #include <QStandardItemModel>
 #include <QVBoxLayout>
@@ -88,6 +89,12 @@ IndexPage::IndexPage(QWidget *parent)
     hBoxlayout->addWidget(backgroundWidget, 0, Qt::AlignHCenter);
 
     scrollArea->setWidget(hwidget);
+
+    QScroller::grabGesture(hwidget->window(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(hwidget->window());
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
 
     backgroundLayout->setMargin(0);
     backgroundLayout->setSpacing(0);
