@@ -108,13 +108,22 @@ void FingerWidget::setFingerModel(FingerModel *model)
 
 void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 {
-    QStringList thumb = thumbsLists;
+    QList<QPair<QString, QString>> thumb = m_model->getPredefineThumbsName();
     m_vecItem.clear();
     m_listGrp->clear();
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
         QString finger = thumbs.at(n);
+        QString fingerName = finger;
+        QList<QPair<QString, QString>>::const_iterator iter;
+        for (iter = m_model->getPredefineThumbsName().constBegin(); iter != m_model->getPredefineThumbsName().constEnd(); ++iter) {
+            if (iter->first == finger) {
+                fingerName = iter->second;
+                break;
+            }
+        }
+
         auto item = new AccounntFingeItem(this);
-        item->setTitle(finger);
+        item->setTitle(fingerName);
         item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
         m_listGrp->appendItem(item);
@@ -136,13 +145,15 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
             item->setShowIcon(true);
 
         m_vecItem.append(item);
-        thumb.removeOne(finger);
+        QPair<QString, QString> fingerItem = qMakePair(finger, fingerName);
+        thumb.removeOne(fingerItem);
+
         qDebug() << "onThumbsListChanged: " << finger;
     }
 
     m_clearBtn->setVisible(m_listGrp->itemCount());
     if (!thumb.isEmpty() && thumbs.size() < 10) {
-        m_notUseThumb = thumb.first();
+        m_notUseThumb = thumb.begin()->first;
         addFingerButton();
     }
 }

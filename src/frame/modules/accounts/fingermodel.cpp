@@ -59,6 +59,19 @@ using namespace dcc::accounts;
 FingerModel::FingerModel(QObject *parent) : QObject(parent)
 {
     m_isVaild = false;
+
+    m_predefineThumbsNames = {
+        {"Fingerprint1", tr("Fingerprint1")},
+        {"Fingerprint2", tr("Fingerprint2")},
+        {"Fingerprint3", tr("Fingerprint3")},
+        {"Fingerprint4", tr("Fingerprint4")},
+        {"Fingerprint5", tr("Fingerprint5")},
+        {"Fingerprint6", tr("Fingerprint6")},
+        {"Fingerprint7", tr("Fingerprint7")},
+        {"Fingerprint8", tr("Fingerprint8")},
+        {"Fingerprint9", tr("Fingerprint9")},
+        {"Fingerprint10", tr("Fingerprint10")}
+    };
 }
 
 bool FingerModel::isVaild() const
@@ -191,10 +204,11 @@ void FingerModel::onTouch(const QString &id, bool pressed)
 
 void FingerModel::setThumbsList(const QStringList &thumbs)
 {
-    m_thumbsList.clear();
-    m_thumbsList << thumbs;
-
-    Q_EMIT thumbsListChanged(m_thumbsList);
+    if (thumbs != m_thumbsList) {
+        m_thumbsList.clear();
+        m_thumbsList << thumbs;
+        Q_EMIT thumbsListChanged(m_thumbsList);
+    }
 }
 
 QStringList FingerModel::thumbsList() const
