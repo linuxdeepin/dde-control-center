@@ -491,6 +491,19 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     const bool isSecure = apInfo.value("Secured").toBool();
 
     APItem *it = m_apItems[ssid];
+
+    if (5 >= strength && !it->checkState() && ssid != m_device->activeApSsid()) {
+        if (nullptr == m_clickedItem) {
+            m_lvAP->setRowHidden(it->row(), true);
+        } else if (it->uuid() != m_clickedItem->uuid()) {
+            m_lvAP->setRowHidden(it->row(), true);
+        }
+
+
+    } else {
+        m_lvAP->setRowHidden(it->row(), false);
+    }
+
     APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
     m_apItems[ssid]->setSortInfo(si);
 
@@ -689,13 +702,10 @@ void WirelessPage::updateActiveAp()
                 });
             }
         } else {
-            bool isReconnect = it.value()->setLoading(false);
-            if (isReconnect) {
-                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
-                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
-                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
-                });
-            }
+            connect(it.value()->action(), &QAction::triggered, this, [this, it] {
+                this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
+                                              it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
+            });
         }
     }
     if (isWifiConnected && m_clickedItem) {
