@@ -28,6 +28,7 @@
 #include <DStandardItem>
 
 #include <QWidget>
+#include <QGSettings>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -95,6 +96,8 @@ private:
     bool m_isShowFirstUserInfo = false;
     bool m_currentUserAdded = false;
     int m_saveClickedRow;
+    QGSettings *m_accountSetting{nullptr};
+    bool m_isCreateValid;
 };
 
 }   // namespace accounts

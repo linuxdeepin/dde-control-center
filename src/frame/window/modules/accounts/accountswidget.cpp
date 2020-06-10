@@ -44,6 +44,7 @@
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
+#define GSETTINGS_SHOW_CREATEUSER "show-createuser"
 
 AccountsWidget::AccountsWidget(QWidget *parent)
     : QWidget(parent)
@@ -56,6 +57,11 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     //~ contents_path /accounts/New Account
     m_createBtn->setToolTip(tr("Create Account"));
     m_createBtn->setAccessibleName(tr("Create Account"));
+
+    m_accountSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    m_isCreateValid = m_accountSetting->get(GSETTINGS_SHOW_CREATEUSER).toBool();
+
+    m_createBtn->setVisible(m_isCreateValid);
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout();
     mainContentLayout->setMargin(0);
@@ -93,7 +99,7 @@ void AccountsWidget::setModel(UserModel *model)
 {
     m_userModel = model;
 
-    m_createBtn->setVisible(m_userModel->isCreateUserValid());
+    m_createBtn->setVisible(m_userModel->isCreateUserValid() && m_isCreateValid);
 
     connect(model, &UserModel::userAdded, this, [this](User * user) {
         addUser(user);
