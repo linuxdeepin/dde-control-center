@@ -184,6 +184,10 @@ void ManualBackup::onManualBackupErrorTypeChanged(ErrorType type)
         m_tipsLabel->setText(tr("Tool execution error"));
         break;
     }
+    case ErrorType::PathError2: {
+        m_tipsLabel->setText(tr("Invalid path"));
+        break;
+    }
     case ErrorType::GrubError: {
         m_tipsLabel->setText(tr("Grub authentication failed"));
         break;

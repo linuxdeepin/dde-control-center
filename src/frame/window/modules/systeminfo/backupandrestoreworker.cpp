@@ -114,7 +114,10 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
 {
     const QString& choosePath { m_model->backupDirectory()};
 
-    if (choosePath.isEmpty() || !choosePath.startsWith("/media")) {
+    if (choosePath.isEmpty() || !QDir(choosePath).exists()) {
+        return ErrorType::PathError2;
+    }
+    if (!choosePath.startsWith("/media")) {
         return ErrorType::PathError;
     }
 
@@ -160,6 +163,11 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
         return "Error";
     };
     const QString& choosePath { m_model->backupDirectory()};
+
+    if (choosePath.isEmpty() || !QDir(choosePath).exists()) {
+        return ErrorType::PathError2;
+    }
+
     if (checkMountPoint(choosePath) == "Error" || checkMountPoint(choosePath) == "/" || checkMountPoint(choosePath) == "/boot") {
         return ErrorType::PathError;
     }
@@ -180,6 +188,9 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
 {
     const QString& selectPath = m_model->restoreDirectory();
 
+    if (selectPath.isEmpty() || !QDir(selectPath).exists()) {
+        return ErrorType::PathError2;
+    }
     auto checkValid = [](const QString& filePath) -> bool {
         QScopedPointer<QProcess> process(new QProcess);
         process->setProgram("deepin-clone");

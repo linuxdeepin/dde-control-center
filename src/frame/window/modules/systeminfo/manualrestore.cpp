@@ -265,6 +265,10 @@ void ManualRestore::onManualRestoreErrorChanged(ErrorType errorType)
             m_tipsLabel->setText(tr("Backup file is invalid"));
             break;
         }
+        case ErrorType::PathError2: {
+            m_tipsLabel->setText(tr("Invalid path"));
+            break;
+        }
         case ErrorType::GrubError: {
             m_tipsLabel->setText(tr("Grub authentication failed"));
             break;
