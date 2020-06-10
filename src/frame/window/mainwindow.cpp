@@ -105,6 +105,8 @@ MainWindow::MainWindow(QWidget *parent)
     , m_backwardBtn(nullptr)
 {
     //Initialize view and layout structure
+    DMainWindow::installEventFilter(this);
+
     QWidget *content = new QWidget(this);
     content->setObjectName("contentwindow");
     m_contentLayout = new QHBoxLayout(content);
@@ -648,6 +650,27 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 
     DMainWindow::keyPressEvent(event);
+}
+
+bool MainWindow::eventFilter(QObject *watched, QEvent *event)
+{
+    if( watched == this && m_navView && m_navView->viewMode() == QListView::ListMode) {
+        if (QEvent::WindowDeactivate == event->type() || QEvent::WindowActivate == event->type()) {
+            DPalette pa = DApplicationHelper::instance()->palette(m_navView);
+            QColor base_color = palette().base().color();
+
+            if(QEvent::WindowDeactivate == event->type()) {
+                base_color = DGuiApplicationHelper::adjustColor(base_color, 0, 0, 0, 0, 0, 0, -5);
+                pa.setColor(DPalette::ItemBackground, base_color);
+            } else if (QEvent::WindowActivate == event->type()) {
+                pa.setColor(DPalette::ItemBackground, base_color);
+            }
+
+            DApplicationHelper::instance()->setPalette(m_navView, pa);
+        }
+    }
+
+    return  DMainWindow::eventFilter(watched,event);
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
