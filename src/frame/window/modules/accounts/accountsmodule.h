@@ -63,6 +63,7 @@ public Q_SLOTS:
     void onShowPasswordPage(dcc::accounts::User *account);
     void onShowAddThumb(const QString &name, const QString &thumb);
     void onHandleVaildChanged(const bool isVaild);
+    void onSetMainWindowEnabled(const bool isEnabled);
 
 private:
     ~AccountsModule();

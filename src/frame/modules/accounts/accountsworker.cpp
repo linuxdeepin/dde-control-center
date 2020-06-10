@@ -172,6 +172,16 @@ void AccountsWorker::createAccount(const User *user)
     });
 
     QFuture<CreationResult*> future = QtConcurrent::run(this, &AccountsWorker::createAccountInternal, user);
+    QTimer *timer = new QTimer();
+    timer->start(500);
+    connect(timer, &QTimer::timeout, this, [ = ] {
+        if (future.isFinished()) {
+            timer->stop();
+            requesetMainWindowEnabled(true);
+        } else {
+            requesetMainWindowEnabled(false);
+        }
+    });
     watcher->setFuture(future);
 }
 

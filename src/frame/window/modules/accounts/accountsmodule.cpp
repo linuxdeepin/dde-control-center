@@ -63,6 +63,7 @@ void AccountsModule::initialize()
 
     m_accountsWorker->active();
     connect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
+    connect(m_accountsWorker, &AccountsWorker::requesetMainWindowEnabled, this, &AccountsModule::onSetMainWindowEnabled);
 }
 
 void AccountsModule::reset()
@@ -252,4 +253,11 @@ void AccountsModule::initFingerData()
 {
     QString currentUserName = m_accountsWorker->getCurrentUserName();
     m_fingerWorker->refreshUserEnrollList(currentUserName);
+}
+
+void AccountsModule::onSetMainWindowEnabled(bool isEnabled)
+{
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    if (m_pMainWindow)
+        m_pMainWindow->setEnabled(isEnabled);
 }
