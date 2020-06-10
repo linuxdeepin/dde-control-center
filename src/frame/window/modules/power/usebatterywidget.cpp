@@ -41,7 +41,7 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
-UseBatteryWidget::UseBatteryWidget(QWidget *parent)
+UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
@@ -69,10 +69,12 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     //~ child_page On Battery
 //    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
-
     QStringList options;
     options << tr("Shut down") << tr("Suspend") << tr("Sleep")
             << tr("Turn off the monitor") << tr("Do nothing");
+    if (!model->getSuspend()) {
+        options.removeAt(1);
+    }
     m_cmbPowerBtn->setComboxOption(options);
     options.pop_front();
     m_cmbCloseLid->setComboxOption(options);
@@ -152,14 +154,26 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     m_autoLockScreen->slider()->setPageStep(1);
     m_autoLockScreen->setAnnotations(annos);
 
+    setModel(model);
+
     connect(m_monitorSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery);
     connect(m_computerSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetSleepDelayOnBattery);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetAutoLockScreenOnBattery);
 //    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed);
     connect(m_swBatteryHint, &SwitchWidget::checkedChanged, this, &UseBatteryWidget::requestSetLowPowerNotifyEnable);
-    connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, &UseBatteryWidget::requestSetBatteryPressPowerBtnAction);
+    connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
+        if (!model->getSuspend()) {
+            Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
+        } else {
+            Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex);
+        }
+    });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
-        Q_EMIT requestSetBatteryLidClosedAction(nIndex + 1);
+        if (!model->getSuspend()) {
+            Q_EMIT requestSetBatteryLidClosedAction(nIndex + 2);
+        } else {
+            Q_EMIT requestSetBatteryLidClosedAction(nIndex + 1);
+        }
     });
 }
 
@@ -180,22 +194,40 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 //    m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
-    m_computerSleepOnBattery->setVisible(model->canSleep());
+    m_computerSleepOnBattery->setVisible(model->canSleep() && model->getSuspend());
+    m_sldAutoSuspend->setVisible(model->getSuspend());
 //    m_suspendOnLidClose->setVisible(model->canSleep());
-
 
     //--------------sp2 add-----------------
     m_cmbCloseLid->setVisible(model->lidPresent());
-    m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() >= 1 ? model->batteryLidClosedAction() - 1 : model->batteryLidClosedAction());
+    if (!model->getSuspend()) {
+        m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 2);
+    } else {
+        m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 1);
+    }
     connect(model, &PowerModel::batteryLidClosedActionChanged, this, [ = ](const int reply) {
-        if (reply - 1 < m_cmbCloseLid->comboBox()->count() && reply >= 1)
-            m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
+        if (reply - 1 < m_cmbCloseLid->comboBox()->count() && reply >= 1) {
+            if (!model->getSuspend()) {
+                m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 2);
+            } else {
+                m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
+            }
+        }
     });
 
-    m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction());
+    if (!model->getSuspend()) {
+        m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction() > 0 ? model->batteryPressPowerBtnAction() - 1 : model->batteryPressPowerBtnAction());
+    } else {
+        m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction());
+    }
     connect(model, &PowerModel::batteryPressPowerBtnActionChanged, this, [ = ](const int reply) {
-        if (reply < m_cmbPowerBtn->comboBox()->count())
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
+        if (reply < m_cmbPowerBtn->comboBox()->count()) {
+            if (!model->getSuspend()) {
+                m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0? reply - 1 : reply);
+            } else {
+                m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
+            }
+        }
     });
 
     m_swBatteryHint->setChecked(model->lowPowerNotifyEnable());

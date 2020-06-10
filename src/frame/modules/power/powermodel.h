@@ -122,6 +122,8 @@ public:
     inline int lowPowerAutoSleepThreshold() const { return m_dLowPowerAutoSleepThreshold; }
     void setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold);
     //-----------------------------------------------
+    inline bool getSuspend() const { return m_isSuspend; }
+    void setSuspend(bool suspend);
 
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
@@ -156,6 +158,7 @@ Q_SIGNALS:
     void lowPowerNotifyThresholdChanged(const int value);
     void lowPowerAutoSleepThresholdChanged(const int value);
     //--------------------------------------------------------------
+    void suspendChanged(bool suspendState);
 
 
 private:
@@ -189,6 +192,7 @@ private:
     int m_dLowPowerNotifyThreshold;
     int m_dLowPowerAutoSleepThreshold;
     //--------------------------------------
+    bool m_isSuspend;
 };
 
 }

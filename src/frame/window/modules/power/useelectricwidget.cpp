@@ -40,7 +40,7 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
-UseElectricWidget::UseElectricWidget(QWidget *parent)
+UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_monitorSleepOnPower(new TitledSliderItem(tr("Monitor will suspend after")))
@@ -82,6 +82,9 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     QStringList options;
     options << tr("Shut down") << tr("Suspend") << tr("Sleep")
             << tr("Turn off the monitor") << tr("Do nothing");
+    if (!model->getSuspend()) {
+        options.removeAt(1);
+    }
     m_cmbPowerBtn->setComboxOption(options);
     options.pop_front();
     m_cmbCloseLid->setComboxOption(options);
@@ -117,12 +120,24 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     m_autoLockScreen->slider()->setPageStep(1);
     m_autoLockScreen->setAnnotations(annos);
 
+    setModel(model);
+
     connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetScreenBlackDelayOnPower);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetAutoLockScreenOnPower);
 //    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed);
-    connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, &UseElectricWidget::requestSetLinePowerPressPowerBtnAction);
+    connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
+        if (!model->getSuspend()) {
+            Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
+        } else {
+            Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex);
+        }
+    });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
-        Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 1);
+        if (!model->getSuspend()) {
+            Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 2);
+        } else {
+            Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 1);
+        }
     });
 
 }
@@ -148,26 +163,40 @@ void UseElectricWidget::setModel(const PowerModel *model)
     setLockScreenAfter(model->getPowerLockScreenDelay());
 
     if (m_computerSleepOnPower) {
-        //通过gsetting设置电脑待机是否显示
-        QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-        auto listModule =  comSlpSettings->get("hide-module").toStringList();
-        m_computerSleepOnPower->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
+        m_computerSleepOnPower->setVisible(model->canSleep() && model->getSuspend());
     }
 //    m_suspendOnLidClose->setVisible(model->canSleep());
 
     //--------------sp2 add-----------------
     m_cmbCloseLid->setVisible(model->lidPresent());
     int nLidAction = model->linePowerLidClosedAction();
-    m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction >= 1 ? nLidAction - 1 : nLidAction);
+    if (!model->getSuspend()) {
+         m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 2);
+    } else {
+         m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 1);
+    }
     connect(model, &PowerModel::linePowerLidClosedActionChanged, this, [=](const int reply){
-        if (reply - 1 < m_cmbCloseLid->comboBox()->count())
-            m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
+        if (reply - 1 < m_cmbCloseLid->comboBox()->count()) {
+            if (!model->getSuspend()) {
+                m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 2);
+            } else {
+                m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
+            }
+        }
     });
-
-    m_cmbPowerBtn->comboBox()->setCurrentIndex(model->linePowerPressPowerBtnAction());
+    if (!model->getSuspend()) {
+        m_cmbPowerBtn->comboBox()->setCurrentIndex(model->linePowerPressPowerBtnAction() > 0 ? model->linePowerPressPowerBtnAction() - 1 : model->linePowerPressPowerBtnAction());
+    } else {
+        m_cmbPowerBtn->comboBox()->setCurrentIndex(model->linePowerPressPowerBtnAction());
+    }
     connect(model, &PowerModel::linePowerPressPowerBtnActionChanged, this, [=](const int reply){
-        if (reply < m_cmbPowerBtn->comboBox()->count())
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
+        if (reply < m_cmbPowerBtn->comboBox()->count()) {
+            if (!model->getSuspend()) {
+                m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0? reply - 1 : reply);
+            } else {
+                m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
+            }
+        }
     });
     //--------------------------------------
 }

@@ -285,3 +285,11 @@ void PowerModel::setCanSleep(bool canSleep)
         Q_EMIT canSleepChanged(canSleep);
     }
 }
+
+void PowerModel::setSuspend(bool suspend)
+{
+    if (suspend == m_isSuspend)
+        return;
+    m_isSuspend = suspend;
+    Q_EMIT suspendChanged(suspend);
+}

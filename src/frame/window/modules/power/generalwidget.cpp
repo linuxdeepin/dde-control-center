@@ -183,6 +183,7 @@ void GeneralWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::autoPowerSavingModeChanged, m_autoIntoSaveEnergyMode, &SwitchWidget::setChecked);
     connect(model, &PowerModel::powerSaveModeChanged, m_lowBatteryMode, &SwitchWidget::setChecked);
 #endif
+    connect(model, &PowerModel::suspendChanged, m_wakeComputerNeedPassword, &SwitchWidget::setVisible);
 
     // init ui data
     blockSignals(true);
@@ -195,7 +196,7 @@ void GeneralWidget::setModel(const PowerModel *model)
     m_lowBatteryMode->setChecked(model->powerSaveMode());
 #endif
 
-    m_wakeComputerNeedPassword->setVisible(model->canSleep());
+    m_wakeComputerNeedPassword->setVisible(model->canSleep() && model->getSuspend());
 
     //-------------sp2 add-------------------------
     m_swLowPowerAutoIntoSaveEnergyMode->setChecked(model->powerSavingModeAutoWhenQuantifyLow());
