@@ -114,7 +114,7 @@ private Q_SLOTS:
 protected:
     void resizeEvent(QResizeEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
-
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 private:
     void resetNavList(bool isIconMode);
     void modulePreInitialize(QString m = nullptr);
