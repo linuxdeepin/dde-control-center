@@ -115,6 +115,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     if (!m_bSystemIsServer) {
         //sw switch
         QVBoxLayout *winEffectVLayout = new QVBoxLayout();
+        winEffectVLayout->addSpacing(20);
         m_switchWidget->setLayout(winEffectVLayout);
 
         m_wmSwitch = new DSwitchButton();
@@ -131,6 +132,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         winEffectVLayout->addWidget(switem);
         switem->setVisible(false);
         winEffectVLayout->setContentsMargins(0, 0, 0, 0);
+        winEffectVLayout->addSpacing(10);
 
         //~ contents_path /personalization/General
         m_transparentSlider = new dcc::widgets::TitledSliderItem(tr("Transparency"));
@@ -156,6 +158,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         slider->setTickInterval(1);
         slider->setPageStep(1);
         winEffectVLayout->addWidget(m_transparentSlider);
+        winEffectVLayout->addSpacing(10);
 
         m_cmbMiniEffect->setTitle(tr("Window Miniminze Effect"));
         m_cmbMiniEffect->addBackground();
@@ -178,8 +181,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         });
     }
     m_centralLayout->addWidget(m_switchWidget);
-    m_centralLayout->setSpacing(20);
-    m_centralLayout->addStretch();
+    m_centralLayout->addStretch(20);
     setLayout(m_centralLayout);
 }
 
