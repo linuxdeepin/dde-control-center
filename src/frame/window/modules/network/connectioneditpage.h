@@ -73,6 +73,7 @@ Q_SIGNALS:
     // private signals
     void saveSettingsDone();
     void prepareConnectionDone();
+    void disconnect(const QString &uuid);
 
 protected:
     int connectionSuffixNum(const QString &matchConnName);

@@ -224,7 +224,7 @@ QString UpdateItem::elidedChangelog() const
 {
     const QString text = QString(clearHTMLTags(m_info.m_changelog)).replace("\n", "");
 
-    const QFontMetrics fm(m_appChangelog->font());
+    const QFontMetrics fm(m_appChangelog->fontMetrics());
     const QRect rect(0, 0, 200, fontMetrics().height() * 1);
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
 

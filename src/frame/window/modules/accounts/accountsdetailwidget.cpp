@@ -155,7 +155,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
             }
         }
     }
-    m_fullName->setText(fullname);
+    m_fullName->setText(fullname.toHtmlEscaped());
 
     m_fullNameBtn = new DIconButton(this);
     m_fullNameBtn->setAccessibleName("fullName_btn");
@@ -191,6 +191,12 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     layout->addWidget(m_avatarListWidget);
 
     connect(m_curUser, &User::currentAvatarChanged, m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
+    connect(m_inputLineEdit, &DLineEdit::textEdited, this, [ = ] {
+        if (m_inputLineEdit->isAlert()){
+            m_inputLineEdit->hideAlertMessage();
+            m_inputLineEdit->setAlert(false);
+        }
+    });
 
     //点击用户图像
     connect(avatar, &AvatarWidget::clicked, this, [ = ](const QString &iconPath) {
@@ -223,7 +229,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
                 }
             }
         }
-        m_fullName->setText(tstr);
+        m_fullName->setText(tstr.toHtmlEscaped());
     });
 
     //点击用户全名编辑按钮
@@ -396,7 +402,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     //当前用户禁止使用删除按钮
-    deleteAccount->setEnabled(!m_curUser->isCurrentUser());
+    const bool isOnline = m_curUser->online();
+    if (m_curUser->isCurrentUser()) {
+        deleteAccount->setEnabled(false);
+    } else {
+        deleteAccount->setEnabled(!isOnline);
+    }
 
     //修改密码，删除账户操作
     connect(modifyPassword, &QPushButton::clicked, [ = ] {
@@ -512,13 +523,16 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
 void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
 {
     qDebug() << "change edit status : " << sender();
-
-    m_fullName->setVisible(!edit);
-    m_fullNameBtn->setVisible(!edit);
-    m_inputLineEdit->setVisible(edit);
-
-    if (edit) {
-        m_inputLineEdit->setText(m_curUser->fullname());
-        m_inputLineEdit->lineEdit()->selectAll();
-    }
+    auto inputFullName = m_inputLineEdit->lineEdit()->text();
+//    m_inputLineEdit->setText(m_curUser->fullname());
+    m_inputLineEdit->lineEdit()->selectAll();
+        if (inputFullName.size() > 100) {
+            m_inputLineEdit->setVisible(!edit);
+            m_inputLineEdit->setAlert(!edit);
+            m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
+        } else {
+            m_fullName->setVisible(!edit);
+            m_fullNameBtn->setVisible(!edit);
+            m_inputLineEdit->setVisible(edit);
+        }
 }

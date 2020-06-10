@@ -61,7 +61,8 @@ TimeZoneChooser::TimeZoneChooser()
     , m_cancelBtn(new QPushButton(tr("Cancel")))
     , m_confirmBtn(new DSuggestButton(tr("Confirm")))
 {
-    setWindowFlags(Qt::Dialog | Qt::WindowStaysOnTopHint);
+//    setWindowFlags(Qt::Dialog | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
 
@@ -69,6 +70,8 @@ TimeZoneChooser::TimeZoneChooser()
     setFixedSize(1000, 760);
 
     m_searchInput->setMinimumSize(350, 36);
+
+    m_confirmBtn->setEnabled(false);
 
     DPalette pa = DApplicationHelper::instance()->palette(m_title);
     pa.setBrush(QPalette::WindowText, pa.base());
@@ -141,6 +144,7 @@ TimeZoneChooser::TimeZoneChooser()
     connect(m_map, &installer::TimezoneMap::timezoneUpdated, this, [this] {
         m_searchInput->setText("");
         m_searchInput->clearFocus();
+        m_confirmBtn->setEnabled(true);
     });
 
     QTimer::singleShot(0, [this] {
@@ -170,10 +174,7 @@ TimeZoneChooser::TimeZoneChooser()
         m_popup->installEventFilter(this);
 
         DBlurEffectWidget *blurEffect = new DBlurEffectWidget(m_popup);
-        blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
         blurEffect->setMaskColor(Qt::white);
-        blurEffect->setBlurRectXRadius(4);
-        blurEffect->setBlurRectYRadius(4);
 
         QHBoxLayout *layout = new QHBoxLayout;
         layout->setSpacing(0);

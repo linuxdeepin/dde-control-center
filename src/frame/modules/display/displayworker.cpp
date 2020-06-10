@@ -656,6 +656,22 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::RotationChanged, mon, &Monitor::setRotate);
     connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
+
+    connect(inter, &MonitorInter::CurrentModeChanged, this,  [ = ] (Resolution  value) {
+        if(value.id() == 0) {
+            return ;
+        }
+        auto maxWScale = value.width() / 1024.0;
+        auto maxHScale = value.height() / 768.0;
+        auto maxScale = maxWScale < maxHScale ? maxWScale : maxHScale;
+        if((maxScale - m_model->uiScale()) < 0.01 && maxScale >= 1.0) {
+            double scale =1.0;
+            for (int idx = 0; idx * 0.25 + 1.0 <= maxScale; ++idx) {
+                scale = idx * 0.25 + 1.0 ;
+            }
+            setUiScale(scale);
+        }
+    });
     connect(inter, &MonitorInter::ModesChanged, mon, &Monitor::setModeList);
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
     connect(inter, &MonitorInter::EnabledChanged, mon, &Monitor::setMonitorEnable);

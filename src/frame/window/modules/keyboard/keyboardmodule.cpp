@@ -220,6 +220,7 @@ void KeyboardModule::showShortCutSetting()
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::requestSearch, m_work, &KeyboardWorker::onSearchShortcuts);
     connect(m_work, &KeyboardWorker::removed, m_shortcutSettingWidget, &ShortCutSettingWidget::onRemoveItem);
     connect(m_work, &KeyboardWorker::searchChangd, m_shortcutSettingWidget, &ShortCutSettingWidget::onSearchInfo);
+    connect(m_work, &KeyboardWorker::onResetFinished, m_shortcutSettingWidget, &ShortCutSettingWidget::onResetFinished);
 
     m_frameProxy->pushWidget(this, m_shortcutSettingWidget);
 }

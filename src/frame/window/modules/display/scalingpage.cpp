@@ -132,9 +132,9 @@ void ScalingPage::addSlider(int monitorID){
     if (fscaleList.size() == 0) {
         fscaleList.append("1.0");
     }
-    while(scale > fscaleList.last().toDouble() && fscaleList.size() < maxList.size()) {
+    /*while(scale > fscaleList.last().toDouble() && fscaleList.size() < maxList.size()) {
         fscaleList.append(maxList.at(fscaleList.size()));
-    }
+    }*/
 
     DCCSlider *slider = m_slider->slider();
     slider->setRange(1, fscaleList.size());

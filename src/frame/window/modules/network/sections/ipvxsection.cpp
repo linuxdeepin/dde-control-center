@@ -467,7 +467,7 @@ bool IpvxSection::ipv4InputIsValid()
         if (gateway.isEmpty() || !isIpv4Address(gateway)) {
             valid = false;
             m_gateway->setIsErr(true);
-            m_gateway->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_gateway, 2000);
+            m_gateway->dTextEdit()->showAlertMessage(tr("Invalid gateway"), m_gateway, 2000);
         } else {
             m_gateway->setIsErr(false);
         }
@@ -530,7 +530,7 @@ bool IpvxSection::ipv6InputIsValid()
         if (gateway.isEmpty() || !isIpv6Address(gateway)) {
             valid = false;
             m_gateway->setIsErr(true);
-            m_gateway->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_gateway, 2000);
+            m_gateway->dTextEdit()->showAlertMessage(tr("Invalid gateway"), m_gateway, 2000);
         } else {
             m_gateway->setIsErr(false);
         }

@@ -33,6 +33,7 @@
 
 #include <QPushButton>
 #include <QComboBox>
+#include <QGSettings>
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -217,6 +218,11 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 //    m_cmbCloseLid->setVisible(model->lidPresent());
 //    m_cmbSuspendBtn->setVisible(model->());
     //todo: m_cmbPowerBtn;  m_cmbCloseLid;  m_cmbSuspendBtn; init combox current index
+    //通过gsetting设置电脑待机是否显示
+    QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    auto listModule =  comSlpSettings->get("hide-module").toStringList();
+    m_computerSleepOnBattery->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
+//    m_suspendOnLidClose->setVisible(model->canSleep());
 }
 
 void UseBatteryWidget::setScreenBlackDelayOnBattery(const int delay)

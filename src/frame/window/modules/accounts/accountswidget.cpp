@@ -261,31 +261,6 @@ void AccountsWidget::connectUserWithItem(User *user)
 
         titem->setIcon(QIcon(pixmap));
     });
-    connect(user, &User::createdTimeChanged, this, [ = ](const quint64 & createdtime) {
-        if (user->isCurrentUser()) {
-            return;
-        }
-
-        int tindex = m_userList.indexOf(user);
-        auto titem = m_userItemModel->item(tindex);
-        if (!titem) {
-            return;
-        }
-        titem->setData(QVariant::fromValue(createdtime), AccountsWidget::ItemDataRole);
-
-        for (int i = 1; i < m_userItemModel->rowCount(); ++i) {
-            quint64 icreatedtime = m_userItemModel->index(i, 0).data(AccountsWidget::ItemDataRole).toULongLong();
-            if (createdtime < icreatedtime) {
-                m_userItemModel->takeRow(tindex);
-                m_userList.takeAt(tindex);
-                auto dstIdx = i;
-                dstIdx += (tindex < i ? -1 : 0);
-                m_userItemModel->insertRow(dstIdx, titem);
-                m_userList.insert(dstIdx, user);
-                break;
-            }
-        }
-    });
 }
 
 QPixmap AccountsWidget::pixmapToRound(const QPixmap &src)

@@ -23,6 +23,7 @@
 #include <QPushButton>
 #include <QtMath>
 #include <QComboBox>
+#include <QGSettings>
 
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
@@ -147,7 +148,10 @@ void UseElectricWidget::setModel(const PowerModel *model)
     setLockScreenAfter(model->getPowerLockScreenDelay());
 
     if (m_computerSleepOnPower) {
-        m_computerSleepOnPower->setVisible(model->canSleep());
+        //通过gsetting设置电脑待机是否显示
+        QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+        auto listModule =  comSlpSettings->get("hide-module").toStringList();
+        m_computerSleepOnPower->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
     }
 //    m_suspendOnLidClose->setVisible(model->canSleep());
 

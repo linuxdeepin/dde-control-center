@@ -60,6 +60,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_generalSettingsGrp->appendItem(delayItem);
     //~ contents_path /keyboard/General
     TitledSliderItem *speedItem =  new TitledSliderItem(tr("Repeat Rate"));
+    speedItem->setFocusPolicy(Qt::ClickFocus);
     m_speedSlider = speedItem->slider();
     m_speedSlider->setType(DCCSlider::Vernier);
     m_speedSlider->setOrientation(Qt::Horizontal);
@@ -72,22 +73,22 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     speeds << tr("Fast");
     speedItem->setAnnotations(speeds);
 
-    QLineEdit *testArea = new QLineEdit();
-    testArea->setFixedWidth(200);
+    m_testArea = new GLineEdit();
+    m_testArea->setFixedWidth(200);
     //~ contents_path /keyboard/General
-    testArea->setPlaceholderText(tr("Test here"));
-    testArea->setAlignment(Qt::AlignCenter);
+    m_testArea->setPlaceholderText(tr("Test here"));
+    m_testArea->setAlignment(Qt::AlignCenter);
     DApplicationHelper *testAreaHelper = DApplicationHelper::instance();
-    auto pa = testAreaHelper->palette(testArea);
+    auto pa = testAreaHelper->palette(m_testArea);
     pa.setColor(DPalette::Highlight, Qt::transparent);
     pa.setColor(DPalette::Button, Qt::transparent);
-    testAreaHelper->setPalette(testArea, pa);
+    testAreaHelper->setPalette(m_testArea, pa);
 
     // adding extra stuff to speedItem
     QVBoxLayout *speedItemLayout = qobject_cast<QVBoxLayout *>(speedItem->layout());
     speedItemLayout->addSpacing(List_Interval);
-    speedItemLayout->addWidget(testArea);
-    speedItemLayout->setAlignment(testArea, Qt::AlignHCenter);
+    speedItemLayout->addWidget(m_testArea);
+    speedItemLayout->setAlignment(m_testArea, Qt::AlignHCenter);
     speedItemLayout->addSpacing(List_Interval);
     speedItem->setFixedHeight(speedItemLayout->sizeHint().height());
 
@@ -142,3 +143,14 @@ void GeneralKBSettingWidget::setSpeedValue(uint value)
     m_speedSlider->setValue(static_cast<int>(value));
     m_speedSlider->blockSignals(false);
 }
+
+void GeneralKBSettingWidget::mousePressEvent(QMouseEvent *event)
+{
+    QPoint p =  event->globalPos();
+    QRect r = m_testArea->geometry();
+    if (!r.contains(p)) {
+        m_testArea->clear();
+    }
+}
+
+

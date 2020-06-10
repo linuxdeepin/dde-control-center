@@ -91,6 +91,9 @@ void DeviceSettingsItem::initItemActionList()
 void DeviceSettingsItem::setLoading(const bool loading)
 {
     if (loading) {
+        QPalette pa = m_loadingIndicator->palette();
+        pa.setBrush(QPalette::Highlight,Qt::white);
+        m_loadingIndicator->setPalette(pa);
         m_loadingIndicator->start();
         m_loadingIndicator->show();
         m_loadingAction->setVisible(true);
@@ -136,7 +139,7 @@ void DeviceSettingsItem::setDevice(const Device *device)
         m_deviceItem->setText(alias);
     });
 
-    onDeviceStateChanged(device->state());
+    onDeviceStateChanged(device->state(), device->connectState());
     onDevicePairedChanged(device->paired());
 }
 
@@ -175,25 +178,19 @@ DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     return m_deviceItem;
 }
 
-void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
+void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool connectState)
 {
     if (state == Device::StateAvailable) {
         setLoading(true);
         return;
     }
     QString tip;
-    switch (state) {
-    case Device::StateConnected: {
+    if (state == Device::StateConnected && connectState) {
         tip = tr("Connected");
         setLoading(false);
-        break;
-    }
-    case Device::StateUnavailable:
+    } else if (state == Device::StateUnavailable) {
         tip = tr("Not connected");
         setLoading(false);
-        break;
-    default:
-        break;
     }
     m_textAction->setText(tip);
 }

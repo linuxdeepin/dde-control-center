@@ -139,6 +139,7 @@ void ConnectionEditPage::initHeaderButtons()
         if (conn->uuid() == m_connection->uuid()) {
             m_disconnectBtn->setVisible(true);
             m_disconnectBtn->setProperty("activeConnectionPath", conn->path());
+            m_disconnectBtn->setProperty("connectionUuid", conn->uuid());
             break;
         }
     }
@@ -217,6 +218,7 @@ void ConnectionEditPage::initConnection()
 
     connect(m_disconnectBtn, &QPushButton::clicked, this, [ = ]() {
         deactivateConnection(m_disconnectBtn->property("activeConnectionPath").toString());
+        Q_EMIT disconnect(m_disconnectBtn->property("connectionUuid").toString());
         Q_EMIT back();
     });
 }

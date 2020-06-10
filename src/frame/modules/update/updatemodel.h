@@ -147,6 +147,12 @@ public:
     inline bool systemActivation() const {return m_bSystemActivation;}
     void setSystemActivation(int systemactivation);
 
+    inline bool getUpdatablePackages() const {return m_isUpdatablePackages;}
+    void isUpdatablePackages(bool isUpdatablePackages);
+
+    inline bool getAutoCheckUpdates() const {return m_isAutoCheckUpdates;}
+    void isAutoCheckUpdates(bool isAutoCheckUpdates);
+
     const QString& lastCheckUpdateTime() const {return m_lastCheckUpdateTime;}
     void setLastCheckUpdateTime(const QString& lastTime);
 
@@ -219,6 +225,8 @@ private:
     QString m_lastCheckUpdateTime; //上次检查更新时间
     QList<AppUpdateInfo> m_historyAppInfos; //历史更新应用列表
     int m_autoCheckUpdateCircle; //决定进入检查更新界面是否自动检查,单位：小时
+    bool m_isUpdatablePackages;
+    bool m_isAutoCheckUpdates;
 };
 
 }

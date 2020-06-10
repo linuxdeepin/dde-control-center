@@ -43,7 +43,6 @@ override_dh_auto_configure:
 		-DDISABLE_SYS_UPDATE_MIRRORS=YES -DCVERSION=$(DEB_VERSION_UPSTREAM)
 endif
 
-
 ifeq ($(DEB_BUILD_ARCH), sw_64)
 override_dh_auto_configure:
 	dh_auto_configure -- -DCVERSION=$(DEB_VERSION_UPSTREAM)

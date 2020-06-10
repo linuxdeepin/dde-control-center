@@ -68,9 +68,9 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setEditTriggers(DListView::NoEditTriggers);
     m_effectList->setFrameShape(DListView::NoFrame);
     m_effectList->setViewportMargins(0, 0, 5, 0);
-    m_effectList->setMinimumWidth(350);
     m_layout->addWidget(m_effectList, 1);
     m_layout->addStretch();
+    m_effectList->setMinimumWidth(350);
 
     m_effectList->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
     QScroller::grabGesture(m_effectList->viewport(), QScroller::LeftMouseButtonGesture);

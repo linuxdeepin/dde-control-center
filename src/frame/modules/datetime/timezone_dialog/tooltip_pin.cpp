@@ -57,56 +57,65 @@ TooltipPin::TooltipPin(QWidget* parent) : QLabel(parent) {
   this->setStyleSheet("margin: 0 15px;");
 }
 
-void TooltipPin::popup(const QPoint& point) {
-  this->move(point.x() - this->width() / 2, point.y() - this->height());
-  this->show();
+void TooltipPin::setArrowDirection(TooltipPin::ArrowDirection arrowDirection)
+{
+    m_arrowDirection = arrowDirection;
+}
+
+void TooltipPin::popup(const QPoint& point)
+{
+    if (point.x() < 100) {
+        this->move(point.x() + 6, point.y() - this->height() / 8);
+    } else {
+        this->move(point.x() - this->width() / 2, point.y() - this->height() + 6);
+    }
+    this->show();
 }
 
 void TooltipPin::paintEvent(QPaintEvent* event) {
-  Q_UNUSED(event);
+    Q_UNUSED(event);
 
-  QPainter painter(this);
-  painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing,
-                         true);
-  const int kWidth = this->width();
-  const int kHalfWidth = kWidth / 2;
-  const int kHeight = this->height();
+    QPainter painter(this);
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(Qt::white);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing, true);
+    // Then draw text.
+    QFont label_font;
+    label_font.setPixelSize(12);
+    const QFontMetrics label_font_metrics(label_font);
+    const int label_length = label_font_metrics.width(this->text());
 
-  // First draw background with round corner.
-  QPainterPath background_path;
-  background_path.moveTo(kWidth, kBorderRadius);
-  background_path.arcTo(kWidth - kBorderDiameter, 0,
-                        kBorderDiameter, kBorderDiameter,
-                        0.0, 90.0);
-  background_path.lineTo(kBorderRadius, 0);
-  background_path.arcTo(0, 0, kBorderDiameter, kBorderDiameter, 90.0, 90.0);
-  background_path.lineTo(0, kHeight - kBorderRadius - kTriangleHeight);
-  background_path.arcTo(0, kHeight - kBorderDiameter - kTriangleHeight,
-                        kBorderDiameter, kBorderDiameter,
-                        180.0, 90.0);
-  background_path.lineTo(kHalfWidth - kTriangleHeight,
-                         kHeight - kTriangleHeight);
-  // Draw isosceles right-angled triangle in bottom center of label.
-  background_path.lineTo(kHalfWidth, kHeight);
-  background_path.lineTo(kHalfWidth + kTriangleHeight,
-                         kHeight - kTriangleHeight);
-  background_path.lineTo(kWidth - kBorderRadius, kHeight - kTriangleHeight);
-  background_path.arcTo(kWidth - kBorderDiameter,
-                        kHeight - kBorderDiameter - kTriangleHeight,
-                        kBorderDiameter, kBorderDiameter,
-                        270.0, 90.0);
-  background_path.closeSubpath();
-  painter.fillPath(background_path, QBrush(Qt::white));
+    int kWidth = this->width();
+    int kHalfWidth = kWidth / 2;
+    int kHeight = this->height();
+    QPolygon trianglePolygon;
 
-  // Then draw text.
-  QFont label_font;
-  label_font.setPixelSize(12);
-  const QFontMetrics label_font_metrics(label_font);
-  const int label_length = label_font_metrics.width(this->text());
-  painter.setPen(QPen(Qt::black));
-  painter.setFont(label_font);
-  // Set text alignment to center
-  painter.drawText((kWidth - label_length) / 2, 16, this->text());
+    // 三角形箭头方向
+    QPainterPath arrowPath;
+    switch (m_arrowDirection) {
+    case ArrowLeft:
+        trianglePolygon << QPoint(10, 0);
+        trianglePolygon << QPoint(0, 8);
+        trianglePolygon << QPoint(10, 18);
+        painter.drawRoundedRect(QRect(QPoint(7, 0), QSize(kWidth - kTriangleHeight, kHeight / 2 + 3)), 4, 4);
+        // Rect + Triangle;
+        arrowPath.addPolygon(trianglePolygon);
+        painter.drawPath(arrowPath);
+        break;
+    case ArrowDown:
+        trianglePolygon << QPoint((kWidth - 10) / 2 + 10, 2.5 * kTriangleHeight + 3);
+        trianglePolygon << QPoint(kHalfWidth, kHeight - 6);
+        trianglePolygon << QPoint((kWidth + 10) / 2 - 10, 2.5 * kTriangleHeight + 3);
+        painter.drawRoundedRect(QRect(QPoint(0, 0), QSize(kWidth, kHeight / 2 + 3)), kBorderRadius, kBorderRadius);
+        // Rect + Triangle;
+        arrowPath.addPolygon(trianglePolygon);
+        painter.drawPath(arrowPath);
+        break;
+    }
+    painter.setPen(QPen(Qt::black));
+    painter.setFont(label_font);
+    // Set text alignment to center
+    painter.drawText((kWidth - label_length) / 2, 16, this->text());
 }
 
 }  // namespace installer

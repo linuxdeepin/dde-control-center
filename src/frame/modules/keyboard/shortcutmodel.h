@@ -30,6 +30,7 @@
 
 #include <QObject>
 #include <QMap>
+#include "modules/display/displaymodel.h"
 
 static const QMap<QString, QString> DisplaykeyMap = { {"exclam", "!"}, {"at", "@"}, {"numbersign", "#"}, {"dollar", "$"}, {"percent", "%"},
     {"asciicircum", "^"}, {"ampersand", "&"}, {"asterisk", "*"}, {"parenleft", "("},
@@ -97,16 +98,20 @@ public:
 
     ShortcutInfo *getInfo(const QString &shortcut);
     void setSearchResult(const QString &searchResult);
+    bool getWindowSwitch();
 Q_SIGNALS:
     void listChanged(QList<ShortcutInfo *>, InfoType);
     void addCustomInfo(ShortcutInfo *info);
     void shortcutChanged(ShortcutInfo *info);
     void keyEvent(bool press, const QString &shortcut);
     void searchFinished(const QList<ShortcutInfo *> searchResult);
+    void windowSwitchChanged(bool value);
+
 public Q_SLOTS:
     void onParseInfo(const QString &info);
     void onCustomInfo(const QString &json);
     void onKeyBindingChanged(const QString &value);
+    void onWindowSwitchChanged(bool value);
 
 private:
     QString m_info;
@@ -118,6 +123,8 @@ private:
     QList<ShortcutInfo *> m_customInfos;
     QList<ShortcutInfo *> m_searchList;
     ShortcutInfo *m_currentInfo;
+    bool m_windowSwitchState;
+    dcc::display::DisplayModel m_dis;
 };
 
 }

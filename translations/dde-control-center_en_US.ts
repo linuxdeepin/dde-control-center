@@ -427,7 +427,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="168"/>
         <source>Add Fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3796,28 +3796,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="276"/>
         <source>Connect to hidden network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
         <source>Wireless Network Adapter</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="296"/>
         <source>Close Hotspot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="299"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="322"/>
         <source>WLAN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4797,100 +4797,105 @@
 <context>
     <name>dccV20::systeminfo::ManualBackup</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="25"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="26"/>
         <source>Backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="34"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="38"/>
         <source>Backup Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="35"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="39"/>
         <source>Save to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="58"/>
         <source>Full Backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="59"/>
         <source>System Backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="146"/>
+        <source>The storage location cannot be in source disk, please reselect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="150"/>
         <source>Invalid path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="145"/>
-        <source>Tool execution error</source>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="154"/>
+        <source>Grub authentication failed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dccV20::systeminfo::ManualRestore</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="94"/>
         <source>Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="127"/>
         <source>Save User Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="129"/>
         <source>Reset All Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="149"/>
         <source>Select restore directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="157"/>
         <source>Manual Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="229"/>
         <source>Backup file is invalid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="233"/>
+        <source>Invalid path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="237"/>
         <source>Grub authentication failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="228"/>
-        <source>Tool execution error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="253"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="257"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="261"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="264"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5788,101 +5793,101 @@
 <context>
     <name>dcc::accounts::FingerModel</name>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="64"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="65"/>
         <source>Fingerprint 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="65"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint 4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
         <source>Fingerprint 5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="70"/>
         <source>Fingerprint 6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="70"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="71"/>
         <source>Fingerprint 7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="71"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="72"/>
         <source>Fingerprint 8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="72"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="73"/>
         <source>Fingerprint 9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="73"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="74"/>
         <source>Fingerprint 10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="130"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="186"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="132"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="188"/>
         <source>The fingerprint already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="131"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="187"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="133"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="189"/>
         <source>Please scan other fingers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="174"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="176"/>
         <source>Moved too fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="175"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="177"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="178"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="180"/>
         <source>Unclear fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="179"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="196"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="181"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="198"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="182"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="184"/>
         <source>Already scanned</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="183"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="193"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="185"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="195"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="190"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="192"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
         <translation type="unfinished"></translation>
     </message>

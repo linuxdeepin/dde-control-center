@@ -363,6 +363,7 @@ void MainWindow::initAllModule(QString m)
             group.m_name = it->first->name();
             group.m_action.first = action1;
             group.m_action.second = action2;
+            group.m_index=m_navModel->rowCount();
             m_remindeSubscriptList.append(group);
             if(action2->isVisible())
                 item->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
@@ -418,9 +419,10 @@ void MainWindow::loadModules()
         module->setFrameProxy(this);
 
         if (tr("Assistive Tools") == module->displayName() && !DCC_NAMESPACE::IsDesktopSystem) {
-            for (auto i : m_modules) {
-                if (i.second == tr("Keyboard and Language")) {
-                    m_modules.insert(m_modules.indexOf(i) + 1, {module, module->displayName()});
+            for (auto iter : m_modules) {
+                if (iter.second == tr("Keyboard and Language")) {
+                    m_modules.insert(m_modules.indexOf(iter) + 1, {module, module->displayName()});
+                    break;
                 }
             }
         }
@@ -552,10 +554,11 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDisplay)
 {
     QPair<DViewItemAction *, DViewItemAction *> m_pair(nullptr, nullptr);
-
+    int index = 0;
     for (const auto &k : m_remindeSubscriptList) {
         if (module == k.m_name) {
             m_pair = k.m_action;
+            index = k.m_index;
         }
     }
 
@@ -566,6 +569,7 @@ void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDispla
     if (m_navView->viewMode() == QListView::IconMode) {
         if (m_pair.first->isVisible() != bIsDisplay) {
             m_pair.first->setVisible(bIsDisplay);
+            m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
         }
     } else {
         if (m_pair.second->isVisible() != bIsDisplay) {
@@ -661,7 +665,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
     if (m_topWidget) {
         m_topWidget->setFixedSize(event->size());
-        m_topWidget->curWidget()->setMinimumWidth(dstWidth / 2);
+        m_topWidget->curWidget()->setMinimumWidth(dstWidth / 2 - 40);
         m_topWidget->setFixedHeight(height() - this->titlebar()->height());
     }
 }
@@ -753,6 +757,14 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
         qDebug() << Q_FUNC_INFO << " Search widget is current display widget.";
         // load wireless detail pages.
         if ((moduleName == "network") && (widgetPages.size() > 1)) {
+            for (auto ite : m_modules) {
+                if (ite.first->name() == moduleName) {
+                    ite.first->load(widget);
+                    return;
+                }
+            }
+        }
+        if ((moduleName == "keyboard") && (widgetPages.size() >= 1)) {
             for (auto ite : m_modules) {
                 if (ite.first->name() == moduleName) {
                     ite.first->load(widget);
@@ -857,6 +869,12 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 m_searchWidget->removeUnExsitData(tr("Cloud Sync"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Cloud Sync"));
+            }
+        } else if ("commoninfo" == find_it->first->name()) {
+            if (visible) {
+                m_searchWidget->removeUnExsitData(tr("General Settings"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("General Settings"));
             }
         }
     } else {
@@ -1070,7 +1088,7 @@ void FourthColWidget::initWidget(QWidget *showWidget, ModuleInterface *module)
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
-    showWidget->setMinimumWidth(this->parentWidget()->width() / 2);
+    showWidget->setMinimumWidth(this->parentWidget()->width() / 2 - 40);
     showWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     showWidget->setAutoFillBackground(true);
 

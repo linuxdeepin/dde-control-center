@@ -122,7 +122,7 @@ void PersonalizationModule::showGenaralWidget()
     connect(widget->getThemeWidget(), &PerssonalizationThemeWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
     connect(widget, &PersonalizationGeneral::requestSetOpacity, m_work, &dcc::personalization::PersonalizationWork::setOpacity);
     connect(widget, &PersonalizationGeneral::requestSetMiniEffect, m_work, &dcc::personalization::PersonalizationWork::setMiniEffect);
-    connect(widget, &PersonalizationGeneral::requestSwitchWM, m_work, &dcc::personalization::PersonalizationWork::switchWM);
+    connect(widget, &PersonalizationGeneral::requestWindowSwitchWM, m_work, &dcc::personalization::PersonalizationWork::windowSwitchWM);
     connect(widget, &PersonalizationGeneral::requestSetActiveColor, m_work, &dcc::personalization::PersonalizationWork::setActiveColor);
     m_work->active();
 

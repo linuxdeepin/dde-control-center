@@ -32,6 +32,7 @@
 #include <QJsonDocument>
 
 #define MIN_NM_ACTIVE 50
+#define UPDATE_PACKAGE_SIZE 0
 
 namespace dcc {
 namespace update {
@@ -93,6 +94,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus(), this))
     , m_abRecoveryInter(new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus(), this))
     , m_systemInfoInter(new SystemInfoInter("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this))
+    , m_iconTheme(new Appearance("com.deepin.daemon.Appearance","/com/deepin/daemon/Appearance",QDBusConnection::sessionBus(), this))
     , m_onBattery(true)
     , m_batteryPercentage(0.0)
     , m_batterySystemPercentage(0.0)
@@ -102,6 +104,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_downloadProcess(0.0)
     , m_bIsFirstGetDownloadProcess(true)
     , m_downloadSize(0)
+    , m_iconThemeState("")
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
@@ -109,6 +112,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     m_powerSystemInter->setSync(false);
     m_lastoresessionHelper->setSync(false);
     m_smartMirrorInter->setSync(true, false);
+    m_iconTheme->setSync(false);
 
     QString sVersion = QString("%1 %2 %3").arg(DSysInfo::productTypeString().toUpper(),
                                                  DSysInfo::deepinVersion(),
@@ -169,6 +173,9 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     connect(m_abRecoveryInter, &RecoveryInter::RestoringChanged, m_model, &UpdateModel::setRecoverRestoring);
     //预留接口
    //connect(m_dbusActivator, &GrubDbus::LicenseStateChange, m_model, &UpdateModel::setSystemActivation);
+    //图片主题
+    connect(m_iconTheme, &Appearance::IconThemeChanged, this, &UpdateWorker::onIconThemeChanged);
+    m_iconThemeState = m_iconTheme->iconTheme();
 
     m_model->setRecoverConfigValid(m_abRecoveryInter->configValid());
 
@@ -191,6 +198,25 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
                                          "LicenseStateChange",
                                          this,
                                          SLOT(licenseStateChangeSlot()));
+
+    QDBusInterface Interface("com.deepin.lastore",
+                                 "/com/deepin/lastore",
+                                 "com.deepin.lastore.Updater",
+                                 QDBusConnection::systemBus());
+    if (!Interface.isValid()) {
+        qWarning() << "com.deepin.license error ," << Interface.lastError().name();
+        return;
+    }
+    QList<QString> updatablePackages;
+    updatablePackages << Interface.property("UpdatablePackages").toStringList();
+    qDebug() << "UpdatablePackages = " << updatablePackages.count();
+    if (updatablePackages.count() > UPDATE_PACKAGE_SIZE) {
+        m_model->isUpdatablePackages(true);
+    } else {
+        m_model->isUpdatablePackages(false);
+    }
+    bool autoCheckSwitch = Interface.property("AutoCheckUpdates").toBool();
+    m_model->isAutoCheckUpdates(autoCheckSwitch);
 }
 
 UpdateWorker::~UpdateWorker()
@@ -982,6 +1008,11 @@ void UpdateWorker::onUpgradeStatusChanged(const QString &status)
     }
 }
 
+void UpdateWorker::onIconThemeChanged(const QString &theme)
+{
+    m_iconThemeState = theme;
+}
+
 void UpdateWorker::checkDiskSpace(JobInter *job)
 {
     QString jobDescription = job->description();
@@ -1026,14 +1057,22 @@ AppUpdateInfo UpdateWorker::getInfo(const AppUpdateInfo &packageInfo, const QStr
     };
 
     QString metadataDir = "/lastore/metadata/" + packageInfo.m_packageId;
+    QString icondataDir = "/usr/share/icons";
 
     AppUpdateInfo info;
     info.m_packageId = packageInfo.m_packageId;
     info.m_name = packageInfo.m_name;
     info.m_currentVersion = currentVersion;
     info.m_avilableVersion = lastVersion;
-    info.m_icon = metadataDir + "/meta/icons/" + packageInfo.m_packageId + ".svg";
-
+    if (info.m_packageId.contains("/",Qt::CaseSensitive)) {
+        info.m_icon = info.m_packageId;
+    } else {
+        info.m_icon = icondataDir + "/"+m_iconThemeState+"/apps/48/"+ packageInfo.m_packageId + ".svg";
+        QFile file(info.m_icon);
+        if (false == file.exists()) {
+            info.m_icon = icondataDir + "/"+m_iconThemeState+"/48x48/apps/"+ packageInfo.m_packageId + ".svg";
+        }
+    }
     QFile manifest(metadataDir + "/meta/manifest.json");
     if (manifest.open(QFile::ReadOnly)) {
         QByteArray data = manifest.readAll();

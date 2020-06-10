@@ -32,6 +32,7 @@ namespace dcc {
 namespace widgets {
 class SwitchWidget;
 class TitledSliderItem;
+class PowerDisplayWidget;
 class NormalLabel;
 class TitleValueItem;
 }
@@ -41,6 +42,7 @@ class PowerModel;
 }
 }
 
+class QLabel;
 namespace DCC_NAMESPACE {
 namespace power {
 
@@ -73,14 +75,12 @@ private:
     dcc::widgets::SwitchWidget *m_autoIntoSaveEnergyMode;
     dcc::widgets::SwitchWidget *m_wakeComputerNeedPassword;
     dcc::widgets::SwitchWidget *m_wakeDisplayNeedPassword;
-
-    dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
-    dcc::widgets::TitledSliderItem *m_sldLowerBrightness = nullptr;
-
     QLabel *m_titleWidget;
     dcc::widgets::SwitchWidget *m_powerShowTimeToFull;
     dcc::widgets::PowerDisplayWidget *m_ShowTimeToFullTips;
 
+    dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
+    dcc::widgets::TitledSliderItem *m_sldLowerBrightness = nullptr;
 
 Q_SIGNALS:
     void requestSetLowBatteryMode(const bool &state);//同节能模式
@@ -95,6 +95,5 @@ public Q_SLOTS:
     void setPowerDisplay(const bool &state);
     void onGSettingsChanged(const QString &key);
 };
-
 }// namespace datetime
 }// namespace DCC_NAMESPACE

@@ -33,7 +33,9 @@
 #include <com_deepin_daemon_inputdevice_keyboard.h>
 #include <com_deepin_daemon_langselector.h>
 #include <com_deepin_daemon_keybinding.h>
+#include <com_deepin_wm.h>
 
+using WM = com::deepin::wm;
 
 namespace dcc {
 namespace keyboard{
@@ -63,6 +65,7 @@ public:
 #ifndef DCC_DISABLE_LANGUAGE
     void refreshLang();
 #endif
+    void windowSwitch();
 
     inline QList<MetaData> getDatas() {return m_metaDatas;}
     inline QList<QString> getLetters() {return m_letters;}
@@ -100,6 +103,8 @@ Q_SIGNALS:
     void requestSetAutoHide(const bool visible);
     void onDatasChanged(QList<MetaData> datas);
     void onLettersChanged(QList<QString> letters);
+    // 快捷键恢复默认完成
+    void onResetFinished();
 
 public Q_SLOTS:
 #ifndef DCC_DISABLE_LANGUAGE
@@ -116,6 +121,7 @@ public Q_SLOTS:
     void onAddedFinished(QDBusPendingCallWatcher *watch);
     void onLocalListsFinished(QDBusPendingCallWatcher *watch);
     void onSetSwitchKBLayout(int value);
+    void onGetWindowWM(bool value);
 #ifndef DCC_DISABLE_KBLAYOUT
     void onLayoutListsFinished(QDBusPendingCallWatcher *watch);
     void onUserLayout(const QStringList &list);
@@ -161,6 +167,7 @@ private:
 #endif
     KeybingdingInter* m_keybindInter;
     ShortcutModel *m_shortcutModel;
+    WM *m_wm;
 };
 }
 }
