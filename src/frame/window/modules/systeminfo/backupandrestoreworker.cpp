@@ -3,6 +3,7 @@
 
 #include <QSharedPointer>
 #include <QProcess>
+#include <QTextStream>
 #include <DDBusSender>
 
 #include <QFuture>
@@ -148,9 +149,23 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
 
 ErrorType BackupAndRestoreWorker::doSystemBackup()
 {
+    auto checkMountPoint = [](const QString &path)->QString const{
+        if (path.isEmpty()) return "Error";
+        QScopedPointer<QProcess> process(new QProcess);
+        process->start("df", {path});
+        process->waitForFinished(-1);
+        QTextStream stream(process->readAllStandardOutput());
+        QString line;
+        while (stream.readLineInto(&line)) {
+            line = line.simplified();
+            if (line.startsWith("/dev")) {
+                return line.split(' ').last();
+            }
+        }
+        return "Error";
+    };
     const QString& choosePath { m_model->backupDirectory()};
-
-    if (choosePath.isEmpty() || !choosePath.startsWith("/media")) {
+    if (checkMountPoint(choosePath) == "Error" || checkMountPoint(choosePath) == "/" || checkMountPoint(choosePath) == "/boot") {
         return ErrorType::PathError;
     }
 
