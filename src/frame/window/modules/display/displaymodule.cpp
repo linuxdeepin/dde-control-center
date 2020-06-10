@@ -26,6 +26,7 @@
 #include "rotatedialog.h"
 #include "scalingpage.h"
 #include "multiscreensettingpage.h"
+#include "multiscreendetailpage.h"
 #include "refreshratepage.h"
 #include "touchscreenpage.h"
 #include "window/utils.h"
@@ -90,12 +91,22 @@ void DisplayModule::active()
             this, &DisplayModule::showCustomSettingDialog);
     connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
             this, &DisplayModule::showTouchScreenPage);
+    connect(m_displayWidget, &DisplayWidget::requestShowMultiResolutionPage,
+            this, &DisplayModule::showMultiResolutionPage);
+    connect(m_displayWidget, &DisplayWidget::requestShowMultiRefreshRatePage,
+            this, &DisplayModule::showMultiRefreshRatePage);
 
     m_frameProxy->pushWidget(this, m_displayWidget);
     if (m_displayWidget->isMultiMode()) {
-        showMultiScreenSettingPage();
+        if (m_displayWidget->isShowMultiscreen())
+            showMultiScreenSettingPage();
+        else
+            showBrightnessPage();
     } else {
-        showResolutionDetailPage();
+        if (m_displayWidget->isShowMultiscreen())
+            showResolutionDetailPage();
+        else
+            showMultiResolutionPage();
     }
 }
 
@@ -279,6 +290,22 @@ void DisplayModule::showTouchScreenPage()
     page->setModel(m_displayModel);
 
     connect(page, &TouchscreenPage::requestAssociateTouch, m_displayWorker, &DisplayWorker::setTouchScreenAssociation);
+
+    m_frameProxy->pushWidget(this, page);
+}
+
+void DisplayModule::showMultiResolutionPage()
+{
+    auto page = new MultiScreenDetailPage(true);
+    page->setModel(m_displayModel);
+
+    m_frameProxy->pushWidget(this, page);
+}
+
+void DisplayModule::showMultiRefreshRatePage()
+{
+    auto page = new MultiScreenDetailPage(false);
+    page->setModel(m_displayModel);
 
     m_frameProxy->pushWidget(this, page);
 }

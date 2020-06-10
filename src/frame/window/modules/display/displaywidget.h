@@ -29,6 +29,7 @@
 
 #include <QModelIndex>
 #include <QPoint>
+#include <QGSettings>
 
 QT_BEGIN_NAMESPACE
 class QListView;
@@ -62,6 +63,7 @@ public:
     int showPath(const QString &path);
     QPoint getRotateBtnPos();
     inline bool isMultiMode() const { return m_isMultiScreen; }
+    inline bool isShowMultiscreen() const { return m_isShowMultiscreen; }
 
 public Q_SLOTS:
     void onMonitorListChanged();
@@ -82,6 +84,8 @@ Q_SIGNALS:
     void requestShowTouchscreenPage() const;
     void requestRotate() const;
     void requestShowRefreshRatePage() const;
+    void requestShowMultiRefreshRatePage() const;
+    void requestShowMultiResolutionPage() const;
 
 private:
     void initMenuUI();
@@ -106,6 +110,8 @@ private:
     QList<MenuMethod> m_singleMenuList;
 
     bool m_isMultiScreen{true};
+    QGSettings *m_displaySetting{nullptr};
+    bool m_isShowMultiscreen;
 };
 
 }  // namespace display

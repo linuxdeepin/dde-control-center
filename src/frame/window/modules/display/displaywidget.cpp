@@ -35,6 +35,7 @@
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
+#define GSETTINGS_SHOW_MUTILSCREEN "show-multiscreen"
 
 DisplayWidget::DisplayWidget(QWidget *parent)
     : QWidget(parent)
@@ -160,6 +161,21 @@ void DisplayWidget::initMenuUI()
                                       QMetaMethod::fromSignal(&DisplayWidget::requestShowTouchscreenPage)};
         m_multMenuList << touchscreenMenu;
         m_singleMenuList << touchscreenMenu;
+    }
+
+    m_displaySetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    m_isShowMultiscreen = m_displaySetting->get(GSETTINGS_SHOW_MUTILSCREEN).toBool();
+    if (!m_isShowMultiscreen) {
+        m_multMenuList.removeAt(0);
+        MenuMethod multiRefreshMenu = {tr("Refresh Rate"), "dcc_refresh_rate",
+                                  QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiRefreshRatePage)
+                                 };
+        MenuMethod multiResoMenu = {tr("Resolution"), "dcc_resolution",
+                                  QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)
+                                 };
+        m_multMenuList << multiResoMenu << multiRefreshMenu;
+        m_singleMenuList[0] = {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)};
+        m_singleMenuList[3] = {tr("Refresh Rate"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiRefreshRatePage)};
     }
 
     DStandardItem *btn{nullptr};
