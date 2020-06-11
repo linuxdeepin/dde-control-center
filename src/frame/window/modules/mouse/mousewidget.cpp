@@ -80,6 +80,7 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     m_mouseListView->setRowHidden(2, !tpadExist);
     m_mouseListView->setRowHidden(3, !redPointExist);
     m_mouseListView->setViewportMargins(ScrollAreaMargins);
+    m_mouseListView->setIconSize(ListViweIconSize);
     connect(m_mouseListView, &DListView::clicked, this, &MouseWidget::onItemClicked);
     connect(m_mouseListView, &DListView::activated, m_mouseListView, &QListView::clicked);
     connect(this, &MouseWidget::tpadExistChanged, this, [this](bool bExist) {

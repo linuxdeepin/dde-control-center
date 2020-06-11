@@ -55,6 +55,7 @@ void SystemInfoWidget::initWidget()
     m_listView->setEditTriggers(QListView::NoEditTriggers);
     m_listView->setModel(m_itemModel);
     m_listView->setViewportMargins(ScrollAreaMargins);
+    m_listView->setIconSize(ListViweIconSize);
 
     m_mainContentLayout->setMargin(0);
     m_mainContentLayout->addWidget(m_listView);

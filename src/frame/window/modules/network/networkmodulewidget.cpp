@@ -63,6 +63,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     m_lvnmpages->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_lvnmpages->setModel(m_modelpages);
     m_lvnmpages->setViewportMargins(ScrollAreaMargins);
+    m_lvnmpages->setIconSize(ListViweIconSize);
 
     m_centralLayout = new QVBoxLayout();
     setMinimumWidth(250);

@@ -83,6 +83,7 @@ void PowerWidget::initialize(bool hasBattery)
     m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_listview->setViewportMargins(ScrollAreaMargins);
+    m_listview->setIconSize(ListViweIconSize);
     if (!IsServerSystem)
         m_listview->setRowHidden(2, !hasBattery);
     else {

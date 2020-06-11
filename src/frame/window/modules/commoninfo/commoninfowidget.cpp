@@ -56,6 +56,7 @@ void CommonInfoWidget::initWidget()
     m_listView->setViewportMargins(ScrollAreaMargins);
     m_listView->setFrameShape(QFrame::NoFrame);
     m_listView->setEditTriggers(QListView::NoEditTriggers);
+    m_listView->setIconSize(ListViweIconSize);
     m_listView->setModel(m_itemModel);
 
     m_vBoxLayout->setContentsMargins(5, 5, 5, 0);

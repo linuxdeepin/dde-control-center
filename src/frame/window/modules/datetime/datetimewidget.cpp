@@ -78,6 +78,7 @@ void DatetimeWidget::init()
     m_listview->setCurrentIndex(model->index(0, 0));
     m_listview->setItemSpacing(10);
     m_listview->setViewportMargins(ScrollAreaMargins);
+    m_listview->setIconSize(ListViweIconSize);
 
     //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
     //~ contents_path /datetime/Timezone List

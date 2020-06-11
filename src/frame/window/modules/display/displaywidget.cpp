@@ -172,6 +172,7 @@ void DisplayWidget::initMenuUI()
     m_menuList->setEditTriggers(DListView::NoEditTriggers);
     m_menuList->setFrameShape(QFrame::NoFrame);
     m_menuList->setViewportMargins(ScrollAreaMargins);
+    m_menuList->setIconSize(ListViweIconSize);
     m_centralLayout->addWidget(m_menuList, 1);
     connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
     connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);

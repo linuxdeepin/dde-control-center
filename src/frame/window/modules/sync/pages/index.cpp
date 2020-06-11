@@ -60,6 +60,7 @@ IndexPage::IndexPage(QWidget *parent)
     m_listView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_listView->setFrameShape(QFrame::NoFrame);
     m_listView->setContentsMargins(0, 0, 0, 0);
+    m_listView->setIconSize(ListViweIconSize);
 
     SettingsGroup *autoSyncGrp = new SettingsGroup;
     autoSyncGrp->appendItem(m_autoSyncSwitch);

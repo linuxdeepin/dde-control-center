@@ -41,6 +41,7 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     m_categoryListView->setMovement(QListView::Static);
     m_categoryListView->setFrameShape(QFrame::NoFrame);
     m_categoryListView->setViewportMargins(ScrollAreaMargins);
+    m_categoryListView->setIconSize(ListViweIconSize);
 
     //Initialize second page view and model
     QStringList menus;
