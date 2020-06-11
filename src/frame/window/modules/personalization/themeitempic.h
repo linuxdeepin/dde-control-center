@@ -38,6 +38,7 @@ public:
     bool isSelected();
     void setSelected(bool selected);
     void setPath(const QString &picPath);
+    ~ThemeItemPic();
 
 Q_SIGNALS:
     void clicked();

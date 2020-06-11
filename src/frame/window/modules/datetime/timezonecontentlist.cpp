@@ -42,7 +42,7 @@ TimezoneContentList::TimezoneContentList(QWidget *parent)
     m_centralLayout->addWidget(m_timezoneGroup, 0, Qt::AlignTop);
     m_centralLayout->addStretch();
 
-    QWidget *mainWidget = new TranslucentFrame;
+    QWidget *mainWidget = new TranslucentFrame(this);
     mainWidget->setLayout(m_centralLayout);
     layout()->setMargin(0);
     setContent(mainWidget);
@@ -50,7 +50,15 @@ TimezoneContentList::TimezoneContentList(QWidget *parent)
 
 TimezoneContentList::~TimezoneContentList()
 {
+    m_timezoneGroup->clear();
 
+    for (auto it = m_zoneList.begin(); it != m_zoneList.end();) {
+        TimezoneItem *item = (*it);
+        it = m_zoneList.erase(it);//equal ++it
+        item->deleteLater();
+    }
+
+    m_zoneList.clear();
 }
 
 void TimezoneContentList::setSpace(int value)

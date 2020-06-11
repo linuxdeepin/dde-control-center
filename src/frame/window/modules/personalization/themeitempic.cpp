@@ -67,6 +67,11 @@ void ThemeItemPic::setPath(const QString &picPath)
     update();
 }
 
+ThemeItemPic::~ThemeItemPic()
+{
+    render->deleteLater();
+}
+
 void ThemeItemPic::mousePressEvent(QMouseEvent* event)
 {
     if(event->button() == Qt::LeftButton) {
