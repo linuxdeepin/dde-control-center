@@ -206,5 +206,6 @@
         <file>light/buletooth_tv_light.svg</file>
         <file>light/buletooth_vidicon_light.svg</file>
         <file>light/buletooth_other_light.svg</file>
+        <file>texts/dcc_refresh_12px.svg</file>
     </qresource>
 </RCC>

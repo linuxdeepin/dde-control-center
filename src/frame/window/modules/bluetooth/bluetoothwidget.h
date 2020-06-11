@@ -71,6 +71,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void addAdapter(const dcc::bluetooth::Adapter *adapter);
     void removeAdapter(const dcc::bluetooth::Adapter *adapter);
+    void requestRefresh(const dcc::bluetooth::Adapter *adapter);
 
     void onBluetoothEnabledChanged(const bool enabled);   //监听飞行模式开关
 
