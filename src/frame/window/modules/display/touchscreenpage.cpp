@@ -149,7 +149,7 @@ void TouchscreenPage::save()
             continue;
         }
 
-        Q_EMIT requestAssociateTouch(touchscreenSerial, output);
+        Q_EMIT requestAssociateTouch(output, touchscreenSerial);
 
         m_notifyInter->Notify("dde-control-center",
                               QDateTime::currentMSecsSinceEpoch(),

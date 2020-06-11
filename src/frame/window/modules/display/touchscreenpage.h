@@ -68,7 +68,7 @@ private Q_SLOTS:
     void save();
 
 Q_SIGNALS:
-    void requestAssociateTouch(const QString &touchscreenSerial, const QString &monitor);
+    void requestAssociateTouch(const QString &monitor, const QString &touchscreenSerial);
 
 private:
     dcc::display::DisplayModel *m_model{nullptr};
