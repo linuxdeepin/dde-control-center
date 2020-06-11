@@ -182,7 +182,12 @@ MainWindow::MainWindow(QWidget *parent)
     m_backwardBtn->setAccessibleName("backwardbtn");
     m_backwardBtn->setEnabled(false);
     m_backwardBtn->setIcon(QStyle::SP_ArrowBack);
-    titlebar->addWidget(m_backwardBtn, Qt::AlignLeft | Qt::AlignVCenter);
+    QWidget *backWidget = new QWidget();
+    QHBoxLayout *btnLayout = new QHBoxLayout();
+    btnLayout->addSpacing(5);
+    btnLayout->addWidget(m_backwardBtn);
+    backWidget->setLayout(btnLayout);
+    titlebar->addWidget(backWidget, Qt::AlignLeft | Qt::AlignVCenter);
     titlebar->setIcon(QIcon::fromTheme("preferences-system"));
 
     connect(m_backwardBtn, &DIconButton::clicked, this, [this] {
