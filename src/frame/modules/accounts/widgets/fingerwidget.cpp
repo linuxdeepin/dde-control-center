@@ -60,7 +60,7 @@ FingerWidget::FingerWidget(QWidget *parent)
     connect(m_msgTimer, &QTimer::timeout, this, [this] {
         m_tipLbl->setText(m_defTip);
     });
-    connect(m_liftTimer, &QTimer::timeout, this, [this]{
+    connect(m_liftTimer, &QTimer::timeout, this, [this] {
         if (m_pro > 0 && m_pro < 35) {
             m_defTitle = tr("Place your finger");
             m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
