@@ -41,6 +41,7 @@
 #include <QPalette>
 #include <QSettings>
 #include <QComboBox>
+#include <QGraphicsDropShadowEffect>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -98,6 +99,11 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     for (QString aColor : ACTIVE_COLORS) {
         RoundColorWidget *colorItem = new RoundColorWidget(aColor, this);
+        QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect;
+        effect->setBlurRadius(15);        // 阴影圆角的大小
+        effect->setColor(aColor);      //阴影的颜色
+        effect->setOffset(0,5);
+        colorItem->setGraphicsEffect(effect);
         colorItem->setAccessibleName(aColor);
         colorItem->setFixedSize(20 + 2 * totalSpace, 40);
         colorLayout->addWidget(colorItem);
