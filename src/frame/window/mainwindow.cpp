@@ -147,8 +147,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_searchWidget = new SearchWidget(this);
     m_searchWidget->setMinimumSize(350, 36);
+    m_searchWidget->setAccessibleName("SearchModule");
+    m_searchWidget->lineEdit()->setAccessibleName("SearchModuleLineEdit");
 
     DTitlebar *titlebar = this->titlebar();
+    auto widhetlist = titlebar->children();
+    for (auto child : widhetlist ) {
+        if (auto item = qobject_cast<DIconButton*>(child)) {
+            item->setAccessibleName("FrameIcom");
+        }
+    }
+    titlebar->setAccessibleName("Mainwindow bar");
     titlebar->addWidget(m_searchWidget, Qt::AlignCenter);
     connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::onEnterSearchWidget);
 
