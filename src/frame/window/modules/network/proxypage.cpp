@@ -167,6 +167,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     vLayout->addLayout(btnLayout);
     setLayout(vLayout);
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
+    connect(tabNoneBtn, &QPushButton::clicked, m_buttonTuple->rightButton(), &QPushButton::clicked);
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, [this] {
         onProxyChanged("http", m_model->proxy("http"));
         onProxyChanged("https", m_model->proxy("https"));
