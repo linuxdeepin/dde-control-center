@@ -91,6 +91,7 @@ void RoundColorWidget::paintEvent(QPaintEvent *event)
     QRect r = squareRect.adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
     path.addEllipse(r);
     painter.setClipPath(path);
+    painter.setPen(Qt::NoPen);
     painter.drawPath(path);
     painter.fillPath(path, QBrush(m_color));
 }
