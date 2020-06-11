@@ -32,7 +32,8 @@ Adapter::Adapter(QObject *parent) :
     QObject(parent),
     m_id(""),
     m_name(""),
-    m_powered("false")
+    m_powered(false),
+    m_discovering(false)
 {
 
 }
@@ -64,11 +65,12 @@ void Adapter::removeDevice(const QString &deviceId)
     }
 }
 
-void Adapter::setPowered(bool powered)
+void Adapter::setPowered(bool powered, bool discovering)
 {
-    if (powered != m_powered) {
+    if (powered != m_powered || discovering != m_discovering) {
         m_powered = powered;
-        Q_EMIT poweredChanged(powered);
+        m_discovering = discovering;
+        Q_EMIT poweredChanged(powered, discovering);
     }
 }
 

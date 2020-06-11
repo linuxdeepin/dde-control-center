@@ -95,7 +95,8 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
             Q_EMIT back();
         }
     });
-    connect(adapter, &Adapter::poweredChanged, this, [this](const bool &powered) {
+    connect(adapter, &Adapter::poweredChanged, this, [this](const bool &powered, const bool &discovering) {
+        Q_UNUSED(discovering)
         if (!powered) {
             Q_EMIT back();
         }

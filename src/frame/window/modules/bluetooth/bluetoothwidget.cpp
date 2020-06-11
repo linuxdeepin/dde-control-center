@@ -86,6 +86,7 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
     connect(adpWidget, &AdapterWidget::requestSetAlias, this, &BluetoothWidget::requestSetAlias);
     connect(adpWidget, &AdapterWidget::requestShowDetail, this, &BluetoothWidget::showDeviceDetail);
     connect(adpWidget, &AdapterWidget::notifyLoadFinished, this, &BluetoothWidget::updateWidget);
+    connect(adpWidget, &AdapterWidget::requestRefresh, this, &BluetoothWidget::requestRefresh);
 
     m_bluetoothWorker->setAdapterDiscovering(path, true);
     m_valueMap[adapter] = adpWidget;
@@ -153,4 +154,7 @@ void BluetoothWidget::setVisibleState()
     Q_EMIT requestModuleVisible(m_valueMap.size());
 }
 
-
+void BluetoothWidget::requestRefresh(const dcc::bluetooth::Adapter *adapter)
+{
+    m_bluetoothWorker->setAdapterDiscoverable(adapter->id());
+}

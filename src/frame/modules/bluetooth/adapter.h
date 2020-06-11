@@ -49,7 +49,9 @@ public:
     const Device *deviceById(const QString &id) const;
 
     inline bool powered() const { return m_powered; }
-    void setPowered(bool powered);
+    void setPowered(bool powered, bool discovering);
+
+    inline bool discovering() const {return m_discovering;}
 
 public Q_SLOTS:
     void addDevice(const Device *device);
@@ -59,12 +61,13 @@ Q_SIGNALS:
     void nameChanged(const QString &name) const;
     void deviceAdded(const Device *device) const;
     void deviceRemoved(const QString &deviceId) const;
-    void poweredChanged(const bool &powered) const;
+    void poweredChanged(const bool &powered, const bool &discovering) const;
 
 private:
     QString m_id;
     QString m_name;
     bool m_powered;
+    bool m_discovering;
     QMap<QString, const Device *> m_devices;
 };
 

@@ -202,10 +202,11 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
     const QString path = adapterObj["Path"].toString();
     const QString alias = adapterObj["Alias"].toString();
     const bool powered = adapterObj["Powered"].toBool();
+    const bool discovering = adapterObj["Discovering"].toBool();
 
     adapter->setId(path);
     adapter->setName(alias);
-    adapter->setPowered(powered);
+    adapter->setPowered(powered, discovering);
 
     Q_EMIT deviceEnableChanged();
 
