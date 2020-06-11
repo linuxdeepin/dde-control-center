@@ -44,6 +44,7 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     m_defAppCatView->setFrameShape(QFrame::NoFrame);
     m_defAppCatView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_defAppCatView->setViewportMargins(ScrollAreaMargins);
+    m_defAppCatView->setIconSize(ListViweIconSize);
 
     QStringList titles;
     //~ contents_path /defapp/Webpage
