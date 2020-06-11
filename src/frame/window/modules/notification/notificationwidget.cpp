@@ -53,11 +53,12 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_systemListView->setMaximumHeight(50);
     m_systemListView->setResizeMode(QListView::Adjust);
     m_systemListView->setMovement(QListView::Static);
-    m_systemListView->setViewportMargins(ScrollAreaMargins);
+    //m_systemListView->setViewportMargins(ScrollAreaMargins);
     m_systemListView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
     m_systemListView->setAutoScroll(false);
     m_systemListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_systemListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_systemListView->setViewportMargins(QMargins(0, 0, 13, 0));
 
     DStandardItem *systemitem = new DStandardItem(QIcon::fromTheme("dcc_general_purpose"), tr("System Notifications"));
 
@@ -65,6 +66,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_sysmodel->appendRow(systemitem);
     m_systemListView->setModel(m_sysmodel);
     m_centralLayout->addWidget(m_systemListView);
+    m_centralLayout->setContentsMargins(10,0,0,0);
 
     connect(m_systemListView, &DListView::clicked, this, &NotificationWidget::onSystemClicked);
     connect(m_systemListView, &DListView::activated, m_systemListView, &DListView::clicked);
@@ -75,10 +77,11 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_centralLayout->addWidget(themeL);
     m_softwareListView->setResizeMode(QListView::Adjust);
     m_softwareListView->setMovement(QListView::Static);
-    m_softwareListView->setViewportMargins(ScrollAreaMargins);
+    //m_softwareListView->setViewportMargins(ScrollAreaMargins);
     m_softwareListView->setModel(m_softwaremodel);
     m_softwareListView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
-    m_softwareListView->setViewportMargins(QMargins(0, 0, 15, 0));
+    //m_softwareListView->setViewportMargins(QMargins(0, 0, 15, 0));
+    m_softwareListView->setViewportMargins(QMargins(0, 0, 13, 0));
     m_softwareListView->setSpacing(0);
     m_softwareListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 

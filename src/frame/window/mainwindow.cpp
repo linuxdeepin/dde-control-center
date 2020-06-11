@@ -117,8 +117,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_rightView = new DBackgroundGroup(m_rightContentLayout);
     m_rightView->setObjectName("modulepage");
     m_rightView->setItemSpacing(2);
-    m_rightView->setItemMargins(QMargins(10, 10, 10, 10));
-    m_rightView->setContentsMargins(10, 10, 10, 10);
+    m_rightView->setItemMargins(QMargins(0, 10, 0, 10));
+    m_rightView->setContentsMargins(0, 10, 0, 10);
 
     m_navView = new dcc::widgets::MultiSelectListView(this);
     m_navView->setAccessibleName("Form_mainmenulist");
