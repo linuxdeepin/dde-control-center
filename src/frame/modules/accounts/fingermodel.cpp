@@ -51,7 +51,8 @@ enum EnrollRetryCode {
     RC_RepeatFingerData,
     RC_SwipeTooShort,
     RC_FingerNotCenter,
-    RC_RemoveAndRetry
+    RC_RemoveAndRetry,
+    RC_CannotRecognize
 };
 
 using namespace dcc;
@@ -91,7 +92,7 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
     QJsonDocument jsonDocument;
     QJsonObject jsonObject;
 
-    if(!msg.isEmpty()){
+    if (!msg.isEmpty()) {
         jsonDocument = QJsonDocument::fromJson(msg.toLocal8Bit().data());
         jsonObject = jsonDocument.object();
     }
@@ -145,8 +146,8 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
         break;
     }
     case ET_Retry: {
-        QString title = "Enroll Retry!";
-        QString msg = "Enroll Retry!";
+        QString title = tr("Enroll Retry!");
+        QString msg = tr("Enroll Retry!");
         do {
             QStringList keys = jsonObject.keys();
             if (!keys.contains("subcode")) {
@@ -178,6 +179,10 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
                 break;
             case RC_RemoveAndRetry: // 拿开手指从新扫描
                 msg = tr("Clean your finger or adjust the finger position, and try again");
+                break;
+            case RC_CannotRecognize:
+                title = tr("Cannot recognize");
+                msg = tr("Lift your finger and place it on the sensor again");
                 break;
             }
             break;
