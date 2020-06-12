@@ -18,6 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include "partitionusage.h"
 
 #include <QCoreApplication>
 #include <QCommandLineParser>
@@ -31,6 +32,7 @@
 #include <QDebug>
 #include <QSettings>
 #include <udisks2-qt5/ddiskdevice.h>
+#include <udisks2-qt5/dblockdevice.h>
 #include <udisks2-qt5/ddiskmanager.h>
 #include <udisks2-qt5/dblockpartition.h>
 #include <com_deepin_daemon_accounts.h>
@@ -42,6 +44,7 @@
 #include <QDateTime>
 #include <QSharedPointer>
 #include <QProcess>
+#include <QStorageInfo>
 
 using AccountsInter = com::deepin::daemon::Accounts;
 using UserInter = com::deepin::daemon::accounts::User;
@@ -111,8 +114,8 @@ int main(int argc, char *argv[])
 
     const QString &recoveryPath{ "/etc/deepin/system-recovery.conf" };
     QSettings settings(recoveryPath, QSettings::IniFormat);
-    const QString UUID{ settings.value("UUID").toString() };
-    if (UUID.isEmpty()) {
+    const QString recoveryUUID{ settings.value("UUID").toString() };
+    if (recoveryUUID.isEmpty()) {
         qWarning() << "Cannot open " << recoveryPath;
         return -1;
     }
@@ -123,6 +126,7 @@ int main(int argc, char *argv[])
     QString mountPoint;
     QString realtiveUUID;
     QString realtivePath;
+    QString diskDrive;
 
     auto getUUID = [=] (const QString& path) -> QString {
         QProcess* findRealtive = new QProcess;
@@ -156,12 +160,19 @@ int main(int argc, char *argv[])
         return QString();
     };
 
-    const QStringList &devices = DDiskManager().blockDevices();
+    auto getPathFreeSpace = [] (const QString &path) -> qint64 {
+        return QStorageInfo (path).bytesFree();
+    };
+    const QStringList &devices = DDiskManager::blockDevices({});
     for (const QString &path : devices) {
         QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
-        if (device->idUUID() == UUID) {
-            device->unmount({});
-            mountPoint = device->mount({});
+        if (device->idUUID() == recoveryUUID) {
+            device->setWatchChanges(true);
+            if (device->mountPoints().size() > 0) {
+                mountPoint = device->mountPoints().first();
+            } else {
+                mountPoint = device->mount({});
+            }
             break;
         }
     }
@@ -169,6 +180,8 @@ int main(int argc, char *argv[])
     if (mountPoint.isEmpty()) {
         qWarning() << "mount point empty";
         return -1;
+    } else {
+        qDebug() << "mount point:" << mountPoint;
     }
 
     dataUUID = getUUID(QString("%1/backup/_dde_data.info").arg(mountPoint));
@@ -217,6 +230,45 @@ int main(int argc, char *argv[])
         bootUUID = getUUID("/boot");
     }
 
+    //get disk drive
+    for (const QString &path : devices) {
+        QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
+        if (device->idUUID() == dataUUID) {
+            diskDrive = device->drive();
+            break;
+        }
+    }
+
+    qint64 usage = 0;
+    //check disk usage
+    if (actionType == ActionType::ManualBackup) {
+        qint64 freespace = 0;
+        qint64 total = 0;
+        for (const QString &path : devices) {
+            QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
+            if (device->drive() != diskDrive || device->idType().isEmpty()) continue;
+            ReadUsage(device->device().replace('\x00', ""), GetFsTypeByName(device->idType()), freespace, total);
+            usage += total - freespace;
+        }
+    }
+
+    //check boot and system usage
+    if (actionType == ActionType::SystemBackup) {
+        qint64 freespace = 0;
+        qint64 total = 0;
+        for (const QString &path : devices) {
+            QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
+            if (device->idUUID() == bootUUID || device->idUUID() == rootUUID) {
+                ReadUsage(device->device().replace('\x00', ""), GetFsTypeByName(device->idType()), freespace, total);
+                usage += total - freespace;
+            }
+        }
+    }
+
+    if (getPathFreeSpace(absolutePath) < usage) {
+        qWarning() << "target path don't have enough space";
+        return 5;
+    }
     QJsonObject fstabObj{ { "boot", QString("UUID:%1").arg(bootUUID) },
                           { "root", QString("UUID:%1").arg(rootUUID) },
                           { "data", "LABEL:_dde_data" } };
@@ -284,14 +336,14 @@ int main(int argc, char *argv[])
                              { "progress", true },
                              { "enable", actionType == ActionType::SystemRestore },
                              { "command", "restore-partitions" },
-                             { "args", QJsonArray{ QString("UUID:%1").arg(UUID),
+                             { "args", QJsonArray{ QString("UUID:%1").arg(recoveryUUID),
                                                    "backup/boot.dim",
                                                    QString("UUID:%1").arg(bootUUID) } } },
                 QJsonObject{ { "message", "starting restore root partition" },
                              { "progress", true },
                              { "enable", actionType == ActionType::SystemRestore },
                              { "command", "restore-partitions" },
-                             { "args", QJsonArray{ QString("UUID:%1").arg(UUID),
+                             { "args", QJsonArray{ QString("UUID:%1").arg(recoveryUUID),
                                                    "backup/system.dim",
                                                    QString("UUID:%1").arg(rootUUID) } } },
                 QJsonObject{ { "message", "starting backup root & boot partition" },

@@ -14,7 +14,8 @@ enum ErrorType {
     MissingRoot,
     GrubError,
     PathError,
-    PathError2
+    PathError2,
+    SpaceError
 };
 
 class BackupAndRestoreModel : public QObject

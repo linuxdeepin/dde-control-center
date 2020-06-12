@@ -155,6 +155,10 @@ void ManualBackup::onManualBackupErrorTypeChanged(ErrorType type)
         m_tipsLabel->setText(tr("Grub authentication failed"));
         break;
     }
+    case ErrorType::SpaceError: {
+        m_tipsLabel->setText(tr("Insufficient disk space"));
+        break;
+    }
     default: {
         m_tipsLabel->setVisible(false);
         break;
