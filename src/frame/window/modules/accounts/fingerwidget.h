@@ -22,7 +22,7 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "accounntfingeitem.h"
+#include "accountfingeitem.h"
 #include "modules/accounts/user.h"
 #include "modules/accounts/fingermodel.h"
 #include "widgets/settingsgroup.h"

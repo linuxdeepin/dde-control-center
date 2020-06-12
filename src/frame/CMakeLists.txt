@@ -260,7 +260,7 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/accountsdetailwidget.cpp
                 window/modules/accounts/avatarlistwidget.cpp
                 window/modules/accounts/avataritemdelegate.cpp
-                window/modules/accounts/accounntfingeitem.cpp
+                window/modules/accounts/accountfingeitem.cpp
                 window/modules/accounts/addfingedialog.cpp
                 window/modules/accounts/fingerwidget.cpp
 )

@@ -31,7 +31,7 @@
 #include "avatarlistwidget.h"
 #include "modules/accounts/fingermodel.h"
 #include "widgets/titlelabel.h"
-#include "accounntfingeitem.h"
+#include "accountfingeitem.h"
 #include "fingerwidget.h"
 
 #include <DLineEdit>

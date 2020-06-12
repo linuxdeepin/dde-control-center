@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "accounntfingeitem.h"
+#include "accountfingeitem.h"
 
 #include <QWidget>
 #include <QHBoxLayout>
@@ -49,11 +49,12 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
 
     m_removeBtn->setFlat(true);
     m_removeBtn->setIcon(DStyle::StandardPixmap::SP_DeleteButton);
-    m_removeBtn->setFixedSize(QSize(30, 30));
-    m_removeBtn->setIconSize(QSize(24, 24));
+    m_removeBtn->setFixedSize(QSize(24, 24));
+    m_removeBtn->setIconSize(QSize(16, 16));
     m_removeBtn->setVisible(false);
+    DStyle::setFocusRectVisible(m_removeBtn, false);
 
-    m_layout->setContentsMargins(20, 5, 0, 5);
+    m_layout->setContentsMargins(20, 5, 10, 5);
     m_layout->addWidget(m_title, 0, Qt::AlignLeft);
     m_layout->addWidget(m_editBtn, 0, Qt::AlignLeft);
     m_layout->addWidget(m_editTitle, 0 , Qt::AlignLeft);
@@ -123,19 +124,15 @@ void AccounntFingeItem::setHideTitle(bool state)
 bool AccounntFingeItem::validateName(const QString &password)
 {
     QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
-                              QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ")/* + QString("~!@#$%^&*()[]{}\\|/?,.<>")*/;
-    for (const QChar &p : password)
-    {
+                              QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("_"); // QString("~!@#$%^&*()[]{}\\|/?,.<>")
+    for (const QChar &p : password) {
         if (validate_policy.contains(p)) {
             continue;
-        }
-        else {
+        } else {
             ushort uNum = p.unicode();
-            if(uNum >= 0x4E00 && uNum <= 0x9FA5)
-            {
-                continue;// 这个字符是中文
-            }
-            else {
+            if (uNum >= 0x4E00 && uNum <= 0x9FA5) {
+                continue; // 这个字符是中文
+            } else {
                 return false;
             }
         }

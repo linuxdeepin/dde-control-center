@@ -20,7 +20,7 @@
  */
 
 #include "accountsdetailwidget.h"
-#include "accounntfingeitem.h"
+#include "accountfingeitem.h"
 #include "groupitem.h"
 #include "window/utils.h"
 #include "modules/accounts/usermodel.h"
@@ -76,7 +76,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     auto tw = new QWidget();
     tw->setLayout(contentLayout);
     contentLayout->setSpacing(0);
-    contentLayout->setContentsMargins(0, 0, 10, 0);
+    contentLayout->setContentsMargins(0, 0, 6, 0);
     scrollArea->setWidget(tw);
 
     initUserInfo(contentLayout);

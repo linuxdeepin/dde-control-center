@@ -65,7 +65,7 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     tipLayout->setContentsMargins(10, 0, 10, 0);
     tipLayout->addWidget(m_maxFingerTip, 0, Qt::AlignLeft);
     tipLayout->addWidget(m_clearBtn, 0, Qt::AlignRight);
-    tipLayout->addSpacing(25);
+    tipLayout->addSpacing(5);
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setSpacing(1);
