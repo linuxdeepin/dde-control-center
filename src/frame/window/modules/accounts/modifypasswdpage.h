@@ -59,6 +59,7 @@ public:
     void clickSaveBtn();
     void onPasswordChangeFinished(const int exitCode);
     bool validatePassword(const QString &password);
+    bool containsChar(const QString &password, const QString &validate);
 
     enum ModifyPwdRetFlag {
         ModifyNewPwdSuccess = 0,

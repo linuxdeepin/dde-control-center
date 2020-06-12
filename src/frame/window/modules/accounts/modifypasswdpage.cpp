@@ -186,40 +186,58 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
 
 bool ModifyPasswdPage::validatePassword(const QString &password)
 {
-    // NOTE(justforlxz): 配置文件由安装器生成，后续改成PAM模块
-    QSettings setting("/etc/deepin/dde.conf", QSettings::IniFormat);
-    setting.beginGroup("Password");
-    const bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
-    const int  password_min_length   = setting.value("PASSWORD_MIN_LENGTH").toInt();
-    const int  password_max_length   = setting.value("PASSWORD_MAX_LENGTH").toInt();
-    const QStringList validate_policy= setting.value("VALIDATE_POLICY").toString().split(";");
-    const int validate_required      = setting.value("VALIDATE_REQUIRED").toInt();
+    QFileInfo fileInfo("/etc/deepin/dde.conf");
+    if (fileInfo.isFile()) {
+        // NOTE(justforlxz): 配置文件由安装器生成，后续改成PAM模块
+        QSettings setting("/etc/deepin/dde.conf", QSettings::IniFormat);
+        setting.beginGroup("Password");
+        const bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
+        const int  password_min_length   = setting.value("PASSWORD_MIN_LENGTH").toInt();
+        const int  password_max_length   = setting.value("PASSWORD_MAX_LENGTH").toInt();
+        const QStringList validate_policy= setting.value("VALIDATE_POLICY").toString().split(";");
+        const int validate_required      = setting.value("VALIDATE_REQUIRED").toInt();
 
-    if (!strong_password_check) {
+        if (!strong_password_check) {
+            return true;
+        }
+
+        if (password.size() < password_min_length || password.size() > password_max_length) {
+            return false;
+        }
+
+        // NOTE(justforlxz): 转换为set，如果密码中包含了不存在与validate_policy中的字符，相减以后不为空。
+        if (!(password.split("").toSet() - validate_policy.join("").split("").toSet())
+                .isEmpty()) {
+            return false;
+        }
+
+        if (std::count_if(validate_policy.cbegin(), validate_policy.cend(),
+                        [=](const QString &policy) {
+                            for (const QChar &c : policy) {
+                                if (password.contains(c)) {
+                                    return true;
+                                }
+                            }
+
+                            return false;
+                        }) < validate_required) {
+            return false;
+        }
+
         return true;
+    } else {
+        QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
+                                      QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
+        return containsChar(password, validate_policy);
     }
+}
 
-    if (password.size() < password_min_length || password.size() > password_max_length) {
-        return false;
-    }
-
-    // NOTE(justforlxz): 转换为set，如果密码中包含了不存在与validate_policy中的字符，相减以后不为空。
-    if (!(password.split("").toSet() - validate_policy.join("").split("").toSet())
-             .isEmpty()) {
-        return false;
-    }
-
-    if (std::count_if(validate_policy.cbegin(), validate_policy.cend(),
-                      [=](const QString &policy) {
-                          for (const QChar &c : policy) {
-                              if (password.contains(c)) {
-                                  return true;
-                              }
-                          }
-
-                          return false;
-                      }) < validate_required) {
-        return false;
+bool ModifyPasswdPage::containsChar(const QString &password, const QString &validate)
+{
+    for (const QChar &p : password) {
+        if (!validate.contains(p)) {
+            return false;
+        }
     }
 
     return true;
