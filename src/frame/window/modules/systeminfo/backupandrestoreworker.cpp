@@ -129,15 +129,14 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
     }
 
     QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << m_model->backupDirectory());
-    process->waitForFinished();
+    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << choosePath);
+    process->waitForFinished(-1);
 
-    //choosePath don't have enough space
     if (process->exitCode() == 5) {
         return ErrorType::SpaceError;
     }
 
-    if (process->exitCode() != 0) {
+    if (process->exitCode() != 0 && process->exitCode() != 5) {
         return ErrorType::ToolError;
     }
 
@@ -176,7 +175,12 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_backup" << "--path" << choosePath);
     process->waitForFinished(-1);
 
-    if (process->exitCode() != 0) {
+    if (process->exitCode() == 5) {
+        return ErrorType::SpaceError;
+    }
+
+    if (process->exitCode() != 0 && process->exitCode() != 5) {
+        qDebug() << process->readAllStandardError();
         return ErrorType::ToolError;
     }
 

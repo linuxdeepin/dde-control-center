@@ -172,10 +172,6 @@ void ManualBackup::onManualBackupErrorTypeChanged(ErrorType type)
         m_tipsLabel->setText(tr("The storage location cannot be in source disk, please reselect"));
         break;
     }
-    case ErrorType::SpaceError: {
-        m_tipsLabel->setText(tr("Insufficient disk space"));
-        break;
-    }
     case ErrorType::FsError: {
         m_tipsLabel->setText(tr("Only storage devices in EXT4, NTFS format are supported"));
         break;
@@ -190,6 +186,10 @@ void ManualBackup::onManualBackupErrorTypeChanged(ErrorType type)
     }
     case ErrorType::GrubError: {
         m_tipsLabel->setText(tr("Grub authentication failed"));
+        break;
+    }
+    case ErrorType::SpaceError: {
+        m_tipsLabel->setText(tr("Insufficient disk space"));
         break;
     }
     default: {
