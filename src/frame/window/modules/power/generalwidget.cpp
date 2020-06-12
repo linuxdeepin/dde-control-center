@@ -82,13 +82,14 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
 
 
     //add Energy Saving Mode
-    SettingsGroup *saveEnergySettingsGrp = new SettingsGroup;
+    m_saveEnergySettingsGrp = new SettingsGroup;
     generalSettingsGrp->setSpacing(List_Interval);
 
 
     m_layEnergySavingMode = new QVBoxLayout;
     m_sldLowerBrightness = new TitledSliderItem(tr("Decrease brightness"), this);
     m_sldLowerBrightness->addBackground();
+
 
     auto reduceSlider = m_sldLowerBrightness->slider();
     QStringList annotions;
@@ -100,16 +101,16 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     reduceSlider->setType(DCCSlider::Vernier);
     reduceSlider->setTickPosition(QSlider::NoTicks);
 
-    saveEnergySettingsGrp->appendItem(m_lowBatteryMode);
-    saveEnergySettingsGrp->appendItem(m_swLowPowerAutoIntoSaveEnergyMode);
-    saveEnergySettingsGrp->appendItem(m_autoIntoSaveEnergyMode);
-    saveEnergySettingsGrp->appendItem(m_sldLowerBrightness);
+    m_saveEnergySettingsGrp->appendItem(m_lowBatteryMode);
+    m_saveEnergySettingsGrp->appendItem(m_swLowPowerAutoIntoSaveEnergyMode);
+    m_saveEnergySettingsGrp->appendItem(m_autoIntoSaveEnergyMode);
+    m_saveEnergySettingsGrp->appendItem(m_sldLowerBrightness);
 
     //Power Saving Mode tittle
-    TitleLabel *label = new TitleLabel(tr("Power Saving Settings"));
-    DFontSizeManager::instance()->bind(label, DFontSizeManager::T5, QFont::DemiBold);
-    m_layEnergySavingMode->addWidget(label);
-    m_layEnergySavingMode->addWidget(saveEnergySettingsGrp);
+    m_saveEnergySettingsLabel = new TitleLabel(tr("Power Saving Settings"));
+    DFontSizeManager::instance()->bind(m_saveEnergySettingsLabel, DFontSizeManager::T5, QFont::DemiBold);
+    m_layEnergySavingMode->addWidget(m_saveEnergySettingsLabel);
+    m_layEnergySavingMode->addWidget(m_saveEnergySettingsGrp);
     //---------------------------------------------------------
 
     //add battery info
@@ -140,7 +141,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
 
     m_layout->addLayout(m_layEnergySavingMode);
 
-    label = new TitleLabel(tr("Wakeup Settings"));
+    TitleLabel *label = new TitleLabel(tr("Wakeup Settings"));
     DFontSizeManager::instance()->bind(label, DFontSizeManager::T5, QFont::DemiBold);
 
     m_layout->addWidget(label);
@@ -207,6 +208,11 @@ void GeneralWidget::setModel(const PowerModel *model)
         m_sldLowerBrightness->slider()->setValue(dLevel / 10);
     });
 
+    bool bStatus = model->haveBettary();
+    m_saveEnergySettingsGrp->setVisible(bStatus);
+    m_saveEnergySettingsLabel->setVisible(bStatus);
+    connect(model, &PowerModel::haveBettaryChanged, this, &GeneralWidget::onBatteryChanged);
+
     //---------------------------------------------
     initSlider();
 }
@@ -234,6 +240,12 @@ void GeneralWidget::onGSettingsChanged(const QString &key)
         bool state = isEnable && GSettings()->get("showtimetofull").toBool();
         m_powerShowTimeToFull->setChecked(state);
     }
+}
+
+void GeneralWidget::onBatteryChanged(const bool &state)
+{
+    m_saveEnergySettingsGrp->setVisible(state);
+    m_saveEnergySettingsLabel->setVisible(state);
 }
 
 void GeneralWidget::initSlider()

@@ -28,6 +28,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
+class TitleLabel;
 namespace dcc {
 namespace widgets {
 class SwitchWidget;
@@ -35,7 +36,10 @@ class TitledSliderItem;
 class PowerDisplayWidget;
 class NormalLabel;
 class TitleValueItem;
+class SettingsGroup;
 }
+
+
 
 namespace power {
 class PowerModel;
@@ -81,6 +85,9 @@ private:
 
     dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
     dcc::widgets::TitledSliderItem *m_sldLowerBrightness = nullptr;
+    dcc::widgets::SettingsGroup *m_saveEnergySettingsGrp = nullptr;
+    TitleLabel *m_saveEnergySettingsLabel = nullptr;
+
 
 Q_SIGNALS:
     void requestSetLowBatteryMode(const bool &state);//同节能模式
@@ -94,6 +101,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setPowerDisplay(const bool &state);
     void onGSettingsChanged(const QString &key);
+    void onBatteryChanged(const bool &state);
 };
 }// namespace datetime
 }// namespace DCC_NAMESPACE
