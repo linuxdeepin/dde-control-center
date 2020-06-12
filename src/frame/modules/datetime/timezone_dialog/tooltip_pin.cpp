@@ -49,6 +49,7 @@ const int kTriangleHeight = 6;
 }  // namespace
 
 TooltipPin::TooltipPin(QWidget* parent) : QLabel(parent) {
+    Q_UNUSED(kBorderDiameter)
   this->setObjectName("tooltip_pin");
 
   this->setAlignment(Qt::AlignHCenter);
@@ -103,13 +104,15 @@ void TooltipPin::paintEvent(QPaintEvent* event) {
         painter.drawPath(arrowPath);
         break;
     case ArrowDown:
-        trianglePolygon << QPoint((kWidth - 10) / 2 + 10, 2.5 * kTriangleHeight + 3);
+        trianglePolygon << QPoint((kWidth - 10) / 2 + 10, int(2.5 * kTriangleHeight + 3));
         trianglePolygon << QPoint(kHalfWidth, kHeight - 6);
-        trianglePolygon << QPoint((kWidth + 10) / 2 - 10, 2.5 * kTriangleHeight + 3);
+        trianglePolygon << QPoint((kWidth + 10) / 2 - 10, int(2.5 * kTriangleHeight + 3));
         painter.drawRoundedRect(QRect(QPoint(0, 0), QSize(kWidth, kHeight / 2 + 3)), kBorderRadius, kBorderRadius);
         // Rect + Triangle;
         arrowPath.addPolygon(trianglePolygon);
         painter.drawPath(arrowPath);
+        break;
+    default:
         break;
     }
     painter.setPen(QPen(Qt::black));
