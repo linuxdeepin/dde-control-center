@@ -682,7 +682,7 @@ void WirelessPage::updateActiveAp()
                 });
             }
         } else {
-            bool isReconnect = it.value()->setLoading(false);
+//            bool isReconnect = it.value()->setLoading(false);
             //if (isReconnect) {
             connect(it.value()->action(), &QAction::triggered, this, [this, it] {
                 this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),

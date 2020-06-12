@@ -32,7 +32,7 @@ static const QString getLicensePath(const QString &filePath, const QString &type
     return path;
 }
 
-static const QString getLicenseText(const QString &filePath, const QString &type)
+inline const QString getLicenseText(const QString &filePath, const QString &type)
 {
     QFile license(getLicensePath(filePath,type));
     if (!license.open(QIODevice::ReadOnly))
@@ -44,7 +44,7 @@ static const QString getLicenseText(const QString &filePath, const QString &type
     return std::move(buf);
 }
 
-static const QString getDevelopModeLicense(const QString &filePath, const QString &type)
+inline const QString getDevelopModeLicense(const QString &filePath, const QString &type)
 {
     const QString& locale { QLocale::system().name() };
     QString lang;

@@ -209,7 +209,7 @@ void UpdateWidget::showCheckUpdate()
     const UpdatesStatus& status = m_model->status();
     qDebug() << Q_FUNC_INFO << " current update status : " << status;
 
-    if (status == Checking || status == UpdateModel::Default) {
+    if (status == Checking || status == UpdatesStatus(UpdateModel::Default)) {
         m_label->setVisible(true);
     }
     m_mainLayout->setCurrentIndex(0);
