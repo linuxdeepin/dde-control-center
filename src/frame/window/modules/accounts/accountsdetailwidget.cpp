@@ -71,13 +71,12 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scrollArea->setContentsMargins(0, 0, 0, 0);
     mainContentLayout->addWidget(scrollArea);
-
     auto contentLayout = new QVBoxLayout();
     contentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     auto tw = new QWidget();
     tw->setLayout(contentLayout);
     contentLayout->setSpacing(0);
-    contentLayout->setMargin(0);
+    contentLayout->setContentsMargins(0, 0, 10, 0);
     scrollArea->setWidget(tw);
 
     initUserInfo(contentLayout);
