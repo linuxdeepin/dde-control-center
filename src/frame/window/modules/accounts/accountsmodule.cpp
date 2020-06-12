@@ -147,6 +147,7 @@ QStringList AccountsModule::availPage() const
 void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
+    w->setVisible(false);
     w->setAccountModel(m_userModel);
     m_fingerWorker->refreshUserEnrollList(account->name());
     w->setFingerModel(m_fingerModel);
@@ -167,6 +168,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestRenameFingerItem, m_fingerWorker, &FingerWorker::renameFingerItem);
     connect(w, &AccountsDetailWidget::requsetSetPassWordAge, m_accountsWorker, &AccountsWorker::setMaxPasswordAge);
     m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
 }
 
 //创建账户界面
