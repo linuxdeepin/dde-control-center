@@ -527,10 +527,12 @@ void PersonalizationWork::setMiniEffect(int effect)
     case 0:
         qDebug() << "scale";
         m_effects->unloadEffect("magiclamp");
+        m_model->setMiniEffect(effect);
         break;
     case 1:
         qDebug() << "magiclamp";
         m_effects->loadEffect("magiclamp");
+        m_model->setMiniEffect(effect);
         break;
     default:break;
     }

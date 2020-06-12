@@ -178,6 +178,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
                 qDebug() << "DSwitchButton::clicked:" << checked << ",m_model->is3DWm():" << m_model->is3DWm();
                 m_wmSwitch->setChecked(m_model->is3DWm());
                 Q_EMIT requestWindowSwitchWM(checked);
+                Q_EMIT requestSetMiniEffect(m_cmbMiniEffect->comboBox()->currentIndex());
         });
     }
     m_centralLayout->addWidget(m_switchWidget);
