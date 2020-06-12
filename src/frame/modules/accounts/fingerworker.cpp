@@ -86,15 +86,14 @@ bool FingerWorker::tryEnroll(const QString &name, const QString &thumb)
 
 void FingerWorker::refreshUserEnrollList(const QString &id)
 {
-    qDebug() << "refreshUserEnrollList" << "id:" << id;
     auto call = m_fingerPrintInter->ListFingers(id);
     call.waitForFinished();
     if (call.isError()) {
-        qDebug() << "call ListFingers Error : " << call.error();
+        qDebug() << "m_fingerPrintInter->ListFingers call Error : " << call.error() << "," << id;
         m_model->setThumbsList(QStringList());
         return;
     } else {
-        qDebug() << "ListFingers  : " << call.value();
+        qDebug() << "m_fingerPrintInter->ListFingers: " << call.value() << "," << id;
     }
     m_model->setThumbsList(call.value());
 }
@@ -121,6 +120,7 @@ void FingerWorker::stopEnroll(const QString& userName)
 
 void FingerWorker::deleteFingerItem(const QString& userName, const QString& finger)
 {
+    qDebug() << "deleteFingerItem: " << userName << "," << finger;
     auto call = m_fingerPrintInter->DeleteFinger(userName, finger);
     call.waitForFinished();
     if (call.isError()) {

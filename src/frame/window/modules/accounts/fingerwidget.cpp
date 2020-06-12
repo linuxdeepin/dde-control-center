@@ -148,8 +148,6 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
         m_vecItem.append(item);
         QPair<QString, QString> fingerItem = qMakePair(finger, fingerName);
         thumb.removeOne(fingerItem);
-
-        qDebug() << "onThumbsListChanged: " << finger;
     }
 
     m_clearBtn->setVisible(m_listGrp->itemCount());
