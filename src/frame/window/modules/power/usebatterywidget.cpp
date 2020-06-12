@@ -160,7 +160,11 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     connect(m_computerSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetSleepDelayOnBattery);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetAutoLockScreenOnBattery);
 //    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed);
-    connect(m_swBatteryHint, &SwitchWidget::checkedChanged, this, &UseBatteryWidget::requestSetLowPowerNotifyEnable);
+    connect(m_swBatteryHint, &SwitchWidget::checkedChanged, this, [ = ](bool bLowPowerNotifyEnable) {
+        Q_EMIT requestSetLowPowerNotifyEnable(bLowPowerNotifyEnable);
+        m_sldLowBatteryHint->setVisible(bLowPowerNotifyEnable);
+    });
+
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
             Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
