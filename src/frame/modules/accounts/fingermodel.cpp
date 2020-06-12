@@ -102,8 +102,9 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
         Q_EMIT enrollCompleted();
         break;
     case ET_Failed: {
-        QString title = "Enroll Failed!";
-        QString msg = "Enroll Failed!";
+        QString title = tr("Scan failed");
+        QString msg = "";
+        // The enrollment failed, Device.EnrollStop should now be called，直接提示Scan failed即可
         do {
             if (msg.isEmpty()) {
                 break;
@@ -114,19 +115,13 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
             }
             auto errCode = jsonObject.value("subcode").toInt();
             switch(errCode) {
-            case FC_DataFull:
-                msg = "数据满了，不能再录制更多指纹";
-                break;
-            case FC_EnrollBroken:
-                msg = "录入中断，请重新录入";
-                break;
             case FC_RepeatTemplet:
                 title = tr("The fingerprint already exists");
                 msg = tr("Please scan other fingers");
                 break;
             case FC_UnkownError:
-                title = tr("Scan failed");
-                msg = tr("");
+                title = tr("Unknown error");
+                msg = tr("Scan suspended");
             }
             break;
         } while(0);
@@ -146,8 +141,8 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
         break;
     }
     case ET_Retry: {
-        QString title = tr("Enroll Retry!");
-        QString msg = tr("Enroll Retry!");
+        QString title = tr("Cannot recognize");
+        QString msg = tr("Cannot recognize");
         do {
             QStringList keys = jsonObject.keys();
             if (!keys.contains("subcode")) {
@@ -172,6 +167,7 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
                 msg = tr("Please scan other fingers");
                 break;
             case RC_SwipeTooShort: //按压时间短
+                title = tr("Moved too fast");
                 msg = tr("Finger moved too fast. Please do not lift until prompted");
                 break;
             case RC_FingerNotCenter: //手指不在中间
