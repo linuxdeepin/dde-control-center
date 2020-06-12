@@ -88,8 +88,9 @@ void BackupAndRestoreWorker::systemRestore(bool formatData)
 
     QFutureWatcher<ErrorType> *watcher = new QFutureWatcher<ErrorType>(this);
     connect(watcher, &QFutureWatcher<ErrorType>::finished, [this, watcher] {
-        const bool result = watcher->result();
+        const ErrorType result = watcher->result();
         qDebug() << Q_FUNC_INFO << result;
+        m_model->setManualRestoreErrorType(result);
         m_model->setRestoreButtonEnabled(true);
         watcher->deleteLater();
     });

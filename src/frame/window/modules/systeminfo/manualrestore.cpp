@@ -283,6 +283,7 @@ void ManualRestore::restore()
         m_loadingIndicator->setVisible(true);
         m_backupBtn->setVisible(false);
     }
+    setFocus();
 }
 
 #include "manualrestore.moc"
