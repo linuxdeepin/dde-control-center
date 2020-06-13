@@ -215,8 +215,6 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     } else {
         m_model->isUpdatablePackages(false);
     }
-    bool autoCheckSwitch = Interface.property("AutoCheckUpdates").toBool();
-    m_model->isAutoCheckUpdates(autoCheckSwitch);
 }
 
 UpdateWorker::~UpdateWorker()

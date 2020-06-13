@@ -152,6 +152,7 @@ public:
 
     inline bool getAutoCheckUpdates() const {return m_isAutoCheckUpdates;}
     void isAutoCheckUpdates(bool isAutoCheckUpdates);
+
     const QString& lastCheckUpdateTime() const {return m_lastCheckUpdateTime;}
     void setLastCheckUpdateTime(const QString& lastTime);
 
