@@ -31,6 +31,7 @@
 #include <QHBoxLayout>
 #include <QMouseEvent>
 #include <QApplication>
+#include <DFontSizeManager>
 
 using namespace dcc::widgets;
 DWIDGET_USE_NAMESPACE
@@ -45,6 +46,7 @@ SettingsHead::SettingsHead(QFrame *parent)
 
     // can not translate correctly just using tr()
     m_edit->setText(qApp->translate("SettingsHead", "Edit"));
+    DFontSizeManager::instance()->bind(m_title, DFontSizeManager::T5, QFont::DemiBold);
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);

@@ -35,6 +35,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QJsonArray>
+#include <DFontSizeManager>
 
 using namespace dcc::widgets;
 using namespace dde::network;
@@ -120,6 +121,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         delete item;
     }
 
+    QVBoxLayout *m_headTitleLayout = new QVBoxLayout;
     int infoCount = infos.count();
     for (const auto &info : infos) {
         SettingsGroup *grp = new SettingsGroup;
@@ -141,8 +143,12 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
 
             SettingsHead *head = new SettingsHead();
             head->setTitle(name);
+            DFontSizeManager::instance()->bind(head, DFontSizeManager::T5, QFont::DemiBold);
             head->setEditEnable(false);
             grp->appendItem(head, SettingsGroup::NoneBackground);
+            m_headTitleLayout->addWidget(head);
+            m_headTitleLayout->setContentsMargins(20,0,0,0);
+            //grp->appendItem(head, SettingsGroup::NoneBackground);
         }
 
         if (isWireless) {
@@ -229,7 +235,8 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             if (!speed.isEmpty())
                 appendInfo(grp, tr("Speed"), speed);
         }
-
+        m_groupsLayout->addLayout(m_headTitleLayout);
+        m_groupsLayout->addSpacing(10);
         m_groupsLayout->addWidget(grp);
         if (--infoCount > 0) {
             m_groupsLayout->addSpacing(30);

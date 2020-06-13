@@ -75,6 +75,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     //~ contents_path /network/Wired Network
     m_switch->setTitle(tr("Wired Network Adapter"));//有线网卡
     m_switch->setChecked(dev->enabled());
+    m_switch->addBackground();
     m_tipsGrp->setVisible(dev->enabled());
     connect(m_switch, &SwitchWidget::checkedChanged, this, [this] (const bool checked) {
         Q_EMIT requestDeviceEnabled(m_device->path(), checked);

@@ -235,7 +235,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     : ContentWidget(parent)
     , m_device(dev)
     , m_switch(new SwitchWidget())
-    , m_tipsGroup(new SettingsGroup)
     , m_closeHotspotBtn(new QPushButton)
     , m_lvAP(new DListView(this))
     , m_clickedItem(nullptr)
@@ -282,6 +281,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     //~ contents_path /network/WirelessPage
     m_switch->setTitle(tr("Wireless Network Adapter"));
     m_switch->setChecked(dev->enabled());
+    m_switch->addBackground();
     m_lvAP->setVisible(dev->enabled());
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
@@ -297,19 +297,19 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     TipsItem *tips = new TipsItem;
     tips->setText(tr("Disable hotspot first if you want to connect to a wireless network"));
 
+
+    m_tipsGroup = new SettingsGroup;
     m_tipsGroup->appendItem(tips);
 
     m_mainLayout = new QVBoxLayout;
-    m_mainLayout->setSpacing(0);
-    m_mainLayout->setContentsMargins(0, 0, 0, 0);
-    m_mainLayout->addWidget(m_switch);
+    m_mainLayout->addWidget(m_switch, 0, Qt::AlignTop);
     m_mainLayout->addWidget(m_lvAP);
-    m_mainLayout->addWidget(m_tipsGroup);
-    m_mainLayout->addSpacing(10);
+    //m_mainLayout->addWidget(m_tipsGroup);
     m_mainLayout->addWidget(m_closeHotspotBtn);
-    m_mainLayout->addSpacing(10);
     m_layoutCount = m_mainLayout->layout()->count();
-    updateLayout(!m_lvAP->isHidden());
+    updateLayout(!m_lvAP->isHidden());    
+    m_mainLayout->setSpacing(10);//三级菜单控件间的间隙
+    m_mainLayout->setMargin(0);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(m_mainLayout);

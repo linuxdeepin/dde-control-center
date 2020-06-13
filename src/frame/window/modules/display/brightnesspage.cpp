@@ -34,6 +34,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QList>
+#include <DFontSizeManager>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -55,11 +56,12 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->setSpacing(10);
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
 
-    m_tempratureColorTitle = new TitleLabel(tr("Color Temperature"));     //亮度
-    auto font = m_tempratureColorTitle->font();
-    font.setWeight(QFont::DemiBold);
-    m_tempratureColorTitle->setFont(font);
-    m_centralLayout->addWidget(m_tempratureColorTitle, 0, Qt::AlignLeft);
+    QVBoxLayout *titleLayout = new QVBoxLayout;
+    m_tempratureColorTitle = new TitleLabel(tr("Color Temperature"));     //色温
+    DFontSizeManager::instance()->bind(m_tempratureColorTitle, DFontSizeManager::T5, QFont::DemiBold);
+    titleLayout->addWidget(m_tempratureColorTitle, Qt::AlignLeft);
+    titleLayout->setContentsMargins(8,0,0,0);
+    m_centralLayout->addLayout(titleLayout);
 
     m_nightShift = new SwitchWidget;
     //~ contents_path /display/Brightness
@@ -153,10 +155,11 @@ void BrightnessPage::addSlider()
 {
     auto monList = m_displayModel->monitorList();
     TitleLabel *headTitle = new TitleLabel(tr("Brightness"));     //亮度
-    auto font = headTitle->font();
-    font.setWeight(QFont::DemiBold);
-    headTitle->setFont(font);
-    m_centralLayout->insertWidget(0, headTitle, 0, Qt::AlignLeft);
+    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);
+    QVBoxLayout *m_headTitleLayout = new QVBoxLayout;
+    m_headTitleLayout->addWidget(headTitle, Qt::AlignLeft);
+    m_headTitleLayout->setContentsMargins(8,0,0,0);
+    m_centralLayout->insertLayout(0, m_headTitleLayout, 0);
     for (int i = 0; i < monList.size(); ++i) {
         //单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name());

@@ -107,8 +107,12 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     m_saveEnergySettingsGrp->appendItem(m_sldLowerBrightness);
 
     //Power Saving Mode tittle
+    QVBoxLayout *labelLayout = new QVBoxLayout;
     m_saveEnergySettingsLabel = new TitleLabel(tr("Power Saving Settings"));
     DFontSizeManager::instance()->bind(m_saveEnergySettingsLabel, DFontSizeManager::T5, QFont::DemiBold);
+    labelLayout->addWidget(m_saveEnergySettingsLabel);
+    labelLayout->setContentsMargins(6,0,0,0);
+    m_layout->addLayout(labelLayout);
     m_layEnergySavingMode->addWidget(m_saveEnergySettingsLabel);
     m_layEnergySavingMode->addWidget(m_saveEnergySettingsGrp);
     //---------------------------------------------------------
@@ -144,7 +148,10 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     TitleLabel *label = new TitleLabel(tr("Wakeup Settings"));
     DFontSizeManager::instance()->bind(label, DFontSizeManager::T5, QFont::DemiBold);
 
-    m_layout->addWidget(label);
+    QVBoxLayout *wakeupLayout = new QVBoxLayout;
+    wakeupLayout->addWidget(label);
+    wakeupLayout->setContentsMargins(8,0,0,0);
+    m_layout->addLayout(wakeupLayout);
 
     m_layout->addWidget(generalSettingsGrp);
     m_layout->setSpacing(List_Interval);

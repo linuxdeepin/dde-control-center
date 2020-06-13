@@ -66,13 +66,14 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     m_layout->addWidget(m_contentArea);
     setLayout(m_layout);
 
-    const int titleLeftMargin = 15;
+    const int titleLeftMargin = 17;
     //~ contents_path /sound/Advanced
     TitleLabel *labelOutput = new TitleLabel(tr("Output"));
     DFontSizeManager::instance()->bind(labelOutput, DFontSizeManager::T5, QFont::DemiBold);
     labelOutput->setContentsMargins(titleLeftMargin, 0, 0, 0);
     labelOutput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     contentLayout->addWidget(labelOutput);
+    contentLayout->addSpacing(10);
 
     auto setListFucn = [](DListView * listView) {
         listView->setEditTriggers(DListView::NoEditTriggers);

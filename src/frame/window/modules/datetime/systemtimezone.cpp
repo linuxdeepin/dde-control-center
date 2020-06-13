@@ -25,6 +25,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QFont>
+#include <DFontSizeManager>
 
 using namespace dcc::datetime;
 using namespace DCC_NAMESPACE::datetime;
@@ -43,9 +44,7 @@ SystemTimezone::SystemTimezone(QWidget *parent)
 
     //~ contents_path /datetime/Timezone List
     QLabel *title = new QLabel(tr("System Timezone"));
-    QFont font;
-    font.setBold(true);
-    title->setFont(font);
+    DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold);
 
     m_layout->addWidget(title, 0, Qt::AlignLeft);
     m_layout->addSpacing(3);

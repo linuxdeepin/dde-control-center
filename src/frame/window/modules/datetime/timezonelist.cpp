@@ -41,17 +41,18 @@ TimezoneList::TimezoneList(QWidget *parent)
     , m_contentList(new TimezoneContentList(this))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
+    QVBoxLayout *m_headLayout = new QVBoxLayout;
     m_headItem->setEditEnable(true);
     m_headItem->setVisible(true);
     //~ contents_path /datetime/Timezone List
     m_headItem->setTitle(tr("Timezone List"));
-    m_headItem->setFixedHeight(34);
     m_headGroup->appendItem(m_headItem);
 
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(0);
+    m_centralLayout->addLayout(m_headLayout);
     m_centralLayout->addWidget(m_headGroup);
+    m_centralLayout->addSpacing(15);
     m_centralLayout->addWidget(m_contentList);
 
     m_contentList->setSpace(List_Interval);
