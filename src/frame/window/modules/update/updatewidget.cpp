@@ -250,7 +250,6 @@ void UpdateWidget::displayUpdateContent(UpdateType index)
     default:
         break;
     }
-    setFocus();
 }
 
 void UpdateWidget::onNotifyUpdateState(int state)
