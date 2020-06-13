@@ -95,6 +95,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     DFontSizeManager::instance()->bind(label, DFontSizeManager::T5, QFont::DemiBold);
     m_layEnergySavingMode->addWidget(label);
     m_layEnergySavingMode->addWidget(saveEnergySettingsGrp);
+
     //---------------------------------------------------------
     //add battery info
     m_powerShowTimeToFull->setTitle(tr("Display capacity and remaining charging time"));
@@ -116,7 +117,12 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     m_layout->addLayout(m_layEnergySavingMode);
     label = new TitleLabel(tr("Wakeup Settings"));
     DFontSizeManager::instance()->bind(label, DFontSizeManager::T5, QFont::DemiBold);
-    m_layout->addWidget(label);
+
+    QVBoxLayout *wakeupLayout = new QVBoxLayout;
+    wakeupLayout->addWidget(label);
+    wakeupLayout->setContentsMargins(8,0,0,0);
+    m_layout->addLayout(wakeupLayout);
+
     m_layout->addWidget(generalSettingsGrp);
     m_layout->setSpacing(List_Interval);
     m_layout->setMargin(0);
