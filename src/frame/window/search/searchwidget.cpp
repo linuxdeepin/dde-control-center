@@ -57,6 +57,7 @@ SearchWidget::SearchWidget(QWidget *parent)
 {
     m_model = new QStandardItemModel(this);
     m_completer = new ddeCompleter(m_model, this);
+    m_completer->popup()->setWindowFlags(Qt::Popup | Qt::Sheet);
     m_completer->setFilterMode(Qt::MatchContains);//设置QCompleter支持匹配字符搜索
     m_completer->setCaseSensitivity(Qt::CaseInsensitive);//这个属性可设置进行匹配时的大小写敏感性
     m_completer->setCompletionRole(Qt::UserRole); //设置ItemDataRole
