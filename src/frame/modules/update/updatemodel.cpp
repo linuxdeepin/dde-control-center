@@ -323,14 +323,6 @@ void UpdateModel::isUpdatablePackages(bool isUpdatablePackages)
     m_isUpdatablePackages = isUpdatablePackages;
 }
 
-void UpdateModel::isAutoCheckUpdates(bool isAutoCheckUpdates)
-{
-    if (m_isAutoCheckUpdates == isAutoCheckUpdates)
-        return;
-
-    m_isAutoCheckUpdates = isAutoCheckUpdates;
-}
-
 //判断当前是否正在备份中，若正在备份则不能再设置其他状态，直到备份有结果了才能继续设置其他状态
 bool UpdateModel::getIsRecoveryBackingup(UpdatesStatus state) const
 {

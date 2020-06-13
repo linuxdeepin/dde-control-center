@@ -58,7 +58,8 @@ void UpdateModule::preInitialize(bool sync)
 
     m_work->activate(); //refresh data
 
-    connect(m_model, &UpdateModel::autoCheckUpdatesChanged, this, [this](const bool state) {
+    // 之前自动更新与更新提醒后端为同一处理逻辑，新需求分开处理，前端相应提示角标处理逻辑同步调整
+    connect(m_model, &UpdateModel::updateNotifyChanged, this, [this](const bool state) {
         //关闭“自动提醒”，隐藏提示角标
         if (!state) {
             m_frameProxy->setModuleSubscriptVisible(name(), false);
@@ -76,7 +77,13 @@ void UpdateModule::preInitialize(bool sync)
         }
     });
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateModule::notifyDisplayReminder);
-    notifyDisplayReminder(m_model->status());
+
+    // 首次进入更新红点处理
+    if (m_model->getUpdatablePackages() && m_model->updateNotify()) {
+        m_frameProxy->setModuleSubscriptVisible(name(), true);
+    } else {
+        m_frameProxy->setModuleSubscriptVisible(name(), false);
+    }
 
     bool bShowUpdate = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showUpdate", true);
     m_frameProxy->setModuleVisible(this, bShowUpdate);
@@ -200,17 +207,10 @@ void UpdateModule::onNotifyDealMirrorWidget(bool state)
 
 void UpdateModule::notifyDisplayReminder(UpdatesStatus status)
 {
-    if (m_model->getUpdatablePackages() && m_model->getAutoCheckUpdates()) {
-        m_frameProxy->setModuleSubscriptVisible(name(), true);
-            return;
-    } else {
+    if (!m_model->updateNotify()) {
         m_frameProxy->setModuleSubscriptVisible(name(), false);
         return;
     }
-//    if (!m_model->autoCheckUpdates()) {
-//        m_frameProxy->setModuleSubscriptVisible(name(), false);
-//        return;
-//    }
 
     if (status == UpdatesStatus::Checking) {
         //do nothing
