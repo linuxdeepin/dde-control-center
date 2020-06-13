@@ -35,6 +35,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QList>
+#include <DFontSizeManager>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -106,7 +107,6 @@ void BrightnessPage::setMode(DisplayModel *model)
 void BrightnessPage::addSlider()
 {
     auto monList = m_displayModel->monitorList();
-
     auto envType = qEnvironmentVariable("XDG_SESSION_TYPE");
     bool bWayland = envType.contains("wayland");
     if (bWayland) {

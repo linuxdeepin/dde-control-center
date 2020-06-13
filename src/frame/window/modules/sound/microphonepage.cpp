@@ -67,11 +67,8 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     hlayout->addWidget(m_sw);
-
-    m_layout->setSpacing(25);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addLayout(hlayout);
-    m_layout->addStretch(1);
     setLayout(m_layout);
 }
 
@@ -165,6 +162,8 @@ void MicrophonePage::initSlider()
         //这里有可能导致精度丢失，所以采用了qRound 4舍5入取正
         slider2->setSliderPosition(qRound(vol2 * PercentageNum));
     });
+    m_layout->setSpacing(10);
     m_layout->insertWidget(2, m_feedbackSlider);
+    m_layout->addStretch(10);
 #endif
 }

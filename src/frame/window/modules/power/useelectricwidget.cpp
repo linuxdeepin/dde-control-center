@@ -79,7 +79,7 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     }
 
     QStringList options;
-    options << tr("Shut down") << tr("Suspend") << tr("Sleep")
+    options << tr("Shut down") << tr("Suspend") << tr("Hibernate")
             << tr("Turn off the monitor") << tr("Do nothing");
     m_cmbPowerBtn->setComboxOption(options);
     options.pop_front();

@@ -329,14 +329,10 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_tipsGroup->appendItem(tips);
 
     m_mainLayout = new QVBoxLayout;
-    m_mainLayout->setSpacing(0);
-    m_mainLayout->setContentsMargins(0, 0, 0, 0);
-    m_mainLayout->addWidget(m_switch);
+    m_mainLayout->addWidget(m_switch, 0, Qt::AlignTop);
     m_mainLayout->addWidget(m_lvAP);
-    m_mainLayout->addWidget(m_tipsGroup);
-    m_mainLayout->addSpacing(10);
+    //m_mainLayout->addWidget(m_tipsGroup);
     m_mainLayout->addWidget(m_closeHotspotBtn);
-    m_mainLayout->addSpacing(10);
     m_layoutCount = m_mainLayout->layout()->count();
     updateLayout(!m_lvAP->isHidden());
     m_mainLayout->setSpacing(10);//三级菜单控件间的间隙

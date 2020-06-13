@@ -56,6 +56,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     TitleLabel *headTitle = new TitleLabel(tr("Keyboard Layout"));
     headLayout->addWidget(headTitle);
+    headTitle->setContentsMargins(15,0,0,0);
     headLayout->addStretch();
 
     m_editKBLayout = new DCommandLinkButton(tr("Edit"));

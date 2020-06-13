@@ -75,9 +75,9 @@ void SystemNotifyWidget::initUI()
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QHBoxLayout *hLayoutDisturbMode = new QHBoxLayout;
-    hLayoutDisturbMode->setContentsMargins(0, 0, 10, 0);
+    hLayoutDisturbMode->setContentsMargins(8, 0, 10, 0);
     DLabel *lblDisturbMode = new DLabel(tr("Do Not Disturb"));
-    DFontSizeManager::instance()->bind(lblDisturbMode, DFontSizeManager::T5);
+    DFontSizeManager::instance()->bind(lblDisturbMode, DFontSizeManager::T5, QFont::DemiBold);
     hLayoutDisturbMode->addWidget(lblDisturbMode, Qt::AlignLeft);
     hLayoutDisturbMode->addWidget(m_btnDisturbMode, Qt::AlignRight);
     mainLayout->addLayout(hLayoutDisturbMode);

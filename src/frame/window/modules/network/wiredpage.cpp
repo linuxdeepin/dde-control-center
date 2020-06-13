@@ -75,6 +75,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(nullptr, lblTitle);
     m_switch->setChecked(dev->enabled());
+    m_switch->addBackground();
     m_tipsGrp->setVisible(dev->enabled());
     connect(m_switch, &SwitchWidget::checkedChanged, this, [this] (const bool checked) {
         Q_EMIT requestDeviceEnabled(m_device->path(), checked);

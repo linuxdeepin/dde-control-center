@@ -51,11 +51,11 @@ SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
     if (!m_leftWidget)
         m_leftWidget = new QLabel();
 
+    QHBoxLayout *lableLayout = new QHBoxLayout;
+    lableLayout->addWidget(m_leftWidget);
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setSpacing(0);
-
-    mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
-    mainLayout->addStretch();
+    mainLayout->addLayout(lableLayout, 0);
     mainLayout->addWidget(m_switchBtn, 0, Qt::AlignVCenter);
 
     m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
