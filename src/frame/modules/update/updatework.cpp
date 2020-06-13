@@ -349,7 +349,7 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
     }
 
     qDebug() << pkgCount << appCount;
-    if (pkgCount > appCount) {
+    if (pkgCount > 0) {
         // If there's no actual package dde update, but there're system patches available,
         // then fake one dde update item.
 
