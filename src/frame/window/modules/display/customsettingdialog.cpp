@@ -672,6 +672,7 @@ void CustomSettingDialog::resetDialog()
     //需要用QTimer把对窗口的改变放在屏幕数据应用后
     QTimer::singleShot(sender() ? 1000 : 0, this, [ = ] {
         m_monitroControlWidget->adjustSize();
+        m_monitroControlWidget->updateGeometry();
         adjustSize();
 
         auto rt = rect();
