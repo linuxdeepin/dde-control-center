@@ -1,5 +1,9 @@
 #include "widgets/multiselectlistview.h"
 
+#include <QKeyEvent>
+#include <QMouseEvent>
+#include <QDebug>
+
 namespace dcc {
 namespace widgets {
 
@@ -8,6 +12,7 @@ MultiSelectListView::MultiSelectListView(QWidget *parent): DListView(parent) {
 }
 
 void MultiSelectListView::resetStatus(const QModelIndex &index) {
+    m_currentIndex = index.row();
     DListView::clearSelection();
     DListView::setSelectionMode(DListView::SingleSelection);
     DListView::setCurrentIndex(index);
@@ -26,6 +31,33 @@ QModelIndex MultiSelectListView::moveCursor(CursorAction cursorAction, Qt::Keybo
 void MultiSelectListView::mouseMoveEvent(QMouseEvent *event)
 {
     return ;
+}
+
+void MultiSelectListView::keyPressEvent(QKeyEvent *event)
+{
+
+    if (event->key() == Qt::Key_Up) {
+        QModelIndex nextIndex = model()->index(m_currentIndex - 1, 0);
+        if (nextIndex.isValid() ) {
+            if (isRowHidden(m_currentIndex - 1)) {
+                nextIndex = model()->index(m_currentIndex - 2, 0);
+            }
+            setCurrentIndex(nextIndex);
+            Q_EMIT clicked(nextIndex);
+        }
+        return;
+    } else if (event->key() == Qt::Key_Down) {
+        QModelIndex nextIndex = model()->index(m_currentIndex + 1, 0);
+        if (nextIndex.isValid()) {
+            if (isRowHidden(m_currentIndex + 1)) {
+                nextIndex = model()->index(m_currentIndex + 2, 0);
+            }
+            setCurrentIndex(nextIndex);
+            Q_EMIT clicked(nextIndex);
+        }
+        return;
+    }
+    return DListView::keyPressEvent(event);
 }
 
 }
