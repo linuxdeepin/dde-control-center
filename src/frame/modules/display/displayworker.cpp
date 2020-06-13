@@ -59,7 +59,12 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     m_appearanceInter->setSync(isSync);
 
     model->setPrimary(m_displayInter.primary());
-    onMonitorListChanged(m_displayInter.monitors());
+    QDBusInterface monitorList("com.deepin.daemon.Display",
+                               "/com/deepin/daemon/Display",
+                               "com.deepin.daemon.Display",
+                               QDBusConnection::sessionBus());
+    auto reply = monitorList.property("Monitors");
+    onMonitorListChanged(reply.value<QList<QDBusObjectPath>>());
     model->setDisplayMode(m_displayInter.displayMode());
     model->setTouchscreenList(m_displayInter.touchscreens());
     model->setTouchMap(m_displayInter.touchMap());
