@@ -62,6 +62,12 @@ void RoundColorWidget::mousePressEvent(QMouseEvent *event)
     }
 }
 
+void RoundColorWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
+    return;
+}
+
 void RoundColorWidget::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)

@@ -53,6 +53,7 @@ public Q_SLOTS:
     void onAddItem(const QJsonObject &json);
     void onRemoveItem(const QString &id);
 protected:
+    void mouseMoveEvent(QMouseEvent* event)override;
     QBoxLayout *m_centerLayout;
     QMap<ThemeItem *, QJsonObject> m_valueMap;
     dcc::personalization::ThemeModel *m_model;

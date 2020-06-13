@@ -144,6 +144,12 @@ void PerssonalizationThemeWidget::onRemoveItem(const QString &id)
     }
 }
 
+void PerssonalizationThemeWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
+    return;
+}
+
 void PerssonalizationThemeWidget::setMainLayout(QBoxLayout *layout, bool titleBelowPic)
 {
     m_centerLayout = layout;
