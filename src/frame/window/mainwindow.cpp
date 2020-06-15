@@ -25,6 +25,7 @@
 #include "modules/defapp/defaultappsmodule.h"
 #include "modules/keyboard/keyboardmodule.h"
 #include "modules/power/powermodule.h"
+#include "modules/unionid/unionidmodule.h"
 #include "modules/sound/soundmodule.h"
 #include "modules/update/updatemodule.h"
 #include "modules/mouse/mousemodule.h"
@@ -305,6 +306,7 @@ void MainWindow::initAllModule(QString m)
 
     m_bInit = true;
     using namespace sync;
+    using namespace unionid;
     using namespace datetime;
     using namespace defapp;
     using namespace network;
@@ -327,6 +329,7 @@ void MainWindow::initAllModule(QString m)
         { new AccountsModule(this), tr("Accounts")},
         //~ contents_path /cloudsync/Cloud Sync
         { new SyncModule(this), tr("Cloud Account")},
+        { new UnionidModule(this), tr("Unionid")},
         { new DisplayModule(this), tr("Display")},
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new PersonalizationModule(this), tr("Personalization")},

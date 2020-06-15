@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/cloudsync">
+        <file>themes/dark/cloud.svg</file>
+        <file>themes/dark/icons/nav_cloudsync_normal.svg</file>
+        <file>themes/dark/icons/nav_cloudsync.svg</file>
+        <file>themes/dark/sync_ok.svg</file>
+        <file>themes/dark/syncing.svg</file>
+        <file>themes/dark/dark.qss</file>
+    </qresource>
+</RCC>
