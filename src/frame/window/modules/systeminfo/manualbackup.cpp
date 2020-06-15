@@ -40,7 +40,7 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     DFontSizeManager::instance()->bind(backupType, DFontSizeManager::T5);
     DFontSizeManager::instance()->bind(savePath, DFontSizeManager::T5);
     DListView *backupTypeView = new DListView;
-    backupTypeView->setMaximumHeight(82);
+    backupTypeView->setMaximumHeight(85);
     backupTypeView->setItemSpacing(5);
     backupTypeView->setFrameShape(QFrame::NoFrame);
     backupTypeView->setViewportMargins({});
