@@ -2,6 +2,7 @@
 #include "backupandrestoremodel.h"
 
 #include <DApplicationHelper>
+#include <DFrame>
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -22,11 +23,11 @@
 
 using namespace DCC_NAMESPACE::systeminfo;
 
-class RestoreItem : public QWidget {
+class RestoreItem : public DBackgroundGroup {
     Q_OBJECT
 public:
-    explicit RestoreItem(QWidget* parent = nullptr)
-        : QWidget(parent)
+    explicit RestoreItem(QLayout *layout = nullptr, QWidget* parent = nullptr)
+        : DBackgroundGroup(layout, parent)
         , m_layout(new QVBoxLayout)
         , m_radioBtn(new QRadioButton)
         , m_content(nullptr)
@@ -44,7 +45,13 @@ public:
         m_layout->setMargin(0);
         m_layout->setSpacing(5);
 
-        setLayout(mainLayout);
+        QWidget* bgWidget = new QWidget;
+        bgWidget->setLayout(mainLayout);
+
+        layout->addWidget(bgWidget);
+
+        setBackgroundRole(QPalette::Window);
+        setItemSpacing(1);
     }
 
     QRadioButton* radioButton() const {
@@ -105,16 +112,8 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     mainLayout->setMargin(0);
     mainLayout->setSpacing(5);
 
-    auto createBgGroup = [=](QLayout* layout) -> DBackgroundGroup* {
-        DBackgroundGroup* bgGroup = new DBackgroundGroup;
-        bgGroup->setLayout(layout);
-        bgGroup->setBackgroundRole(QPalette::Window);
-        bgGroup->setItemSpacing(1);
-        return bgGroup;
-    };
-
-    m_systemRestore = new RestoreItem;
-    m_manualRestore = new RestoreItem;
+    m_systemRestore = new RestoreItem(new QVBoxLayout);
+    m_manualRestore = new RestoreItem(new QVBoxLayout);
 
     // restore system
     {
@@ -133,9 +132,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
 
         m_systemRestore->setContent(bgWidget);
 
-        QVBoxLayout* bgLayout = new QVBoxLayout;
-        bgLayout->addWidget(m_systemRestore);
-        mainLayout->addWidget(createBgGroup(bgLayout));
+        mainLayout->addWidget(m_systemRestore);
     }
 
     // restore system end
@@ -156,9 +153,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
         m_manualRestore->setContent(bgWidget);
         m_manualRestore->setTitle(tr("Manual Restore"));
 
-        QVBoxLayout* bgLayout = new QVBoxLayout;
-        bgLayout->addWidget(m_manualRestore);
-        mainLayout->addWidget(createBgGroup(bgLayout));
+        mainLayout->addWidget(m_manualRestore);
     }
 
     // manual restore end
