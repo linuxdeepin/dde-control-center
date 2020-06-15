@@ -66,6 +66,9 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
         mouseItem = new DStandardItem(it->first, it->second);
         mouseItem->setData(VListViewItemMargin, Dtk::MarginsRole);
+        if (it->second == QString(tr("Mouse"))) {
+            mouseItem->setAccessibleText("MOUSE_ITEM");
+        }
         m_listviewModel->appendRow(mouseItem);
     }
     m_mouseListView->setAccessibleName("List_mousemenulist");
