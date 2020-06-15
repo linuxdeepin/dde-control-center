@@ -63,6 +63,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     m_editBtn->setIcon(QIcon::fromTheme("dcc_edit"));
     m_editBtn->hide();
     m_editBtn->setFixedSize(16, 16);
+    m_editBtn->setAccessibleName("EDIT_SHORTCUT_BUTTON");
     layout->addWidget(m_editBtn, Qt::AlignLeft);
 
     layout->addStretch();
@@ -71,6 +72,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     m_delBtn->setIcon(DStyle::StandardPixmap::SP_DeleteButton);
     m_delBtn->hide();
     m_delBtn->setFixedSize(16, 16);
+    m_delBtn->setAccessibleName("DEL_SHORTCUT_BUTTON");
     layout->addWidget(m_delBtn, Qt::AlignLeft);
 
     m_key = new ShortcutKey;

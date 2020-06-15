@@ -81,6 +81,9 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
 
     m_shortCutCmdEdit = new DFileChooserEdit(this);
     m_shortCutCmdEdit->lineEdit()->setPlaceholderText(tr("Required"));
+    m_shortCutNameEdit->setAccessibleName("SHORTCUT_NAME_EDIT");
+    m_shortCutCmdEdit->setAccessibleName("SHORTCUT_CMD_EDIT");
+
     connect(m_shortCutCmdEdit, &DFileChooserEdit::textChanged, this, [this] {
         if (!m_shortCutCmdEdit->text().isEmpty()) {
             m_shortCutCmdEdit->setAlert(false);
