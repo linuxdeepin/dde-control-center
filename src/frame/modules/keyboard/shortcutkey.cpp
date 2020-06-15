@@ -50,6 +50,7 @@ void ShortcutKey::setTextList(const QStringList &list)
 
     for (const QString &key : list) {
         KeyLabel *label = new KeyLabel(key);
+        label->setAccessibleName("LABEL");
         m_list << label;
         m_mainLayout->addWidget(label);
     }

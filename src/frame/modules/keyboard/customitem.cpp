@@ -55,6 +55,7 @@ CustomItem::CustomItem(QWidget *parent)
     layout->addStretch();
 
     m_shortKey = new ShortcutKey;
+    m_shortKey->setAccessibleName("SHORTCUT_KEY");
     layout->addWidget(m_shortKey);
     m_shortKey->setTextList(QStringList());
 
@@ -62,6 +63,7 @@ CustomItem::CustomItem(QWidget *parent)
     m_shortcutEdit->setReadOnly(true);
     m_shortcutEdit->hide();
     m_shortcutEdit->installEventFilter(this);
+    m_shortcutEdit->setAccessibleName("SHORTCUT_EDIT");
     layout->addWidget(m_shortcutEdit);
 
     setLayout(layout);
