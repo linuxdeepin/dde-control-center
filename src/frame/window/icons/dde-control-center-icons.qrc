@@ -165,5 +165,6 @@
         <file>actions/dcc_airplane_mode_32px.svg</file>
         <file>icons/dcc_nav_notification_42px.svg</file>
         <file>icons/dcc_nav_notification_84px.svg</file>
+        <file>actions/dcc_backup_32px.svg</file>
     </qresource>
 </RCC>
