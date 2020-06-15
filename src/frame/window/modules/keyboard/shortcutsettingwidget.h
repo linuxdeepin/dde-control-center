@@ -59,6 +59,10 @@ public:
     void showCustomShotcut();
 protected:
     void modifyStatus(bool status);
+    void wheelEvent(QWheelEvent *event) override
+    {
+        update();
+    }
 
 Q_SIGNALS:
     void customShortcut();
