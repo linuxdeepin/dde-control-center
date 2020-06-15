@@ -153,8 +153,7 @@ void DisplayWidget::initMenuUI()
                              };
     m_singleMenuList << refreshMenu;
 
-    //if (m_model && !m_model->touchscreenList().isEmpty()) {
-    if (true) {
+    if (m_model && !m_model->touchscreenList().isEmpty()) {
         //~ contents_path /display/Touch Screen
         MenuMethod touchscreenMenu = {tr("Touch Screen"),
                                       "dcc_touchscreen",
