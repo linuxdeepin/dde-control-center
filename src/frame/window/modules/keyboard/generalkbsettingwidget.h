@@ -24,7 +24,7 @@
 #include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 #include <QMouseEvent>
-#include <QLineEdit>
+#include <DLineEdit>
 
 namespace dcc {
 namespace keyboard {
@@ -46,14 +46,6 @@ class GeneralKBSettingWidget : public dcc::ContentWidget
     Q_OBJECT
 public:
     explicit GeneralKBSettingWidget(dcc::keyboard::KeyboardModel *model, QWidget *parent = nullptr);
-    class GLineEdit: public QLineEdit
-    {
-        void focusOutEvent(QFocusEvent *) override
-        {
-            clear();
-            update();
-        }
-    };
 Q_SIGNALS:
     void requestKBDelayChanged(const int value);
     void requestKBSpeedChanged(const int value);
@@ -70,9 +62,7 @@ private:
     dcc::widgets::SettingsGroup *m_generalSettingsGrp;
     dcc::keyboard::KeyboardModel *m_model;
     QVBoxLayout *m_contentLayout;
-    GLineEdit *m_testArea;
-protected:
-    void mousePressEvent(QMouseEvent *event);
+    DLineEdit *m_testArea;
 };
 }
 }

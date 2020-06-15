@@ -73,11 +73,13 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     speeds << tr("Fast");
     speedItem->setAnnotations(speeds);
 
-    m_testArea = new GLineEdit();
+    m_testArea = new DLineEdit();
     m_testArea->setFixedWidth(200);
     //~ contents_path /keyboard/General
-    m_testArea->setPlaceholderText(tr("Test here"));
-    m_testArea->setAlignment(Qt::AlignCenter);
+    m_testArea->lineEdit()->setPlaceholderText(tr("Test here"));
+    m_testArea->lineEdit()->setAlignment(Qt::AlignCenter);
+    m_testArea->setClearButtonEnabled(false);
+
     DApplicationHelper *testAreaHelper = DApplicationHelper::instance();
     auto pa = testAreaHelper->palette(m_testArea);
     pa.setColor(DPalette::Highlight, Qt::transparent);
@@ -123,6 +125,10 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     connect(m_model, &KeyboardModel::repeatIntervalChanged, this, &GeneralKBSettingWidget::setSpeedValue);
     connect(m_model, &KeyboardModel::capsLockChanged, m_upper, &SwitchWidget::setChecked);
     connect(m_model, &KeyboardModel::numLockChanged, m_numLock, &SwitchWidget::setChecked);
+    connect(m_testArea, &DLineEdit::focusChanged, this, [ = ] {
+        m_testArea->clear();
+        m_testArea->update();
+    });
 
     setDelayValue(m_model->repeatDelay());
     setSpeedValue(m_model->repeatInterval());
@@ -143,14 +149,4 @@ void GeneralKBSettingWidget::setSpeedValue(uint value)
     m_speedSlider->setValue(static_cast<int>(value));
     m_speedSlider->blockSignals(false);
 }
-
-void GeneralKBSettingWidget::mousePressEvent(QMouseEvent *event)
-{
-    QPoint p =  event->globalPos();
-    QRect r = m_testArea->geometry();
-    if (!r.contains(p)) {
-        m_testArea->clear();
-    }
-}
-
 
