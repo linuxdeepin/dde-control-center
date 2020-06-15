@@ -4883,7 +4883,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="159"/>
         <source>Insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Espaço insuficiente em disco</translation>
     </message>
 </context>
 <context>
@@ -5902,12 +5902,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="132"/>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Erro desconhecido</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="133"/>
         <source>Scan suspended</source>
-        <translation type="unfinished"/>
+        <translation>Leitura suspensa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>

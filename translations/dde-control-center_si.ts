@@ -4317,8 +4317,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="73"/>
-        <source>Sleep</source>
-        <translation>නිද්‍රාගත කරන්න</translation>
+        <source>Hibernate</source>
+        <translation>ශිශිරකරණය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="74"/>
@@ -4404,8 +4404,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="83"/>
-        <source>Sleep</source>
-        <translation>නිද්‍රාගත කරන්න</translation>
+        <source>Hibernate</source>
+        <translation>ශිශිරකරණය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="84"/>

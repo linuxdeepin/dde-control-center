@@ -4317,8 +4317,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="73"/>
-        <source>Sleep</source>
-        <translation>Dorm</translation>
+        <source>Hibernate</source>
+        <translation>Hiberna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="74"/>
@@ -4404,8 +4404,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="83"/>
-        <source>Sleep</source>
-        <translation>Dorm</translation>
+        <source>Hibernate</source>
+        <translation>Hiberna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="84"/>
@@ -4883,7 +4883,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="159"/>
         <source>Insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Espai de disc insuficient</translation>
     </message>
 </context>
 <context>
@@ -5902,12 +5902,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="132"/>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Error desconegut</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="133"/>
         <source>Scan suspended</source>
-        <translation type="unfinished"/>
+        <translation>Escaneig suspès</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>

@@ -4319,7 +4319,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="73"/>
-        <source>Sleep</source>
+        <source>Hibernate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4406,7 +4406,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="83"/>
-        <source>Sleep</source>
+        <source>Hibernate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

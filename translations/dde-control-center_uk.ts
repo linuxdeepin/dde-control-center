@@ -4317,7 +4317,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="73"/>
-        <source>Sleep</source>
+        <source>Hibernate</source>
         <translation>Приспати</translation>
     </message>
     <message>
@@ -4404,7 +4404,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="83"/>
-        <source>Sleep</source>
+        <source>Hibernate</source>
         <translation>Приспати</translation>
     </message>
     <message>
@@ -4883,7 +4883,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="159"/>
         <source>Insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Недостатньо місця на диску</translation>
     </message>
 </context>
 <context>
@@ -5902,12 +5902,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="132"/>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Невідома помилка</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="133"/>
         <source>Scan suspended</source>
-        <translation type="unfinished"/>
+        <translation>Сканування призупинено</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>

@@ -80,7 +80,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     }
 
     QStringList options;
-    options << tr("Shut down") << tr("Suspend") << tr("Sleep")
+    options << tr("Shut down") << tr("Suspend") << tr("Hibernate")
             << tr("Turn off the monitor") << tr("Do nothing");
     if (!model->getSuspend()) {
         options.removeAt(1);

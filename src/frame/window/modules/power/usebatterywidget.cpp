@@ -70,7 +70,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
 //    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     QStringList options;
-    options << tr("Shut down") << tr("Suspend") << tr("Sleep")
+    options << tr("Shut down") << tr("Suspend") << tr("Hibernate")
             << tr("Turn off the monitor") << tr("Do nothing");
     if (!model->getSuspend()) {
         options.removeAt(1);
