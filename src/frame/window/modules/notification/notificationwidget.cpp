@@ -30,6 +30,7 @@
 #include <QDebug>
 #include <QIcon>
 #include <QMessageBox>
+#include <QScroller>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::notification;
@@ -79,6 +80,12 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_softwareListView->setViewportMargins(QMargins(0, 0, 15, 0));
     m_softwareListView->setSpacing(0);
     m_softwareListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    QScroller::grabGesture(m_softwareListView->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_softwareListView->viewport());
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
 
     m_theme = m_model->getTheme();
 
