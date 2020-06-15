@@ -364,7 +364,11 @@ void MainWindow::initAllModule(QString m)
         DStandardItem *item = new DStandardItem;
         item->setIcon(it->first->icon());
         item->setText(it->second);
-        item->setAccessibleText(it->second);
+        if (it->first->name() == "commoninfo") {
+            item->setAccessibleText("SECOND_MENU_COMMON");
+        } else {
+            item->setAccessibleText(it->second);
+        }
 
         //目前只有"update"模块需要使用右上角的角标，其他模块还是使用旧的位置数据设置
         //若其他地方需要使用右上角的角标，可在下面if处使用“||”添加对应模块的name()值
