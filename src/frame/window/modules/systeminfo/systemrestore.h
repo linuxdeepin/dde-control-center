@@ -7,6 +7,7 @@
 DWIDGET_USE_NAMESPACE
 
 class QPushButton;
+class QStackedLayout;
 namespace DCC_NAMESPACE {
 namespace systeminfo {
 class ManualBackup;
@@ -17,6 +18,7 @@ class SystemRestore : public QWidget
     Q_OBJECT
 public:
     SystemRestore(BackupAndRestoreModel* model, QWidget *parent = nullptr);
+    void initRestorePage(BackupAndRestoreModel* model);
 
 Q_SIGNALS:
     void requestSetManualBackupDirectory(const QString& path);
@@ -28,6 +30,7 @@ private:
     DButtonBox* m_buttonBox;
     ManualBackup* m_backupPage;
     ManualRestore* m_restorePage;
+    QStackedLayout* m_stackedLayout;
 };
 }  // namespace systeminfo
 }  // namespace DCC_NAMESPACE
