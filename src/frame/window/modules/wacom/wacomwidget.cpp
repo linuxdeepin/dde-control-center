@@ -43,7 +43,7 @@ WacomWidget::WacomWidget(QWidget *parent)
     connect(m_sensitivity, &PressureSettings::requestSetPressureValue, this, &WacomWidget::requestSetPressureValue);
     connect(m_modeComboBox, &QComboBox::currentTextChanged, this, [ = ](const QString curMode) {
         bool isPen = false;
-        if (tr("Pen") == curMode) {
+        if (tr("Mouse") == curMode) {
             isPen = true;
         }
         Q_EMIT WacomWidget::onCursorModeChanged(isPen);
@@ -60,7 +60,7 @@ void WacomWidget::setModel(WacomModel *model)
 
 QString WacomWidget::getModeName(const bool curMode) const
 {
-    if (curMode) {
+    if (!curMode) {
         //~ contents_path /wacom/Pen
         return tr("Pen");
     } else {
@@ -102,7 +102,7 @@ void WacomWidget::onCursorModeChanged(const bool curMode)
     if (curMode) {
         index = 0;
     }
-    m_sensitivity->setVisible(curMode);
+    m_sensitivity->setVisible(!curMode);
     m_modeComboBox->setCurrentIndex(index);
     Q_EMIT modeChanged(curMode);
 }

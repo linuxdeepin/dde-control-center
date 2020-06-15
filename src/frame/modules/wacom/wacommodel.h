@@ -45,9 +45,6 @@ public:
     bool exist() const;
     void setExist(bool exist);
 
-    bool getCursorMode() const;
-    void setCursorMode(bool cursorMode);
-
 Q_SIGNALS:
     void existChanged(bool exist);
     void cursorModeChanged(const bool cursorMode);
