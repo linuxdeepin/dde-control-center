@@ -234,19 +234,21 @@ void DisplayWorker::splitScreens()
     auto *primary = m_model->primaryMonitor();
     Q_ASSERT(m_monitors.contains(primary));
     m_monitors[primary]->SetPosition(0, 0).waitForFinished();
+    int xOffset = primary->modeList().first().width();
 
-    int xOffset = primary->w();
     for (auto *mon : mList) {
         // pass primary
         Q_ASSERT(m_monitors.contains(mon));
         auto *mInter = m_monitors[mon];
         mInter->SetMode(mon->modeList().first().id()).waitForFinished();
         mInter->SetRotation(1).waitForFinished();
+
         if (mon == primary)
             continue;
 
         mInter->SetPosition(xOffset, 0).waitForFinished();
-        xOffset += mon->w();
+        xOffset += mon->modeList().first().width();
+
     }
 
     m_displayInter.ApplyChanges();
