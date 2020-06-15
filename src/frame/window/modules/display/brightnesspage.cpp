@@ -45,6 +45,7 @@ namespace display {
 
 const double BrightnessMaxScale = 100.0;
 const int PercentageNum = 100;
+const double DoubleZero = 0.01;  //后端传入的doube指为浮点型，有效位数为2位小数，存在精度丢失
 
 BrightnessPage::BrightnessPage(QWidget *parent)
     : QWidget(parent)
@@ -214,7 +215,7 @@ void BrightnessPage::addSlider()
         }
         else {
             qDebug() << "MinimumBrightness:   " << m_displayModel->minimumBrightnessScale();
-            int miniScale = int(m_displayModel->minimumBrightnessScale() * maxBacklight + 0.00001);
+            int miniScale = int(m_displayModel->minimumBrightnessScale() * maxBacklight);
             if (miniScale == 0) {
                 miniScale = 1;
             }
@@ -227,7 +228,7 @@ void BrightnessPage::addSlider()
             slider->setRightIcon(QIcon::fromTheme("dcc_brightnesshigh"));
             slider->setIconSize(QSize(24, 24));
             slider->setTickInterval(1);
-            slider->setValue(int(brightness * (maxBacklight)));
+            slider->setValue(int((brightness + DoubleZero) * maxBacklight));
             slider->setPageStep(1);
             QStringList speedList;
             for (int i(miniScale); i <= maxBacklight; i++) {
@@ -248,10 +249,10 @@ void BrightnessPage::addSlider()
                 slider->blockSignals(true);
                 if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
                     //slideritem->setValueLiteral(QString("%1%").arg(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale)));
-                    slider->setValue(int(m_displayModel->minimumBrightnessScale() * maxBacklight));
+                    slider->setValue(int((m_displayModel->minimumBrightnessScale() + DoubleZero) * maxBacklight));
                 } else {
                     //slideritem->setValueLiteral(QString("%1%").arg(int(rb * BrightnessMaxScale)));
-                    slider->setValue(int(rb * maxBacklight));
+                    slider->setValue(int((rb + DoubleZero) * maxBacklight));
                 }
                 slider->blockSignals(false);
             });
@@ -265,7 +266,7 @@ void BrightnessPage::addSlider()
 
                 slider->blockSignals(true);
                 slideritem->setValueLiteral(brightnessToTickInterval(rb));
-                slider->setValue(int(rb * BrightnessMaxScale));
+                slider->setValue(int((rb + DoubleZero) * BrightnessMaxScale));
                 slider->blockSignals(false);
             });
         }
