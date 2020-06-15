@@ -1,0 +1,8 @@
+QLabel#ModuleHeaderIconCloudSync {
+    background-image: url(:/cloudsync/themes/dark/icons/nav_cloudsync.svg);
+}
+
+QPushButton#LogoutButton
+{
+    color: #FF5A5A;
+}

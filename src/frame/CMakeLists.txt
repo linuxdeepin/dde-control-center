@@ -466,6 +466,24 @@ set(SYNC_FILES
     window/modules/sync/pages/loginedin.cpp
 )
 
+# load unionid
+set(UNIONID_FILES
+     modules/unionid/unionidmodel.cpp
+   modules/unionid/unionidworker.cpp
+
+    window/modules/unionid/unionidmodule.h
+    window/modules/unionid/unionidmodule.cpp
+    window/modules/unionid/unionidwidget.h
+    window/modules/unionid/unionidwidget.cpp
+    window/modules/unionid/pages/index.h
+    window/modules/unionid/pages/index.cpp
+    window/modules/unionid/pages/login.h
+    window/modules/unionid/pages/login.cpp
+    window/modules/unionid/pages/logout.cpp
+    window/modules/unionid/pages/downloadurl.cpp
+    window/modules/unionid/pages/avatarwidget.cpp
+    window/modules/unionid/pages/loginedin.cpp
+)
 # load systeminfo
 set(SYSTEMINFO_FILES
                 modules/systeminfo/logoitem.cpp
@@ -532,6 +550,7 @@ set(SRCS
         ${WACOM_FILES}
         ${UPDATE_FILES}
         ${SYNC_FILES}
+        ${UNIONID_FILES}
         ${SYSTEMINFO_FILES}
         ${PERSONALIZATION_FILES}
         ${NOTIFICATION_FILES}
