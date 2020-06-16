@@ -32,12 +32,12 @@ using namespace dcc::widgets;
 
 Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)
     : AbstractSection(tr("Security"), parent)
-    , m_eapMethmodChooser(new ComboxWidget(this))
     , m_passwordFlagsChooser(new ComboxWidget(this))
+    , m_currentPasswordType(NetworkManager::Setting::AgentOwned)
+    , m_eapMethmodChooser(new ComboxWidget(this))
     , m_identity(new LineEditWidget(this))
     , m_password(new LineEditWidget(true, this))
     , m_enableWatcher(nullptr)
-    , m_currentPasswordType(NetworkManager::Setting::None)
     , m_secretSetting(sSetting)
 {
     initStrMaps();
@@ -163,9 +163,9 @@ void Secret8021xSection::initStrMaps()
 
     PasswordFlagsStrMap = {
         //{tr("Saved"), NetworkManager::Setting::AgentOwned},
-        {tr("Saved"), NetworkManager::Setting::None},
-        {tr("Ask"), NetworkManager::Setting::NotSaved},
-        {tr("Not Required"), NetworkManager::Setting::NotRequired}
+        {tr("Save password for this user"), NetworkManager::Setting::AgentOwned},
+        {tr("Save password for all users"), NetworkManager::Setting::None},
+        {tr("Ask me always"), NetworkManager::Setting::NotSaved}
     };
 
     FastrProvisioningStrMap = {
@@ -553,8 +553,9 @@ void Secret8021xSection::onPasswordFlagsChanged(NetworkManager::Setting::SecretF
 {
     m_currentPasswordType = type;
     if (m_enableWatcher->secretEnabled()) {
-        m_password->setVisible(m_currentPasswordType == NetworkManager::Setting::None);
+        m_password->setVisible(m_currentPasswordType != NetworkManager::Setting::NotSaved);
     }
+    m_enableWatcher->passwdEnableChanged(m_currentPasswordType != NetworkManager::Setting::NotSaved);
 }
 
 void Secret8021xSection::saveUserInputIdentify()
@@ -579,7 +580,7 @@ bool Secret8021xSection::commonItemsInpuValid()
         m_identity->setIsErr(false);
     }
 
-    if (m_currentPasswordType == NetworkManager::Setting::None) {
+    if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
         if (m_password->text().isEmpty()) {
             valid = false;
             m_password->setIsErr(true);
@@ -641,14 +642,14 @@ void Secret8021xSection::saveCommonItems()
 
     if (m_currentEapMethod == NetworkManager::Security8021xSetting::EapMethodTls) {
         m_secretSetting->setPrivateKeyPasswordFlags(m_currentPasswordType);
-        if (m_currentPasswordType == NetworkManager::Setting::None) {
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             m_secretSetting->setPrivateKeyPassword(m_password->text());
         } else {
             m_secretSetting->setPrivateKeyPassword(QString());
         }
     } else {
         m_secretSetting->setPasswordFlags(m_currentPasswordType);
-        if (m_currentPasswordType == NetworkManager::Setting::None) {
+        if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             m_secretSetting->setPassword(m_password->text());
         } else {
             m_secretSetting->setPassword(QString());
