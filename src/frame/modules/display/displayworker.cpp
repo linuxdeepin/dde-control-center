@@ -357,12 +357,14 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 
     inter->SetRotation(rotate).waitForFinished();
     short xoffset = short(m_model->primaryMonitor()->w());
-    for (auto tm = m_monitors.begin(); tm != m_monitors.end(); ++tm) {
-        if (!tm.key()->enable() || tm.key() == m_model->primaryMonitor()) {
-            continue;
+    if (m_model->isMerge() == false) {
+        for (auto tm = m_monitors.begin(); tm != m_monitors.end(); ++tm) {
+            if (!tm.key()->enable() || tm.key() == m_model->primaryMonitor()) {
+                continue;
+            }
+            tm.value()->SetPosition(xoffset, 0);
+            xoffset += tm.value()->width();
         }
-        tm.value()->SetPosition(xoffset, 0);
-        xoffset += tm.value()->width();
     }
     m_displayInter.ApplyChanges();
 }
