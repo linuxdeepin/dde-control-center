@@ -41,6 +41,7 @@ WiredSettings::~WiredSettings()
 void WiredSettings::initSections()
 {
     GenericSection *genericSection = new GenericSection(m_connSettings);
+    genericSection->setConnectionType(NetworkManager::ConnectionSettings::Wired);
     Secret8021xSection *secretSection = new SecretWiredSection(
         m_connSettings->setting(Setting::Security8021x).staticCast<NetworkManager::Security8021xSetting>());
     IpvxSection *ipv4Section = new IpvxSection(
