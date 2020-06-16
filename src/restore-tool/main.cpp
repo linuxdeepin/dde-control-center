@@ -265,7 +265,8 @@ int main(int argc, char *argv[])
         }
     }
 
-    if (getPathFreeSpace(absolutePath) < usage) {
+    if ((actionType == ActionType::ManualBackup || actionType == ActionType::SystemBackup)
+            && getPathFreeSpace(absolutePath) < usage) {
         qWarning() << "target path don't have enough space";
         return 5;
     }
