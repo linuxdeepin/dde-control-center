@@ -139,7 +139,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
             if (!success) {
                 m_model->setStatus(UpdatesStatus::RecoveryBackupFailed, __LINE__);
                 qWarning() << Q_FUNC_INFO << " [abRecovery] 备份失败 , errMsg : " << errMsg;
-                return;
+                return;   //+ 6-16-2 test
             }
 
             m_model->setStatus(UpdatesStatus::RecoveryBackingSuccessed, __LINE__);
@@ -474,6 +474,8 @@ bool UpdateWorker::getNotUpdateState()
 {
     bool ret = true;
     UpdatesStatus state = m_model->status();
+
+    qDebug() << Q_FUNC_INFO << "...6-16-2....state " << state;
 
     if (state == UpdatesStatus::NoSpace ||
             state == UpdatesStatus::NoNetwork ||

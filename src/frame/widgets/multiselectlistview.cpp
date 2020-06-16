@@ -23,5 +23,10 @@ QModelIndex MultiSelectListView::moveCursor(CursorAction cursorAction, Qt::Keybo
     return DListView::moveCursor(cursorAction, modifiers);
 }
 
+void MultiSelectListView::mouseMoveEvent(QMouseEvent *event)
+{
+    return ;
+}
+
 }
 }

@@ -18,6 +18,7 @@ public:
 protected:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous);
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);
+    void mouseMoveEvent(QMouseEvent *event);
 
 };
 

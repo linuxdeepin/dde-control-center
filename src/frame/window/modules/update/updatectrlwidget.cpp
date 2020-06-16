@@ -329,7 +329,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
         return;
 
     const QList<AppUpdateInfo> &apps = downloadInfo->appInfos();
-    const qlonglong downloadSize = downloadInfo->downloadSize();
+    const qlonglong downloadSize = downloadInfo->downloadSize();  //+ 6-16-2
 
     int appCount = apps.length();
     for (const AppUpdateInfo &info : apps) {
