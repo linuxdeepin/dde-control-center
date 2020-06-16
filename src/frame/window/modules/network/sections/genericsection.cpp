@@ -67,7 +67,7 @@ bool GenericSection::allInputValid()
                 if (conn->settings()->connectionType() == m_connType) {
                     if ((conn->name() == inputTxt) && (conn->uuid() != curUuid)) {
                         m_connIdItem->setIsErr(true);
-                        m_connIdItem->showAlertMessage(tr("The name already exists"));
+                        m_connIdItem->dTextEdit()->showAlertMessage(tr("The name already exists"), m_connIdItem, 2000);
                         return false;
                     }
                 }
