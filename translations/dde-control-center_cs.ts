@@ -283,7 +283,7 @@
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="324"/>
         <source>Cancel</source>
         <translation>Storno</translation>
     </message>
@@ -324,69 +324,69 @@
         <translation>Zadejte heslo znovu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="236"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="238"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
         <source>Required</source>
         <translation>Vyžadováno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="239"/>
         <source>optional</source>
         <translation>volitelné</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="323"/>
         <source>Go to Settings</source>
         <translation>Přejít do nastavení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="360"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>Je třeba, aby heslo mělo délku %1 až %2 znaků</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="373"/>
         <source>The password must have at least 6 characters, and contain at least 2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Je třeba, aby heslo mělo alespoň 6 znaků a obsahovalo alespoň dva druhy z následujících typů znaků: malá a velká písmena, číslice a symboly</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="375"/>
         <source>Password should not be the repeated or reversed username</source>
         <translation>Jako heslo by nemělo být použito uživatelské jméno – ani napsané několikrát za sebou nebo pozpátku</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="428"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Heslo může mít délku nejvýše %1 znaků</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="449"/>
         <source>Passwords do not match</source>
         <translation>Zadání hesla se neshodují</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="469"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="473"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Je třeba, aby uživatelské jméno mělo délku 3 až 32 znaků</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="490"/>
         <source>Your username should not only have numbers</source>
         <translation>Uživatelské jméno by nemělo být tvořeno pouze číslicemi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
         <source>The first character must be a letter or number</source>
         <translation>Je třeba, aby první znak bylo písmeno nebo číslice</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="511"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="515"/>
         <source>The full name already exists</source>
         <translation>Toto celé jméno už je v systému používáno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="518"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="522"/>
         <source>The full name is too long</source>
         <translation>Celé jméno je příliš dlouhé</translation>
     </message>
@@ -402,7 +402,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
         <source>Fingerprint Password</source>
-        <translation>Heslo otiskem prstu</translation>
+        <translation>Heslo zastupované otiskem prstu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
@@ -428,60 +428,60 @@
         <translation>Změnit heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
         <source>Current Password</source>
         <translation>Stávající heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
         <source>New Password</source>
         <translation>Nové heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
         <source>Repeat Password</source>
         <translation>Zadejte heslo znovu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="162"/>
         <source>Cancel</source>
         <translation>Storno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
         <source>Save</source>
         <translation>Uložit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="129"/>
         <source>Required</source>
         <translation>Vyžadováno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
         <source>Go to Settings</source>
         <translation>Přejít do nastavení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="187"/>
         <source>Wrong password</source>
         <translation>Chybné heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="248"/>
         <source>Passwords do not match</source>
         <translation>Zadání hesla se neshodují</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="262"/>
         <source>New password should differ from the current one</source>
         <translation>Nové heslo by nemělo být stejné jako to původní</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="269"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Heslo může mít délku nejvýše %1 znaků</translation>
     </message>
@@ -1791,7 +1791,7 @@
         <translation>Bezdrátové připojení %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="394"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE připojení %1</translation>
     </message>
@@ -2478,18 +2478,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
-        <source>Saved</source>
-        <translation>Uloženo</translation>
+        <source>Save password for this user</source>
+        <translation>Uložit heslo pro tohoto uživatele</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
-        <source>Ask</source>
-        <translation>Dotázat se</translation>
+        <source>Save password for all users</source>
+        <translation>Uložit heslo pro všechny uživatele</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
-        <source>Not Required</source>
-        <translation>Není požadováno</translation>
+        <source>Ask me always</source>
+        <translation>Vždy se dotázat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
@@ -2659,63 +2659,50 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="105"/>
         <source>Invalid password</source>
         <translation>Neplatné heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
         <source>None</source>
         <translation>Žádné</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP 40/128-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 osobní</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="153"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 podnikové</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="119"/>
-        <source>Shared key</source>
-        <translation>Sdílený klíč</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="120"/>
-        <source>Open system</source>
-        <translation>Nešifrováno</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
         <source>Security</source>
         <translation>Zabezpečení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="169"/>
         <source>Required</source>
         <translation>Vyžadováno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="149"/>
-        <source>Authentication</source>
-        <translation>Ověření</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="240"/>
         <source>Key</source>
         <translation>Klíč</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="252"/>
         <source>Password</source>
         <translation>Heslo</translation>
     </message>
@@ -3711,19 +3698,9 @@
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Pokud se chcete připojit k bezdrátové síti, je třeba nejprve vypnout hotspot</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="307"/>
-        <source>WLAN</source>
-        <translation>Wi-Fi</translation>
-    </message>
 </context>
 <context>
     <name>dccV20::network::WirelessSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
-        <source>WLAN</source>
-        <translation>Wi-Fi</translation>
-    </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
         <source>Not Bind</source>
@@ -3998,7 +3975,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="60"/>
         <source>Suspend on lid close</source>
-        <translation>Při přiklopení obrazovky uspat</translation>
+        <translation>Při přiklopení víka obrazovky uspat</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -4050,7 +4027,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="58"/>
         <source>Suspend on lid close</source>
-        <translation>Při přiklopení obrazovky uspat</translation>
+        <translation>Při přiklopení víka obrazovky uspat</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -4374,7 +4351,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="258"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation>rrrr-MM-dd hh:mm</translation>
+        <translation>dd.MM.yyyy hh:mm</translation>
     </message>
 </context>
 <context>
@@ -4473,49 +4450,49 @@
         <translation>Ruční obnovení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="223"/>
         <source>Backup file is invalid</source>
         <translation>Neplatný soubor zálohy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="227"/>
         <source>Grub authentication failed</source>
         <translation>Ověření se pro zavaděč Grub se nezdařilo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="231"/>
         <source>Tool execution error</source>
         <translation>Chyba při spouštění nástroje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="247"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
         <translation>Vrátí nastavení systému na výchozí hodnoty, a zachová přitom vaše soubory a aplikace, ale uživatelské jméno a heslo budou vyčištěny – potvrďte před pokračováním</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="251"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
         <translation>Přeinstaluje systém a zlikviduje přitom veškerá data uživatelů, což je velmi riskantní – pokud opravdu chcete pokračovat, výslovně potvrďte</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="252"/>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="273"/>
         <source>Cancel</source>
         <translation>Storno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="255"/>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="275"/>
         <source>Confirm</source>
         <translation>Potvrdit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="267"/>
         <source>You should reboot the computer to erase all content and settings, reboot now?</source>
         <translation>Pro vymazání veškerého obsahu a nastavení byste měli počítač restartovat – provést nyní?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="270"/>
         <source>You should reboot the computer to reset all settings, reboot now?</source>
         <translation>Pro vrácení všech nastavení do výchozího stavu byste měli počítač restartovat – provést nyní?</translation>
     </message>
@@ -5474,7 +5451,7 @@ Pokud neuděláte nic, zobrazení bude po uplynutí %1s zobrazení vráceno do p
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation>Heslo otiskem prstu</translation>
+        <translation>Heslo zastupované otiskem prstu</translation>
     </message>
 </context>
 <context>
@@ -5701,7 +5678,7 @@ Pokud neuděláte nic, zobrazení bude po uplynutí %1s zobrazení vráceno do p
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation>Heslo otiskem prstu</translation>
+        <translation>Heslo zastupované otiskem prstu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
@@ -5716,7 +5693,7 @@ Pokud neuděláte nic, zobrazení bude po uplynutí %1s zobrazení vráceno do p
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation>Heslo otiskem prstu se používá pro přihlašování se do systému, pro získávání pověření v aplikacích a dalších scénářích. Když je požadováno heslo, nasnímejte otisk prstu.</translation>
+        <translation>Heslo zastupované otiskem prstu se používá pro přihlašování se do systému, pro získávání pověření v aplikacích a dalších scénářích. Když je požadováno heslo, nasnímejte otisk prstu.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
@@ -6039,7 +6016,7 @@ Pokud neuděláte nic, zobrazení bude po uplynutí %1s zobrazení vráceno do p
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="216"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation>rrrr-MM-dd hh:mm</translation>
+        <translation>dd.MM.yyyy hh:mm</translation>
     </message>
 </context>
 <context>
@@ -9021,7 +8998,7 @@ Pokud neuděláte nic, zobrazení bude po uplynutí %1s zobrazení vráceno do p
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="107"/>
         <source>Suspend on lid close</source>
-        <translation>Při přiklopení obrazovky uspat</translation>
+        <translation>Při přiklopení víka obrazovky uspat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="110"/>

@@ -105,7 +105,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="321"/>
         <source>System Info</source>
-        <translation>Järjestelmän tiedot</translation>
+        <translation>Tietoja</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="322"/>
@@ -283,7 +283,7 @@
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="324"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
@@ -324,69 +324,69 @@
         <translation>Toista salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="236"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="238"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
         <source>Required</source>
         <translation>Vaadittu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="239"/>
         <source>optional</source>
         <translation>valinnainen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="323"/>
         <source>Go to Settings</source>
         <translation>Mene asetuksiin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="360"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>Salasanan on oltava %1 - %2 merkkiä pitkä</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="373"/>
         <source>The password must have at least 6 characters, and contain at least 2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Salasanassa vähintään 6 merkkiä ja sisältäen 2 neljästä merkkityypistä: pienet kirjaimet, isot kirjaimet, numerot ja symbolit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="375"/>
         <source>Password should not be the repeated or reversed username</source>
         <translation>Salasana ei saa olla toistuva tai käänteinen käyttäjätunnus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="428"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Salasanassa saa olla enintään %1 merkkiä</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="449"/>
         <source>Passwords do not match</source>
         <translation>Salasanat eivät täsmää</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="469"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="473"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Käyttäjätunnuksen on oltava 3-32 merkin pituinen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="490"/>
         <source>Your username should not only have numbers</source>
         <translation>Käyttäjätunnuksessasi ei saa olla vain numeroita</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
         <source>The first character must be a letter or number</source>
         <translation>Ensimmäisen merkin on oltava kirjain tai numero</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="511"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="515"/>
         <source>The full name already exists</source>
         <translation>Koko nimi on jo olemassa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="518"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="522"/>
         <source>The full name is too long</source>
         <translation>Nimi on liian pitkä</translation>
     </message>
@@ -428,60 +428,60 @@
         <translation>Vaihda salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
         <source>Current Password</source>
         <translation>Nykyinen salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
         <source>New Password</source>
         <translation>Uusi salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
         <source>Repeat Password</source>
         <translation>Toista salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="162"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
         <source>Save</source>
         <translation>Tallenna</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="129"/>
         <source>Required</source>
         <translation>Vaadittu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
         <source>Go to Settings</source>
         <translation>Mene asetuksiin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="187"/>
         <source>Wrong password</source>
         <translation>Väärä salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="248"/>
         <source>Passwords do not match</source>
         <translation>Salasanat eivät täsmää</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="262"/>
         <source>New password should differ from the current one</source>
         <translation>Uusi salasana ei saa olla sama kuin nykyinen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="269"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Salasanassa saa olla enintään %1 merkkiä</translation>
     </message>
@@ -1336,7 +1336,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="103"/>
         <source>Caps Lock Prompt</source>
-        <translation>CapsLock ilmoitus </translation>
+        <translation>Caps Lock -ilmoitus </translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
@@ -1778,7 +1778,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="381"/>
         <source>Wired Connection %1</source>
-        <translation>Kaapeli yhteys %1</translation>
+        <translation>Verkkokaapeli %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="386"/>
@@ -1788,10 +1788,10 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="388"/>
         <source>Wireless Connection %1</source>
-        <translation>Langaton yhteys %1</translation>
+        <translation>Langaton %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="394"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE yhteys %1</translation>
     </message>
@@ -2478,18 +2478,18 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
-        <source>Saved</source>
-        <translation>Tallennettu</translation>
+        <source>Save password for this user</source>
+        <translation>Tallenna salasana tälle käyttäjälle</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
-        <source>Ask</source>
-        <translation>Kysy</translation>
+        <source>Save password for all users</source>
+        <translation>Tallenna salasana kaikille käyttäjille</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
-        <source>Not Required</source>
-        <translation>Ei vaadita</translation>
+        <source>Ask me always</source>
+        <translation>Kysy minulta aina</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
@@ -2659,63 +2659,50 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="105"/>
         <source>Invalid password</source>
         <translation>Virheellinen salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
         <source>None</source>
         <translation>Mitään</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP 40/128-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
         <source>WPA/WPA2 Personal</source>
         <translation>Oma WPA/WPA2</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="153"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>Yritys WPA/WPA2</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="119"/>
-        <source>Shared key</source>
-        <translation>Jaettu avain</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="120"/>
-        <source>Open system</source>
-        <translation>Avaa järjestelmä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
         <source>Security</source>
         <translation>Tietoturva</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="169"/>
         <source>Required</source>
         <translation>Vaadittu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="149"/>
-        <source>Authentication</source>
-        <translation>Todennus</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="240"/>
         <source>Key</source>
         <translation>Avain</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="252"/>
         <source>Password</source>
         <translation>Salasana</translation>
     </message>
@@ -3711,19 +3698,9 @@
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Poista esin yhteyden jakaminen käytöstä, jos haluat muodostaa yhteyden langattomaan verkkoon</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="307"/>
-        <source>WLAN</source>
-        <translation>WLAN</translation>
-    </message>
 </context>
 <context>
     <name>dccV20::network::WirelessSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
-        <source>WLAN</source>
-        <translation>WLAN</translation>
-    </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
         <source>Not Bind</source>
@@ -3777,7 +3754,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="225"/>
         <source> (Unsupported font)</source>
-        <translation>(Epäsopiva fontti)</translation>
+        <translation>(Epäsopiva kirjasin)</translation>
     </message>
 </context>
 <context>
@@ -3830,7 +3807,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="54"/>
         <source>Font</source>
-        <translation>Fontti</translation>
+        <translation>Kirjasin</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
 </context>
@@ -3911,14 +3888,14 @@
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="56"/>
         <source>Password is required to wake up the computer</source>
-        <translation>Tietokoneen herääminen edellyttää salasanan</translation>
+        <translation>Tietokoneen herättämiseen tarvitaan salasana</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
         <source>Password is required to wake up the monitor</source>
-        <translation>Näytön herääminen edellyttää salasanan</translation>
+        <translation>Näytön herättämiseen tarvitaan salasana</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
@@ -4374,7 +4351,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="258"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation>dd-MM-yyyy hh:mm</translation>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
@@ -4388,12 +4365,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation>Kun olet kirjautunut sisään pilvitilille, voit käyttää pilvisynkronointia, sovelluskauppaa, sähköpostiohjelmaa, selainta ja muita pilvipalveluita.</translation>
+        <translation>Kun olet kirjautunut pilvitilille, voit käyttää synkronointia, sovelluskauppaa, sähköpostia ja muut palvelut.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Cloud Account Sign In</source>
-        <translation>Pilvitiliin kirjautuminen</translation>
+        <translation>Kirjaudu pilvitiliin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
@@ -4473,49 +4450,49 @@
         <translation>Manuaalinen palautus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="223"/>
         <source>Backup file is invalid</source>
         <translation>Varmuuskopio on virheellinen.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="227"/>
         <source>Grub authentication failed</source>
         <translation>Grub-todennus epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="231"/>
         <source>Tool execution error</source>
         <translation>Työkalun suoritusvirhe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="247"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
         <translation>Tämä palauttaa järjestelmän asetukset oletusarvoihinsa vaikuttamatta tiedostoihin ja sovelluksiin, mutta käyttäjänimi ja salasana tyhjennetään, vahvista ennen jatkamista</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="251"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
         <translation>Tämä asentaa järjestelmän uudelleen ja tyhjentää kaikki käyttäjätiedot. Tämä on riskialtista. Vahvista ennen kuin jatkat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="252"/>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="273"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="255"/>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="275"/>
         <source>Confirm</source>
         <translation>Vahvista</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="267"/>
         <source>You should reboot the computer to erase all content and settings, reboot now?</source>
         <translation>Sinun tulisi käynnistää tietokone uudelleen, jotta kaikki sisältö ja asetukset poistetaan. Käynnistetäänkö uudelleen nyt?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="270"/>
         <source>You should reboot the computer to reset all settings, reboot now?</source>
         <translation>Sinun tulisi käynnistää tietokone uudelleen kaikkien asetusten palauttamiseksi. Käynnistetäänkö uudelleen nyt?</translation>
     </message>
@@ -4608,7 +4585,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="89"/>
         <source>System Info</source>
-        <translation>Järjestelmän tiedot</translation>
+        <translation>Tietoja</translation>
     </message>
 </context>
 <context>
@@ -4707,7 +4684,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Käynnistä päivityksen jälkeen uudelleen</translation>
+        <translation>Päivityksen jälkeen käynnistä uudelleen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="71"/>
@@ -4756,7 +4733,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="270"/>
         <source>Your system is up to date</source>
-        <translation>Järjestelmä on ajan tasalla</translation>
+        <translation>on ajan tasalla</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="278"/>
@@ -4791,7 +4768,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform>%n sovellusen päivity(s) havaittu</numerusform><numerusform>%n sovellusen päivity(s) havaittu</numerusform></translation>
+        <translation><numerusform>%n sovellusen päivity(s) havaittu</numerusform><numerusform>%n sovelluksen päivitys havaittu</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4801,7 +4778,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>Järjestelmän uusi versio ja %n sovelluksen päivity(s) saatavilla</numerusform><numerusform>Järjestelmän uusi versio ja %n sovelluksen päivity(s) saatavilla</numerusform></translation>
+        <translation><numerusform>Järjestelmän uusi versio ja %n sovelluksen päivity(s) saatavilla</numerusform><numerusform>Järjestelmän uusi versio ja %n sovelluksen päivitys saatavilla</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -5157,7 +5134,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Käynnistä päivityksen jälkeen uudelleen</translation>
+        <translation>Päivityksen jälkeen käynnistä uudelleen</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
@@ -5263,7 +5240,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
-        <translation>Volyymi +/-</translation>
+        <translation>Voimakkuus +/-</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
@@ -6039,7 +6016,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="216"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation>dd-MM-yyyy hh:mm</translation>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
@@ -6654,12 +6631,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Numeronäppäimistö</translation>
+        <translation>Numeronäppäimistö käyttöön</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation>CapsLock ilmoitus </translation>
+        <translation>Caps Lock -ilmoitus </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="103"/>
@@ -6976,12 +6953,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="344"/>
         <source>Wired Connection %1</source>
-        <translation>Kaapeli yhteys %1</translation>
+        <translation>Verkkokaapeli %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="348"/>
         <source>Wireless Connection %1</source>
-        <translation>Langaton yhteys %1</translation>
+        <translation>Langaton %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="352"/>
@@ -8865,7 +8842,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontlistwidget.cpp" line="89"/>
         <source> (Unsupported font)</source>
-        <translation>(Epäsopiva fontti)</translation>
+        <translation>(Epäsopiva kirjasin)</translation>
     </message>
 </context>
 <context>
@@ -8884,7 +8861,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
-        <translation>(Epäsopiva fontti)</translation>
+        <translation>(Epäsopiva kirjasin)</translation>
     </message>
 </context>
 <context>
@@ -8900,7 +8877,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
         <source>Font</source>
-        <translation>Fontti</translation>
+        <translation>Kirjasin</translation>
     </message>
 </context>
 <context>
@@ -8936,7 +8913,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
-        <translation>Fontti</translation>
+        <translation>Kirjasin</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="79"/>
@@ -9123,7 +9100,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="71"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="88"/>
         <source>Volume +/-</source>
-        <translation>Volyymi +/-</translation>
+        <translation>Voimakkuus +/-</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="72"/>
@@ -9494,7 +9471,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="208"/>
         <source>Your system is up to date</source>
-        <translation>Järjestelmä on ajan tasalla</translation>
+        <translation>on ajan tasalla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="213"/>
@@ -9519,7 +9496,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>%n sovellusten päivity(s) havaittu</numerusform><numerusform>%n sovellusten päivity(s) havaittu</numerusform></translation>
+        <translation><numerusform>%n sovellusten päivity(s) havaittu</numerusform><numerusform> %n sovellusten päivityksiä havaittu</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9529,7 +9506,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Järjestelmän uusi versio ja %n sovellusten päivity(s) havaittu</numerusform><numerusform>Järjestelmän uusi versio ja %n sovellusten päivity(s) havaittu</numerusform></translation>
+        <translation><numerusform>Järjestelmän uusi versio ja %n sovellusten päivity(s) havaittu</numerusform><numerusform>Järjestelmän uusi versio ja %n sovelluksen päivitys havaittu</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
