@@ -262,12 +262,14 @@ void BluetoothWorker::inflateDevice(Device *device, const QJsonObject &deviceObj
     const bool paired = deviceObj["Paired"].toBool();
     const Device::State state = Device::State(deviceObj["State"].toInt());
     const bool connectState = deviceObj["ConnectState"].toBool();
+    const QString icon = deviceObj["Icon"].toString();
 
     device->setId(id);
     device->setName(name);
     device->setAlias(alias);
     device->setPaired(paired);
     device->setState(state, connectState);
+    device->setDeviceType(icon);
 }
 
 void BluetoothWorker::onAdapterPropertiesChanged(const QString &json)

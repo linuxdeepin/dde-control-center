@@ -61,7 +61,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_spinner->setFixedSize(24, 24);
     m_spinner->start();
     m_refreshBtn = new DIconButton (this);
-    m_refreshBtn->setFixedSize(24,24);
+    m_refreshBtn->setFixedSize(36, 36);
     m_refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
     QHBoxLayout *phlayout = new QHBoxLayout;
     phlayout->addWidget(m_otherDevicesGroup);
