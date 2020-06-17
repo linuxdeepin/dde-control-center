@@ -32,6 +32,7 @@
 #include <QRegularExpression>
 #include <QPainter>
 #include <QRect>
+#include <QApplication>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -169,8 +170,18 @@ SearchWidget::SearchWidget(QWidget *parent)
     //直接调用setText不会发送该信号，故用该信号区分①输入框输入②外部使用setText输入
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::voiceChanged, this, [ = ] {
         m_speechState = isVoiceInput();
+
+        const QString& txt = text();
+        if (!m_speechState && !txt.isEmpty()) {
+            // 语音输入结束时，取语音文本发送到lineEdit触发QCompleter匹配弹窗
+            QTimer::singleShot(100, this, [=] {
+                QApplication::postEvent(this->lineEdit(), new QKeyEvent(QEvent::KeyPress, 0, Qt::NoModifier, txt));
+                this->clear();
+            });
+        }
     });
 
+    // 5.1.0.4控制中心版本验证语音输入信号始终不会触发（dtk就近取的最新版本）
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::voiceInputFinished, this, [ = ] {
         QString retValue = text();
 
@@ -182,11 +193,6 @@ SearchWidget::SearchWidget(QWidget *parent)
             }
 
             retValue = transPinyinToChinese(text());
-
-            //拼音转化没找到，再搜索字符包含关联字符
-            if (retValue == text()) {
-                retValue = containTxtData(retValue);
-            }
 
             m_searchValue = retValue;
             //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
@@ -214,11 +220,6 @@ SearchWidget::SearchWidget(QWidget *parent)
             }
 
             retValue = transPinyinToChinese(text());
-
-            //拼音转化没找到，再搜索字符包含关联字符
-            if (retValue == text()) {
-                retValue = containTxtData(retValue);
-            }
 
             m_searchValue = retValue;
 
