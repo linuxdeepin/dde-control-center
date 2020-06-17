@@ -568,7 +568,7 @@ bool IpvxSection::isIpv4Address(const QString &ip)
             || ipAddr.protocol() != QAbstractSocket::NetworkLayerProtocol::IPv4Protocol) {
         return false;
     }
-    QRegExp regExpIP("((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])[\\.]){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])");
+    QRegExp regExpIP("^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])[.]){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))|[:]{2}\\d{1,3}$");
     return regExpIP.exactMatch(ip);
 }
 
@@ -582,7 +582,7 @@ bool IpvxSection::isIpv6Address(const QString &ip)
     if (ipAddr == QHostAddress(QHostAddress::LocalHostIPv6)) {
         return false;
     }
-    QRegExp regExpIP("^([\\da-fA-F]{1,4}:){7}([\\da-fA-F]{1,4})$");
+    QRegExp regExpIP("^([\\da-fA-F]{1,4}:){7}([\\da-fA-F]{1,4})|[:]{2}\\d{1,3}$");
     return regExpIP.exactMatch(ip);
 }
 
