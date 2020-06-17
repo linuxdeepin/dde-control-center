@@ -98,6 +98,7 @@ void PowerWorker::active(bool isSync)
     m_powerModel->setHaveBettary(m_sysPowerInter->hasBattery());
     m_powerModel->setPowerSavingModeAutoWhenQuantifyLow(m_sysPowerInter->powerSavingModeAutoWhenBatteryLow());
     m_powerModel->setPowerSavingModeLowerBrightnessThreshold(m_sysPowerInter->powerSavingModeBrightnessDropPercent());
+    m_powerModel->setLowPowerNotifyEnable(m_powerInter->lowPowerNotifyEnable());
     m_powerModel->setLowPowerAutoSleepThreshold(m_powerInter->lowPowerAutoSleepThreshold());
     m_powerModel->setLowPowerNotifyThreshold(m_powerInter->lowPowerNotifyThreshold());
     m_powerModel->setLinePowerPressPowerBtnAction(m_powerInter->linePowerPressPowerBtnAction());

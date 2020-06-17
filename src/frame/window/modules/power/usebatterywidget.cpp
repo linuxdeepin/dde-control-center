@@ -160,10 +160,8 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     connect(m_computerSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetSleepDelayOnBattery);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetAutoLockScreenOnBattery);
 //    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed);
-    connect(m_swBatteryHint, &SwitchWidget::checkedChanged, this, [ = ](bool bLowPowerNotifyEnable) {
-        Q_EMIT requestSetLowPowerNotifyEnable(bLowPowerNotifyEnable);
-        m_sldLowBatteryHint->setVisible(bLowPowerNotifyEnable);
-    });
+
+
 
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
@@ -195,6 +193,14 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 
     setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
+
+    connect(m_swBatteryHint, &SwitchWidget::checkedChanged, this, [ = ](bool bLowPowerNotifyEnable) {
+        Q_EMIT requestSetLowPowerNotifyEnable(bLowPowerNotifyEnable);
+        m_sldLowBatteryHint->setVisible(bLowPowerNotifyEnable);
+    });
+
+    Q_EMIT m_swBatteryHint->checkedChanged(model->lowPowerNotifyEnable());
+
 //    m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
