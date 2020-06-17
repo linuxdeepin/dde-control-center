@@ -18,7 +18,6 @@ class SystemRestore : public QWidget
     Q_OBJECT
 public:
     SystemRestore(BackupAndRestoreModel* model, QWidget *parent = nullptr);
-    void initRestorePage(BackupAndRestoreModel* model);
 
 Q_SIGNALS:
     void requestSetManualBackupDirectory(const QString& path);

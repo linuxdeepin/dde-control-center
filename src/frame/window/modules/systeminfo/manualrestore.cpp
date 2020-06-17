@@ -20,6 +20,7 @@
 #include <DDialog>
 #include <DDBusSender>
 #include <QCryptographicHash>
+#include <QTimer>
 
 using namespace DCC_NAMESPACE::systeminfo;
 
@@ -100,10 +101,8 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     , m_tipsLabel(new DTipLabel)
     , m_backupBtn(new QPushButton(tr("Restore")))
     , m_actionType(ActionType::RestoreSystem)
-    , m_loadingIndicator(new DWaterProgress)
 {
     m_tipsLabel->setWordWrap(true);
-
     auto pa = DApplicationHelper::instance()->palette(m_tipsLabel);
     pa.setBrush(DPalette::TextTips, Qt::red);
     DApplicationHelper::instance()->setPalette(m_tipsLabel, pa);
@@ -161,7 +160,6 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     mainLayout->addWidget(m_tipsLabel);
     mainLayout->addStretch();
     mainLayout->addWidget(m_backupBtn);
-    mainLayout->addWidget(m_loadingIndicator, 0, Qt::AlignHCenter);
 
     setLayout(mainLayout);
 
@@ -188,11 +186,18 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     onManualRestoreErrorChanged(model->manualRestoreErrorType());
 
     m_backupBtn->setVisible(model->restoreButtonEnabled());
-    m_loadingIndicator->setVisible(!model->restoreButtonEnabled());
-    m_loadingIndicator->setValue(50);
-    m_loadingIndicator->setTextVisible(false);
-    m_loadingIndicator->setFixedSize(48, 48);
-    m_loadingIndicator->start();
+
+    QTimer::singleShot(0, this, [ = ] {
+        m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
+
+        m_loadingIndicator = new DWaterProgress;
+        mainLayout->addWidget(m_loadingIndicator, 0, Qt::AlignHCenter);
+        m_loadingIndicator->setVisible(!model->restoreButtonEnabled());
+        m_loadingIndicator->setValue(50);
+        m_loadingIndicator->setTextVisible(false);
+        m_loadingIndicator->setFixedSize(48, 48);
+        m_loadingIndicator->start();
+    });
 }
 
 void ManualRestore::setTipsVisible(const bool &visible)

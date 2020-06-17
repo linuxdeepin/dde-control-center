@@ -12,6 +12,7 @@
 #include <QPushButton>
 #include <QStandardItemModel>
 #include <QDir>
+#include <QTimer>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::systeminfo;
@@ -24,7 +25,6 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     , m_directoryChooseWidget(new DFileChooserEdit)
     , m_tipsLabel(new DTipLabel)
     , m_backupBtn(new QPushButton(tr("Backup")))
-    , m_loadingIndicator(new DWaterProgress)
 {
     m_tipsLabel->setWordWrap(true);
     auto pa = DApplicationHelper::instance()->palette(m_tipsLabel);
@@ -69,13 +69,10 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     mainLayout->addWidget(m_tipsLabel);
     mainLayout->addStretch();
     mainLayout->addWidget(m_backupBtn);
-    mainLayout->addWidget(m_loadingIndicator, 0, Qt::AlignHCenter);
 
     setLayout(mainLayout);
 
     m_tipsLabel->hide();
-
-    m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
 
     connect(model, &BackupAndRestoreModel::backupButtonEnabledChanged, this, [=](bool enable) {
         m_backupBtn->setVisible(enable);
@@ -98,16 +95,23 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
 
     m_backupBtn->setEnabled(!model->backupDirectory().isEmpty());
     m_backupBtn->setVisible(model->backupButtonEnabled());
-    m_loadingIndicator->setVisible(!model->backupButtonEnabled());
 
     m_directoryChooseWidget->lineEdit()->setText(model->backupDirectory());
 
-    m_loadingIndicator->setValue(50);
-    m_loadingIndicator->setTextVisible(false);
-    m_loadingIndicator->setFixedSize(48, 48);
-    m_loadingIndicator->start();
-
     onManualBackupErrorTypeChanged(model->manualBackupErrorType());
+
+    QTimer::singleShot(0, this, [ = ] {
+        m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
+
+        m_loadingIndicator = new DWaterProgress;
+        mainLayout->addWidget(m_loadingIndicator, 0, Qt::AlignHCenter);
+
+        m_loadingIndicator->setVisible(!model->backupButtonEnabled());
+        m_loadingIndicator->setValue(50);
+        m_loadingIndicator->setTextVisible(false);
+        m_loadingIndicator->setFixedSize(48, 48);
+        m_loadingIndicator->start();
+    });
 }
 
 void ManualBackup::setTipsVisible(const bool &visible)
