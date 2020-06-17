@@ -112,8 +112,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     DFontSizeManager::instance()->bind(m_saveEnergySettingsLabel, DFontSizeManager::T5, QFont::DemiBold);
     labelLayout->addWidget(m_saveEnergySettingsLabel);
     labelLayout->setContentsMargins(6,0,0,0);
-    m_layout->addLayout(labelLayout);
-    m_layEnergySavingMode->addWidget(m_saveEnergySettingsLabel);
+    m_layEnergySavingMode->addLayout(labelLayout);
     m_layEnergySavingMode->addWidget(m_saveEnergySettingsGrp);
     //---------------------------------------------------------
 
