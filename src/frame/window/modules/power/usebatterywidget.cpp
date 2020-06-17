@@ -179,6 +179,14 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 
     setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
+
+    connect(m_swBatteryHint, &SwitchWidget::checkedChanged, this, [ = ](bool bLowPowerNotifyEnable) {
+        Q_EMIT requestSetLowPowerNotifyEnable(bLowPowerNotifyEnable);
+        m_sldLowBatteryHint->setVisible(bLowPowerNotifyEnable);
+    });
+
+    Q_EMIT m_swBatteryHint->checkedChanged(model->lowPowerNotifyEnable());
+
 //    m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
