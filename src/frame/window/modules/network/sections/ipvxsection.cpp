@@ -458,7 +458,7 @@ bool IpvxSection::ipv4InputIsValid()
         if (!isIpv4SubnetMask(netmask)) {
             valid = false;
             m_netmaskIpv4->setIsErr(true);
-            m_netmaskIpv4->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_netmaskIpv4, 2000);
+            m_netmaskIpv4->dTextEdit()->showAlertMessage(tr("Invalid netmask"), m_netmaskIpv4, 2000);
         } else {
             m_netmaskIpv4->setIsErr(false);
         }
@@ -477,7 +477,7 @@ bool IpvxSection::ipv4InputIsValid()
     if (!dnsPri.isEmpty() && !isIpv4Address(dnsPri)) {
         valid = false;
         m_dnsPrimary->setIsErr(true);
-        m_dnsPrimary->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_dnsPrimary, 2000);
+        m_dnsPrimary->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_dnsPrimary, 2000);
     } else {
         m_dnsPrimary->setIsErr(false);
     }
@@ -486,7 +486,7 @@ bool IpvxSection::ipv4InputIsValid()
     if (!dnsSec.isEmpty() && !isIpv4Address(dnsSec)) {
         valid = false;
         m_dnsSecond->setIsErr(true);
-        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_dnsSecond, 2000);
+        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_dnsSecond, 2000);
     } else {
         if (!dnsSec.isEmpty() && dnsPri.isEmpty()) {
             valid = false;
@@ -540,7 +540,7 @@ bool IpvxSection::ipv6InputIsValid()
     if (!dnsPri.isEmpty() && !isIpv6Address(dnsPri)) {
         valid = false;
         m_dnsPrimary->setIsErr(true);
-        m_dnsPrimary->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_dnsPrimary, 2000);
+        m_dnsPrimary->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_dnsPrimary, 2000);
     } else {
         m_dnsPrimary->setIsErr(false);
     }
@@ -549,7 +549,7 @@ bool IpvxSection::ipv6InputIsValid()
     if (!dnsSec.isEmpty() && !isIpv6Address(dnsSec)) {
         valid = false;
         m_dnsSecond->setIsErr(true);
-        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid IP address"), m_dnsSecond, 2000);
+        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_dnsSecond, 2000);
     } else {
         if (!dnsSec.isEmpty() && dnsPri.isEmpty()) {
             valid = false;
