@@ -168,14 +168,18 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 void FingerWidget::addFingerButton(const QString &newFingerName)
 {
     SettingsItem* addfingerItem = new SettingsItem(this);
-    DCommandLinkButton *addBtn = new DCommandLinkButton(tr("Add Fingerprint"));
+    QString strAddFinger = tr("Add Fingerprint");
+    DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFinger);
     QHBoxLayout *fingerLayout = new QHBoxLayout(this);
-    fingerLayout->addWidget(addBtn);
+    fingerLayout->addWidget(addBtn, 0, Qt::AlignLeft);
     addfingerItem->setLayout(fingerLayout);
     m_listGrp->insertItem(m_listGrp->itemCount(), addfingerItem);
     addfingerItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
+    QFontMetrics fontMetrics(font());
+    int nFontWidth = fontMetrics.width(strAddFinger);
+    addBtn->setMinimumWidth(nFontWidth);
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         qDebug() << "try add finger :" <<  m_curUser->name() << newFingerName;
         Q_EMIT requestAddThumbs(m_curUser->name(), newFingerName);
