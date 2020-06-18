@@ -19,6 +19,7 @@ SystemRestore::SystemRestore(BackupAndRestoreModel* model, QWidget *parent)
     , m_backupPage(new ManualBackup(model))
     , m_restorePage(new ManualRestore(model))
 {
+    setObjectName("SystemRestore");
     DButtonBoxButton* backupBtn = new DButtonBoxButton(tr("Backup"));
     DButtonBoxButton* restoreBtn = new DButtonBoxButton(tr("Restore"));
 
