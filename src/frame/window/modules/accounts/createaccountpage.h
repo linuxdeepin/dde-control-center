@@ -45,7 +45,7 @@ using Defender = com::deepin::defender::hmiscreen;
 using DaemonService = com::deepin::defender::daemonservice;
 
 enum ErrorType {
-    ENUM_PASSWORD_EMPTY,
+    ENUM_PASSWORD_NOTEMPTY,
     ENUM_PASSWORD_TOOLONG,
     ENUM_PASSWORD_TOOSHORT,
     ENUM_PASSWORD_TYPE,
@@ -77,19 +77,13 @@ private:
     void initWidgets(QVBoxLayout *layout);
     void initUsrGroup(QVBoxLayout *layout);
     void createUser();
-    void showGroupList(const QString index);
+    void showGroupList(const QString &index);
     bool onPasswordEditFinished(DPasswordEdit *edit);
-    int validatePassword(const QString &password);
+    int  verifyPassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
     bool validateUsername(const QString &username);
     bool onNameEditFinished(DLineEdit *edit);
     bool onFullNameEidtFinished(DLineEdit *edit);
-    /**
-     * @brief passwordCompositionType 密码组成类型
-     * @param validate 有效字符列表 （由英文（区分大小写）、数字或特殊符号（~!@#$%^&*()[]{}\|/?,.<>）组成的字符列表）
-     * @param password 密码字符串
-     * @return  密码字符串是否包含有效字符列表中字符
-     */
     int  passwordCompositionType(const QStringList &validate, const QString &password);
 
 Q_SIGNALS:
@@ -100,13 +94,7 @@ public Q_SLOTS:
     void setCreationResult(dcc::accounts::CreationResult *result);
 
 protected:
-    void resizeEvent(QResizeEvent *e) override; 
-    /**
-     * @brief keyPressEvent
-     * @param e
-     * @arg 为了捕获回车按键进行添加
-     */
-    void keyPressEvent(QKeyEvent *e) override;
+    void resizeEvent(QResizeEvent *e) override;
 
 private:
     dcc::accounts::User *m_newUser;
@@ -123,10 +111,10 @@ private:
     bool m_isServerSystem;
     QWidget *m_tw;
     QScrollArea *m_scrollArea;
+    QLabel *m_groupTip;
     int m_passwordMinLength;
     int m_passwordMaxLength;
     int m_validate_Required;
-    QLabel *m_groupTip;
 };
 
 }

@@ -35,7 +35,6 @@
 #include <QDebug>
 #include <QSettings>
 #include <QApplication>
-#include<QRegExp>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -54,6 +53,9 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
     , m_groupTip(new QLabel(tr("Group")))
+    , m_passwordMinLength(-1)
+    , m_passwordMaxLength(-1)
+    , m_validate_Required(-1)
 {
     m_groupListView = new DListView(this);
     m_isServerSystem = IsServerSystem;
@@ -100,14 +102,6 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     connect(addBtn, &DSuggestButton::clicked, this, &CreateAccountPage::createUser);
 }
 
-void CreateAccountPage::keyPressEvent(QKeyEvent *e)
-{
-    //捕获回车事件，让其响应创建按钮的槽
-    if (e->key() == Qt::Key_Enter || e->key() == Qt::Key_Return) {
-         createUser();
-    }
-}
-
 CreateAccountPage::~CreateAccountPage()
 {
     m_repeatpasswdEdit->hideAlertMessage();
@@ -115,6 +109,7 @@ CreateAccountPage::~CreateAccountPage()
 
 void CreateAccountPage::resizeEvent(QResizeEvent *e)
 {
+    Q_UNUSED(e);
     if (m_tw) {
         m_tw->resize(m_scrollArea->size());
     }
@@ -257,27 +252,19 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         }
     });
 
-
     connect(m_accountChooser, &DComboBox::currentTextChanged, this, &CreateAccountPage::showGroupList);
 
     m_accountChooser->addItem(tr("Standard"));
     m_accountChooser->addItem(tr("Administrator"));
     m_accountChooser->addItem(tr("Customized"));
 
-    QRegExp reg("^((?![\u4e00-\u9fa5]).)*");
-    QValidator *validator = new QRegExpValidator(reg);
-
     m_nameEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
-    m_passwdEdit->lineEdit()->setAttribute(Qt::WA_InputMethodEnabled, false);
-    m_passwdEdit->lineEdit()->setValidator(validator);
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
-    m_repeatpasswdEdit->lineEdit()->setAttribute(Qt::WA_InputMethodEnabled, false);
-    m_repeatpasswdEdit->lineEdit()->setValidator(validator);
 }
 
-void CreateAccountPage::showGroupList(const QString index)
+void CreateAccountPage::showGroupList(const QString &index)
 {
     Q_UNUSED(index)
 
@@ -379,7 +366,20 @@ void CreateAccountPage::createUser()
     }
 }
 
-int CreateAccountPage::validatePassword(const QString &password)
+int  CreateAccountPage::passwordCompositionType(const QStringList &validate, const QString &password)
+{
+    return static_cast<int>(std::count_if(validate.cbegin(), validate.cend(),
+                                          [=](const QString &policy) {
+                                              for (const QChar &c : policy) {
+                                                  if (password.contains(c)) {
+                                                      return true;
+                                                  }
+                                              }
+                                              return false;
+                                          }));
+}
+
+int CreateAccountPage::verifyPassword(const QString &password)
 {
     QFileInfo fileInfo("/etc/deepin/dde.conf");
     if (fileInfo.isFile()) {
@@ -398,7 +398,7 @@ int CreateAccountPage::validatePassword(const QString &password)
         }
 
         if (password.size() == 0) {
-            return ENUM_PASSWORD_EMPTY;
+            return ENUM_PASSWORD_NOTEMPTY;
         } else if (password.size() > 0 && password.size() < m_passwordMinLength) {
             return ENUM_PASSWORD_TOOSHORT;
         } else if (passwordCompositionType(validate_policy, password) < m_validate_Required) {
@@ -473,10 +473,10 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
         return false;
     }
 
-    int passResult = validatePassword(userpassword);
+    int passResult = verifyPassword(userpassword);
     switch (passResult)
     {
-    case ENUM_PASSWORD_EMPTY:
+    case ENUM_PASSWORD_NOTEMPTY:
         edit->setAlert(true);
         edit->showAlertMessage(tr("Password cannot be empty"), -1);
         return false;
@@ -533,23 +533,6 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
         return false;
     }
 
-    auto checkUserName = [=](const QString &name) {
-        bool ret = false;
-        const QString numStr = QString("1234567890");
-        for (const QChar &p : name) {
-            if (!numStr.contains(p)) {
-                return true;
-            }
-        }
-        return ret;
-    };
-
-    if(!checkUserName(username)) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Your username should not only have numbers"), -1);
-        return false;
-    }
-
     const QString compStr = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     if (!compStr.contains(username.at(0))) {
         edit->setAlert(true);
@@ -582,23 +565,10 @@ bool CreateAccountPage::onFullNameEidtFinished(DLineEdit *edit)
         }
     }
 
-    if (userFullName.size() > 32) {
+    if (userFullName.size() > 100) {
         edit->setAlert(true);
         edit->showAlertMessage(tr("The full name is too long"), -1);
         return false;
     }
     return true;
-}
-
-int CreateAccountPage::passwordCompositionType(const QStringList &validate, const QString &password)
-{
-    return static_cast<int>(std::count_if(validate.cbegin(), validate.cend(),
-                                          [=](const QString &policy) {
-        for (const QChar &c : policy) {
-            if (password.contains(c)) {
-                return true;
-            }
-        }
-        return false;
-    }));
 }
