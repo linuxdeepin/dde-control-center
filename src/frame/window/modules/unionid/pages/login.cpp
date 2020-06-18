@@ -66,7 +66,7 @@ LoginPage::LoginPage(QWidget *parent)
     pLogo->setPixmap(QIcon::fromTheme("dcc_unionid").pixmap(128, 100));
     m_mainLayout->addWidget(pLogo, 0, Qt::AlignHCenter);
     m_mainLayout->addSpacing(10);
-    QLabel *signintip = new QLabel(tr("Union id"));
+    QLabel *signintip = new QLabel(tr("Union ID"));
     QFont font = signintip->font();
     font.setBold(true);
     signintip->setFont(font);
