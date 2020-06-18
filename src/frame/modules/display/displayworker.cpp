@@ -166,6 +166,9 @@ void DisplayWorker::mergeScreens()
 
     m_model->setIsMerge(true);
 
+    m_model->monitorList()[0]->setLastPoint(m_model->monitorList()[0]->x(), m_model->monitorList()[0]->y());
+    m_model->monitorList()[1]->setLastPoint(m_model->monitorList()[1]->x(), m_model->monitorList()[1]->y());
+
     // TODO: make asynchronous
     auto monis = m_monitors.keys();
     auto firstMoni = monis.first();
@@ -233,7 +236,7 @@ void DisplayWorker::splitScreens()
 
     auto *primary = m_model->primaryMonitor();
     Q_ASSERT(m_monitors.contains(primary));
-    m_monitors[primary]->SetPosition(0, 0).waitForFinished();
+    m_monitors[primary]->SetPosition(m_model->primaryMonitor()->getLastPoint().x(), m_model->primaryMonitor()->getLastPoint().y()).waitForFinished();
     int xOffset = primary->modeList().first().width();
 
     for (auto *mon : mList) {
@@ -246,9 +249,12 @@ void DisplayWorker::splitScreens()
         if (mon == primary)
             continue;
 
-        mInter->SetPosition(xOffset, 0).waitForFinished();
+        if (mon->getLastPoint() == m_model->primaryMonitor()->getLastPoint()) {
+            mInter->SetPosition(xOffset, 0).waitForFinished();
+        } else {
+            mInter->SetPosition(mon->getLastPoint().x(), mon->getLastPoint().y()).waitForFinished();
+        }
         xOffset += mon->modeList().first().width();
-
     }
 
     m_displayInter.ApplyChanges();
