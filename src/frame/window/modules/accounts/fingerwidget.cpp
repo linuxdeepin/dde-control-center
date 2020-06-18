@@ -86,7 +86,8 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
         } else {
             m_clearBtn->setText(tr("Edit"));
         }
-        for (auto &item : m_vecItem) {
+        for (int n = 0; n < m_listGrp->itemCount(); n++) {
+            AccounntFingeItem *item = static_cast<AccounntFingeItem*>(m_listGrp->getItem(n));
             item->setShowIcon(checked);
         }
     });
@@ -110,7 +111,6 @@ void FingerWidget::setFingerModel(FingerModel *model)
 void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 {
     QList<QPair<QString, QString>> thumb = m_model->getPredefineThumbsName();
-    m_vecItem.clear();
     m_listGrp->clear();
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
         QString finger = thumbs.at(n);
@@ -145,7 +145,6 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
         if(m_clearBtn->isChecked())
             item->setShowIcon(true);
 
-        m_vecItem.append(item);
         QPair<QString, QString> fingerItem = qMakePair(finger, fingerName);
         thumb.removeOne(fingerItem);
     }
