@@ -29,6 +29,7 @@
 #include "backupandrestoreworker.h"
 #include "modules/systeminfo/systeminfowork.h"
 #include "modules/systeminfo/systeminfomodel.h"
+#include "window/mainwindow.h"
 
 using namespace dcc::systeminfo;
 using namespace DCC_NAMESPACE::systeminfo;
@@ -134,6 +135,10 @@ void SystemInfoModule::onShowEndUserLicenseAgreementPage()
 }
 
 void SystemInfoModule::onShowSystemRestore() {
+    MainWindow* mainwindow = dynamic_cast<MainWindow*>(m_frameProxy);
+    if (mainwindow->getcontentStack().size() == 2 && mainwindow->getcontentStack().at(1).second->objectName() == "SystemRestore") {
+        return;
+    }
     SystemRestore* restore = new SystemRestore(m_backupAndRestoreModel);
     connect(restore, &SystemRestore::requestSetManualBackupDirectory, m_backupAndRestoreWorker, &BackupAndRestoreWorker::manualBackup);
     connect(restore, &SystemRestore::requestSetSystemBackupDirectory, m_backupAndRestoreWorker, &BackupAndRestoreWorker::systemBackup);
