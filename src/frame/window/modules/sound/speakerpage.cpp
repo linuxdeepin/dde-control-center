@@ -162,9 +162,9 @@ void SpeakerPage::initSlider()
     volumeBoost->addBackground();
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoost, &SwitchWidget::setChecked);
     connect(volumeBoost, &SwitchWidget::checkedChanged, this, &SpeakerPage::requestIncreaseVolume);
-    hlayout->addSpacing(10);
+    hlayout->addSpacing(4);
     hlayout->addWidget(volumeBoost);
-    hlayout->addSpacing(10);
+    hlayout->addSpacing(4);
     hlayout->setContentsMargins(0, 0, 0, 0);
 
     //下方提示
