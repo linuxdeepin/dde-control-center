@@ -30,6 +30,7 @@
 #include <DLineEdit>
 #include <DSwitchButton>
 #include <DLabel>
+#include <DTipLabel>
 #include <DFontSizeManager>
 
 #include <QVBoxLayout>
@@ -81,20 +82,22 @@ void SystemNotifyWidget::initUI()
     hLayoutDisturbMode->addWidget(m_btnDisturbMode, Qt::AlignRight);
     mainLayout->addLayout(hLayoutDisturbMode);
 
-    DLabel *lblTip = new DLabel(tr("App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center."));
+    DTipLabel *lblTip = new DTipLabel(tr("App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center."));
     DFontSizeManager::instance()->bind(lblTip, DFontSizeManager::T8);
     lblTip->adjustSize();
     lblTip->setWordWrap(true);
     lblTip->setContentsMargins(10, 5, 10, 5);
+    lblTip->setAlignment(Qt::AlignLeft);
     mainLayout->addWidget(lblTip);
 
     m_settingsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_settingsGrp->setContentsMargins(0, 0, 0, 0);
     m_settingsGrp->layout()->setMargin(0);
-    m_settingsGrp->setSpacing(4);
+    m_settingsGrp->setSpacing(1);
 
     m_itemTimeSlot = new TimeSlotItem;
     m_settingsGrp->appendItem(m_itemTimeSlot);
+    m_itemTimeSlot->setFixedHeight(48);
 
     //设计需求变更，去掉全屏和投影选项
     // m_itemFullScreen = new NotificationItem;
