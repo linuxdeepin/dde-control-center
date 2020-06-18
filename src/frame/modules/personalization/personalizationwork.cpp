@@ -35,6 +35,8 @@
 using namespace dcc;
 using namespace dcc::personalization;
 
+#define GSETTING_EFFECT_LOAD "effect-load"
+
 const QString Service = "com.deepin.daemon.Appearance";
 const QString Path    = "/com/deepin/daemon/Appearance";
 
@@ -66,6 +68,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     ThemeModel *iconTheme        = m_model->getIconModel();
     FontModel *fontMono          = m_model->getMonoFontModel();
     FontModel *fontStand         = m_model->getStandFontModel();
+    m_setting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
 
     connect(m_dbus, &Appearance::GtkThemeChanged,      windowTheme,   &ThemeModel::setDefault);
     connect(m_dbus, &Appearance::CursorThemeChanged,   cursorTheme,   &ThemeModel::setDefault);
@@ -83,18 +86,28 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_wm, &WM::compositingEnabledChanged, this, &PersonalizationWork::onWindowWM);
 
     //获取最小化设置
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_effects->isEffectLoaded("magiclamp"), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] (QDBusPendingCallWatcher *watcher) {
-        qDebug() << watcher->error();
-        if (!watcher->isError()) {
-            QDBusReply<bool> value = watcher->reply();
-            if (value) {
-                m_model->setMiniEffect(1);
-            } else {
-                m_model->setMiniEffect(0);
-            }
+    if (m_setting->keys().contains("effectLoad", Qt::CaseSensitivity::CaseInsensitive)) {
+        bool isMinEffect = m_setting->get(GSETTING_EFFECT_LOAD).toBool();
+        m_model->setMiniEffect(isMinEffect);
+        if (isMinEffect) {
+            m_effects->loadEffect("magiclamp");
+        } else {
+            m_effects->unloadEffect("magiclamp");
         }
-    });
+    } else {
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_effects->isEffectLoaded("magiclamp"), this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] (QDBusPendingCallWatcher *watcher) {
+            qDebug() << watcher->error();
+            if (!watcher->isError()) {
+                QDBusReply<bool> value = watcher->reply();
+                if (value) {
+                    m_model->setMiniEffect(1);
+                } else {
+                    m_model->setMiniEffect(0);
+                }
+            }
+        });
+    };
 
     m_themeModels["gtk"]           = windowTheme;
     m_themeModels["icon"]          = iconTheme;
@@ -527,11 +540,13 @@ void PersonalizationWork::setMiniEffect(int effect)
     case 0:
         qDebug() << "scale";
         m_effects->unloadEffect("magiclamp");
+        m_setting->set(GSETTING_EFFECT_LOAD, false);
         m_model->setMiniEffect(effect);
         break;
     case 1:
         qDebug() << "magiclamp";
         m_effects->loadEffect("magiclamp");
+        m_setting->set(GSETTING_EFFECT_LOAD, true);
         m_model->setMiniEffect(effect);
         break;
     default:break;
