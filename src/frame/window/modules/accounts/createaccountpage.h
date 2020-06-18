@@ -44,6 +44,16 @@
 using Defender = com::deepin::defender::hmiscreen;
 using DaemonService = com::deepin::defender::daemonservice;
 
+enum ErrorType {
+    ENUM_PASSWORD_NOTEMPTY,
+    ENUM_PASSWORD_TOOLONG,
+    ENUM_PASSWORD_TOOSHORT,
+    ENUM_PASSWORD_TYPE,
+    ENUM_PASSWORD_SEVERAL,
+    ENUM_PASSWORD_CHARACTER,
+    ENUM_PASSWORD_SUCCESS
+};
+
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QHBoxLayout;
@@ -69,11 +79,12 @@ private:
     void createUser();
     void showGroupList(const QString index);
     bool onPasswordEditFinished(DPasswordEdit *edit);
-    bool validatePassword(const QString &password);
+    int  verifyPassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
     bool validateUsername(const QString &username);
     bool onNameEditFinished(DLineEdit *edit);
     bool onFullNameEidtFinished(DLineEdit *edit);
+    int  passwordCompositionType(const QStringList &validate, const QString &password);
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
@@ -101,6 +112,9 @@ private:
     QWidget *m_tw;
     QScrollArea *m_scrollArea;
     QLabel *m_groupTip;
+    int m_passwordMinLength;
+    int m_passwordMaxLength;
+    int m_validate_Required;
 };
 
 }

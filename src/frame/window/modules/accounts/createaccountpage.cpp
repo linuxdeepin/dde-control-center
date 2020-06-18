@@ -53,6 +53,9 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
     , m_groupTip(new QLabel(tr("Group")))
+    , m_passwordMinLength(-1)
+    , m_passwordMaxLength(-1)
+    , m_validate_Required(-1)
 {
     m_groupListView = new DListView(this);
     m_isServerSystem = IsServerSystem;
@@ -367,7 +370,20 @@ void CreateAccountPage::createUser()
     }
 }
 
-bool CreateAccountPage::validatePassword(const QString &password)
+int  CreateAccountPage::passwordCompositionType(const QStringList &validate, const QString &password)
+{
+    return std::count_if(validate.cbegin(), validate.cend(),
+                         [=](const QString &policy) {
+                             for (const QChar &c : policy) {
+                                 if (password.contains(c)) {
+                                     return true;
+                                 }
+                             }
+                             return false;
+                         });
+}
+
+int CreateAccountPage::verifyPassword(const QString &password)
 {
     QFileInfo fileInfo("/etc/deepin/dde.conf");
     if (fileInfo.isFile()) {
@@ -375,43 +391,38 @@ bool CreateAccountPage::validatePassword(const QString &password)
         QSettings setting("/etc/deepin/dde.conf", QSettings::IniFormat);
         setting.beginGroup("Password");
         const bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
-        const int  password_min_length   = setting.value("PASSWORD_MIN_LENGTH").toInt();
-        const int  password_max_length   = setting.value("PASSWORD_MAX_LENGTH").toInt();
+        m_passwordMinLength   = setting.value("PASSWORD_MIN_LENGTH").toInt();
+        m_passwordMaxLength   = setting.value("PASSWORD_MAX_LENGTH").toInt();
         const QStringList validate_policy= setting.value("VALIDATE_POLICY").toString().split(";");
-        const int validate_required      = setting.value("VALIDATE_REQUIRED").toInt();
+        m_validate_Required      = setting.value("VALIDATE_REQUIRED").toInt();
 
         if (!strong_password_check) {
-            return true;
+            return ENUM_PASSWORD_CHARACTER;
         }
 
-        if (password.size() < password_min_length || password.size() > password_max_length) {
-            return false;
+        if (password.size() == 0) {
+            return ENUM_PASSWORD_NOTEMPTY;
+        } else if (password.size() > 0 && password.size() < m_passwordMinLength) {
+            return ENUM_PASSWORD_TOOSHORT;
+        } else if (passwordCompositionType(validate_policy, password) < m_validate_Required) {
+            return ENUM_PASSWORD_TYPE;
+        } else if (passwordCompositionType(validate_policy, password) < m_validate_Required && password.size() < m_passwordMinLength ) {
+            return ENUM_PASSWORD_SEVERAL;
+        } else if (passwordCompositionType(validate_policy, password) < m_validate_Required && (!(password.split("").toSet() - validate_policy.join("").split("").toSet())
+                                                              .isEmpty()) ) {
+            return ENUM_PASSWORD_CHARACTER;
+        } else if (password.size() > m_passwordMaxLength) {
+            return ENUM_PASSWORD_TOOLONG;
+        } else {
+            return ENUM_PASSWORD_SUCCESS;
         }
-
-        // NOTE(justforlxz): 转换为set，如果密码中包含了不存在与validate_policy中的字符，相减以后不为空。
-        if (!(password.split("").toSet() - validate_policy.join("").split("").toSet())
-                .isEmpty()) {
-            return false;
-        }
-
-        if (std::count_if(validate_policy.cbegin(), validate_policy.cend(),
-                        [=](const QString &policy) {
-                            for (const QChar &c : policy) {
-                                if (password.contains(c)) {
-                                    return true;
-                                }
-                            }
-
-                            return false;
-                        }) < validate_required) {
-            return false;
-        }
-
-        return true;
     } else {
         QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
                                       QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
-        return containsChar(password, validate_policy);
+        bool ret = containsChar(password, validate_policy);
+        if (!ret) {
+            return ENUM_PASSWORD_CHARACTER;
+        }
     }
 }
 
@@ -460,17 +471,32 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
         return false;
     }
 
-    const int maxSize = 512;
-    if (userpassword.size() > maxSize) {
+    int passResult = verifyPassword(userpassword);
+    switch (passResult)
+    {
+    case ENUM_PASSWORD_NOTEMPTY:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
+        edit->showAlertMessage(tr("Password cannot be empty"), -1);
         return false;
-    }
-
-    bool result = validatePassword(userpassword);
-    if (!result) {
+    case ENUM_PASSWORD_TOOSHORT:
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("The password must have at least %1 characters").arg(m_passwordMinLength), -1);
+        return false;
+    case ENUM_PASSWORD_TOOLONG:
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(m_passwordMaxLength), -1);
+        return false;
+    case ENUM_PASSWORD_TYPE:
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_validate_Required), -1);
+        return false;
+    case ENUM_PASSWORD_CHARACTER:
         edit->setAlert(true);
         edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+        return false;
+    case ENUM_PASSWORD_SEVERAL:
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %1 of the four available ").arg(m_passwordMinLength).arg(m_validate_Required), -1);
         return false;
     }
 
