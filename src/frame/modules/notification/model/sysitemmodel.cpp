@@ -45,8 +45,8 @@ void SysItemModel::setItem(const QJsonObject &item)
     setDisturbMode(item["DoNotDisturb"].toBool());
     setShowInDock(item["ShowIconOnDock"].toBool());
     setTimeSlot(item["TimeSlot"].toBool());
-    setTimeStart(QTime::fromString(QString::number(item["StartTime"].toInt()), "h"));
-    setTimeEnd(QTime::fromString(QString::number(item["EndTime"].toInt()), "h"));
+    setTimeStart(QTime::fromString(item["StartTime"].toString(), "hh:mm"));
+    setTimeEnd(QTime::fromString(item["EndTime"].toString(), "hh:mm"));
 }
 
 QJsonObject SysItemModel::convertQJson()
@@ -57,8 +57,8 @@ QJsonObject SysItemModel::convertQJson()
     jsonObj.insert("DoNotDisturb", isDisturbMode());
     jsonObj.insert("ShowIconOnDock", isShowInDock());
     jsonObj.insert("ConnectedProjector", isProjector());
-    jsonObj.insert("EndTime", timeEnd().hour());
-    jsonObj.insert("StartTime", timeStart().hour());
+    jsonObj.insert("EndTime", timeEnd().toString("hh:mm"));
+    jsonObj.insert("StartTime", timeStart().toString("hh:mm"));
     jsonObj.insert("TimeSlot", isTimeSlot());
     QJsonObject json_fa;
     json_fa.insert("SystemNotify", jsonObj);
