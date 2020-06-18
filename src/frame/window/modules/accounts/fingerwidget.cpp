@@ -111,7 +111,8 @@ void FingerWidget::setFingerModel(FingerModel *model)
 void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 {
     QList<QPair<QString, QString>> thumb = m_model->getPredefineThumbsName();
-    m_listGrp->clear();
+    while(m_listGrp->itemCount()) m_listGrp->clear();
+
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
         QString finger = thumbs.at(n);
         QString fingerName = finger;
