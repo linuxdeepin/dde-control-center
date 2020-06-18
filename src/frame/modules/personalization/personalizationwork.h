@@ -33,6 +33,7 @@
 #include <QMap>
 #include <QString>
 #include <QJsonObject>
+#include <QGSettings>
 #include <com_deepin_daemon_appearance.h>
 #include <com_deepin_wmswitcher.h>
 #include <com_deepin_wm.h>
@@ -105,6 +106,7 @@ private:
     Effects *m_effects;
     QMap<QString, ThemeModel*> m_themeModels;
     QMap<QString, FontModel*> m_fontModels;
+    QGSettings *m_setting;
 };
 }
 }
