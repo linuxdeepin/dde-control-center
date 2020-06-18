@@ -5,7 +5,6 @@
 
 #include <QWidget>
 #include <dfilechooseredit.h>
-#include <DWaterProgress>
 #include <DTipLabel>
 
 DWIDGET_USE_NAMESPACE
@@ -20,6 +19,7 @@ class ManualBackup : public QWidget {
     Q_OBJECT
 public:
     explicit ManualBackup(BackupAndRestoreModel* model, QWidget* parent = nullptr);
+    void initUI();
 
     void setTipsVisible(const bool &visible);
 
@@ -42,7 +42,7 @@ private:
     DFileChooserEdit* m_directoryChooseWidget;
     DTipLabel          * m_tipsLabel;
     QPushButton* m_backupBtn;
-    DWaterProgress* m_loadingIndicator;
+    QWidget* m_loadingWidget;
 };
 }
 }

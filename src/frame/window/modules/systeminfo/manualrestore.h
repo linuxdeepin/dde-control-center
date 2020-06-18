@@ -6,7 +6,6 @@
 #include <QWidget>
 #include <dfilechooseredit.h>
 #include <com_deepin_daemon_grub2.h>
-#include <DWaterProgress>
 #include <DTipLabel>
 
 DWIDGET_USE_NAMESPACE
@@ -26,6 +25,7 @@ class ManualRestore : public QWidget
     Q_OBJECT
 public:
     explicit ManualRestore(BackupAndRestoreModel* model, QWidget *parent = nullptr);
+    void initUI();
 
     void setTipsVisible(const bool &visible);
 
@@ -53,7 +53,7 @@ private:
     RestoreItem* m_systemRestore;
     RestoreItem* m_manualRestore;
     ActionType m_actionType;
-    DWaterProgress* m_loadingIndicator;
+    QWidget *m_loadingWidget;
 };
 }
 }

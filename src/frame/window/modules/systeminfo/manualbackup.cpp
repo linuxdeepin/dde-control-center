@@ -5,6 +5,7 @@
 #include <DListView>
 #include <DStandardItem>
 #include <DApplicationHelper>
+#include <DWaterProgress>
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -25,12 +26,8 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     , m_directoryChooseWidget(new DFileChooserEdit)
     , m_tipsLabel(new DTipLabel)
     , m_backupBtn(new QPushButton(tr("Backup")))
+    , m_loadingWidget(new QWidget)
 {
-    m_tipsLabel->setWordWrap(true);
-    auto pa = DApplicationHelper::instance()->palette(m_tipsLabel);
-    pa.setBrush(DPalette::TextTips, Qt::red);
-    DApplicationHelper::instance()->setPalette(m_tipsLabel, pa);
-
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(10);
@@ -68,15 +65,15 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
 
     mainLayout->addWidget(m_tipsLabel);
     mainLayout->addStretch();
+    mainLayout->addWidget(m_loadingWidget, 0, Qt::AlignCenter);
+    mainLayout->addStretch();
     mainLayout->addWidget(m_backupBtn);
 
     setLayout(mainLayout);
 
-    m_tipsLabel->hide();
-
     connect(model, &BackupAndRestoreModel::backupButtonEnabledChanged, this, [=](bool enable) {
         m_backupBtn->setVisible(enable);
-        m_loadingIndicator->setVisible(!enable);
+        m_loadingWidget->setVisible(!enable);
     });
     connect(m_directoryChooseWidget, &DFileChooserEdit::dialogClosed, this, &ManualBackup::onChoose);
     connect(m_backupBtn, &QPushButton::clicked, this, &ManualBackup::backup, Qt::QueuedConnection);
@@ -100,18 +97,33 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
 
     onManualBackupErrorTypeChanged(model->manualBackupErrorType());
 
-    QTimer::singleShot(0, this, [ = ] {
-        m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
+    m_loadingWidget->setVisible(!model->backupButtonEnabled());
+    QTimer::singleShot(0, this, &ManualBackup::initUI);
+}
 
-        m_loadingIndicator = new DWaterProgress;
-        mainLayout->addWidget(m_loadingIndicator, 0, Qt::AlignHCenter);
+void ManualBackup::initUI()
+{
+    m_tipsLabel->setWordWrap(true);
+    auto pa = DApplicationHelper::instance()->palette(m_tipsLabel);
+    pa.setBrush(DPalette::TextTips, Qt::red);
+    DApplicationHelper::instance()->setPalette(m_tipsLabel, pa);
 
-        m_loadingIndicator->setVisible(!model->backupButtonEnabled());
-        m_loadingIndicator->setValue(50);
-        m_loadingIndicator->setTextVisible(false);
-        m_loadingIndicator->setFixedSize(48, 48);
-        m_loadingIndicator->start();
-    });
+    m_tipsLabel->hide();
+
+    m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
+
+    QVBoxLayout* loadingLayout = new QVBoxLayout;
+    m_loadingWidget->setLayout(loadingLayout);
+
+    DWaterProgress* loadingIndicator = new DWaterProgress;
+    loadingLayout->addWidget(loadingIndicator, 0, Qt::AlignHCenter);
+    loadingIndicator->setValue(50);
+    loadingIndicator->setTextVisible(false);
+    loadingIndicator->setFixedSize(48, 48);
+    loadingIndicator->start();
+
+    QLabel* tips = new QLabel(tr("Applying changes to your system..."));
+    loadingLayout->addWidget(tips);
 }
 
 void ManualBackup::setTipsVisible(const bool &visible)
@@ -134,7 +146,7 @@ void ManualBackup::backup()
     if (!choosePath.isEmpty()) {
         setFocus();
         m_backupBtn->setVisible(false);
-        m_loadingIndicator->setVisible(true);
+        m_loadingWidget->setVisible(true);
         if (m_actionType == ActionType::ManualBackup)
             Q_EMIT requestSetManualBackupDirectory(choosePath);
         else
