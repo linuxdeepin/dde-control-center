@@ -268,9 +268,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_requestWirelessScanTimer->setInterval(60000);
     m_requestWirelessScanTimer->setSingleShot(false);
 
-    m_requestWirelessScanTimer->setInterval(60000);
-    m_requestWirelessScanTimer->setSingleShot(false);
-
     APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
     nonbc->setSignalStrength(-1);
     nonbc->setPath("");
