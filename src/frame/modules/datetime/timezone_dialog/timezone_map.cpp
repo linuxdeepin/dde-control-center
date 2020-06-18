@@ -52,7 +52,7 @@ const int kZonePinMinimumWidth = 60;
 
 const double kDistanceThreshold = 100.0;
 const char kDotFile[] = ":/timezone_dialog/images/indicator_active.png";
-const char kTimezoneMapFile[] = ":/timezone_dialog/images/timezone_map_big.png";
+const char kTimezoneMapFile[] = ":/timezone_dialog/images/timezone_map_big@1x.svg";
 
 // At absolute position of |zone| on a map with size (map_width, map_height).
 QPoint ZoneInfoToPosition(const ZoneInfo& zone, int map_width, int map_height) {
