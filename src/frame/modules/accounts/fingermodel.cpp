@@ -104,11 +104,7 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
     case ET_Failed: {
         QString title = tr("Scan failed");
         QString msg = "";
-        // The enrollment failed, Device.EnrollStop should now be called，直接提示Scan failed即可
         do {
-            if (msg.isEmpty()) {
-                break;
-            }
             QStringList keys = jsonObject.keys();
             if (!keys.contains("subcode")) {
                 break;

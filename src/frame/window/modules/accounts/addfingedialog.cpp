@@ -241,6 +241,17 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
     QDialog::closeEvent(event);
 }
 
+void AddFingeDialog::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key()) {
+        case Qt::Key_Escape:
+            break;
+        default:
+            QDialog::keyPressEvent(event);
+            break;
+    }
+}
+
 bool AddFingeDialog::eventFilter(QObject *o, QEvent *e)
 {
     if (o == this) {

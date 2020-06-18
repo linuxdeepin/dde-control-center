@@ -65,7 +65,7 @@ public:
 private:
     void initWidget();
     void initData();
-
+    void keyPressEvent(QKeyEvent *event) override;
 protected:
     void closeEvent(QCloseEvent *event) override;
     bool eventFilter(QObject *o, QEvent *e) override;
