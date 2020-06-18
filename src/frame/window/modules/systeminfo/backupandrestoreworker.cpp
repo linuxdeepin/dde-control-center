@@ -130,7 +130,7 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
         return ErrorType::GrubError;
     }
 
-    QThread::sleep(10);
+    QThread::sleep(20);
 
     DDBusSender()
     .service("com.deepin.dde.shutdownFront")
@@ -189,7 +189,7 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
         return ErrorType::GrubError;
     }
 
-    QThread::sleep(10);
+    QThread::sleep(20);
 
     DDBusSender()
     .service("com.deepin.dde.shutdownFront")
@@ -239,7 +239,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
         return ErrorType::GrubError;
     }
 
-    QThread::sleep(10);
+    QThread::sleep(20);
 
     DDBusSender()
     .service("com.deepin.dde.shutdownFront")
@@ -271,7 +271,7 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
         return ErrorType::GrubError;
     }
 
-    QThread::sleep(10);
+    QThread::sleep(20);
 
     DDBusSender()
     .service("com.deepin.dde.shutdownFront")

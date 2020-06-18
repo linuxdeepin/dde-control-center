@@ -3,6 +3,7 @@
 
 #include <DApplicationHelper>
 #include <DFrame>
+#include <DWaterProgress>
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -101,12 +102,8 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     , m_tipsLabel(new DTipLabel)
     , m_backupBtn(new QPushButton(tr("Restore")))
     , m_actionType(ActionType::RestoreSystem)
+    , m_loadingWidget(new QWidget)
 {
-    m_tipsLabel->setWordWrap(true);
-    auto pa = DApplicationHelper::instance()->palette(m_tipsLabel);
-    pa.setBrush(DPalette::TextTips, Qt::red);
-    DApplicationHelper::instance()->setPalette(m_tipsLabel, pa);
-
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(5);
@@ -159,13 +156,11 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
 
     mainLayout->addWidget(m_tipsLabel);
     mainLayout->addStretch();
+    mainLayout->addWidget(m_loadingWidget, 0, Qt::AlignCenter);
+    mainLayout->addStretch();
     mainLayout->addWidget(m_backupBtn);
 
     setLayout(mainLayout);
-
-    m_tipsLabel->hide();
-
-    m_systemRestore->radioButton()->setChecked(true);
 
     connect(m_backupBtn, &QPushButton::clicked, this, &ManualRestore::restore, Qt::QueuedConnection);
     connect(m_systemRestore->radioButton(), &QRadioButton::toggled, this, &ManualRestore::onItemChecked);
@@ -173,7 +168,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     connect(model, &BackupAndRestoreModel::manualRestoreErrorTypeChanged, this, &ManualRestore::onManualRestoreErrorChanged);
     connect(model, &BackupAndRestoreModel::restoreButtonEnabledChanged, this, [=](bool enable) {
         m_backupBtn->setVisible(enable);
-        m_loadingIndicator->setVisible(!enable);
+        m_loadingWidget->setVisible(!enable);
     });
 
     m_directoryChooseWidget->lineEdit()->setText(model->restoreDirectory());
@@ -182,17 +177,37 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
 
     m_backupBtn->setVisible(model->restoreButtonEnabled());
 
-    QTimer::singleShot(0, this, [ = ] {
-        m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
+    m_loadingWidget->setVisible(!model->restoreButtonEnabled());
 
-        m_loadingIndicator = new DWaterProgress;
-        mainLayout->addWidget(m_loadingIndicator, 0, Qt::AlignHCenter);
-        m_loadingIndicator->setVisible(!model->restoreButtonEnabled());
-        m_loadingIndicator->setValue(50);
-        m_loadingIndicator->setTextVisible(false);
-        m_loadingIndicator->setFixedSize(48, 48);
-        m_loadingIndicator->start();
-    });
+    QTimer::singleShot(0, this, &ManualRestore::initUI);
+}
+
+void ManualRestore::initUI()
+{
+    m_tipsLabel->setWordWrap(true);
+    auto pa = DApplicationHelper::instance()->palette(m_tipsLabel);
+    pa.setBrush(DPalette::TextTips, Qt::red);
+    DApplicationHelper::instance()->setPalette(m_tipsLabel, pa);
+
+    m_tipsLabel->hide();
+
+    m_systemRestore->radioButton()->setChecked(true);
+
+    m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
+
+    QVBoxLayout *loadingLayout = new QVBoxLayout;
+    m_loadingWidget->setLayout(loadingLayout);
+
+    DWaterProgress *loadingIndicator = new DWaterProgress;
+    loadingLayout->addWidget(loadingIndicator, 0, Qt::AlignCenter);
+    loadingIndicator->setValue(50);
+    loadingIndicator->setTextVisible(false);
+    loadingIndicator->setFixedSize(48, 48);
+    loadingIndicator->start();
+    loadingLayout->addSpacing(5);
+
+    QLabel *tips = new QLabel(tr("Applying changes to your system..."));
+    loadingLayout->addWidget(tips);
 }
 
 void ManualRestore::setTipsVisible(const bool &visible)
@@ -266,7 +281,7 @@ void ManualRestore::restore()
         }
 
         Q_EMIT requestSystemRestore(formatData);
-        m_loadingIndicator->setVisible(true);
+        m_loadingWidget->setVisible(true);
         m_backupBtn->setVisible(false);
     }
 
@@ -282,7 +297,7 @@ void ManualRestore::restore()
         }
 
         Q_EMIT requestManualRestore(selectPath);
-        m_loadingIndicator->setVisible(true);
+        m_loadingWidget->setVisible(true);
         m_backupBtn->setVisible(false);
     }
     setFocus();
