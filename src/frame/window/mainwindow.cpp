@@ -329,9 +329,9 @@ void MainWindow::initAllModule(QString m)
 
     m_modules = {
         { new AccountsModule(this), tr("Accounts")},
-        //~ contents_path /cloudsync/Cloud Sync
-        { new SyncModule(this), tr("Cloud Account")},
         { new UnionidModule(this), tr("Unionid")},
+        //~ contents_path /cloudsync/Cloud Sync
+        { new SyncModule(this), tr("Cloud Account")},  
         { new DisplayModule(this), tr("Display")},
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new PersonalizationModule(this), tr("Personalization")},
