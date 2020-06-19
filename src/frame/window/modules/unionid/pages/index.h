@@ -65,7 +65,6 @@ public:
 Q_SIGNALS:
     void requestSetAutoSync(bool enable) const;
     void requestLogout() const;
-    // void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
     void requesUserDialog(QString) const;
 
 private:
@@ -74,6 +73,7 @@ private:
     QLabel *m_stateLbl;
     QStandardItemModel *m_listModel;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_networkTip;
+    QLabel *m_logout;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE

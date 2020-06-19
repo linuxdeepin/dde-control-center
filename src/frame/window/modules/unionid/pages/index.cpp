@@ -28,9 +28,7 @@
 #include "downloadurl.h"
 #include "window/utils.h"
 
-#include <DWarningButton>
 #include <DListView>
-#include <DTipLabel>
 
 #include <QScrollArea>
 #include <QScrollBar>
@@ -82,23 +80,29 @@ IndexPage::IndexPage(QWidget *parent)
     m_mainLayout->addSpacing(15);
 
     QLabel *passwdlabel = new QLabel();
-    passwdlabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: blue;' href=\"modifypass\">%1</a>").arg(tr("Modify Password")));
+    passwdlabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"modifypass\">%1</a>").arg(tr("Modify Password")));
     connect(passwdlabel, &QLabel::linkActivated, this, &IndexPage::requesUserDialog);
     QLabel *photolabel = new QLabel();
-    photolabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: blue;' href=\"modifyOic\">%1</a>").arg(tr("Change Avatar")));
+    photolabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"modifyOic\">%1</a>").arg(tr("Change Avatar")));
     connect(photolabel, &QLabel::linkActivated, this, &IndexPage::requesUserDialog);
     QLabel *userlabel = new QLabel();
-    userlabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: blue;' href=\"UserCenter\">%1</a>").arg(tr("User Center")));
+    userlabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"UserCenter\">%1</a>").arg(tr("User Center")));
     connect(userlabel, &QLabel::linkActivated, this, &IndexPage::requesUserDialog);
+    m_logout = new QLabel();
+    m_logout->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"UserCenter\">%1</a>").arg(tr("Sign Out")));
+    connect(m_logout, &QLabel::linkActivated, this, &IndexPage::requestLogout);
     auto modifyWidget = new QWidget();
     QHBoxLayout *modifyLayout = new QHBoxLayout;
     modifyLayout->setSpacing(10);
     modifyLayout->setMargin(0);
     modifyLayout->addWidget(passwdlabel, 0, Qt::AlignHCenter);
-    modifyLayout->addWidget(new QLabel(" | "), 0, Qt::AlignHCenter);
+    modifyLayout->addWidget(new QLabel("|"), 0, Qt::AlignHCenter);
     modifyLayout->addWidget(photolabel, 0, Qt::AlignHCenter);
-    modifyLayout->addWidget(new QLabel(" | "), 0, Qt::AlignHCenter);
+    modifyLayout->addWidget(new QLabel("|"), 0, Qt::AlignHCenter);
     modifyLayout->addWidget(userlabel, 0, Qt::AlignHCenter);
+    modifyLayout->addSpacing(30);
+    modifyLayout->addWidget(new QLabel("|"), 0, Qt::AlignHCenter);
+    modifyLayout->addWidget(m_logout, 0, Qt::AlignHCenter);
     modifyLayout->setSizeConstraint(QLayout::SetMinimumSize);
     modifyWidget->setLayout(modifyLayout);
 
