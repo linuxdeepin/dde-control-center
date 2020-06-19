@@ -234,15 +234,18 @@ void CustomSettingDialog::initOtherDialog()
 
             connect(dlg, &CustomSettingDialog::requestMerge, this,
                     &CustomSettingDialog::requestMerge);
+
             connect(dlg, &CustomSettingDialog::requestSplit, this,
                     &CustomSettingDialog::requestSplit);
+
             connect(dlg, &CustomSettingDialog::requestRecognize, this,
                     &CustomSettingDialog::requestRecognize);
         }
 
         dlg->initWithModel();
         if (!m_model->isMerge()) {
-            dlg->show();
+            if(mon->enable())
+                dlg->show();
         }
 
         dlg->resetDialog();

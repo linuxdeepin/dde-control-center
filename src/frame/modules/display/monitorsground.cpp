@@ -67,6 +67,7 @@ void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
     m_viewPortHeight = model->screenHeight();
 
     auto initMW = [ this ](Monitor * mon) {
+
         MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model, this);
         m_monitors[pw] = mon;
 
@@ -149,7 +150,16 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 void MonitorsGround::adjust(MonitorProxyWidget *pw)
 {
     bool bSingle = false;
-    if(1 == m_monitors.count())
+    int enabledCount = 0;
+    for (auto* value : m_monitors)
+    {
+        if(value->enable())
+        {
+            enabledCount++;
+            m_monitors.key(value)->setVisible(true);
+        }
+    }
+    if(1 == enabledCount)
         bSingle = true;
 
     qDebug() << "adjust" << pw->name();
@@ -168,9 +178,10 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     {
         pw->setGeometry((width()-w)/2, (height()-h)/2, scale * pw->w(), scale * pw->h());
         this->setEnabled(false);//单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发方大
-    }
-    else
+    } else {
+        this->setEnabled(true);
         pw->setGeometry(x + offsetX, y + offsetY, w, h);
+    }
     pw->update();
 }
 
