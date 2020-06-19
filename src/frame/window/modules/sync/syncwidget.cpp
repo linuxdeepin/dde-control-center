@@ -28,8 +28,6 @@ SyncWidget::SyncWidget(QWidget *parent)
     m_mainLayout->addWidget(m_loginPage);
     m_mainLayout->addWidget(m_indexPage);
     m_mainLayout->addWidget(m_cnonlyPage);
-
-
     setLayout(m_mainLayout);
 
     connect(m_loginPage, &LoginPage::requestLoginUser, this, &SyncWidget::requestLoginUser);

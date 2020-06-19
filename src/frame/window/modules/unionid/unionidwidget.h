@@ -24,7 +24,7 @@
 #include "interface/namespace.h"
 #include "modules/modulewidget.h"
 #include <QWidget>
-#include <DWarningButton>
+
 QT_BEGIN_NAMESPACE
 class QStackedLayout;
 class QLabel;
@@ -72,8 +72,6 @@ private:
     LoginPage *m_loginPage;
     IndexPage *m_indexPage;
     LogoutPage *m_cnonlyPage;
-    DTK_NAMESPACE::Widget::DWarningButton *m_logoutBtn{nullptr};
-    QLabel *m_label;
 };
 } // namespace sync
 

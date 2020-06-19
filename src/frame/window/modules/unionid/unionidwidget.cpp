@@ -28,7 +28,7 @@
 #include <QVBoxLayout>
 #include <QStackedLayout>
 #include <QLabel>
-#include <DWarningButton>
+#include <DFontSizeManager>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::unionid;
@@ -57,35 +57,19 @@ UnionidWidget::UnionidWidget(QWidget *parent)
     connect(m_indexPage, &IndexPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
     connect(m_indexPage, &IndexPage::requesUserDialog, this, &UnionidWidget::requesUserDialog);
     connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
-    QLabel *label1 = new QLabel(tr("Learn about"));
-    QLabel *servicelabel = new QLabel();
-    servicelabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: blue;' href=\"servicelabel\">《%1》</a>")
-                          .arg("UnionId Account service agreements"));
-    connect(servicelabel, &QLabel::linkActivated, this, &UnionidWidget::requestPopupDialog);
-    QLabel *label2 = new QLabel(tr("and"));
 
-    QLabel  *privacyLabel = new QLabel();
-    privacyLabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: blue;' href=\"privacyLabel\">《%1》</a>")
-                          .arg("UOS Privacy Policy"));
-    connect(privacyLabel, &QLabel::linkActivated, this, &UnionidWidget::requestPopupDialog);
-    auto linkWidhet = new QWidget;
+    QLabel *label = new QLabel();
+    label->setText(tr("Learn about") + QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"servicelabel\">《%1》</a>")
+                          .arg(tr("Union ID Service Agreement"))
+                   + tr("and") + QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"privacyLabel\">《%1》</a>")
+                          .arg(tr("Privacy Policy")));
+    DFontSizeManager::instance()->bind(label, DFontSizeManager::T8);
+    connect(label, &QLabel::linkActivated, this, &UnionidWidget::requestPopupDialog);
+
     QHBoxLayout *hyperlinksLayout = new QHBoxLayout();
-    hyperlinksLayout->addSpacing(0);
-    hyperlinksLayout->addWidget(label1, 0, Qt::AlignHCenter);
-    hyperlinksLayout->addWidget(servicelabel, 0, Qt::AlignHCenter);
-    hyperlinksLayout->addWidget(label2, 0, Qt::AlignHCenter);
-    hyperlinksLayout->addWidget(privacyLabel, 0, Qt::AlignHCenter);
-    m_logoutBtn = new DWarningButton;
-    m_logoutBtn->setText(tr("Sign Out"));
-    linkWidhet->setLayout(hyperlinksLayout);
-    QHBoxLayout *linksandLogoutLayout = new QHBoxLayout();
-    m_label = new QLabel;
-    linksandLogoutLayout->addWidget(m_label, 0, Qt::AlignLeft);
-    linksandLogoutLayout->addWidget(linkWidhet, 0, Qt::AlignCenter);
-    linksandLogoutLayout->addWidget(m_logoutBtn, 0, Qt::AlignRight);
-    connect(m_logoutBtn, &QPushButton::clicked, this, &UnionidWidget::requestLogoutUser);
+    hyperlinksLayout->addWidget(label, 0, Qt::AlignHCenter);
     auto linksandLogoutwidhet = new QWidget;
-    linksandLogoutwidhet->setLayout(linksandLogoutLayout);
+    linksandLogoutwidhet->setLayout(hyperlinksLayout);
     mainLayout->addWidget(linksandLogoutwidhet);
     setLayout(mainLayout);
 }
@@ -104,18 +88,10 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model)
 void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
 {
     const bool isLogind = !userInfo["Username"].toString().isEmpty();
-    //const QString region = userInfo["Region"].toString();
 
     if (isLogind) {
-        m_label->show();
-        m_logoutBtn->show();
         m_pageLayout->setCurrentWidget(m_indexPage);
-        /*else {
-        m_pageLayout->setCurrentWidget(m_cnonlyPage);
-        }*/
     } else {
-        m_label->hide();
-        m_logoutBtn->hide();
         m_pageLayout->setCurrentWidget(m_loginPage);
     }
 }
