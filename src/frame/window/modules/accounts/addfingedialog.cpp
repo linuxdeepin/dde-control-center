@@ -158,6 +158,7 @@ void AddFingeDialog::enrollFailed(QString title, QString msg)
         return;
     }
     m_isEnrolling = false;
+    m_fingeWidget->stopLiftTimer();
     m_fingeWidget->setStatueMsg(title, msg, true);
     m_addBtn->show();
     m_addBtn->setText(tr("Scan Again"));

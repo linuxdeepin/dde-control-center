@@ -52,6 +52,7 @@ public:
     void setProsses(int pro);
     void reEnter();
     void finished();
+    void stopLiftTimer();
 
 Q_SIGNALS:
     void playEnd();
