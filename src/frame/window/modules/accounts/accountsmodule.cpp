@@ -207,59 +207,50 @@ void AccountsModule::onShowPasswordPage(User *account)
 void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 {
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
-    dlg->setFingerModel(m_fingerModel);
-    dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
-    dlg->setUsername(name);
     m_pMainWindow = static_cast<MainWindow *>(m_frameProxy);
-    connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [ = ] {
-        m_fingerWorker->startEnroll(name, thumb);
+    connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [=] {
+        m_fingerWorker->tryEnroll(name, thumb);
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
-    QEventLoop eventLoop(this);
-    QFutureWatcher<bool> watcher(this);
-
-    auto future = QtConcurrent::run([=]{
-        return m_fingerWorker->tryEnroll(name, thumb);
+    connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [=](const QString &userName) {
+        m_fingerWorker->refreshUserEnrollList(userName);
+        if (m_pMainWindow) {
+            m_pMainWindow->setEnabled(true);
+        }
+        dlg->deleteLater();
     });
 
-    watcher.setFuture(future);
-    connect(&watcher, &QFutureWatcher<bool>::finished, &eventLoop, &QEventLoop::quit);
-    eventLoop.exec();
-
-    if (watcher.result()) {
-        dlg->startFoucosTimer();
-        dlg->exec();
-        m_fingerWorker->refreshUserEnrollList(name);
-    } else {
-        m_fingerWorker->stopEnroll(name);
-        //V20更改设备抢占方法，已经不需要该弹窗
-//        DDialog* errorDialog = new DDialog();
-//        errorDialog->setMessage(tr("The device is in use or cannot be connected"));
-//        errorDialog->exec();
-//        connect(errorDialog, &DDialog::closed, m_fingerWorker, [ = ] {
-//           m_fingerWorker->stopEnroll(name);
-//        });
-//        errorDialog->deleteLater();
-
-        connect(dlg, &AddFingeDialog::requesetCloseDlg, this, [=](const QString &thumb) {
-            m_fingerWorker->refreshUserEnrollList(thumb);
-            if (m_pMainWindow) {
-                m_pMainWindow->setEnabled(true);
+    m_fingerWorker->tryEnroll(name, thumb);
+    connect(m_fingerWorker, &FingerWorker::tryEnrollResult, dlg, [=] (FingerWorker::EnrollResult res) {
+        // 第一次tryEnroll进入时显示添加指纹对话框
+        if (m_pMainWindow->isEnabled()) {
+            if (res == FingerWorker::Enroll_Success) {
+                if (m_pMainWindow) {
+                    m_pMainWindow->setEnabled(false);
+                }
+                m_fingerModel->resetProgress();
+                dlg->setFingerModel(m_fingerModel);
+                dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+                dlg->setUsername(name);
+                dlg->show();
+                dlg->setFocus();
+                dlg->activateWindow();
+            } else {
+                m_fingerWorker->stopEnroll(name);
+                dlg->deleteLater();
             }
-            dlg->deleteLater();
-        });
-        if (m_fingerWorker->tryEnroll(name, thumb)) {
-            if (m_pMainWindow) {
-                m_pMainWindow->setEnabled(false);
-            }
-            dlg->show();
-            dlg->setFocus();
-            dlg->activateWindow();
         } else {
-            m_fingerWorker->stopEnroll(name);
-            dlg->deleteLater();
+            //　已经在添加指纹对话框中的Enroll处理
+            if (res == FingerWorker::Enroll_AuthFailed) {
+                if (m_pMainWindow) {
+                    m_pMainWindow->setEnabled(true);
+                }
+                dlg->deleteLater();
+            } else {
+                dlg->setInitStatus();
+            }
         }
-    }
+    });
 }
 
 void AccountsModule::onHandleVaildChanged(const bool isVaild)

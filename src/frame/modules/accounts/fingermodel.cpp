@@ -68,6 +68,7 @@ FingerModel::FingerModel(QObject *parent) : QObject(parent)
         tr("Fingerprint7"), tr("Fingerprint8"), tr("Fingerprint9"),
         tr("Fingerprint10")
     };
+    m_progress = 0;
 }
 
 bool FingerModel::isVaild() const
@@ -87,8 +88,7 @@ void FingerModel::setIsVaild(bool isVaild)
 
 void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
 {
-//    QString testJson = "{\"process\":\"50\", \"subcode\":{\"1\":\"error01\",\"2\":\"error02\"}}"; //测试代码
-    qDebug() << "onEnrollStatusChanged code is: " << code << ",msg is: " << msg;
+    qDebug() << "onEnrollStatusChanged,code is: " << code << ",msg is: " << msg;
     QJsonDocument jsonDocument;
     QJsonObject jsonObject;
 
@@ -99,9 +99,11 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
 
     switch(code) {
     case ET_Completed:
+        m_progress = 0;
         Q_EMIT enrollCompleted();
         break;
     case ET_Failed: {
+        m_progress = 0;
         QString title = tr("Scan failed");
         QString msg = "";
         do {
@@ -126,10 +128,16 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
     }
     case ET_StagePass: {
         if (msg.isEmpty()) {
+            // 厂商未给出进度值的情况,直接让进度值递减增加,无限趋近于100,直到录入完成
+            m_progress += (100 - m_progress)/3;
+            Q_EMIT enrollStagePass(m_progress);
             break;
         }
         QStringList keys = jsonObject.keys();
         if (!keys.contains("progress")) {
+            // 厂商未给出进度值的情况,直接让进度值递减增加,无限趋近于100,直到录入完成
+            m_progress += (100 - m_progress)/3;
+            Q_EMIT enrollStagePass(m_progress);
             break;
         }
         auto pro = jsonObject.value("progress").toInt();

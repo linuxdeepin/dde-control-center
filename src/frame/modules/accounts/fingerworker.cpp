@@ -59,30 +59,38 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     m_fingerPrintInter->setTimeout(INT_MAX);
 }
 
-bool FingerWorker::tryEnroll(const QString &name, const QString &thumb)
+void FingerWorker::tryEnroll(const QString &name, const QString &thumb)
 {
-    auto call = m_fingerPrintInter->PreAuthEnroll();
-    call.waitForFinished();
-    if (call.isError()) {
-        qDebug() << "call PreAuthEnroll Error : " << call.error();
-        return false;
-    }
-    auto callClaim = m_fingerPrintInter->Claim(name, true);
-    callClaim.waitForFinished();
-    if (callClaim.isError()) {
-        qDebug() << "call Claim Error : " << callClaim.error();
-        return false;
-    }
-
-    auto callEnroll =  m_fingerPrintInter->Enroll(thumb);
-    callEnroll.waitForFinished();
-    if (callEnroll.isError()) {
-        qDebug() << "call Enroll Error : " << callClaim.error();
-        m_fingerPrintInter->Claim(name, false);
-        return false;
-    }
-
-    return true;
+    m_fingerPrintInter->setTimeout(1000 * 60 * 60);
+    qDebug() << "PreAuthEnroll()";
+    QDBusPendingCall call = m_fingerPrintInter->PreAuthEnroll();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError()) {
+            qDebug() << "call PreAuthEnroll Error : " << call.error();
+            Q_EMIT tryEnrollResult(Enroll_AuthFailed);
+        } else {
+            m_fingerPrintInter->setTimeout(-1);
+            auto callClaim = m_fingerPrintInter->Claim(name, true);
+            callClaim.waitForFinished();
+            if (callClaim.isError()) {
+                qDebug() << "call Claim Error : " << callClaim.error();
+                Q_EMIT tryEnrollResult(Enroll_ClaimFailed);
+            } else {
+                auto callEnroll =  m_fingerPrintInter->Enroll(thumb);
+                callEnroll.waitForFinished();
+                if (callEnroll.isError()) {
+                    qDebug() << "call Enroll Error : " << callClaim.error();
+                    m_fingerPrintInter->Claim(name, false);
+                    Q_EMIT tryEnrollResult(Enroll_Failed);
+                } else {
+                    Q_EMIT tryEnrollResult(Enroll_Success);
+                }
+            }
+        }
+        m_fingerPrintInter->setTimeout(-1);
+        watcher->deleteLater();
+    });
 }
 
 void FingerWorker::refreshUserEnrollList(const QString &id)
@@ -98,11 +106,6 @@ void FingerWorker::refreshUserEnrollList(const QString &id)
         qDebug() << "ListFingers  : " << call.value();
     }
     m_model->setThumbsList(call.value());
-}
-
-void FingerWorker::startEnroll(const QString &name, const QString &thumb)
-{
-    tryEnroll(name, thumb);
 }
 
 void FingerWorker::stopEnroll(const QString& userName)
