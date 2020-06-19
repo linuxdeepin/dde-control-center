@@ -30,17 +30,20 @@ public Q_SLOTS:
     void logoutUser();
     void setAutoSync(bool autoSync);
     void userInfoChanged(QDBusMessage msg);
+    void licenseStateChangeSlot();
 
 private:
     void onSyncModuleStateChanged(const QString& module, bool enable);
     void onStateChanged(const IntString& state);
     void onGetModuleSyncStateFinished(QDBusPendingCallWatcher* watcher);
     void onLastSyncTimeChanged(qlonglong lastSyncTime);
+    void getLicenseState();
 
 private:
     SyncModel *m_model;
     SyncInter *m_syncInter;
     DeepinId *m_deepinId_inter;
+    QDBusInterface *m_activeInfo;
 };
 }
 }

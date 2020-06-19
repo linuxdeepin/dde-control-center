@@ -107,3 +107,11 @@ QString SyncModel::userDisplayName() const
     }
     return username;
 }
+
+void SyncModel::setActivation(bool value)
+{
+    if (m_activation == value)
+        return;
+    m_activation = value;
+    Q_EMIT licenseStateChanged(value);
+}

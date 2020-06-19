@@ -44,6 +44,9 @@ public:
     void setSyncIsValid(bool syncIsValid);
     QString userDisplayName() const;
 
+    inline bool getActivation() const { return m_activation; }
+    void setActivation(bool value);
+
 Q_SIGNALS:
     void userInfoChanged(const QVariantMap &userInfo);
     void syncStateChanged(const std::pair<qint32, QString>& syncState);
@@ -51,10 +54,12 @@ Q_SIGNALS:
     void enableSyncChanged(bool enableSync);
     void moduleSyncStateChanged(std::pair<SyncType, bool> state);
     void syncIsValidChanged(bool syncIsValid);
+    void licenseStateChanged(bool activation);
 
 private:
     bool m_syncIsValid;
     bool m_enableSync;
+    bool m_activation;
     QMap<SyncType, bool> m_moduleSyncState;
     QVariantMap m_userinfo;
     std::pair<qint32, QString> m_syncState;

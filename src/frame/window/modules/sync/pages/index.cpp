@@ -46,6 +46,10 @@ IndexPage::IndexPage(QWidget *parent)
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
     m_autoSyncSwitch->layout()->setContentsMargins(10, 6, 11, 6);
 
+    m_lab = new QLabel();
+    m_lab->setText(tr("The feature is not available at present, please activate your system first"));
+    m_lab->setWordWrap(true);
+
     m_stateLbl = new QLabel(tr("Syncing..."));
 
     m_stateLbl->hide();
@@ -121,8 +125,11 @@ IndexPage::IndexPage(QWidget *parent)
     backgroundLayout->addWidget(m_username, 0, Qt::AlignHCenter);
     backgroundLayout->addSpacing(18);
     backgroundLayout->addWidget(autoSyncGrp, 0, Qt::AlignTop);
-    backgroundLayout->addSpacing(20);
+    backgroundLayout->addSpacing(10);
+    backgroundLayout->addWidget(m_lab, 0, Qt::AlignTop);
+    backgroundLayout->addSpacing(10);
     backgroundLayout->addWidget(m_listView, 1);
+    backgroundLayout->addStretch(1);
 
     QHBoxLayout *tipLayout = new QHBoxLayout;
     tipLayout->addSpacing(12);
@@ -147,6 +154,7 @@ IndexPage::IndexPage(QWidget *parent)
 void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
 {
     LoginedIn::setModel(model);
+    m_lab->setVisible(!model->getActivation());
 
     connect(model, &dcc::cloudsync::SyncModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_autoSyncSwitch, &SwitchWidget::setChecked);
@@ -156,6 +164,14 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     connect(model, &dcc::cloudsync::SyncModel::syncStateChanged, this, &IndexPage::onStateChanged);
     connect(model, &dcc::cloudsync::SyncModel::lastSyncTimeChanged, this, &IndexPage::onLastSyncTimeChanged);
     connect(model, &dcc::cloudsync::SyncModel::moduleSyncStateChanged, this, &IndexPage::onModuleStateChanged);
+    connect(model, &dcc::cloudsync::SyncModel::licenseStateChanged, this, [ = ] (const bool &value) {
+        m_autoSyncSwitch->setEnabled(value);
+        if (m_autoSyncSwitch->checked() && !value) {
+            m_autoSyncSwitch->setChecked(false);
+            Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->checked());
+        }
+        m_lab->setVisible(!value);
+    });
 
     QMap<SyncType, QPair<QString, QString>> moduleTs{
         { SyncType::Network, {("dcc_sync_internet"), tr("Network Settings") }},
@@ -189,7 +205,9 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     };
 
     onUserInfoChanged(model->userinfo());
-    m_autoSyncSwitch->setChecked(model->enableSync());
+    m_autoSyncSwitch->setChecked(model->enableSync() && model->getActivation());
+    Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->checked());
+    m_autoSyncSwitch->setEnabled(model->getActivation());
     m_networkTip->setVisible(model->enableSync());
     m_listView->setVisible(model->enableSync());
     m_lastSyncTimeLbl->setVisible(model->enableSync());
