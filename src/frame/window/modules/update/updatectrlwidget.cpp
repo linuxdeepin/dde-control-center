@@ -270,6 +270,8 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         setShowInfo(m_model->systemActivation());
         m_checkUpdateBtn->setText(tr("Check Again"));
         m_checkUpdateBtn->setVisible(true);
+        m_lastCheckTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
+        m_lastCheckTimeTip->setVisible(true);
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
@@ -379,7 +381,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
             if (!appCount) {
                 m_summary->setTitle(tr("New system edition available"));
             } else {
-                m_summary->setTitle(tr("New system edition and %n application update(s) available", "", appCount));
+                m_summary->setTitle(QString("New system edition %1 and %2 application update(s) available").arg(m_systemVersion).arg(appCount));
             }
             break;
         }
