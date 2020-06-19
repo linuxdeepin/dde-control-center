@@ -582,8 +582,7 @@ bool IpvxSection::isIpv6Address(const QString &ip)
     if (ipAddr == QHostAddress(QHostAddress::LocalHostIPv6)) {
         return false;
     }
-    QRegExp regExpIP("^([\\da-fA-F]{1,4}:){7}([\\da-fA-F]{1,4})|[:]{2}\\d{1,3}$");
-    return regExpIP.exactMatch(ip);
+    return true;
 }
 
 bool IpvxSection::isIpv4SubnetMask(const QString &ip)
