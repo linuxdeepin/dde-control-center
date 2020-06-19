@@ -178,7 +178,14 @@ void FingerWidget::reEnter()
 void FingerWidget::finished()
 {
     m_isFinished = true;
+    stopLiftTimer();
     setProsses(100);
+}
+
+void FingerWidget::stopLiftTimer()
+{
+    if (nullptr != m_liftTimer && m_liftTimer->isActive())
+        m_liftTimer->stop();
 }
 
 void FingerWidget::paintEvent(QPaintEvent *event)
