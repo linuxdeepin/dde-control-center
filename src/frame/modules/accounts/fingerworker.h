@@ -44,6 +44,13 @@ class FingerWorker : public QObject
 {
     Q_OBJECT
 public:
+    enum EnrollResult {
+        Enroll_AuthFailed,
+        Enroll_ClaimFailed,
+        Enroll_Failed,
+        Enroll_Success,
+        Count
+    };
     explicit FingerWorker(FingerModel *model, QObject *parent = nullptr);
 
     void refreshDevice();
@@ -52,11 +59,10 @@ Q_SIGNALS:
     void requestShowAddThumb(const QString &name, const QString &thumb);
 
 public:
-    bool tryEnroll(const QString &name, const QString &thumb);
+    EnrollResult tryEnroll(const QString &name, const QString &thumb);
 
 public Q_SLOTS:
     void refreshUserEnrollList(const QString &id);
-    void startEnroll(const QString &name, const QString &thumb);
     void stopEnroll(const QString& userName);
     void deleteFingerItem(const QString& userName, const QString& finger);
     void renameFingerItem(const QString& userName, const QString& finger, const QString& newName);

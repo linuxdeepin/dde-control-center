@@ -58,19 +58,19 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     m_model->setIsVaild(!defualtDevice.isEmpty());
 }
 
-bool FingerWorker::tryEnroll(const QString &name, const QString &thumb)
+FingerWorker::EnrollResult FingerWorker::tryEnroll(const QString &name, const QString &thumb)
 {
     auto call = m_fingerPrintInter->PreAuthEnroll();
     call.waitForFinished();
     if (call.isError()) {
         qDebug() << "call PreAuthEnroll Error : " << call.error();
-        return false;
+        return Enroll_AuthFailed;
     }
     auto callClaim = m_fingerPrintInter->Claim(name, true);
     callClaim.waitForFinished();
     if (callClaim.isError()) {
         qDebug() << "call Claim Error : " << callClaim.error();
-        return false;
+        return Enroll_ClaimFailed;
     }
 
     auto callEnroll =  m_fingerPrintInter->Enroll(thumb);
@@ -78,10 +78,10 @@ bool FingerWorker::tryEnroll(const QString &name, const QString &thumb)
     if (callEnroll.isError()) {
         qDebug() << "call Enroll Error : " << callClaim.error();
         m_fingerPrintInter->Claim(name, false);
-        return false;
+        return Enroll_Failed;
     }
 
-    return true;
+    return Enroll_Success;
 }
 
 void FingerWorker::refreshUserEnrollList(const QString &id)
@@ -96,11 +96,6 @@ void FingerWorker::refreshUserEnrollList(const QString &id)
         qDebug() << "m_fingerPrintInter->ListFingers: " << call.value() << "," << id;
     }
     m_model->setThumbsList(call.value());
-}
-
-void FingerWorker::startEnroll(const QString &name, const QString &thumb)
-{
-    tryEnroll(name, thumb);
 }
 
 void FingerWorker::stopEnroll(const QString& userName)

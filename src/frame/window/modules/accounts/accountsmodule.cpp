@@ -212,17 +212,23 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     dlg->setUsername(name);
     m_pMainWindow = static_cast<MainWindow *>(m_frameProxy);
     connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [ = ] {
-        m_fingerWorker->startEnroll(name, thumb);
+        FingerWorker::EnrollResult res = m_fingerWorker->tryEnroll(name, thumb);
+        if (res == FingerWorker::Enroll_AuthFailed) {
+            if (m_pMainWindow) {
+                m_pMainWindow->setEnabled(true);
+            }
+            dlg->deleteLater();
+        }
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
-    connect(dlg, &AddFingeDialog::requesetCloseDlg, this, [=](const QString &thumb) {
-        m_fingerWorker->refreshUserEnrollList(thumb);
+    connect(dlg, &AddFingeDialog::requesetCloseDlg, this, [=](const QString &userName) {
+        m_fingerWorker->refreshUserEnrollList(userName);
         if (m_pMainWindow) {
             m_pMainWindow->setEnabled(true);
         }
         dlg->deleteLater();
     });
-    if (m_fingerWorker->tryEnroll(name, thumb)) {
+    if (m_fingerWorker->tryEnroll(name, thumb) == FingerWorker::Enroll_Success) {
         if (m_pMainWindow) {
             m_pMainWindow->setEnabled(false);
         }
