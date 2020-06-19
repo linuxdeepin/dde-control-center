@@ -106,6 +106,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_upgradeWarningGroup->setVisible(false);
     m_upgradeWarningGroup->appendItem(m_upgradeWarning);
 
+    m_checkUpdateBtn->setFixedSize(QSize(300,36));
     m_checkUpdateBtn->setVisible(false);
     m_lastCheckTimeTip->setAlignment(Qt::AlignCenter);
     m_lastCheckTimeTip->setVisible(false);

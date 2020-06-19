@@ -44,7 +44,7 @@ ResultItem::ResultItem(QFrame *parent)
       m_icon(new QLabel),
       m_pix("")
 {
-    m_icon->setFixedSize(96, 96);
+    m_icon->setFixedSize(128, 128);
 
     m_message->setWordWrap(true);
 

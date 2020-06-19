@@ -51,7 +51,7 @@ LoadingItem::LoadingItem(QFrame *parent)
     m_image = new QImage;
     m_labelImage = new QLabel;
     m_labelImage->setPixmap(QPixmap::fromImage(*m_image));
-    m_labelImage->setMinimumSize(96, 96);
+    m_labelImage->setMinimumSize(128, 128);
     imgLayout->addWidget(m_labelImage, 0, Qt::AlignTop);
 
     QHBoxLayout *txtLayout = new QHBoxLayout;
@@ -132,7 +132,7 @@ void LoadingItem::setImageOrTextVisible(bool state)
         path = ":/update/updatev20/dcc_checking_update.svg";
     }
 
-    m_labelImage->setPixmap(getPixmap(path, QSize(96, 96)));
+    m_labelImage->setPixmap(getPixmap(path, QSize(128, 128)));
 }
 
 //image and text all use or not use
