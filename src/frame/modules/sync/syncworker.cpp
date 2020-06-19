@@ -38,6 +38,12 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
                                           "sa{sv}as",
                                           this, SLOT(userInfoChanged(QDBusMessage)));
 
+    m_activeInfo = new QDBusInterface("com.deepin.license",
+                                      "/com/deepin/license/Info",
+                                      "com.deepin.license.Info",
+                                      QDBusConnection::systemBus(),this);
+
+    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
     connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
@@ -45,6 +51,7 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
 
     m_model->setSyncIsValid(req.value() && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
+    getLicenseState();
 }
 
 void SyncWorker::activate()
@@ -68,6 +75,7 @@ void SyncWorker::refreshSyncState()
 {
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_syncInter->SwitcherDump(), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &SyncWorker::onGetModuleSyncStateFinished);
+    watcher->waitForFinished();
 }
 
 void SyncWorker::setSync(std::pair<SyncType, bool> state)
@@ -169,4 +177,26 @@ void SyncWorker::onLastSyncTimeChanged(qlonglong lastSyncTime)
     qDebug() << "lastSyncTime: " << lastSyncTime;
     m_model->setLastSyncTime(lastSyncTime);
 
+}
+
+void SyncWorker::licenseStateChangeSlot()
+{
+    getLicenseState();
+}
+
+void SyncWorker::getLicenseState()
+{
+    QDBusInterface licenseInfo("com.deepin.license",
+                               "/com/deepin/license/Info",
+                               "com.deepin.license.Info",
+                               QDBusConnection::systemBus());
+
+    if (!licenseInfo.isValid()) {
+        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        return;
+    }
+
+    quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    qDebug() << "authorize result:" << reply;
+    m_model->setActivation(reply == 1 || reply == 3);
 }

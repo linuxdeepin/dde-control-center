@@ -93,6 +93,7 @@ private:
     QMap<dcc::cloudsync::SyncType, QStandardItem *> m_itemMap;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_networkTip;
     std::pair<qint32, QString> m_state;
+    QLabel *m_lab;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE
