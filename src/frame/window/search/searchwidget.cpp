@@ -854,6 +854,11 @@ void SearchWidget::onCompleterActivated(QString value)
 
 bool ddeCompleter::eventFilter(QObject *o, QEvent *e)
 {
+    // 匹配列表隐藏时，将滑动条恢复到顶部
+    if (e->type() == QEvent::Hide) {
+        popup()->scrollToTop();
+    }
+
     if (e->type() == QEvent::FocusOut) {
         return QCompleter::eventFilter(o, e);
     }
