@@ -64,9 +64,13 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_spinner->setFixedSize(24, 24);
     m_spinner->start();
     m_spinner->setVisible(false);
+    m_refreshBtn = new DIconButton(this);
+    m_refreshBtn->setFixedSize(24, 24);
+    m_refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
     QHBoxLayout *phlayout = new QHBoxLayout;
     phlayout->addWidget(m_otherDevicesGroup);
     phlayout->addWidget(m_spinner);
+    phlayout->addWidget(m_refreshBtn);
 
     m_switch->addBackground();
     m_switch->setContentsMargins(0, 0, 20, 0);
@@ -162,6 +166,10 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     });
     connect(m_otherDeviceListView, &DListView::activated, m_otherDeviceListView, &DListView::clicked);
 
+    connect(m_refreshBtn, &DIconButton::clicked, this , [=]{
+        Q_EMIT requestRefresh(m_adapter);
+    });
+
     setLayout(layout);
     QTimer::singleShot(0, this, [this] {
         setAdapter(m_adapter);
@@ -244,6 +252,7 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
     m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(bPower);
     m_spinner->setVisible(bPower && bDiscovering);
+    m_refreshBtn->setVisible(bPower && !bDiscovering);
     m_myDeviceListView->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDeviceListView->setVisible(bPower);
     Q_EMIT notifyLoadFinished();
@@ -261,14 +270,14 @@ void AdapterWidget::toggleSwitch(const bool checked)
     } else {
         m_switchFlag = OffPower;
 
-        onPowerStatus(false, true);
-
         for (auto it : m_myDevices) {
             if (it->device()->connecting()) {
                 Q_EMIT requestDisconnectDevice(it->device());
             }
         }
     }
+
+    onPowerStatus(false, true);
 
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
 }

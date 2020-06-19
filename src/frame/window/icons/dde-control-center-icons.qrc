@@ -163,5 +163,6 @@
         <file>light/bluetooth_vidicon_light.svg</file>
         <file>light/bluetooth_other_light.svg</file>
         <file>actions/dcc_airplane_mode_32px.svg</file>
+        <file>texts/dcc_refresh_12px.svg</file>
     </qresource>
 </RCC>
