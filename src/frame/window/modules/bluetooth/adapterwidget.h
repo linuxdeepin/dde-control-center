@@ -92,6 +92,7 @@ Q_SIGNALS:
     void notifyLoadFinished();
     void notifyRemoveDevice();
     void requestRefresh(const dcc::bluetooth::Adapter *adapter);
+
 private Q_SLOTS:
     void addDevice(const dcc::bluetooth::Device *device);
     void removeDevice(const QString &deviceId);
@@ -111,6 +112,7 @@ private:
     DTK_WIDGET_NAMESPACE::DSpinner *m_spinner;
     DTK_WIDGET_NAMESPACE::DListView *m_otherDeviceListView;
     QStandardItemModel *m_otherDeviceModel;
+
     //记录蓝牙切换时态
     SwitchState m_switchFlag;
     //onPowerStatus第一次初始化
