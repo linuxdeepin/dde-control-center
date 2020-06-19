@@ -51,15 +51,15 @@
         <translation>Tài khoản </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="332"/>
-        <source>Cloud Account</source>
-        <translation>Tài khoản đám mây</translation>
-        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
+        <location filename="../src/frame/window/mainwindow.cpp" line="331"/>
+        <source>Union ID</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="333"/>
-        <source>Unionid</source>
-        <translation type="unfinished"/>
+        <source>Cloud Account</source>
+        <translation>Tài khoản đám mây</translation>
+        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
@@ -2773,8 +2773,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
-        <source>WEP 40/128-bit</source>
-        <translation>WEP 40/128-bit</translation>
+        <source>WEP</source>
+        <translation>WEP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
@@ -2825,8 +2825,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
-        <source>WEP 40/128-bit</source>
-        <translation>WEP 40/128-bit</translation>
+        <source>WEP</source>
+        <translation>WEP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="160"/>
@@ -3849,28 +3849,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
         <source>Connect to hidden network</source>
         <translation>Kết nối với mạng ẩn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
         <source>Wireless Network Adapter</source>
         <translation>Wireless Network Adapter</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
         <source>Close Hotspot</source>
         <translation>Đóng điểm truy cập</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="295"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Trước tiên hãy tắt điểm phát sóng nếu bạn muốn kết nối với mạng không dây</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="318"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3965,22 +3965,22 @@
 <context>
     <name>dccV20::notification::SystemNotifyWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="51"/>
         <source>Show icon on Dock</source>
         <translation>Hiển thị ở thanh Dock</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="79"/>
         <source>Do Not Disturb</source>
         <translation>Chế độ im lặng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="85"/>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
         <translation>Thông báo ứng dụng sẽ không được hiển thị trên màn hình và âm thanh sẽ bị tắt, nhưng bạn có thể xem tất cả các tin nhắn trong trung tâm thông báo.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="110"/>
         <source>When the screen is locked</source>
         <translation>Khi màn hình đang khóa</translation>
     </message>
@@ -4197,7 +4197,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="120"/>
         <source>Display capacity and remaining charging time</source>
         <translation>Hiển thị thời lượng pin và thời gian sạc còn lại</translation>
     </message>
@@ -4212,12 +4212,12 @@
         <translation>Cài đặt nguồn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="121"/>
         <source>Maximum capacity</source>
         <translation>Công suất tối đa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="147"/>
         <source>Wakeup Settings</source>
         <translation>Cài đặt lúc mở máy</translation>
     </message>
@@ -4346,26 +4346,26 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="134"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="334"/>
         <source>Never</source>
         <translation>Không bao giờ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="310"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="316"/>
         <source>1 Minute</source>
         <translation>1 Phút</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="313"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="316"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="319"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="322"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="337"/>
         <source>%1 Minutes</source>
         <translation>%1 Phút</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="331"/>
         <source>1 Hour</source>
         <translation>1 Giờ</translation>
     </message>
@@ -4460,148 +4460,148 @@
 <context>
     <name>dccV20::search::SearchWidget</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="117"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="119"/>
         <source>Server</source>
         <translation>Máy chủ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="118"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="120"/>
         <source>Window Effect</source>
         <translation>Hiệu ứng của sổ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="119"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="478"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="121"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="480"/>
         <source>Developer Mode</source>
         <translation>Chế độ Phát triển</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="120"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
         <source>User Experience Program</source>
         <translation>Chương trình trải nghiệm người dùng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="121"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
         <source>Join User Experience Program</source>
         <translation>Gia nhập chương trình trải nghiệm người dùng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="124"/>
         <source>Display Scaling</source>
         <translation>Tỉ lệ màn hình</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
         <source>Night Shift</source>
         <translation>Night Shift</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
         <source>Auto Login</source>
         <translation>Tự động Đăng nhập</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
         <source>Login Without Password</source>
         <translation>Đăng nhập mà không cần mật khẩu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
         <source>Auto Brightness</source>
         <translation>Độ sáng tự động</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>General</source>
         <translation>Tổng quát</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Cần mật mã để đánh thức màn hình</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
         <source>Password is required to wake up the computer</source>
         <translation>Cần mật mã để đánh thức máy tính</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
         <source>Power Saving Mode</source>
         <translation>Quản lý tiết kiệm điện</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
         <source>Auto Mode Switch</source>
         <translation>Tự động chuyển đổi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
         <source>Transparency</source>
         <translation>Trong suốt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
         <source>Create PPPoE Connection</source>
         <translation>Tạo Kết nối PPPoE</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
         <source>Disable the touchpad while typing</source>
         <translation>Vô hiệu hóa bản cảm ứng khi đang đánh máy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Vô hiệu hóa miếng cảm ứng khi gắn chuột vào</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
         <source>Touchpad</source>
         <translation>Miếng cảm ứng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
         <source>TrackPoint</source>
         <translation>Điểm theo dõi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
         <source>Personal Hotspot</source>
         <translation>Kích hoạt điểm truy cập</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="148"/>
         <source>On Battery</source>
         <translation>Trên pin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="149"/>
         <source>Wired Network</source>
         <translation>Mạng kết nối dây</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="148"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="150"/>
         <source>Wireless Network</source>
         <translation>Mạng không dây</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="149"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="151"/>
         <source>Multiple Displays</source>
         <translation>Nhiều màn hình</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="150"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="152"/>
         <source>Boot Menu</source>
         <translation>Danh sách Khởi động</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="479"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="481"/>
         <source>End User License Agreement</source>
         <translation>Thỏa thuận cấp phép người dùng cuối</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="486"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="488"/>
         <source>Cloud Account</source>
         <translation>Tài khoản đám mây</translation>
     </message>
@@ -4855,47 +4855,52 @@
 <context>
     <name>dccV20::systeminfo::ManualBackup</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="26"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="28"/>
         <source>Backup</source>
         <translation>Sao lưu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="38"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="35"/>
         <source>Backup Type</source>
         <translation>Loại sao lưu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="36"/>
         <source>Save to</source>
         <translation>Lưu vào</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="55"/>
         <source>Full Backup</source>
         <translation>Sao lưu đầy đủ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="56"/>
         <source>System Backup</source>
         <translation>Sao lưu hệ thống</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="125"/>
+        <source>Applying changes to your system...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="163"/>
         <source>The storage location cannot be in source disk, please reselect</source>
         <translation>Vị trí lưu trữ không thể ở trong đĩa nguồn, vui lòng chọn lại</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="167"/>
         <source>Invalid path</source>
         <translation>Đường dẫn sai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="171"/>
         <source>Grub authentication failed</source>
         <translation>Xác thực Grub không thành công</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="175"/>
         <source>Insufficient disk space</source>
         <translation>Dung lượng đĩa không đủ</translation>
     </message>
@@ -4903,62 +4908,67 @@
 <context>
     <name>dccV20::systeminfo::ManualRestore</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="103"/>
         <source>Restore</source>
         <translation>Khôi phục</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="122"/>
         <source>Save User Data</source>
         <translation>Lưu tất cả dữ liệu người dùng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="124"/>
         <source>Reset All Settings</source>
         <translation>Thiết lập lại tất cả thiết lập</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="142"/>
         <source>Select restore directory</source>
         <translation>Chọn thư mục khôi phục</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="150"/>
         <source>Manual Restore</source>
         <translation>Khôi phục thủ công</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="209"/>
+        <source>Applying changes to your system...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="242"/>
         <source>Backup file is invalid</source>
         <translation>File sao lưu không đúng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="246"/>
         <source>Invalid path</source>
         <translation>Đường dẫn sai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="250"/>
         <source>Grub authentication failed</source>
         <translation>Xác thực Grub không thành công</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="266"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
         <translation>Nó sẽ đặt lại cài đặt hệ thống về mặc định của chúng mà không ảnh hưởng đến các tệp và ứng dụng của bạn, nhưng tên người dùng và mật khẩu sẽ bị xóa, vui lòng xác nhận trước khi tiếp tục</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="270"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
         <translation>Nó sẽ cài đặt lại hệ thống và xóa tất cả dữ liệu người dùng, rất rủi ro, vui lòng xác nhận trước khi tiếp tục</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="274"/>
         <source>Cancel</source>
         <translation>Hủy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="277"/>
         <source>Confirm</source>
         <translation>Xác nhận</translation>
     </message>
@@ -5049,7 +5059,7 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="90"/>
         <source>System Info</source>
         <translation>Thông tin hệ thống</translation>
     </message>
@@ -5083,12 +5093,12 @@
 <context>
     <name>dccV20::systeminfo::SystemRestore</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="21"/>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="23"/>
         <source>Backup</source>
         <translation>Sao lưu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="22"/>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="24"/>
         <source>Restore</source>
         <translation>Khôi phục</translation>
     </message>
@@ -5126,7 +5136,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="69"/>
-        <source>Union id</source>
+        <source>Union ID</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5518,16 +5528,16 @@
     <name>dccV20::wacom::WacomWidget</name>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="46"/>
-        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="65"/>
-        <source>Pen</source>
-        <translation>Pen</translation>
-        <extra-contents_path>/wacom/Pen</extra-contents_path>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="68"/>
         <source>Mouse</source>
         <translation>Chuột</translation>
         <extra-contents_path>/wacom/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="65"/>
+        <source>Pen</source>
+        <translation>Pen</translation>
+        <extra-contents_path>/wacom/Pen</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="77"/>
@@ -5639,53 +5649,53 @@
         <translation>Trung tâm kiểm soát</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="293"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="295"/>
         <source>On Battery</source>
         <translation>Trên pin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="294"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="296"/>
         <source>Plugged In</source>
         <translation>Plugged In</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="295"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="297"/>
         <source>General</source>
         <translation>Tổng quát</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="296"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="298"/>
         <source>Mouse</source>
         <translation>Chuột</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="297"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="299"/>
         <source>Touchpad</source>
         <translation>Miếng cảm ứng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="298"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="300"/>
         <source>TrackPoint</source>
         <translation>Điểm theo dõi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="299"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="301"/>
         <source>Application Proxy</source>
         <translation>Ứng dụng Proxy  </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="300"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="303"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="302"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="305"/>
         <source>System Proxy</source>
         <translation>Ủy thác hệ thống</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="303"/>
         <source>Time Settings</source>
         <translation>Những Thiết lập Thời gian</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="302"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="304"/>
         <source>Change System Timezone</source>
         <translation>Thay đổi Múi giờ Hệ thống</translation>
     </message>
@@ -5973,74 +5983,74 @@
         <translation>Quét vân tay lỗi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="128"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="185"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="124"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="181"/>
         <source>The fingerprint already exists</source>
         <translation>Vân tay này đã tồn tại</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="129"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="186"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="125"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="182"/>
         <source>Please scan other fingers</source>
         <translation>Vui lòng quét vân tay khác</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="132"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="128"/>
         <source>Unknown error</source>
         <translation>Không rõ lỗi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="133"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="129"/>
         <source>Scan suspended</source>
         <translation>Dừng quét</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="199"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="159"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="195"/>
         <source>Cannot recognize</source>
         <translation>Không thể nhận biết</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="173"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="189"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="185"/>
         <source>Moved too fast</source>
         <translation>Di chuyển quá nhanh</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="174"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
         <translation>Ngón tay di chuyển quá nhanh. Xin đừng nhấc lên cho đến khi được nhắc nhở</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="177"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="173"/>
         <source>Unclear fingerprint</source>
         <translation>Vân tay không được sạch</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="178"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="196"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="174"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="192"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>Làm sạch ngón tay của bạn hoặc điều chỉnh vị trí ngón tay và thử lại</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="181"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="177"/>
         <source>Already scanned</source>
         <translation>Đã quét xong</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="182"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="193"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="178"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="189"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Điều chỉnh vị trí ngón tay để quét dấu vân tay của bạn đầy đủ</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="190"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="186"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
         <translation>Ngón tay di chuyển quá nhanh. Xin đừng nâng cho đến khi được nhắc</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="200"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="196"/>
         <source>Lift your finger and place it on the sensor again</source>
         <translation>Nhắc ngon tay của bạn lên và đặt lại vào cảm biển</translation>
     </message>
