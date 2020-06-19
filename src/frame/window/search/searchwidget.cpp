@@ -660,6 +660,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
                          .arg(data.actualModuleName)
                          .arg(data.translateContent),
                          Qt::UserRole);
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
 
         QString hanziTxt = QString("%1 --> %2").arg(data.actualModuleName).arg(data.translateContent);
 
@@ -701,6 +702,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
                          .arg(data.childPageName)
                          .arg(data.translateContent),
                          Qt::UserRole);
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
 
         QString hanziTxt = QString("%1 --> %2 / %3").arg(data.actualModuleName).arg(data.childPageName).arg(data.translateContent);
         QString pinyinTxt = QString("%1 --> %2 / %3")
