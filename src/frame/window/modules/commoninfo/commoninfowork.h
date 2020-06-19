@@ -52,6 +52,7 @@ public:
 
     void loadGrubSettings();
     bool defaultUeProgram();
+    void getLicenseState();
 
 public Q_SLOTS:
     void setBootDelay(bool value);
@@ -63,6 +64,7 @@ public Q_SLOTS:
     void setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMainWindow);
     void setEnableDeveloperMode(bool enabled);
     void login();
+    void licenseStateChangeSlot();
 
 private:
     void getEntryTitles();
@@ -76,6 +78,7 @@ private:
     UeProgramDbus *m_dBusUeProgram; // for user experience program
     QProcess *m_process = nullptr;
     GrubDevelopMode *m_dBusdeepinIdInter;
+    QDBusInterface *m_activeInfo;
 };
 } // namespace commoninfo
 } // namespace DCC_NAMESPACE

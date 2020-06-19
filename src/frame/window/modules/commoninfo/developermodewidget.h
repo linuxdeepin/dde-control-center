@@ -24,6 +24,7 @@
 #include "developermodedialog.h"
 
 #include <QWidget>
+#include <DLabel>
 
 QT_BEGIN_NAMESPACE
 class QPushButton;
@@ -62,6 +63,8 @@ private:
     QPushButton *m_devBtn;
     CommonInfoModel *m_model{nullptr};    
     QDBusInterface *m_inter;
+    DTK_NAMESPACE::Widget::DLabel *m_lab;
+    DTK_NAMESPACE::Widget::DLabel *m_dtip;
 };
 }
 }
