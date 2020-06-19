@@ -53,6 +53,12 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
                                                 "/com/deepin/deepinid",
                                                 QDBusConnection::sessionBus(), this);
 
+    m_activeInfo = new QDBusInterface("com.deepin.license",
+                                      "/com/deepin/license/Info",
+                                      "com.deepin.license.Info",
+                                      QDBusConnection::systemBus(),this);
+
+    getLicenseState();
 
     m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus(), this);
 
@@ -115,6 +121,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dBusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &CommonInfoWork::onBackgroundChanged);
+    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
 }
 
 CommonInfoWork::~CommonInfoWork()
@@ -370,6 +377,8 @@ void CommonInfoWork::getEntryTitles()
     });
 }
 
+
+
 void CommonInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
 {
     if (!w->isError()) {
@@ -396,5 +405,27 @@ void CommonInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
     }
 
     w->deleteLater();
+}
+
+void CommonInfoWork::licenseStateChangeSlot()
+{
+    getLicenseState();
+}
+
+void CommonInfoWork::getLicenseState()
+{
+    QDBusInterface licenseInfo("com.deepin.license",
+                               "/com/deepin/license/Info",
+                               "com.deepin.license.Info",
+                               QDBusConnection::systemBus());
+
+    if (!licenseInfo.isValid()) {
+        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        return;
+    }
+
+    quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    qDebug() << "authorize result:" << reply;
+    m_commomModel->setActivation(reply == 1 || reply == 3);
 }
 

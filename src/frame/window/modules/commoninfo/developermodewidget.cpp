@@ -54,9 +54,11 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
                                                  QDBusConnection::systemBus(), this);
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
     m_devBtn = new QPushButton(tr("Request Root Access"));
-    auto dtip = new DTipLabel(tr("Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully."));
-    dtip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    dtip->setWordWrap(true);
+    m_dtip = new DTipLabel(tr("Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully."));
+    m_dtip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    m_dtip->setWordWrap(true);
+
+
 
 //    auto utip = new DTipLabel(tr("Developer mode needs Cloud Account login."));
 //    utip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
@@ -124,12 +126,16 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
         devDlg->exec();
         devDlg->deleteLater();
     });
+    m_lab = new DLabel(tr("The feature is not available at present, please activate your system first"));
+    m_lab->setWordWrap(true);
+    m_lab->setVisible(false);
 
     vBoxLayout->setMargin(0);
     vBoxLayout->setSpacing(10);
     vBoxLayout->setContentsMargins(6, 0, 6, 0);
     vBoxLayout->addWidget(m_devBtn);
-    vBoxLayout->addWidget(dtip);
+    vBoxLayout->addWidget(m_lab);
+    vBoxLayout->addWidget(m_dtip);
 //    vBoxLayout->addWidget(utip);
     vBoxLayout->addStretch();
     setLayout(vBoxLayout);
@@ -140,6 +146,11 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
 {
     m_model = model;
     onLoginChanged();
+    if (!model->developerModeState()) {
+        m_devBtn->setEnabled(model->isActivate());
+        m_lab->setVisible(!model->isActivate());
+        m_dtip->setVisible(model->isActivate());
+    }
     updateDeveloperModeState(model->developerModeState());
     connect(model, &CommonInfoModel::developerModeStateChanged, this, [this](const bool state){
         //更新界面
@@ -164,6 +175,13 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
         dlg.exec();
     });
     connect(model, &CommonInfoModel::isLoginChenged, this, &DeveloperModeWidget::onLoginChanged);
+    if (!model->developerModeState()) {
+        connect(model, &CommonInfoModel::LicenseStateChanged, this, [ = ] (const bool &value) {
+            m_devBtn->setEnabled(value);
+            m_lab->setVisible(!value);
+            m_dtip->setVisible(value);
+        });
+    }
 }
 
 void DeveloperModeWidget::onLoginChanged()
@@ -186,7 +204,7 @@ void DeveloperModeWidget::updateDeveloperModeState(const bool state)
 //        m_offlineBtn->setEnabled(false);
 //        m_offlineBtn->setText(tr("Root Access Allowed"));
     } else {
-        m_devBtn->setEnabled(true);
+        m_devBtn->setEnabled(m_model->isActivate());
         m_devBtn->setText(tr("Request Root Access"));
         m_devBtn->setChecked(false);
     }

@@ -103,6 +103,14 @@ void CommonInfoModel::setBootDelay(bool bootDelay)
     }
 }
 
+void CommonInfoModel::setActivation(bool value)
+{
+    if (m_activation != value) {
+        m_activation = value;
+        Q_EMIT LicenseStateChanged(value);
+    }
+}
+
 
 QPixmap CommonInfoModel::background() const
 {

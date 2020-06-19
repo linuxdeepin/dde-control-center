@@ -45,6 +45,8 @@ public:
     bool ueProgram() const; // for user experience program
     bool developerModeState() const;
     inline bool isLogin() const { return m_isLogin; }
+    inline bool isActivate() const { return m_activation; }
+    void setActivation(bool value);
 
 Q_SIGNALS:
     void bootDelayChanged(const int timeout) const;
@@ -56,6 +58,7 @@ Q_SIGNALS:
     void ueProgramChanged(const bool enable) const; // for user experience program
     void developerModeStateChanged(const bool enable) const;
     void isLoginChenged(bool log) const;
+    void LicenseStateChanged(bool state);
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -76,6 +79,7 @@ private:
     bool m_joinUeProgram;   // for user experience program
     bool m_developerModeState{false}; // for developer mode state
     bool m_isLogin{false};
+    bool m_activation;
 };
 
 } // namespace commoninfo
