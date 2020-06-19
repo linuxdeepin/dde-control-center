@@ -61,6 +61,24 @@ const QList<QString> ACTIVE_COLORS = {
     "#4D4D4D"
 };
 
+struct ColorStru {
+    int r = 0;
+    int g = 0;
+    int b = 0;
+};
+
+const QList<ColorStru> ACTIVE_COLORST = {
+    {248, 44, 137},
+    {248, 99, 44},
+    {248, 225, 44},
+    {65, 222, 0},
+    {44, 248, 237},
+    {44, 167, 248},
+    {65, 44, 248},
+    {171, 44, 248},
+    {0, 0, 0},
+};
+
 PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
@@ -97,14 +115,20 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, this);
     int totalSpace = borderWidth + borderSpacing + RoundColorWidget::EXTRA; //2px extra space to avoid line cutted off
 
-    for (QString aColor : ACTIVE_COLORS) {
-        RoundColorWidget *colorItem = new RoundColorWidget(aColor, this);
+    for (ColorStru aColor : ACTIVE_COLORST) {
+        QColor color;
+        color.setRgb(aColor.r, aColor.g, aColor.b);
+        RoundColorWidget *colorItem = new RoundColorWidget(color, this);
         QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect;
         effect->setBlurRadius(15);        // 阴影圆角的大小
-        effect->setColor(aColor);      //阴影的颜色
+
+        color.setAlpha(102);
+        effect->setColor(color);      //阴影的颜色
         effect->setOffset(0,5);
         colorItem->setGraphicsEffect(effect);
-        colorItem->setAccessibleName(aColor);
+        DPalette pa = colorItem->palette();
+        pa.setBrush(DPalette::Base, color);
+        colorItem->setPalette(pa);
         colorItem->setFixedSize(20 + 2 * totalSpace, 40);
         colorLayout->addWidget(colorItem);
         connect(colorItem, &RoundColorWidget::clicked, this, &PersonalizationGeneral::onActiveColorClicked);
