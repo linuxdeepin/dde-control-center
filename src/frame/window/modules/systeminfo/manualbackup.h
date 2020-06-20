@@ -28,7 +28,12 @@ Q_SIGNALS:
     void requestSetSystemBackupDirectory(const QString& path);
 
 private Q_SLOTS:
-    void onChoose();
+    /**
+    * @brief ManualBackup::onChoose 槽函数，接收DFileChooserEdit::dialogClosed信号
+    * @param code DFileChooserEdit中文件选择对话框的返回值，即QFileDialog::exec返回值
+    * @return void
+    */
+    void onChoose(const int &code);
     void backup();
     void onManualBackupErrorTypeChanged(ErrorType type);
 

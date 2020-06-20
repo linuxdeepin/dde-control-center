@@ -162,6 +162,11 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
 
     setLayout(mainLayout);
 
+    connect(m_directoryChooseWidget, &DFileChooserEdit::dialogClosed, this, [this] (const int &code) {
+        if (code == QDialog::Accepted) {
+            m_tipsLabel->hide();
+        }
+    });
     connect(m_backupBtn, &QPushButton::clicked, this, &ManualRestore::restore, Qt::QueuedConnection);
     connect(m_systemRestore->radioButton(), &QRadioButton::toggled, this, &ManualRestore::onItemChecked);
     connect(m_manualRestore->radioButton(), &QRadioButton::toggled, this, &ManualRestore::onItemChecked);
@@ -217,6 +222,7 @@ void ManualRestore::setTipsVisible(const bool &visible)
 
 void ManualRestore::onItemChecked()
 {
+    setTipsVisible(false);
     QRadioButton* button = qobject_cast<QRadioButton*>(sender());
 
     const bool check = button == m_systemRestore->radioButton();
