@@ -61,6 +61,7 @@ private:
     dcc::widgets::SettingsGroup *m_listGrp;
     QString m_notUseThumb;
     DCommandLinkButton *m_clearBtn;
+    QVector<AccounntFingeItem*> m_vecItem;
 };
 
 }
