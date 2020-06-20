@@ -59,7 +59,7 @@ class TimezoneMap : public QFrame {
 
  public Q_SLOTS:
   // Remark |timezone| on map.
-  void setTimezone(const QString& timezone);
+  bool setTimezone(const QString& timezone);
 
  protected:
   void mousePressEvent(QMouseEvent* event) override;

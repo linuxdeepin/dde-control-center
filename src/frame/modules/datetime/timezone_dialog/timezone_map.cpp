@@ -86,17 +86,22 @@ const QString TimezoneMap::getTimezone() const {
   return current_zone_.timezone;
 }
 
-void TimezoneMap::setTimezone(const QString& timezone) {
-  nearest_zones_.clear();
-  const int index = GetZoneInfoByZone(total_zones_, timezone);
-  if (index > -1) {
-    current_zone_ = total_zones_.at(index);
-    nearest_zones_.append(current_zone_);
-    this->remark();
-  } else {
-    // NOTE(xushaohua): "Etc/UTC" can not be set on the map
-    qWarning() << "Timezone not found:" << timezone;
-  }
+bool TimezoneMap::setTimezone(const QString &timezone)
+{
+    nearest_zones_.clear();
+    const int index = GetZoneInfoByZone(total_zones_, timezone);
+    if (index > -1) {
+        // 找到时区并标记到地图上
+        current_zone_ = total_zones_.at(index);
+        nearest_zones_.append(current_zone_);
+        this->remark();
+        return true;
+    } else {
+        // NOTE(xushaohua): "Etc/UTC" can not be set on the map
+        qWarning() << "Timezone not found:" << timezone;
+    }
+
+    return false;
 }
 
 void TimezoneMap::mousePressEvent(QMouseEvent* event) {
@@ -108,6 +113,7 @@ void TimezoneMap::mousePressEvent(QMouseEvent* event) {
     qDebug() << nearest_zones_;
     current_zone_ = nearest_zones_.first();
     if (nearest_zones_.length() == 1) {
+        // 单个时区
       this->remark();
     } else {
       this->popupZoneWindow(event->pos());
@@ -238,6 +244,7 @@ void TimezoneMap::remark() {
   }
 }
 
+// 鼠标点击位置有多个时区，弹出菜单选择后
 void TimezoneMap::onPopupWindowActivated(int index) {
   // Hide popup window and dot first.
   popup_window_->hide();

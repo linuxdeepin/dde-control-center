@@ -136,7 +136,8 @@ TimeZoneChooser::TimeZoneChooser()
     connect(m_searchInput, &SearchInput::editingFinished, [this] {
         QString timezone = m_searchInput->text();
         timezone = m_completionCache.value(timezone, timezone);
-        m_map->setTimezone(timezone);
+        if (m_map->setTimezone(timezone) && !m_confirmBtn->isEnabled())
+            m_confirmBtn->setEnabled(true);
     });
 
     connect(m_searchInput, &SearchInput::textChanged, m_searchInput, &SearchInput::editingFinished);
