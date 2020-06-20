@@ -83,6 +83,8 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     connect(model, &BackupAndRestoreModel::manualBackupErrorTypeChanged, this, &ManualBackup::onManualBackupErrorTypeChanged);
 
     connect(backupTypeView, &DListView::clicked, this, [ = ](const QModelIndex &index){
+        m_tipsLabel->hide();
+
         for (int i = 0; i < itemModel->rowCount(); i++) {
             itemModel->item(i, 0)->setCheckState(Qt::Unchecked);
         }
@@ -131,9 +133,11 @@ void ManualBackup::setTipsVisible(const bool &visible)
     m_tipsLabel->setVisible(visible);
 }
 
-void ManualBackup::onChoose()
+void ManualBackup::onChoose(const int &code)
 {
-    m_tipsLabel->hide();
+    if (code == QDialog::Accepted) {
+        m_tipsLabel->hide();
+    }
 
     // TODO(justforlxz): need send signal to worker -> model;
     m_backupBtn->setEnabled(!m_directoryChooseWidget->lineEdit()->text().isEmpty());
