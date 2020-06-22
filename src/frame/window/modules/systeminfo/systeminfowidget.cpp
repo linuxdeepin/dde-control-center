@@ -80,7 +80,7 @@ void SystemInfoWidget::initData()
     QSettings settings(recoveryPath, QSettings::IniFormat);
     const QString UUID {settings.value("UUID").toString() };
     if (!UUID.isEmpty() && QDir("/recovery/doppel/").exists()) {
-        const QStringList &devices = DDiskManager().blockDevices();
+        const QStringList &devices = DDiskManager::blockDevices({});
         for (const QString &path : devices) {
             QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
             if (device->idUUID() == UUID) {
