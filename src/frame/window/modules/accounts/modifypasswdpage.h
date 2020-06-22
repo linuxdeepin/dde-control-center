@@ -45,6 +45,17 @@ class QPushButton;
 class QLabel;
 QT_END_NAMESPACE
 
+enum ErrorTypeInfo {
+    _ENUM_PASSWORD_NOTEMPTY,
+    _ENUM_PASSWORD_TOOLONG,
+    _ENUM_PASSWORD_TOOSHORT,
+    _ENUM_PASSWORD_TYPE,
+    _ENUM_PASSWORD_SEVERAL,
+    _ENUM_PASSWORD_CHARACTER,
+    _ENUM_PASSWORD_SUCCESS
+};
+
+
 namespace DCC_NAMESPACE {
 namespace accounts {
 
@@ -58,7 +69,7 @@ public:
     void initWidget();
     void clickSaveBtn();
     void onPasswordChangeFinished(const int exitCode);
-    bool validatePassword(const QString &password);
+    int  verifyPassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
 
     enum ModifyPwdRetFlag {
@@ -68,6 +79,7 @@ public:
 
 private:
     bool onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit);
+    int  passwordCompositionType(const QStringList &validate, const QString &password);
 
 Q_SIGNALS:
     void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password);
@@ -78,6 +90,10 @@ private:
     DTK_WIDGET_NAMESPACE::DPasswordEdit *m_oldPasswordEdit;
     DTK_WIDGET_NAMESPACE::DPasswordEdit *m_newPasswordEdit;
     DTK_WIDGET_NAMESPACE::DPasswordEdit *m_repeatPasswordEdit;
+    int m_passwordMinLength;
+    int m_passwordMaxLength;
+    int m_validateRequiredString;
+
 };
 
 }
