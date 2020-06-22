@@ -37,6 +37,7 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
     , m_removeBtn(new DIconButton(this))
     , m_editBtn(new DIconButton(this))
     , m_editTitle(new DLineEdit(this))
+    , m_fingerName("")
 {
     setFixedHeight(36);
 
@@ -64,6 +65,7 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
     connect(m_removeBtn, &DIconButton::clicked, this, &AccounntFingeItem::removeClicked);
     connect(m_editBtn, &DIconButton::clicked, this, [this] {
         setEditTitle(true);
+        m_editTitle->lineEdit()->setText(m_title->text());
         m_editTitle->lineEdit()->selectAll();
         m_editTitle->lineEdit()->setFocus();
     });
@@ -87,6 +89,7 @@ void AccounntFingeItem::setTitle(const QString &title)
     } else {
         m_title->setText(title);
     }
+    m_fingerName = title;
 }
 
 void AccounntFingeItem::alertTitleRepeat()

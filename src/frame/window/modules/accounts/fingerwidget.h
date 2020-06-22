@@ -43,7 +43,7 @@ public:
     FingerWidget(dcc::accounts::User *user, QWidget *parent = nullptr);
     ~FingerWidget();
     void setFingerModel(dcc::accounts::FingerModel *model);
-    void addFingerButton();
+    void addFingerButton(const QString &newFingerName);
 
 Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);
@@ -59,7 +59,6 @@ private:
     dcc::accounts::User *m_curUser;
     dcc::accounts::FingerModel *m_model;
     dcc::widgets::SettingsGroup *m_listGrp;
-    QString m_notUseThumb;
     DCommandLinkButton *m_clearBtn;
     QVector<AccounntFingeItem*> m_vecItem;
 };
