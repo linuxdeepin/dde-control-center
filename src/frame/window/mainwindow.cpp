@@ -592,7 +592,11 @@ void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDispla
     if (m_navView->viewMode() == QListView::IconMode) {
         if (m_pair.first->isVisible() != bIsDisplay) {
             m_pair.first->setVisible(bIsDisplay);
-            m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
+            if (bIsDisplay) {
+                 m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
+            } else {
+                 m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(0, 0, 0, 0)), Dtk::MarginsRole);
+            }
         }
     } else {
         if (m_pair.second->isVisible() != bIsDisplay) {
