@@ -128,7 +128,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     layout->addWidget(m_reminderTip);
     layout->addWidget(m_noNetworkTip);
     layout->addSpacing(20);
-    layout->addWidget(m_checkUpdateBtn);
+    layout->addWidget(m_checkUpdateBtn, 0, Qt::AlignCenter);
     layout->addSpacing(5);
     layout->addWidget(m_lastCheckTimeTip);
     layout->addStretch();
