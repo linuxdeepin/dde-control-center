@@ -395,6 +395,7 @@ int CreateAccountPage::verifyPassword(const QString &password)
         m_passwordMaxLength   = setting.value("PASSWORD_MAX_LENGTH").toInt();
         const QStringList validate_policy= setting.value("VALIDATE_POLICY").toString().split(";");
         m_validate_Required      = setting.value("VALIDATE_REQUIRED").toInt();
+        QString validate_policy_string = setting.value("VALIDATE_POLICY").toString();
 
         if (!strong_password_check) {
             return ENUM_PASSWORD_CHARACTER;
@@ -413,6 +414,8 @@ int CreateAccountPage::verifyPassword(const QString &password)
             return ENUM_PASSWORD_CHARACTER;
         } else if (password.size() > m_passwordMaxLength) {
             return ENUM_PASSWORD_TOOLONG;
+        } else if (!containsChar(password, validate_policy_string)) {
+                    return ENUM_PASSWORD_CHARACTER;
         } else {
             return ENUM_PASSWORD_SUCCESS;
         }
