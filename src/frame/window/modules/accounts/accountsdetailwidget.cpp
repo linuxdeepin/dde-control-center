@@ -92,12 +92,11 @@ void AccountsDetailWidget::setFingerModel(FingerModel *model)
     m_model = model;
     m_fingerWidget->setFingerModel(model);
     connect(model, &FingerModel::vaildChanged, this, [this](const bool isVaild) {
-        if (m_curUser->isCurrentUser()) {
+        if (!IsServerSystem && m_curUser->isCurrentUser()) {
             m_fingerWidget->setVisible(isVaild);
         }
     });
-
-    if (m_curUser->isCurrentUser()) {
+    if (!IsServerSystem && m_curUser->isCurrentUser()) {
         m_fingerWidget->setVisible(model->isVaild());
     }
 }
