@@ -49,6 +49,9 @@ public:
 
     void setTitle(const QString &title);
     void setDefaultVal(int defaultVal);
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event) override;
 private:
     int m_defaultVal;
     QLabel *m_title;

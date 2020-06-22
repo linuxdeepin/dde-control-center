@@ -28,6 +28,7 @@
 #include <QSpinBox>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QEvent>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc;
@@ -56,12 +57,23 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
         m_spinBox->setValue(m_defaultVal);
     });
     setLayout(mainLayout);
+    m_spinBox->installEventFilter(this);
+    m_spinBox->setFocusPolicy(Qt::ClickFocus);
 }
 
 void SpinBoxWidget::setDefaultVal(int defaultVal)
 {
     m_defaultVal = defaultVal;
     m_spinBox->setValue(m_defaultVal);
+}
+
+bool SpinBoxWidget::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::Wheel && m_spinBox == obj) {
+        if (!m_spinBox->hasFocus())
+            return true;
+    }
+    return QObject::eventFilter(obj, event);
 }
 
 void SpinBoxWidget::setTitle(const QString &title)
