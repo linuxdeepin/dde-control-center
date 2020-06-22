@@ -206,10 +206,6 @@ void AccountsModule::onShowPasswordPage(User *account)
 void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 {
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
-    m_fingerModel->resetProgress();
-    dlg->setFingerModel(m_fingerModel);
-    dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
-    dlg->setUsername(name);
     m_pMainWindow = static_cast<MainWindow *>(m_frameProxy);
     connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [ = ] {
         FingerWorker::EnrollResult res = m_fingerWorker->tryEnroll(name, thumb);
@@ -232,6 +228,10 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
         if (m_pMainWindow) {
             m_pMainWindow->setEnabled(false);
         }
+        m_fingerModel->resetProgress();
+        dlg->setFingerModel(m_fingerModel);
+        dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+        dlg->setUsername(name);
         dlg->show();
         dlg->setFocus();
         dlg->activateWindow();
