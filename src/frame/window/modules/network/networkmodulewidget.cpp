@@ -363,7 +363,7 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
     ret->setIcon(QIcon::fromTheme(dev->type() == NetworkDevice::Wireless ? "dcc_wifi" : "dcc_ethernet"));
     ret->setData(QVariant::fromValue(dev), DeviceRole);
 
-    QPointer<DViewItemAction> dummystatus(new DViewItemAction(Qt::AlignmentFlag::AlignRight));
+    QPointer<DViewItemAction> dummystatus(new DViewItemAction(Qt::AlignmentFlag::AlignRight | Qt::AlignmentFlag::AlignVCenter));
     ret->setActionList(Qt::Edge::RightEdge, {dummystatus});
 
     if (!dummystatus.isNull()) {
