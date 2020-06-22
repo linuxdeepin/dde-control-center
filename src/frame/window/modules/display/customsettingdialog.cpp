@@ -75,7 +75,7 @@ void CustomSettingDialog::initUI()
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_layout = new QVBoxLayout();
-    m_layout->setContentsMargins(0,0,0,0);
+    m_layout->setContentsMargins(0, 10, 0, 0);
     m_listLayout = new QVBoxLayout();
 
     auto btnBox = new DButtonBox(this);
