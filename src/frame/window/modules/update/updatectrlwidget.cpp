@@ -378,7 +378,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
             if (!appCount) {
                 m_summary->setTitle(tr("New system edition available"));
             } else {
-                m_summary->setTitle(QString("New system edition %1 and %2 application update(s) available").arg(m_systemVersion).arg(appCount));
+                m_summary->setTitle(tr("New system edition and %n application update(s) available", "", appCount));
             }
             break;
         }
