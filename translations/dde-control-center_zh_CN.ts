@@ -5929,53 +5929,53 @@
     <name>dcc::accounts::FingerModel</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint 1</source>
-        <translation>指纹 1</translation>
+        <source>Fingerprint1</source>
+        <translation>指纹1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint 2</source>
-        <translation>指纹 2</translation>
+        <source>Fingerprint2</source>
+        <translation>指纹2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint 3</source>
-        <translation>指纹 3</translation>
+        <source>Fingerprint3</source>
+        <translation>指纹3</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
-        <source>Fingerprint 4</source>
-        <translation>指纹 4</translation>
+        <source>Fingerprint4</source>
+        <translation>指纹4</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="70"/>
-        <source>Fingerprint 5</source>
-        <translation>指纹 5</translation>
+        <source>Fingerprint5</source>
+        <translation>指纹5</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="71"/>
-        <source>Fingerprint 6</source>
-        <translation>指纹 6</translation>
+        <source>Fingerprint6</source>
+        <translation>指纹6</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="72"/>
-        <source>Fingerprint 7</source>
-        <translation>指纹 7</translation>
+        <source>Fingerprint7</source>
+        <translation>指纹7</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="73"/>
-        <source>Fingerprint 8</source>
-        <translation>指纹 8</translation>
+        <source>Fingerprint8</source>
+        <translation>指纹8</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="74"/>
-        <source>Fingerprint 9</source>
-        <translation>指纹 9</translation>
+        <source>Fingerprint9</source>
+        <translation>指纹9</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="75"/>
-        <source>Fingerprint 10</source>
-        <translation>指纹 10</translation>
+        <source>Fingerprint10</source>
+        <translation>指纹10</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
@@ -6614,7 +6614,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
+        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>

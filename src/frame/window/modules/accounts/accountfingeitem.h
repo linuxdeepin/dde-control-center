@@ -46,6 +46,7 @@ class AccounntFingeItem : public dcc::widgets::SettingsItem
 public:
     explicit AccounntFingeItem(QWidget *parent = nullptr);
     void setTitle(const QString &title);
+    QString getTitle() const { return m_fingerName; };
     void alertTitleRepeat();
     void appendItem(QWidget *widget);
     void setShowIcon(bool state);
@@ -63,6 +64,7 @@ Q_SIGNALS:
 private:
     QHBoxLayout *m_layout;
     QLabel *m_title;
+    QString m_fingerName;
     DIconButton *m_removeBtn;
     DIconButton *m_editBtn;
     DLineEdit *m_editTitle;

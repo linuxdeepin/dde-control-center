@@ -63,16 +63,10 @@ FingerModel::FingerModel(QObject *parent) : QObject(parent)
     m_isVaild = false;
 
     m_predefineThumbsNames = {
-        {"Fingerprint1", tr("Fingerprint 1")},
-        {"Fingerprint2", tr("Fingerprint 2")},
-        {"Fingerprint3", tr("Fingerprint 3")},
-        {"Fingerprint4", tr("Fingerprint 4")},
-        {"Fingerprint5", tr("Fingerprint 5")},
-        {"Fingerprint6", tr("Fingerprint 6")},
-        {"Fingerprint7", tr("Fingerprint 7")},
-        {"Fingerprint8", tr("Fingerprint 8")},
-        {"Fingerprint9", tr("Fingerprint 9")},
-        {"Fingerprint10", tr("Fingerprint 10")}
+        tr("Fingerprint1"), tr("Fingerprint2"), tr("Fingerprint3"),
+        tr("Fingerprint4"), tr("Fingerprint5"), tr("Fingerprint6"),
+        tr("Fingerprint7"), tr("Fingerprint8"), tr("Fingerprint9"),
+        tr("Fingerprint10")
     };
     m_progress = 0;
 }

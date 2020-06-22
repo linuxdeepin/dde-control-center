@@ -109,22 +109,16 @@ void FingerWidget::setFingerModel(FingerModel *model)
 
 void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 {
-    QList<QPair<QString, QString>> thumb = m_model->getPredefineThumbsName();
     m_vecItem.clear();
     m_listGrp->clear();
+    if (thumbs.size() > 10) {
+        qDebug() << "thumbs.size() error: " << thumbs.size();
+        return;
+    }
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
         QString finger = thumbs.at(n);
-        QString fingerName = finger;
-        QList<QPair<QString, QString>>::const_iterator iter;
-        for (iter = m_model->getPredefineThumbsName().constBegin(); iter != m_model->getPredefineThumbsName().constEnd(); ++iter) {
-            if (iter->first == finger) {
-                fingerName = iter->second;
-                break;
-            }
-        }
-
         auto item = new AccounntFingeItem(this);
-        item->setTitle(fingerName);
+        item->setTitle(finger);
         item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
         m_listGrp->appendItem(item);
@@ -132,8 +126,13 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
             Q_EMIT requestDeleteFingerItem(m_curUser->name(), finger);
         });
         connect(item, &AccounntFingeItem::editTextFinished, this, [this, finger, item, thumbs](QString newName) {
+            // 没有改名，直接返回
+            if (item->getTitle() == newName) {
+                return;
+            }
             for (int n = 0; n < thumbs.size(); ++n) {
-                if (newName == thumbs.at(n)) {
+                QString fingerName = thumbs.at(n);
+                if (newName == fingerName) {
                     item->alertTitleRepeat();
                     return;
                 }
@@ -146,18 +145,27 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
             item->setShowIcon(true);
 
         m_vecItem.append(item);
-        QPair<QString, QString> fingerItem = qMakePair(finger, fingerName);
-        thumb.removeOne(fingerItem);
     }
 
     m_clearBtn->setVisible(m_listGrp->itemCount());
-    if (!thumb.isEmpty() && thumbs.size() < 10) {
-        m_notUseThumb = thumb.begin()->first;
-        addFingerButton();
+    // 找到最小的指纹名以便作为缺省名添加
+    for (int i = 0; i < m_model->getPredefineThumbsName().size(); ++i) {
+        bool findNotUsedThumb = false;
+        QString newFingerName = m_model->getPredefineThumbsName().at(i);
+        for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
+            if (newFingerName == thumbs.at(n)) {
+                findNotUsedThumb = true;
+                break;
+            }
+        }
+        if (!findNotUsedThumb) {
+            addFingerButton(newFingerName);
+            break;
+        }
     }
 }
 
-void FingerWidget::addFingerButton()
+void FingerWidget::addFingerButton(const QString &newFingerName)
 {
     SettingsItem* addfingerItem = new SettingsItem(this);
     QString strAddFinger = tr("Add Fingerprint");
@@ -173,7 +181,7 @@ void FingerWidget::addFingerButton()
     int nFontWidth = fontMetrics.width(strAddFinger);
     addBtn->setMinimumWidth(nFontWidth);
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
-        qDebug() << "try add finger :" <<  m_curUser->name() << m_notUseThumb;
-        Q_EMIT requestAddThumbs(m_curUser->name(), m_notUseThumb);
+        qDebug() << "try add finger :" <<  m_curUser->name() << newFingerName;
+        Q_EMIT requestAddThumbs(m_curUser->name(), newFingerName);
     });
 }
