@@ -54,7 +54,6 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     connect(m_SMInter, &SessionManagerInter::LockedChanged, m_model, &FingerModel::lockedChanged);
 
     auto defualtDevice = m_fingerPrintInter->defaultDevice();
-    qDebug() << "defaultDevice:" << defualtDevice;
     m_model->setIsVaild(!defualtDevice.isEmpty());
 
     m_fingerPrintInter->setTimeout(INT_MAX);
@@ -112,7 +111,7 @@ void FingerWorker::stopEnroll(const QString& userName)
     auto call = m_fingerPrintInter->StopEnroll();
     call.waitForFinished();
     if (call.isError()) {
-        qDebug() << "call StopEnroll Error : " << call.error();
+        qDebug() << "call StopEnroll Error" << call.error();
     }
     auto callClaim = m_fingerPrintInter->Claim(userName, false);
     callClaim.waitForFinished();

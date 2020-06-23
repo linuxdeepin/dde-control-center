@@ -101,12 +101,9 @@ void AvatarListWidget::refreshCustomAvatar(const QString& str)
     if (customPicPath.isEmpty())
         return;
 
-    qDebug() << QString("find custom avatar path %1 whit user name %2.").arg(customPicPath, str);
-
     QStandardItem *item = m_avatarItemModel->item(MaxAvatarSize);;
     if (!item || item->data(SaveAvatarRole).toString().isEmpty()) {
         item = new QStandardItem();
-        qDebug() << "add avatar item with path :" << customPicPath;
         item->setCheckState(Qt::Checked);
         m_avatarItemModel->insertRow(MaxAvatarSize, item);
     } else {
@@ -134,7 +131,6 @@ void AvatarListWidget::setCurrentAvatarChecked(const QString &avatar)
     if (avatar.startsWith("file://"))
         currentAvatar = QUrl(avatar).toLocalFile();
 
-    qDebug() << "avatar file change to " << currentAvatar;
     if (currentAvatar == "/var/lib/AccountsService/icons/default.png")
         return;
 
@@ -167,7 +163,6 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
         return;
 
     auto filepath = index.data(SaveAvatarRole).toString();
-    qDebug() << " item clicked witch save file path : " << filepath;
     if (filepath.isEmpty()) {
         QFileDialog fd;
         fd.setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
@@ -183,7 +178,6 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
     }
 
     if (!filepath.isEmpty()) {
-        qDebug() << "request set avatar : " << filepath;
         Q_EMIT requestSetAvatar(filepath);
     }
 }
@@ -233,7 +227,6 @@ void AvatarListWidget::addItemFromDefaultDir()
 
 void AvatarListWidget::addLastItem()
 {
-    qDebug() << "add avatar item with path :" << "(null)";
     DStandardItem *item = new DStandardItem();
     item->setData(m_avatarSize, Qt::SizeHintRole);
     item->setData("", AvatarListWidget::SaveAvatarRole);
@@ -246,14 +239,12 @@ QString AvatarListWidget::getUserAddedCustomPicPath(const QString& usrName)
         return "";
 
     auto key = usrName + '-';
-    qDebug() << "start find custom avatar using User Name: " << usrName;
     QString newiconpath;
     QString dirpath("/var/lib/AccountsService/icons/local/");
     QDir dir(dirpath);
     QFileInfoList list = dir.entryInfoList(QDir::Dirs|QDir::Files|QDir::NoDotAndDotDot);//去除.和..
     for (auto fi : list) {
         auto str = fi.fileName();
-        qDebug() << "get custom avatar file name: " << str;
         if (0 != str.indexOf(key))
             continue;
 
