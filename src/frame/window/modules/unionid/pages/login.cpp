@@ -56,8 +56,8 @@ LoginPage::LoginPage(QWidget *parent)
     //~ contents_path /cloudsync/Sync ID Sign In
     DSuggestButton *loginBtn = new DSuggestButton(tr("Sign In"));
     loginBtn->setMinimumWidth(200);
-    DTipLabel *tip = new DTipLabel(tr("Once you sign in with Union ID, you have signed in all functions requiring Union ID. "
-                                      "You can quickly visit User Center here and manage your  signing-in status."));
+    DTipLabel *tip = new DTipLabel(tr("After signing in, all system features related with Union ID will be available.\n"
+                                      "Visit User Center and manage your account there."));
     tip->setWordWrap(true);
     tip->setAlignment(Qt::AlignCenter);
 

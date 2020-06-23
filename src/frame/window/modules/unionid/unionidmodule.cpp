@@ -49,7 +49,7 @@ const QString UnionidModule::name() const
 
 const QString UnionidModule::displayName() const
 {
-    return tr("unionid");
+    return tr("Union ID");
 }
 
 void UnionidModule::contentPopped(QWidget *const w)

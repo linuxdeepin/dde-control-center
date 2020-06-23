@@ -168,12 +168,12 @@
 <context>
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="99"/>
         <source>The fingerprint name already exists</source>
         <translation>ඇඟිලි සලකුණු නාමය දැනටමත් පවතී</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="153"/>
         <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
         <translation>අකුරු, අංක සහ යටි ඉරි පමණක් නමෙහි අඩංගු විය යුතු අතර අක්ෂර 15 ට නොවැඩි විය යුතුය.</translation>
     </message>
@@ -181,64 +181,64 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="220"/>
         <source>Full Name</source>
         <translation>සම්පූර්ණ නම</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="250"/>
         <source>The full name already exists</source>
         <translation>සම්පූර්ණ නම දැනටමත් පවතී</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="290"/>
         <source>Validity Days</source>
         <translation>වලංගු දින</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="292"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="356"/>
         <source>Always</source>
         <translation>සැමවිටම</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
         <source>Please input a number between 1-99999</source>
         <translation>කරුණාකර 1-99999 අතර අංකයක් ඇතුළත් කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="390"/>
         <source>Change Password</source>
         <translation>මුරපදය වෙනස් කරන්න</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="392"/>
         <source>Delete Account</source>
         <translation>ගිණුම මකා දමන්න</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="395"/>
         <source>Auto Login</source>
         <translation>ස්වයංක්‍රීය පිවිසුම</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="399"/>
         <source>Login Without Password</source>
         <translation>මුරපදය නොමැතිව පිවිසීම</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="479"/>
         <source>Group</source>
         <translation>කණ්ඩායම</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="531"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="529"/>
         <source>The full name is too long</source>
         <translation>සම්පූර්ණ නම දිග වැඩිය</translation>
     </message>
@@ -288,17 +288,17 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="204"/>
         <source>Scan Again</source>
         <translation>නැවතත් ස්කෑන් කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
         <source>Scan Suspended</source>
         <translation>ස්කෑන් අත්හිටුවීම</translation>
     </message>
@@ -306,7 +306,7 @@
 <context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="168"/>
         <source>Images</source>
         <translation>රූප</translation>
     </message>
@@ -319,116 +319,136 @@
         <translation>කණ්ඩායම</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="89"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="360"/>
         <source>Cancel</source>
         <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="93"/>
         <source>Create</source>
         <translation>සාදන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="152"/>
         <source>New Account</source>
         <translation>නව ගිණුම</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="167"/>
         <source>Account Type</source>
         <translation>පරිශීලක ගිණුම් වර්ගය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
         <source>Username</source>
         <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="178"/>
         <source>Full Name</source>
         <translation>සම්පූර්ණ නම</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="184"/>
         <source>Password</source>
         <translation>මුර පදය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="190"/>
         <source>Repeat Password</source>
         <translation>මුරපදය නැවත ඇතුලත් කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="256"/>
         <source>Standard</source>
         <translation>සම්මත</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="257"/>
         <source>Administrator</source>
         <translation>පරිපාලක</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="258"/>
         <source>Customized</source>
         <translation>කැමති පරිදි සකසන ලද</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="262"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="264"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="268"/>
         <source>Required</source>
         <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
         <source>optional</source>
         <translation>විකල්ප</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="359"/>
         <source>Go to Settings</source>
         <translation>සැකසීම් වෙත යන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="482"/>
+        <source>Password cannot be empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
+        <source>The password must have at least %1 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="490"/>
         <source>Password must be no more than %1 characters</source>
         <translation>මුරපදය අක්ෂර %1 ට නොඅඩු විය යුතුය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="473"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="494"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="498"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>මුරපදයේ ඉංග්‍රීසි අකුරු (සිද්ධි සංවේදී), අංක හෝ විශේෂ සංකේත (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) අඩංගු විය යුතුය.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="502"/>
+        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="509"/>
         <source>Passwords do not match</source>
         <translation>මුරපද නොගැලපේ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="504"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="533"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>පරිශීලක නාමය අක්ෂර 3 ත් 32 ත් අතර විය යුතුය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="511"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="540"/>
         <source>The first character must be a letter or number</source>
         <translation>පළමු අක්‍ෂරය අකුරක් හෝ අංකයක් විය යුතුය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="517"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="546"/>
         <source>Your username should not only have numbers</source>
         <translation>ඔබගේ පරිශීලක නාමයට අංක පමණක් තිබිය යුතු නොවේ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="535"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="564"/>
         <source>The full name already exists</source>
         <translation>සම්පූර්ණ නම දැනටමත් පවතී</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="542"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="571"/>
         <source>The full name is too long</source>
         <translation>සම්පූර්ණ නම දිග වැඩිය</translation>
     </message>
@@ -457,7 +477,7 @@
         <translation>සම්පූර්ණයි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="171"/>
         <source>Add Fingerprint</source>
         <translation>ඇඟිලි සලකුණ එක් කරන්න</translation>
     </message>
@@ -465,72 +485,93 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="62"/>
         <source>Change Password</source>
         <translation>මුරපදය වෙනස් කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="66"/>
         <source>Current Password</source>
         <translation>වත්මන් මුරපදය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="70"/>
         <source>New Password</source>
         <translation>නව මුරපදය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="74"/>
         <source>Repeat Password</source>
         <translation>මුරපදය නැවත ඇතුලත් කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
         <source>Cancel</source>
         <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
         <source>Save</source>
         <translation>සුරකින්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="119"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="125"/>
         <source>Required</source>
         <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="158"/>
         <source>Go to Settings</source>
         <translation>සැකසීම් වෙත යන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="184"/>
         <source>Wrong password</source>
         <translation>වැරදි මුරපදයකි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="275"/>
         <source>Passwords do not match</source>
         <translation>මුරපද නොගැලපේ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="285"/>
+        <source>Password cannot be empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="289"/>
+        <source>The password must have at least %1 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="319"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>මුරපදය අක්ෂර %1 ට නොඅඩු විය යුතුය</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="297"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="301"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>මුරපදයේ ඉංග්‍රීසි අකුරු (සිද්ධි සංවේදී), අංක හෝ විශේෂ සංකේත (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) අඩංගු විය යුතුය.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="272"/>
-        <source>New password should differ from the current one</source>
-        <translation>නව මුරපදය වත්මන් එකට වඩා වෙනස් විය යුතුය</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="305"/>
+        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>මුරපදය අක්ෂර %1 ට නොඅඩු විය යුතුය</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="312"/>
+        <source>New password should differ from the current one</source>
+        <translation>නව මුරපදය වත්මන් එකට වඩා වෙනස් විය යුතුය</translation>
     </message>
 </context>
 <context>
@@ -676,53 +717,53 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="86"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="104"/>
         <source>Failed to get root access</source>
         <translation>මූල ප්‍රවේශය ලබා ගැනීමට අපොහොසත් විය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
         <source>Please sign in to your cloud account first</source>
         <translation>කරුණාකර පළමුව ඔබේ වලාකුළු ගිණුමට පුරනය වන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
         <source>Cannot read your PC information</source>
         <translation>ඔබේ පරිගණක තොරතුරු කියවිය නොහැක</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
         <source>No network connection</source>
         <translation>ජාල සම්බන්ධතාවයක් නොමැත</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="100"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>සහතික ලබාගැනීම අසාර්ථක විය, මූල ප්‍රවේශය ලබා ගත නොහැක</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="102"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>අත්සන සත්‍යාපනය අසාර්ථක විය, මූල ප්‍රවේශය ලබා ගත නොහැක</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="240"/>
         <source>UOS Privacy Policy</source>
         <translation>UOS පෞද්ගලිකත්ව ප්‍රතිපත්තිය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="234"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="241"/>
         <source>Agree and Join User Experience Program</source>
         <translation>පරිශීලක අත්දැකීම් වැඩසටහනට එකඟ වී සම්බන්ධ වන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="300"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>සංවර්ධක ප්‍රකාරයේ වියාචනය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="301"/>
         <source>Agree and Request Root Access</source>
         <translation>එකඟ වෙමින්  මූල ප්‍රවේශය ඉල්ලා සිටින්න</translation>
     </message>
@@ -785,7 +826,7 @@
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="208"/>
         <source>Request Root Access</source>
         <translation>මූල ප්‍රවේශය ඉල්ලා සිටින්න</translation>
     </message>
@@ -795,53 +836,58 @@
         <translation>සංවර්ධක ප්‍රකාරය මඟින් ඔබට මූල වරප්‍රසාද ලබා ගැනීමට, යෙදුම් වෙළඳසැලේ ලැයිස්තුගත කර නොමැති සහතික නොකළ යෙදුම් ස්ථාපනය කිරීමට සහ ක්‍රියාත්මක කිරීමට හැකියාව ලබා දෙයි, නමුත් මේ නිසා ඔබේ පද්ධතියේ අඛණ්ඩතාවයටද හානි සිදුවිය හැකිය, කරුණාකර එය ප්‍රවේශමෙන් භාවිතා කරන්න.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="104"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="118"/>
         <source>Failed to get root access</source>
         <translation>මූල ප්‍රවේශය ලබා ගැනීමට අපොහොසත් විය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
         <source>Please sign in to your cloud account first</source>
         <translation>කරුණාකර පළමුව ඔබේ වලාකුළු ගිණුමට පුරනය වන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
         <source>Cannot read your PC information</source>
         <translation>ඔබේ පරිගණක තොරතුරු කියවිය නොහැක</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
         <source>No network connection</source>
         <translation>ජාල සම්බන්ධතාවයක් නොමැත</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="114"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>සහතික ලබාගැනීම අසාර්ථක විය, මූල ප්‍රවේශය ලබා ගත නොහැක</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="116"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>අත්සන සත්‍යාපනය අසාර්ථක විය, මූල ප්‍රවේශය ලබා ගත නොහැක</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="129"/>
+        <source>The feature is not available at present, please activate your system first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="163"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
         <translation>සමහර විශේෂාංග ක්‍රියාත්මක කිරීමට, නැවත ආරම්භ කිරීම අවශ්‍ය වේ. දැන් නැවත ආරම්භ කරන්නද?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="164"/>
         <source>Cancel</source>
         <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="164"/>
         <source>Restart Now</source>
         <translation>දැන්ම නැවත අරඹන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="201"/>
         <source>Root Access Allowed</source>
         <translation>මූල ප්‍රවේශයට අවසර ඇත</translation>
     </message>
@@ -1155,23 +1201,23 @@
         <translation>සුරකින්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="288"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="287"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="350"/>
         <source>Recommended</source>
         <translation>නිර්දේශිතයි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="399"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="402"/>
         <source>Main Screen</source>
         <translation>ප්‍රධාන තිරය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="417"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="420"/>
         <source>Monitor Connected (Multiple)</source>
         <translation>මොනිටරයන් සම්බන්ධයි (බහු)</translation>
     </message>
@@ -4026,41 +4072,41 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="95"/>
         <source>Theme</source>
         <translation>තේමාව</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="105"/>
         <source>Accent Color</source>
         <translation>ප්‍රධාන භාවිත වර්ණය</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="156"/>
         <source>Window Effect</source>
         <translation>කවුළු ආකාරය</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="164"/>
         <source>Transparency</source>
         <translation>විනිවිදභාවය</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
         <source>Window Minimize Effect</source>
         <translation>කවුළුව කුඩා කිරීමේ පෙනුම</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
         <source>Scale</source>
         <translation>පරිමාණය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
         <source>Magic Lamp</source>
         <translation>මැජික් ලාම්පුව</translation>
     </message>
@@ -4737,72 +4783,77 @@
         <translation>ස්වයංක්‍රීය සමමුහුර්තකරණය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="50"/>
+        <source>The feature is not available at present, please activate your system first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
         <source>Syncing...</source>
         <translation>සමමුහුර්ත වෙමින්...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="108"/>
         <source>Sign Out</source>
         <translation>ඉවත් වන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="136"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
         <translation>ජාල සැකසුම් සක්‍රිය කර ඇත්නම් ඔබගේ WLAN මුරපදය සමමුහුර්ත වේ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="177"/>
         <source>Network Settings</source>
         <translation>ජාල සැකසුම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="178"/>
         <source>Sound Settings</source>
         <translation>ශබ්ද සැකසුම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="179"/>
         <source>Mouse Settings</source>
         <translation>මූසික සැකසුම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="180"/>
         <source>Update Settings</source>
         <translation>යාවත්කාලීන කිරීම් සැකසුම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="181"/>
         <source>Dock</source>
         <translation>ඩොක් එක</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="182"/>
         <source>Launcher</source>
         <translation>රදවනය </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="183"/>
         <source>Wallpaper</source>
         <translation>බිතුපත</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="184"/>
         <source>Theme</source>
         <translation>තේමාව</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="185"/>
         <source>Power Settings</source>
         <translation>බල සැකසුම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="319"/>
         <source>Last Sync: %1</source>
         <translation>අවසන් සමමුහුර්තකරණය: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="321"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
@@ -4880,27 +4931,27 @@
         <translation>පද්ධති උපස්ථය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="127"/>
         <source>Applying changes to your system...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="167"/>
         <source>The storage location cannot be in source disk, please reselect</source>
         <translation>ගබඩා ස්ථානය ප්‍රභව තැටියේ තිබිය නොහැක, කරුණාකර නැවත තෝරා ගන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="171"/>
         <source>Invalid path</source>
         <translation>වලංගු නොවන මගකි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="175"/>
         <source>Grub authentication failed</source>
         <translation>Grub සත්‍යාපනය අසමත් විය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="179"/>
         <source>Insufficient disk space</source>
         <translation type="unfinished"/>
     </message>
@@ -4933,42 +4984,42 @@
         <translation>කාය ප්‍රතිස්ථාපනය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="214"/>
         <source>Applying changes to your system...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
         <source>Backup file is invalid</source>
         <translation>උපස්ථ ගොනුව වලංගු නොවේ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="252"/>
         <source>Invalid path</source>
         <translation>වලංගු නොවන මගකි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="256"/>
         <source>Grub authentication failed</source>
         <translation>Grub සත්‍යාපනය අසමත් විය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="272"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
         <translation>එය ඔබගේ ලිපිගොනු සහ යෙදුම් වලට බලපෑමක් නොකර පද්ධති සැකසුම් ඒවායේ පෙරනිමි වෙත යලි සකසනු ඇත, නමුත් පරිශීලක නාමය සහ මුරපදය හිස් වනු ඇත, කරුණාකර ඉදිරියට යාමට පෙර තහවුරු කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="276"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
         <translation>එය පද්ධතිය නැවත ස්ථාපනය කර සියලුම පරිශීලක දත්ත ඉවත් කරනු ඇත, මෙය ඉතා අවදානම් සහිතය. කරුණාකර ඉදිරියට යාමට පෙර තහවුරු කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="280"/>
         <source>Cancel</source>
         <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="283"/>
         <source>Confirm</source>
         <translation>තහවුරු කරන්න</translation>
     </message>
@@ -5106,19 +5157,24 @@
 <context>
     <name>dccV20::unionid::IndexPage</name>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="83"/>
         <source>Modify Password</source>
         <translation>මුරපදය වෙනස් කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="86"/>
         <source>Change Avatar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="89"/>
         <source>User Center</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="92"/>
+        <source>Sign Out</source>
+        <translation>ඉවත් වන්න</translation>
     </message>
 </context>
 <context>
@@ -5131,12 +5187,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="59"/>
-        <source>Once you sign in with Union ID, you have signed in all functions requiring Union ID. You can quickly visit User Center here and manage your  signing-in status.</source>
+        <source>After signing in, all system features related with Union ID will be available.
+Visit User Center and manage your account there.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="69"/>
-        <source>Union ID</source>
+        <source>Union ID Sign In</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5152,7 +5209,7 @@
     <name>dccV20::unionid::UnionidModule</name>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidmodule.cpp" line="52"/>
-        <source>unionid</source>
+        <source>Union ID</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5231,121 +5288,117 @@
         <translation>මෙම යාවත්කාලීන කිරීමට බොහෝ කාලයක් ගතවනු ඇත, කරුණාකර ක්‍රියාවලිය අතරතුර වසා දැමීමෙන් හෝ නැවත ඇරඹීමෙන් වලකින්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="270"/>
         <source>Last checking time: </source>
         <translation>අවසන් වරට පරීක්ෂා කල වේලාව:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="244"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="301"/>
         <source>Check for Updates</source>
         <translation>යාවත්කාල කිරීම් සඳහා පරීක්ෂා කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
         <source>Checking for updates, please wait...</source>
         <translation>යාවත්කාල කිරීම් සඳහා පරීක්ෂා කරමින් පවතී, කරුණාකර රැඳී සිටින්න ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>Download and install updates</source>
         <translation>යාවත්කාලීන කිරීම් බාගත කර ස්ථාපනය කරන්න</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="267"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="314"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="324"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="330"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
         <source>Check Again</source>
         <translation>නැවත පරීක්ෂා කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="274"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="401"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="404"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% බාගත කර ඇත (විරාම කිරීමට ක්ලික් කරන්න)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="281"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="406"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% බාගත කර ඇත (නැවත ඇරඹීමට ක්ලික් කරන්න)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="291"/>
         <source>Install updates</source>
         <translation>යාවත්කාලීන කිරීම් ස්ථාපනය කරන්න</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="298"/>
         <source>Your system is up to date</source>
         <translation>ඔබේ පද්ධතිය යාවත්කාලීනයි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="307"/>
         <source>Updating, please wait...</source>
         <translation>යාවත්කාල කරමින් පවතී, කරුණාකර රැඳී සිටින්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="321"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>නවතම පද්ධතිය ස්ථාපනය කර ඇත, බලාත්මක වීමට නැවත ආරම්භ කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
         <source>Update failed: insufficient disk space</source>
         <translation>යාවත්කාලීන කිරීම අසාර්ථකයි: තැටි අවකාශය ප්‍රමාණවත් නොවේ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>පරායත්ත සාධක දෝෂයකි, යාවත්කාලීන කිරීම් හඳුනා ගැනීමට අසමත් විය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
         <source>Backing up, please wait...</source>
         <translation>උපස්ථ වෙමින් පවතී, කරුණාකර රැඳී සිටින්න ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="351"/>
         <source>System backup failed</source>
         <translation>පද්ධතිය උපස්ථ කිරීම අසාර්ථක විය</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
         <source>%n application update(s) available</source>
         <translation><numerusform>%n යෙදුම් යාවත්කාලීන කිරීම්(කිරීම) ලබා ගත හැකිය</numerusform><numerusform>%n යෙදුම් යාවත්කාලීන කිරීම්(කිරීම) ලබා ගත හැකිය</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>New system edition available</source>
         <translation>නව පද්ධති සංස්කරණය ලබා ගත හැක</translation>
     </message>
-    <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="378"/>
-        <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>නව පද්ධති සංස්කරණය සහ %n යෙදුම් යාවත්කාලීන කිරීම්(කිරීම) ලබා ගත හැකිය</numerusform><numerusform>නව පද්ධති සංස්කරණය සහ %n යෙදුම් යාවත්කාලීන කිරීම්(කිරීම) ලබා ගත හැකිය</numerusform></translation>
-    </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="388"/>
         <source>Downloaded</source>
         <translation>බාගත කර ඇත</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
         <source>Size: %1</source>
         <translation>ප්‍රමාණය: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="414"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>ඔබගේ බැටරි ධාරිතාවය 50% ට වඩා අඩුය, කරුණාකර ඉදිරියට යාමට විදුලි සැපයුමක් ලබා දෙන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>කරුණාකර නැවත ආරම්භ කිරීමට ප්‍රමාණවත් බලයක් පවතින බව සහතික කරන්න, ඔබේ යන්ත්‍රය ක්‍රියා විරහිත නොකරන්න</translation>
     </message>
@@ -5802,19 +5855,19 @@
 <context>
     <name>UnionidWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="60"/>
-        <source>Learn about</source>
+        <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="62"/>
+        <source>Learn about %1 and %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="65"/>
-        <source>and</source>
+        <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="63"/>
+        <source>Union ID Service Agreement</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="79"/>
-        <source>Sign Out</source>
-        <translation>ඉවත් වන්න</translation>
+        <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="64"/>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5895,32 +5948,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="401"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="399"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>ඔබගේ ධාරකය-host වසම් සේවාදායකයෙන් සාර්ථකව ඉවත් කරන ලදි</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="402"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="400"/>
         <source>Your host joins the domain server successfully</source>
         <translation>ඔබගේ ධාරකය වසම් සේවාදායකයට සාර්ථකව සම්බන්ධ වේ</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="424"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="422"/>
         <source>Your host failed to leave the domain server</source>
         <translation>ඔබගේ ධාරකය වසම් සේවාදායකයෙන් ඉවත් වීමට අසමත් විය</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="425"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="423"/>
         <source>Your host failed to join the domain server</source>
         <translation>ඔබගේ ධාරකය වසම් සේවාදායකයට සම්බන්ධ වීමට අසමත් විය</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="426"/>
         <source>AD domain settings</source>
         <translation>AD වසම් සැකසුම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="495"/>
         <source>Password not match</source>
         <translation>මුරපද නොගැලපේ</translation>
     </message>
@@ -5929,128 +5982,128 @@
     <name>dcc::accounts::FingerModel</name>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint 1</source>
-        <translation>ඇඟිලි සලකුණ 1</translation>
+        <source>Fingerprint1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
+        <source>Fingerprint2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
+        <source>Fingerprint3</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint 2</source>
-        <translation>ඇඟිලි සලකුණ 2</translation>
+        <source>Fingerprint4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
+        <source>Fingerprint5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
+        <source>Fingerprint6</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint 3</source>
-        <translation>ඇඟිලි සලකුණ 3</translation>
+        <source>Fingerprint7</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
+        <source>Fingerprint8</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
+        <source>Fingerprint9</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
-        <source>Fingerprint 4</source>
-        <translation>ඇඟිලි සලකුණ 4</translation>
+        <source>Fingerprint10</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="70"/>
-        <source>Fingerprint 5</source>
-        <translation>ඇඟිලි සලකුණ 5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="71"/>
-        <source>Fingerprint 6</source>
-        <translation>ඇඟිලි සලකුණ 6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="72"/>
-        <source>Fingerprint 7</source>
-        <translation>ඇඟිලි සලකුණ  7</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="73"/>
-        <source>Fingerprint 8</source>
-        <translation>ඇඟිලි සලකුණ 8</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="74"/>
-        <source>Fingerprint 9</source>
-        <translation>ඇඟිලි සලකුණ 9</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="75"/>
-        <source>Fingerprint 10</source>
-        <translation>ඇඟිලි සලකුණ 10</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="108"/>
         <source>Scan failed</source>
         <translation>පරිලෝකනය අසාර්ථක විය</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="124"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="181"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="118"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="175"/>
         <source>The fingerprint already exists</source>
         <translation>ඇඟිලි සලකුණ දැනටමත් පවතී</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="125"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="182"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="176"/>
         <source>Please scan other fingers</source>
         <translation>කරුණාකර වෙනත් ඇඟිලි පරිලෝකනය කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="128"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="122"/>
         <source>Unknown error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="129"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="123"/>
         <source>Scan suspended</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="159"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="160"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="195"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="189"/>
         <source>Cannot recognize</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="169"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="185"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="179"/>
         <source>Moved too fast</source>
         <translation>ඉතා වේගයෙන් චලනය විය</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
         <translation>ඇඟිල්ල වේගයෙන් චලනය විය, කරුණාකර විමසන තුරු ඔසවන්න එපා</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="173"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
         <source>Unclear fingerprint</source>
         <translation>අපැහැදිලි ඇඟිලි සලකුණකි</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="174"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="192"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="168"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="186"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>ඔබේ ඇඟිල්ල පිරිසිදු කර හෝ ඇඟිල්ලේ පිහිටීම සකසා නැවත උත්සාහ කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="177"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="171"/>
         <source>Already scanned</source>
         <translation>දැනටමත් පරිලෝකනය කර ඇත</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="178"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="189"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="172"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="183"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>ඔබේ ඇඟිලි සලකුණ සම්පූර්ණයෙන් පරිලෝකනය කිරීමට ඇඟිලි ස්ථානය සකසන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="186"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="180"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
         <translation>ඇඟිල්ල වේගයෙන් චලනය විය, කරුණාකර විමසන තුරු ඔසවන්න එපා</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="196"/>
+        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="190"/>
         <source>Lift your finger and place it on the sensor again</source>
         <translation>ඔබේ ඇඟිල්ල ඔසවා නැවත සංවේදකය මත තබන්න</translation>
     </message>

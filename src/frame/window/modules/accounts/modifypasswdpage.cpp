@@ -302,7 +302,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         return false;
     case _ENUM_PASSWORD_SEVERAL:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %1 of the four available ").arg(m_passwordMinLength).arg(m_validateRequiredString), -1);
+        edit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_passwordMinLength).arg(m_validateRequiredString), -1);
         return false;
     }
 
