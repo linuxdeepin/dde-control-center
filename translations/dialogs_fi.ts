@@ -4,12 +4,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Käynnistä järjestelmä päivityksen jälkeen uudelleen</translation>
+        <translation>Päivityksen jälkeen käynnistä uudelleen</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation>Varmista, että kaikki tiedot on tallennettu ensin</translation>
+        <translation>Varmista ensin, että kaikki tiedot on tallennettu</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
