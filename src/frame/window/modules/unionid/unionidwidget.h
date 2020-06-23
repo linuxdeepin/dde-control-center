@@ -36,15 +36,6 @@ class UnionidModel;
 }
 }
 
-
-
-namespace dcc {
-namespace cloudsync {
-enum SyncType : int;
-enum UniondidState : int;
-}
-}
-
 namespace DCC_NAMESPACE {
 namespace unionid {
 class LoginPage;
