@@ -155,7 +155,7 @@ int main(int argc, char *argv[])
         return QString();
     };
 
-    const QStringList &devices = DDiskManager().blockDevices();
+    const QStringList &devices = DDiskManager::blockDevices({});
     for (const QString &path : devices) {
         QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
         if (device->idUUID() == UUID) {

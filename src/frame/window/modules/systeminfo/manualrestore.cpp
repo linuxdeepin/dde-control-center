@@ -166,9 +166,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
 
     m_tipsLabel->hide();
 
-    QFileDialog* fileDialog = new QFileDialog(this);
-    fileDialog->setFileMode(QFileDialog::Directory);
-    m_directoryChooseWidget->setFileDialog(fileDialog);
+    m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
 
     QString radioButtonStyleSheet("border-style: none; outline: 0px;");
     m_systemRestore->radioButton()->setStyleSheet(radioButtonStyleSheet);
@@ -253,13 +251,11 @@ void ManualRestore::restore()
 
         dialog.setMessage(message);
         dialog.addButton(tr("Cancel"));
-
-        {
-            int result = dialog.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
-            if (dialog.exec() != result) {
-                return;
-            }
+        int buttonIndex = dialog.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
+        if (buttonIndex != dialog.exec()) {
+            return;
         }
+
 
         //don't format data(save user data)
         if (!formatData) {
@@ -268,11 +264,9 @@ void ManualRestore::restore()
             reboot.setMessage(tr("The username created after system restore must be consistent with the one used when backup"));
 
             reboot.addButton(tr("Cancel"));
-            {
-                int result = reboot.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
-                if (reboot.exec() != result) {
-                    return;
-                }
+            buttonIndex = reboot.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
+            if (buttonIndex != reboot.exec()) {
+                return;
             }
         }
 

@@ -52,9 +52,7 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
 
     m_tipsLabel->hide();
 
-    QFileDialog* fileDialog = new QFileDialog(this);
-    fileDialog->setFileMode(QFileDialog::Directory);
-    m_directoryChooseWidget->setFileDialog(fileDialog);
+    m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
 
     connect(model, &BackupAndRestoreModel::backupButtonEnabledChanged, this, [=](bool enable) {
         m_backupBtn->setVisible(enable);
