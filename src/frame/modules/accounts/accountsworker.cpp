@@ -160,7 +160,7 @@ void AccountsWorker::randomUserIcon(User *user)
 
 void AccountsWorker::createAccount(const User *user)
 {
-    qDebug() << "create account " << user;
+    qDebug() << "create account";
     Q_EMIT requestFrameAutoHide(false);
 
     QFutureWatcher<CreationResult*> *watcher = new QFutureWatcher<CreationResult*>(this);
@@ -187,7 +187,7 @@ void AccountsWorker::createAccount(const User *user)
 
 void AccountsWorker::setAvatar(User *user, const QString &iconPath)
 {
-    qDebug() << "set account avatar:" << iconPath;
+    qDebug() << "set account avatar";
     AccountsUser *ui = m_userInters[user];
     Q_ASSERT(ui);
 
@@ -264,8 +264,6 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     }
     process.closeWriteChannel();
     process.waitForFinished();
-
-    qDebug() << Q_FUNC_INFO << process.readAllStandardError() << process.readAllStandardOutput();
 
     Q_EMIT user->passwordModifyFinished(process.exitCode());
 }
@@ -557,7 +555,7 @@ QString AccountsWorker::cryptUserPassword(const QString &password)
     }
 
 #ifdef QT_DEBUG
-    qDebug() << crypt(password.toUtf8().data(), salt);
+    // qDebug() << crypt(password.toUtf8().data(), salt);
 #endif
 
     return crypt(password.toUtf8().data(), salt);

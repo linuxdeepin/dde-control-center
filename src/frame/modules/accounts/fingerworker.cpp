@@ -54,7 +54,6 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     connect(m_SMInter, &SessionManagerInter::LockedChanged, m_model, &FingerModel::lockedChanged);
 
     auto defualtDevice = m_fingerPrintInter->defaultDevice();
-    qDebug() << "defaultDevice:" << defualtDevice;
     m_model->setIsVaild(!defualtDevice.isEmpty());
 }
 
@@ -91,11 +90,11 @@ void FingerWorker::refreshUserEnrollList(const QString &id)
     auto call = m_fingerPrintInter->ListFingers(id);
     call.waitForFinished();
     if (call.isError()) {
-        qDebug() << "m_fingerPrintInter->ListFingers call Error : " << call.error() << "," << id;
+        qDebug() << "m_fingerPrintInter->ListFingers call Error";
         m_model->setThumbsList(QStringList());
         return;
     } else {
-        qDebug() << "m_fingerPrintInter->ListFingers: " << call.value() << "," << id;
+        qDebug() << "m_fingerPrintInter->ListFingers";
     }
     m_model->setThumbsList(call.value());
 }
@@ -106,7 +105,7 @@ void FingerWorker::stopEnroll(const QString& userName)
     auto call = m_fingerPrintInter->StopEnroll();
     call.waitForFinished();
     if (call.isError()) {
-        qDebug() << "call StopEnroll Error : " << call.error();
+        qDebug() << "call StopEnroll Error" << call.error();
     }
     auto callClaim = m_fingerPrintInter->Claim(userName, false);
     callClaim.waitForFinished();
@@ -117,7 +116,6 @@ void FingerWorker::stopEnroll(const QString& userName)
 
 void FingerWorker::deleteFingerItem(const QString& userName, const QString& finger)
 {
-    qDebug() << "deleteFingerItem: " << userName << "," << finger;
     auto call = m_fingerPrintInter->DeleteFinger(userName, finger);
     call.waitForFinished();
     if (call.isError()) {

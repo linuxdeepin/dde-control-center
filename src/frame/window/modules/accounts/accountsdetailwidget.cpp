@@ -521,7 +521,6 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
 
 void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
 {
-    qDebug() << "change edit status : " << sender();
     auto inputFullName = m_inputLineEdit->lineEdit()->text();
 //    m_inputLineEdit->setText(m_curUser->fullname());
     m_inputLineEdit->lineEdit()->selectAll();
