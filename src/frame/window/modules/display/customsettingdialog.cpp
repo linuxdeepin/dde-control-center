@@ -330,7 +330,8 @@ void CustomSettingDialog::initResolutionList()
             item->setText(res);
         }
 
-        if (curMode == m)
+        //+ 使用'=='重载运算符方式比较会有问题，对于分辨率列表只需要比较width和height即可。
+        if (curMode.width() == m.width() && curMode.height() == m.height())
             curIdx = item;
         m_resolutionListModel->appendRow(item);
     }
@@ -425,7 +426,29 @@ void CustomSettingDialog::initConnect()
         auto h = m_resolutionListModel->data(idx, HeightRole).toInt();
         auto id = m_resolutionListModel->data(idx, IdRole).toInt();
 
-        if (m_model->isMerge()) {
+        //+ 对于merge模式需要获取共同的刷新率，这样切换分辨率时才能保证两个显示屏幕使用同样的刷新率，不会出现一个可以正常显示一个黑屏的现象；
+        double rate = 60.0;
+        for (auto m : m_monitor->modeList()) {
+            if (m.width() != w || m.height() != h)
+                continue;
+
+            if (m_model->isMerge()) {
+                bool isCommen = true;
+                for (auto tmonitor : m_model->monitorList()) {
+                    if (!tmonitor->hasResolutionAndRate(m)) {
+                        isCommen = false;
+                        break;
+                    }
+                }
+
+                if (!isCommen)
+                    continue;
+            }
+
+            rate = m.rate();
+        }
+
+        if (m_model->isMerge()) {            
             if (w == m_monitor->currentMode().width()
                     && h == m_monitor->currentMode().height()) {
                 return;
@@ -434,6 +457,7 @@ void CustomSettingDialog::initConnect()
             ResolutionDate res;
             res.w = w;
             res.h = h;
+            res.rate = rate;
             this->requestSetResolution(nullptr, res);
         } else {
             if (id == m_monitor->currentMode().id()) {
@@ -443,6 +467,20 @@ void CustomSettingDialog::initConnect()
             ResolutionDate res;
             res.id = id;
             this->requestSetResolution(m_monitor, res);
+        }
+
+        //+ 切换分辨率后，更新刷新率列表，防止出现刷新率未勾选的情况；
+        initRefreshrateList();
+        
+        const auto curMode = m_monitor->currentMode();
+        for (auto i = 0; i < m_resolutionListModel->rowCount(); i++) {
+            QStandardItem * aitem = m_resolutionListModel->item(i);
+            if (aitem->text().contains(QString::number(curMode.width())) &&
+                aitem->text().contains(QString::number(curMode.height()))) {
+                m_resolutionList->setEnabled(false);
+                aitem->setCheckState(Qt::Checked);
+                m_resolutionList->setEnabled(true);
+            }
         }
     });
     connect(m_rateList, &DListView::clicked, this, [this](QModelIndex idx){
@@ -467,7 +505,7 @@ void CustomSettingDialog::initConnect()
             res.w = w;
             res.h = h;
             res.rate = rate;
-            this->requestSetResolution(nullptr, res);
+            this->requestSetResolution(nullptr, res);            
         } else {
             auto id = lm->data(idx, IdRole).toInt();
             if (id == m_monitor->currentMode().id()) {
@@ -478,6 +516,21 @@ void CustomSettingDialog::initConnect()
             res.id = id;
             qDebug() << "request set resolution to id :" << id;
             this->requestSetResolution(m_monitor, res);
+        }
+
+        //+ 切换刷新率后，更新分辨率列表，防止出现分辨率未勾选的情况；
+        initResolutionList();
+
+        QStandardItemModel *listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
+        const auto curMode = m_monitor->currentMode();
+        int arate = static_cast<int>(curMode.rate());
+        for (auto i = 0; i < listModel->rowCount(); i++) {
+            QStandardItem * aitem = listModel->item(i);
+            if (aitem->text().left(aitem->text().indexOf('.')).contains(QString::number(arate))) {
+                m_rateList->setEnabled(false);
+                aitem->setCheckState(Qt::Checked);
+                m_rateList->setEnabled(true);
+            }
         }
     });
     connect(m_model, &DisplayModel::monitorListChanged, this, [this] {
@@ -552,9 +605,106 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
 }
 
 void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
-{
-    initResolutionList();
-    initRefreshrateList();
+{    
+    auto listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
+
+    //+ 从拆分模式切换到合并模式时，更新刷新率列表，防止出现刷新率未勾选情况；
+    auto moni = m_monitor;
+    QVector<int> alistIndex;
+    for (int i = 0; i < listModel->rowCount(); ++i) {
+        alistIndex.push_back(i);
+    }
+    for (auto m : moni->modeList()) {
+        if (!Monitor::isSameResolution(m, moni->currentMode()))
+            continue;
+
+        if (m_model->isMerge()) {
+            bool isCommen = true;;
+            for (auto tmonitor : m_model->monitorList()) {
+                if (!tmonitor->hasResolutionAndRate(m)) {
+                    isCommen = false;
+                    break;
+                }
+            }
+
+            if (!isCommen)
+                continue;
+        }
+
+        int rate = static_cast<int>(m.rate());
+        for (int i = 0; i < listModel->rowCount(); ++i) {
+            auto tItem = listModel->item(i);
+            if (tItem->text().left(tItem->text().indexOf('.')).contains(QString::number(rate))) {
+                for (int j = 0; j < alistIndex.count(); j++) {
+                    if (alistIndex[j] == i)
+                        alistIndex.remove(j);
+                }
+                break;
+            }
+        }
+    }
+
+    QVector<int> tlistIndex;
+    for (int i = alistIndex.count() - 1; i >= 0; i--) {
+        tlistIndex.append(alistIndex[i]);
+    }
+
+    int tlistCount = tlistIndex.count();
+    if (tlistCount > 0) {
+        tlistCount--;
+        for (int i = listModel->rowCount() - 1; i >= 0; i--) {
+            if (i == tlistIndex[tlistCount]) {
+                listModel->removeRow(i);
+            }
+            else {
+                tlistCount--;
+            }
+        }
+    }
+
+    for (int i = 0; i < listModel->rowCount(); ++i) {
+        auto tItem = listModel->item(i);
+
+        if (tItem->data(IdRole).toInt() == r.id()) {
+            tItem->setData(Qt::CheckState::Checked, Qt::CheckStateRole);
+        } else {
+            tItem->setData(Qt::CheckState::Unchecked, Qt::CheckStateRole);
+        }
+    }
+
+    const auto curMode = m_monitor->currentMode();
+    for (auto i = 0; i < listModel->rowCount(); i++) {
+        QStandardItem * aitem = listModel->item(i);
+        if (aitem->text().contains(QString::number(curMode.rate()))) {
+            m_rateList->setEnabled(false);
+            aitem->setCheckState(Qt::Checked);
+            m_rateList->setEnabled(true);
+        }
+    }
+
+    for (auto idx = 0; idx < m_resolutionListModel->rowCount(); ++idx) {
+        auto item = m_resolutionListModel->item(idx);
+        if (m_model->isMerge()) {
+            auto w = item->data(WidthRole).toInt();
+            auto h = item->data(HeightRole).toInt();
+            auto rate = item->data(RateRole).toDouble();
+
+            if (w == r.width() && h == r.height() && abs(rate - r.rate()) < 1e-5) {
+                item->setCheckState(Qt::Checked);
+            } else {
+                item->setCheckState(Qt::Unchecked);
+            }
+        } else {
+            auto id = item->data(IdRole).toInt();
+
+            if (id == r.id()) {
+                item->setCheckState(Qt::Checked);
+            } else {
+                item->setCheckState(Qt::Unchecked);
+            }
+        }
+    }
+
     resetDialog();
 }
 

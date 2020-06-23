@@ -312,7 +312,8 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
 //                    if (fabs(r) > 0.000001 && fabs(res.rate() - r) > 0.000001) {
 //                        continue;
 //                    }
-                    if (res.width() == w && res.height() == h) {
+                    //+ 应该保证width，height,rate三者一致才能更新分辨率；
+                    if (res.width() == w && res.height() == h && abs(res.rate() - r) < 1e-5) {
                         m_displayWorker->setMonitorResolution(m, res.id());
                         break;
                     }

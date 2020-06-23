@@ -202,7 +202,7 @@ bool Monitor::hasResolution(const Resolution &r)
 bool Monitor::hasResolutionAndRate(const Resolution &r)
 {
     for (auto m : m_modeList) {
-        if ((m.rate() - r.rate()) < 0.000001 &&
+        if (abs(m.rate() - r.rate()) < 0.000001 &&
                 m.width() == r.width() &&
                 m.height() == r.height()) {
             return true;
