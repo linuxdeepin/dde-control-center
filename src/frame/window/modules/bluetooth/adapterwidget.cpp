@@ -296,8 +296,9 @@ void AdapterWidget::removeDevice(const QString &deviceId)
             if (*it) {
                 delete *it;
             }
-            m_myDevices.removeOne(*it);
-            m_deviceLists.removeOne(*it);
+            DeviceSettingsItem *tmpItem = *it;
+            m_myDevices.removeAll(tmpItem);
+            m_deviceLists.removeAll(tmpItem);
             Q_EMIT notifyRemoveDevice();
             isFind = true;
             break;
@@ -313,7 +314,8 @@ void AdapterWidget::removeDevice(const QString &deviceId)
                 if (*it) {
                     delete *it;
                 }
-                m_deviceLists.removeOne(*it);
+                DeviceSettingsItem *tmpItem = *it;
+                m_deviceLists.removeAll(tmpItem);
                 Q_EMIT notifyRemoveDevice();
                 break;
             }
