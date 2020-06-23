@@ -71,7 +71,7 @@ const QList<ColorStru> ACTIVE_COLORST = {
     {248, 99, 44},
     {248, 225, 44},
     {65, 222, 0},
-    {44, 248, 237},
+    {0, 164, 138},
     {44, 167, 248},
     {65, 44, 248},
     {171, 44, 248},
@@ -117,9 +117,9 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         color.setRgb(aColor.r, aColor.g, aColor.b);
         RoundColorWidget *colorItem = new RoundColorWidget(color, this);
         QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect;
-        effect->setBlurRadius(15);        // 阴影圆角的大小
+        effect->setBlurRadius(17);        // 阴影圆角的大小
 
-        color.setAlpha(102);
+        color.setAlpha(68);
         effect->setColor(color);      //阴影的颜色
         effect->setOffset(0,5);
         colorItem->setGraphicsEffect(effect);
