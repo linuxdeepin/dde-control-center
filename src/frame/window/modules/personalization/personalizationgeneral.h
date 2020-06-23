@@ -53,6 +53,28 @@ namespace DCC_NAMESPACE {
 namespace personalization {
 class PerssonalizationThemeWidget;
 class RoundColorWidget;
+
+class RingColorWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit RingColorWidget(QWidget *parent = nullptr) : m_selectedItem(nullptr){}
+    virtual ~RingColorWidget() {}
+
+    void setSelectedItem(RoundColorWidget* item)
+    {
+        m_selectedItem = item;
+    }
+
+    static const int EXTRA = 2; //2px extra space to avoid line cutted off
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+
+private:
+    RoundColorWidget* m_selectedItem;
+};
+
 class PersonalizationGeneral : public QWidget
 {
     Q_OBJECT
@@ -93,7 +115,7 @@ private:
     dcc::personalization::PersonalizationModel *m_model;
     PerssonalizationThemeWidget *m_Themes;
     QList<RoundColorWidget *> m_activeColorsList;
-    QWidget *m_bgWidget;
+    RingColorWidget *m_bgWidget;
     QWidget *m_switchWidget;
     bool m_bSystemIsServer;
 };

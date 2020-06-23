@@ -82,16 +82,7 @@ void RoundColorWidget::paintEvent(QPaintEvent *event)
 
     if (delta != 0)
         squareRect = (delta > 0) ? squareRect.adjusted(delta + EXTRA, EXTRA, -delta - EXTRA, -EXTRA)
-                                 : squareRect.adjusted(EXTRA, -delta + EXTRA , -EXTRA, delta - EXTRA); //adjust it to square
-
-    if (m_isSelected) {
-        //draw select circle
-        QPen pen;
-        pen.setBrush(palette().highlight());
-        pen.setWidth(borderWidth);  //pen width
-        painter.setPen(pen);
-        painter.drawEllipse(squareRect);
-    }
+                                 : squareRect.adjusted(EXTRA, -delta + EXTRA , -EXTRA, delta - EXTRA);
 
     QPainterPath path;
     QRect r = squareRect.adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
