@@ -111,6 +111,14 @@ void ManualBackup::onManualBackupErrorTypeChanged(ErrorType type)
         m_tipsLabel->setText(tr("Invalid path"));
         break;
     }
+    case ErrorType::SpaceError: {
+        m_tipsLabel->setText(tr("Insufficient disk space"));
+        break;
+    }
+    case ErrorType::FsError: {
+        m_tipsLabel->setText(tr("Only storage devices in EXT4, NTFS format are supported"));
+        break;
+    }
     case ErrorType::ToolError: {
         m_tipsLabel->setText(tr("Tool execution error"));
         break;

@@ -22,6 +22,9 @@ endif ()
 
 set(SRCS
     main.cpp
+    command.cpp
+    filesystem.cpp
+    partitionusage.cpp
 )
 
 # Find the library

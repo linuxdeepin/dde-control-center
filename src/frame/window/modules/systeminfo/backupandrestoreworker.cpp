@@ -9,6 +9,7 @@
 #include <QtConcurrent>
 #include <DDialog>
 #include <QScopedPointer>
+#include <QStorageInfo>
 
 DWIDGET_USE_NAMESPACE
 
@@ -87,9 +88,21 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
         return ErrorType::PathError;
     }
 
+    //check choosePath file system type
+    QStringList fileSystems{"ext4", "ntfs"};
+    QStorageInfo storageInfo(choosePath);
+    if (!fileSystems.contains(storageInfo.fileSystemType().toLower())) {
+        return ErrorType::FsError;
+    }
+
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << m_model->backupDirectory());
-    process->waitForFinished(-1);
+    process->waitForFinished();
+
+    //choosePath don't have enough space
+    if (process->exitCode() == 5) {
+        return ErrorType::SpaceError;
+    }
 
     if (process->exitCode() != 0) {
         return ErrorType::ToolError;
@@ -135,7 +148,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
 
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_restore" << "--path" << selectPath);
-    process->waitForFinished(-1);
+    process->waitForFinished();
 
     if (process->exitCode() != 0) {
         qWarning() << Q_FUNC_INFO << "restore tool run failed!";
@@ -167,7 +180,7 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
 
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
-    process->waitForFinished(-1);
+    process->waitForFinished();
 
     if (process->exitCode() != 0) {
         qWarning() << Q_FUNC_INFO << "restore tool run failed!";

@@ -261,20 +261,18 @@ void ManualRestore::restore()
             }
         }
 
-        DDialog reboot;
+        //don't format data(save user data)
+        if (!formatData) {
+            DDialog reboot;
 
-        if (formatData) {
-            reboot.setMessage(tr("You should reboot the computer to erase all content and settings, reboot now?"));
-        }
-        else {
-            reboot.setMessage(tr("You should reboot the computer to reset all settings, reboot now?"));
-        }
+            reboot.setMessage(tr("The username created after system restore must be consistent with the one used when backup"));
 
-        reboot.addButton(tr("Cancel"));
-        {
-            int result = reboot.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
-            if (reboot.exec() != result) {
-                return;
+            reboot.addButton(tr("Cancel"));
+            {
+                int result = reboot.addButton(tr("Confirm"), true, DDialog::ButtonWarning);
+                if (reboot.exec() != result) {
+                    return;
+                }
             }
         }
 

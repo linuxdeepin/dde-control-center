@@ -18,6 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include "partitionusage.h"
 
 #include <QCoreApplication>
 #include <QCommandLineParser>
@@ -213,6 +214,36 @@ int main(int argc, char *argv[])
 
         rootUUID = getUUID("/");
         bootUUID = getUUID("/boot");
+    }
+
+    //check target path space
+    if (actionType == ActionType::ManualBackup) {
+        QString diskDrive;
+        //get disk drive
+        for (const QString &path : devices) {
+           QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
+           if (device->idUUID() == dataUUID) {
+               diskDrive = device->drive();
+               break;
+           }
+        }
+
+        //check disk usage
+        qint64 usage = 0;
+        qint64 freespace = 0;
+        qint64 total = 0;
+        for (const QString &path : devices) {
+           QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
+           if (device->drive() != diskDrive || device->idType().isEmpty())
+               continue;
+           ReadUsage(device->device().replace('\x00', ""), GetFsTypeByName(device->idType()), freespace, total);
+           usage += total - freespace;
+        }
+
+        if (QStorageInfo (absolutePath).bytesFree() < usage) {
+           qWarning() << "target path don't have enough space";
+           return 5;
+        }
     }
 
     QJsonObject fstabObj{ { "boot", QString("UUID:%1").arg(bootUUID) },
