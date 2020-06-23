@@ -245,6 +245,7 @@ int ModifyPasswdPage::verifyPassword(const QString &password)
         if (!ret) {
             return _ENUM_PASSWORD_CHARACTER;
         }
+        return _ENUM_PASSWORD_SUCCESS;
     }
 }
 

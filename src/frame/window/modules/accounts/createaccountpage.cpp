@@ -426,6 +426,7 @@ int CreateAccountPage::verifyPassword(const QString &password)
         if (!ret) {
             return ENUM_PASSWORD_CHARACTER;
         }
+        return ENUM_PASSWORD_SUCCESS;
     }
 }
 

@@ -37,7 +37,7 @@ static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision
     double dc = cap;
     double ds = size;
 
-    for(size_t p = 0; p < type.count(); ++p) {
+    for(int p = 0; p < type.count(); ++p) {
         if (cap < pow(size, p + 1) || p == type.count() - 1) {
             if (!precision) {
                 return QString::number(round(lc / pow(size, p))) + type[p];
