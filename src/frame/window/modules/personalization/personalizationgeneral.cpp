@@ -86,7 +86,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     , m_transparentSlider(nullptr)
     , m_cmbMiniEffect(new ComboxWidget)
     , m_Themes(new PerssonalizationThemeWidget())
-    , m_bgWidget(new QWidget)
+    , m_bgWidget(new RingColorWidget)
     , m_switchWidget(new QWidget)
 {
     m_centralLayout->setMargin(0);
@@ -262,6 +262,7 @@ void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget
 {
     for (RoundColorWidget *item : m_activeColorsList) {
         if (item == selectedWidget) {
+            m_bgWidget->setSelectedItem(item);
             item->setSelected(true);
         } else {
             item->setSelected(false);
@@ -317,8 +318,41 @@ void PersonalizationGeneral::onActiveColorClicked()
 {
     RoundColorWidget *activeColor = qobject_cast<RoundColorWidget *>(sender());
 
+    RoundColorWidget* pItem = dynamic_cast<RoundColorWidget*>(sender());
+    if(nullptr != pItem)
+        m_bgWidget->setSelectedItem(pItem);
     //设置active color
     QString strColor = ACTIVE_COLORS[m_activeColorsList.indexOf(activeColor)];
     qDebug() << Q_FUNC_INFO << " strColor : " << strColor;
     Q_EMIT requestSetActiveColor(strColor);
+}
+
+void RingColorWidget::paintEvent(QPaintEvent *event)
+{
+    QWidget::paintEvent(event);
+    if(nullptr == m_selectedItem)
+        return;
+
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+
+    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, this);
+    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, this);
+    int totalSpace = borderWidth + borderSpacing;
+    QRect squareRect = rect();
+    int delta = (squareRect.width() - squareRect.height())/2;
+
+    if (delta != 0)
+        squareRect = (delta > 0) ? squareRect.adjusted(delta + EXTRA, EXTRA, -delta - EXTRA, -EXTRA)
+                                 : squareRect.adjusted(EXTRA, -delta + EXTRA , -EXTRA, delta - EXTRA);
+
+        //draw select circle
+        QPen pen;
+        pen.setBrush(palette().highlight());
+        pen.setWidth(borderWidth);  //pen width
+        painter.setPen(pen);
+        QRect rc = m_selectedItem->geometry();
+        QPoint center = rc.center();
+        painter.drawEllipse(QRect(rc.center().x() - 14, rc.center().y() - 14, 30, 30));
+        painter.setRenderHint(QPainter::SmoothPixmapTransform);
 }
