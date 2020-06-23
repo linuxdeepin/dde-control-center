@@ -65,6 +65,10 @@ struct ColorStru {
     int r = 0;
     int g = 0;
     int b = 0;
+    bool operator==(const ColorStru b) const
+    {
+        return (b.r == this->r && b.g == this->g && b.b == this->b);
+    }
 };
 
 const QList<ColorStru> ACTIVE_COLORST = {
@@ -126,6 +130,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         effect->setColor(color);      //阴影的颜色
         effect->setOffset(0,5);
         colorItem->setGraphicsEffect(effect);
+        colorItem->setAccessibleName(ACTIVE_COLORS[ACTIVE_COLORST.indexOf(aColor)]);
         DPalette pa = colorItem->palette();
         pa.setBrush(DPalette::Base, color);
         colorItem->setPalette(pa);
