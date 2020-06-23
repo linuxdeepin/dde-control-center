@@ -81,15 +81,14 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
 
 
     options.clear();
-    for (int i = 0; i <= 15; i++) {
+    for (int i = 0; i <= 9; i++) {
         options.append(QString());
     }
-    options[0] = "10%";
-    options[5] = "15%";
-    options[10] = "20%";
-    options[15] = "25%";
+    options[0] = "16%";
+    options[4] = "20%";
+    options[9] = "25%";
     m_sldLowBatteryHint->setAnnotations(options);
-    m_sldLowBatteryHint->slider()->setRange(10, 25);
+    m_sldLowBatteryHint->slider()->setRange(16, 25);
     m_sldLowBatteryHint->slider()->setType(DCCSlider::Vernier);
     m_sldLowBatteryHint->slider()->setTickPosition(QSlider::NoTicks);
 
