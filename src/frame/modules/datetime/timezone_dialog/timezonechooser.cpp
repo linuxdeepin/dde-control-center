@@ -84,13 +84,11 @@ TimeZoneChooser::TimeZoneChooser()
     m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
     m_blurEffect->setMaskColor(Qt::black);
 
-    DDialogCloseButton *closeButton = new DDialogCloseButton;
 
     QHBoxLayout *wbLayout = new QHBoxLayout;
     wbLayout->setMargin(6);
     wbLayout->setSpacing(0);
     wbLayout->addStretch();
-    wbLayout->addWidget(closeButton);
 
     QHBoxLayout *hLayout = new QHBoxLayout;
     hLayout->addStretch();
@@ -116,12 +114,6 @@ TimeZoneChooser::TimeZoneChooser()
     connect(m_confirmBtn, &DSuggestButton::clicked, [this] {
         QString zone = m_map->getTimezone();
         Q_EMIT confirmed(zone);
-    });
-
-    connect(closeButton, &DDialogCloseButton::clicked, this, [this] {
-        Q_EMIT cancelled();
-
-        close();
     });
 
     connect(m_cancelBtn, &QPushButton::clicked, this, [this] {
