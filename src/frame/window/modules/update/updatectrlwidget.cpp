@@ -246,6 +246,10 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 
     switch (m_status) {
     case UpdatesStatus::Default:
+        m_checkUpdateItem->setVisible(true);
+        m_checkUpdateItem->setMessage(tr("Your system is up to date"));
+        m_checkUpdateItem->setImageOrTextVisible(true);
+        m_checkUpdateItem->setSystemVersion(m_systemVersion);
         showCheckButton(tr("Check for Updates"));
         break;
     case UpdatesStatus::NoAtive:
@@ -269,10 +273,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         setDownloadInfo(m_model->downloadInfo());
         setLowBattery(m_model->lowBattery());
         setShowInfo(m_model->systemActivation());
-        m_checkUpdateBtn->setText(tr("Check Again"));
-        m_checkUpdateBtn->setVisible(true);
-        m_lastCheckTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
-        m_lastCheckTimeTip->setVisible(true);
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
