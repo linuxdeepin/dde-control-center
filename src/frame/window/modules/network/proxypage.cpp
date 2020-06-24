@@ -169,15 +169,13 @@ ProxyPage::ProxyPage(QWidget *parent)
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
     connect(tabNoneBtn, &QPushButton::clicked, m_buttonTuple->rightButton(), &QPushButton::clicked);
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, [this] {
-        onProxyChanged("http", m_model->proxy("http"));
-        onProxyChanged("https", m_model->proxy("https"));
-        onProxyChanged("ftp", m_model->proxy("ftp"));
-        onProxyChanged("socks", m_model->proxy("socks"));
-    });
-    connect(m_autoUrl->dTextEdit(), &DLineEdit::editingFinished, this, [this] {
-        if (m_autoUrl->dTextEdit()->text() != m_model->autoProxy())
-        {
-            applySettings();
+        if (m_proxyTabs->checkedId() == 1) {
+            onProxyChanged("http", m_model->proxy("http"));
+            onProxyChanged("https", m_model->proxy("https"));
+            onProxyChanged("ftp", m_model->proxy("ftp"));
+            onProxyChanged("socks", m_model->proxy("socks"));
+        } else {
+            m_autoUrl->setText(m_model->autoProxy());
         }
     });
 
@@ -262,21 +260,25 @@ void ProxyPage::onProxyToggled(const int index)
     // refersh ui
     m_manualWidget->setVisible(index == 1);
     m_autoWidget->setVisible(index == 2);
-    m_buttonTuple->setVisible(index == 1);
+    m_buttonTuple->setVisible(index == 1 || index == 2);
 
     setFocus();
 }
 
 void ProxyPage::applySettings() const
 {
-    Q_EMIT requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
-    Q_EMIT requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
-    Q_EMIT requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
-    Q_EMIT requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
+    if (m_proxyTabs->checkedId() == 1) {
+        Q_EMIT requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
+        Q_EMIT requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
+        Q_EMIT requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
+        Q_EMIT requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
 
-    Q_EMIT requestSetIgnoreHosts(m_ignoreList->toPlainText());
+        Q_EMIT requestSetIgnoreHosts(m_ignoreList->toPlainText());
+    }
 
-    Q_EMIT requestSetAutoProxy(m_autoUrl->text());
+    if (m_proxyTabs->checkedId() == 2) {
+        Q_EMIT requestSetAutoProxy(m_autoUrl->text());
+    }
 
     Q_EMIT requestSetProxyMethod(ProxyMethodList[m_proxyTabs->checkedId()]);
 }
