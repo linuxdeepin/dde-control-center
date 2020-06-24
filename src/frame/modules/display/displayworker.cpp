@@ -570,16 +570,11 @@ void DisplayWorker::setUiScale(const double value)
     QDBusPendingCall call = m_appearanceInter->SetScaleFactor(rv);
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
-        if (call.isError())
-        {
-            qWarning() << call.error();
-        } else
-        {
-            m_model->setUIScale(rv);
-        }
-        watcher->deleteLater();
-    });
+    watcher->waitForFinished();
+    if (!watcher->isError()) {
+        m_model->setUIScale(rv);
+    }
+    watcher->deleteLater();
 }
 
 void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
