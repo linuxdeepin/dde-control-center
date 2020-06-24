@@ -406,16 +406,17 @@ int CreateAccountPage::verifyPassword(const QString &password)
         } else if (password.size() > 0 && password.size() < m_passwordMinLength) {
             return ENUM_PASSWORD_TOOSHORT;
         } else if (passwordCompositionType(validate_policy, password) < m_validate_Required) {
-            return ENUM_PASSWORD_TYPE;
-        } else if (passwordCompositionType(validate_policy, password) < m_validate_Required && password.size() < m_passwordMinLength ) {
-            return ENUM_PASSWORD_SEVERAL;
-        } else if (passwordCompositionType(validate_policy, password) < m_validate_Required && (!(password.split("").toSet() - validate_policy.join("").split("").toSet())
-                                                              .isEmpty()) ) {
-            return ENUM_PASSWORD_CHARACTER;
+            if (password.size() < m_passwordMinLength) {
+                return ENUM_PASSWORD_SEVERAL;
+            } else if (!(password.split("").toSet() - validate_policy.join("").split("").toSet()).isEmpty()) {
+                return ENUM_PASSWORD_CHARACTER;
+            } else {
+                return ENUM_PASSWORD_TYPE;
+            }
         } else if (password.size() > m_passwordMaxLength) {
             return ENUM_PASSWORD_TOOLONG;
         } else if (!containsChar(password, validate_policy_string)) {
-                    return ENUM_PASSWORD_CHARACTER;
+            return ENUM_PASSWORD_CHARACTER;
         } else {
             return ENUM_PASSWORD_SUCCESS;
         }

@@ -342,22 +342,13 @@ void RingColorWidget::paintEvent(QPaintEvent *event)
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
     int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, this);
-    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, this);
-    int totalSpace = borderWidth + borderSpacing;
-    QRect squareRect = rect();
-    int delta = (squareRect.width() - squareRect.height())/2;
 
-    if (delta != 0)
-        squareRect = (delta > 0) ? squareRect.adjusted(delta + EXTRA, EXTRA, -delta - EXTRA, -EXTRA)
-                                 : squareRect.adjusted(EXTRA, -delta + EXTRA , -EXTRA, delta - EXTRA);
-
-        //draw select circle
-        QPen pen;
-        pen.setBrush(palette().highlight());
-        pen.setWidth(borderWidth);  //pen width
-        painter.setPen(pen);
-        QRect rc = m_selectedItem->geometry();
-        QPoint center = rc.center();
-        painter.drawEllipse(QRect(rc.center().x() - 14, rc.center().y() - 14, 30, 30));
-        painter.setRenderHint(QPainter::SmoothPixmapTransform);
+    //draw select circle
+    QPen pen;
+    pen.setBrush(palette().highlight());
+    pen.setWidth(borderWidth);  //pen width
+    painter.setPen(pen);
+    QRect rc = m_selectedItem->geometry();
+    painter.drawEllipse(QRect(rc.center().x() - 14, rc.center().y() - 14, 30, 30));
+    painter.setRenderHint(QPainter::SmoothPixmapTransform);
 }
