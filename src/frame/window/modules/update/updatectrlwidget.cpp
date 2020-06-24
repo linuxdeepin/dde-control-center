@@ -182,6 +182,34 @@ void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo> &infos)
     }
     //在只有一个更新的时候,为防止item过度的拉伸
     m_summaryGroup->getLayout()->addStretch();
+
+    // 更新应用列表的 重新检查按钮 和 更新时间标签 放到列表窗口内
+    QWidget *content = new QWidget;
+    QVBoxLayout *vLayout = new QVBoxLayout(content);
+    vLayout->addSpacing(20);
+    QPushButton *checkBtn = new QPushButton(tr("Check Again"));
+    checkBtn->setFixedSize(300, 36);
+    vLayout->addWidget(checkBtn, 0, Qt::AlignHCenter);
+
+    // 只有还未进行下载状态，按钮可用，其他正在下载、暂停、安装、备份等都禁用
+    if (m_status != UpdatesStatus::UpdatesAvailable) {
+        checkBtn->setEnabled(false);
+    }
+
+    // 点击后重新检查更新
+    connect(checkBtn, &QPushButton::clicked, m_model, &UpdateModel::beginCheckUpdate);
+    // 启动下载之后，按钮灰化，不再允许重新检查
+    connect(m_fullProcess, &DownloadProgressBar::clicked, checkBtn, [=] {
+        checkBtn->setEnabled(false);
+    });
+
+    // 更新时间标签初始化
+    m_model->updateCheckUpdateTime();
+    TipsLabel *lastTimeTip = new TipsLabel;
+    lastTimeTip->setAlignment(Qt::AlignCenter);
+    lastTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
+    vLayout->addWidget(lastTimeTip);
+    m_summaryGroup->insertWidget(content);
 }
 
 void UpdateCtrlWidget::onProgressBarClicked()
@@ -242,6 +270,10 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 
     switch (m_status) {
     case UpdatesStatus::Default:
+        m_checkUpdateItem->setVisible(true);
+        m_checkUpdateItem->setMessage(tr("Your system is up to date"));
+        m_checkUpdateItem->setImageOrTextVisible(true);
+        m_checkUpdateItem->setSystemVersion(m_systemVersion);
         showCheckButton(tr("Check for Updates"));
         break;
     case UpdatesStatus::NoAtive:
@@ -265,10 +297,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         setDownloadInfo(m_model->downloadInfo());
         setLowBattery(m_model->lowBattery());
         setShowInfo(m_model->systemActivation());
-        m_checkUpdateBtn->setText(tr("Check Again"));
-        m_checkUpdateBtn->setVisible(true);
-        m_lastCheckTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
-        m_lastCheckTimeTip->setVisible(true);
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
