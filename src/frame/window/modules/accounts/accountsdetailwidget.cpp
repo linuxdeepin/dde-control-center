@@ -91,14 +91,15 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 void AccountsDetailWidget::setFingerModel(FingerModel *model)
 {
     m_model = model;
+    m_fingerWidget->setVisible(!IsServerSystem);
     m_fingerWidget->setFingerModel(model);
     connect(model, &FingerModel::vaildChanged, this, [this](const bool isVaild) {
-        if (!IsServerSystem && m_curUser->isCurrentUser()) {
-            m_fingerWidget->setVisible(isVaild);
+        if (m_curUser->isCurrentUser()) {
+            m_fingerWidget->setVisible(!IsServerSystem && isVaild);
         }
     });
-    if (!IsServerSystem && m_curUser->isCurrentUser()) {
-        m_fingerWidget->setVisible(model->isVaild());
+    if (m_curUser->isCurrentUser()) {
+        m_fingerWidget->setVisible(!IsServerSystem && model->isVaild());
     }
 }
 
@@ -385,7 +386,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
-    m_fingerWidget->setVisible(isCurUser);
+    m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
 
     //服务器版本不显示自动登录，无密码登录
     loginGrp->setVisible(!IsServerSystem);
