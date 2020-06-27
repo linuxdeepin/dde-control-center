@@ -149,7 +149,7 @@ void ChainsProxyPage::onCheckValue()
     m_password->setIsErr(false);
 
     // if address and port is empty,remove config file
-    if (m_addr->text().isEmpty() && m_port->text().isEmpty()) {
+    if (m_addr->text().isEmpty() && m_port->text() == "0") {
         ProxyConfig config;
         config.port = 0;
         config.url.clear();
