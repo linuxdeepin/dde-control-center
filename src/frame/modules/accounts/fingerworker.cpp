@@ -60,6 +60,7 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
 FingerWorker::EnrollResult FingerWorker::tryEnroll(const QString &name, const QString &thumb)
 {
     m_fingerPrintInter->setTimeout(1000 * 60 * 60);
+    qDebug() << "PreAuthEnroll()";
     auto call = m_fingerPrintInter->PreAuthEnroll();
     call.waitForFinished();
     if (call.isError()) {

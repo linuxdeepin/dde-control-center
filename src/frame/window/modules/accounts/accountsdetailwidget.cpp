@@ -90,7 +90,6 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 void AccountsDetailWidget::setFingerModel(FingerModel *model)
 {
     m_model = model;
-    m_fingerWidget->setVisible(!IsServerSystem);
     m_fingerWidget->setFingerModel(model);
     connect(model, &FingerModel::vaildChanged, this, [this](const bool isVaild) {
         if (m_curUser->isCurrentUser()) {
