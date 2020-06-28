@@ -215,7 +215,7 @@ void WiredPage::createNewConnection()
 
 void WiredPage::activateConnection(const QString &connectionPath)
 {
-    qDebug() << "devPath:" << m_device->path() << ", uuid:" << m_model->connectionUuidByPath(connectionPath);
+    qDebug() << Q_FUNC_INFO;
     Q_EMIT requestActiveConnection(m_device->path(), m_model->connectionUuidByPath(connectionPath));
 }
 
