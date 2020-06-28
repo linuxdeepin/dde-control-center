@@ -71,8 +71,8 @@ const QString DisplayModule::displayName() const
 
 void DisplayModule::active()
 {
-    m_displayWidget = new DisplayWidget;
-    m_displayWidget->setModel(m_displayModel);
+    m_displayWidget = new DisplayWidget(m_displayModel);
+    m_displayWidget->setModel();
 
     connect(m_displayWidget, &DisplayWidget::requestShowScalingPage,
             this, &DisplayModule::showScalingPage);

@@ -37,7 +37,7 @@ using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 #define GSETTINGS_SHOW_MUTILSCREEN "show-multiscreen"
 
-DisplayWidget::DisplayWidget(QWidget *parent)
+DisplayWidget::DisplayWidget(dcc::display::DisplayModel *model, QWidget *parent)
     : QWidget(parent)
     , m_rotate(new DFloatingButton(this))
     , m_centralLayout(new QVBoxLayout(this))
@@ -45,6 +45,7 @@ DisplayWidget::DisplayWidget(QWidget *parent)
     , m_multiModel(new QStandardItemModel(this))
     , m_singleModel(new QStandardItemModel(this))
 {
+    m_model = model;
     setObjectName("Display");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -55,19 +56,18 @@ DisplayWidget::DisplayWidget(QWidget *parent)
     initMenuUI();
 }
 
-void DisplayWidget::setModel(DisplayModel *model)
+void DisplayWidget::setModel()
 {
-    m_model = model;
-    m_isMultiScreen = model->monitorList().size() > 1;
+    m_isMultiScreen = m_model->monitorList().size() > 1;
 
     connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onMonitorListChanged);
     connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onMonitorListChanged);
     connect(m_model, &DisplayModel::configCreated, this, &DisplayWidget::requestShowCustomConfigPage);
 
     //确保第一次进入onMonitorListChanged会命中一个判断
-    m_isMultiScreen = model->monitorList().size() <= 1;
+    m_isMultiScreen = m_model->monitorList().size() <= 1;
     onMonitorListChanged();
-    if (model->isRefreshRateEnable() == false) {
+    if (m_model->isRefreshRateEnable() == false) {
         for (int i = 0; i < m_singleModel->rowCount(); i++) {
             if (m_singleModel->item(i)->text() == tr("Refresh Rate")) {
                 m_singleModel->removeRow(i);
@@ -80,7 +80,7 @@ int DisplayWidget::showPath(const QString &path)
 {
     if (((path == "Resolution" || path == "Refresh Rate") && m_model->monitorList().size() > 1) ||
         path == "Customize") {
-        Q_EMIT this->requestShowCustomConfigPage();
+        Q_EMIT requestShowCustomConfigPage();
         m_currentIdx = m_menuList->model()->index(0, 0);
         m_menuList->setCurrentIndex(m_currentIdx);
         return 0;
@@ -137,6 +137,18 @@ void DisplayWidget::initMenuUI()
         {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
         {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
     };
+
+    auto mons = m_model->monitorList();
+    for (auto monitor : mons) {
+       if (!monitor->canBrightness()) {
+           mons.removeOne(monitor);
+       }
+    }
+
+    if (mons.count() == 0) {
+       m_multMenuList.removeAt(1);
+       m_singleMenuList.removeAt(1);
+    }
 
     if (!IsServerSystem) {
         //~ contents_path /display/Display Scaling

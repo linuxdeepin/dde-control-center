@@ -56,10 +56,10 @@ class DisplayWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DisplayWidget(QWidget *parent = nullptr);
+    explicit DisplayWidget(dcc::display::DisplayModel *model, QWidget *parent = nullptr);
 
 public:
-    void setModel(dcc::display::DisplayModel *model);
+    void setModel();
     int showPath(const QString &path);
     QPoint getRotateBtnPos();
     inline bool isMultiMode() const { return m_isMultiScreen; }

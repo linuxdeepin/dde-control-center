@@ -117,6 +117,7 @@ private:
 private:
     DisplayModel *m_model;
     DisplayInter m_displayInter;
+    QDBusInterface *m_displayDBusInter;
     QGSettings *m_dccSettings;
     AppearanceInter *m_appearanceInter;
     QMap<Monitor *, MonitorInter *> m_monitors;

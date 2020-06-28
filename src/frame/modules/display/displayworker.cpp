@@ -59,12 +59,13 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     m_appearanceInter->setSync(isSync);
 
     model->setPrimary(m_displayInter.primary());
-    QDBusInterface monitorList("com.deepin.daemon.Display",
+    m_displayDBusInter = new QDBusInterface("com.deepin.daemon.Display",
                                "/com/deepin/daemon/Display",
                                "com.deepin.daemon.Display",
                                QDBusConnection::sessionBus());
-    auto reply = monitorList.property("Monitors");
+    auto reply = m_displayDBusInter->property("Monitors");
     onMonitorListChanged(reply.value<QList<QDBusObjectPath>>());
+
     model->setDisplayMode(m_displayInter.displayMode());
     model->setTouchscreenList(m_displayInter.touchscreens());
     model->setTouchMap(m_displayInter.touchMap());
@@ -666,7 +667,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
 
     connect(inter, &MonitorInter::CurrentModeChanged, this,  [ = ] (Resolution  value) {
-        if(value.id() == 0) {
+        if (value.id() == 0) {
             return ;
         }
         auto maxWScale = value.width() / 1024.0;
@@ -688,7 +689,8 @@ void DisplayWorker::monitorAdded(const QString &path)
     // NOTE: DO NOT using async dbus call. because we need to have a unique name to distinguish each monitor
     Q_ASSERT(inter->isValid());
     mon->setName(inter->name());
-
+    QDBusReply<bool> reply = m_displayDBusInter->call("CanSetBrightness", inter->name());
+    mon->setCanBrightness(reply.value());
     mon->setMonitorEnable(inter->enabled());
     mon->setPath(path);
     mon->setX(inter->x());

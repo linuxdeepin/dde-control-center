@@ -154,6 +154,12 @@ void BrightnessPage::setAdjustCCTmode(int mode)
 void BrightnessPage::addSlider()
 {
     auto monList = m_displayModel->monitorList();
+    for (auto monitor : monList) {
+        if (!monitor->canBrightness()) {
+            monList.removeOne(monitor);
+        }
+    }
+
     TitleLabel *headTitle = new TitleLabel(tr("Brightness"));     //亮度
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);
     QVBoxLayout *m_headTitleLayout = new QVBoxLayout;

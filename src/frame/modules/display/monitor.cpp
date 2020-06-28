@@ -33,6 +33,7 @@ Monitor::Monitor(QObject *parent)
     : QObject(parent)
     , m_scale(-1.0)
     , m_brightness(1.0)
+    , m_canBrightness(true)
 {
 
 }
@@ -129,6 +130,11 @@ void Monitor::setBrightness(const double brightness)
 void Monitor::setName(const QString &name)
 {
     m_name = name;
+}
+
+void Monitor::setCanBrightness(bool canBrightness)
+{
+    m_canBrightness = canBrightness;
 }
 
 void Monitor::setPath(const QString &path)
