@@ -323,7 +323,7 @@ void VpnPage::changeVpnId()
             qDebug() << "error occurred while updating the connection" << reply.error();
             return;
         }
-        qDebug() << "importName: " << connSettings->id() << " changeName: " << changeName;
+        qDebug() << "find Connection By Uuid is success";
         return;
     }
 }
@@ -353,7 +353,6 @@ void VpnPage::importVPN()
         return;
 
     const auto args = QStringList { "connection", "import", "type", vpnConfigType(file.path()), "file", file.path() };
-    qDebug() << args;
 
     QProcess p;
     p.start("nmcli", args);
@@ -386,7 +385,7 @@ void VpnPage::importVPN()
         m_editingConnUuid = match.captured();
         m_editingConnUuid.replace("(", "");
         m_editingConnUuid.replace(")", "");
-        qDebug() << "m_editingConnUuid is " << m_editingConnUuid;
+        qDebug() << "editing connection Uuid";
         QTimer::singleShot(10, this, &VpnPage::changeVpnId);
     }
 }

@@ -249,7 +249,7 @@ void ConnectionVpnEditPage::exportConnConfig()
         file.append(".conf");
 
     const auto args = QStringList() << "connection" << "export" << uuid << file;
-    qDebug() << Q_FUNC_INFO << args;
+    qDebug() << Q_FUNC_INFO;
 
     QProcess p;
     p.start("nmcli", args);

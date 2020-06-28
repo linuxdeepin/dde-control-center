@@ -74,7 +74,7 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
     } else {
         m_connection = findConnectionByUuid(m_connectionUuid);
         if (!m_connection) {
-            qDebug() << "can't find connection by uuid:" << m_connectionUuid;
+            qDebug() << "can't find connection by uuid";
             return;
         }
         m_connectionSettings = m_connection->settings();
