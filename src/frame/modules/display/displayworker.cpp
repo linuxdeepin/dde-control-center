@@ -672,7 +672,7 @@ void DisplayWorker::monitorAdded(const QString &path)
         auto maxWScale = value.width() / 1024.0;
         auto maxHScale = value.height() / 768.0;
         auto maxScale = maxWScale < maxHScale ? maxWScale : maxHScale;
-        if((maxScale - m_model->uiScale()) < 0.01 && maxScale >= 1.0) {
+        if ((m_model->uiScale() - maxScale) > 0.01 && maxScale >= 1.0) {
             double scale =1.0;
             for (int idx = 0; idx * 0.25 + 1.0 <= maxScale; ++idx) {
                 scale = idx * 0.25 + 1.0 ;
