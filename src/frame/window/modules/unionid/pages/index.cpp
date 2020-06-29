@@ -81,15 +81,19 @@ IndexPage::IndexPage(QWidget *parent)
 
     QLabel *passwdlabel = new QLabel();
     passwdlabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"modifypass\">%1</a>").arg(tr("Modify Password")));
+    passwdlabel->setAccessibleName("MODIFY_PASSWORD");
     connect(passwdlabel, &QLabel::linkActivated, this, &IndexPage::requesUserDialog);
     QLabel *photolabel = new QLabel();
     photolabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"modifyOic\">%1</a>").arg(tr("Change Avatar")));
+    photolabel->setAccessibleName("CHANGE_AVATAR");
     connect(photolabel, &QLabel::linkActivated, this, &IndexPage::requesUserDialog);
     QLabel *userlabel = new QLabel();
     userlabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"UserCenter\">%1</a>").arg(tr("User Center")));
+    userlabel->setAccessibleName("USER_CENTER");
     connect(userlabel, &QLabel::linkActivated, this, &IndexPage::requesUserDialog);
     m_logout = new QLabel();
     m_logout->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"UserCenter\">%1</a>").arg(tr("Sign Out")));
+    m_logout->setAccessibleName("SIGN_OUT");
     connect(m_logout, &QLabel::linkActivated, this, &IndexPage::requestLogout);
     auto modifyWidget = new QWidget();
     QHBoxLayout *modifyLayout = new QHBoxLayout;
