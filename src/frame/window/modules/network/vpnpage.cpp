@@ -370,7 +370,7 @@ void VpnPage::importVPN()
 
         DDialog dialog;
         dialog.setTitle(tr("Import Error"));
-        dialog.setMessage(error.replace(QRegularExpression("[:：]\\s+"), ":\n"));
+        dialog.setMessage(tr("File error"));
         dialog.addButton(tr("OK"));
         dialog.setIcon(icon);
         dialog.exec();
