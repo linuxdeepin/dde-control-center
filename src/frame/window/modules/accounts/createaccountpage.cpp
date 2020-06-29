@@ -473,6 +473,7 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
     const QString &userpassword = edit->lineEdit()->text();
     if (userpassword.isEmpty()) {
         edit->setAlert(true);
+        edit->showAlertMessage(tr("Password cannot be empty"), -1);
         return false;
     }
 
