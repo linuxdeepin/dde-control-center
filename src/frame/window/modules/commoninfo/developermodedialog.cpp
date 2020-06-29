@@ -130,11 +130,7 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
     });
 
     connect(m_nextButton, &QPushButton::clicked, this, &DeveloperModeDialog::setLogin);
-    connect(this,&DeveloperModeDialog::requestSetNextBtnStatus, [this](bool state){
-        m_nextButton->setEnabled(state);
-        //关闭窗口
-        close();
-    });
+    connect(this,&DeveloperModeDialog::requestSetNextBtnStatus, [this]{close();});
 
     connect(exportBtn, &QPushButton::clicked, [this]{
         QDBusInterface licenseInfo("com.deepin.sync.Helper",
@@ -214,7 +210,6 @@ void DeveloperModeDialog::setLogin()
     Q_ASSERT(model);
     auto requestDev = [this,btn]{
         btn->clearFocus();
-        btn->setEnabled(false);
         //防止出现弹窗时可以再次点击按钮
         QTimer::singleShot(100, this, [this]{
             Q_EMIT requestDeveloperMode(true);
@@ -226,10 +221,9 @@ void DeveloperModeDialog::setLogin()
         btn->clearFocus();
         btn->setEnabled(false);
         Q_EMIT requestLogin();
-        connect(model, &CommonInfoModel::isLoginChenged, this, [requestDev, this, btn](bool log){
+        connect(model, &CommonInfoModel::isLoginChenged, this, [requestDev, this](bool log){
             if (!log || !m_enterDev)
                 return;
-            btn->setEnabled(true);
             requestDev();
             m_enterDev = false;
         });
