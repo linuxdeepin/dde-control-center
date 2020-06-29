@@ -139,7 +139,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     contentLayout->addWidget(m_summaryGroup);
     contentLayout->addStretch();
     contentWidget->setLayout(contentLayout);
-    m_updateList->setMinimumHeight(height() - 150);
     m_updateList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_updateList->setContent(contentWidget);
 
@@ -180,8 +179,6 @@ void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo> &infos)
 
         m_summaryGroup->appendItem(item);
     }
-    //在只有一个更新的时候,为防止item过度的拉伸
-    m_summaryGroup->getLayout()->addStretch();
 
     // 更新应用列表的 重新检查按钮 和 更新时间标签 放到列表窗口内
     QWidget *content = new QWidget;
@@ -210,6 +207,9 @@ void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo> &infos)
     lastTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
     vLayout->addWidget(lastTimeTip);
     m_summaryGroup->insertWidget(content);
+
+    //在只有一个更新的时候,为防止item过度的拉伸
+    m_summaryGroup->getLayout()->addStretch();
 }
 
 void UpdateCtrlWidget::onProgressBarClicked()
