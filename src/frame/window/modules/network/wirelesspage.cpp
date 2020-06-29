@@ -301,7 +301,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->addWidget(m_switch, 0, Qt::AlignTop);
     m_mainLayout->addWidget(m_lvAP);
-    //m_mainLayout->addWidget(m_tipsGroup);
+    m_mainLayout->addWidget(m_tipsGroup);
     m_mainLayout->addWidget(m_closeHotspotBtn);
     m_layoutCount = m_mainLayout->layout()->count();
     updateLayout(!m_lvAP->isHidden());    
