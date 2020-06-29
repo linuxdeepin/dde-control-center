@@ -59,9 +59,11 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     //~ contents_path /update/Update
     DButtonBoxButton *btnUpdate = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topupdate"), tr("Updates"));
     btnUpdate->setIconSize(QSize(24, 24));
+    btnUpdate->setAccessibleName("UPDATE_CHECK");
     //~ contents_path /update/Update Settings
     DButtonBoxButton *btnSetting = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topsettings"), tr("Update Settings"));
     btnSetting->setIconSize(QSize(24, 24));
+    btnSetting->setAccessibleName("UPDATE_SETTINGS");
     m_btnlist.append(btnUpdate);
     m_btnlist.append(btnSetting);
     m_topSwitchWidgetBtn->setButtonList(m_btnlist, true);
