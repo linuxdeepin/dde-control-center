@@ -75,6 +75,14 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
     initUI();
     initConnection();
 
+    if (!m_wsSetting->psk().isEmpty()) {
+        static_cast<DPasswordEdit*>(m_passwdEdit->dTextEdit())->setEchoButtonIsVisible(false);
+    }
+    connect(m_passwdEdit->dTextEdit(), &DLineEdit::textEdited, this, [ = ](const QString &str) {
+        if (str == "")
+            static_cast<DPasswordEdit*>(m_passwdEdit->dTextEdit())->setEchoButtonIsVisible(true);
+    });
+
     onKeyMgmtChanged(m_currentKeyMgmt);
 }
 
