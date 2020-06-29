@@ -95,21 +95,12 @@ void MouseSettingWidget::setModel(dcc::mouse::MouseModel *const model)
     m_mouseModel = model;
 
     connect(model, &MouseModel::tpadExistChanged, m_disTchStn, &SwitchWidget::setVisible);
-    connect(model, &MouseModel::mouseMoveSpeedChanged, [this](int value) {
-        if(m_isNotWayland)
-             onMouseMoveSpeedChanged(value);
-        else
-            onMouseMoveSpeedChanged(abs(value - 6));
-    });
+    connect(model, &MouseModel::mouseMoveSpeedChanged,this,&MouseSettingWidget::onMouseMoveSpeedChanged);
     connect(model, &MouseModel::accelProfileChanged, m_adaptiveAccelProfile, &SwitchWidget::setChecked);
     connect(model, &MouseModel::disTpadChanged, m_disTchStn, &SwitchWidget::setChecked);
     connect(model, &MouseModel::mouseNaturalScrollChanged, m_mouseNaturalScroll, &SwitchWidget::setChecked);
 
-    if(m_isNotWayland)
-        onMouseMoveSpeedChanged(model->mouseMoveSpeed());
-    else
-        onMouseMoveSpeedChanged(abs(model->mouseMoveSpeed() - 6));
-
+    onMouseMoveSpeedChanged(model->mouseMoveSpeed());
     m_adaptiveAccelProfile->setChecked(model->accelProfile());
     m_disTchStn->setChecked(model->disTpad());
     m_disTchStn->setVisible(model->tpadExist());
@@ -118,6 +109,9 @@ void MouseSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 
 void MouseSettingWidget::onMouseMoveSpeedChanged(int speed)
 {
+    if(!m_isNotWayland)
+        speed = abs(speed - 6);
+
     m_mouseMoveSlider->slider()->blockSignals(true);
     m_mouseMoveSlider->slider()->setValue(speed);
     m_mouseMoveSlider->slider()->blockSignals(false);
