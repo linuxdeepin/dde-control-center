@@ -233,13 +233,6 @@ void DisplayModule::showCustomSettingDialog()
     auto displayMode = m_displayModel->displayMode();
     Q_ASSERT(displayMode == CUSTOM_MODE);
 
-    for (auto mon : m_displayModel->monitorList()){
-        if(mon->enable()==false){
-            m_displayWorker->onMonitorEnable(mon, true);
-        }
-        //m_displayWorker->setMonitorEnable(mon, true);
-    }
-
     CustomSettingDialog *dlg = new CustomSettingDialog();
 
     connect(dlg, &CustomSettingDialog::requestShowRotateDialog,
