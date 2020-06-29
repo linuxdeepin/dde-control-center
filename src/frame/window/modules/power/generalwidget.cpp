@@ -156,7 +156,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     m_layout->setSpacing(List_Interval);
     m_layout->setMargin(0);
     m_layout->setAlignment(Qt::AlignTop);
-//    setLayout(m_layout);
+    m_layout->setContentsMargins(12,0,12,0);
     ContentWidget *contentWgt = new ContentWidget;
     QWidget *mainWgt = new TranslucentFrame;
     mainWgt->setLayout(m_layout);
