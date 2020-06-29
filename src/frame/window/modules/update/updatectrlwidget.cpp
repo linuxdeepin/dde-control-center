@@ -139,7 +139,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     contentLayout->addWidget(m_summaryGroup);
     contentLayout->addStretch();
     contentWidget->setLayout(contentLayout);
-    m_updateList->setMinimumHeight(height() - 150);
     m_updateList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_updateList->setContent(contentWidget);
 
