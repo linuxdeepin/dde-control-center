@@ -19,9 +19,8 @@ using namespace DCC_NAMESPACE::systeminfo;
 BackupAndRestoreWorker::BackupAndRestoreWorker(BackupAndRestoreModel* model, QObject *parent)
     : QObject(parent)
     , m_model(model)
-    , m_grubInter(new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus(), this))
 {
-    m_grubInter->setSync(false, false);
+
 }
 
 void BackupAndRestoreWorker::manualBackup(const QString &directory)
@@ -123,23 +122,7 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
         return ErrorType::ToolError;
     }
 
-    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
-    watcher->waitForFinished();
-    if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
-        return ErrorType::GrubError;
-    }
-
-    QThread::sleep(20);
-
-    DDBusSender()
-    .service("com.deepin.dde.shutdownFront")
-    .path("/com/deepin/dde/shutdownFront")
-    .interface("com.deepin.dde.shutdownFront")
-    .method("Restart")
-    .call();
-
-    return ErrorType::NoError;
+    return setGrubAndRestart();
 }
 
 ErrorType BackupAndRestoreWorker::doSystemBackup()
@@ -182,23 +165,7 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
         return ErrorType::ToolError;
     }
 
-    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
-    watcher->waitForFinished();
-    if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
-        return ErrorType::GrubError;
-    }
-
-    QThread::sleep(20);
-
-    DDBusSender()
-    .service("com.deepin.dde.shutdownFront")
-    .path("/com/deepin/dde/shutdownFront")
-    .interface("com.deepin.dde.shutdownFront")
-    .method("Restart")
-    .call();
-
-    return ErrorType::NoError;
+    return setGrubAndRestart();
 }
 
 ErrorType BackupAndRestoreWorker::doManualRestore()
@@ -232,23 +199,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
         return ErrorType::ToolError;
     }
 
-    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
-    watcher->waitForFinished();
-    if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
-        return ErrorType::GrubError;
-    }
-
-    QThread::sleep(20);
-
-    DDBusSender()
-    .service("com.deepin.dde.shutdownFront")
-    .path("/com/deepin/dde/shutdownFront")
-    .interface("com.deepin.dde.shutdownFront")
-    .method("Restart")
-    .call();
-
-    return ErrorType::NoError;
+    return setGrubAndRestart();
 }
 
 ErrorType BackupAndRestoreWorker::doSystemRestore()
@@ -264,14 +215,24 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
         return ErrorType::ToolError;
     }
 
-    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
-    watcher->waitForFinished();
-    if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
-        return ErrorType::GrubError;
-    }
+    return setGrubAndRestart();
+}
 
-    QThread::sleep(20);
+ErrorType BackupAndRestoreWorker::setGrubAndRestart()
+{
+    QScopedPointer<GrubInter> grub(new GrubInter(GrubInter::staticInterfaceName(), "/com/deepin/daemon/Grub2", QDBusConnection::systemBus()));
+    if (grub->defaultEntry() != "UOS Backup & Restore") {
+        QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(grub->SetDefaultEntry("UOS Backup & Restore")));
+        watcher->waitForFinished();
+        if (watcher->isError()) {
+            qWarning() << Q_FUNC_INFO << watcher->error();
+            return ErrorType::GrubError;
+        }
+
+        do {
+            QThread::sleep(1);
+        } while (grub->updating());
+    }
 
     DDBusSender()
     .service("com.deepin.dde.shutdownFront")

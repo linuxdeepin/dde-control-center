@@ -28,10 +28,10 @@ private:
     ErrorType doSystemBackup();
     ErrorType doManualRestore();
     ErrorType doSystemRestore();
+    ErrorType setGrubAndRestart();
 
 private:
     BackupAndRestoreModel* m_model;
-    GrubInter* m_grubInter;
 };
 }
 }
