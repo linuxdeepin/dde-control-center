@@ -34,6 +34,7 @@
 #include <com_deepin_daemon_appearance.h>
 #include <com_deepin_daemon_power.h>
 #include <com_deepin_daemon_inputdevice_mouse.h>
+#include <com_deepin_system_systempower.h>
 
 #include <QGSettings>
 
@@ -41,6 +42,7 @@ using DisplayInter = com::deepin::daemon::Display;
 using AppearanceInter = com::deepin::daemon::Appearance;
 using PowerInter = com::deepin::daemon::Power;
 using MouseInter = com::deepin::daemon::inputdevice::Mouse;
+using SysPowerInter = com::deepin::system::Power;
 
 namespace dcc {
 
@@ -117,6 +119,8 @@ private:
 
     PowerInter *m_powerInter{nullptr};
     MouseInter *m_mouseInter{nullptr};
+
+    SysPowerInter *m_sysPowerInter;
 };
 
 } // namespace display

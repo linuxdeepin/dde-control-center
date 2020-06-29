@@ -95,6 +95,9 @@ public:
 
     inline bool mouseLeftHand() const { return m_mouseLeftHand;}
 
+    inline void setSystemType(bool type) { m_isKluSystem = type; }
+    inline bool getSystemType() const { return m_isKluSystem; }
+
 Q_SIGNALS:
     void isMergeChange(bool isMerge) const;
     void screenHeightChanged(const int h) const;
@@ -149,6 +152,7 @@ private:
     bool m_isMerged;
     BrightnessMap m_brightnessMap;
     std::pair<int, QString> m_lastConfig;
+    bool m_isKluSystem;
 };
 
 } // namespace display

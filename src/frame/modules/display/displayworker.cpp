@@ -51,7 +51,8 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
                                             "/com/deepin/daemon/Appearance",
                                             QDBusConnection::sessionBus(), this)),
       m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
-      m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
+      m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this)) ,
+      m_sysPowerInter(new SysPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
 
 {
 
@@ -94,6 +95,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     m_model->setAutoLightAdjust(m_powerInter->ambientLightAdjustBrightness());
 
     m_model->setMouseLeftHand(m_mouseInter->leftHanded());
+    m_model->setSystemType(m_sysPowerInter->hasBattery());
 
     //redshift 依赖X11，当前isXWindowPlatform返回不准确,所以先用环境变量判断
 //   DGuiApplicationHelper::isXWindowPlatform() const bool isRedshiftValid = DGuiApplicationHelper::isXWindowPlatform() && QProcess::execute("which", QStringList() << "redshift") == 0;
