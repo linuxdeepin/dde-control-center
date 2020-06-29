@@ -113,7 +113,7 @@
         <location filename="../src/frame/window/mainwindow.cpp" line="905"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="907"/>
         <source>Drawing Tablet</source>
-        <translation>Таблет за цртање</translation>
+        <translation>Табла за цртање</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
@@ -388,62 +388,63 @@
         <translation>Иди у подешавања</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="485"/>
         <source>Password cannot be empty</source>
         <translation>Лозинка не може бити празна</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="489"/>
         <source>The password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Лозинка мора садржати најмање %1 карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="491"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Лозинка не може бити дужа од %1 карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Лозинка мора садржати најмање %1 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="501"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Лозинка може садржати само енглеска слова (осетљива на величину), бројеве и специјалне карактере  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="503"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Лозинка мора садржати најмање %1 карактера и мора имати најмање %2 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
         <source>Passwords do not match</source>
         <translation>Лозинке се не подударају</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="534"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Корисничко име мора садржати између 3-32 карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="541"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="543"/>
         <source>The first character must be a letter or number</source>
         <translation>Први карактер мора бити слово или број</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
         <source>Your username should not only have numbers</source>
         <translation>Корисничко име не може садржати само бројеве</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="565"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="567"/>
         <source>The full name already exists</source>
         <translation>Пуно име већ постоји</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="572"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="574"/>
         <source>The full name is too long</source>
         <translation>Пуно име је предугачко</translation>
     </message>
@@ -540,7 +541,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
         <source>The password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Лозинка мора садржати најмање %1 карактера</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
@@ -551,7 +552,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="298"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Лозинка мора садржати најмање %1 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="302"/>
@@ -561,7 +562,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Лозинка мора садржати најмање %1 карактера и мора имати најмање %2 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
@@ -864,7 +865,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="129"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Ова могућност није тренутно достуипна. Прво активирајте систем.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="163"/>
@@ -1357,7 +1358,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="169"/>
         <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation>Сачувати подешавања приказа? Ако нема операција, приказ ће бити враћен након %1s. </translation>
+        <translation>Сачувати подешавања? Ако нема операција, приказ ће бити враћен након %1s.</translation>
     </message>
 </context>
 <context>
@@ -1437,17 +1438,17 @@
         <translation>Команда</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="101"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="103"/>
         <source>Add</source>
         <translation>Додај</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="134"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Ова пречица је у сукобу са %1, кликните на Додај да пречица одмах ступи на снагу</translation>
     </message>
@@ -1607,17 +1608,17 @@
         <translation>Помоћни алати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="92"/>
         <source>Custom Shortcut</source>
         <translation>Ваша пречица</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="122"/>
         <source>Restore Defaults</source>
         <translation>Врати Подразумевано</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="155"/>
         <source>Shortcut</source>
         <translation>Пречица</translation>
     </message>
@@ -3440,12 +3441,17 @@
         <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="355"/>
         <source>Import Error</source>
         <translation>Грешка увоза</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
+        <source>File error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="357"/>
         <source>OK</source>
         <translation>У реду</translation>
     </message>
@@ -4067,41 +4073,41 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
         <source>Theme</source>
         <translation>Тема</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="109"/>
         <source>Accent Color</source>
         <translation>Боја наглашавања</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="161"/>
         <source>Window Effect</source>
         <translation>Ефекти прозора</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="169"/>
         <source>Transparency</source>
         <translation>Прозирност</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="194"/>
         <source>Window Minimize Effect</source>
         <translation>Ефекат минимализовања прозора</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
         <source>Scale</source>
         <translation>Скала</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
         <source>Magic Lamp</source>
         <translation>Чаробна лампа</translation>
     </message>
@@ -4780,7 +4786,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="50"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Ова могућност није тренутно достуипна. Прво активирајте систем.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
@@ -5184,12 +5190,13 @@
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="59"/>
         <source>After signing in, all system features related with Union ID will be available.
 Visit User Center and manage your account there.</source>
-        <translation type="unfinished"/>
+        <translation>Након пријаве, све могућности система повезане са Јединственим ИД-јем ће бити доступне.
+Посетите Кориснички Центар и управљајте вашим налогом.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="69"/>
         <source>Union ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Пријава на Јединствени ИД</translation>
     </message>
 </context>
 <context>
@@ -5213,12 +5220,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="62"/>
         <source>Learn about %1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>Информиши се о %1 и %2</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="63"/>
         <source>Union ID Service Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Уговор услуге Јединственог ИД-а</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="64"/>
@@ -5301,122 +5308,123 @@ Visit User Center and manage your account there.</source>
         <translation>Ово ажурирање може потрајати, немојте искључивати или поново покретати током процеса</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
+        <source>Check Again</source>
+        <translation>Поново провери</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="267"/>
         <source>Last checking time: </source>
         <translation>Последња провера:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="326"/>
+        <source>Your system is up to date</source>
+        <translation>Ваш систем је ажуран</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
         <source>Check for Updates</source>
         <translation>Провери ажурирања</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="288"/>
         <source>Checking for updates, please wait...</source>
         <translation>Провера ажурирања, молимо сачекајте...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="296"/>
         <source>Download and install updates</source>
         <translation>Преузми и инсталирај ажурирања</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="317"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="327"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="333"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
-        <source>Check Again</source>
-        <translation>Поново провери</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% преузето (Клик за паузу)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% преузето (Клик за наставак)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="319"/>
         <source>Install updates</source>
         <translation>Инсталирај ажурирања</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="298"/>
-        <source>Your system is up to date</source>
-        <translation>Ваш систем је ажуран</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
         <source>Updating, please wait...</source>
         <translation>Ажурирање, молимо сачекајте...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="349"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Најновији систем је инсталиран, поново покрените за примену</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="360"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Ажурирање није успело: недовољно простора на диску</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="366"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Грешка зависности, неуспешно проналажење ажурирања</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
         <source>Backing up, please wait...</source>
         <translation>Прављење резерве, молимо сачекајте...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>System backup failed</source>
         <translation>Неуспешно прављење резерве система</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="402"/>
         <source>%n application update(s) available</source>
         <translation><numerusform>%n ажурирање за програм је доступно</numerusform><numerusform>%n ажурирања за програме је доступно</numerusform><numerusform>%n ажурирања(е) за програме је доступно</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="407"/>
         <source>New system edition available</source>
         <translation>Доступно је ново издање система</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Доступно је ново издање система и ажурирање за %n програм(</numerusform><numerusform>Доступно је ново издање система и ажурирање за %n програма</numerusform><numerusform>Доступно је ново издање система и ажурирање за %n програм(а)</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
         <source>Downloaded</source>
         <translation>Преузето</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="418"/>
         <source>Size: %1</source>
         <translation>Величина: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Ниво батерије је мањи од 50%, прикључите пуњач да наставите</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="444"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Oбезбедите довољно енергије за поновно покретање и не искључујте рачунар и довод струје</translation>
     </message>
@@ -5592,7 +5600,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="96"/>
         <source>Drawing Tablet</source>
-        <translation>Таблет за цртање</translation>
+        <translation>Табла за цртање</translation>
     </message>
 </context>
 <context>
@@ -6409,7 +6417,7 @@ Visit User Center and manage your account there.</source>
         <translation>Пречица</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="112"/>
+        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="114"/>
         <source>Please enter a shortcut</source>
         <translation>Молимо унесите пречицу</translation>
     </message>
@@ -6472,7 +6480,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="82"/>
+        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="84"/>
         <source>Enter a new shortcut</source>
         <translation>Унесите нову пречицу</translation>
     </message>

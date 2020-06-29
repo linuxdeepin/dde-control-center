@@ -388,62 +388,63 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="485"/>
         <source>Password cannot be empty</source>
         <translation>جایگاه رمزعبور نمی تواند خالی باشد.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="489"/>
         <source>The password must have at least %1 characters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="491"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
         <source>Password must be no more than %1 characters</source>
         <translation>رمز عبور  که کمتر از  %1 نویسه نباید باشد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="501"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="503"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
         <source>Passwords do not match</source>
         <translation>گذرواژه ها یکسان نیستند.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="534"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>نام کاربری باید بین 3 تا 32 نویسه باشد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="541"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="543"/>
         <source>The first character must be a letter or number</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
         <source>Your username should not only have numbers</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="565"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="567"/>
         <source>The full name already exists</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="572"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="574"/>
         <source>The full name is too long</source>
         <translation type="unfinished"/>
     </message>
@@ -1437,17 +1438,17 @@
         <translation>دستور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="101"/>
         <source>Cancel</source>
         <translation>انصراف</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="103"/>
         <source>Add</source>
         <translation>اضافه کردن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="134"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>این میان‌بر با  %1  تداخل دارد  روی اضافه کلیک کنید تا این میان‌بر را فورا ً موثر کنید .</translation>
     </message>
@@ -1607,17 +1608,17 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="92"/>
         <source>Custom Shortcut</source>
         <translation>میانبر سفارشی</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="122"/>
         <source>Restore Defaults</source>
         <translation>بازگرداندن پیش فرض ها</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="155"/>
         <source>Shortcut</source>
         <translation>میانبر</translation>
     </message>
@@ -3440,12 +3441,17 @@
         <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="355"/>
         <source>Import Error</source>
         <translation>خطای وارد کردن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
+        <source>File error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="357"/>
         <source>OK</source>
         <translation>تایید</translation>
     </message>
@@ -4067,41 +4073,41 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
         <source>Theme</source>
         <translation>تم</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="109"/>
         <source>Accent Color</source>
         <translation>لهجه رنگ</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="161"/>
         <source>Window Effect</source>
         <translation>جلوه های پنجره</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="169"/>
         <source>Transparency</source>
         <translation>شفافیت</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="194"/>
         <source>Window Minimize Effect</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
         <source>Scale</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
         <source>Magic Lamp</source>
         <translation type="unfinished"/>
     </message>
@@ -5301,122 +5307,123 @@ Visit User Center and manage your account there.</source>
         <translation>این به‌هنگام‌سازی ممکن است زمان زیادی طول بکشد ، لطفا ً در طول فرآیند دستگاه خاموش  و یا راه اندازی مجدد نشود</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
+        <source>Check Again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="267"/>
         <source>Last checking time: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="326"/>
+        <source>Your system is up to date</source>
+        <translation>سیستم شما بروز است</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
         <source>Check for Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="288"/>
         <source>Checking for updates, please wait...</source>
         <translation>در حال بررسی بروز رسانی ها لطفا صبر کنید</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="296"/>
         <source>Download and install updates</source>
         <translation>بروزرسانی ها را دانلود و نصب کن</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="317"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="327"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="333"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
-        <source>Check Again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>بارگیری %1% (برای مکث کلیک کنید)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>بارگیری %1% (برای ادامه کلیک کنید)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="319"/>
         <source>Install updates</source>
         <translation>نصب بروزرسانی ها</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="298"/>
-        <source>Your system is up to date</source>
-        <translation>سیستم شما بروز است</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
         <source>Updating, please wait...</source>
         <translation>در حال بروز رسانی ، لطفا صبر کنید ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="349"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>جدیدترین سیستم نصب شده ،  راه اندازی مجدد کنید تا تغییرات اعمال شوند</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="360"/>
         <source>Update failed: insufficient disk space</source>
         <translation>بروزرسانی انجام نشد: فضای کافی در دیسک نیست</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="366"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>خطای وابستگی ، شناسایی بروزرسانی ها شکست خورد .</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
         <source>Backing up, please wait...</source>
         <translation>در حال پشتیبان گیری ، لطفا صبر کنید ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>System backup failed</source>
         <translation>پشتیبان سیستم شکست خورد</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="402"/>
         <source>%n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="407"/>
         <source>New system edition available</source>
         <translation>نسخه جدید سیستم شناسایی شد</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
         <source>New system edition and %n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
         <source>Downloaded</source>
         <translation>دانلود شده</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="418"/>
         <source>Size: %1</source>
         <translation>سایز 1%</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>باتری شما کمتر از 50٪ است ، لطفاً برای ادامه دستگاه را برق وصل کنید</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="444"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>لطفاً از قدرت کافی برای راه اندازی مجدد اطمینان حاصل کنید ، و دستگاه خود را خاموش  و یا از برق جدا نکنید</translation>
     </message>
@@ -6409,7 +6416,7 @@ Visit User Center and manage your account there.</source>
         <translation>میانبر</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="112"/>
+        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="114"/>
         <source>Please enter a shortcut</source>
         <translation>لطفا میانبری جدید وارد کنید</translation>
     </message>
@@ -6472,7 +6479,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="82"/>
+        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="84"/>
         <source>Enter a new shortcut</source>
         <translation>میانبری جدید وارد کنید</translation>
     </message>

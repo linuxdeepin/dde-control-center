@@ -368,7 +368,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="258"/>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>自訂</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
@@ -388,62 +388,63 @@
         <translation>前往設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="485"/>
         <source>Password cannot be empty</source>
         <translation>密碼不能空白</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="489"/>
         <source>The password must have at least %1 characters</source>
         <translation>密碼應包含至少%1個字元</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="491"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
         <source>Password must be no more than %1 characters</source>
         <translation>密碼必須少於 %1 個字元</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>密碼應至少包含小寫字母、大寫字母、數字、符號中的%1種</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="501"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>密碼只能由英文字母 (區分大小寫)、數字及特殊符號 (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;) 組成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="503"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>密碼最少%1位，至少同時包含小寫字母、大寫字母、數字、符號中的%2種</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
         <source>Passwords do not match</source>
         <translation>密碼不符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="534"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>使用者名稱長度必須介於 3 至 32 個字元之間</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="541"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="543"/>
         <source>The first character must be a letter or number</source>
         <translation>首字元必須為字母或數字</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
         <source>Your username should not only have numbers</source>
         <translation>使用者名稱不能只包含數字</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="565"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="567"/>
         <source>The full name already exists</source>
         <translation>該全名已存在</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="572"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="574"/>
         <source>The full name is too long</source>
         <translation>名稱過長</translation>
     </message>
@@ -1437,17 +1438,17 @@
         <translation>命令</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="101"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="103"/>
         <source>Add</source>
         <translation>加入其他程式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="134"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>這組快捷鍵與 %1 衝突，點按「加入」使這快捷鍵立刻生效</translation>
     </message>
@@ -1607,17 +1608,17 @@
         <translation>輔助功能</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="92"/>
         <source>Custom Shortcut</source>
         <translation>自訂快捷鍵</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="122"/>
         <source>Restore Defaults</source>
         <translation>還原至預設值</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="155"/>
         <source>Shortcut</source>
         <translation>快捷鍵</translation>
     </message>
@@ -3440,12 +3441,17 @@
         <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="355"/>
         <source>Import Error</source>
         <translation>加入錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
+        <source>File error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="357"/>
         <source>OK</source>
         <translation>確認</translation>
     </message>
@@ -4067,41 +4073,41 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
         <source>Theme</source>
         <translation>主題</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="109"/>
         <source>Accent Color</source>
         <translation>強調色</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="161"/>
         <source>Window Effect</source>
         <translation>視窗特效</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="169"/>
         <source>Transparency</source>
         <translation>透明度</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="194"/>
         <source>Window Minimize Effect</source>
         <translation>最小化時效果</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
         <source>Scale</source>
         <translation>縮放</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
         <source>Magic Lamp</source>
         <translation>魔燈</translation>
     </message>
@@ -5301,122 +5307,123 @@ Visit User Center and manage your account there.</source>
         <translation>此次更新可能需要較長時間，更新時請勿關機或重新開機</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
+        <source>Check Again</source>
+        <translation>重新檢查更新</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="267"/>
         <source>Last checking time: </source>
         <translation>上次檢查更新時間：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="326"/>
+        <source>Your system is up to date</source>
+        <translation>系統已更新到最新版本</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
         <source>Check for Updates</source>
         <translation>檢查更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="288"/>
         <source>Checking for updates, please wait...</source>
         <translation>正在檢查更新，請稍候…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="296"/>
         <source>Download and install updates</source>
         <translation>下載與安裝更新</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="317"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="327"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="333"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
-        <source>Check Again</source>
-        <translation>重新檢查更新</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>已下載 %1%（點擊暫停）</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>已下載 %1% (點選以繼續)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="319"/>
         <source>Install updates</source>
         <translation>安裝更新</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="298"/>
-        <source>Your system is up to date</source>
-        <translation>系統已更新到最新版本</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
         <source>Updating, please wait...</source>
         <translation>正在更新，請稍候…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="349"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>重新啟動以套用安裝的更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="360"/>
         <source>Update failed: insufficient disk space</source>
         <translation>更新失敗：空間不足</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="366"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>依賴關係發生錯誤，偵測更新失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
         <source>Backing up, please wait...</source>
         <translation>正在備份，請稍候...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>System backup failed</source>
         <translation>系統備份失敗</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="402"/>
         <source>%n application update(s) available</source>
         <translation><numerusform>檢測到%n個應用更新</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="407"/>
         <source>New system edition available</source>
         <translation>有新系統版本可供使用</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
         <source>New system edition and %n application update(s) available</source>
         <translation><numerusform>檢測到新系統版本和%n個應用更新</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
         <source>Downloaded</source>
         <translation>已下載</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="418"/>
         <source>Size: %1</source>
         <translation>大小：%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>電量低於 50%，請先接上電源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="444"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>重新啟動前請確保穩定供電，並勿關機或拔除電源</translation>
     </message>
@@ -6409,7 +6416,7 @@ Visit User Center and manage your account there.</source>
         <translation>快捷鍵</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="112"/>
+        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="114"/>
         <source>Please enter a shortcut</source>
         <translation>請輸入快捷鍵</translation>
     </message>
@@ -6472,7 +6479,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="82"/>
+        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="84"/>
         <source>Enter a new shortcut</source>
         <translation>請輸入新快捷鍵</translation>
     </message>

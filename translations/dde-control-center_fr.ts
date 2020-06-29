@@ -388,62 +388,63 @@
         <translation>Aller dans les paramètres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="485"/>
         <source>Password cannot be empty</source>
         <translation>Le mot de passe ne peut être vide</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="489"/>
         <source>The password must have at least %1 characters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="491"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Le mot de passe ne doit pas contenir plus de %1 caractères</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="501"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Le mot de passe doit contenir des lettres (sensibles à la casse), des chiffres ou des symboles spéciaux (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="503"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
         <source>Passwords do not match</source>
         <translation>Les mots de passe ne correspondent pas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="534"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Le nom d&apos;utilisateur doit être entre 3 et 32 caractères</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="541"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="543"/>
         <source>The first character must be a letter or number</source>
         <translation>Le premier caractère doit être une lettre ou un chiffre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
         <source>Your username should not only have numbers</source>
         <translation>Votre nom d&apos;utilisateur ne doit pas avoir seulement des chiffres </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="565"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="567"/>
         <source>The full name already exists</source>
         <translation>Le nom existe déjà</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="572"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="574"/>
         <source>The full name is too long</source>
         <translation>Le nom est trop long</translation>
     </message>
@@ -1438,17 +1439,17 @@
         <translation>Commande</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="101"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="103"/>
         <source>Add</source>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="134"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Ce raccourci est en conflit avec %1, cliquez sur Ajouter pour rendre ce raccourci effectif immédiatement</translation>
     </message>
@@ -1608,17 +1609,17 @@
         <translation>Outils d&apos;assistance</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="92"/>
         <source>Custom Shortcut</source>
         <translation>Raccourci personnalisé</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="122"/>
         <source>Restore Defaults</source>
         <translation>Restaurer les paramètres par défaut</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="155"/>
         <source>Shortcut</source>
         <translation>Raccourci</translation>
     </message>
@@ -3441,12 +3442,17 @@
         <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="355"/>
         <source>Import Error</source>
         <translation>Erreur d&apos;importation</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
+        <source>File error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="357"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -4068,41 +4074,41 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
         <source>Theme</source>
         <translation>Thème</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="109"/>
         <source>Accent Color</source>
         <translation>Accentuation des couleurs</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="161"/>
         <source>Window Effect</source>
         <translation>Effet de fenêtre</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="169"/>
         <source>Transparency</source>
         <translation>Transparence</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="194"/>
         <source>Window Minimize Effect</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
         <source>Scale</source>
         <translation>Mise à l&apos;échelle</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
         <source>Magic Lamp</source>
         <translation> Lampe magique</translation>
     </message>
@@ -5302,122 +5308,123 @@ Visit User Center and manage your account there.</source>
         <translation>Cette mise à jour peut prendre du temps, merci de ne pas éteindre ou de ne pas redémarrer l&apos;ordinateur pendant le processus.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
+        <source>Check Again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="267"/>
         <source>Last checking time: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="326"/>
+        <source>Your system is up to date</source>
+        <translation>Votre système est à jour</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
         <source>Check for Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="288"/>
         <source>Checking for updates, please wait...</source>
         <translation>Vérification des mises à jour, veuillez patienter...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="296"/>
         <source>Download and install updates</source>
         <translation>Télécharger et installer les mises à jour</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="317"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="327"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="333"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
-        <source>Check Again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% téléchargés (Cliquez pour suspendre)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% téléchargés (Cliquez pour continuer)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="319"/>
         <source>Install updates</source>
         <translation>Installer les mises à jour</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="298"/>
-        <source>Your system is up to date</source>
-        <translation>Votre système est à jour</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
         <source>Updating, please wait...</source>
         <translation>Mise à jour, veuillez patientez...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="349"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>La version la plus récente du système est installée, veuillez redémarrer pour l&apos;appliquer.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="360"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Échec de la mise à jour: espace disque insuffisant</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="366"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Erreur de dépendance, échec de la détection des mises à jour</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
         <source>Backing up, please wait...</source>
         <translation>Sauvegarde en cours, veuillez patienter...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>System backup failed</source>
         <translation>La sauvegarde du système a échoué</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="402"/>
         <source>%n application update(s) available</source>
         <translation><numerusform>%n mise(s) à jour d&apos;application disponible</numerusform><numerusform>%n mise(s) à jour d&apos;application disponibles</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="407"/>
         <source>New system edition available</source>
         <translation>Nouvelle édition du système disponible</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
         <source>New system edition and %n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
         <source>Downloaded</source>
         <translation>Téléchargé</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="418"/>
         <source>Size: %1</source>
         <translation>Taille: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Votre batterie est faible à plus de 50%, veuillez-vous brancher pour continuer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="444"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Assurez-vous d&apos;avoir votre batterie suffisamment chargée pour redémarrer, et veuillez ne pas éteindre ou débrancher votre appareil</translation>
     </message>
@@ -6410,7 +6417,7 @@ Visit User Center and manage your account there.</source>
         <translation>Raccourci</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="112"/>
+        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="114"/>
         <source>Please enter a shortcut</source>
         <translation>Veuillez saisir un raccourci</translation>
     </message>
@@ -6473,7 +6480,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="82"/>
+        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="84"/>
         <source>Enter a new shortcut</source>
         <translation>Entrer un nouveau raccourci</translation>
     </message>
