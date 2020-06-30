@@ -3,12 +3,16 @@ include /usr/share/dpkg/default.mk
 
 export QT_SELECT = qt5
 DEB_BUILD_ARCH ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
-export DEB_BUILD_OPTIONS=nocheck
+export DEB_BUILD_OPTIONS=nocheck parallel=-1
 SYSTYPE=Desktop
 SYSTYPE=$(shell cat /etc/deepin-version | grep Type= | awk -F'=' '{print $$2}')
 
 %:
+ifeq ($(DEB_BUILD_ARCH), mips64el)
+	dh $@ --parallel --buildsystem=cmake+ninja
+else
 	dh $@ --parallel
+endif
 
 ifeq ($(DEB_BUILD_ARCH), amd64)
 override_dh_auto_configure:
