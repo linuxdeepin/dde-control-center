@@ -236,7 +236,7 @@ void UpdateWorker::getLicenseState()
                                "com.deepin.license.Info",
                                QDBusConnection::systemBus());
     if (!licenseInfo.isValid()) {
-        qDebug()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
         return;
     }
     quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
