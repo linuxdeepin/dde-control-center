@@ -69,7 +69,7 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
     m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), false);
     m_secureAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_LockElement, nullptr, nullptr));
     m_secureAction->setVisible(false);
-    setActionList(Qt::Edge::LeftEdge, { m_secureAction });
+    setActionList(Qt::Edge::LeftEdge, {m_secureAction});
 
     m_parentView = parent;
     if (parent != nullptr) {
@@ -143,6 +143,11 @@ void APItem::setSortInfo(const APSortInfo &si)
     setData(QVariant::fromValue(si), SortRole);
 }
 
+APSortInfo APItem::sortInfo()
+{
+    return data(SortRole).value<APSortInfo>();
+}
+
 void APItem::setPath(const QString &path)
 {
     setData(path, PathRole);
@@ -205,7 +210,7 @@ bool APItem::setLoading(bool isLoading)
         m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
         QStyleOption opt;
         m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-        m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);//ArrowEnterClickMargin
+        m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin); // ArrowEnterClickMargin
         m_arrowAction->setVisible(true);
         setActionList(Qt::Edge::RightEdge, {m_arrowAction});
         isReconnect = true;
@@ -226,7 +231,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_clickedItem(nullptr)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
-    , m_indicatorDelayTimer(new QTimer(this))
+    , m_requestWirelessScanTimer(new QTimer(this))
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -250,16 +255,14 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_sortDelayTimer->setInterval(100);
     m_sortDelayTimer->setSingleShot(true);
 
-    m_indicatorDelayTimer->setInterval(300);
-    m_indicatorDelayTimer->setSingleShot(true);
+    m_requestWirelessScanTimer->setInterval(60000);
+    m_requestWirelessScanTimer->setSingleShot(false);
 
     APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
     nonbc->setSignalStrength(-1);
     nonbc->setPath("");
     nonbc->setSortInfo({-1, "", false});
-    connect(nonbc->action(), &QAction::triggered, this, [this] {
-        showConnectHidePage();
-    });
+    connect(nonbc->action(), &QAction::triggered, this, [this] { showConnectHidePage(); });
     m_modelAP->appendRow(nonbc);
 
     //~ contents_path /network/WirelessPage
@@ -267,7 +270,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_switch->setChecked(dev->enabled());
     m_lvAP->setVisible(dev->enabled());
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
-    connect(m_device, &NetworkDevice::enableChanged, this, [this] (const bool enabled) {
+    connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
         m_switch->setChecked(enabled);
         if (m_lvAP) {
             m_lvAP->setVisible(enabled);
@@ -327,7 +330,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     });
 
     connect(m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
-    connect(m_indicatorDelayTimer, &QTimer::timeout, this, &WirelessPage::refreshLoadingIndicator);
     connect(m_closeHotspotBtn, &QPushButton::clicked, this, &WirelessPage::onCloseHotspotClicked);
     connect(m_device, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
     connect(m_device, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
@@ -336,8 +338,12 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_device, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
     connect(m_device, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     connect(m_device, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
-    connect(m_device, &WirelessDevice::activeConnectionsChanged, m_indicatorDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_device, &WirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
 
+    connect(m_requestWirelessScanTimer, &QTimer::timeout, this, [ = ] {
+        Q_EMIT requestDeviceAPList(m_device->path());
+        Q_EMIT requestWirelessScan();
+    });
     // init data
     const QJsonArray mApList = m_device->apList();
     if (!mApList.isEmpty()) {
@@ -345,6 +351,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             onAPAdded(ap.toObject());
         }
     }
+
+    m_requestWirelessScanTimer->start();
+
     QTimer::singleShot(100, this, [ = ] {
         Q_EMIT requestDeviceAPList(m_device->path());
         Q_EMIT requestWirelessScan();
@@ -357,6 +366,7 @@ WirelessPage::~WirelessPage()
     if (scroller) {
         scroller->stop();
     }
+    m_requestWirelessScanTimer->stop();
 }
 
 void WirelessPage::updateLayout(bool enabled)
@@ -389,17 +399,34 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
         onNetworkAdapterChanged(!unavailable);
         m_preWifiStatus = curWifiStatus;
     }
+    if (stat == WirelessDevice::Failed) {
+        for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+            if (m_clickedItem == it.value()) {
+                it.value()->setLoading(false);
+                m_clickedItem = nullptr;
+            }
+        }
+    } else if (WirelessDevice::Prepare <= stat && stat < WirelessDevice::Activated) {
+        for (auto ls = m_device->activeConnections().cbegin(); ls != m_device->activeConnections().cend(); ++ls) {
+            for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+                if (ls->value("Id").toString() == it.key()) {
+                    it.value()->setLoading(true);
+                    m_clickedItem = it.value();
+                }
+            }
+        }
+    }
 }
 
 void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
     m_lvAP->setVisible(m_switch->checked());
-    connect(m_model, &NetworkModel::deviceEnableChanged, this, [this] {
-        m_switch->setChecked(m_device->enabled());
-    });
-    connect(m_device, static_cast<void (WirelessDevice::*)(WirelessDevice::DeviceStatus) const>(&WirelessDevice::statusChanged),
-            this, &WirelessPage::onDeviceStatusChanged);
+    connect(m_model, &NetworkModel::deviceEnableChanged, this, [this] { m_switch->setChecked(m_device->enabled()); });
+    connect(m_device,
+            static_cast<void (WirelessDevice::*)(WirelessDevice::DeviceStatus) const>(&WirelessDevice::statusChanged),
+            this,
+            &WirelessPage::onDeviceStatusChanged);
     onHotspotEnableChanged(m_device->hotspotEnabled());
     updateLayout(!m_lvAP->isHidden());
     m_switch->setChecked(m_device->enabled());
@@ -408,11 +435,11 @@ void WirelessPage::setModel(NetworkModel *model)
 
 void WirelessPage::jumpByUuid(const QString &uuid)
 {
-    if (uuid.isEmpty())
-        return;
+    if (uuid.isEmpty()) return;
 
     QTimer::singleShot(50, this, [ = ] {
-        if (m_apItems.contains(connectionSsid(uuid))) {
+        if (m_apItems.contains(connectionSsid(uuid)))
+        {
             onApWidgetEditRequested("", uuid);
         }
     });
@@ -450,8 +477,7 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 {
     const QString &ssid = apInfo.value("Ssid").toString();
-    if (!m_apItems.contains(ssid))
-        return;
+    if (!m_apItems.contains(ssid)) return;
 
     const QString &path = apInfo.value("Path").toString();
     const int strength = apInfo.value("Strength").toInt();
@@ -472,12 +498,11 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
 {
     const QString &ssid = apInfo.value("Ssid").toString();
-    if (!m_apItems.contains(ssid))
-        return;
+    if (!m_apItems.contains(ssid)) return;
 
     const QString &path = apInfo.value("Path").toString();
 
-    if (m_apItems[ssid]->path() ==  path) {
+    if (m_apItems[ssid]->path() == path) {
         if (m_clickedItem == m_apItems[ssid]) {
             m_clickedItem = nullptr;
             qDebug() << "remove clicked item," << QThread::currentThreadId();
@@ -507,7 +532,8 @@ void WirelessPage::onDeviceRemoved()
     if (!m_apEditPage.isNull()) {
         m_apEditPage->onDeviceRemoved();
     }
-
+    Q_EMIT requestDeviceAPList(m_device->path());
+    Q_EMIT requestWirelessScan();
     // destroy self page
     Q_EMIT back();
 }
@@ -530,28 +556,9 @@ void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid
     }
 }
 
-void WirelessPage::refreshLoadingIndicator()
-{
-    QString activeSsid;
-    for (auto activeConnObj : m_device->activeConnections()) {
-        if (activeConnObj.value("Vpn").toBool(false)) {
-            continue;
-        }
-        // the State of Active Connection
-        // 0:Unknow, 1:Activating, 2:Activated, 3:Deactivating, 4:Deactivated
-        if (activeConnObj.value("State").toInt(0) != 1) {
-            break;
-        }
-        activeSsid = activeConnObj.value("Id").toString();
-        break;
-    }
-}
-
 void WirelessPage::sortAPList()
 {
     m_modelAP->sort(0, Qt::SortOrder::DescendingOrder);
-
-    m_indicatorDelayTimer->start();
 }
 
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
@@ -588,13 +595,13 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
     }
     if (uuid.isEmpty()) {
         for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-                bool isReconnect = it.value()->setLoading(false);
-                if (isReconnect) {
-                    connect(it.value()->action(), &QAction::triggered, this, [this, it] {
-                        this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
-                                                      it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
-                    });
-                }
+            bool isReconnect = it.value()->setLoading(false);
+            if (isReconnect) {
+                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
+                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
+                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
+                });
+            }
         }
     } else {
         for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
@@ -607,7 +614,9 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
             }
         }
     }
-    Q_EMIT requestConnectAp(m_device->path(), path, uuid);
+    if (m_switch && m_switch->checked()) {
+        Q_EMIT requestConnectAp(m_device->path(), path, uuid);
+    }
 }
 
 void WirelessPage::showConnectHidePage()
@@ -622,16 +631,23 @@ void WirelessPage::showConnectHidePage()
 void WirelessPage::updateActiveAp()
 {
     qDebug() << "updateActiveAp:" << QThread::currentThreadId();
-    bool isWifiConnected = false;
+    auto status = m_device->status();
+    auto activedSsid = m_device->activeApSsid();
+    bool isWifiConnected = status == NetworkDevice::Activated;
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-        bool isConnected = it.key() == m_device->activeApSsid();
-        if (isConnected) {
-            isWifiConnected = true;
-        }
+        bool isConnected = it.key() == activedSsid;
         it.value()->setConnected(isConnected);
+        APSortInfo info = it.value()->sortInfo();
+        info.connected = isConnected;
+        it.value()->setSortInfo(info);
+
         if (m_clickedItem == it.value()) {
             qDebug() << "click item: " << isConnected;
-            bool isReconnect = it.value()->setLoading(!isConnected);
+            bool loading = true;
+            if (status == NetworkDevice::Activated || status == NetworkDevice::Disconnected) {
+                loading = false;
+            }
+            bool isReconnect = it.value()->setLoading(loading);
             if (isReconnect) {
                 connect(it.value()->action(), &QAction::triggered, this, [this, it] {
                     this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
@@ -640,22 +656,22 @@ void WirelessPage::updateActiveAp()
             }
         } else {
             bool isReconnect = it.value()->setLoading(false);
-            if (isReconnect) {
+            //if (isReconnect) {
                 connect(it.value()->action(), &QAction::triggered, this, [this, it] {
                     this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
                                                   it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
                 });
-            }
+            //}
         }
     }
     if (isWifiConnected && m_clickedItem) {
-       bool isReconnect = m_clickedItem->setLoading(false);
-       if (isReconnect) {
-           connect(m_clickedItem->action(), &QAction::triggered, this, [this] {
-               this->onApWidgetEditRequested(m_clickedItem->data(APItem::PathRole).toString(),
-                                             m_clickedItem->data(Qt::ItemDataRole::DisplayRole).toString());
-           });
-       }
+        bool isReconnect = m_clickedItem->setLoading(false);
+        if (isReconnect) {
+            connect(m_clickedItem->action(), &QAction::triggered, this, [this] {
+                this->onApWidgetEditRequested(m_clickedItem->data(APItem::PathRole).toString(),
+                                              m_clickedItem->data(Qt::ItemDataRole::DisplayRole).toString());
+            });
+        }
     }
     m_sortDelayTimer->start();
 }
@@ -665,11 +681,9 @@ QString WirelessPage::connectionUuid(const QString &ssid)
     QString uuid;
     QList<QJsonObject> connections = m_device->connections();
     for (auto item : connections) {
-        if (item.value("Ssid").toString() != ssid)
-            continue;
+        if (item.value("Ssid").toString() != ssid) continue;
         uuid = item.value("Uuid").toString();
-        if (!uuid.isEmpty())
-            break;
+        if (!uuid.isEmpty()) break;
     }
     return uuid;
 }
@@ -680,12 +694,10 @@ QString WirelessPage::connectionSsid(const QString &uuid)
 
     QList<QJsonObject> connections = m_device->connections();
     for (auto item : connections) {
-        if (item.value("Uuid").toString() != uuid)
-            continue;
+        if (item.value("Uuid").toString() != uuid) continue;
 
         ssid = item.value("Ssid").toString();
-        if (!ssid.isEmpty())
-            break;
+        if (!ssid.isEmpty()) break;
     }
 
     return ssid;

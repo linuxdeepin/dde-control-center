@@ -61,7 +61,6 @@ void Manage::showDialog()
 
     m_dialog = new RecoveryDialog;
     m_dialog->setAttribute(Qt::WA_DeleteOnClose);
-    m_dialog->setVisible(true);
     m_dialog->backupInfomation(m_systemRecovery->backupVersion(), getBackupTime());
     //设置点击按钮不立即关闭当前页面
     m_dialog->setOnButtonClickedClose(false);
@@ -101,7 +100,7 @@ void Manage::showDialog()
             m_dialog->updateRestoringFailedUI();
         }
     });
-
+    m_dialog->setVisible(true);
 }
 
 void Manage::recoveryCanRestore()

@@ -37,10 +37,10 @@ using namespace DCC_NAMESPACE::systeminfo;
 static QString loadLicenses()
 {
     if (DSysInfo::isCommunityEdition()) {
-        const QString body = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "title");
+        const QString body = getDevelopModeLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "title");
         return body;
     } else {
-        const QString body = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_%1.txt", "title");
+        const QString body = getDevelopModeLicense(":/systeminfo/license/deepin-end-user-license-agreement_%1.txt", "title");
         return body;
     }
 }

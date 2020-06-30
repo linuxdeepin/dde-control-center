@@ -29,6 +29,7 @@
 #include <QLocale>
 #include <QListView>
 #include <QStandardItemModel>
+#include<QStyledItemDelegate>
 
 QT_BEGIN_NAMESPACE
 class QListWidget;
@@ -47,6 +48,14 @@ const QString XML_Child_Path = "extra-child_page";
 
 namespace DCC_NAMESPACE {
 namespace search {
+class DCompleterStyledItemDelegate : public QStyledItemDelegate
+{
+    Q_OBJECT
+public:
+    explicit DCompleterStyledItemDelegate(QObject *parent = nullptr);
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+};
 
 class SearchWidget : public DTK_WIDGET_NAMESPACE::DSearchEdit
 {
@@ -120,6 +129,7 @@ private:
     QList<QPair<QString, bool>> m_serverTxtList;//QString表示和服务器/桌面版有关的文言,bool:true表示只有服务器版会存在,false表示只有桌面版存在
     QList<QString> m_TxtList;
     bool m_speechState;
+    DCompleterStyledItemDelegate styledItemDelegate;
 };
 
 }// namespace search

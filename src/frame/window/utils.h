@@ -48,7 +48,6 @@ const QSize ListViweItemSize_ListMode(168,48);
 
 const qint32 ActionIconSize=30;//大图标角标大小
 const qint32 ActionListSize=26;//list图标角标大小
-const qint32 ListViweRightSubscriptItemDis=qMax(ActionIconSize,ActionListSize)+18;
 
 const int List_Interval = 10;
 const QMargins ArrowEnterClickMargin(8, 8, 8, 8);

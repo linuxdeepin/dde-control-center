@@ -40,7 +40,6 @@
 #include <QFileDialog>
 #include <QJsonArray>
 
-using GrubDevelopMode = com::deepin::deepinid;
 using namespace DCC_NAMESPACE::commoninfo;
 
 DWIDGET_USE_NAMESPACE
@@ -138,9 +137,12 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
     });
 
     connect(exportBtn, &QPushButton::clicked, [this]{
-        auto inter = new GrubDevelopMode("com.deepin.deepinid", "/com/deepin/deepinid",
-                                         QDBusConnection::sessionBus(), this);
-        auto hardwareInfo = inter->GetHardware();
+        QDBusInterface licenseInfo("com.deepin.sync.Helper",
+                                   "/com/deepin/sync/Helper",
+                                   "com.deepin.sync.Helper",
+                                   QDBusConnection::systemBus());
+
+        QDBusReply<HardwareInfo> hardwareInfo = licenseInfo.call(QDBus::AutoDetect, "GetHardware");
 
         // 以读写方式打开主目录下的1.json文件，若该文件不存在则会自动创建
         QString defaultPath = QDir::homePath() + "/Desktop/1.json";
@@ -186,8 +188,6 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
         //将json以文本形式写入文件并关闭文件
         file.write(jsonDoc.toJson());
         file.close();
-
-        inter->deleteLater();
     });
 
     //离线模式导入证书

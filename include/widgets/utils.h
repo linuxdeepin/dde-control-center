@@ -16,10 +16,38 @@ static const QStringList DCC_CONFIG_FILES {
 
 static const QMap<QString, QString> SYSTEM_LOCAL_MAP {
     {"zh_CN", "zh_CN"},
-    {"zh_TW", "zh_TW"},
 };
 
-static const QString getLicense(const QString &filePath, const QString &type)
+static const QString getLicensePath(const QString &filePath, const QString &type)
+{
+    const QString& locale { QLocale::system().name() };
+    QString lang;
+    if (SYSTEM_LOCAL_MAP.keys().contains(locale)) {
+        lang = { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
+    }
+
+    if (lang.isEmpty()) {
+        lang = { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
+    }
+
+    QString path = QString(filePath).arg(lang).arg(type);
+
+    return path;
+}
+
+static const QString getLicenseText(const QString &filePath, const QString &type)
+{
+    QFile license(getLicensePath(filePath,type));
+    if (!license.open(QIODevice::ReadOnly))
+        return QString();
+
+    const QByteArray buf = license.readAll();
+    license.close();
+
+    return std::move(buf);
+}
+
+static const QString getDevelopModeLicense(const QString &filePath, const QString &type)
 {
     const QString& locale { QLocale::system().name() };
     QString lang;

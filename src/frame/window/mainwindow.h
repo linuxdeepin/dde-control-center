@@ -149,6 +149,7 @@ private:
     DIconButton *m_backwardBtn;
     struct CornerItemGroup {
         QString m_name;
+        int m_index;
         QPair <DViewItemAction *, DViewItemAction *> m_action;
     };
     QList<CornerItemGroup> m_remindeSubscriptList;//用于记录是否有角标, QString为模块名称，DViewItemAction为角标对象

@@ -80,7 +80,6 @@ Q_SIGNALS:
     void requestSetAlias(const dcc::bluetooth::Adapter *adapter, const QString &alias);
     void notifyLoadFinished();
     void notifyRemoveDevice();
-
 private Q_SLOTS:
     void addDevice(const dcc::bluetooth::Device *device);
     void removeDevice(const QString &deviceId);

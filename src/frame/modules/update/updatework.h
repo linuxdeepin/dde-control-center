@@ -39,6 +39,7 @@
 #include <com_deepin_lastore_smartmirror.h>
 #include <com_deepin_abrecovery.h>
 #include <com_deepin_daemon_systeminfo.h>
+#include <com_deepin_daemon_appearance.h>
 
 #include "common.h"
 
@@ -52,7 +53,7 @@ using LastoressionHelper=com::deepin::LastoreSessionHelper;
 using SmartMirrorInter = com::deepin::lastore::Smartmirror;
 using RecoveryInter = com::deepin::ABRecovery;
 using SystemInfoInter=com::deepin::daemon::SystemInfo;
-
+using Appearance = com::deepin::daemon::Appearance;
 namespace dcc{
 namespace update{
 class UpdateWorker : public QObject
@@ -90,6 +91,7 @@ public Q_SLOTS:
     void recoveryCanBackup();
     void recoveryStartRestore();
     void onNotifyDownloadInfoChanged();
+    void licenseStateChangeSlot();
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
@@ -101,6 +103,7 @@ private Q_SLOTS:
     void onUpgradeStatusChanged(const QString &status);
     void checkDiskSpace(JobInter *job);
     DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
+    void onIconThemeChanged(const QString &theme);
 
 private:
     AppUpdateInfo getInfo(const AppUpdateInfo &packageInfo, const QString& currentVersion, const QString& lastVersion) const;
@@ -129,6 +132,7 @@ private:
     SmartMirrorInter *m_smartMirrorInter;
     RecoveryInter *m_abRecoveryInter;
     SystemInfoInter *m_systemInfoInter;
+    Appearance *m_iconTheme;
     bool m_onBattery;
     double m_batteryPercentage;
     double m_batterySystemPercentage;
@@ -140,6 +144,7 @@ private:
     double m_downloadProcess;
     bool m_bIsFirstGetDownloadProcess;
     qlonglong m_downloadSize;
+    QString m_iconThemeState;
 };
 }
 }

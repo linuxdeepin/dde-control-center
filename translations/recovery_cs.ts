@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation>Systém se ponižuje. Počkejte, prosím...</translation>
+        <translation>Navracení k předchozí verzi systému – čekejte prosím…</translation>
     </message>
 </context>
 <context>
@@ -13,7 +13,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="259"/>
         <source>Rollback failed.</source>
-        <translation>Ponížení se nezdařilo.</translation>
+        <translation>Návrat k předchozí verzi systému se nezdařil.</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="264"/>
@@ -23,7 +23,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>Opravdu chcete ponížit na Deepin %1 zálohovaný na %2?</translation>
+        <translation>Opravdu se chcete vrátit ke předchozí verzi %1, ze zálohy z %2?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>

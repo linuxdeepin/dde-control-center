@@ -53,7 +53,6 @@ DisplayModule::~DisplayModule()
     m_displayWorker->deleteLater();
 }
 
-
 void DisplayModule::initialize()
 {
 }
@@ -238,11 +237,9 @@ void DisplayModule::showCustomSettingDialog()
     connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
 
     m_displayModel->setIsMerge(m_displayModel->monitorsIsIntersect());
-    QString currentPrimaryName = m_displayModel->primary();
     dlg->setModel(m_displayModel);
     if (dlg->exec() != QDialog::Accepted) {
         m_displayWorker->restore();
-        m_displayWorker->setPrimaryByName(currentPrimaryName);
     } else {
         m_displayWorker->saveChanges();
     }
@@ -284,7 +281,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
     } else {
         lastres.w = qint16(m_displayModel->primaryMonitor()->currentMode().width());
         lastres.h = qint16(m_displayModel->primaryMonitor()->currentMode().height());
-        lastres.rate = qint16(m_displayModel->primaryMonitor()->currentMode().rate());
+        lastres.rate = m_displayModel->primaryMonitor()->currentMode().rate();
     }
 
     auto tfunc = [this](Monitor *tmon, CustomSettingDialog::ResolutionDate tmode) {
@@ -297,13 +294,18 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                      << "\t id: " << tmode.id;
             for (auto m : m_displayModel->monitorList()) {
                 for (auto res : m->modeList()) {
-                    if (fabs(r) > 0.000001 && fabs(res.rate() - r) > 0.000001) {
-                        continue;
-                    }
-                    if (res.width() == w && res.height() == h) {
-                        m_displayWorker->setMonitorResolution(m, res.id());
-                        break;
-                    }
+                     if (fabs(r) < 0.000001 ){
+                         if (res.width() == w && res.height() == h) {
+                            m_displayWorker->setMonitorResolution(m, res.id());
+                            break;
+                         }
+                     }
+                     else{
+                         if (res.width() == w && res.height() == h&&abs(res.rate() - r) <0.000001) {
+                                m_displayWorker->setMonitorResolution(m, res.id());
+                                break;
+                         }
+                     }
                 }
             }
         } else {

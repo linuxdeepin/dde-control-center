@@ -39,8 +39,17 @@ namespace installer {
 class TooltipPin : public QLabel {
   Q_OBJECT
 
+public:
+    enum ArrowDirection {
+        ArrowDown = 0,
+        ArrowTop,
+        ArrowLeft,
+        ArrowRight
+    };
+
  public:
   explicit TooltipPin(QWidget* parent = nullptr);
+    void setArrowDirection(ArrowDirection arrowDirection);
 
  public Q_SLOTS:
   // Show tooltip and set position of pin at |point|.
@@ -48,6 +57,7 @@ class TooltipPin : public QLabel {
 
  protected:
   void paintEvent(QPaintEvent* event) override;
+  ArrowDirection m_arrowDirection;
 };
 
 }  // namespace installer

@@ -72,6 +72,33 @@ namespace keyboard {
 
 ShortcutModel::ShortcutModel(QObject *parent) : QObject(parent)
 {
+    if (m_dis.monitorList().size() > 1) {
+        static const QStringList systemFilter = {"terminal",
+                                                 "terminal-quake",
+                                                 "screenshot",
+                                                 "screenshot-delayed",
+                                                 "screenshot-fullscreen",
+                                                 "screenshot-window",
+                                                 "deepin-screen-recorder",
+                                                 "switch-group",
+                                                 "switch-group-backward",
+                                                 "preview-workspace",
+                                                 "expose-windows",
+                                                 "expose-all-windows",
+                                                 "launcher",
+                                                 "switch-applications",
+                                                 "switch-applications-backward",
+                                                 "show-desktop",
+                                                 "file-manager",
+                                                 "lock-screen",
+                                                 "logout",
+                                                 "wm-switcher",
+                                                 "system-monitor",
+                                                 "color-picker",
+                                                 "clipboard",
+                                                 "switch-monitors"
+                                                };
+    }
 }
 
 ShortcutModel::~ShortcutModel()
@@ -141,6 +168,15 @@ void ShortcutModel::onParseInfo(const QString &info)
         systemFilterServer.removeOne("preview-workspace");
         systemFilterServer.removeOne("expose-windows");
         systemFilterServer.removeOne("expose-all-windows");
+        systemShortKeys = systemFilterServer;
+    } else {
+        systemShortKeys = systemFilter;
+    }
+    if (false == m_windowSwitchState) {
+        QStringList systemFilterServer = systemFilter;
+        systemFilterServer.removeOne("expose-all-windows");
+        systemFilterServer.removeOne("expose-windows");
+        systemFilterServer.removeOne("preview-workspace");
         systemShortKeys = systemFilterServer;
     } else {
         systemShortKeys = systemFilter;
@@ -245,6 +281,18 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
         }
     }
 }
+
+void ShortcutModel::onWindowSwitchChanged(bool value)
+{
+    if (m_windowSwitchState != value) {
+        m_windowSwitchState = value;
+    }
+}
+
+ bool ShortcutModel::getWindowSwitch()
+ {
+     return m_windowSwitchState;
+ }
 
 ShortcutInfo *ShortcutModel::currentInfo() const
 {

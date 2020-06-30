@@ -75,7 +75,7 @@ void AddFingeDialog::initData()
 {
     setWindowTitle(tr("Add Fingerprint"));
 
-    m_scanBtn->setText(tr("Scan again"));
+    m_scanBtn->setText(tr("Scan Again"));
     m_doneBtn->setText(tr("Done"));
 
     m_scanBtn->setVisible(false);

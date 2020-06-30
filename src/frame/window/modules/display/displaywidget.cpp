@@ -66,6 +66,13 @@ void DisplayWidget::setModel(DisplayModel *model)
     //确保第一次进入onMonitorListChanged会命中一个判断
     m_isMultiScreen = model->monitorList().size() <= 1;
     onMonitorListChanged();
+    if (model->isRefreshRateEnable() == false) {
+        for (int i = 0; i < m_singleModel->rowCount(); i++) {
+            if (m_singleModel->item(i)->text() == tr("Refresh Rate")) {
+                m_singleModel->removeRow(i);
+            }
+        }
+    }
 }
 
 int DisplayWidget::showPath(const QString &path)
@@ -103,12 +110,13 @@ void DisplayWidget::onMonitorListChanged()
 {
     const auto mons = m_model->monitorList();
 
+    m_rotate->setVisible(mons.size() <= 1);
     if (m_isMultiScreen && mons.size() <= 1) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
 
         onMenuClicked(m_menuList->model()->index(0, 0));
-    } else if(!m_isMultiScreen && mons.size() > 1) {
+    } else if (!m_isMultiScreen && mons.size() > 1) {
         m_isMultiScreen = true;
         m_menuList->setModel(m_multiModel);
 
@@ -133,14 +141,16 @@ void DisplayWidget::initMenuUI()
     if (!IsServerSystem) {
         //~ contents_path /display/Display Scaling
         MenuMethod scaleMenu = {tr("Display Scaling"), "dcc_screen",
-                          QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)};
+                                QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)
+                               };
         m_multMenuList << scaleMenu;
         m_singleMenuList << scaleMenu;
     }
 
     //~ contents_path /display/Refresh Rate
     MenuMethod refreshMenu = {tr("Refresh Rate"), "dcc_refresh_rate",
-                              QMetaMethod::fromSignal(&DisplayWidget::requestShowRefreshRatePage)};
+                              QMetaMethod::fromSignal(&DisplayWidget::requestShowRefreshRatePage)
+                             };
     m_singleMenuList << refreshMenu;
 
     DStandardItem *btn{nullptr};
@@ -165,7 +175,7 @@ void DisplayWidget::initMenuUI()
     connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
     connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);
 
-  //  m_centralLayout->addStretch(1);
+    //  m_centralLayout->addStretch(1);
     m_rotate->setIcon(QIcon::fromTheme("dcc_rotate"));
     //~ contents_path /display/Resolution
     m_rotate->setToolTip(tr("Rotate Screen"));

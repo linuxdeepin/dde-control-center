@@ -64,6 +64,7 @@ public Q_SLOTS:
     void setBackground(const QString &path);
     void showActivatorDialog();
     void licenseStateChangeSlot();
+    void processChanged(QDBusMessage msg);
 
 private:
     void getEntryTitles();
@@ -75,6 +76,8 @@ private:
     SystemInfoInter* m_systemInfoInter;
     GrubDbus* m_dbusGrub;
     GrubThemeDbus *m_dbusGrubTheme;
+    QDBusInterface *m_systemInfo;
+    QDBusInterface *m_activeInfo;
 };
 
 }

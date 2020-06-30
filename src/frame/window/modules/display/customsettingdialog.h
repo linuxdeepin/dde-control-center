@@ -128,6 +128,7 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_resolutionList{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_rateList{nullptr};
     QStandardItemModel *m_resolutionListModel{nullptr};
+    QStandardItemModel *m_freshListModel{nullptr};
     QList<CustomSettingDialog *> m_otherDialog;
 };
 }

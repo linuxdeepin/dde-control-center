@@ -105,13 +105,20 @@ void RecognizeDialog::paintMonitorMark(QPainter &painter, const QRect &rect, con
 {
     const qreal ratio = devicePixelRatioF();
     const QRect r(rect.topLeft() / ratio, rect.size() / ratio);
-    const int fontSize = r.height() / 5;
     QFont font;
-    font.setPixelSize(fontSize);
-    const QFontMetrics fm(font);
+    font.setPixelSize(20);
+    QFontMetrics standartFm(font);
+    //以宽度的百分之80计算像素大小
+    int fontXSize = int(r.width() / standartFm.width(name) * 16);
+
+    //字体太高的，将字体缩小
+    if(r.height() / 5  < fontXSize) {
+        fontXSize = r.height() / 5;
+    }
+    font.setPixelSize(fontXSize);
+    QFontMetrics fm(font);
     const int x = r.center().x() - fm.width(name) / 2;
     const int y = r.center().y() + fm.height() / 4;
-
     QPainterPath path;
     path.addText(x, y, font, name);
     painter.drawPath(path);

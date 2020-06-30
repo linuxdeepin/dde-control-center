@@ -70,6 +70,8 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     m_bootList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_bootList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_bootList->setMinimumWidth(240);
+    m_bootList->setWordWrap(true);
 
     DPalette dp = DApplicationHelper::instance()->palette(m_bootList);
     dp.setColor(DPalette::Text, QColor(255, 255, 255));
@@ -82,9 +84,6 @@ BootWidget::BootWidget(QWidget *parent)
     dpLabel.setColor(DPalette::Text, QColor(255, 255, 255));
     DApplicationHelper::instance()->setPalette(m_updatingLabel, dpLabel);
 
-    m_listLayout->addSpacing(List_Interval);
-    m_listLayout->addWidget(m_bootList);
-    m_listLayout->addStretch();
     m_listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter | Qt::AlignBottom);
     m_listLayout->addSpacing(List_Interval);
     m_background->setLayout(m_listLayout);
@@ -192,6 +191,9 @@ void BootWidget::setEntryList(const QStringList &list)
 {
     m_bootItemModel = new QStandardItemModel(this);
     m_bootList->setModel(m_bootItemModel);
+    if (list.count() <= 0) {
+        return;
+    }
 
     for (int i = 0; i < list.count(); i++) {
         const QString entry = list.at(i);
@@ -210,7 +212,20 @@ void BootWidget::setEntryList(const QStringList &list)
             item->setCheckState(Qt::CheckState::Unchecked);
         }
     }
+
     m_bootDelay->setChecked(m_commonInfoModel->bootDelay());
+    setBootList();
+}
+
+void BootWidget::setBootList()
+{
+    int cout = m_bootList->count();
+    int height = (cout + 2) * 35;
+
+    m_listLayout->addSpacing(10);
+    m_listLayout->addWidget(m_bootList);
+    m_background->setFixedHeight(height + 35 > 350 ? 350 : height + 35);
+
 }
 
 void BootWidget::onCurrentItem(const QModelIndex &curIndex)

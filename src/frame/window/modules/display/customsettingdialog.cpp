@@ -70,7 +70,7 @@ void CustomSettingDialog::initUI()
 {
     setMinimumWidth(480);
     setMinimumHeight(600);
-    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint );
+    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_layout = new QVBoxLayout();
@@ -79,7 +79,7 @@ void CustomSettingDialog::initUI()
     auto btnBox = new DButtonBox(this);
     m_layout->addWidget(btnBox, 0, Qt::AlignHCenter);
 
-    auto initlistfunc = [](DListView *list) {
+    auto initlistfunc = [](DListView * list) {
         list->setEditTriggers(DListView::NoEditTriggers);
         list->setSelectionMode(DListView::NoSelection);
         list->setSizeAdjustPolicy(DListView::AdjustToContents);
@@ -143,11 +143,29 @@ void CustomSettingDialog::initUI()
     m_fullIndication = std::unique_ptr<MonitorIndicator>(new MonitorIndicator());
     m_fullIndication->show();
     m_fullIndication->setVisible(false);
+
+    for (auto obj : this->children()) {
+        QWidget* item = qobject_cast<QWidget*>(obj);
+        if(item !=nullptr){
+            item->setFocusPolicy(Qt::NoFocus);
+        }
+    }
+    for (auto item : m_vSegBtn) {
+        item->setFocusPolicy(Qt::NoFocus);
+    }
 }
 
 void CustomSettingDialog::setModel(DisplayModel *model)
 {
     m_model = model;
+    if (model->isRefreshRateEnable() == false) {
+        for (auto btn : m_vSegBtn) {
+            if (btn->text() == tr("Refresh Rate")) {
+                btn->hide();
+                break;
+            }
+        }
+    }
 
     resetMonitorObject(model->primaryMonitor());
     m_isPrimary = true;
@@ -163,7 +181,14 @@ void CustomSettingDialog::setModel(DisplayModel *model)
 void CustomSettingDialog::initWithModel()
 {
     Q_ASSERT(m_model);
-
+    if (m_model->isRefreshRateEnable() == false) {
+        for (auto btn : m_vSegBtn) {
+            if (btn->text() == tr("Refresh Rate")) {
+                btn->hide();
+                break;
+            }
+        }
+    }
     initMoniControlWidget();
     initResolutionList();
     initRefreshrateList();
@@ -230,14 +255,12 @@ void CustomSettingDialog::initOtherDialog()
 
 void CustomSettingDialog::initRefreshrateList()
 {
-    QStandardItemModel *listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
-    if (listModel) {
-        listModel->clear();
-    } else {
-        listModel = new QStandardItemModel(this);
-    }
+    if (m_freshListModel)
+        m_freshListModel->clear();
+    else
+        m_freshListModel = new QStandardItemModel(this);
     auto modes = m_monitor->modeList();
-    m_rateList->setModel(listModel);
+    m_rateList->setModel(m_freshListModel);
     Resolution pevR;
 
     auto moni = m_monitor;
@@ -261,7 +284,7 @@ void CustomSettingDialog::initRefreshrateList()
         }
         auto trate = m.rate();
         DStandardItem *item = new DStandardItem;
-        listModel->appendRow(item);
+        m_freshListModel->appendRow(item);
 
         auto tstr = QString::number(trate, 'g', 4) + tr("Hz");
         if (isFirst) {
@@ -330,7 +353,7 @@ void CustomSettingDialog::initResolutionList()
             item->setText(res);
         }
 
-        if (curMode == m)
+        if (Monitor::isSameResolution(curMode, m))
             curIdx = item;
         m_resolutionListModel->appendRow(item);
     }
@@ -355,7 +378,7 @@ void CustomSettingDialog::initMoniList()
         titleAction->setText(moni->name());
 
         auto *subTitleAction = new DViewItemAction;
-        QString str = QString("%1 %2 ").arg(moni->w()).arg(tr("inch"));
+        QString str = QString("%1 %2 ").arg(QString::number(qSqrt(pow(moni->mmWidth(), 2) + pow(moni->mmHeight(), 2)) / 25.4, 'g', 3)).arg(tr("inch"));
         str += (tr("Resolution %1x%2").arg(QString::number(moni->w())).arg(QString::number(moni->h())));
         subTitleAction->setText(str);
 
@@ -375,10 +398,11 @@ void CustomSettingDialog::initMoniList()
         Q_ASSERT(listModel->rowCount() == m_model->monitorList().size());
 
         auto monis = m_model->monitorList();
-        for (int idx = 0 ; idx < listModel->rowCount(); ++idx)
-        {
+        for (int idx = 0 ; idx < listModel->rowCount(); ++idx) {
             auto item = listModel->item(idx);
-            item->setCheckState(monis[idx] == m_model->primaryMonitor() ? Qt::Checked : Qt::Unchecked);
+            if (idx < monis.size()) {
+                item->setCheckState(monis[idx] == m_model->primaryMonitor() ? Qt::Checked : Qt::Unchecked);
+            }
         }
     });
 }
@@ -445,7 +469,7 @@ void CustomSettingDialog::initConnect()
             this->requestSetResolution(m_monitor, res);
         }
     });
-    connect(m_rateList, &DListView::clicked, this, [this](QModelIndex idx){
+    connect(m_rateList, &DListView::clicked, this, [this](QModelIndex idx) {
         auto lm = m_rateList->model();
         auto check = lm->data(idx, Qt::CheckStateRole);
         if (check == Qt::Checked)
@@ -553,39 +577,8 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
 
 void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
 {
-    auto listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
-    for (int i = 0; i < listModel->rowCount(); ++i) {
-        auto tItem = listModel->item(i);
-
-        if (tItem->data(IdRole).toInt() == r.id()) {
-            tItem->setData(Qt::CheckState::Checked, Qt::CheckStateRole);
-        } else {
-            tItem->setData(Qt::CheckState::Unchecked, Qt::CheckStateRole);
-        }
-    }
-
-    for (auto idx = 0; idx < m_resolutionListModel->rowCount(); ++idx) {
-        auto item = m_resolutionListModel->item(idx);
-        if (m_model->isMerge()) {
-            auto w = item->data(WidthRole).toInt();
-            auto h = item->data(HeightRole).toInt();
-
-            if (w == r.width() && h == r.height()) {
-                item->setCheckState(Qt::Checked);
-            } else {
-                item->setCheckState(Qt::Unchecked);
-            }
-        } else {
-            auto id = item->data(IdRole).toInt();
-
-            if (id == r.id()) {
-                item->setCheckState(Qt::Checked);
-            } else {
-                item->setCheckState(Qt::Unchecked);
-            }
-        }
-    }
-
+    initResolutionList();
+    initRefreshrateList();
     resetDialog();
 }
 
@@ -593,10 +586,7 @@ void CustomSettingDialog::resetDialog()
 {
     //当收到屏幕变化的消息后，屏幕数据还是旧的
     //需要用QTimer把对窗口的改变放在屏幕数据应用后
-    QTimer::singleShot(sender() ? 1000 : 0, this, [=] {
-        m_monitroControlWidget->adjustSize();
-        adjustSize();
-
+    QTimer::singleShot(sender() ? 1000 : 0, this, [ = ] {
         auto rt = rect();
         if (rt.width() > m_monitor->w())
             rt.setWidth(m_monitor->w());

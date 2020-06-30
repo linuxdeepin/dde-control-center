@@ -23,7 +23,6 @@
 #include "titleedit.h"
 #include "devicesettingsitem.h"
 #include "modules/bluetooth/adapter.h"
-#include "modules/bluetooth/detailpage.h"
 #include "modules/bluetooth/adapter.h"
 #include "widgets/translucentframe.h"
 #include "widgets/settingsheaderitem.h"
@@ -53,11 +52,11 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     , m_switch(new SwitchWidget(nullptr, m_titleEdit))
 {
     //~ contents_path /bluetooth/My Devices
-    m_myDevicesGroup = new TitleLabel(tr("My devices"));
+    m_myDevicesGroup = new TitleLabel(tr("My Devices"));
     m_myDevicesGroup->setVisible(false);
 
     //~ contents_path /bluetooth/Other Devices
-    m_otherDevicesGroup = new TitleLabel(tr("Other devices"));
+    m_otherDevicesGroup = new TitleLabel(tr("Other Devices"));
     m_spinner = new DSpinner();
     m_spinner->setFixedSize(24, 24);
     m_spinner->start();
@@ -220,6 +219,7 @@ void AdapterWidget::toggleSwitch(const bool checked)
             }
         }
     }
+
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
 }
 

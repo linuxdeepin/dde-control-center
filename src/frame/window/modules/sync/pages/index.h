@@ -77,6 +77,9 @@ private:
     void onModuleItemSwitched(const bool checked);
     void onAutoSyncChanged(bool autoSync);
 
+public Q_SLOTS:
+    void SyncTimeLbl(bool checked);
+
 private:
     QVBoxLayout *m_mainLayout;
     dcc::widgets::SwitchWidget *m_autoSyncSwitch;
@@ -84,9 +87,11 @@ private:
     dcc::cloudsync::SyncStateIcon *m_stateIcon;
     QLabel *m_stateLbl;
     QLabel *m_lastSyncTimeLbl;
+    qlonglong m_lastSyncTime;
     QStandardItemModel *m_listModel;
     QMap<dcc::cloudsync::SyncType, QStandardItem *> m_itemMap;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_networkTip;
+    std::pair<qint32, QString> m_state;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE

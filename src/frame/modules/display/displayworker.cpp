@@ -160,7 +160,7 @@ void DisplayWorker::mergeScreens()
     Resolution bestMode = modes.first();
     for (auto m : modes) {
         bool isCommon = true;
-        for (int i = 1; i< monis.size(); ++i) {
+        for (int i = 1; i < monis.size(); ++i) {
             if (!monis[i]->hasResolution(m)) {
                 isCommon = false;
                 break;
@@ -173,7 +173,7 @@ void DisplayWorker::mergeScreens()
 
         qDebug() << "get same resolution:" << m.width() << " x " << m.height();
         auto ts = m.width() * m.height();
-        if ( ts <= maxSize)
+        if (ts <= maxSize)
             continue;
 
         bestMode = m;
@@ -356,12 +356,20 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
     Q_ASSERT(inter);
 
     inter->SetRotation(rotate).waitForFinished();
+    short xoffset = short(m_model->primaryMonitor()->w());
+    for (auto tm = m_monitors.begin(); tm != m_monitors.end(); ++tm) {
+        if (!tm.key()->enable() || tm.key() == m_model->primaryMonitor()) {
+            continue;
+        }
+        tm.value()->SetPosition(xoffset, 0);
+        xoffset += tm.value()->width();
+    }
     m_displayInter.ApplyChanges();
 }
 
 void DisplayWorker::setMonitorRotateAll(const quint16 rotate)
 {
-    qDebug()<<rotate;
+    qDebug() << rotate;
     for (auto *mi : m_monitors)
         mi->SetRotation(rotate).waitForFinished();
 
@@ -431,7 +439,8 @@ void DisplayWorker::setUiScale(const double value)
         if (call.isError())
         {
             qWarning() << call.error();
-        } else {
+        } else
+        {
             m_model->setUIScale(rv);
         }
         watcher->deleteLater();
@@ -520,9 +529,27 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::YChanged, mon, &Monitor::setY);
     connect(inter, &MonitorInter::WidthChanged, mon, &Monitor::setW);
     connect(inter, &MonitorInter::HeightChanged, mon, &Monitor::setH);
+    connect(inter, &MonitorInter::MmWidthChanged, mon, &Monitor::setMmWidth);
+    connect(inter, &MonitorInter::MmHeightChanged, mon, &Monitor::setMmHeight);
     connect(inter, &MonitorInter::RotationChanged, mon, &Monitor::setRotate);
     connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
+
+    connect(inter, &MonitorInter::CurrentModeChanged, this,  [ = ] (Resolution  value) {
+        if(value.id() == 0) {
+            return ;
+        }
+        auto maxWScale = value.width() / 1024.0;
+        auto maxHScale = value.height() / 768.0;
+        auto maxScale = maxWScale < maxHScale ? maxWScale : maxHScale;
+        if((maxScale - m_model->uiScale()) < 0.01 && maxScale >= 1.0) {
+            double scale =1.0;
+            for (int idx = 0; idx * 0.25 + 1.0 <= maxScale; ++idx) {
+                scale = idx * 0.25 + 1.0 ;
+            }
+            setUiScale(scale);
+        }
+    });
     connect(inter, &MonitorInter::ModesChanged, mon, &Monitor::setModeList);
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
     connect(inter, &MonitorInter::EnabledChanged, mon, &Monitor::setMonitorEnable);
@@ -541,8 +568,17 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setRotate(inter->rotation());
     mon->setCurrentMode(inter->currentMode());
     mon->setModeList(inter->modes());
+    if (m_model->isRefreshRateEnable() == false) {
+        for (auto resolutionModel : mon->modeList()) {
+            if (qFuzzyCompare(resolutionModel.rate(), 0.0) == false) {
+                m_model->setRefreshRateEnable(true);
+            }
+        }
+    }
     mon->setRotateList(inter->rotations());
     mon->setPrimary(m_displayInter.primary());
+    mon->setMmWidth(inter->mmWidth());
+    mon->setMmHeight(inter->mmHeight());
 
     if (!m_model->brightnessMap().isEmpty()) {
         mon->setBrightness(m_model->brightnessMap()[mon->name()]);
@@ -606,7 +642,7 @@ void DisplayWorker::record()
 void DisplayWorker::restore()
 {
     const std::pair<int, QString> lastConfig { m_model->lastConfig() };
-
+    m_model->setDisplayMode(lastConfig.first);
     switch (lastConfig.first) {
     case CUSTOM_MODE: {
         discardChanges();

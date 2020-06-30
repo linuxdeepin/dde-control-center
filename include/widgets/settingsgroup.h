@@ -62,6 +62,7 @@ public:
     void setHeaderVisible(const bool visible);
 
     SettingsItem *getItem(int index);
+    void insertWidget(QWidget *widget);
     void insertItem(const int index, SettingsItem *item);
     void appendItem(SettingsItem *item);
     void appendItem(SettingsItem *item, BackgroundStyle bgStyle);

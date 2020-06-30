@@ -30,6 +30,7 @@
 #include <QSettings>
 #include <QIcon>
 #include <QScrollArea>
+#include <QScroller>
 #include <QDebug>
 #include <DSysInfo>
 

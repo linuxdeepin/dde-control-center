@@ -81,8 +81,8 @@ private:
 private:
     dde::network::NetworkModel *m_model;
 
-    dcc::ContentWidget *m_manualWidget;
     QWidget *m_autoWidget;
+    QWidget *m_manualWidget;
     dcc::widgets::ButtonTuple *m_buttonTuple;
 
     dcc::widgets::LineEditWidget *m_httpAddr;

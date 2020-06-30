@@ -37,6 +37,7 @@
 #include <QGSettings>
 
 #include <signal.h>
+#include <unistd.h>
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -58,6 +59,9 @@ int main(int argc, char *argv[])
     app.setOrganizationName("deepin");
     app.setApplicationName("dde-control-center");
 #ifdef CVERSION
+    QString verstr(CVERSION);
+    if (verstr.isEmpty())
+	    verstr="4.1";
     app.setApplicationVersion(CVERSION);
 #else
     app.setApplicationVersion("4.0");
@@ -98,7 +102,8 @@ int main(int argc, char *argv[])
     QGSettings gs(ControlCenterGSettings, QByteArray(), &app);
     auto w = gs.get(GSettinsWindowWidth).toInt();
     auto h = gs.get(GSettinsWindowHeight).toInt();
-    qDebug() << QString("main window size: %1 * %2").arg(w, h);
+    pid_t pid = getpid();
+    qDebug() << QString("main window size: %1 * %2").arg(w, h) << ", pid is:" << pid;
 
     auto screen = app.primaryScreen();
     QRect mwRect(0, 0, w, h);
@@ -117,10 +122,24 @@ int main(int argc, char *argv[])
     DBusControlCenterService adaptor(&mw);
     Q_UNUSED(adaptor);
 
+    auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.ControlCenter");
+    if (req.value()) {
+        QDBusInterface inter("com.deepin.dde.ControlCenter",
+                             "/com/deepin/dde/ControlCenter",
+                             "com.deepin.dde.ControlCenter",
+                             QDBusConnection::sessionBus(), nullptr);
+        if (inter.isValid()) {
+            qDebug() << "inter.isValid() call exitProc";
+            inter.call("exitProc");
+        } else {
+            qDebug() << "inter isn't valid";
+        }
+    }
+
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("com.deepin.dde.ControlCenter") ||
             !conn.registerObject("/com/deepin/dde/ControlCenter", &mw)) {
-        qDebug() << "dbus service already registered!";
+        qDebug() << "dbus service already registered!" << "pid is:" << pid;
 
         if (parser.isSet(toggleOption))
             DDBusSender()

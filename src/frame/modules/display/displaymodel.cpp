@@ -263,3 +263,7 @@ void DisplayModel::setMouseLeftHand(bool isLeft)
     m_mouseLeftHand = isLeft;
     Q_EMIT mouseLeftHandChanged(isLeft);
 }
+void DisplayModel::setRefreshRateEnable(bool isEnable)
+{
+    m_RefreshRateEnable = isEnable;
+}

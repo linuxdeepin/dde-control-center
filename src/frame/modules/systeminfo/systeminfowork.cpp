@@ -44,6 +44,12 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                             "/com/deepin/daemon/SystemInfo",
                                             QDBusConnection::sessionBus(), this);
     m_systemInfoInter->setSync(false);
+
+    m_systemInfo = new QDBusInterface("com.deepin.system.SystemInfo",
+                                      "/com/deepin/system/SystemInfo",
+                                      "com.deepin.system.SystemInfo",
+                                      QDBusConnection::systemBus(), this);
+
     m_dbusGrub = new GrubDbus("com.deepin.daemon.Grub2",
                               "/com/deepin/daemon/Grub2",
                               QDBusConnection::systemBus(),
@@ -53,6 +59,10 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "/com/deepin/daemon/Grub2/Theme",
                                         QDBusConnection::systemBus(), this);
 
+    m_activeInfo = new QDBusInterface("com.deepin.license",
+                                      "/com/deepin/license/Info",
+                                      "com.deepin.license.Info",
+                                      QDBusConnection::systemBus(),this);
 #if 0
     //预留接口
     m_dbusActivator = new GrubThemeDbus("com.deepin.license",
@@ -60,9 +70,31 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "com.deepin.license.Info", this);
 #endif
 
+    QDBusInterface Interface("com.deepin.daemon.SystemInfo",
+                             "/com/deepin/daemon/SystemInfo",
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::sessionBus());
+    QDBusMessage reply = Interface.call("Get", "com.deepin.daemon.SystemInfo", "CPUMaxMHz");
+    QList<QVariant> outArgs = reply.arguments();
+    double cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
+    if (DSysInfo::cpuModelName().contains("Hz")) {
+        m_model->setProcessor(DSysInfo::cpuModelName());
+    } else {
+        m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
+                              .arg(cpuMaxMhz / 1000));
+    }
+
+    QDBusConnection::sessionBus().connect("com.deepin.daemon.SystemInfo",
+                                          "/com/deepin/daemon/SystemInfo",
+                                          "org.freedesktop.DBus.Properties",
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this, SLOT(processChanged(QDBusMessage)));
+
     m_dbusGrub->setSync(false, false);
     m_dbusGrubTheme->setSync(false, false);
 
+    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
     connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
     connect(m_dbusGrub, &GrubDbus::TimeoutChanged, this, [this] (const int &value) {
@@ -81,7 +113,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     connect(m_systemInfoInter, &__SystemInfo::DistroVerChanged, m_model, &SystemInfoModel::setDistroVer);
     // connect(m_systemInfoInter, &__SystemInfo::VersionChanged, m_model, &SystemInfoModel::setVersion);
     // connect(m_systemInfoInter, &__SystemInfo::SystemTypeChanged, m_model, &SystemInfoModel::setType);
-    connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
+    //connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
     // connect(m_systemInfoInter, &__SystemInfo::MemoryCapChanged, m_model, &SystemInfoModel::setMemory);
     connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
     //预留接口
@@ -105,7 +137,7 @@ void SystemInfoWork::activate()
     m_model->setDistroVer(m_systemInfoInter->distroVer());
     // m_model->setVersion(m_systemInfoInter->version());
     // m_model->setType(m_systemInfoInter->systemType());
-    m_model->setProcessor(m_systemInfoInter->processor());
+    //m_model->setProcessor(m_systemInfoInter->processor());
     // m_model->setMemory(m_systemInfoInter->memoryCap());
     m_model->setDisk(m_systemInfoInter->diskCap());
 
@@ -114,21 +146,38 @@ void SystemInfoWork::activate()
         version = QString("%1 %2").arg(DSysInfo::deepinVersion())
                                   .arg(DSysInfo::deepinTypeDisplayName());
     } else {
-        version = QString("%1 %2").arg(DSysInfo::productTypeString())
-                                  .arg(DSysInfo::productVersion());
+        version = QString("%1 %2").arg(DSysInfo::productVersion())
+                                  .arg(DSysInfo::productTypeString());
     }
 
     m_model->setVersion(version);
     m_model->setType(QSysInfo::WordSize);
+
     // m_model->setProcessor(QString("%1 x %2").arg(DSysInfo::cpuModelName())
     //                                         .arg(QThread::idealThreadCount()));
-    m_model->setMemory(DSysInfo::memoryTotalSize(), DSysInfo::memoryInstalledSize());
+    if (m_systemInfo->isValid()) {
+        m_model->setMemory(DSysInfo::memoryTotalSize(), m_systemInfo->property("MemorySize").toULongLong());
+    } else {
+        m_model->setMemory(DSysInfo::memoryTotalSize(), DSysInfo::memoryInstalledSize());
+    }
     // m_model->setDisk(DSysInfo::systemDiskSize());
 }
 
 void SystemInfoWork::deactivate()
 {
 
+}
+
+void SystemInfoWork::processChanged(QDBusMessage msg)
+{
+    QList<QVariant> outArgs = msg.arguments();
+    double cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
+    if (DSysInfo::cpuModelName().contains("Hz")) {
+        m_model->setProcessor(DSysInfo::cpuModelName());
+    } else {
+        m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
+                              .arg(cpuMaxMhz / 1000));
+    }
 }
 
 void SystemInfoWork::loadGrubSettings()
@@ -227,13 +276,6 @@ void SystemInfoWork::setBackground(const QString &path)
 
 void SystemInfoWork::showActivatorDialog()
 {
-    QDBusConnection::systemBus().connect("com.deepin.license",
-                                         "/com/deepin/license/Info",
-                                         "com.deepin.license.Info",
-                                         "LicenseStateChange",
-                                         this,
-                                         SLOT(licenseStateChangeSlot()));
-
     QDBusInterface activator("com.deepin.license.activator",
                              "/com/deepin/license/activator",
                              "com.deepin.license.activator",
@@ -291,17 +333,18 @@ void SystemInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
 
 void SystemInfoWork::getLicenseState()
 {
-    QDBusInterface licenseInfo("com.deepin.license.activator",
-                               "/com/deepin/license/activator",
-                               "com.deepin.license.activator",
-                               QDBusConnection::sessionBus());
+    QDBusInterface licenseInfo("com.deepin.license",
+                               "/com/deepin/license/Info",
+                               "com.deepin.license.Info",
+                               QDBusConnection::systemBus());
+
     if (!licenseInfo.isValid()) {
         qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
         return;
     }
 
-    QDBusReply<quint32> reply = licenseInfo.call(QDBus::AutoDetect,
-                                   "GetIndicatorData");
+    quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    qDebug() << "authorize result:" << reply;
     m_model->setLicenseState(reply);
 }
 

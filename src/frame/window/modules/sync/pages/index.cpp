@@ -39,6 +39,7 @@ IndexPage::IndexPage(QWidget *parent)
     , m_listView(new DListView)
     , m_stateIcon(new SyncStateIcon)
     , m_lastSyncTimeLbl(new QLabel)
+    , m_lastSyncTime(0)
     , m_listModel(new QStandardItemModel(this))
 {
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
@@ -130,6 +131,7 @@ IndexPage::IndexPage(QWidget *parent)
 
     connect(m_listView, &QListView::clicked, this, &IndexPage::onListViewClicked);
     connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::requestSetAutoSync);
+    connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::SyncTimeLbl);
     connect(logoutBtn, &QPushButton::clicked, this, &IndexPage::requestLogout);
 }
 
@@ -141,6 +143,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_autoSyncSwitch, &SwitchWidget::setChecked);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_listView, &QListView::setVisible);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_networkTip, &QLabel::setVisible);
+    connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_lastSyncTimeLbl, &QLabel::setVisible);
     connect(model, &dcc::cloudsync::SyncModel::syncStateChanged, this, &IndexPage::onStateChanged);
     connect(model, &dcc::cloudsync::SyncModel::lastSyncTimeChanged, this, &IndexPage::onLastSyncTimeChanged);
     connect(model, &dcc::cloudsync::SyncModel::moduleSyncStateChanged, this, &IndexPage::onModuleStateChanged);
@@ -162,7 +165,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     const std::list<std::pair<SyncType, QStringList>> list = m_model->moduleMap();
     for (auto it = list.cbegin(); it != list.cend(); ++it) {
         DStandardItem *item = new DStandardItem;
-        item->setCheckable(true);
+        item->setCheckable(false);
         item->setIcon(QIcon::fromTheme(moduleTs[it->first].first));
         item->setText(moduleTs[it->first].second);
         item->setData(it->first, Qt::WhatsThisPropertyRole);
@@ -180,6 +183,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     m_autoSyncSwitch->setChecked(model->enableSync());
     m_networkTip->setVisible(model->enableSync());
     m_listView->setVisible(model->enableSync());
+    m_lastSyncTimeLbl->setVisible(model->enableSync());
     onStateChanged(model->syncState());
     onLastSyncTimeChanged(model->lastSyncTime());
 }
@@ -227,11 +231,23 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
 
     } while (false);
 
+    if (!m_autoSyncSwitch->checked()) {
+        m_lastSyncTimeLbl->hide();
+        m_stateLbl->hide();
+        m_stateIcon->setRotatePixmap(QPixmap());
+        m_stateIcon->stop();
+        return;
+    }
+    qDebug() << "syncState: " << syncState << "m_lastSyncTime:" << m_lastSyncTime;
     switch (syncState) {
     case SyncState::Succeed:
         m_lastSyncTimeLbl->show();
         m_stateLbl->hide();
-        m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(16, 16)));
+        if (m_lastSyncTime > 0) {
+            m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(16, 16)));
+        } else {
+            m_stateIcon->setRotatePixmap(QPixmap());
+        }
         m_stateIcon->stop();
         break;
     case SyncState::Syncing:
@@ -247,10 +263,31 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
         m_stateIcon->stop();
         break;
     }
+    m_state = state;
+}
+
+void IndexPage::SyncTimeLbl(bool checked)
+{
+    if (!checked) {
+        m_lastSyncTimeLbl->hide();
+        m_stateLbl->hide();
+        m_stateIcon->setRotatePixmap(QPixmap());
+        m_stateIcon->stop();
+        return;
+    } else if(SyncModel::isSyncStateValid(m_state)) {
+        onStateChanged(m_state);
+    } else {
+        return;
+    }
 }
 
 void IndexPage::onLastSyncTimeChanged(const qlonglong lastSyncTime)
 {
+    m_lastSyncTime = lastSyncTime;
+    if (lastSyncTime == 0) {
+        m_lastSyncTimeLbl->hide();
+        return;
+    }
     m_lastSyncTimeLbl->setText(
         tr("Last Sync: %1")
         .arg(QDateTime::fromMSecsSinceEpoch(lastSyncTime * 1000)
@@ -268,6 +305,7 @@ void IndexPage::onModuleStateChanged(std::pair<SyncType, bool> state)
 void IndexPage::onAutoSyncChanged(bool autoSync)
 {
     m_listView->setVisible(!autoSync);
+    m_lastSyncTimeLbl->setVisible(!autoSync);
 }
 }
 }

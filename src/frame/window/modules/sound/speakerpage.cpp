@@ -188,7 +188,7 @@ void SpeakerPage::initSlider()
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::TicksBelow);
     slider2->setTickInterval(1);
-    slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100));
+    slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100 + 0.000001));
     slider2->setPageStep(1);
     balanceSlider->setAnnotations(balanceList);
 
@@ -201,7 +201,7 @@ void SpeakerPage::initSlider()
     connect(m_model, &SoundModel::speakerOnChanged, balanceSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::speakerBalanceChanged, this, [ = ](double v) {
         slider2->blockSignals(true);
-        slider2->setSliderPosition(static_cast<int>(v * 100));
+        slider2->setSliderPosition(static_cast<int>(v * 100 + 0.000001));
         slider2->blockSignals(false);
     });
 

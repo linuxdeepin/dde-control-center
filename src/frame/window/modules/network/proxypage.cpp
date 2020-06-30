@@ -50,7 +50,6 @@ const QStringList ProxyMethodList = { "none", "manual", "auto" };
 
 ProxyPage::ProxyPage(QWidget *parent)
     : QWidget(parent)
-    , m_manualWidget(new ContentWidget)
     , m_autoWidget(new TranslucentFrame)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
     , m_proxyTabs(new DButtonBox)
@@ -144,29 +143,73 @@ ProxyPage::ProxyPage(QWidget *parent)
     autoLayout->setMargin(0);
     m_autoWidget->setLayout(autoLayout);
 
-    QWidget *manualWidget = new TranslucentFrame;
-    manualWidget->setLayout(manualLayout);
-    m_manualWidget->setContent(manualWidget);
+    m_manualWidget = new TranslucentFrame;
+    m_manualWidget->setLayout(manualLayout);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->setMargin(0);
-    mainLayout->addWidget(m_proxyTabs);
-    mainLayout->addSpacing(10);
     mainLayout->addWidget(m_manualWidget);
     mainLayout->addWidget(m_autoWidget);
     mainLayout->addSpacing(10);
     mainLayout->addStretch();
-    mainLayout->addWidget(m_buttonTuple);
-    mainLayout->setSpacing(0);
 
+    ContentWidget *conentwidget = new ContentWidget;
     setWindowTitle(tr("System Proxy"));
-    setLayout(mainLayout);
-
-//    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ProxyPage::back);
-//    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::back, Qt::QueuedConnection);
+    TranslucentFrame *w = new TranslucentFrame;
+    w->setLayout(mainLayout);
+    conentwidget->setContent(w);
+    QVBoxLayout *vLayout = new QVBoxLayout;
+    vLayout->setMargin(0);
+    vLayout->addWidget(m_proxyTabs);
+    QVBoxLayout *btnLayout = new QVBoxLayout;
+    btnLayout->setMargin(0);
+    btnLayout->addWidget(m_buttonTuple);
+    vLayout->addWidget(conentwidget);
+    vLayout->addLayout(btnLayout);
+    setLayout(vLayout);
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
-    connect(m_proxyTabs, &DButtonBox::buttonClicked, this, [this](QAbstractButton *value) {
+    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, [this] {
+        onProxyChanged("http", m_model->proxy("http"));
+        onProxyChanged("https", m_model->proxy("https"));
+        onProxyChanged("ftp", m_model->proxy("ftp"));
+        onProxyChanged("socks", m_model->proxy("socks"));
+    });
+    connect(m_autoUrl->dTextEdit(), &DLineEdit::editingFinished, this, [this] {
+        if (m_autoUrl->dTextEdit()->text() != m_model->autoProxy())
+        {
+            applySettings();
+        }
+    });
+
+    connect(m_proxyTabs, &DButtonBox::buttonClicked, this, [this](QAbstractButton * value) {
         onProxyToggled(m_proxyTabs->id(value));
+    });
+    connect(m_httpPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
+        if (str.toInt() < 0) {
+            m_httpPort->setText("0");
+        } else if(str.toInt() > 65535) {
+            m_httpPort->setText("65535");
+        }
+    });
+    connect(m_httpsPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
+        if (str.toInt() < 0) {
+            m_httpsPort->setText("0");
+        } else if(str.toInt() > 65535) {
+            m_httpsPort->setText("65535");
+        }
+    });
+    connect(m_ftpPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
+        if (str.toInt() < 0) {
+            m_ftpPort->setText("0");
+        } else if(str.toInt() > 65535) {
+            m_ftpPort->setText("65535");
+        }
+    });
+    connect(m_socksPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
+        if (str.toInt() < 0) {
+            m_socksPort->setText("0");
+        } else if(str.toInt() > 65535) {
+            m_socksPort->setText("65535");
+        }
     });
 //    connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { Q_EMIT requestSetProxyMethod(ProxyMethodList[index]); });
 //    connect(m_ignoreList, &QPlainTextEdit::textChanged, [=] { Q_EMIT requestSetIgnoreHosts(m_ignoreList->toPlainText()); });
@@ -218,6 +261,7 @@ void ProxyPage::onProxyToggled(const int index)
     // refersh ui
     m_manualWidget->setVisible(index == 1);
     m_autoWidget->setVisible(index == 2);
+    m_buttonTuple->setVisible(index == 1);
 
     setFocus();
 }

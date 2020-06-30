@@ -32,6 +32,7 @@
 
 #include "modules/moduleworker.h"
 #include "bluetoothmodel.h"
+#include "pincodedialog.h"
 
 using  DBusBluetooth = com::deepin::daemon::Bluetooth;
 
@@ -50,6 +51,7 @@ public:
     void deactivate() Q_DECL_OVERRIDE;
 
     void blockDBusSignals(bool block);
+
 
 Q_SIGNALS:
     void deviceEnableChanged();
@@ -91,6 +93,7 @@ private:
 
     DBusBluetooth *m_bluetoothInter;
     BluetoothModel *m_model;
+    QMap<QDBusObjectPath, PinCodeDialog*> m_dialogs;
 };
 
 } // namespace bluetooth

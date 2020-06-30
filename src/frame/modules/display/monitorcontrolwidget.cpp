@@ -87,6 +87,9 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     connect(m_screensGround, &MonitorsGround::requestApplySettings, this, &MonitorControlWidget::requestSetMonitorPosition);
     connect(m_screensGround, &MonitorsGround::requestMonitorPress, this, &MonitorControlWidget::requestMonitorPress);
     connect(m_screensGround, &MonitorsGround::requestMonitorRelease, this, &MonitorControlWidget::requestMonitorRelease);
+    m_recognize->setFocusPolicy(Qt::NoFocus);
+    m_split->setFocusPolicy(Qt::NoFocus);
+    m_join->setFocusPolicy(Qt::NoFocus);
 }
 
 void MonitorControlWidget::setDisplayModel(DisplayModel *model, Monitor *moni)

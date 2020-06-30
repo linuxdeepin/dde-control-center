@@ -39,6 +39,8 @@ using namespace dcc::widgets;
 
 TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidget(parent)
 {
+    auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
+    m_isNotWayland = !sessionType.contains("wayland");
     m_touchpadSettingsGrp = new SettingsGroup;
     //~ contents_path /mouse/Touchpad
     //~ child_page Touchpad
@@ -70,7 +72,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->setMargin(0);
     m_contentLayout->addWidget(m_touchpadSettingsGrp);
-    m_contentLayout->addSpacing(List_Interval);
+    m_contentLayout->setSpacing(List_Interval);
     m_contentLayout->addWidget(m_palmDetectSetting);
     m_contentLayout->addStretch();
     TranslucentFrame *tFrame = new TranslucentFrame;
@@ -78,7 +80,12 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     layout()->setMargin(0);
     setContent(tFrame);
 
-    connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, this, &TouchPadSettingWidget::requestSetTouchpadMotionAcceleration);
+    connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, [this](int value) {
+        if(m_isNotWayland)
+             requestSetTouchpadMotionAcceleration(value);
+        else
+            requestSetTouchpadMotionAcceleration(abs(value - 6));
+    });
     connect(m_touchClickStn, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTapClick);
     connect(m_touchNaturalScroll, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTouchNaturalScroll);
 }
@@ -86,7 +93,12 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
 void TouchPadSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 {
     m_mouseModel = model;
-    connect(model, &MouseModel::tpadMoveSpeedChanged, this, &TouchPadSettingWidget::onTouchMoveSpeedChanged);
+    connect(model, &MouseModel::tpadMoveSpeedChanged, [this] (int value) {
+        if(m_isNotWayland)
+            onTouchMoveSpeedChanged(value);
+        else
+            onTouchMoveSpeedChanged(abs(value - 6));
+    });
     connect(model, &MouseModel::tapClickChanged, m_touchClickStn, &SwitchWidget::setChecked);
     connect(model, &MouseModel::tpadNaturalScrollChanged, m_touchNaturalScroll, &SwitchWidget::setChecked);
 
@@ -95,7 +107,10 @@ void TouchPadSettingWidget::setModel(dcc::mouse::MouseModel *const model)
     connect(m_palmDetectSetting, &PalmDetectSetting::requestDetectState, this, &TouchPadSettingWidget::requestDetectState);
     connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &TouchPadSettingWidget::requestPressure);
 
-    onTouchMoveSpeedChanged(m_mouseModel->tpadMoveSpeed());
+    if(m_isNotWayland)
+        onTouchMoveSpeedChanged(m_mouseModel->tpadMoveSpeed());
+    else
+        onTouchMoveSpeedChanged(abs(m_mouseModel->tpadMoveSpeed() - 6));
     m_touchClickStn->setChecked(m_mouseModel->tapclick());
     m_touchNaturalScroll->setChecked(m_mouseModel->tpadNaturalScroll());
 }
