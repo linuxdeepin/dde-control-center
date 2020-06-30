@@ -105,7 +105,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
                 if (msgcode == "1001") {
                     in3 = tr("Failed to get root access");
                 } else if (msgcode == "1002") {
-                    in3 = tr("Please sign in to your cloud account first");
+                    in3 = tr("Please sign in to your Union ID first");
                 } else if (msgcode == "1003") {
                     in3 = tr("Cannot read your PC information");
                 } else if (msgcode == "1004") {
