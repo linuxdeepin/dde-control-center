@@ -69,6 +69,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_kbLayoutListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_kbLayoutListView->setSelectionMode(QAbstractItemView::NoSelection);
     m_kbLayoutListView->setContentsMargins(ListViweItemMargin);
+
     mainLayout->addWidget(m_kbLayoutListView);
     mainLayout->addSpacing(List_Interval);
     m_switchTitle = new TitleLabel(tr("Switch Layouts (Multiple)"));
@@ -104,6 +105,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     comboxOptions << tr("System") << tr("Application");
     m_comboWidget->setComboxOption(comboxOptions);
     mainLayout->addWidget(m_comboWidget);
+    mainLayout->setContentsMargins(ScrollAreaMargins);
     mainLayout->addStretch();
 
     QWidget *widget = new QWidget(this);

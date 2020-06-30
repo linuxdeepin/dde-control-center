@@ -62,6 +62,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     headLayout->addWidget(headTitle);
     headLayout->addStretch();
     headLayout->addWidget(m_editSystemLang);
+    headLayout->addSpacing(ScrollAreaMargins.right());
 
     layout->addLayout(headLayout);
     m_langListview = new DListView();
@@ -73,6 +74,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     m_langListview->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_langListview->setSelectionMode(QAbstractItemView::NoSelection);
     m_langListview->setContentsMargins(ListViweItemMargin);
+    m_langListview->setViewportMargins(ScrollAreaMargins);
 
     m_langItemModel = new QStandardItemModel(this);
     m_langListview->setModel(m_langItemModel);
