@@ -59,6 +59,7 @@
 #include <QLinearGradient>
 #include <QGSettings>
 #include <QScroller>
+#include <QScreen>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -70,8 +71,8 @@ const QString GSettinsWindowWidth = "window-width";
 const QString GSettinsWindowHeight = "window-height";
 const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
 
-const int WidgetMinimumWidget = 820;
-const int WidgetMinimumHeight = 634;
+static int WidgetMinimumWidget = 820;
+static int WidgetMinimumHeight = 634;
 
 //此处为带边距的宽度
 const int first_widget_min_width = 188;
@@ -190,6 +191,18 @@ MainWindow::MainWindow(QWidget *parent)
         m_moduleName = "";
         resetNavList(m_contentStack.isEmpty());
     });
+    int w = QGuiApplication::primaryScreen()->geometry().width();
+    int h = QGuiApplication::primaryScreen()->geometry().height();
+    if (w > 820) {
+        WidgetMinimumWidget = 820;
+    } else {
+        WidgetMinimumWidget = w;
+    }
+    if (h > 634) {
+        WidgetMinimumHeight = 634;
+    } else {
+        WidgetMinimumHeight = h;
+    }
     setMinimumSize(QSize(WidgetMinimumWidget, WidgetMinimumHeight));
     updateViewBackground();
 }
