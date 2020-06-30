@@ -185,6 +185,11 @@ void NetworkModuleWidget::initSetting(const int settingIndex, const QString &sea
     m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
 }
 
+void NetworkModuleWidget::setCurrentIndex(const int settingIndex)
+{
+    m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
+}
+
 void NetworkModuleWidget::setIndexFromPath(const QString &path)
 {
     for (int i = 0; i < m_modelpages->rowCount(); ++i) {
@@ -306,7 +311,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     }
 
     if (bRemoveCurrentDevice) {
-        initSetting(0, "");
+        setCurrentIndex(0);
     }
 }
 
