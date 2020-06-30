@@ -99,8 +99,11 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
         url = QUrl(avatar);
 
     m_avatarPath = url.toString();
-    m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
-    m_avatar.setDevicePixelRatio(ratio);
+
+    if (!QPixmap(url.toLocalFile()).isNull()) {
+        m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
+        m_avatar.setDevicePixelRatio(ratio);
+    }
 
     setAccessibleName(m_avatarPath);
 

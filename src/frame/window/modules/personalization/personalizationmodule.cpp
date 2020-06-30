@@ -40,8 +40,10 @@ PersonalizationModule::PersonalizationModule(FrameProxyInterface *frame, QObject
 
 PersonalizationModule::~PersonalizationModule()
 {
-    m_model->deleteLater();
-    m_work->deleteLater();
+    if (m_model)
+        m_model->deleteLater();
+    if (m_work)
+        m_work->deleteLater();
 }
 
 void PersonalizationModule::initialize()

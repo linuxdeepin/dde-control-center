@@ -338,7 +338,7 @@ void SystemInfoWork::getLicenseState()
                                "com.deepin.license.activator",
                                QDBusConnection::sessionBus());
     if (!licenseInfo.isValid()) {
-        qDebug()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
         return;
     }
 
