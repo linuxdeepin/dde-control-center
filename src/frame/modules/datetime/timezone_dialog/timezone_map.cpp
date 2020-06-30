@@ -98,7 +98,7 @@ bool TimezoneMap::setTimezone(const QString &timezone)
         return true;
     } else {
         // NOTE(xushaohua): "Etc/UTC" can not be set on the map
-        qWarning() << "Timezone not found:" << timezone;
+        qDebug() << "Timezone not found:" << timezone;
     }
 
     return false;

@@ -95,7 +95,7 @@ void SystemInfoWidget::initData()
         }
     }
     else {
-        qWarning() << "Cannot open " << recoveryPath;
+        qDebug() << "Cannot open " << recoveryPath;
     }
 #endif
 

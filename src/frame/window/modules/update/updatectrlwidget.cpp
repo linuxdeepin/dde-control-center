@@ -190,7 +190,7 @@ void UpdateCtrlWidget::onProgressBarClicked()
         Q_EMIT requestInstallUpdates();
         break;
     default:
-        qWarning() << "unhandled status " << m_status;
+        qDebug() << "unhandled status " << m_status;
         break;
     }
 }
@@ -318,7 +318,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_resultItem->setMessage(tr("System backup failed"));
         break;
     default:
-        qWarning() << "unknown status!!!";
+        qDebug() << "unknown status!!!";
         break;
     }
 }

@@ -298,7 +298,7 @@ void DatetimeModule::onPopWidget()
     DListView *list = m_widget->getListViewPointer();
 
     if (!list) {
-        qWarning() << " DListView is nullptr.";
+        qDebug() << " DListView is nullptr.";
         return;
     }
 

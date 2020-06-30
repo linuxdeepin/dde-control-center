@@ -435,7 +435,7 @@ void MainWindow::loadModules()
 {
     QDir moduleDir(ModuleDirectory);
     if (!moduleDir.exists()) {
-        qWarning() << "module directory not exists";
+        qDebug() << "module directory not exists";
     }
 
     auto moduleList = moduleDir.entryInfoList();
@@ -449,7 +449,7 @@ void MainWindow::loadModules()
         QPluginLoader loader(path);
         QObject* instance = loader.instance();
         if (!instance) {
-            qWarning() << loader.errorString();
+            qDebug() << loader.errorString();
             continue;
         }
 
@@ -724,11 +724,11 @@ void MainWindow::resizeEvent(QResizeEvent *event)
             auto ite = m_contentStack.pop();
             pushTopWidget(ite.first, ite.second);
         } else {
-            qWarning() << "Not satisfied , can't back.";
+            qDebug() << "Not satisfied , can't back.";
         }
     } else if (four_widget_min_widget <= dstWidth) {
         if (!m_topWidget) {
-            qWarning() << " The top widget is nullptr.";
+            qDebug() << " The top widget is nullptr.";
             return;
         }
 
@@ -963,19 +963,19 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
             }
         }
     } else {
-        qWarning() << Q_FUNC_INFO << "Not found module!";
+        qDebug() << Q_FUNC_INFO << "Not found module!";
     }
 }
 
 void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type)
 {
     if (!inter)  {
-        qWarning() << Q_FUNC_INFO << " inter is nullptr";
+        qDebug() << Q_FUNC_INFO << " inter is nullptr";
         return;
     }
 
     if (!w)  {
-        qWarning() << Q_FUNC_INFO << " widget is nullptr";
+        qDebug() << Q_FUNC_INFO << " widget is nullptr";
         return;
     }
 
@@ -1111,7 +1111,7 @@ void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *cons
         popAllWidgets(2);//move fourth widget(m_navView not in it , other level > 2)
         break;
     default:
-        qWarning() << Q_FUNC_INFO << " error widget content conut : " << contentCount;
+        qDebug() << Q_FUNC_INFO << " error widget content conut : " << contentCount;
         return;
     }
 

@@ -92,7 +92,7 @@ void KeyboardWorker::resetAll() {
         watcher->deleteLater();
 
         if (reply->isError()) {
-            qWarning() << Q_FUNC_INFO << reply->error();
+            qDebug() << Q_FUNC_INFO << reply->error();
         }
 
         Q_EMIT onResetFinished();
@@ -136,7 +136,7 @@ void KeyboardWorker::windowSwitch()
                                "com.deepin.wm",
                                QDBusConnection::sessionBus());
     if (!licenseInfo.isValid()) {
-        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        qDebug()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
         return;
     }
 
@@ -540,7 +540,7 @@ void KeyboardWorker::onSearchFinished(QDBusPendingCallWatcher *watch)
     if (!watch->isError()) {
         m_shortcutModel->setSearchResult(reply.value());
     } else {
-        qWarning() << "search finished error." << watch->error();
+        qDebug() << "search finished error." << watch->error();
     }
     watch->deleteLater();
 }

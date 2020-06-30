@@ -47,7 +47,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::SleepLockChanged, m_powerModel, &PowerModel::setSleepLock);
     connect(m_powerInter, &PowerInter::LidIsPresentChanged, m_powerModel, &PowerModel::setLidPresent);
     connect(m_powerInter, &PowerInter::LidClosedSleepChanged, m_powerModel, &PowerModel::setSleepOnLidOnPowerClose);
-    connect(m_powerInter, &PowerInter::BatteryLidClosedSleepChanged, m_powerModel, &PowerModel::setSleepOnLidOnBatteryClose);
+    //connect(m_powerInter, &PowerInter::BatteryLidClosedSleepChanged, m_powerModel, &PowerModel::setSleepOnLidOnBatteryClose);
     connect(m_powerInter, &PowerInter::LinePowerScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnPower);
     connect(m_powerInter, &PowerInter::LinePowerSleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnPower);
     connect(m_powerInter, &PowerInter::BatteryScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnBattery);
@@ -80,7 +80,7 @@ void PowerWorker::active(bool isSync)
     m_powerModel->setSleepLock(m_powerInter->sleepLock());
     m_powerModel->setLidPresent(m_powerInter->lidIsPresent());
     m_powerModel->setSleepOnLidOnPowerClose(m_powerInter->lidClosedSleep());
-    m_powerModel->setSleepOnLidOnBatteryClose(m_powerInter->batteryLidClosedSleep());
+    //m_powerModel->setSleepOnLidOnBatteryClose(m_powerInter->batteryLidClosedSleep());
     m_powerModel->setHaveBettary(m_sysPowerInter->hasBattery());
 
     setScreenBlackDelayToModelOnPower(m_powerInter->linePowerScreenBlackDelay());
@@ -121,7 +121,7 @@ void PowerWorker::setSleepOnLidOnPowerClosed(const bool sleep)
 
 void PowerWorker::setSleepOnLidOnBatteryClosed(const bool sleep)
 {
-    m_powerInter->setBatteryLidClosedSleep(sleep);
+    //m_powerInter->setBatteryLidClosedSleep(sleep);
 }
 
 void PowerWorker::setSleepDelayOnPower(const int delay)

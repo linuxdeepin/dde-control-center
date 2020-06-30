@@ -179,7 +179,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
     };
 
     if (!checkValid(QString("%1/system.dim").arg(selectPath))) {
-        qWarning() << Q_FUNC_INFO << "md5 check failed!";
+        qDebug() << Q_FUNC_INFO << "md5 check failed!";
         return ErrorType::MD5Error;
     }
 
@@ -188,7 +188,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
     process->waitForFinished();
 
     if (process->exitCode() != 0) {
-        qWarning() << Q_FUNC_INFO << "restore tool run failed!";
+        qDebug() << Q_FUNC_INFO << "restore tool run failed!";
         return ErrorType::ToolError;
     }
 
@@ -204,7 +204,7 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
     process->waitForFinished();
 
     if (process->exitCode() != 0) {
-        qWarning() << Q_FUNC_INFO << "restore tool run failed!";
+        qDebug() << Q_FUNC_INFO << "restore tool run failed!";
         return ErrorType::ToolError;
     }
 
@@ -218,7 +218,7 @@ ErrorType BackupAndRestoreWorker::setGrubAndRestart()
         QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(grub->SetDefaultEntry("UOS Backup & Restore")));
         watcher->waitForFinished();
         if (watcher->isError()) {
-            qWarning() << Q_FUNC_INFO << watcher->error();
+            qDebug() << Q_FUNC_INFO << watcher->error();
             return ErrorType::GrubError;
         }
 

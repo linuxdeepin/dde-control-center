@@ -152,7 +152,7 @@ void SyncWorker::onGetModuleSyncStateFinished(QDBusPendingCallWatcher *watcher)
     watcher->deleteLater();
 
     if (watcher->isError()) {
-        qWarning() << watcher->error();
+        qDebug() << watcher->error();
         return;
     }
 
@@ -160,7 +160,7 @@ void SyncWorker::onGetModuleSyncStateFinished(QDBusPendingCallWatcher *watcher)
     QJsonObject obj = QJsonDocument::fromJson(reply.value().toUtf8()).object();
 
     if (obj.isEmpty()) {
-        qWarning() << "Sync Info is Wrong!";
+        qDebug() << "Sync Info is Wrong!";
         return;
     }
 

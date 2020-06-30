@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
         return a.exec();
 
     } else {
-        qWarning() << "there's an instance running, invoking Show method on it.";
+        qDebug() << "there's an instance running, invoking Show method on it.";
 
         DDBusSender()
                 .service("com.deepin.dialogs.RebootReminder")

@@ -461,7 +461,7 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
         m_repeatpasswdEdit->showAlertMessage(result->message(), -1);
         break; // reserved for future server edition feature.
     case CreationResult::UnknownError:
-        qWarning() << "error encountered creating user: " << result->message();
+        qDebug() << "error encountered creating user: " << result->message();
         break;
     }
 
