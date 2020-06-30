@@ -177,7 +177,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
         m_oldPasswordEdit->showAlertMessage(tr("Wrong password"), -1);
         return;
     } else {
-        qWarning() << Q_FUNC_INFO << "exit =" << exitCode;
+        qDebug() << Q_FUNC_INFO << "exit =" << exitCode;
     }
 }
 

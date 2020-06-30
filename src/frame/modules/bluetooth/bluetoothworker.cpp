@@ -149,11 +149,11 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
                     if (!adapterPoweredOffCall.isError()) {
                         setAdapterDiscoverable(adapter->id());
                     } else {
-                        qWarning() << adapterPoweredOffCall.error().message();
+                        qDebug() << adapterPoweredOffCall.error().message();
                     }
                 });
             } else {
-                qWarning() << call.error().message();
+                qDebug() << call.error().message();
             }
         });
     } else {
@@ -163,7 +163,7 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
             if (!adapterPoweredOnCall.isError()) {
                 setAdapterDiscoverable(adapter->id());
             } else {
-                qWarning() << adapterPoweredOnCall.error().message();
+                qDebug() << adapterPoweredOnCall.error().message();
             }
         });
     }
@@ -248,7 +248,7 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
                 }
             }
         } else {
-            qWarning() << call.error().message();
+            qDebug() << call.error().message();
         }
     });
 }
@@ -379,7 +379,7 @@ void BluetoothWorker::refresh(bool beFirst)
             QDBusReply<QString> reply = call.reply();
             resol(reply);
         } else {
-            qWarning() << call.error().message();
+            qDebug() << call.error().message();
         }
     });
 }

@@ -96,7 +96,7 @@ void Manage::showDialog()
             exitApp();
         } else {
             //恢复失败,不做处理并退出当前进程
-            qWarning() << Q_FUNC_INFO << " , Recovery restore failed. errMsg : " << errMsg;
+            qDebug() << Q_FUNC_INFO << " , Recovery restore failed. errMsg : " << errMsg;
             m_dialog->updateRestoringFailedUI();
         }
     });
@@ -116,11 +116,11 @@ void Manage::recoveryCanRestore()
                 showDialog();
             } else {
                 //不满足恢复条件,退出app
-                qWarning() << Q_FUNC_INFO << " , CanRestore : false";
+                qDebug() << Q_FUNC_INFO << " , CanRestore : false";
                 exitApp();
             }
         } else {
-            qWarning() << "recovery Restoring error: " << call.error().message();
+            qDebug() << "recovery Restoring error: " << call.error().message();
         }
     });
 }
@@ -153,7 +153,7 @@ void Manage::requestReboot()
         if (!call.isError()) {
             qDebug() << Q_FUNC_INFO << " reboot success.";
         } else {
-            qWarning() << "recovery Restoring error: " << call.error().message();
+            qDebug() << "recovery Restoring error: " << call.error().message();
         }
         exitApp();
     });

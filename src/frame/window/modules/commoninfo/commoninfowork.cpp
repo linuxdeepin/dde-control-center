@@ -363,7 +363,7 @@ void CommonInfoWork::getEntryTitles()
             m_commomModel->setEntryLists(entries);
             m_commomModel->setDefaultEntry(m_dBusGrub->defaultEntry());
         } else {
-            qWarning() << "get grub entry list failed : " << w->error().message();
+            qDebug() << "get grub entry list failed : " << w->error().message();
         }
 
         w->deleteLater();
@@ -392,7 +392,7 @@ void CommonInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
         m_commomModel->setBackground(pix);
 #endif
     } else {
-        qWarning() << w->error().message();
+        qDebug() << w->error().message();
     }
 
     w->deleteLater();

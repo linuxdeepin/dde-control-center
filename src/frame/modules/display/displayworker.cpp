@@ -438,7 +438,7 @@ void DisplayWorker::setUiScale(const double value)
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
         if (call.isError())
         {
-            qWarning() << call.error();
+            qDebug() << call.error();
         } else
         {
             m_model->setUIScale(rv);

@@ -98,7 +98,7 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
     QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
     watcher->waitForFinished();
     if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
+        qDebug() << Q_FUNC_INFO << watcher->error();
         return ErrorType::GrubError;
     }
 
@@ -130,7 +130,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
 
     if (!checkValid(QString("%1/boot.dim").arg(selectPath)) ||
         !checkValid(QString("%1/system.dim").arg(selectPath))) {
-        qWarning() << Q_FUNC_INFO << "md5 check failed!";
+        qDebug() << Q_FUNC_INFO << "md5 check failed!";
         return ErrorType::MD5Error;
     }
 
@@ -139,14 +139,14 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
     process->waitForFinished(-1);
 
     if (process->exitCode() != 0) {
-        qWarning() << Q_FUNC_INFO << "restore tool run failed!";
+        qDebug() << Q_FUNC_INFO << "restore tool run failed!";
         return ErrorType::ToolError;
     }
 
     QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
     watcher->waitForFinished();
     if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
+        qDebug() << Q_FUNC_INFO << watcher->error();
         return ErrorType::GrubError;
     }
 
@@ -171,14 +171,14 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
     process->waitForFinished(-1);
 
     if (process->exitCode() != 0) {
-        qWarning() << Q_FUNC_INFO << "restore tool run failed!";
+        qDebug() << Q_FUNC_INFO << "restore tool run failed!";
         return ErrorType::ToolError;
     }
 
     QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
     watcher->waitForFinished();
     if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
+        qDebug() << Q_FUNC_INFO << watcher->error();
         return ErrorType::GrubError;
     }
 

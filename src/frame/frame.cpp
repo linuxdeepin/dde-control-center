@@ -232,7 +232,7 @@ void Frame::onDelayKillerTimeout()
     {
         if (isVisible())
             return m_delayKillerTimer->start();
-        qWarning() << "Killer Timeout, now quiiting...";
+        qDebug() << "Killer Timeout, now quiiting...";
         qApp->quit();
     } else {
 #ifndef DCC_KEEP_SETTINGS_LIVE
