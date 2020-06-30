@@ -210,6 +210,7 @@ void DeveloperModeDialog::setLogin()
     Q_ASSERT(model);
     auto requestDev = [this,btn]{
         btn->clearFocus();
+        btn->setEnabled(false);
         //防止出现弹窗时可以再次点击按钮
         QTimer::singleShot(100, this, [this]{
             Q_EMIT requestDeveloperMode(true);
@@ -219,7 +220,6 @@ void DeveloperModeDialog::setLogin()
     if (!model->isLogin()){
         m_enterDev = true;
         btn->clearFocus();
-        btn->setEnabled(false);
         Q_EMIT requestLogin();
         connect(model, &CommonInfoModel::isLoginChenged, this, [requestDev, this](bool log){
             if (!log || !m_enterDev)
