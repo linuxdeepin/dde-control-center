@@ -76,6 +76,8 @@ public:
     explicit NetworkModuleWidget();
     void setModel(dde::network::NetworkModel *model);
     void initSetting(const int settingIndex, const QString &searchPath);
+    //设置当前索引
+    void setCurrentIndex(const int settingIndex);
     int gotoSetting(const QString &path);
     void setIndexFromPath(const QString &path);
 Q_SIGNALS:
