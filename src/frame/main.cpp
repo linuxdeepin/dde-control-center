@@ -37,6 +37,7 @@
 #include <QGSettings>
 
 #include <signal.h>
+#include <unistd.h>
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -55,6 +56,10 @@ int main(int argc, char *argv[])
     qputenv("QT_QPA_PLATFORM", "xcb");
     qputenv("QT_WAYLAND_SHELL_INTEGRATION", "kwayland-shell");
     DApplication app(argc, argv);
+    if (!app.setSingleInstance(QString("dde-control-center_%1").arg(getuid()))) {
+        qDebug() << "set single instance failed!";
+        return -1;
+    }
     app.setOrganizationName("deepin");
     app.setApplicationName("dde-control-center");
 #ifdef CVERSION
