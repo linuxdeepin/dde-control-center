@@ -191,53 +191,68 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
     }
 }
 
-bool ModifyPasswdPage::validatePassword(const QString &password)
+QString ModifyPasswdPage::validatePassword(const QString &password)
 {
     // NOTE(justforlxz): 配置文件由安装器生成，后续改成PAM模块
     QSettings setting("/etc/deepin/dde.conf", QSettings::IniFormat);
     setting.beginGroup("Password");
-    const bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
-    const int  password_min_length   = setting.value("PASSWORD_MIN_LENGTH").toInt();
-    const int  password_max_length   = setting.value("PASSWORD_MAX_LENGTH").toInt();
-    const QStringList validate_policy= setting.value("VALIDATE_POLICY").toString().split(";");
-    const int validate_required      = setting.value("VALIDATE_REQUIRED").toInt();
+    const bool strongPasswordCheck = setting.value("STRONG_PASSWORD", false).toBool();
+    const int passwordMinLength = setting.value("PASSWORD_MIN_LENGTH").toInt();
+    const int passwordMaxLength = setting.value("PASSWORD_MAX_LENGTH").toInt();
+    const QStringList validatePolicy = setting.value("VALIDATE_POLICY").toString().split(";");
+    //const int validateRequired = setting.value("VALIDATE_REQUIRED").toInt();
+    QString reversusername;
+    QStringList reversenamelist;
 
-    if (!strong_password_check) {
-        return true;
+    for (int i = m_curUser->name().count() - 1; i > -1; i--) {
+        reversenamelist << m_curUser->name().at(i);
+    }
+    reversusername = reversenamelist.join("");
+
+    if (!strongPasswordCheck) {
+        return "";
     }
 
-    if (password.size() < password_min_length || password.size() > password_max_length) {
-        return false;
+    if (password.size() < passwordMinLength || password.size() > passwordMaxLength) {
+        return QString(tr("Password must be between %1 and %2 characters")).arg(passwordMinLength).arg(passwordMaxLength);
     }
-
-    // NOTE(justforlxz): 转换为set，如果密码中包含了不存在与validate_policy中的字符，相减以后不为空。
-    if (!(password.split("").toSet() - validate_policy.join("").split("").toSet())
-             .isEmpty()) {
-        return false;
+    // NOTE(justforlxz): 转换为set，如果密码中包含了不存在与validatePolicy中的字符，相减以后不为空。"[0-9]"[^\w\s]+
+    int password_character_types = 0;
+    if (password.contains(QRegExp("[0-9]")))
+        password_character_types++;
+    if (password.contains(QRegExp("[A-Z]")))
+        password_character_types++;
+    if (password.contains(QRegExp("[a-z]")))
+        password_character_types++;
+    if (password.contains(QRegExp("((?=[\x21-\x7e]+)[^A-Za-z0-9])")) || password.contains(" "))
+        password_character_types++;
+    if (password_character_types < 2)
+        return QString(tr("The password must have at least 6 characters, and contain at least 2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols"));
+    if (password == m_curUser->name() || password == reversusername) {
+        return QString(tr("Password should not be the repeated or reversed username"));
     }
-
-    if (std::count_if(validate_policy.cbegin(), validate_policy.cend(),
-                      [=](const QString &policy) {
-                          for (const QChar &c : policy) {
-                              if (password.contains(c)) {
-                                  return true;
-                              }
-                          }
-
-                          return false;
-                      }) < validate_required) {
-        return false;
-    }
-
-    return true;
+    return "";
 }
 
 bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
 {
     const QString &password = edit->lineEdit()->text();
-
     if (password.isEmpty()) {
         edit->setAlert(true);
+        return false;
+    }
+
+    const int maxSize = 512;
+    if (password.size() > maxSize) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
+        return false;
+    }
+
+    auto res = validatePassword(password);
+    if (!res.isEmpty()) {
+        edit->setAlert(true);
+        edit->showAlertMessage(res);
         return false;
     }
 
@@ -250,12 +265,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         }
     }
 
-    auto res = UserModel::validatePassword(password);
-    if (!res.isEmpty()) {
-        edit->setAlert(true);
-        edit->showAlertMessage(res);
-        return false;
-    }
+
 
     if (m_oldPasswordEdit->lineEdit()->text() == password) {
         edit->setAlert(true);
@@ -263,12 +273,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         return false;
     }
 
-    const int maxSize = 512;
-    if (password.size() > maxSize) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
-        return false;
-    }
+
 
     return true;
 }

@@ -58,7 +58,7 @@ public:
     void initWidget();
     void clickSaveBtn();
     void onPasswordChangeFinished(const int exitCode);
-    bool validatePassword(const QString &password);
+    QString validatePassword(const QString &password);
 
     enum ModifyPwdRetFlag {
         ModifyNewPwdSuccess = 0,
