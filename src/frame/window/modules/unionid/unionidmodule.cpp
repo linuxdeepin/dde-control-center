@@ -76,7 +76,7 @@ void UnionidModule::preInitialize(bool sync)
     m_model = new dcc::unionid::UnionidModel;
     m_worker = new dcc::unionid::UnionidWorker(m_model);
 
-    m_frameProxy->setModuleVisible(this, m_model->syncIsValid() && !IsServerSystem);
+    m_frameProxy->setModuleVisible(this, m_model->syncIsValid() && !IsServerSystem && false);
 }
 
 QStringList UnionidModule::availPage() const
