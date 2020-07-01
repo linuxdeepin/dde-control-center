@@ -22,6 +22,7 @@ public:
     void initUI();
 
     void setTipsVisible(const bool &visible);
+    void setFileDialog(QFileDialog *fileDialog);
 
 Q_SIGNALS:
     void requestSetManualBackupDirectory(const QString& path);

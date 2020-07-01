@@ -28,6 +28,7 @@ public:
     void initUI();
 
     void setTipsVisible(const bool &visible);
+    void setFileDialog(QFileDialog *fileDialog);
 
 protected:
     void showEvent(QShowEvent *event) override;
