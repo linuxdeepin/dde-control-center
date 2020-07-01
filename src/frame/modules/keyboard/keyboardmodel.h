@@ -91,6 +91,7 @@ public:
 
     inline int getLangChangedState() const { return m_status; }
     void setLangChangedState(const int state);
+    inline QStringList &getUserLayoutList() { return m_userLaylist; }
 
 Q_SIGNALS:
 #ifndef DCC_DISABLE_KBLAYOUT
@@ -131,6 +132,7 @@ private:
     int m_layoutScope;
     QString m_currentLangKey;
     QStringList m_localLangList;
+    QStringList m_userLaylist;
     QMap<QString, QString> m_userLayout;
     QMap<QString, QString> m_layouts;
     QList<MetaData> m_langList;

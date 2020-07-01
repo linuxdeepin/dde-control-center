@@ -484,6 +484,7 @@ void KeyboardWorker::onSetSwitchKBLayout(int value)
 void KeyboardWorker::onUserLayout(const QStringList &list)
 {
     m_model->cleanUserLayout();
+    m_model->getUserLayoutList() = list;
 
     for (const QString &data : list) {
         QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardInter->GetLayoutDesc(data), this);
