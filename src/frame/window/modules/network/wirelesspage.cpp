@@ -116,7 +116,17 @@ void APItem::setSignalStrength(int ss)
         setIcon(QPixmap());
         return;
     }
-    setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(ss / 10 & ~1)));
+    if (5 >= ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(0)));
+    else if (5 < ss && 30 >= ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(2)));
+    else if (30 < ss && 55 >= ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(4)));
+    else if (55 < ss && 65 >= ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(6)));
+    else
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(8)));
+
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = ss;
     si.ssid = text();
