@@ -20,6 +20,12 @@ SystemRestore::SystemRestore(BackupAndRestoreModel* model, QWidget *parent)
     , m_restorePage(new ManualRestore(model))
 {
     setObjectName("SystemRestore");
+
+    QFileDialog *fileDialog = new QFileDialog(this);
+    fileDialog->setFileMode(QFileDialog::Directory);
+    m_backupPage->setFileDialog(fileDialog);
+    m_restorePage->setFileDialog(fileDialog);
+
     DButtonBoxButton* backupBtn = new DButtonBoxButton(tr("Backup"));
     DButtonBoxButton* restoreBtn = new DButtonBoxButton(tr("Restore"));
 

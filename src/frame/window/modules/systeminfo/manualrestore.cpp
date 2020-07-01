@@ -198,8 +198,6 @@ void ManualRestore::initUI()
 
     m_systemRestore->radioButton()->setChecked(true);
 
-    m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
-
     QVBoxLayout *loadingLayout = new QVBoxLayout;
     m_loadingWidget->setLayout(loadingLayout);
 
@@ -218,6 +216,11 @@ void ManualRestore::initUI()
 void ManualRestore::setTipsVisible(const bool &visible)
 {
     m_tipsLabel->setVisible(visible);
+}
+
+void ManualRestore::setFileDialog(QFileDialog *fileDialog)
+{
+    m_directoryChooseWidget->setFileDialog(fileDialog);
 }
 
 void ManualRestore::showEvent(QShowEvent *event)

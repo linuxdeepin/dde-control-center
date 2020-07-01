@@ -112,8 +112,6 @@ void ManualBackup::initUI()
 
     m_tipsLabel->hide();
 
-    m_directoryChooseWidget->setFileMode(QFileDialog::Directory);
-
     QVBoxLayout* loadingLayout = new QVBoxLayout;
     m_loadingWidget->setLayout(loadingLayout);
 
@@ -131,6 +129,11 @@ void ManualBackup::initUI()
 void ManualBackup::setTipsVisible(const bool &visible)
 {
     m_tipsLabel->setVisible(visible);
+}
+
+void ManualBackup::setFileDialog(QFileDialog *fileDialog)
+{
+    m_directoryChooseWidget->setFileDialog(fileDialog);
 }
 
 void ManualBackup::onChoose(const int &code)
