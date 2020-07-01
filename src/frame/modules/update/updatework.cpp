@@ -36,7 +36,6 @@
 
 namespace dcc {
 namespace update {
-
 static int TestMirrorSpeedInternal(const QString &url, QPointer<QObject> baseObject)
 {
     if (!baseObject || QCoreApplication::closingDown()) {
@@ -105,6 +104,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_bIsFirstGetDownloadProcess(true)
     , m_downloadSize(0)
     , m_iconThemeState("")
+    , m_beginUpdatesJob(false)
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
@@ -548,6 +548,40 @@ void UpdateWorker::resetDownloadInfo(bool state)
     }
 }
 
+CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
+{
+    CheckUpdateJobRet ret;
+    ret.status = "failed";
+
+    QPointer<JobInter> checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
+
+    ret.jobID = checkUpdateJob->id();
+    ret.jobDescription = checkUpdateJob->description();
+
+    connect(checkUpdateJob, &__Job::StatusChanged, [ &ret, checkUpdateJob ](const QString & status) {
+        qDebug() << "[setCheckUpdatesJob]status is: " << status;
+        if (status == "failed" || status.isEmpty()) {
+            qWarning() << "check for updates job failed";
+            ret.status = "failed";
+            checkUpdateJob->deleteLater();
+        } else if (status == "success" || status == "succeed") {
+            ret.status = "succeed";
+            checkUpdateJob->deleteLater();
+        }
+    });
+
+    connect(checkUpdateJob, &__Job::ProgressChanged, m_model, &UpdateModel::setUpdateProgress,Qt::QueuedConnection);
+    checkUpdateJob->ProgressChanged(checkUpdateJob->progress());
+    checkUpdateJob->StatusChanged(checkUpdateJob->status());
+
+    while (checkUpdateJob) {
+        qApp->processEvents();
+        QThread::msleep(10);
+    }
+
+    return  ret;
+}
+
 void UpdateWorker::pauseDownload()
 {
     if (!m_downloadJob.isNull()) {
@@ -756,9 +790,10 @@ void UpdateWorker::onNotifyDownloadInfoChanged()
 
 void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 {
-    if (!m_checkUpdateJob.isNull())
+    if (m_beginUpdatesJob)
         return;
 
+    m_beginUpdatesJob = true;
     qDebug() << "[setCheckUpdatesJob] start status : " << m_model->status();
     UpdatesStatus state = m_model->status();
     if (UpdatesStatus::Downloading != state && UpdatesStatus::DownloadPaused != state && UpdatesStatus::Installing != state) {
@@ -767,28 +802,23 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
         resetDownloadInfo();
     }
 
-    m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
-    connect(m_checkUpdateJob, &__Job::StatusChanged, [this](const QString & status) {
-        qDebug() << "[setCheckUpdatesJob]status is: " << status;
-        if (status == "failed") {
-            qWarning() << "check for updates job failed";
-            m_managerInter->CleanJob(m_checkUpdateJob->id());
+    QFutureWatcher<CheckUpdateJobRet> *watcher = new QFutureWatcher<CheckUpdateJobRet>(this);
+    connect(watcher, &QFutureWatcher<CheckUpdateJobRet>::finished, [this, watcher] {
+        CheckUpdateJobRet ret = watcher->result();
 
-            checkDiskSpace(m_checkUpdateJob);
-
-            m_checkUpdateJob->deleteLater();
-        } else if (status == "success" || status == "succeed") {
-            m_checkUpdateJob->deleteLater();
-
+        if (ret.status == "succeed") {
             QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
             connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWorker::onAppUpdateInfoFinished);
+        } else {
+            m_managerInter->CleanJob(ret.jobID);
+            checkDiskSpace(ret.jobDescription);
         }
+        m_beginUpdatesJob = false;
+        watcher->deleteLater();
     });
 
-    connect(m_checkUpdateJob, &__Job::ProgressChanged, m_model, &UpdateModel::setUpdateProgress);
-
-    m_checkUpdateJob->ProgressChanged(m_checkUpdateJob->progress());
-    m_checkUpdateJob->StatusChanged(m_checkUpdateJob->status());
+    QFuture<CheckUpdateJobRet> future = QtConcurrent::run(this,&UpdateWorker::createCheckUpdateJob,jobPath);
+    watcher->setFuture(future);
 }
 
 void UpdateWorker::setDownloadJob(const QString &jobPath)
@@ -948,7 +978,7 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
     if (status == "failed")  {
         m_managerInter->CleanJob(m_downloadJob->id());
 
-        checkDiskSpace(m_downloadJob);
+        checkDiskSpace(m_downloadJob->description());
 
         qWarning() << "download updates job failed";
         m_downloadJob->deleteLater();
@@ -985,7 +1015,7 @@ void UpdateWorker::onUpgradeStatusChanged(const QString &status)
         // cleanup failed job
         m_managerInter->CleanJob(m_distUpgradeJob->id());
 
-        checkDiskSpace(m_distUpgradeJob);
+        checkDiskSpace(m_distUpgradeJob->description());
 
         qWarning() << "install updates job failed";
         m_distUpgradeJob->deleteLater();
@@ -1011,9 +1041,8 @@ void UpdateWorker::onIconThemeChanged(const QString &theme)
     m_iconThemeState = theme;
 }
 
-void UpdateWorker::checkDiskSpace(JobInter *job)
+void UpdateWorker::checkDiskSpace(const QString &jobDescription)
 {
-    QString jobDescription = job->description();
     qDebug() << "job description: " << jobDescription;
     if (jobDescription.contains("You don't have enough free space", Qt::CaseInsensitive) ||
             !m_lastoresessionHelper->IsDiskSpaceSufficient()) {
