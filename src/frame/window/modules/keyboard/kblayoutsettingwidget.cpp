@@ -161,7 +161,19 @@ void KBLayoutSettingWidget::onAddKeyboard(const QString &id, const QString &valu
         return;
     DStandardItem *kbLayoutItem = new DStandardItem(value);
     kbLayoutItem->setData(id, KBLangIdRole);
-    m_kbLayoutModel->appendRow(kbLayoutItem);
+    // 按用户键盘布局列表顺序显示
+    int index = 0;
+    for (int i = m_kbLayoutModel->rowCount() - 1; i >= 0; --i) {
+        DStandardItem *item = dynamic_cast<DStandardItem *>(m_kbLayoutModel->item(i, 0));
+        if (item == nullptr) {
+            return;
+        }
+        if (m_model->getUserLayoutList().indexOf(id) > m_model->getUserLayoutList().indexOf(item->data(KBLangIdRole).toString())) {
+            index = i + 1;
+            break;
+        }
+    }
+    m_kbLayoutModel->insertRow(index, kbLayoutItem);
     m_kbLangList << id;
     setUIVisible();
     onDefault(m_model->curLayout());
