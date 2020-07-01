@@ -29,6 +29,9 @@ public:
 
     void setTipsVisible(const bool &visible);
 
+protected:
+    void showEvent(QShowEvent *event) override;
+
 Q_SIGNALS:
     void requestSystemRestore(bool formatData) const;
     void requestManualRestore(const QString& directory) const;
