@@ -226,6 +226,14 @@ void ManualRestore::setTipsVisible(const bool &visible)
     m_tipsLabel->setVisible(visible);
 }
 
+void ManualRestore::showEvent(QShowEvent *event)
+{
+    m_manualRestore->radioButton()->setFocusPolicy(Qt::NoFocus);
+    m_systemRestore->radioButton()->setFocusPolicy(Qt::NoFocus);
+
+    QWidget::showEvent(event);
+}
+
 void ManualRestore::onItemChecked()
 {
     setTipsVisible(false);
