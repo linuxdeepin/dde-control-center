@@ -194,6 +194,8 @@ void BootWidget::setEntryList(const QStringList &list)
     m_bootList->setModel(m_bootItemModel);
     if (list.count() <= 0) {
         return;
+    } else if (list.count() == 1) {
+        m_bootDelay->setChecked(0);
     }
 
     for (int i = 0; i < list.count(); i++) {
