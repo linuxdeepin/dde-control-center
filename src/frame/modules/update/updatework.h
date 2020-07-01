@@ -55,6 +55,13 @@ using SystemInfoInter=com::deepin::daemon::SystemInfo;
 
 namespace dcc{
 namespace update{
+
+struct CheckUpdateJobRet {
+    QString status;
+    QString jobID;
+    QString jobDescription;
+};
+
 class UpdateWorker : public QObject
 {
     Q_OBJECT
@@ -99,7 +106,7 @@ private Q_SLOTS:
     void onAppUpdateInfoFinished(QDBusPendingCallWatcher *w);
     void onDownloadStatusChanged(const QString &status);
     void onUpgradeStatusChanged(const QString &status);
-    void checkDiskSpace(JobInter *job);
+    void checkDiskSpace(const QString &jobDescription);
     DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
 
 private:
@@ -113,6 +120,7 @@ private:
     void onNotifyStatusChanged(UpdatesStatus status);
     bool getNotUpdateState();
     void resetDownloadInfo(bool state = false);
+    CheckUpdateJobRet createCheckUpdateJob(const QString &jobPath);
 
 private:
     UpdateModel* m_model;
@@ -140,6 +148,7 @@ private:
     double m_downloadProcess;
     bool m_bIsFirstGetDownloadProcess;
     qlonglong m_downloadSize;
+    bool m_beginUpdatesJob;
 };
 }
 }
