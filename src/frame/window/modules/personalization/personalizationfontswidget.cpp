@@ -141,6 +141,10 @@ void PersonalizationFontsWidget::setModel(dcc::personalization::PersonalizationM
 
     connect(m_standardFontsCbBox, &QComboBox::currentTextChanged, this, &PersonalizationFontsWidget::onSelectChanged);
     connect(m_monoFontsCbBox, &QComboBox::currentTextChanged, this, &PersonalizationFontsWidget::onSelectChanged);
+
+    connect(standmodel, &dcc::personalization::FontModel::listChanged, this, [ = ] {
+        onSelectChanged(m_standardFontsCbBox->currentText());
+    });
 }
 
 void PersonalizationFontsWidget::setFontSize(int size)
