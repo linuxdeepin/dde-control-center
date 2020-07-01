@@ -179,7 +179,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="146"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="220"/>
         <source>Full Name</source>
-        <translation>全名</translation>
+        <translation>設定全名</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="250"/>
@@ -3448,7 +3448,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
         <source>File error</source>
-        <translation type="unfinished"/>
+        <translation>匯入文件錯誤</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="357"/>
