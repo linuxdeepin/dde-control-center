@@ -818,7 +818,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2674,50 +2674,50 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="113"/>
         <source>Invalid password</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="158"/>
         <source>None</source>
         <translation>কোনটিই নয়</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP 40/128-বিট</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="160"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA / WPA2 ব্যক্তিগত</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA / WPA2 এন্টারপ্রাইজ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="167"/>
         <source>Security</source>
         <translation>নিরাপত্তা</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="177"/>
         <source>Required</source>
         <translation>আবশ্যক</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="248"/>
         <source>Key</source>
         <translation>চাবি</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="260"/>
         <source>Password</source>
         <translation>পাসওয়ার্ড</translation>
     </message>
@@ -3693,23 +3693,23 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
         <source>Connect to hidden network</source>
         <translation>গোপন নেটওয়ার্কে সংযুক্ত করুন</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
         <source>Wireless Network Adapter</source>
         <translation type="unfinished"/>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="291"/>
         <source>Close Hotspot</source>
         <translation>হটস্পট বন্ধ করুন</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="294"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation type="unfinished"/>
     </message>
@@ -5088,7 +5088,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="76"/>
+        <location filename="../src/frame/main.cpp" line="81"/>
         <source>Control Center</source>
         <translation>নিয়ন্ত্রণ কেন্দ্র</translation>
     </message>
@@ -9768,7 +9768,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="77"/>
+        <location filename="../src/frame/main.cpp" line="82"/>
         <source>Control Center provides the options for system settings.</source>
         <translation type="unfinished"/>
     </message>

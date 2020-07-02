@@ -478,7 +478,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="230"/>
         <source>The password must have at least 6 characters, and contain at least 2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>A palavra-passe deve ter pelo menos 6 caracteres e também 2 dos quatro tipos de caracteres disponíveis: letras minúsculas, letras maiúsculas, números e símbolos</translation>
+        <translation>A palavra-passe deve ter pelo menos 6 caracteres e conter pelo menos 2 dos quatro tipos de caracteres disponíveis: letras minúsculas, letras maiúsculas, números e símbolos</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="232"/>
@@ -818,8 +818,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
-        <translation>Ao aderir ao programa de experiência do utilizador significa que nos concede e autoriza a recolher e utilizar as informações do seu dispositivo, sistema e aplicações. Se recusar a nossa recolha e uso das informações acima mencionadas, não participe do programa de experiência do utilizador. Para mais informações, consulte a política de privacidade da UOS (https://www.chinauos.com/agreement/experience).</translation>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
+        <translation>Ao aderir ao programa de experiência do utilizador significa que nos concede e autoriza a recolher e utilizar as informações do seu dispositivo, sistema e aplicações. Se recusar a nossa recolha e uso das informações acima mencionadas, não participe do programa de experiência do utilizador. Para mais informações, consulte a política de privacidade da UOS (https://www.uniontech.com/agreement/privacy-en).</translation>
     </message>
 </context>
 <context>
@@ -2674,50 +2674,50 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="113"/>
         <source>Invalid password</source>
         <translation>Palavra-passe inválida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="158"/>
         <source>None</source>
         <translation>Nenhum</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP 40/128-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="160"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 Pessoal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 Infraestrutura</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="167"/>
         <source>Security</source>
         <translation>Segurança</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="177"/>
         <source>Required</source>
         <translation>Necessário</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="248"/>
         <source>Key</source>
         <translation>Chave</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="260"/>
         <source>Password</source>
         <translation>Palavra-passe</translation>
     </message>
@@ -3693,23 +3693,23 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
         <source>Connect to hidden network</source>
         <translation>Ligar a uma rede oculta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
         <source>Wireless Network Adapter</source>
         <translation>Adaptador de rede sem fios</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="291"/>
         <source>Close Hotspot</source>
         <translation>Fechar hotspot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="294"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Desativar primeiro o hotspot se pretende ligar a uma rede sem fios</translation>
     </message>
@@ -5088,7 +5088,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="76"/>
+        <location filename="../src/frame/main.cpp" line="81"/>
         <source>Control Center</source>
         <translation>Centro de Controlo</translation>
     </message>
@@ -9768,7 +9768,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="77"/>
+        <location filename="../src/frame/main.cpp" line="82"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>O Centro de Controlo fornece as opções para as definições do sistema.</translation>
     </message>

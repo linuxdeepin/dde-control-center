@@ -818,8 +818,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
-        <translation>Unir-se al Programa d&apos;experiència d&apos;usuari vol dir que ens atorgueu i autoritzeu a recopilar i usar la informació del vostre dispositiu, sistema i aplicacions. Si rebutgeu la nostra recopilació i ús de la informació abans esmentada, no us uniu al Programa d&apos;experiència d&apos;usuari. Per a més informació, consulteu la Política de privadesa d&apos;UOS (https://www.chinauos.com/agreement/experience).</translation>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
+        <translation>Unir-se al Programa d&apos;experiència d&apos;usuari vol dir que ens atorgueu i autoritzeu a recopilar i usar la informació del vostre dispositiu, sistema i aplicacions. Si rebutgeu la nostra recopilació i ús de la informació abans esmentada, no us uniu al Programa d&apos;experiència d&apos;usuari. Per a més informació, consulteu la Política de privadesa d&apos;UOS (https://www.uniontech.com/agreement/privacy-en).</translation>
     </message>
 </context>
 <context>
@@ -2674,50 +2674,50 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="113"/>
         <source>Invalid password</source>
         <translation>Contrasenya no vàlida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="158"/>
         <source>None</source>
         <translation>Cap</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP de 40 / 128 bits</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="160"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA / WPA2 personal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA / WPA2 d&apos;empresa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="167"/>
         <source>Security</source>
         <translation>Seguretat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="177"/>
         <source>Required</source>
         <translation>Cal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="248"/>
         <source>Key</source>
         <translation>Clau</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="260"/>
         <source>Password</source>
         <translation>Contrasenya</translation>
     </message>
@@ -3693,23 +3693,23 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
         <source>Connect to hidden network</source>
         <translation>Connecta amb una xarxa oculta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
         <source>Wireless Network Adapter</source>
         <translation>Adaptador de la xarxa sense fil</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="291"/>
         <source>Close Hotspot</source>
         <translation>Tanca el punt d&apos;accés.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="294"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Inhabiliteu primer el punt d&apos;accés si voleu connectar-vos a una xarxa sense fil.</translation>
     </message>
@@ -5088,7 +5088,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="76"/>
+        <location filename="../src/frame/main.cpp" line="81"/>
         <source>Control Center</source>
         <translation>Centre de control</translation>
     </message>
@@ -9768,7 +9768,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="77"/>
+        <location filename="../src/frame/main.cpp" line="82"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>El Centre de control proporciona les opcions per a la configuració del sistema.</translation>
     </message>

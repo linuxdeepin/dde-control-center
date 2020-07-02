@@ -818,7 +818,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
         <translation>Tham gia Chương trình Trải nghiệm Người dùng nghĩa là bạn cấp và ủy quyền cho chúng tôi thu thập và sử dụng thông tin của thiết bị, hệ thống và ứng dụng của bạn. Nếu bạn từ chối việc thu thập và sử dụng thông tin nói trên của chúng tôi, đừng tham gia Chương trình Trải nghiệm Người dùng. Để biết chi tiết, vui lòng tham khảo Chính sách bảo mật của UOS (https://www.chinauos.com/agferences/experience).</translation>
     </message>
 </context>
@@ -2674,50 +2674,50 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="113"/>
         <source>Invalid password</source>
         <translation>Mật khẩu không đúng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="158"/>
         <source>None</source>
         <translation>Không</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP 40/128-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="160"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 Cá nhân</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 Công ty</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="167"/>
         <source>Security</source>
         <translation>Bảo mật</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="177"/>
         <source>Required</source>
         <translation>Cần thiết</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="248"/>
         <source>Key</source>
         <translation>Chìa khóa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="260"/>
         <source>Password</source>
         <translation>Mật mã</translation>
     </message>
@@ -3693,23 +3693,23 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
         <source>Connect to hidden network</source>
         <translation>Kết nối với mạng ẩn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
         <source>Wireless Network Adapter</source>
         <translation>Wireless Network Adapter</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="291"/>
         <source>Close Hotspot</source>
         <translation>Đóng điểm truy cập</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="294"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Trước tiên hãy tắt điểm phát sóng nếu bạn muốn kết nối với mạng không dây</translation>
     </message>
@@ -5088,7 +5088,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="76"/>
+        <location filename="../src/frame/main.cpp" line="81"/>
         <source>Control Center</source>
         <translation>Trung tâm kiểm soát</translation>
     </message>
@@ -9768,7 +9768,7 @@ Nếu không hoạt động, màn hình sẽ được khôi phục sau %1s.</tra
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="77"/>
+        <location filename="../src/frame/main.cpp" line="82"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>Trung tâm điều khiển cung cấp các tùy chọn cho cài đặt hệ thống.</translation>
     </message>

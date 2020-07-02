@@ -373,7 +373,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="490"/>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Vaše korisničko ime ne smije sadržavati samo brojeve</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
@@ -407,7 +407,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
         <source>You can add up to 10 fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Možete dodati do 10 otisaka pristiju</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="85"/>
@@ -818,7 +818,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2494,17 +2494,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
         <source>Save password for this user</source>
-        <translation type="unfinished"/>
+        <translation>Spremi lozinku za ovog korisnika</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
         <source>Save password for all users</source>
-        <translation type="unfinished"/>
+        <translation>Spremi lozinku za sve korisnike</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Ask me always</source>
-        <translation type="unfinished"/>
+        <translation>Uvijek me pitaj</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
@@ -2674,50 +2674,50 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="113"/>
         <source>Invalid password</source>
         <translation>Neispravna lozinka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="158"/>
         <source>None</source>
         <translation>Nijedan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP 40/128-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="160"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 osobni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 Poduzeće</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="167"/>
         <source>Security</source>
         <translation>Sigurnost</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="177"/>
         <source>Required</source>
         <translation>Potrebno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="248"/>
         <source>Key</source>
         <translation>Ključ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="260"/>
         <source>Password</source>
         <translation>Lozinka</translation>
     </message>
@@ -3693,23 +3693,23 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
         <source>Connect to hidden network</source>
         <translation>Povezivanje na skrivenu mrežu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
         <source>Wireless Network Adapter</source>
         <translation>Adapter bežične mreže</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="291"/>
         <source>Close Hotspot</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="294"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation type="unfinished"/>
     </message>
@@ -4429,7 +4429,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="111"/>
         <source>Invalid path</source>
-        <translation type="unfinished"/>
+        <translation>Neispravna putanja</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="115"/>
@@ -4452,7 +4452,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="123"/>
         <source>Reset All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Vrati sve postavke</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="143"/>
@@ -5088,7 +5088,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="76"/>
+        <location filename="../src/frame/main.cpp" line="81"/>
         <source>Control Center</source>
         <translation>Središte upravljanja</translation>
     </message>
@@ -5631,58 +5631,58 @@ Ako nema operacija, monitor će se obnoviti nakon %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="64"/>
         <source>Fingerprint1</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="64"/>
         <source>Fingerprint2</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="64"/>
         <source>Fingerprint3</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta3</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="65"/>
         <source>Fingerprint4</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta4</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="65"/>
         <source>Fingerprint5</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta5</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="65"/>
         <source>Fingerprint6</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta6</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint7</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta7</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint8</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta8</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint9</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta9</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint10</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta10</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="121"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="168"/>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"/>
+        <translation>Otisak prsta već postoji</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="122"/>
@@ -5795,7 +5795,7 @@ Ako nema operacija, monitor će se obnoviti nakon %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Dignite vaš prst</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="146"/>
@@ -9411,7 +9411,7 @@ Ako nema operacija, monitor će se obnoviti nakon %1s.</translation>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>Autorska prava© 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -9768,7 +9768,7 @@ Ako nema operacija, monitor će se obnoviti nakon %1s.</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="77"/>
+        <location filename="../src/frame/main.cpp" line="82"/>
         <source>Control Center provides the options for system settings.</source>
         <translation type="unfinished"/>
     </message>
