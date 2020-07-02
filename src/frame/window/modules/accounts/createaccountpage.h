@@ -81,7 +81,13 @@ public Q_SLOTS:
     void setCreationResult(dcc::accounts::CreationResult *result);
 
 protected:
-    void resizeEvent(QResizeEvent *e) override;
+    void resizeEvent(QResizeEvent *e) override; 
+    /**
+     * @brief keyReleaseEvent
+     * @param e
+     * @arg 为了捕获回车按键进行添加
+     */
+    void keyReleaseEvent(QKeyEvent *e) override;
 
 private:
     dcc::accounts::User *m_newUser;
