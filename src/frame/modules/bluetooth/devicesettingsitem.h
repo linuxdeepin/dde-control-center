@@ -57,7 +57,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
-    void onDeviceStateChanged(const Device::State &state);
+    void onDeviceStateChanged(const Device::State &state, bool connectState);
     void onDevicePairedChanged(const bool &paired);
     void onStopLoadingAnimation();
 

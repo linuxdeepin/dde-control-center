@@ -61,6 +61,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_spinner = new DSpinner();
     m_spinner->setFixedSize(24, 24);
     m_spinner->start();
+    m_spinner->setVisible(false);
     QHBoxLayout *phlayout = new QHBoxLayout;
     phlayout->addWidget(m_otherDevicesGroup);
     phlayout->addWidget(m_spinner);
@@ -87,6 +88,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_myDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_myDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_myDeviceListView->setViewportMargins(ScrollAreaMargins);
+    m_myDeviceListView->setSelectionMode(QListView::SelectionMode::NoSelection);
 
     m_otherDeviceListView = new DListView(this);
     m_otherDeviceModel = new QStandardItemModel(m_otherDeviceListView);
@@ -98,6 +100,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_otherDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_otherDeviceListView->setViewportMargins(ScrollAreaMargins);
+    m_otherDeviceListView->setSelectionMode(QListView::SelectionMode::NoSelection);
 
     layout->addSpacing(10);
     layout->addWidget(m_switch);
@@ -129,10 +132,10 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
             return;
         }
         for (auto it : m_myDevices) {
-            if (it->getStandardItem() == item) {
-                if (it->device()->state() != Device::StateConnected) {
+            if (it != NULL && it->getStandardItem() == item) {
+                if (it->device()->state() != Device::StateConnected)
                     it->requestConnectDevice(it->device());
-                }
+
                 Q_EMIT requestShowDetail(m_adapter, it->device());
                 break;
             }
@@ -151,10 +154,8 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
             return;
         }
         for (auto it : m_deviceLists) {
-            if (it->getStandardItem() == item) {
+            if (it != NULL && it->getStandardItem() == item)
                 it->requestConnectDevice(it->device());
-                break;
-            }
         }
     });
     connect(m_otherDeviceListView, &DListView::activated, m_otherDeviceListView, &DListView::clicked);
@@ -167,7 +168,21 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
 
 AdapterWidget::~AdapterWidget()
 {
-    qDeleteAll(m_deviceLists);
+    //手动删除qlist中的指针
+    for (auto it : m_myDevices) {
+        if (it != NULL){
+            delete it;
+            it = NULL;
+        }
+    }
+
+    for (auto it : m_deviceLists) {
+        if (it != NULL){
+            delete it;
+            it = NULL;
+        }
+    }
+
     m_myDevices.clear();
     m_deviceLists.clear();
 }
@@ -179,9 +194,10 @@ bool AdapterWidget::getSwitchState()
 
 void AdapterWidget::loadDetailPage()
 {
-    if (m_myDevices.count() == 0) {
+    if (m_myDevices.count() == 0 || m_myDevices.at(0) == NULL) {
         return;
     }
+
     Q_EMIT requestShowDetail(m_adapter, m_myDevices.at(0)->device());
 }
 
@@ -196,25 +212,24 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     for (const Device *device : adapter->devices()) {
         addDevice(device);
     }
-    onPowerStatus(adapter->powered());
+    onPowerStatus(adapter->powered(), adapter->discovering());
 }
 
-void AdapterWidget::onPowerStatus(bool bPower)
+void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
 {
     m_switch->setChecked(bPower);
     m_tip->setVisible(!bPower);
     m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(bPower);
-    m_spinner->setVisible(bPower);
+    m_spinner->setVisible(bPower && bDiscovering);
     m_myDeviceListView->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDeviceListView->setVisible(bPower);
     Q_EMIT notifyLoadFinished();
-
 }
 
 void AdapterWidget::toggleSwitch(const bool checked)
 {
-    onPowerStatus(checked);
+//    onPowerStatus(checked);
     if (!checked) {
         for (auto it : m_myDevices) {
             if (it->device()->connecting()) {
@@ -222,10 +237,8 @@ void AdapterWidget::toggleSwitch(const bool checked)
             }
         }
     }
-    Q_EMIT requestSetToggleAdapter(m_adapter, checked);
-    //每次开启蓝牙都应该清空之前device
-    Q_EMIT requestClearUnpairedDevice();
 
+    Q_EMIT requestSetToggleAdapter(m_adapter, checked);
 }
 
 void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool paired)
@@ -246,7 +259,7 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
 void AdapterWidget::addDevice(const Device *device)
 {
     qDebug() << "addDevice: " << device->name();
-    DeviceSettingsItem *deviceItem = new DeviceSettingsItem(device, style());
+    QPointer<DeviceSettingsItem> deviceItem = new DeviceSettingsItem(device, style());
     categoryDevice(deviceItem, device->paired());
 
     connect(deviceItem, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
@@ -261,9 +274,9 @@ void AdapterWidget::addDevice(const Device *device)
             m_myDeviceModel->appendRow(dListItem);
         } else {
             qDebug() << "unpaired :" << deviceItem->device()->name();
-            for (auto it = m_myDevices.begin(); it != m_myDevices.end(); ++it) {
-                if ((*it) == deviceItem) {
-                    m_myDevices.removeOne(*it);
+            for (auto it : m_myDevices) {
+                if (it != NULL && it == deviceItem) {
+                    m_myDevices.removeOne(it);
                     break;
                 }
             }
@@ -287,40 +300,45 @@ void AdapterWidget::addDevice(const Device *device)
 void AdapterWidget::removeDevice(const QString &deviceId)
 {
     bool isFind = false;
-    for (auto it = m_myDevices.begin(); it != m_myDevices.end(); ++it) {
-        if ((*it)->device()->id() == deviceId) {
-            qDebug() << "removeDevice my: " << (*it)->device()->name();
-            DStandardItem *item = (*it)->getStandardItem();
+    for (auto it : m_myDevices) {
+        if (it != NULL && it->device() != nullptr && it->device()->id() == deviceId) {
+
+            qDebug() << "removeDevice my: " << it->device()->name();
+            DStandardItem *item = it->getStandardItem();
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
             m_myDeviceModel->removeRow(myDeviceIndex.row());
-            if (*it) {
-                delete *it;
-            }
-            DeviceSettingsItem *tmpItem = *it;
-            m_myDevices.removeAll(tmpItem);
-            m_deviceLists.removeAll(tmpItem);
+            m_myDevices.removeOne(it);
+            m_deviceLists.removeOne(it);
+
+            delete it;
+            it = NULL;
+
             Q_EMIT notifyRemoveDevice();
             isFind = true;
             break;
         }
     }
     if (!isFind) {
-        for (auto it = m_deviceLists.begin(); it != m_deviceLists.end(); ++it) {
-            if ((*it)->device()->id() == deviceId) {
-                qDebug() << "removeDevice other: " << (*it)->device()->name();
-                DStandardItem *item = (*it)->getStandardItem();
+        for (auto it : m_deviceLists) {
+            if (it != NULL && it->device() != nullptr && it->device()->id() == deviceId) {
+
+                qDebug() << "removeDevice other: " << it->device()->name();
+                DStandardItem *item = it->getStandardItem();
                 QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
                 m_otherDeviceModel->removeRow(otherDeviceIndex.row());
-                if (*it) {
-                    delete *it;
-                }
-                DeviceSettingsItem *tmpItem = *it;
-                m_deviceLists.removeAll(tmpItem);
+
+                m_deviceLists.removeOne(it);
+
+                delete it;
+                it = NULL;
+
                 Q_EMIT notifyRemoveDevice();
                 break;
             }
         }
+
     }
+
     if (m_myDevices.isEmpty()) {
         m_myDevicesGroup->hide();
         m_myDeviceListView->hide();

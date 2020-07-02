@@ -80,20 +80,19 @@ Q_SIGNALS:
     void requestSetAlias(const dcc::bluetooth::Adapter *adapter, const QString &alias);
     void notifyLoadFinished();
     void notifyRemoveDevice();
-    void requestClearUnpairedDevice();
 
 private Q_SLOTS:
     void addDevice(const dcc::bluetooth::Device *device);
     void removeDevice(const QString &deviceId);
-    void onPowerStatus(bool bPower);
+    void onPowerStatus(bool bPower, bool bDiscovering);
 
 private:
     QLabel *m_tip;
     TitleEdit *m_titleEdit;
     const dcc::bluetooth::Adapter *m_adapter;
     dcc::widgets::SwitchWidget *m_switch;
-    QList<DeviceSettingsItem *> m_deviceLists;
-    QList<DeviceSettingsItem *> m_myDevices;
+    QList<QPointer<DeviceSettingsItem>> m_deviceLists;
+    QList<QPointer<DeviceSettingsItem>> m_myDevices;
     TitleLabel *m_myDevicesGroup;
     DTK_WIDGET_NAMESPACE::DListView *m_myDeviceListView;
     QStandardItemModel *m_myDeviceModel;

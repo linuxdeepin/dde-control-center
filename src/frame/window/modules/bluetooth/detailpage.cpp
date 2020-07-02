@@ -30,6 +30,7 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QString>
+#include <QApplication>
 
 using namespace dcc;
 using namespace dcc::bluetooth;
@@ -70,13 +71,18 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     setContent(frame);
     onDeviceStatusChanged();
     connect(m_ignoreButton, &QPushButton::clicked, this, [this] {
+        if(m_device->state() == Device::StateConnected)
+            Q_EMIT requestDisconnectDevice(m_device);
         Q_EMIT requestIgnoreDevice(m_adapter, m_device);
+        QApplication::focusWidget()->clearFocus();
     });
     connect(m_disconnectButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestDisconnectDevice(m_device);
+        QApplication::focusWidget()->clearFocus();
     });
     connect(m_connectButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestConnectDevice(m_device);
+        QApplication::focusWidget()->clearFocus();
     });
     connect(m_device, &Device::nameChanged, m_devNameLabel, &QLabel::setText);
     connect(m_device, &Device::aliasChanged, m_editDevAlias, &QLineEdit::setText);
@@ -88,7 +94,8 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
             Q_EMIT back();
         }
     });
-    connect(adapter, &Adapter::poweredChanged, this, [this](const bool &powered) {
+    connect(adapter, &Adapter::poweredChanged, this, [this](const bool &powered, const bool &discovering) {
+        Q_UNUSED(discovering)
         if (!powered) {
             Q_EMIT back();
         }
@@ -100,13 +107,19 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
 
 void DetailPage::onDeviceStatusChanged()
 {
-    if (m_device->state() == Device::StateConnected) {
+    if (m_device->state() == Device::StateConnected && m_device->connectState()) {
         m_disconnectButton->show();
         m_connectButton->hide();
         m_ignoreButton->setEnabled(true);
     } else if (m_device->state() == Device::StateAvailable) {
         m_connectButton->show();
         m_connectButton->setText(tr("Connecting"));
+        m_connectButton->setDisabled(true);
+        m_disconnectButton->hide();
+        m_ignoreButton->setEnabled(false);
+    } else if (m_device->state() == Device::StateDisconnecting) {
+        m_connectButton->show();
+        m_connectButton->setText(tr("Disconnecting"));
         m_connectButton->setDisabled(true);
         m_disconnectButton->hide();
         m_ignoreButton->setEnabled(false);

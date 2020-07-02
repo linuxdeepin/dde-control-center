@@ -48,7 +48,6 @@ DeviceSettingsItem::~DeviceSettingsItem()
 {
     if (!m_loadingIndicator.isNull()) {
         m_loadingIndicator->hide();
-        m_loadingIndicator->deleteLater();
     }
     if (!m_loadingAction.isNull()) {
         m_loadingAction->setVisible(false);
@@ -78,6 +77,27 @@ void DeviceSettingsItem::setLoading(const bool loading)
 {
     if (loading) {
         m_loadingIndicator->start();
+
+        if (m_parentDListView) {
+            QModelIndex index;
+            for (int i = 0; i < m_parentDListView->count(); ++i) {
+                const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(m_parentDListView->model());
+                if (!deviceModel) {
+                    return;
+                }
+                DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(i));
+                if (!item) {
+                    return;
+                }
+                if (m_deviceItem == item) {
+                    index = m_parentDListView->model()->index(i, 0);
+                    break;
+                }
+            }
+            QRect itemrect = m_parentDListView->visualRect(index);
+            QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
+            m_loadingIndicator->move(point);
+        }
         m_loadingIndicator->show();
         m_loadingAction->setVisible(true);
         m_textAction->setVisible(false);
@@ -122,7 +142,7 @@ void DeviceSettingsItem::setDevice(const Device *device)
         m_deviceItem->setText(alias);
     });
 
-    onDeviceStateChanged(device->state());
+    onDeviceStateChanged(device->state(), device->connectState());
     onDevicePairedChanged(device->paired());
 }
 
@@ -150,26 +170,19 @@ DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     return m_deviceItem;
 }
 
-void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
+void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool connectState)
 {
     if (state == Device::StateAvailable) {
         setLoading(true);
         return;
     }
     QString tip;
-    switch (state) {
-    case Device::StateConnected: {
+    if (state == Device::StateConnected && connectState) {
         tip = tr("Connected");
-        setLoading(false);
-        break;
-    }
-    case Device::StateUnavailable:
+    } else {
         tip = tr("Not connected");
-        setLoading(false);
-        break;
-    default:
-        break;
     }
+    setLoading(false);
     m_textAction->setText(tip);
 }
 

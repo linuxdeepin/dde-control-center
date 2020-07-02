@@ -31,7 +31,6 @@ class BluetoothModel;
 class BluetoothWorker;
 class Device;
 class Adapter;
-class PinCodeDialog;
 }
 }
 
@@ -50,6 +49,7 @@ class BluetoothWidget : public dcc::ContentWidget
 
 public:
     explicit BluetoothWidget(dcc::bluetooth::BluetoothModel *model);
+    virtual ~BluetoothWidget();
     void setModel(dcc::bluetooth::BluetoothModel *model);
     void loadDetailPage();
 Q_SIGNALS:
@@ -66,7 +66,6 @@ Q_SIGNALS:
 public Q_SLOTS:
     void addAdapter(const dcc::bluetooth::Adapter *adapter);
     void removeAdapter(const dcc::bluetooth::Adapter *adapter);
-    void onRequestClearUnpairedDevice();
 
 private:
     void setVisibleState();

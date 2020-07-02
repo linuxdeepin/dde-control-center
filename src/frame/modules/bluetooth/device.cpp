@@ -35,7 +35,8 @@ Device::Device(QObject *parent) :
     m_paired(false),
     m_trusted(false),
     m_connecting(false),
-    m_state(StateUnavailable)
+    m_state(StateUnavailable),
+    m_connectState(false)
 {
 
 }
@@ -69,11 +70,12 @@ void Device::setPaired(bool paired)
     }
 }
 
-void Device::setState(const State &state)
+void Device::setState(const State &state, bool connectState)
 {
-    if (state != m_state) {
+    if (state != m_state || m_connectState != connectState) {
         m_state = state;
-        Q_EMIT stateChanged(state);
+        m_connectState = connectState;
+        Q_EMIT stateChanged(state, connectState);
     }
 }
 

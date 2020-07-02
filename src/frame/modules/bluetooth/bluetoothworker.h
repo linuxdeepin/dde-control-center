@@ -50,13 +50,9 @@ public:
     void deactivate() Q_DECL_OVERRIDE;
 
     void blockDBusSignals(bool block);
-    void clearUnpairedDevice();
-
 
 Q_SIGNALS:
     void deviceEnableChanged();
-    void requestConfirmation(const QDBusObjectPath &path, const QString &code);
-    void pinCodeCancel(const QDBusObjectPath &device);
 
 public Q_SLOTS:
     void setAdapterPowered(const Adapter *adapter, const bool &powered);
@@ -66,7 +62,6 @@ public Q_SLOTS:
     void setAlias(const Adapter *adapter, const QString &alias);
     void setDeviceAlias(const Device *device, const QString &alias);
     void setAdapterDiscoverable(const QString &path);
-    void pinCodeConfirm(const QDBusObjectPath &path, bool value);
     void setAdapterDiscovering(const QDBusObjectPath &path, bool enable);
 
 private:

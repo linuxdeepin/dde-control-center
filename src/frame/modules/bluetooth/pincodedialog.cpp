@@ -80,7 +80,7 @@ QString PinCodeDialog::pinCode() const
 
 void PinCodeDialog::setPinCode(const QString &pinCode)
 {
-    m_pinCodeLabel->setText(pinCode);
+    m_pinCodeLabel -> setText(QString("%1").arg(pinCode.toInt(),6,10,QLatin1Char('0')));
 }
 
 PinCodeDialog::PinCodeDialog() :
