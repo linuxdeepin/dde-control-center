@@ -328,7 +328,8 @@ void MainWindow::initAllModule(QString m)
 
     m_modules = {
         { new AccountsModule(this), tr("Accounts")},
-        { new UnionidModule(this), "Union ID"},
+        // 原union ID 暂时隐藏
+        // { new UnionidModule(this), "Union ID"},
         //~ contents_path /cloudsync/Cloud Sync
         { new SyncModule(this), "Union ID"},
         { new DisplayModule(this), tr("Display")},
