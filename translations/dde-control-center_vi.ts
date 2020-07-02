@@ -51,12 +51,6 @@
         <translation>Tài khoản </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="333"/>
-        <source>Cloud Account</source>
-        <translation>Tài khoản đám mây</translation>
-        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
-    </message>
-    <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
         <source>Display</source>
         <translation>Hiển thị</translation>
@@ -391,12 +385,12 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="476"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="485"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Mật mã không thể trống.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="489"/>
         <source>The password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Xin hãy nhập mật khẩu nhiều hơn hoặc bằng %1 ký tự</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
@@ -406,7 +400,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Mật khẩu phải có ít nhất %1 ký tự và chứa 4 trong các ký tự sau đây: chữ thường, chữ viết hoa, số hoặc ký tự đặc biệt</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="501"/>
@@ -416,7 +410,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Mật khẩu phải có ít nhất %1 ký tự và chứa %2 trong các ký tự sau đây: chữ thường, chữ viết hoa, số hoặc ký tự đặc biệt</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
@@ -536,12 +530,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="286"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Mật mã không thể trống.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
         <source>The password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Xin hãy nhập mật khẩu nhiều hơn hoặc bằng %1 ký tự</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
@@ -552,7 +546,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="298"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Mật khẩu phải có ít nhất %1 ký tự và chứa 4 trong các ký tự sau đây: chữ thường, chữ viết hoa, số hoặc ký tự đặc biệt</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="302"/>
@@ -562,7 +556,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Mật khẩu phải có ít nhất %1 ký tự và chứa %2 trong các ký tự sau đây: chữ thường, chữ viết hoa, số hoặc ký tự đặc biệt</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
@@ -720,8 +714,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
-        <source>Please sign in to your cloud account first</source>
-        <translation>Vui lòng đăng nhập vào tài khoản đám mây của bạn trước</translation>
+        <source>Please sign in to your Union ID first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
@@ -784,8 +778,8 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="90"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="120"/>
-        <source>Please sign in to your cloud account first and continue</source>
-        <translation>Vui lòng đăng nhập vào tài khoản đám mây của bạn trước</translation>
+        <source>Please sign in to your Union ID first and continue</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="95"/>
@@ -839,8 +833,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
-        <source>Please sign in to your cloud account first</source>
-        <translation>Vui lòng đăng nhập vào tài khoản đám mây của bạn trước</translation>
+        <source>Please sign in to your Union ID first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
@@ -865,7 +859,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="129"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Tính năng này hiện không có sẵn, vui lòng kích hoạt hệ thống của bạn trước</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="163"/>
@@ -1152,17 +1146,17 @@
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="163"/>
         <source>Brightness</source>
         <translation>Độ sáng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
         <source>Cool</source>
         <translation>Lạnh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
         <source>Warm</source>
         <translation>Ấm</translation>
     </message>
@@ -1236,9 +1230,9 @@
     <name>dccV20::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="189"/>
         <source>Refresh Rate</source>
         <translation>Tốc độ lặp lại</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
@@ -1258,26 +1252,26 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="137"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="188"/>
         <source>Resolution</source>
         <translation>Độ phân giải</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="155"/>
         <source>Display Scaling</source>
         <translation>Tỉ lệ màn hình</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="170"/>
         <source>Touch Screen</source>
         <translation>Màn hình cảm ứng</translation>
         <extra-contents_path>/display/Touch Screen</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="219"/>
         <source>Rotate Screen</source>
         <translation>Quay màn hình</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
@@ -1515,7 +1509,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="62"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="213"/>
         <source>Edit</source>
         <translation>Chỉnh sửa</translation>
     </message>
@@ -1541,7 +1535,7 @@
         <translation>Ứng dụng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="193"/>
         <source>Done</source>
         <translation>Xong</translation>
     </message>
@@ -2222,7 +2216,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="461"/>
         <source>Invalid netmask</source>
-        <translation type="unfinished"/>
+        <translation>Netmask không hợp lệ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="470"/>
@@ -2236,7 +2230,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="543"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="552"/>
         <source>Invalid DNS address</source>
-        <translation type="unfinished"/>
+        <translation>Địa chỉ DNS không hợp lệ</translation>
     </message>
 </context>
 <context>
@@ -2387,43 +2381,43 @@
         <translation>Cấu hình bởi Quản lý mạng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="307"/>
         <source>Personal Hotspot</source>
         <translation>Kích hoạt điểm truy cập</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="326"/>
         <source>Wired Network %1</source>
         <translation>Mạng kết nối dây %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="329"/>
         <source>Wired Network</source>
         <translation>Mạng kết nối dây</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="333"/>
         <source>Wireless Network %1</source>
         <translation>Mạng Không dây %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="336"/>
         <source>Wireless Network</source>
         <translation>Mạng không dây</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="347"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="354"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="369"/>
         <source>Disabled</source>
         <translation>Đã ngắt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="374"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="385"/>
         <source>Disconnected</source>
         <translation>Đã ngắt kết nối</translation>
     </message>
@@ -3448,7 +3442,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
         <source>File error</source>
-        <translation type="unfinished"/>
+        <translation>Tệp lỗi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="357"/>
@@ -4065,7 +4059,7 @@
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="229"/>
         <source> (Unsupported font)</source>
         <translation>(Font chữ không được hỗ trợ)</translation>
     </message>
@@ -4786,7 +4780,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="50"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Tính năng này hiện không có sẵn, vui lòng kích hoạt hệ thống của bạn trước</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
@@ -4869,13 +4863,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
-        <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation>Sau khi đăng nhập tài khoản đám mây, bạn có thể sử dụng đồng bộ đám mây, cửa hàng ứng dụng, ứng dụng email, trình duyệt và các dịch vụ đám mây khác.</translation>
+        <source>After signing in, you can use cloud sync, app store, email client, browser and other cloud services.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
-        <source>Cloud Account Sign In</source>
-        <translation>Đăng nhập tài khoản đám mây</translation>
+        <source>Union ID Sign In</source>
+        <translation>Đăng nhập Union ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
@@ -4900,8 +4894,8 @@
     <name>dccV20::sync::SyncModule</name>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
-        <source>Cloud Account</source>
-        <translation>Tài khoản đám mây</translation>
+        <source>Union ID</source>
+        <translation>Union ID</translation>
     </message>
 </context>
 <context>
@@ -4932,27 +4926,27 @@
         <translation>Sao lưu hệ thống</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="125"/>
         <source>Applying changes to your system...</source>
-        <translation type="unfinished"/>
+        <translation>Đang áp dụng các thay đổi cho hệ thống của bạn ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="172"/>
         <source>The storage location cannot be in source disk, please reselect</source>
         <translation>Vị trí lưu trữ không thể ở trong đĩa nguồn, vui lòng chọn lại</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="176"/>
         <source>Invalid path</source>
         <translation>Đường dẫn sai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="180"/>
         <source>Grub authentication failed</source>
         <translation>Xác thực Grub không thành công</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="184"/>
         <source>Insufficient disk space</source>
         <translation>Dung lượng đĩa không đủ</translation>
     </message>
@@ -4985,42 +4979,42 @@
         <translation>Khôi phục thủ công</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="212"/>
         <source>Applying changes to your system...</source>
-        <translation type="unfinished"/>
+        <translation>Đang áp dụng các thay đổi Đang áp dụng các thay đổi cho hệ thống của bạn ...cho hệ thống của bạn ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="259"/>
         <source>Backup file is invalid</source>
         <translation>File sao lưu không đúng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="263"/>
         <source>Invalid path</source>
         <translation>Đường dẫn sai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="267"/>
         <source>Grub authentication failed</source>
         <translation>Xác thực Grub không thành công</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="285"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
         <translation>Nó sẽ đặt lại cài đặt hệ thống về mặc định của chúng mà không ảnh hưởng đến các tệp và ứng dụng của bạn, nhưng tên người dùng và mật khẩu sẽ bị xóa, vui lòng xác nhận trước khi tiếp tục</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="289"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
         <translation>Nó sẽ cài đặt lại hệ thống và xóa tất cả dữ liệu người dùng, rất rủi ro, vui lòng xác nhận trước khi tiếp tục</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="293"/>
         <source>Cancel</source>
         <translation>Hủy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="296"/>
         <source>Confirm</source>
         <translation>Xác nhận</translation>
     </message>
@@ -5145,12 +5139,12 @@
 <context>
     <name>dccV20::systeminfo::SystemRestore</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="23"/>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="29"/>
         <source>Backup</source>
         <translation>Sao lưu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="24"/>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="30"/>
         <source>Restore</source>
         <translation>Khôi phục</translation>
     </message>
@@ -5163,17 +5157,17 @@
         <translation>Sửa đổi Mật mã</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="87"/>
         <source>Change Avatar</source>
-        <translation type="unfinished"/>
+        <translation>Đổi avatar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="91"/>
         <source>User Center</source>
-        <translation type="unfinished"/>
+        <translation>Trung tâm người dùng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="95"/>
         <source>Sign Out</source>
         <translation>Đăng xuất</translation>
     </message>
@@ -5190,12 +5184,13 @@
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="59"/>
         <source>After signing in, all system features related with Union ID will be available.
 Visit User Center and manage your account there.</source>
-        <translation type="unfinished"/>
+        <translation>Sau khi đăng nhập, tất cả các tính năng hệ thống liên quan đến Union ID sẽ khả dụng
+Truy cập Trung tâm người dùng và quản lý tài khoản của bạn ở đó.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="69"/>
         <source>Union ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Đăng nhập Union ID</translation>
     </message>
 </context>
 <context>
@@ -5211,7 +5206,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidmodule.cpp" line="52"/>
         <source>Union ID</source>
-        <translation type="unfinished"/>
+        <translation>Union ID</translation>
     </message>
 </context>
 <context>
@@ -5219,17 +5214,17 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="62"/>
         <source>Learn about %1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>Tìm hiểu về %1 và %2</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="63"/>
         <source>Union ID Service Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Thỏa thuận dịch vụ Union ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="64"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Chính sách bảo mật</translation>
     </message>
 </context>
 <context>
@@ -5307,7 +5302,7 @@ Visit User Center and manage your account there.</source>
         <translation>Bản cập nhật này có thể mất nhiều thời gian, vui lòng không tắt hoặc khởi động lại</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="187"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
@@ -5316,7 +5311,7 @@ Visit User Center and manage your account there.</source>
         <translation>Kiểm tra lại</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="207"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="267"/>
         <source>Last checking time: </source>
         <translation>Lần kiểm tra cuối cùng</translation>
@@ -5405,7 +5400,7 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Phiên bản hệ thống và %n ứng dụng có cập nhật mới</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
@@ -5548,29 +5543,29 @@ Visit User Center and manage your account there.</source>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="64"/>
         <source>Update Settings</source>
         <translation>Những Thiết lập Cập nhật</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="75"/>
         <source>Last Update</source>
         <translation>Lần cập nhật cuối</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="124"/>
         <source>Return</source>
         <translation>Trở lại</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="181"/>
         <source>Current Edition</source>
         <translation>Phiên bản hiện tại:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="189"/>
         <source>Update History</source>
         <translation>Lịch sử cập nhật</translation>
     </message>
@@ -6763,7 +6758,7 @@ Visit User Center and manage your account there.</source>
         <translation>Các bản vá Hệ thống.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1099"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1128"/>
         <source>System</source>
         <translation>Hệ thống</translation>
     </message>

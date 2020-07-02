@@ -29,7 +29,7 @@ const QString SyncModule::name() const
 
 const QString SyncModule::displayName() const
 {
-    return tr("Cloud Account");
+    return tr("Union ID");
 }
 
 void SyncModule::contentPopped(QWidget *const w)

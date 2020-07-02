@@ -51,12 +51,6 @@
         <translation>アカウント</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="333"/>
-        <source>Cloud Account</source>
-        <translation>クラウドアカウント</translation>
-        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
-    </message>
-    <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
         <source>Display</source>
         <translation>ディスプレイ</translation>
@@ -720,8 +714,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
-        <source>Please sign in to your cloud account first</source>
-        <translation>まずクラウドアカウントにログインしてください</translation>
+        <source>Please sign in to your Union ID first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
@@ -784,8 +778,8 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="90"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="120"/>
-        <source>Please sign in to your cloud account first and continue</source>
-        <translation>まずクラウドアカウントにログインしてから続行してください</translation>
+        <source>Please sign in to your Union ID first and continue</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="95"/>
@@ -839,8 +833,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
-        <source>Please sign in to your cloud account first</source>
-        <translation>まずクラウドアカウントにログインしてください</translation>
+        <source>Please sign in to your Union ID first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
@@ -1152,17 +1146,17 @@
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="163"/>
         <source>Brightness</source>
         <translation>明るさ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
         <source>Cool</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
         <source>Warm</source>
         <translation type="unfinished"/>
     </message>
@@ -1236,9 +1230,9 @@
     <name>dccV20::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="189"/>
         <source>Refresh Rate</source>
         <translation>リフレッシュレート</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
@@ -1258,26 +1252,26 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="137"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="188"/>
         <source>Resolution</source>
         <translation>解像度</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="155"/>
         <source>Display Scaling</source>
         <translation>ディスプレイスケーリング</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="170"/>
         <source>Touch Screen</source>
         <translation type="unfinished"/>
         <extra-contents_path>/display/Touch Screen</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="219"/>
         <source>Rotate Screen</source>
         <translation>画面を回転</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
@@ -1515,7 +1509,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="62"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="213"/>
         <source>Edit</source>
         <translation>編集</translation>
     </message>
@@ -1541,7 +1535,7 @@
         <translation>アプリケーション</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="193"/>
         <source>Done</source>
         <translation>完了</translation>
     </message>
@@ -2387,43 +2381,43 @@
         <translation>ネットワークマネージャーで設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="307"/>
         <source>Personal Hotspot</source>
         <translation>個人的なホットスポット</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="326"/>
         <source>Wired Network %1</source>
         <translation>有線ネットワーク %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="329"/>
         <source>Wired Network</source>
         <translation>有線ネットワーク</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="333"/>
         <source>Wireless Network %1</source>
         <translation>無線接続 %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="336"/>
         <source>Wireless Network</source>
         <translation>無線ネットワーク</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="347"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="354"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="369"/>
         <source>Disabled</source>
         <translation>無効</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="374"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="385"/>
         <source>Disconnected</source>
         <translation>切断</translation>
     </message>
@@ -4065,7 +4059,7 @@
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="229"/>
         <source> (Unsupported font)</source>
         <translation>(サポートされていないフォント)</translation>
     </message>
@@ -4869,13 +4863,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
-        <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation>クラウドアカウントにサインインすると、クラウド同期、アプリストア、メールクライアント、ブラウザー、そのほかのクラウドサービスを使用できます。</translation>
+        <source>After signing in, you can use cloud sync, app store, email client, browser and other cloud services.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
-        <source>Cloud Account Sign In</source>
-        <translation>クラウドアカウントにサインイン</translation>
+        <source>Union ID Sign In</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
@@ -4900,8 +4894,8 @@
     <name>dccV20::sync::SyncModule</name>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
-        <source>Cloud Account</source>
-        <translation>クラウドアカウント</translation>
+        <source>Union ID</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4932,27 +4926,27 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="125"/>
         <source>Applying changes to your system...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="172"/>
         <source>The storage location cannot be in source disk, please reselect</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="176"/>
         <source>Invalid path</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="180"/>
         <source>Grub authentication failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="184"/>
         <source>Insufficient disk space</source>
         <translation type="unfinished"/>
     </message>
@@ -4985,42 +4979,42 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="212"/>
         <source>Applying changes to your system...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="259"/>
         <source>Backup file is invalid</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="263"/>
         <source>Invalid path</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="267"/>
         <source>Grub authentication failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="285"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="289"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="293"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="296"/>
         <source>Confirm</source>
         <translation>確認</translation>
     </message>
@@ -5145,12 +5139,12 @@
 <context>
     <name>dccV20::systeminfo::SystemRestore</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="23"/>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="29"/>
         <source>Backup</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="24"/>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="30"/>
         <source>Restore</source>
         <translation>復元</translation>
     </message>
@@ -5163,17 +5157,17 @@
         <translation>パスワードを変更</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="87"/>
         <source>Change Avatar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="91"/>
         <source>User Center</source>
         <translation>ユーザーセンター</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="95"/>
         <source>Sign Out</source>
         <translation>サインアウト</translation>
     </message>
@@ -5307,7 +5301,7 @@ Visit User Center and manage your account there.</source>
         <translation>このアップデートには時間がかかる可能性があります。アップデート中にシャットダウンしたり再起動したりしないでください</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="187"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
@@ -5316,7 +5310,7 @@ Visit User Center and manage your account there.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="207"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="267"/>
         <source>Last checking time: </source>
         <translation type="unfinished"/>
@@ -5548,29 +5542,29 @@ Visit User Center and manage your account there.</source>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="64"/>
         <source>Update Settings</source>
         <translation>アップデートの設定</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="75"/>
         <source>Last Update</source>
         <translation>最終更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="124"/>
         <source>Return</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="181"/>
         <source>Current Edition</source>
         <translation>現在のエディション</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="189"/>
         <source>Update History</source>
         <translation>アップデートの履歴</translation>
     </message>
@@ -6763,7 +6757,7 @@ Visit User Center and manage your account there.</source>
         <translation>システムパッチ</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1099"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1128"/>
         <source>System</source>
         <translation>システム</translation>
     </message>

@@ -51,12 +51,6 @@
         <translation>Paskyros</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="333"/>
-        <source>Cloud Account</source>
-        <translation>Debesijos paskyra</translation>
-        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
-    </message>
-    <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
         <source>Display</source>
         <translation>Ekranas</translation>
@@ -720,7 +714,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
-        <source>Please sign in to your cloud account first</source>
+        <source>Please sign in to your Union ID first</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -784,8 +778,8 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="90"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="120"/>
-        <source>Please sign in to your cloud account first and continue</source>
-        <translation>Iš pradžių, prisijunkite prie savo debesijos paskyros ir tęskite</translation>
+        <source>Please sign in to your Union ID first and continue</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="95"/>
@@ -839,7 +833,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
-        <source>Please sign in to your cloud account first</source>
+        <source>Please sign in to your Union ID first</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1152,17 +1146,17 @@
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="163"/>
         <source>Brightness</source>
         <translation>Ryškumas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
         <source>Cool</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
         <source>Warm</source>
         <translation type="unfinished"/>
     </message>
@@ -1236,9 +1230,9 @@
     <name>dccV20::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="189"/>
         <source>Refresh Rate</source>
         <translation>Atnaujinimo dažnis</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
@@ -1258,26 +1252,26 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="137"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="188"/>
         <source>Resolution</source>
         <translation>Raiška</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="155"/>
         <source>Display Scaling</source>
         <translation>Ekrano mastelis</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="170"/>
         <source>Touch Screen</source>
         <translation type="unfinished"/>
         <extra-contents_path>/display/Touch Screen</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="219"/>
         <source>Rotate Screen</source>
         <translation>Pasukti ekraną</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
@@ -1515,7 +1509,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="62"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="213"/>
         <source>Edit</source>
         <translation>Redaguoti</translation>
     </message>
@@ -1541,7 +1535,7 @@
         <translation>Programa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="193"/>
         <source>Done</source>
         <translation>Atlikta</translation>
     </message>
@@ -2387,43 +2381,43 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="307"/>
         <source>Personal Hotspot</source>
         <translation>Asmeninis prieigos taškas</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="326"/>
         <source>Wired Network %1</source>
         <translation>Laidinis tinklas %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="329"/>
         <source>Wired Network</source>
         <translation>Laidinis tinklas</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="333"/>
         <source>Wireless Network %1</source>
         <translation>Belaidis tinklas %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="336"/>
         <source>Wireless Network</source>
         <translation>Belaidis tinklas</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="347"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="354"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="369"/>
         <source>Disabled</source>
         <translation>Išjungta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="374"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="385"/>
         <source>Disconnected</source>
         <translation>Atsijungta</translation>
     </message>
@@ -4065,7 +4059,7 @@
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="229"/>
         <source> (Unsupported font)</source>
         <translation> (Nepalaikomas šriftas)</translation>
     </message>
@@ -4869,12 +4863,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
-        <source>After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.</source>
+        <source>After signing in, you can use cloud sync, app store, email client, browser and other cloud services.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
-        <source>Cloud Account Sign In</source>
+        <source>Union ID Sign In</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4900,8 +4894,8 @@
     <name>dccV20::sync::SyncModule</name>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
-        <source>Cloud Account</source>
-        <translation>Debesijos paskyra</translation>
+        <source>Union ID</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4932,27 +4926,27 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="125"/>
         <source>Applying changes to your system...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="172"/>
         <source>The storage location cannot be in source disk, please reselect</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="176"/>
         <source>Invalid path</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="180"/>
         <source>Grub authentication failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="184"/>
         <source>Insufficient disk space</source>
         <translation type="unfinished"/>
     </message>
@@ -4985,42 +4979,42 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="212"/>
         <source>Applying changes to your system...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="259"/>
         <source>Backup file is invalid</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="263"/>
         <source>Invalid path</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="267"/>
         <source>Grub authentication failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="285"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="289"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="293"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="296"/>
         <source>Confirm</source>
         <translation>Patvirtinti</translation>
     </message>
@@ -5145,12 +5139,12 @@
 <context>
     <name>dccV20::systeminfo::SystemRestore</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="23"/>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="29"/>
         <source>Backup</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="24"/>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="30"/>
         <source>Restore</source>
         <translation>Atkurti</translation>
     </message>
@@ -5163,17 +5157,17 @@
         <translation>Keisti slaptažodį</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="87"/>
         <source>Change Avatar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="91"/>
         <source>User Center</source>
         <translation>Naudotojo centras</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="95"/>
         <source>Sign Out</source>
         <translation>Atsijungti</translation>
     </message>
@@ -5307,7 +5301,7 @@ Visit User Center and manage your account there.</source>
         <translation>Šis atnaujinimas gali užimti daug laiko, prašome proceso metu neišjungti ir nepaleisti kompiuterio iš naujo.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="187"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
@@ -5316,7 +5310,7 @@ Visit User Center and manage your account there.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="207"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="267"/>
         <source>Last checking time: </source>
         <translation type="unfinished"/>
@@ -5548,29 +5542,29 @@ Visit User Center and manage your account there.</source>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="64"/>
         <source>Update Settings</source>
         <translation>Atnaujinimų nustatymai</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="75"/>
         <source>Last Update</source>
         <translation>Paskutinis atnaujinimas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="124"/>
         <source>Return</source>
         <translation>Grįžti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="181"/>
         <source>Current Edition</source>
         <translation>Dabartinė laida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="189"/>
         <source>Update History</source>
         <translation>Atnaujinimų istorija</translation>
     </message>
@@ -6763,7 +6757,7 @@ Visit User Center and manage your account there.</source>
         <translation>Sistemos pataisos</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1099"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1128"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>

@@ -32,7 +32,7 @@ LoginPage::LoginPage(QWidget *parent)
     //~ contents_path /cloudsync/Sync ID Sign In
     DSuggestButton *loginBtn = new DSuggestButton(tr("Sign In"));
     loginBtn->setMinimumWidth(302);
-    DTipLabel *tip = new DTipLabel(tr("After signing in cloud account, you can use cloud sync, app store, email client, browser and other cloud services.")
+    DTipLabel *tip = new DTipLabel(tr("After signing in, you can use cloud sync, app store, email client, browser and other cloud services.")
                                    .arg(systemName()));
     tip->setWordWrap(true);
     tip->setAlignment(Qt::AlignCenter);
@@ -42,7 +42,7 @@ LoginPage::LoginPage(QWidget *parent)
     pLogo->setPixmap(QIcon::fromTheme("dcc_cloud").pixmap(128, 100));
     m_mainLayout->addWidget(pLogo, 0, Qt::AlignHCenter);
     m_mainLayout->addSpacing(10);
-    QLabel *signintip = new QLabel(tr("Cloud Account Sign In"));
+    QLabel *signintip = new QLabel(tr("Union ID Sign In"));
     QFont font = signintip->font();
     font.setBold(true);
     signintip->setFont(font);

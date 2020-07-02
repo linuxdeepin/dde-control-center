@@ -87,7 +87,7 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
     chooseModeCommonts->setPalette(mpalette);
     chooseModeCommonts->setFrameStyle(QFrame::NoFrame);
     chooseModeCommonts->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    chooseModeCommonts->setText(tr("Please sign in to your cloud account first and continue"));
+    chooseModeCommonts->setText(tr("Please sign in to your Union ID first and continue"));
 
     contentVBoxLayout->addWidget(chooseModeCommonts, 1, Qt::AlignTop | Qt::AlignHCenter);
 
@@ -117,7 +117,7 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
             importBtn->setVisible(false);
             m_nextButton->setVisible(true);
 
-            chooseModeCommonts->setText(tr("Please sign in to your cloud account first and continue"));
+            chooseModeCommonts->setText(tr("Please sign in to your Union ID first and continue"));
             this->update();
         }else{
             m_nextButton->setVisible(false);
