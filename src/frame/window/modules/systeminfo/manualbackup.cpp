@@ -148,6 +148,8 @@ void ManualBackup::onChoose(const int &code)
 
 void ManualBackup::backup()
 {
+    m_tipsLabel->hide();
+
     const QString& choosePath = m_directoryChooseWidget->lineEdit()->text();
 
     if (!choosePath.isEmpty()) {
