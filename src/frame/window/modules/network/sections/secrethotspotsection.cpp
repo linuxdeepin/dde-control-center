@@ -33,7 +33,7 @@ using namespace dcc::widgets;
 
 static const QList<NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtList {
     NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone,
-    NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep,
+    //NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep,
     NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk,
 };
 
