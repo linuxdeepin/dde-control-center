@@ -278,6 +278,8 @@ void ManualRestore::onManualRestoreErrorChanged(ErrorType errorType)
 
 void ManualRestore::restore()
 {
+    m_tipsLabel->hide();
+
     if (m_actionType == ActionType::RestoreSystem) {
         const bool formatData = !m_saveUserDataCheckBox->isChecked();
 
@@ -302,8 +304,6 @@ void ManualRestore::restore()
     }
 
     if (m_actionType == ActionType::ManualRestore) {
-        m_tipsLabel->hide();
-
         // TODO(justforlxz): 判断内容的有效性
         const QString& selectPath = m_directoryChooseWidget->lineEdit()->text();
 
