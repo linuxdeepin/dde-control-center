@@ -181,6 +181,18 @@ void ShortcutModel::onParseInfo(const QString &info)
     } else {
         systemShortKeys = systemFilter;
     }
+
+    QStringList speedShortKeys;
+    if (DCC_NAMESPACE::IsDesktopSystem) {
+        QStringList systemFilterServer = assistiveToolsFilter;
+        systemFilterServer.removeOne("ai-assistant");
+        systemFilterServer.removeOne("text-to-speech");
+        systemFilterServer.removeOne("speech-to-text");
+        systemFilterServer.removeOne("translation");
+        speedShortKeys = systemFilterServer;
+    } else {
+        speedShortKeys = systemFilter;
+    }
     qDeleteAll(m_infos);
 
     m_infos.clear();
@@ -218,7 +230,7 @@ void ShortcutModel::onParseInfo(const QString &info)
                 m_workspaceInfos << info;
                 continue;
             }
-            if (assistiveToolsFilter.contains(info->id)) {
+            if (speedShortKeys.contains(info->id)) {
                 m_assistiveToolsInfos << info;
                 continue;
             }
