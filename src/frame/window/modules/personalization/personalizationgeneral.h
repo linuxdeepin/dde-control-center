@@ -27,6 +27,7 @@
 #include "dtkwidget_global.h"
 
 #include <QWidget>
+#include <DGuiApplicationHelper>
 
 namespace dcc {
 namespace personalization {
@@ -89,6 +90,7 @@ protected:
 private:
     void updateActiveColors(RoundColorWidget *selectedWidget);
     void updateWMSwitcher(bool checked);
+    void updateThemeColors(Dtk::Gui::DGuiApplicationHelper::ColorType type);
 
 Q_SIGNALS:
     void showThemeWidget();
@@ -117,6 +119,7 @@ private:
     RingColorWidget *m_bgWidget;
     QWidget *m_switchWidget;
     bool m_bSystemIsServer;
+    Dtk::Gui::DGuiApplicationHelper::ColorType m_themeType;
 };
 }
 }

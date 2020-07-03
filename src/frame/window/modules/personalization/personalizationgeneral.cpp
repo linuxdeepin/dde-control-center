@@ -72,15 +72,27 @@ struct ColorStru {
 };
 
 const QList<ColorStru> ACTIVE_COLORST = {
-    {248, 44, 137},
-    {248, 99, 44},
-    {248, 225, 44},
-    {65, 222, 0},
+    {216, 49, 108},
+    {255, 93, 0},
+    {248, 203, 0},
+    {35, 196, 0},
     {0, 164, 138},
-    {44, 167, 248},
-    {65, 44, 248},
-    {171, 44, 248},
-    {0, 0, 0},
+    {0, 129, 255},
+    {60, 2, 215},
+    {106, 0, 181},
+    {77, 77, 77},
+};
+
+const QList<ColorStru> Dark_ACTIVE_COLORST = {
+    {192, 16, 78},
+    {204, 77, 3},
+    {217, 177, 0},
+    {31, 168, 1},
+    {0, 138, 116},
+    {0, 89, 210},
+    {48, 0, 175},
+    {104, 0, 147},
+    {77, 77, 77},
 };
 
 PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
@@ -104,6 +116,8 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     m_Themes->setMainLayout(new QHBoxLayout(), true);
     m_centralLayout->addWidget(m_Themes);
 
+    m_themeType = DGuiApplicationHelper::instance()->themeType();
+
     //active colors
     //~ contents_path /personalization/General
     QLabel *activeL = new TitleLabel(tr("Accent Color"));
@@ -119,7 +133,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, this);
     int totalSpace = borderWidth + borderSpacing + RoundColorWidget::EXTRA; //2px extra space to avoid line cutted off
 
-    for (ColorStru aColor : ACTIVE_COLORST) {
+    for (ColorStru aColor : (m_themeType == DGuiApplicationHelper::ColorType::LightType ? ACTIVE_COLORST : Dark_ACTIVE_COLORST)) {
         QColor color;
         color.setRgb(aColor.r, aColor.g, aColor.b);
         RoundColorWidget *colorItem = new RoundColorWidget(color, this);
@@ -130,7 +144,13 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         effect->setColor(color);      //阴影的颜色
         effect->setOffset(0,5);
         colorItem->setGraphicsEffect(effect);
-        colorItem->setAccessibleName(ACTIVE_COLORS[ACTIVE_COLORST.indexOf(aColor)]);
+
+        if (m_themeType == DGuiApplicationHelper::ColorType::LightType) {
+            colorItem->setAccessibleName(ACTIVE_COLORS[ACTIVE_COLORST.indexOf(aColor)]);
+        } else {
+            colorItem->setAccessibleName(ACTIVE_COLORS[Dark_ACTIVE_COLORST.indexOf(aColor)]);
+        }
+
         DPalette pa = colorItem->palette();
         pa.setBrush(DPalette::Base, color);
         colorItem->setPalette(pa);
@@ -249,9 +269,34 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
     onCompositingAllowSwitchChanged(m_model->getAllowSwitch());
 }
 
+void PersonalizationGeneral::updateThemeColors(DGuiApplicationHelper::ColorType type)
+{
+    int count = 0;
+    for (auto item : m_activeColorsList) {
+        ColorStru acolor = type == DGuiApplicationHelper::ColorType::LightType ? ACTIVE_COLORST[count] : Dark_ACTIVE_COLORST[count];
+        count++;
+        QColor color;
+        color.setRgb(acolor.r, acolor.g, acolor.b);
+        item->setColor(color);
+        DPalette pa = item->palette();
+        pa.setBrush(DPalette::Base, color);
+        item->setPalette(pa);
+        if (dynamic_cast<QGraphicsDropShadowEffect *>(item->graphicsEffect())) {
+            color.setAlpha(68);
+            dynamic_cast<QGraphicsDropShadowEffect *>(item->graphicsEffect())->setColor(color);
+        }
+    }
+}
+
 void PersonalizationGeneral::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
+
+    if (m_themeType != DGuiApplicationHelper::instance()->themeType()) {
+        m_themeType = DGuiApplicationHelper::instance()->themeType();
+        updateThemeColors(m_themeType);
+    }
+
     DStylePainter painter(this);
 
     QRect r = m_bgWidget->geometry();
