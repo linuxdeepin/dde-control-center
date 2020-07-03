@@ -29,7 +29,6 @@
 #include "widgets/lineeditwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
-#include "widgets/buttontuple.h"
 
 #include <DTipLabel>
 
@@ -94,34 +93,54 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     tip->setAlignment(Qt::AlignLeft);
     layout->addWidget(tip);
 
-    ButtonTuple *btns = new ButtonTuple(ButtonTuple::Save);
-    btns->leftButton()->setText(tr("Cancel"));
-    btns->rightButton()->setText(tr("Save"));
+    m_btns = new ButtonTuple(ButtonTuple::Save);
+    m_btns->leftButton()->setText(tr("Cancel"));
+    m_btns->rightButton()->setText(tr("Save"));
+    m_btns->leftButton()->setEnabled(false);
+    m_btns->rightButton()->setEnabled(false);
 
     layout->addStretch();
 
-    layout->addWidget(btns, 0, Qt::AlignBottom);
+    layout->addWidget(m_btns, 0, Qt::AlignBottom);
 
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(layout);
 
     setContent(w);
 
-    connect(btns->leftButton(), &QPushButton::clicked, this, &ChainsProxyPage::onRestoreValue);
-    connect(btns->rightButton(), &QPushButton::clicked, this, &ChainsProxyPage::onCheckValue);
+    connect(m_btns->leftButton(), &QPushButton::clicked, this, &ChainsProxyPage::onRestoreValue);
+    connect(m_btns->rightButton(), &QPushButton::clicked, this, &ChainsProxyPage::onCheckValue);
 }
 
 void ChainsProxyPage::setModel(NetworkModel *model)
 {
     m_model = model;
 
-    connect(model, &NetworkModel::chainsTypeChanged, m_proxyType->comboBox(), &QComboBox::setCurrentText);
-    connect(model, &NetworkModel::chainsAddrChanged, m_addr, &LineEditWidget::setText);
-    connect(model, &NetworkModel::chainsPortChanged, this, [ = ](const uint port) {
-        m_port->setText(QString::number(port));
+    connect(model, &NetworkModel::chainsTypeChanged, m_proxyType->comboBox(), [ = ] (const QString &type) {
+        m_proxyType->comboBox()->blockSignals(true);
+        m_proxyType->setCurrentText(type);
+        m_proxyType->comboBox()->blockSignals(false);
     });
-    connect(model, &NetworkModel::chainsUsernameChanged, m_username, &LineEditWidget::setText);
-    connect(model, &NetworkModel::chainsPasswdChanged, m_password, &LineEditWidget::setText);
+    connect(model, &NetworkModel::chainsAddrChanged, m_addr, [ = ] (const QString &text) {
+        m_addr->textEdit()->blockSignals(true);
+        m_addr->setText(text);
+        m_addr->textEdit()->blockSignals(false);
+    });
+    connect(model, &NetworkModel::chainsPortChanged, this, [ = ](const uint port) {
+        m_port->textEdit()->blockSignals(true);
+        m_port->setText(QString::number(port));
+        m_port->textEdit()->blockSignals(false);
+    });
+    connect(model, &NetworkModel::chainsUsernameChanged, m_username, [ = ] (const QString &text) {
+        m_username->textEdit()->blockSignals(true);
+        m_username->setText(text);
+        m_username->textEdit()->blockSignals(false);
+    });
+    connect(model, &NetworkModel::chainsPasswdChanged, m_password, [ = ] (const QString &text) {
+        m_password->textEdit()->blockSignals(true);
+        m_password->setText(text);
+        m_password->textEdit()->blockSignals(false);
+    });
 
     ProxyConfig config = model->getChainsProxy();
 
@@ -130,15 +149,41 @@ void ChainsProxyPage::setModel(NetworkModel *model)
     m_port->setText(QString::number(config.port));
     m_username->setText(config.username);
     m_password->setText(config.password);
+
+    connect(m_proxyType, &ComboxWidget::onIndexChanged, this, [ = ] {
+        m_btns->leftButton()->setEnabled(true);
+        m_btns->rightButton()->setEnabled(true);
+    });
+    connect(m_addr->textEdit(), &QLineEdit::textChanged, this, [ = ] {
+        m_btns->leftButton()->setEnabled(true);
+        m_btns->rightButton()->setEnabled(true);
+    });
+    connect(m_port->textEdit(), &QLineEdit::textChanged, this, [ = ] {
+        m_btns->leftButton()->setEnabled(true);
+        m_btns->rightButton()->setEnabled(true);
+    });
+    connect(m_username->textEdit(), &QLineEdit::textChanged, this, [ = ] {
+        m_btns->leftButton()->setEnabled(true);
+        m_btns->rightButton()->setEnabled(true);
+    });
+    connect(m_password->textEdit(), &QLineEdit::textChanged, this, [ = ] {
+        m_btns->leftButton()->setEnabled(true);
+        m_btns->rightButton()->setEnabled(true);
+    });
 }
 
 void ChainsProxyPage::onRestoreValue()
 {
-    m_comboBox->setCurrentIndex(0);
-    m_addr->setText("");
-    m_port->setText("0");
-    m_username->setText("");
-    m_password->setText("");
+    ProxyConfig config = m_model->getChainsProxy();
+
+    m_comboBox->setCurrentText(config.type);
+    m_addr->setText(config.url);
+    m_port->setText(QString::number(config.port));
+    m_username->setText(config.username);
+    m_password->setText(config.password);
+
+    m_btns->leftButton()->setEnabled(false);
+    m_btns->rightButton()->setEnabled(false);
 }
 
 void ChainsProxyPage::onCheckValue()
@@ -149,10 +194,13 @@ void ChainsProxyPage::onCheckValue()
     m_password->setIsErr(false);
 
     // if address and port is empty,remove config file
-    if (m_addr->text().isEmpty() && m_port->text() == "0") {
+    if (m_addr->text().isEmpty() && (m_port->text() == "0" || m_port->text() == "")) {
         ProxyConfig config;
         config.port = 0;
         config.url.clear();
+
+        m_btns->leftButton()->setEnabled(false);
+        m_btns->rightButton()->setEnabled(false);
 
         Q_EMIT requestSet(config);
         Q_EMIT back();
@@ -183,6 +231,9 @@ void ChainsProxyPage::onCheckValue()
     config.port = port;
     config.username = username;
     config.password = password;
+
+    m_btns->leftButton()->setEnabled(false);
+    m_btns->rightButton()->setEnabled(false);
 
     Q_EMIT requestSet(config);
     Q_EMIT back();

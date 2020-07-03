@@ -31,6 +31,8 @@
 #include <QComboBox>
 #include <QObject>
 
+#include "widgets/buttontuple.h"
+
 namespace dde {
 namespace network {
 class NetworkModel;
@@ -73,6 +75,7 @@ private:
     dcc::widgets::LineEditWidget *m_username;
     dcc::widgets::LineEditWidget *m_password;
     QComboBox *m_comboBox;
+    dcc::widgets::ButtonTuple *m_btns;
 };
 }
 }
