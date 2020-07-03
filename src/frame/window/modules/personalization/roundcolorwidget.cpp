@@ -54,6 +54,12 @@ void RoundColorWidget::setSelected(bool selected)
     update();
 }
 
+void RoundColorWidget::setColor(QColor color)
+{
+    m_color = color;
+    update();
+}
+
 void RoundColorWidget::mousePressEvent(QMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton) {

@@ -36,6 +36,7 @@ public:
     bool isSelected();
     void setSelected(bool selected);
     static const int EXTRA = 2; //2px extra space to avoid line cutted off
+    void setColor(QColor color);
 
 Q_SIGNALS:
     void clicked();
