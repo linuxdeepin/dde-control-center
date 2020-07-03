@@ -39,6 +39,9 @@ using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::sound;
 DWIDGET_USE_NAMESPACE
 
+const double BrightnessMaxScale = 100.0;
+const int PercentageNum = 100;
+
 SpeakerPage::SpeakerPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
@@ -87,7 +90,7 @@ void SpeakerPage::initSlider()
 
     //初始化音量设置滚动条
     qDebug() << "max volume:" << m_model->MaxUIVolume();
-    int maxRange = static_cast<int>(m_model->MaxUIVolume() * 100.0f);
+    int maxRange = static_cast<int>(m_model->MaxUIVolume() * BrightnessMaxScale);
     m_speakSlider->setRange(0, maxRange);
     m_speakSlider->setType(DCCSlider::Vernier);
     m_speakSlider->setTickPosition(QSlider::NoTicks);
@@ -101,17 +104,17 @@ void SpeakerPage::initSlider()
 
     m_speakSlider->setTickInterval(1);
     qDebug() << "speaker volume:" << m_model->speakerVolume();
-    int val = static_cast<int>(m_model->speakerVolume() * 100.0f);
+    int val = qRound(m_model->speakerVolume() * BrightnessMaxScale);
     if (val > maxRange) {
         val = maxRange;
     }
     m_speakSlider->setValue(val);
-    m_outputSlider->setValueLiteral(QString::number(int(val)) + "%");
+    m_outputSlider->setValueLiteral(QString::number(val) + "%");
     m_speakSlider->setPageStep(1);
 
     //处理滑块位置变化的槽
     auto slotfunc1 = [ = ](int pos) {
-        double val = pos / 100.0;
+        double val = pos / BrightnessMaxScale;
         //滑块位置改变时，发送设置音量的信号
         Q_EMIT requestSetSpeakerVolume(val);
     };
@@ -124,13 +127,13 @@ void SpeakerPage::initSlider()
     //当底层数据改变后，更新滑动条显示的数据
     connect(m_model, &SoundModel::speakerVolumeChanged, this, [ = ](double v) {
         m_speakSlider->blockSignals(true);
-        m_speakSlider->setValue(static_cast<int>(v * 100));
+        m_speakSlider->setValue(qRound(v * PercentageNum));
         m_speakSlider->blockSignals(false);
-        m_outputSlider->setValueLiteral(QString::number(int(v * 100)) + "%");
+        m_outputSlider->setValueLiteral(QString::number(qRound(v * PercentageNum)) + "%");
     });
 
     connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
-        m_speakSlider->setRange(0, static_cast<int>(maxvalue * 100));
+        m_speakSlider->setRange(0, qRound(maxvalue * PercentageNum));
         QStringList annotions;
         if (maxvalue > 1.0) {
             annotions << "0 " << "" << "100" << "150 ";
@@ -143,9 +146,9 @@ void SpeakerPage::initSlider()
         m_outputSlider->update();
 
         m_speakSlider->blockSignals(true);
-        m_speakSlider->setValue(static_cast<int>(m_model->speakerVolume() * 100));
+        m_speakSlider->setValue(qRound(m_model->speakerVolume() * PercentageNum));
         m_speakSlider->blockSignals(false);
-        m_outputSlider->setValueLiteral(QString::number(m_model->speakerVolume() * 100) + "%");
+        m_outputSlider->setValueLiteral(QString::number(qRound(m_model->speakerVolume() * PercentageNum)) + "%");
     });
 
     m_layout->insertWidget(1, m_outputSlider);
@@ -188,12 +191,12 @@ void SpeakerPage::initSlider()
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::TicksBelow);
     slider2->setTickInterval(1);
-    slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100));
+    slider2->setSliderPosition(qRound(m_model->speakerBalance() * PercentageNum));
     slider2->setPageStep(1);
     balanceSlider->setAnnotations(balanceList);
 
     auto slotfunc2 = [ = ](int pos) {
-        double val = pos / 100.0;
+        double val = pos / BrightnessMaxScale;
         Q_EMIT requestSetSpeakerBalance(val);
     };
     connect(slider2, &DCCSlider::valueChanged, slotfunc2);
@@ -201,7 +204,7 @@ void SpeakerPage::initSlider()
     connect(m_model, &SoundModel::speakerOnChanged, balanceSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::speakerBalanceChanged, this, [ = ](double v) {
         slider2->blockSignals(true);
-        slider2->setSliderPosition(static_cast<int>(v * 100));
+        slider2->setSliderPosition(qRound(v * PercentageNum));
         slider2->blockSignals(false);
     });
 

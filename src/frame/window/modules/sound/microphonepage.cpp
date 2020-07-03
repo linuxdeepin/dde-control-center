@@ -53,6 +53,9 @@ using namespace dcc::widgets;
 
 using namespace DCC_NAMESPACE::sound;
 
+const double BrightnessMaxScale = 100.0;
+const int PercentageNum = 100;
+
 MicrophonePage::MicrophonePage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
@@ -106,7 +109,7 @@ void MicrophonePage::initSlider()
     m_layout->insertWidget(1, m_inputSlider);
 
     DCCSlider *slider = m_inputSlider->slider();
-    slider->setRange(0, 100);
+    slider->setRange(0, PercentageNum);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::NoTicks);
     auto icon_low = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement);
@@ -115,25 +118,25 @@ void MicrophonePage::initSlider()
     slider->setRightIcon(icon_high);
     slider->setIconSize(QSize(24, 24));
     slider->setTickInterval(1);
-    slider->setSliderPosition(int(m_model->microphoneVolume() * 100));
+    slider->setSliderPosition(qRound(m_model->microphoneVolume() * PercentageNum));
     slider->setPageStep(1);
 
     auto slotfunc1 = [ = ](int pos) {
-        double val = pos / 100.0;
+        double val = pos / BrightnessMaxScale;
         Q_EMIT requestSetMicrophoneVolume(val);
     };
-    int val = static_cast<int>(m_model->microphoneVolume() * 100.0f);
+    int val = qRound(m_model->microphoneVolume() * BrightnessMaxScale);
     slider->setValue(val);
-    m_inputSlider->setValueLiteral(QString::number(m_model->microphoneVolume() * 100) + "%");
+    m_inputSlider->setValueLiteral(QString::number(m_model->microphoneVolume() * PercentageNum) + "%");
     connect(slider, &DCCSlider::valueChanged, this, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, this, slotfunc1);
     connect(m_model, &SoundModel::microphoneOnChanged, m_inputSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::microphoneVolumeChanged, this, [ = ](double v) {
         slider->blockSignals(true);
-        slider->setValue(static_cast<int>(v * 100));
-        slider->setSliderPosition(static_cast<int>(v * 100));
+        slider->setValue(qRound(v * PercentageNum));
+        slider->setSliderPosition(qRound(v * PercentageNum));
         slider->blockSignals(false);
-        m_inputSlider->setValueLiteral(QString::number(v * 100) + "%");
+        m_inputSlider->setValueLiteral(QString::number(qRound(v * PercentageNum)) + "%");
     });
 //    connect(slider, &DCCSlider::valueChanged, this, [ = ](double v)
 #ifndef DCC_DISABLE_FEEDBACK
@@ -142,7 +145,7 @@ void MicrophonePage::initSlider()
     m_feedbackSlider->addBackground();
     m_feedbackSlider->setVisible(m_model->microphoneOn());
     DCCSlider *slider2 = m_feedbackSlider->slider();
-    slider2->setRange(0, 100);
+    slider2->setRange(0, PercentageNum);
     slider2->setEnabled(false);
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::NoTicks);
@@ -156,7 +159,8 @@ void MicrophonePage::initSlider()
     connect(m_model, &SoundModel::microphoneOnChanged, m_feedbackSlider, &TitledSliderItem::setVisible);
     m_conn = connect(m_model, &SoundModel::microphoneFeedbackChanged, [ = ](double vol2) {
         qDebug() << "sound input ,start feedback changed" << vol2;
-        slider2->setSliderPosition(int(vol2 * 100));
+        //这里有可能导致精度丢失，所以采用了qRound 4舍5入取正
+        slider2->setSliderPosition(qRound(vol2 * PercentageNum));
     });
     m_layout->insertWidget(2, m_feedbackSlider);
 #endif
