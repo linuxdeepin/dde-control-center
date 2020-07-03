@@ -181,7 +181,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     } else {
         systemShortKeys = systemFilter;
     }
-
+    //条件成立，list中的内容，否则将内容显示出来
     QStringList speedShortKeys;
     if (DCC_NAMESPACE::IsDesktopSystem) {
         QStringList systemFilterServer = assistiveToolsFilter;
@@ -191,7 +191,7 @@ void ShortcutModel::onParseInfo(const QString &info)
         systemFilterServer.removeOne("translation");
         speedShortKeys = systemFilterServer;
     } else {
-        speedShortKeys = systemFilter;
+        speedShortKeys = assistiveToolsFilter;
     }
     qDeleteAll(m_infos);
 
