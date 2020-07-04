@@ -30,6 +30,7 @@
 #include <QFutureWatcher>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QApplication>
 
 #define MIN_NM_ACTIVE 50
 #define UPDATE_PACKAGE_SIZE 0
@@ -549,6 +550,10 @@ CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
             ret.status = "succeed";
             checkUpdateJob->deleteLater();
         }
+    });
+
+    connect(qApp, &QApplication::aboutToQuit, this, [ = ] {
+        delete checkUpdateJob.data();
     });
 
     connect(checkUpdateJob, &__Job::ProgressChanged, m_model, &UpdateModel::setUpdateProgress,Qt::QueuedConnection);
