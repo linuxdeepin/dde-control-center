@@ -564,15 +564,21 @@ CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
         if (status == "failed" || status.isEmpty()) {
             qWarning() << "check for updates job failed";
             ret.status = "failed";
-            checkUpdateJob->deleteLater();
+            if (checkUpdateJob) {
+                delete checkUpdateJob.data();
+            }
         } else if (status == "success" || status == "succeed") {
             ret.status = "succeed";
-            checkUpdateJob->deleteLater();
+            if (checkUpdateJob) {
+                delete checkUpdateJob.data();
+            }
         }
     });
 
     connect(qApp, &QApplication::aboutToQuit, this, [ = ] {
-        delete checkUpdateJob.data();
+        if (checkUpdateJob) {
+            delete checkUpdateJob.data();
+        }
     });
 
     connect(checkUpdateJob, &__Job::ProgressChanged, m_model, &UpdateModel::setUpdateProgress,Qt::QueuedConnection);
