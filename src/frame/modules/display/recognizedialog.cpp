@@ -71,7 +71,8 @@ void RecognizeDialog::paintEvent(QPaintEvent *)
 
     if (m_model->monitorsIsIntersect())
     {
-        const QRect intersectRect = QRect(0, 0, m_model->screenWidth(), m_model->screenHeight());
+
+        const QRect intersectRect = QRect(0, 0, m_model->monitorList()[0]->w(), m_model->monitorList()[0]->h());
         QString intersectName = m_model->monitorList().first()->name();
         for (int i(1); i != m_model->monitorList().size(); ++i)
             intersectName += "=" + m_model->monitorList()[i]->name();
