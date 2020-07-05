@@ -51,105 +51,105 @@
         <translation>Comptes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
         <source>Display</source>
         <translation>Pantalla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Default Applications</source>
         <translation>Aplicacions predeterminades</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
         <source>Personalization</source>
         <translation>Personalització</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
         <source>Network</source>
         <translation>Xarxa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Notification</source>
         <translation>Notificació</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Sound</source>
         <translation>So</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="893"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="895"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="894"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="896"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Date and Time</source>
         <translation>Data i hora</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Power</source>
         <translation>Energia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Mouse</source>
         <translation>Ratolí</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="905"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="907"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="906"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="908"/>
         <source>Drawing Tablet</source>
         <translation>Tauleta de dibuix</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="446"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
         <source>Keyboard and Language</source>
         <translation>Llengua i teclat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Updates</source>
         <translation>Actualitzacions</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>System Info</source>
         <translation>Informació del sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="923"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="924"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
         <source>General Settings</source>
         <translation>Configuració general</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="406"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="407"/>
         <source>Touchpad</source>
         <translation>Ratolí tàctil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="407"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="408"/>
         <source>TrackPoint</source>
         <translation>Punt de rastreig</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="444"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="445"/>
         <source>Assistive Tools</source>
         <translation>Eines d&apos;assistència</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="917"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="919"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="918"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
         <source>Cloud Sync</source>
         <translation>Sincronització amb el núvol</translation>
     </message>
@@ -715,7 +715,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, primer inicieu la sessió a l&apos;ID d&apos;Union.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
@@ -779,7 +779,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="90"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="120"/>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, primer inicieu la sessió a l&apos;ID d&apos;Union i continueu.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="95"/>
@@ -834,7 +834,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, primer inicieu la sessió a l&apos;ID d&apos;Union.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
@@ -892,8 +892,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
-        <translation>Unir-se al Programa d&apos;experiència d&apos;usuari vol dir que ens atorgueu i autoritzeu a recopilar i usar la informació del vostre dispositiu, sistema i aplicacions. Si rebutgeu la nostra recopilació i ús de la informació abans esmentada, no us uniu al Programa d&apos;experiència d&apos;usuari. Per a més informació, consulteu la Política de privadesa d&apos;UOS (https://www.uniontech.com/agreement/privacy-en).</translation>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
+        <translation>Unir-se al Programa d&apos;experiència d&apos;usuari vol dir que ens atorgueu i autoritzeu a recopilar i usar la informació del vostre dispositiu, sistema i aplicacions. Si rebutgeu la nostra recopilació i ús de la informació abans esmentada, no us uniu al Programa d&apos;experiència d&apos;usuari. Per a més informació, consulteu la Política de privadesa d&apos;UOS (https://www.chinauos.com/agreement/experience).</translation>
     </message>
 </context>
 <context>
@@ -4864,7 +4864,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>After signing in, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation type="unfinished"/>
+        <translation>Després d’iniciar la sessió, podeu usar la sincronització amb el núvol, la botiga d’aplicacions, el client de correu electrònic, el navegador i altres serveis del núvol.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
@@ -4882,7 +4882,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="43"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Perdoneu, això ara no s&apos;admet a la vostra regió. Es podrà fer aviat...</translation>
+        <translation>Disculpeu, això ara no s&apos;admet a la vostra regió. Es podrà fer aviat...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="54"/>
@@ -5198,7 +5198,7 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/logout.cpp" line="44"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Perdoneu, això ara no s&apos;admet a la vostra regió. Es podrà fer aviat...</translation>
+        <translation>Disculpeu, això ara no s&apos;admet a la vostra regió. Es podrà fer aviat...</translation>
     </message>
 </context>
 <context>
@@ -5908,7 +5908,7 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Perdoneu, no es pot obtenir la informació meteorològica!</translation>
+        <translation>Disculpeu, no es pot obtenir la informació meteorològica!</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
@@ -6748,17 +6748,17 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="391"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="392"/>
         <source>Patches</source>
         <translation>Pedaços</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="392"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="393"/>
         <source>System patches</source>
         <translation>Pedaços de sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1128"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1139"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>

@@ -51,105 +51,105 @@
         <translation>ගිණුම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
         <source>Display</source>
         <translation>තිරය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Default Applications</source>
         <translation>පෙරනිමි යෙදවුම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
         <source>Personalization</source>
         <translation>සව්‍යං උචිත සැකසුම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
         <source>Network</source>
         <translation>ජාලය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Notification</source>
         <translation>දැනුම්දීම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Sound</source>
         <translation>ශබ්දය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="893"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="895"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="894"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="896"/>
         <source>Bluetooth</source>
         <translation>බ්ලූටූත්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Date and Time</source>
         <translation>දිනය සහ වේලාව</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Power</source>
         <translation>බලය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Mouse</source>
         <translation>මූසිකය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="905"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="907"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="906"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="908"/>
         <source>Drawing Tablet</source>
         <translation>අඳින ටැබ්ලටය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="446"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
         <source>Keyboard and Language</source>
         <translation>යතුරුපුවරුව සහ භාෂාව</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Updates</source>
         <translation>යාවත්කාලීන කිරීම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>System Info</source>
         <translation>පද්ධති තොරතුරු</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="923"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="924"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
         <source>General Settings</source>
         <translation>සාමාන්‍ය සැකසුම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="406"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="407"/>
         <source>Touchpad</source>
         <translation>ටච් පෑඩ්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="407"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="408"/>
         <source>TrackPoint</source>
         <translation>ට්‍රැක් පොයින්ට්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="444"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="445"/>
         <source>Assistive Tools</source>
         <translation>උපකාරක මෙවලම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="917"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="919"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="918"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
         <source>Cloud Sync</source>
         <translation>වලාකුළු සමමුහුර්තකරණය</translation>
     </message>
@@ -892,8 +892,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
-        <translation>පරිශීලක අත්දැකීම් වැඩසටහනට සම්බන්ධ වීම යනු ඔබගේ උපාංගය, පද්ධතිය සහ යෙදුම්වල තොරතුරු රැස් කිරීමට සහ භාවිතා කිරීමට ඔබ අපට අවසර දී ඇති බවයි. ඉහත සඳහන් තොරතුරු එකතු කිරීම සහ භාවිතය ඔබ ප්‍රතික්ෂේප කරන්නේ නම්, පරිශීලක අත්දැකීම් වැඩසටහනට සම්බන්ධ නොවන්න. වැඩි විස්තර සඳහා කරුණාකර UOS රහස්‍යතා ප්‍රතිපත්තිය (https://www.uniontech.com/agreement/privacy-en) වෙත යොමු වන්න.</translation>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
+        <translation>පරිශීලක අත්දැකීම් වැඩසටහනට සම්බන්ධ වීම යනු ඔබගේ උපාංගය, පද්ධතිය සහ යෙදුම්වල තොරතුරු රැස් කිරීමට සහ භාවිතා කිරීමට ඔබ අපට අවසර දී ඇති බවයි. ඉහත සඳහන් තොරතුරු එකතු කිරීම සහ භාවිතය ඔබ ප්‍රතික්ෂේප කරන්නේ නම්, පරිශීලක අත්දැකීම් වැඩසටහනට සම්බන්ධ නොවන්න. වැඩි විස්තර සඳහා කරුණාකර UOS රහස්‍යතා ප්‍රතිපත්තිය (https://www.chinauos.com/agreement/experience) වෙත යොමු වන්න.</translation>
     </message>
 </context>
 <context>
@@ -6747,17 +6747,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="391"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="392"/>
         <source>Patches</source>
         <translation>නිවැරදි කිරීම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="392"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="393"/>
         <source>System patches</source>
         <translation>පද්ධති නිවැරදි කිරීම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1128"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1139"/>
         <source>System</source>
         <translation>පද්ධතිය</translation>
     </message>
