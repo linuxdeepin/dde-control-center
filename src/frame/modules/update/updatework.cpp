@@ -1102,15 +1102,7 @@ AppUpdateInfo UpdateWorker::getInfo(const AppUpdateInfo &packageInfo, const QStr
     info.m_name = packageInfo.m_name;
     info.m_currentVersion = currentVersion;
     info.m_avilableVersion = lastVersion;
-    if (info.m_packageId.contains("/",Qt::CaseSensitive)) {
-        info.m_icon = info.m_packageId;
-    } else {
-        info.m_icon = icondataDir + "/"+m_iconThemeState+"/apps/48/"+ packageInfo.m_packageId + ".svg";
-        QFile file(info.m_icon);
-        if (false == file.exists()) {
-            info.m_icon = icondataDir + "/"+m_iconThemeState+"/48x48/apps/"+ packageInfo.m_packageId + ".svg";
-        }
-    }
+    info.m_icon = m_iconThemeState;
     QFile manifest(metadataDir + "/meta/manifest.json");
     if (manifest.open(QFile::ReadOnly)) {
         QByteArray data = manifest.readAll();

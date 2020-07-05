@@ -180,15 +180,16 @@ UpdateItem::UpdateItem(QFrame *parent)
 void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 {
     m_info = info;
-    QFile file(m_info.m_icon);
     QPixmap pix;
     const qreal ratio = devicePixelRatioF();
-
-    if (file.exists())
-        pix = loadPixmap(m_info.m_icon).scaled(m_appIcon->size() * ratio,
-                                               Qt::KeepAspectRatioByExpanding,
-                                               Qt::FastTransformation);
-    else {
+    if (info.m_packageId != "dde") {
+         pix = QIcon::fromTheme(info.m_packageId, QIcon::fromTheme(info.m_icon, QIcon::fromTheme("application-x-desktop")))
+                .pixmap(m_appIcon->size() * ratio)
+                .scaled(m_appIcon->size() * ratio,
+                        Qt::KeepAspectRatioByExpanding,
+                        Qt::FastTransformation);
+         pix.setDevicePixelRatio(ratio);
+    } else {
         /*pix = QIcon::fromTheme(m_info.m_packageId, QIcon::fromTheme("application-x-desktop"))
                 .pixmap(m_appIcon->size() * ratio)
                 .scaled(m_appIcon->size() * ratio,
