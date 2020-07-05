@@ -157,14 +157,14 @@
 <context>
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="99"/>
-        <source>The fingerprint name already exists</source>
-        <translation>El nombre de la huella dactilar ya existe</translation>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="103"/>
+        <source>The name already exists</source>
+        <translation>El nombre ya existe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="153"/>
-        <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
-        <translation>El nombre solo debe contener letras, números, guión bajo y no más de 15 caracteres.</translation>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="159"/>
+        <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -467,7 +467,7 @@
         <translation>Hecho</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="179"/>
         <source>Add Fingerprint</source>
         <translation>Añadir huella dactilar</translation>
     </message>

@@ -157,14 +157,14 @@
 <context>
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="99"/>
-        <source>The fingerprint name already exists</source>
-        <translation>Tento název pro otisk už existuje</translation>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="103"/>
+        <source>The name already exists</source>
+        <translation>Jméno už existuje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="153"/>
-        <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
-        <translation>Je třeba, aby jméno obsahovalo pouze písmena, číslice a podtržítka a nebylo delší než 15 znaků.</translation>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="159"/>
+        <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
+        <translation>Použijte pouze písmena, číslice a podtržítka a ne delší než 15 znaků</translation>
     </message>
 </context>
 <context>
@@ -467,7 +467,7 @@
         <translation>Hotovo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="179"/>
         <source>Add Fingerprint</source>
         <translation>Přidat otisk prstu</translation>
     </message>

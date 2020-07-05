@@ -157,14 +157,14 @@
 <context>
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="99"/>
-        <source>The fingerprint name already exists</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="103"/>
+        <source>The name already exists</source>
+        <translation>Nama sudah wujud</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="153"/>
-        <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
-        <translation>Nama mesti mengandungi abjad, angka dan garis bawah, serta tidak lebih dari 15 aksara.</translation>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="159"/>
+        <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -467,7 +467,7 @@
         <translation>Selesai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="179"/>
         <source>Add Fingerprint</source>
         <translation>Tambah Cap Jari</translation>
     </message>

@@ -157,14 +157,14 @@
 <context>
     <name>dccV20::accounts::AccounntFingeItem</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="99"/>
-        <source>The fingerprint name already exists</source>
-        <translation>Відбиток із такою назвою вже існує</translation>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="103"/>
+        <source>The name already exists</source>
+        <translation>Таке ім&apos;я вже існує</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="153"/>
-        <source>The name must only contain letters, numbers and underline, and no more than 15 characters.</source>
-        <translation>Назва має складатися лише з латинських літер, цифр і символів підкреслювання. Довжина назви не повинна перевищувати 15 символів.</translation>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="159"/>
+        <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
+        <translation>Можна використовувати лише латинські літери, цифри та символи підкреслювання. Довжина назви не повинна перевищувати 15 символів.</translation>
     </message>
 </context>
 <context>
@@ -467,7 +467,7 @@
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="179"/>
         <source>Add Fingerprint</source>
         <translation>Додати відбиток пальця</translation>
     </message>
