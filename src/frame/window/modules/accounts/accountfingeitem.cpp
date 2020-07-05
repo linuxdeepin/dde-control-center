@@ -43,6 +43,7 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
 
     m_editBtn->setIcon(QIcon::fromTheme("dcc_edit"));
     m_editBtn->setFlat(true);//设置背景透明
+    m_editBtn->setVisible(false);
 
     m_editTitle->setClearButtonEnabled(false);
     m_editTitle->setVisible(false);
@@ -65,20 +66,23 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
 
     connect(m_removeBtn, &DIconButton::clicked, this, &AccounntFingeItem::removeClicked);
     connect(m_editBtn, &DIconButton::clicked, this, [this] {
-        setEditTitle(true);
-        m_editTitle->lineEdit()->setText(m_title->text());
-        m_editTitle->lineEdit()->selectAll();
-        m_editTitle->lineEdit()->setFocus();
+        Q_EMIT editClicked(m_editTitle->isVisible());
+        if (m_editTitle->isVisible()) {
+            m_editTitle->lineEdit()->setText(m_title->text());
+            m_editTitle->lineEdit()->selectAll();
+            m_editTitle->lineEdit()->setFocus();
+        }
     });
     connect(m_editTitle->lineEdit(), &QLineEdit::textChanged, this, [this] {
         m_editTitle->setAlert(false);
         m_editTitle->hideAlertMessage();
     });
     connect(m_editTitle->lineEdit(), &QLineEdit::editingFinished, this, [this] {
+        m_editTitle->lineEdit()->clearFocus();
         if (onNameEditFinished(m_editTitle)) {
             Q_EMIT editTextFinished(m_editTitle->text());
+            setEditTitle(false);
         }
-        m_editTitle->lineEdit()->clearFocus();
         setEditTitle(false);
     });
 }
@@ -96,7 +100,7 @@ void AccounntFingeItem::setTitle(const QString &title)
 void AccounntFingeItem::alertTitleRepeat()
 {
     m_editTitle->setAlert(true);
-    m_editTitle->showAlertMessage(tr("The fingerprint name already exists"), parentWidget());
+    m_editTitle->showAlertMessage(tr("The name already exists"), parentWidget());
     m_editTitle->lineEdit()->selectAll();
 }
 
@@ -108,6 +112,7 @@ void AccounntFingeItem::appendItem(QWidget *widget)
 void AccounntFingeItem::setShowIcon(bool state)
 {
     m_removeBtn->setVisible(state);
+    m_editBtn->setVisible(state);
 }
 
 void AccounntFingeItem::setEditTitle(bool state)
@@ -148,9 +153,10 @@ bool AccounntFingeItem::onNameEditFinished(DLineEdit *edit)
     QString editName = edit->lineEdit()->text();
     if (editName.isEmpty())
         return false;
-    if (editName.size() >15 || validateName(editName) == false) {
+    //正则表达式判断是否由字母、数字、中文、下划线组成
+    if (!editName.contains(QRegExp("(^[\\w\u4e00-\u9fa5]+$)")) || editName.size() > 15) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The name must only contain letters, numbers and underline, and no more than 15 characters."), parentWidget());
+        edit->showAlertMessage(tr("Use letters, numbers and underlines only, and no more than 15 characters"), parentWidget(), 2000);
         edit->lineEdit()->selectAll();
         return false;
     }
