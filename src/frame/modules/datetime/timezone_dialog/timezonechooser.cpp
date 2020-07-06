@@ -60,6 +60,9 @@ TimeZoneChooser::TimeZoneChooser()
     , m_title(new QLabel)
     , m_cancelBtn(new QPushButton(tr("Cancel")))
     , m_confirmBtn(new DSuggestButton(tr("Confirm")))
+    , m_currLangSelector(new LangSelector("com.deepin.daemon.LangSelector",
+                                          "/com/deepin/daemon/LangSelector",
+                                          QDBusConnection::sessionBus(), this))
 {
 //    setWindowFlags(Qt::Dialog | Qt::WindowStaysOnTopHint);
     setWindowFlags(Qt::Dialog);
@@ -142,6 +145,7 @@ TimeZoneChooser::TimeZoneChooser()
 
     QTimer::singleShot(0, [this] {
         QStringList completions;
+        QStringList completions_filter;
         for (QString timezone : QTimeZone::availableTimeZoneIds()) {
             completions << timezone; // timezone as completion candidate.
 
@@ -153,14 +157,24 @@ TimeZoneChooser::TimeZoneChooser()
             m_completionCache[localizedTimezone] = timezone;
         }
 
-        QCompleter *completer = new QCompleter(completions, m_searchInput);
-        completer->setCompletionMode(QCompleter::PopupCompletion);
-        completer->setCaseSensitivity(Qt::CaseInsensitive);
-        completer->setFilterMode(Qt::MatchContains);
+        if ("en_US.UTF-8" == m_currLangSelector->currentLocale()) {
+            int i = 0;
+            for (auto str : completions) {
+                if ( i++ % 2 == 0) continue;
+                completions_filter << str;
+            }
+            m_completer = new QCompleter(completions_filter, m_searchInput);
+        } else {
+            m_completer = new QCompleter(completions, m_searchInput);
+        }
 
-        m_searchInput->setCompleter(completer);
+        m_completer->setCompletionMode(QCompleter::PopupCompletion);
+        m_completer->setCaseSensitivity(Qt::CaseInsensitive);
+        m_completer->setFilterMode(Qt::MatchContains);
 
-        m_popup = completer->popup();
+        m_searchInput->setCompleter(m_completer);
+
+        m_popup = m_completer->popup();
         m_popup->setObjectName("TimezoneCompleter");
         m_popup->setAttribute(Qt::WA_TranslucentBackground);
         m_popup->setAttribute(Qt::WA_InputMethodEnabled);

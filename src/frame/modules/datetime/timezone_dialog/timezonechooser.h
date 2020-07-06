@@ -31,8 +31,12 @@
 
 #include <QFrame>
 #include <QMap>
+#include <com_deepin_daemon_langselector.h>
+#include <QCompleter>
 
 DWIDGET_USE_NAMESPACE
+
+using LangSelector = com::deepin::daemon::LangSelector;
 
 class QPushButton;
 class QComboBox;
@@ -92,6 +96,8 @@ private:
     QLabel *m_title;
     QPushButton *m_cancelBtn;
     DSuggestButton *m_confirmBtn;
+    LangSelector *m_currLangSelector;
+    QCompleter *m_completer;
 };
 
 } // namespace datetime
