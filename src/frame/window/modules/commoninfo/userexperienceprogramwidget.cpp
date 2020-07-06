@@ -47,7 +47,7 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
 
     DTipLabel *tipLabel = new DTipLabel(tr("Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
                                            "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
-                                           "For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience)."));
+                                           "For details, please refer to UOS Privacy Policy (https://www.uniontech.com/agreement/privacy-en)."));
     tipLabel->setWordWrap(true);
     tipLabel->setContentsMargins(5, 0, 10, 0);
     tipLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
