@@ -130,9 +130,9 @@ void SpeakerPage::initSlider()
     //当底层数据改变后，更新滑动条显示的数据
     connect(m_model, &SoundModel::speakerVolumeChanged, this, [ = ](double v) {
         m_speakSlider->blockSignals(true);
-        m_speakSlider->setValue(static_cast<int>(v * 100));
+        m_speakSlider->setValue(v * 100);
         m_speakSlider->blockSignals(false);
-        m_outputSlider->setValueLiteral(QString::number(int(v * 100)) + "%");
+        m_outputSlider->setValueLiteral(QString::number(v * 100) + "%");
     });
 
     connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
