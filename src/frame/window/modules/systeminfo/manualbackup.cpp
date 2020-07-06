@@ -25,7 +25,7 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     , m_model(model)
     , m_directoryChooseWidget(new DFileChooserEdit)
     , m_tipsLabel(new DTipLabel)
-    , m_backupBtn(new QPushButton(tr("Backup")))
+    , m_backupBtn(new QPushButton(tr("Back Up")))
     , m_loadingWidget(new QWidget)
 {
     QVBoxLayout* mainLayout = new QVBoxLayout;

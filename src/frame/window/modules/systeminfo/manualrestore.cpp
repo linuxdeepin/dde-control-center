@@ -100,7 +100,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
     , m_saveUserDataCheckBox(new QCheckBox)
     , m_directoryChooseWidget(new DFileChooserEdit)
     , m_tipsLabel(new DTipLabel)
-    , m_backupBtn(new QPushButton(tr("Restore")))
+    , m_backupBtn(new QPushButton(tr("Restore Now")))
     , m_actionType(ActionType::RestoreSystem)
     , m_loadingWidget(new QWidget)
 {
@@ -119,9 +119,9 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
         chooseLayout->addSpacing(5);
         chooseLayout->addWidget(m_saveUserDataCheckBox);
         m_saveUserDataCheckBox->setMinimumSize(24, 24);
-        m_saveUserDataCheckBox->setText(tr("Save User Data"));
+        m_saveUserDataCheckBox->setText(tr("Keep personal files and apps"));
 
-        m_systemRestore->setTitle(tr("Reset All Settings"));
+        m_systemRestore->setTitle(tr("Reset to factory settings"));
 
         QWidget* bgWidget = new QWidget;
         bgWidget->setLayout(chooseLayout);
@@ -139,7 +139,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
         chooseLayout->setMargin(0);
         chooseLayout->setSpacing(0);
         chooseLayout->addSpacing(5);
-        chooseLayout->addWidget(new QLabel(tr("Select restore directory")), 0, Qt::AlignVCenter);
+        chooseLayout->addWidget(new QLabel(tr("Backup directory")), 0, Qt::AlignVCenter);
         chooseLayout->addSpacing(5);
         chooseLayout->addWidget(m_directoryChooseWidget, 0, Qt::AlignVCenter);
 
@@ -147,7 +147,7 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
         bgWidget->setLayout(chooseLayout);
 
         m_manualRestore->setContent(bgWidget);
-        m_manualRestore->setTitle(tr("Manual Restore"));
+        m_manualRestore->setTitle(tr("Restore from backup files"));
 
         mainLayout->addWidget(m_manualRestore);
     }
