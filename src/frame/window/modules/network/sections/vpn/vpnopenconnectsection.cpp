@@ -77,6 +77,7 @@ void VpnOpenConnectSection::saveSettings()
     m_dataMap.insert("usercert", m_userCert->edit()->text());
     m_dataMap.insert("userkey", m_userKey->edit()->text());
     m_dataMap.insert("pem_passphrase_fsid", m_useFSID->checked() ? "yes" : "no");
+    m_dataMap.insert("cookie-flags", "2");
 
     m_vpnSetting->setData(m_dataMap);
 
