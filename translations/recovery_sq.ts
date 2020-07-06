@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation>Po kthehet prapa sistemi, ju lutemi, prisni…</translation>
+        <translation>Sistemi po kthehet prapa, ju lutemi, prisni…</translation>
     </message>
 </context>
 <context>

@@ -4,16 +4,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-<<<<<<< HEAD
-        <translation>Pro správné fungování systému a aplikací po provedení aktualizace restartujte</translation>
-=======
-        <translation>Pro správné fungování systému a aplikací, po provedení aktualizace restartujte</translation>
->>>>>>> upstream/dev/professionall/cherry-pick-fingerprint
+        <translation>Pro správné fungování systému a aplikací, po provedení aktualizace počítač restartujte</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation>Ujistěte se nejprve, že všechna data byla uložena</translation>
+        <translation>Nejprve se ujistěte, že všechna data byla uložena</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
