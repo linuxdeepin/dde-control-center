@@ -81,7 +81,6 @@ Q_SIGNALS:
     void requestSetAlias(const dcc::bluetooth::Adapter *adapter, const QString &alias);
     void notifyLoadFinished();
     void notifyRemoveDevice();
-    void requestClearUnpairedDevice();
     void requestRefresh(const dcc::bluetooth::Adapter *adapter);
 private Q_SLOTS:
     void addDevice(const dcc::bluetooth::Device *device);
@@ -102,7 +101,6 @@ private:
     DTK_WIDGET_NAMESPACE::DSpinner *m_spinner;
     DTK_WIDGET_NAMESPACE::DListView *m_otherDeviceListView;
     QStandardItemModel *m_otherDeviceModel;
-    QList<DeviceSettingsItem *> m_preConnDevices;//记录关闭pc端蓝牙前的连接设备
     DTK_WIDGET_NAMESPACE::DIconButton *m_refreshBtn;
 };
 }
