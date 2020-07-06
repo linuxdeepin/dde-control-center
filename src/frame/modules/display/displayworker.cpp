@@ -391,7 +391,12 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
         if (!tm.key()->enable() || tm.key() == m_model->primaryMonitor()) {
             continue;
         }
-        tm.value()->SetPosition(xoffset, 0);
+        if (m_model->isMerge()) {
+            tm.value()->SetPosition(0, 0);
+        } else {
+            tm.value()->SetPosition(xoffset, 0);
+        }
+
         xoffset += tm.value()->width();
     }
     m_displayInter.ApplyChanges();
