@@ -64,10 +64,10 @@ Q_SIGNALS:
 private:
     QHBoxLayout *m_layout;
     QLabel *m_title;
-    QString m_fingerName;
     DIconButton *m_removeBtn;
     DIconButton *m_editBtn;
     DLineEdit *m_editTitle;
+    QString m_fingerName;
 };
 
 }
