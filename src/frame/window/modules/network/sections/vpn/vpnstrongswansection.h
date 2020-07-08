@@ -49,7 +49,7 @@ private:
     void initStrMaps();
     void initUI();
     void initConnection();
-    void onAuthTypeChanged(const QString type);
+    void onAuthTypeChanged(const QString &type);
     void onCustomCipherEnableChanged(const bool enabled);
 
 private:

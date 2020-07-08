@@ -157,10 +157,10 @@ void IndexFrame::resizeEvent(QResizeEvent *e)
     update();
 }
 
-void IndexFrame::leaveEvent(QEvent *e)
+void IndexFrame::leaveEvent(QEvent *event)
 {
     m_rect = QRect();
-    QFrame::leaveEvent(e);
+    QFrame::leaveEvent(event);
     update();
 }
 

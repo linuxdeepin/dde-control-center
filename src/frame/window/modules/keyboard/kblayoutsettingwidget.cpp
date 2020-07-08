@@ -247,7 +247,7 @@ void KBLayoutSettingWidget::onKBLayoutChanged(const QModelIndex &index)
         if (item && (index.row() == i)) {
             item->setCheckState(Qt::Checked);
             Q_EMIT requestCurLayoutAdded(item->text());
-        } else {
+        } else if(item) {
             item->setCheckState(Qt::Unchecked);
         }
     }
@@ -282,9 +282,9 @@ void KBLayoutSettingWidget::onSwitchKBChanged(const QModelIndex &index)
     int median = 0;
     int row_count = m_switchLayoutModel->rowCount();
     for (int i = 0; i < row_count; ++i) {
-        QStandardItem *item = m_switchLayoutModel->item(i, 0);
-        if (item && (item->checkState() == Qt::Checked)) {
-            median = item->data(SwitchValueRole).toInt() | median;
+        QStandardItem *items = m_switchLayoutModel->item(i, 0);
+        if (items && (items->checkState() == Qt::Checked)) {
+            median = items->data(SwitchValueRole).toInt() | median;
         }
     }
 

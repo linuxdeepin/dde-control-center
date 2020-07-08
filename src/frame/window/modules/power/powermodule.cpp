@@ -50,6 +50,10 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
 
 void PowerModule::preInitialize(bool sync)
 {
+    //添加此判断是因为公共功能可能泄露。在分配指针“m_model”之前未释放它
+    if (m_model) {
+        delete m_model;
+    }
     m_model = new PowerModel;
     m_work = new PowerWorker(m_model);
     m_work->moveToThread(qApp->thread());
@@ -93,7 +97,7 @@ void PowerModule::active()
     m_widget->setDefaultWidget();
 }
 
-int PowerModule::load(QString path)
+int PowerModule::load(const QString &path)
 {
     if (!m_widget) {
         active();
@@ -192,7 +196,6 @@ void PowerModule::showUseBattery()
     connect(battery, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery, m_work, &PowerWorker::setScreenBlackDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetSleepDelayOnBattery, m_work, &PowerWorker::setSleepDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetAutoLockScreenOnBattery, m_work, &PowerWorker::setLockScreenDelayOnBattery);
-    connect(battery, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed, m_work, &PowerWorker::setSleepOnLidOnBatteryClosed);//Suspend on lid close
 
     //-----------------sp2 add-------------------
     connect(battery, &UseBatteryWidget::requestSetBatteryPressPowerBtnAction, m_work, &PowerWorker::setBatteryPressPowerBtnAction);

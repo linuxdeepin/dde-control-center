@@ -110,11 +110,6 @@ QDebug &operator<<(QDebug dbg, const MetaData &md)
 {
     dbg.nospace() << "key: " << md.key() << endl;
     dbg.nospace() << "text: " << md.text() << endl;
-    /*
-    dbg.nospace()<<"MetaData ( pinyin: "<<md.pinyin()<<" , ";
-    dbg.nospace()<<"text: "<<md.text()<<" , ";
-    dbg.nospace()<<"section: "<<md.section()<<" )";
-    */
     return dbg.maybeSpace();
 }
 
@@ -154,7 +149,7 @@ int IndexModel::indexOf(const MetaData &md)
     return -1;
 }
 
-void IndexModel::setLetters(QList<QString> letters)
+void IndexModel::setLetters(QList<QString> &letters)
 {
     m_letters = letters;
 }
@@ -170,32 +165,6 @@ int IndexModel::rowCount(const QModelIndex &parent) const
 
     return m_datas.count();
 }
-
-//QVariant IndexModel::data(const QModelIndex &index, int role) const
-//{
-//    if (!index.isValid())
-//        return QVariant();
-
-//    MetaData md = m_datas[index.row()];
-//    if (role == Qt::DisplayRole) {
-//        QVariant v;
-//        v.setValue(md);
-//        return v;
-////    } else if (role == Qt::BackgroundColorRole) {
-////        return QBrush(Qt::transparent);
-//    } else
-//        return QVariant();
-//}
-
-//Qt::ItemFlags IndexModel::flags(const QModelIndex &index) const
-//{
-//    QVariant var = index.data();
-//    MetaData md = var.value<MetaData>();
-//    if (md.section()) {
-//        return Qt::NoItemFlags;
-//    }
-//    return QStandardItemModel::flags(index);
-//}
 
 int IndexModel::getModelCount()
 {

@@ -62,7 +62,6 @@ private:
     dcc::widgets::TitledSliderItem *m_monitorSleepOnBattery;
     dcc::widgets::TitledSliderItem *m_computerSleepOnBattery;
     dcc::widgets::TitledSliderItem *m_autoLockScreen;
-//    dcc::widgets::SwitchWidget *m_suspendOnLidClose;
     dcc::widgets::TitledSliderItem *m_sldLowBatteryHint;
     dcc::widgets::TitledSliderItem *m_sldAutoSuspend;
     dcc::widgets::SwitchWidget *m_swBatteryHint;
@@ -75,7 +74,6 @@ Q_SIGNALS:
     void requestSetScreenBlackDelayOnBattery(const int delay) const;
     void requestSetSleepDelayOnBattery(const int delay) const;
     void requestSetAutoLockScreenOnBattery(const int delay) const;
-    void requestSetSleepOnLidOnBatteryClosed(const bool sleep) const;
     void requestSetLowPowerNotifyEnable(const bool bState) const;//低电量通知
     void requestSetBatteryPressPowerBtnAction(const int reply) const;//按下电源
     void requestSetBatteryLidClosedAction(const int reply) const;//合上盖子

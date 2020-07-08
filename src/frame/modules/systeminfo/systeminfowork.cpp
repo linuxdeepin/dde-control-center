@@ -111,13 +111,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
     connect(m_systemInfoInter, &__SystemInfo::DistroIDChanged, m_model, &SystemInfoModel::setDistroID);
     connect(m_systemInfoInter, &__SystemInfo::DistroVerChanged, m_model, &SystemInfoModel::setDistroVer);
-    // connect(m_systemInfoInter, &__SystemInfo::VersionChanged, m_model, &SystemInfoModel::setVersion);
-    // connect(m_systemInfoInter, &__SystemInfo::SystemTypeChanged, m_model, &SystemInfoModel::setType);
-    //connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
-    // connect(m_systemInfoInter, &__SystemInfo::MemoryCapChanged, m_model, &SystemInfoModel::setMemory);
     connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
-    //预留接口
-    //connect(m_dbusActivator, &GrubDbus::LicenseStateChange, m_model, &SystemInfoModel::setLicenseState);
 
     QProcess process;
     process.start("uname -r");
@@ -135,10 +129,6 @@ void SystemInfoWork::activate()
 {
     m_model->setDistroID(m_systemInfoInter->distroID());
     m_model->setDistroVer(m_systemInfoInter->distroVer());
-    // m_model->setVersion(m_systemInfoInter->version());
-    // m_model->setType(m_systemInfoInter->systemType());
-    //m_model->setProcessor(m_systemInfoInter->processor());
-    // m_model->setMemory(m_systemInfoInter->memoryCap());
     m_model->setDisk(m_systemInfoInter->diskCap());
 
     QString version;
@@ -153,14 +143,11 @@ void SystemInfoWork::activate()
     m_model->setVersion(version);
     m_model->setType(QSysInfo::WordSize);
 
-    // m_model->setProcessor(QString("%1 x %2").arg(DSysInfo::cpuModelName())
-    //                                         .arg(QThread::idealThreadCount()));
     if (m_systemInfo->isValid()) {
-        m_model->setMemory(DSysInfo::memoryTotalSize(), m_systemInfo->property("MemorySize").toULongLong());
+        m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), m_systemInfo->property("MemorySize").toULongLong());
     } else {
-        m_model->setMemory(DSysInfo::memoryTotalSize(), DSysInfo::memoryInstalledSize());
+        m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), static_cast<qulonglong>(DSysInfo::memoryInstalledSize()));
     }
-    // m_model->setDisk(DSysInfo::systemDiskSize());
 }
 
 void SystemInfoWork::deactivate()
@@ -312,13 +299,13 @@ void SystemInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
         QDBusPendingReply<QString> reply = w->reply();
         const qreal ratio = qApp->devicePixelRatio();
 
-        QPixmap pix = QPixmap(reply.value()).scaled(QSize(ItemWidth * ratio, ItemHeight * ratio),
+        QPixmap pix = QPixmap(reply.value()).scaled(QSize(static_cast<int>(ItemWidth * ratio), static_cast<int>(ItemHeight * ratio)),
                                                     Qt::KeepAspectRatioByExpanding, Qt::FastTransformation);
 
-        const QRect r(0, 0, ItemWidth * ratio, ItemHeight * ratio);
-        const QSize size(ItemWidth * ratio, ItemHeight * ratio);
+        const QRect r(0, 0, static_cast<int>(ItemWidth * ratio), static_cast<int>(ItemHeight * ratio));
+        const QSize size(static_cast<int>(ItemWidth * ratio), static_cast<int>(ItemHeight * ratio));
 
-        if (pix.width() > ItemWidth * ratio || pix.height() > ItemHeight * ratio)
+        if (pix.width() > static_cast<int>(ItemWidth * ratio) || pix.height() > static_cast<int>(ItemHeight * ratio))
             pix = pix.copy(QRect(pix.rect().center() - r.center(), size));
 
         pix.setDevicePixelRatio(ratio);

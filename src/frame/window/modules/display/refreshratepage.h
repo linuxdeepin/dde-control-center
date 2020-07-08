@@ -54,7 +54,7 @@ private:
 
 private:
     dcc::display::DisplayModel *m_model{nullptr};
-    dcc::display::Monitor *m_monitor;
+    dcc::display::Monitor *m_monitor{nullptr};
     QVBoxLayout *m_layout{nullptr};
 };
 }

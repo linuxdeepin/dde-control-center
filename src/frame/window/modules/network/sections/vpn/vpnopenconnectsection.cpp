@@ -28,6 +28,7 @@ using namespace NetworkManager;
 VpnOpenConnectSection::VpnOpenConnectSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN"), parent)
     , m_vpnSetting(vpnSetting)
+    , m_dataMap(vpnSetting->data())
     , m_gateway(new LineEditWidget(this))
     , m_caCert(new FileChooseWidget(this))
     , m_proxy(new LineEditWidget(this))
@@ -37,8 +38,6 @@ VpnOpenConnectSection::VpnOpenConnectSection(NetworkManager::VpnSetting::Ptr vpn
     , m_userKey(new FileChooseWidget(this))
     , m_useFSID(new SwitchWidget(this))
 {
-    m_dataMap = vpnSetting->data();
-
     initUI();
 
     connect(m_caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenConnectSection::requestFrameAutoHide);

@@ -52,7 +52,7 @@ struct ShortcutInfo {
     QString id;
     QString name;
     QString command;
-    quint32 type;
+    int type;
     ShortcutInfo *replace = nullptr;
     ShortcutItem *item = nullptr;
 
@@ -122,7 +122,7 @@ private:
     QList<ShortcutInfo *> m_assistiveToolsInfos;
     QList<ShortcutInfo *> m_customInfos;
     QList<ShortcutInfo *> m_searchList;
-    ShortcutInfo *m_currentInfo;
+    ShortcutInfo *m_currentInfo = nullptr;
     bool m_windowSwitchState;
     dcc::display::DisplayModel m_dis;
 };

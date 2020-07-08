@@ -124,7 +124,6 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
 
     connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetScreenBlackDelayOnPower);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetAutoLockScreenOnPower);
-//    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed);
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
             Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
@@ -150,7 +149,6 @@ UseElectricWidget::~UseElectricWidget()
 void UseElectricWidget::setModel(const PowerModel *model)
 {
     connect(model, &PowerModel::screenBlackDelayChangedOnPower, this, &UseElectricWidget::setScreenBlackDelayOnPower);
-//    connect(model, &PowerModel::sleepOnLidOnPowerCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
     connect(model, &PowerModel::powerLockScreenDelayChanged, this, &UseElectricWidget::setLockScreenAfter);
 
     setScreenBlackDelayOnPower(model->screenBlackDelayOnPower());
@@ -159,13 +157,11 @@ void UseElectricWidget::setModel(const PowerModel *model)
         setSleepDelayOnPower(model->sleepDelayOnPower());
     }
 
-//    m_suspendOnLidClose->setChecked(model->sleepOnLidOnPowerClose());
     setLockScreenAfter(model->getPowerLockScreenDelay());
 
     if (m_computerSleepOnPower) {
         m_computerSleepOnPower->setVisible(model->canSleep() && model->getSuspend());
     }
-//    m_suspendOnLidClose->setVisible(model->canSleep());
 
     //--------------sp2 add-----------------
     m_cmbCloseLid->setVisible(model->lidPresent());
@@ -203,7 +199,6 @@ void UseElectricWidget::setModel(const PowerModel *model)
 
 void UseElectricWidget::setLidClose(bool state)
 {
-//    m_suspendOnLidClose->setVisible(state);
     m_cmbCloseLid->setVisible(state);
 }
 

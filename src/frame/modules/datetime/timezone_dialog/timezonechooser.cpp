@@ -61,7 +61,6 @@ TimeZoneChooser::TimeZoneChooser()
     , m_cancelBtn(new QPushButton(tr("Cancel")))
     , m_confirmBtn(new DSuggestButton(tr("Confirm")))
 {
-//    setWindowFlags(Qt::Dialog | Qt::WindowStaysOnTopHint);
     setWindowFlags(Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
@@ -213,10 +212,6 @@ void TimeZoneChooser::setCurrentTimeZoneText(const QString &zone)
 
     const QString locale = QLocale::system().name();
     const QString name = installer::GetLocalTimezoneName(zone, locale);
-
-//    qDebug() << " TimeZoneChooser::SetCurrentTimeZone , zone : " << name;
-    //set current timezone text
-
 }
 
 void TimeZoneChooser::setMarkedTimeZone(const QString &timezone)

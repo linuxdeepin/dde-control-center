@@ -56,12 +56,16 @@ SoundModel::SoundModel(QObject *parent)
     : QObject(parent)
     , m_speakerOn(true)
     , m_microphoneOn(true)
+    , m_enableSoundEffect(false)
+    , m_isLaptop(false)
     , m_speakerVolume(75)
     , m_speakerBalance(0)
     , m_microphoneVolume(75)
+    , m_maxUIVolume(0.0)
 #ifndef DCC_DISABLE_FEEDBACK
     , m_microphoneFeedback(50)
 #endif
+    ,m_soundEffectMapBattery{}
 {
     m_soundEffectMapBattery = {
         { tr("Boot up"), DDesktopServices::SSE_BootUp },
@@ -178,10 +182,12 @@ bool SoundModel::containsPort(const Port *port)
 
 Port *SoundModel::findPort(const QString &portId, const uint &cardId) const
 {
-    for (Port *port : m_ports) {
-        if (port->id() == portId && port->cardId() == cardId) {
-            return port;
-        }
+    auto res = std::find_if(m_ports.cbegin(), m_ports.end(), [=] (const Port *data)->bool{
+        return (data->id() == portId && data->cardId() == cardId);
+    });
+
+    if (res != m_ports.cend()) {
+        return *res;
     }
 
     return nullptr;

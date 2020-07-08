@@ -73,7 +73,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void updateRealAutoSyncCheckState(const bool &state);
-    void updateNTPServerList(const QStringList list);
+    void updateNTPServerList(const QStringList &list);
 
 private Q_SLOTS:
     void onCancelButtonClicked();

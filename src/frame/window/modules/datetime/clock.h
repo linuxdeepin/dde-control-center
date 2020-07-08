@@ -45,7 +45,7 @@ public:
     bool autoNightMode() const;
     void setAutoNightMode(bool autoNightMode);
     void setPlate(bool isBlack = true);
-    QPixmap getPixmap(const QString name, const QSize size);
+    QPixmap getPixmap(const QString &name, const QSize size);
 
 protected:
     void paintEvent(QPaintEvent *event);

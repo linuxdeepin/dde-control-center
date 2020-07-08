@@ -50,7 +50,7 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
-    void paintEvent(QPaintEvent *paint) override;
+    void paintEvent(QPaintEvent *event) override;
 
 Q_SIGNALS:
     void notifyBtnClicked();

@@ -58,19 +58,21 @@ static const QStringList systemFilter = {"terminal",
                                          "color-picker",
                                          "clipboard"};
 
-QStringList windowFilter = {"maximize", "unmaximize", "minimize", "begin-move", "begin-resize", "close"};
+static QStringList windowFilter = {"maximize", "unmaximize", "minimize", "begin-move", "begin-resize", "close"};
 
-QStringList workspaceFilter = {"switch-to-workspace-left",
+static QStringList workspaceFilter = {"switch-to-workspace-left",
                                "switch-to-workspace-right",
                                "move-to-workspace-left",
                                "move-to-workspace-right"};
 
-QStringList assistiveToolsFilter = {"ai-assistant", "text-to-speech", "speech-to-text", "translation"};
+static QStringList assistiveToolsFilter = {"ai-assistant", "text-to-speech", "speech-to-text", "translation"};
 
 namespace dcc {
 namespace keyboard {
 
-ShortcutModel::ShortcutModel(QObject *parent) : QObject(parent)
+ShortcutModel::ShortcutModel(QObject *parent)
+    : QObject(parent)
+    , m_windowSwitchState(false)
 {
     if (m_dis.monitorList().size() > 1) {
         static const QStringList systemFilter = {"terminal",
@@ -169,15 +171,7 @@ void ShortcutModel::onParseInfo(const QString &info)
         systemFilterServer.removeOne("expose-windows");
         systemFilterServer.removeOne("expose-all-windows");
         systemShortKeys = systemFilterServer;
-    } else {
-        systemShortKeys = systemFilter;
-    }
-#ifdef DISABLE_SCREEN_RECORDING
-    QStringList systemFilterServer = systemFilter;
-    systemFilterServer.removeOne("deepin-screen-recorder");
-    systemShortKeys = systemFilterServer;
-#endif
-    if (false == m_windowSwitchState) {
+    } else if (false == m_windowSwitchState) {
         QStringList systemFilterServer = systemFilter;
         systemFilterServer.removeOne("expose-all-windows");
         systemFilterServer.removeOne("expose-windows");
@@ -186,6 +180,11 @@ void ShortcutModel::onParseInfo(const QString &info)
     } else {
         systemShortKeys = systemFilter;
     }
+#ifdef DISABLE_SCREEN_RECORDING
+    QStringList systemFilterServer = systemFilter;
+    systemFilterServer.removeOne("deepin-screen-recorder");
+    systemShortKeys = systemFilterServer;
+#endif
     qDeleteAll(m_infos);
 
     m_infos.clear();
@@ -273,18 +272,18 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
 {
     const QJsonObject &obj       = QJsonDocument::fromJson(value.toStdString().c_str()).object();
     const QString     &update_id = obj["Id"].toString();
+    auto res = std::find_if(m_infos.begin(), m_infos.end(), [ = ] (const ShortcutInfo *info)->bool{
+            return info->id == update_id;
+        });
 
-    for (ShortcutInfo *info : m_infos) {
-        if (info->id == update_id) {
-            info->type = obj["Type"].toInt();
-            info->accels  = obj["Accels"].toArray().first().toString();
-            info->name    = obj["Name"].toString();
-            info->command = obj["Exec"].toString();
+        if (res != m_infos.end()) {
+            (*res)->type = obj["Type"].toInt();
+            (*res)->accels  = obj["Accels"].toArray().first().toString();
+            (*res)->name    = obj["Name"].toString();
+            (*res)->command = obj["Exec"].toString();
 
-            Q_EMIT shortcutChanged(info);
-            break;
+            Q_EMIT shortcutChanged((*res));
         }
-    }
 }
 
 void ShortcutModel::onWindowSwitchChanged(bool value)
@@ -311,9 +310,13 @@ void ShortcutModel::setCurrentInfo(ShortcutInfo *currentInfo)
 
 ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
 {
-    for (ShortcutInfo *info : m_infos) {
-        if (QString::compare(info->accels, shortcut, Qt::CaseInsensitive) == 0) return info;
-    }
+    auto res = std::find_if(m_infos.begin(), m_infos.end(), [ = ] (const ShortcutInfo *info)->bool{
+            return QString::compare(info->accels, shortcut, Qt::CaseInsensitive);
+        });
+
+        if (res != m_infos.end()) {
+            return *res;
+        }
 
     return nullptr;
 }

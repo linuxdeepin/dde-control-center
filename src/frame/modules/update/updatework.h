@@ -154,7 +154,7 @@ private:
     QString m_jobPath;
     double m_downloadProcess;
     bool m_bIsFirstGetDownloadProcess;
-    qlonglong m_downloadSize;
+    qulonglong m_downloadSize;
     QString m_iconThemeState;
     bool m_beginUpdatesJob;
 };

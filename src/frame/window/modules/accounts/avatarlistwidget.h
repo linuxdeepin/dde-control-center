@@ -59,7 +59,7 @@ public:
     void addLastItem();
     QString getAvatarPath() const;
     inline QSize avatarSize() const { return m_avatarSize; }
-    void setAvatarSize(QSize size);
+    void setAvatarSize(const QSize &size);
 
 Q_SIGNALS:
     void requestSetAvatar(const QString &avatarPath);

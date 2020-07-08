@@ -36,8 +36,8 @@ using namespace dcc::display;
 
 const int MARGIN_W = 20;
 const int MARGIN_H = 10;
-const double VIEW_WIDTH = 400.;
-const double VIEW_HEIGHT = 200.;
+const int VIEW_WIDTH = 400;
+const int VIEW_HEIGHT = 200;
 
 MonitorsGround::MonitorsGround(QWidget *parent)
     : QFrame(parent),
@@ -121,11 +121,11 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
     qDebug() << Q_FUNC_INFO << pw->name();
 
     const double scale = screenScale();
-    const int offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const int offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
+    const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
+    const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
 
-    pw->setMovedX((pw->pos().x() - offsetX) / scale);
-    pw->setMovedY((pw->pos().y() - offsetY) / scale);
+    pw->setMovedX(static_cast<int>((pw->pos().x() - offsetX) / scale));
+    pw->setMovedY(static_cast<int>((pw->pos().y() - offsetY) / scale));
 
     // ensure screens is 贴合但不相交
     ensureWidgetPerfect(pw);
@@ -166,21 +166,21 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
 
     const double scale = screenScale();
 
-    const int offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const int offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
+    const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
+    const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
 
-    const int w = scale * pw->w();
-    const int h = scale * pw->h();
-    const int x = scale * pw->x();
-    const int y = scale * pw->y();
+    const double w = scale * pw->w();
+    const double h = scale * pw->h();
+    const double x = scale * pw->x();
+    const double y = scale * pw->y();
 
     if(bSingle)
     {
-        pw->setGeometry((width()-w)/2, (height()-h)/2, scale * pw->w(), scale * pw->h());
+        pw->setGeometry(static_cast<int>((width()-w)/2), static_cast<int>((height()-h)/2), static_cast<int>(scale * pw->w()), static_cast<int>(scale * pw->h()));
         this->setEnabled(false);//单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发方大
     } else {
         this->setEnabled(true);
-        pw->setGeometry(x + offsetX, y + offsetY, w, h);
+        pw->setGeometry(static_cast<int>(x + offsetX), static_cast<int>(y + offsetY), static_cast<int>(w), static_cast<int>(h));
     }
     pw->update();
 }
@@ -189,29 +189,29 @@ void MonitorsGround::adjustAll()
 {
     const double scale = screenScale();
     int offset = 0;
-    const int offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const int offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
+    const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
+    const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
     MonitorProxyWidget *primarywdt = nullptr;
     for (auto pw : m_monitors.keys()) {
         if (pw->name() == m_model->primary()) {
             primarywdt = pw;
             continue;
         }
-        const int w = scale * pw->w() * 0.5;
-        const int h = scale * pw->h() * 0.5;
-        const int x = scale * pw->x();
-        const int y = scale * pw->y();
+        const double w = scale * pw->w() * 0.5;
+        const double h = scale * pw->h() * 0.5;
+        const double x = scale * pw->x();
+        const double y = scale * pw->y();
 
-        pw->setGeometry(x + offsetX + w * 0.5 - offset, y + offsetY + h * 0.5 - offset, w, h);
+        pw->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h));
         offset += 10;
     }
     if (primarywdt) {
-        const int w = scale * primarywdt->w() * 0.5;
-        const int h = scale * primarywdt->h() * 0.5;
-        const int x = scale * primarywdt->x();
-        const int y = scale * primarywdt->y();
+        const double w = scale * primarywdt->w() * 0.5;
+        const double h = scale * primarywdt->h() * 0.5;
+        const double x = scale * primarywdt->x();
+        const double y = scale * primarywdt->y();
 
-        primarywdt->setGeometry(x + offsetX + w * 0.5 - offset, y + offsetY + h * 0.5 - offset, w, h);
+        primarywdt->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h));
     }
 }
 

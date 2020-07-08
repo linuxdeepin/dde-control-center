@@ -66,7 +66,7 @@ public:
     void setSleepDelayOnBattery(const int sleepDelayOnBattery);
 
     inline bool sleepOnLidOnPowerClose() const { return m_sleepOnLidOnPowerClose; }
-    void setSleepOnLidOnPowerClose(bool sleepOnLidOnPowerClose);
+    void setSleepOnLidOnPowerClose(bool sleepOnLidClose);
 
     inline bool sleepOnLidOnBatteryClose() const { return m_sleepOnLidOnBatteryClose; }
     void setSleepOnLidOnBatteryClose(bool sleepOnLidOnBatteryClose);
@@ -79,7 +79,7 @@ public:
 
 #ifndef DCC_DISABLE_POWERSAVE
     inline bool autoPowerSaveMode() const { return m_autoPowerSaveMode; }
-    void setAutoPowerSaveMode(bool autoPowerSaveMode);
+    void setAutoPowerSaveMode(bool autoPowerSavingMode);
 
     inline bool powerSaveMode() const { return m_powerSaveMode; }
     void setPowerSaveMode(bool powerSaveMode);
@@ -99,7 +99,7 @@ public:
     void setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode);
 
     inline int powerSavingModeLowerBrightnessThreshold() const { return m_dPowerSavingModeLowerBrightnessThreshold; }
-    void setPowerSavingModeLowerBrightnessThreshold(int dPowerSavingModeLowerBrightnessThreshold);
+    void setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingModeLowerBrightnessThreshold);
 
     inline int linePowerPressPowerBtnAction() const { return m_nLinePowerPressPowerBtnAction; }
     void setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction);
@@ -147,7 +147,7 @@ Q_SIGNALS:
     //------------------------sp2 add-------------------------------
     void powerSavingModeAutoWhenQuantifyLowChanged(const bool state);
     void powerSavingModeAutoChanged(const bool state);
-    void powerSavingModeLowerBrightnessThresholdChanged(const int level);
+    void powerSavingModeLowerBrightnessThresholdChanged(const uint level);
     //electric
     void linePowerPressPowerBtnActionChanged(const int reply);
     void linePowerLidClosedActionChanged(const int reply);
@@ -183,7 +183,7 @@ private:
     //---------------sp2 add------------------
     bool m_bPowerSavingModeAutoWhenQuantifyLow;
     bool m_bPowerSavingModeAuto;
-    int m_dPowerSavingModeLowerBrightnessThreshold;
+    uint m_dPowerSavingModeLowerBrightnessThreshold;
     int m_nLinePowerPressPowerBtnAction;
     int m_nLinePowerLidClosedAction;
     int m_nBatteryPressPowerBtnAction;

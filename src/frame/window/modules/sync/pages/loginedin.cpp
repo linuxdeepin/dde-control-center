@@ -69,8 +69,6 @@ void LoginedIn::onUserInfoChanged(const QVariantMap &infos)
     qDebug() << " ProfileImage = " << profile_image << ", avatarPath " << avatarPath;
     if (profile_image.isEmpty())
         return;
-//    if (profile_image.isEmpty()) //test
-//        profile_image = "https://avatar.cdn.deepin.com/public/avatar/2019/09/26/22-00-42-ba1c447e.png";//"https://avatar.cdn.deepin.com/public/default.png";
 
     if (m_downloader == nullptr)
         m_downloader = new DownloadUrl;

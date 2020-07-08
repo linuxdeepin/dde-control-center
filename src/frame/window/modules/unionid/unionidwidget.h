@@ -45,7 +45,7 @@ class UnionidWidget : public QWidget
 {
     Q_OBJECT
 public:
-    UnionidWidget(QWidget *parent = nullptr);
+   explicit UnionidWidget(QWidget *parent = nullptr);
     void setModel(dcc::unionid::UnionidModel *model);
 
 Q_SIGNALS:

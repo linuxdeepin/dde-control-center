@@ -82,12 +82,12 @@ void Monitor::setH(const int h)
     Q_EMIT geometryChanged();
 }
 
-void Monitor::setMmWidth(const int mmWidth)
+void Monitor::setMmWidth(const uint mmWidth)
 {
     m_mmWidth = mmWidth;
 }
 
-void Monitor::setMmHeight(const int mmHeight)
+void Monitor::setMmHeight(const uint mmHeight)
 {
     m_mmHeight = mmHeight;
 }

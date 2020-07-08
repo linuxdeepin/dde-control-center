@@ -50,16 +50,16 @@ void MonitorIndicator::resizeEvent(QResizeEvent *e)
     XRectangle rectangle;
     rectangle.x = 0;
     rectangle.y = 0;
-    rectangle.width = e->size().width();
-    rectangle.height = e->size().height();
+    rectangle.width = static_cast<ushort>(e->size().width());
+    rectangle.height = static_cast<ushort>(e->size().height());
 
     // need to restore the cut area, if not,cut out will be repeated.
     XShapeCombineRectangles(QX11Info::display(), winId(), ShapeBounding, 0, 0, &rectangle, 1, ShapeSet, YXBanded);
 
     rectangle.x = 10;
     rectangle.y = 10;
-    rectangle.width = e->size().width() - 20;
-    rectangle.height = e->size().height() - 20;
+    rectangle.width = static_cast<ushort>(e->size().width()) - 20;
+    rectangle.height = static_cast<ushort>(e->size().height()) - 20;
 
     XShapeCombineRectangles(QX11Info::display(), winId(), ShapeBounding, 0, 0, &rectangle, 1, ShapeSubtract, YXBanded);
 }

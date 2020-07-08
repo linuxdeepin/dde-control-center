@@ -56,28 +56,22 @@ void VpnVPNCSettings::initSections()
             m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
-    //IpvxSection *ipv6Section = new IpvxSection(
-            //m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
 
     connect(vpnVPNCSection, &VpnVPNCSection::requestNextPage, this, &VpnVPNCSettings::requestNextPage);
     connect(vpnAdvVPNCSection, &VpnAdvVPNCSection::requestNextPage, this, &VpnVPNCSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnVPNCSettings::requestNextPage);
-    //connect(ipv6Section, &IpvxSection::requestNextPage, this, &VpnVPNCSettings::requestNextPage);
 
     connect(vpnVPNCSection, &VpnVPNCSection::requestFrameAutoHide, this, &VpnVPNCSettings::requestFrameAutoHide);
     connect(vpnAdvVPNCSection, &VpnAdvVPNCSection::requestFrameAutoHide, this, &VpnVPNCSettings::requestFrameAutoHide);
     connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnVPNCSettings::requestFrameAutoHide);
-    //connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &VpnVPNCSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnVPNCSection);
     m_sectionsLayout->addWidget(vpnAdvVPNCSection);
     m_sectionsLayout->addWidget(ipv4Section);
-    //m_sectionsLayout->addWidget(ipv6Section);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(vpnVPNCSection);
     m_settingSections.append(vpnAdvVPNCSection);
     m_settingSections.append(ipv4Section);
-    //m_settingSections.append(ipv6Section);
 }

@@ -43,7 +43,7 @@ class WirelessSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit WirelessSection(NetworkManager::WirelessSetting::Ptr wirelessSetting, bool isHotSpot = false, QFrame *parent = nullptr);
+    explicit WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetting, bool isHotSpot = false, QFrame *parent = nullptr);
     virtual ~WirelessSection() override;
 
     bool allInputValid() Q_DECL_OVERRIDE;

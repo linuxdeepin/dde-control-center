@@ -48,6 +48,9 @@ NotificationModule::~NotificationModule()
 
 void NotificationModule::preInitialize(bool sync)
 {
+    if (m_model) {
+        delete m_model;
+    }
     m_model = new NotificationModel(this);
     m_worker = new NotificationWorker(m_model, this);
     m_worker->moveToThread(qApp->thread());
@@ -83,7 +86,7 @@ void NotificationModule::active()
     showSystemNotify();
 }
 
-int NotificationModule::load(QString path)
+int NotificationModule::load(const QString &path)
 {
     Q_UNUSED(path);
     if (!m_widget) {

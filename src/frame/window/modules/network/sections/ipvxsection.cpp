@@ -595,7 +595,7 @@ bool IpvxSection::isIpv4SubnetMask(const QString &ip)
     }
 
     for (; mask != 0; mask <<= 1) {
-        if ((mask & (1 << 31)) == 0)
+        if ((mask & (static_cast<uint>(1) << 31)) == 0)
             return false; // Highest bit is now zero, but mask is non-zero.
     }
     QRegExp regExpIP("^((128|192)|2(24|4[08]|5[245]))(\\.(0|(128|192)|2((24)|(4[08])|(5[245])))){3}$");

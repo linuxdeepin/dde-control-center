@@ -60,7 +60,7 @@ private:
     const QString displayName() const override;
 public:
     void active() override;
-    int load(QString path) override;
+    int load(const QString &path) override;
     QStringList availPage() const override;
 
 private Q_SLOTS:
@@ -73,7 +73,7 @@ private Q_SLOTS:
     void showHotspotPage();
     void showDeviceDetailPage(dde::network::NetworkDevice *dev, const QString &searchPath = "");
     void onSetFrameAutoHide(const bool autoHide);
-    void onDeviceListChanged(const QList<dde::network::NetworkDevice *> devices);
+    void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
     void showWiredEditPage(dde::network::NetworkDevice *dev, const QString &connUuid = QString());
     void showWirelessEditPage(dde::network::NetworkDevice *dev, const QString &connUuid = QString(), const QString &apPath = QString());
     void removeConnEditPageByDevice(dde::network::NetworkDevice *dev);

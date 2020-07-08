@@ -42,6 +42,9 @@ SoundModule::SoundModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 void SoundModule::initialize()
 {
+    if (m_model) {
+        delete m_model;
+    }
     m_model = new SoundModel;
     m_worker = new SoundWorker(m_model);
 
@@ -73,7 +76,7 @@ void SoundModule::active()
     showSpeakerPage();
 }
 
-int SoundModule::load(QString path)
+int SoundModule::load(const QString &path)
 {
     if (!m_soundWidget)
         active();

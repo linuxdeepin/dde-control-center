@@ -63,8 +63,7 @@ void SettingsItem::addBackground()
     //加入一个 DFrame 作为圆角背景
     if (m_bgGroup)
         m_bgGroup->deleteLater();
-    m_bgGroup = new DFrame(this);
-//    m_bgGroup->setContentsMargins(0, 0, 0, 0);
+    m_bgGroup = new DFrame;
     m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
     m_bgGroup->setLineWidth(0);
     DStyle::setFrameRadius(m_bgGroup, 8);

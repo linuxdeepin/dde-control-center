@@ -94,7 +94,6 @@ void PowerWorker::active(bool isSync)
     m_powerModel->setSleepLock(m_powerInter->sleepLock());
     m_powerModel->setLidPresent(m_powerInter->lidIsPresent());
     m_powerModel->setSleepOnLidOnPowerClose(m_powerInter->lidClosedSleep());
-//    m_powerModel->setSleepOnLidOnBatteryClose(m_powerInter->batteryLidClosedSleep());
     m_powerModel->setHaveBettary(m_sysPowerInter->hasBattery());
     m_powerModel->setPowerSavingModeAutoWhenQuantifyLow(m_sysPowerInter->powerSavingModeAutoWhenBatteryLow());
     m_powerModel->setPowerSavingModeLowerBrightnessThreshold(m_sysPowerInter->powerSavingModeBrightnessDropPercent());
@@ -140,11 +139,6 @@ void PowerWorker::setSleepLock(const bool lock)
 void PowerWorker::setSleepOnLidOnPowerClosed(const bool sleep)
 {
     m_powerInter->setLidClosedSleep(sleep);
-}
-
-void PowerWorker::setSleepOnLidOnBatteryClosed(const bool sleep)
-{
-//    m_powerInter->setBatteryLidClosedSleep(sleep);
 }
 
 void PowerWorker::setSleepDelayOnPower(const int delay)
@@ -206,7 +200,7 @@ void PowerWorker::setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode)
     m_sysPowerInter->setPowerSavingModeAuto(bAutoIntoSaveEnergyMode);
 }
 
-void PowerWorker::setPowerSavingModeLowerBrightnessThreshold(int dPowerSavingModeLowerBrightnessThreshold)
+void PowerWorker::setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingModeLowerBrightnessThreshold)
 {
     m_sysPowerInter->setPowerSavingModeBrightnessDropPercent(dPowerSavingModeLowerBrightnessThreshold);
 }

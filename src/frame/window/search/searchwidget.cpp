@@ -57,7 +57,7 @@ DCompleterStyledItemDelegate::DCompleterStyledItemDelegate(QObject *parent)
 
 void DCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QPalette::ColorGroup cg = option.state & QStyle::State_Enabled
+    QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
                               ? QPalette::Normal : QPalette::Disabled;
     if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) {
         cg = QPalette::Inactive;
@@ -257,7 +257,7 @@ SearchWidget::~SearchWidget()
 
 }
 
-bool SearchWidget::jumpContentPathWidget(QString path)
+bool SearchWidget::jumpContentPathWidget(const QString &path)
 {
     qDebug() << Q_FUNC_INFO << path;
     bool bResult = false;
@@ -339,7 +339,7 @@ void SearchWidget::loadxml()
         return rex_expression.match(str).hasMatch();
     };
 
-    for (const QString i : m_xmlFilePath) {
+    for (const QString &i : m_xmlFilePath) {
         QString xmlPath = i.arg(m_lang);
         QFile file(xmlPath);
 
@@ -434,11 +434,13 @@ void SearchWidget::loadxml()
                         //"蓝牙","数位板"不存在则不加载该模块search数据
                         //目前只用到了模块名，未使用detail信息，之后再添加模块内区分
                         bool bIsLeapfrog = false;
-                        for (auto value : m_unexsitList) {
-                            if (m_searchBoxStruct.actualModuleName == value.module) {
-                                bIsLeapfrog = true;
-                                break;
-                            }
+                        auto res = std::any_of(m_unexsitList.begin(), m_unexsitList.end(), [=](const UnexsitStruct &date) {
+                            return m_searchBoxStruct.actualModuleName == date.module;
+                        });
+
+                        if (res) {
+                            bIsLeapfrog = true;
+                            break;
                         }
 
                         if (bIsLeapfrog) continue;
@@ -450,12 +452,13 @@ void SearchWidget::loadxml()
                         //是以上模块才会有此判断，其他模块不用此判断(包含在m_defaultRemoveableList的页面才需要“添加/移除”xml信息)
                         if (m_defaultRemoveableList.contains(m_searchBoxStruct.fullPagePath.section('/', 2, -1))) {
                             bool bRet = false;
-                            for (auto data : m_removeableActualExistList) {
-                                //变量list，存在就需要继续加载数据
-                                if (data.second == m_searchBoxStruct.fullPagePath.section('/', 2, -1)) {
-                                    bRet = true;
-                                    break;
-                                }
+                            auto rets = std::any_of(m_removeableActualExistList.begin(), m_removeableActualExistList.end(), [=](const QPair<QString, QString> &date) {
+                                return date.second == m_searchBoxStruct.fullPagePath.section('/', 2, -1);
+                            });
+                            //变量list，存在就需要继续加载数据
+                            if (rets) {
+                                bRet = true;
+                                break;
                             }
 
                             //设备不存在，不加载xml数据
@@ -568,7 +571,7 @@ SearchWidget::SearchBoxStruct SearchWidget::getModuleBtnString(QString value)
 }
 
 //tranlate the path name to tr("name")
-QString SearchWidget::getModulesName(QString name, bool state)
+QString SearchWidget::getModulesName(const QString &name, bool state)
 {
     QString strResult = "";
 
@@ -608,17 +611,18 @@ QString SearchWidget::removeDigital(QString input)
     return value;
 }
 
-QString SearchWidget::transPinyinToChinese(QString pinyin)
+QString SearchWidget::transPinyinToChinese(const QString &pinyin)
 {
     QString value = pinyin;
 
-    //遍历"汉字-拼音"列表,将存在的"拼音"转换为"汉字"
-    for (auto data : m_inputList) {
-        if (value == data.pinyin) {
-            value = data.chiese;
-            break;
+//    //遍历"汉字-拼音"列表,将存在的"拼音"转换为"汉字"
+    auto res = std::find_if(m_inputList.begin(), m_inputList.end(), [=] (const SearchDataStruct data)->bool{
+            return value == data.pinyin;
+        });
+
+        if (res != m_inputList.end()) {
+            value =(*res).chiese;
         }
-    }
 
     return value;
 }
@@ -628,13 +632,14 @@ QString SearchWidget::containTxtData(QString txt)
     QString value = txt;
 
     //遍历"汉字-拼音"列表,将存在的"拼音"转换为"汉字"
-    for (auto data : m_inputList) {
-        if (data.chiese.contains(txt, Qt::CaseInsensitive) ||
-               data.pinyin.contains(txt, Qt::CaseInsensitive)) {
-            value = data.chiese;
-            break;
-        }
-    }
+    auto res = std::find_if(m_inputList.begin(), m_inputList.end(), [=] (const SearchDataStruct data)->bool{
+                return (data.chiese.contains(txt, Qt::CaseInsensitive) ||
+                        data.pinyin.contains(txt, Qt::CaseInsensitive));
+            });
+
+            if (res != m_inputList.end()) {
+                value = (*res).chiese;
+            }
 
     return value;
 }
@@ -711,14 +716,14 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
 
         //添加显示的汉字(用于拼音搜索显示)
-        auto icon = m_iconMap.find(data.fullPagePath.section('/', 1, 1));
-        if (icon == m_iconMap.end()) {
+        auto icons = m_iconMap.find(data.fullPagePath.section('/', 1, 1));
+        if (icons == m_iconMap.end()) {
             return;
         }
-        m_model->appendRow(new QStandardItem(icon.value(), hanziTxt));
+        m_model->appendRow(new QStandardItem(icons.value(), hanziTxt));
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
         m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
-        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icons->name(), Qt::UserRole + 1);
         SearchDataStruct transdata;
         transdata.chiese = hanziTxt;
         transdata.pinyin = pinyinTxt;
@@ -737,7 +742,7 @@ void SearchWidget::clearSearchData()
 }
 
 //返回值:true,不加载该搜索数据
-bool SearchWidget::isLoadText(QString txt)
+bool SearchWidget::isLoadText(const QString &txt)
 {
     for (auto data : m_serverTxtList) {
         //有first数据继续判断second
@@ -756,7 +761,7 @@ bool SearchWidget::isLoadText(QString txt)
     return false;
 }
 
-void SearchWidget::setLanguage(QString type)
+void SearchWidget::setLanguage(const QString &type)
 {
     m_lang = type;
 
@@ -773,7 +778,7 @@ void SearchWidget::setLanguage(QString type)
 //save all modules moduleInteface name and actual moduleName
 //moduleName : moduleInteface name  (used to path module to translate searchName)
 //searchName : actual module
-void SearchWidget::addModulesName(QString moduleName, QString searchName, QIcon icon, QString translation)
+void SearchWidget::addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation)
 {
     QPair<QString, QString> data;
     data.first = moduleName;
@@ -791,11 +796,14 @@ void SearchWidget::addModulesName(QString moduleName, QString searchName, QIcon 
 #endif
 }
 
-void SearchWidget::addUnExsitData(QString module, QString datail)
+void SearchWidget::addUnExsitData(const QString &module, const QString &datail)
 {
-    for (auto value : m_unexsitList) {
-        if (value.module == module)
-            return;
+    auto res = std::any_of(m_unexsitList.begin(), m_unexsitList.end(), [=](const UnexsitStruct &date) {
+        return date.module == module;
+    });
+
+    if (res) {
+        return;
     }
 
     UnexsitStruct data;
@@ -806,7 +814,7 @@ void SearchWidget::addUnExsitData(QString module, QString datail)
     loadxml();
 }
 
-void SearchWidget::removeUnExsitData(QString module, QString datail)
+void SearchWidget::removeUnExsitData(const QString &module, const QString &datail)
 {
     for (int i = 0; i < m_unexsitList.count(); i++) {
         if (m_unexsitList.at(i).module == module && m_unexsitList.at(i).datail == datail) {
@@ -817,18 +825,20 @@ void SearchWidget::removeUnExsitData(QString module, QString datail)
     }
 }
 
-void SearchWidget::setRemoveableDeviceStatus(QString name, bool isExist)
+void SearchWidget::setRemoveableDeviceStatus(const QString &name, bool isExist)
 {
     QPair<QString, QString> value("", "");
 
     //判断可移除设备是否在默认list中有记录，有记录才需要继续走后面流程
     //根据name(模块/小模块名称)从默认list，取出对应的模块和page
-    for (auto data : m_removedefaultWidgetList) {
-        if (data.first == name) {
-            value = data;
-            break;
-        }
-    }
+    auto res = std::find_if(m_removedefaultWidgetList.begin(), m_removedefaultWidgetList.end(), [=] (const QPair<QString, QString> data)->bool{
+                return (data.first == name);
+            });
+
+            if (res != m_removedefaultWidgetList.end()) {
+                value = (*res);
+            }
+
 
     if ("" != value.first && "" != value.second) {
         //值存在，移除设备，list移除该值
@@ -846,7 +856,7 @@ void SearchWidget::setRemoveableDeviceStatus(QString name, bool isExist)
     }
 }
 
-void SearchWidget::onCompleterActivated(QString value)
+void SearchWidget::onCompleterActivated(const QString &value)
 {
     qDebug() << Q_FUNC_INFO << value;
     Q_EMIT returnPressed();

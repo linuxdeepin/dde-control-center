@@ -187,21 +187,3 @@ void FingerWidget::stopLiftTimer()
     if (nullptr != m_liftTimer && m_liftTimer->isActive())
         m_liftTimer->stop();
 }
-
-void FingerWidget::paintEvent(QPaintEvent *event)
-{
-//    QWidget::paintEvent(event);
-//    QPainter p(this);
-//    p.setPen(Qt::NoPen);
-//    if (!m_reset) {
-//        p.setBrush(QColor(197, 220, 243));
-//        p.drawRect(rect());
-//    }
-//    update();
-
-//    QPainter painter(this);
-//    QPainterPath path;
-
-//    path.addRoundedRect(rect(), 5, 5);
-//    painter.fillPath(path, QColor(255, 255, 255, 0.2 * 255));
-}

@@ -390,7 +390,7 @@ void DateSettings::updateRealAutoSyncCheckState(const bool &state)
     }
 }
 
-void DateSettings::updateNTPServerList(const QStringList list)
+void DateSettings::updateNTPServerList(const QStringList &list)
 {
     if (!m_bSystemIsServer)
         return;

@@ -49,6 +49,10 @@ KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
 
 void KeyboardModule::initialize()
 {
+    //公共功能可能泄露。在分配指针“m_model”之前未释放它,因此加了这个处理
+    if (m_model) {
+        delete m_model;
+    }
     m_model = new KeyboardModel();
     m_shortcutModel = new ShortcutModel();
     m_work = new KeyboardWorker(m_model);
@@ -76,7 +80,7 @@ void KeyboardModule::active()
     showGeneralSetting();
 }
 
-int KeyboardModule::load(QString path)
+int KeyboardModule::load(const QString &path)
 {
     QStringList pathList = path.split("/");
     QString loadPath = pathList.at(0);

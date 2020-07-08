@@ -30,6 +30,7 @@ WacomModel::WacomModel(QObject *parent)
     : QObject(parent)
     , m_exist(false)
     , m_cursorMode(false)
+    , m_pressureValue(0)
 {
 }
 

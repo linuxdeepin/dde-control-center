@@ -172,8 +172,6 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     connect(m_abRecoveryInter, &RecoveryInter::BackingUpChanged, m_model, &UpdateModel::setRecoverBackingUp);
     connect(m_abRecoveryInter, &RecoveryInter::ConfigValidChanged, m_model, &UpdateModel::setRecoverConfigValid);
     connect(m_abRecoveryInter, &RecoveryInter::RestoringChanged, m_model, &UpdateModel::setRecoverRestoring);
-    //预留接口
-   //connect(m_dbusActivator, &GrubDbus::LicenseStateChange, m_model, &UpdateModel::setSystemActivation);
     //图片主题
     connect(m_iconTheme, &Appearance::IconThemeChanged, this, &UpdateWorker::onIconThemeChanged);
     m_iconThemeState = m_iconTheme->iconTheme();

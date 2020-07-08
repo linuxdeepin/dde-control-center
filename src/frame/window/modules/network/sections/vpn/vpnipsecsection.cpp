@@ -35,8 +35,6 @@ VpnIpsecSection::VpnIpsecSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFr
     , m_ike(new LineEditWidget(this))
     , m_esp(new LineEditWidget(this))
 {
-    m_dataMap = vpnSetting->data();
-
     initUI();
     initConnection();
 

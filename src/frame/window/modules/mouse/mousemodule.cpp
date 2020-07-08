@@ -46,6 +46,10 @@ MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
 
 void MouseModule::preInitialize(bool sync)
 {
+    //添加此判断是因为公共功能可能泄露。在分配指针“m_model”之前未释放它
+    if (m_model) {
+        delete m_model;
+    }
     m_model  = new dcc::mouse::MouseModel(this);
     m_worker = new dcc::mouse::MouseWorker(m_model, this);
     m_model->moveToThread(qApp->thread());
@@ -146,7 +150,7 @@ const QString MouseModule::displayName() const
     return tr("Mouse");
 }
 
-int MouseModule::load(QString path)
+int MouseModule::load(const QString &path)
 {
     int hasPage = -1;
     QString loadPath = path.split("/").at(0);

@@ -90,8 +90,8 @@ public:
     bool tapclick() const { return m_tapclick; }
     void setTapClick(bool tapclick);
 
-    int scrollSpeed() const { return m_scrollSpeed; }
-    void setScrollSpeed(int speed);
+    uint scrollSpeed() const { return m_scrollSpeed; }
+    void setScrollSpeed(uint speed);
 
 Q_SIGNALS:
     void leftHandStateChanged(bool state);
@@ -111,7 +111,7 @@ Q_SIGNALS:
     void palmMinWidthChanged(int palmMinWidth);
     void palmMinzChanged(int palmMinz);
     void tapClickChanged(bool tapclick);
-    void scrollSpeedChanged(int speed);
+    void scrollSpeedChanged(uint speed);
 
 private:
     bool m_leftHandState;
@@ -131,7 +131,7 @@ private:
     int  m_redPointMoveSpeed;
     int  m_palmMinWidth;
     int  m_palmMinz;
-    int  m_scrollSpeed;
+    uint  m_scrollSpeed;
 };
 }
 }

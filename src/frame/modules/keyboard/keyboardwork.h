@@ -79,11 +79,11 @@ public:
     bool checkAvaliable(const QString& key);
     void delShortcut(ShortcutInfo *info);
 
-    void setRepeatDelay(int value);
+    void setRepeatDelay(uint value);
     void setRepeatInterval(int value);
     void setLayoutScope(const int value);
-    void setModelRepeatDelay(int value);
-    void setModelRepeatInterval(int value);
+    void setModelRepeatDelay(uint value);
+    void setModelRepeatInterval(uint value);
     void setModelLayoutScope(const int value);
 
     void setNumLock(bool value);
@@ -149,10 +149,10 @@ public Q_SLOTS:
     void onCustomConflictCleanFinished(QDBusPendingCallWatcher *w);
 
 private:
-    int converToDBusDelay(int value);
-    int converToModelDelay(int value);
+    uint converToDBusDelay(uint value);
+    uint converToModelDelay(uint value);
     int converToDBusInterval(int value);
-    int converToModelInterval(int value);
+    uint converToModelInterval(uint value);
 
 private:
     QList<MetaData> m_datas;

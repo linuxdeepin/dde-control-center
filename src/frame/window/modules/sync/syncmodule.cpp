@@ -53,6 +53,7 @@ void SyncModule::active()
 
 void SyncModule::preInitialize(bool sync)
 {
+    Q_UNUSED(sync);
     m_model = new dcc::cloudsync::SyncModel;
     m_worker = new dcc::cloudsync::SyncWorker(m_model);
 

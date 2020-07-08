@@ -314,7 +314,7 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
     }
 }
 
-void MainWindow::initAllModule(QString m)
+void MainWindow::initAllModule(const QString &m)
 {
     if (m_bInit)
         return;
@@ -456,17 +456,18 @@ void MainWindow::loadModules()
         module->setFrameProxy(this);
 
         if (tr("Assistive Tools") == module->displayName() && !DCC_NAMESPACE::IsDesktopSystem) {
-            for (auto iter : m_modules) {
-                if (iter.second == tr("Keyboard and Language")) {
-                    m_modules.insert(m_modules.indexOf(iter) + 1, {module, module->displayName()});
-                    break;
+            auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+                    return data.second == tr("Keyboard and Language");
+                });
+
+                if (res != m_modules.end()) {
+                    m_modules.insert(m_modules.indexOf(*res) + 1, {module, module->displayName()});
                 }
-            }
         }
     }
 }
 
-void MainWindow::modulePreInitialize(QString m)
+void MainWindow::modulePreInitialize(const QString &m)
 {
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
         QElapsedTimer et;
@@ -550,12 +551,13 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     }
 
     auto findModule = [this](const QString & str)->ModuleInterface * {
-        for (auto m : m_modules)
-        {
-            if (m.first->name() == str) {
-                return m.first;
+        auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+                return data.first->name() == str;
+            });
+
+            if (res != m_modules.end()) {
+                return (*res).first;
             }
-        }
 
         return nullptr;
     };
@@ -622,11 +624,13 @@ void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDispla
 
 bool MainWindow::isModuleAvailable(const QString &m)
 {
-    for (auto ite : m_modules) {
-        if (ite.first->name() == m) {
-            return ite.first->isAvailable();
+    auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+            return data.first->name() == m;
+        });
+
+        if (res != m_modules.end()) {
+            return (*res).first->isAvailable();
         }
-    }
 
     qDebug() << QString("can not fine module named %1!").arg(m);
     return false;
@@ -819,20 +823,24 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
         qDebug() << Q_FUNC_INFO << " Search widget is current display widget.";
         // load wireless detail pages.
         if ((moduleName == "network") && (widgetPages.size() > 1)) {
-            for (auto ite : m_modules) {
-                if (ite.first->name() == moduleName) {
-                    ite.first->load(widget);
+            auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+                    return data.first->name() == moduleName;
+                });
+
+                if (res != m_modules.end()) {
+                    (*res).first->load(widget);
                     return;
                 }
-            }
         }
         if ((moduleName == "keyboard") && (widgetPages.size() >= 1)) {
-            for (auto ite : m_modules) {
-                if (ite.first->name() == moduleName) {
-                    ite.first->load(widget);
+            auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+                    return data.first->name() == moduleName;
+                });
+
+                if (res != m_modules.end()) {
+                    (*res).first->load(widget);
                     return;
                 }
-            }
         }
         return;
     }

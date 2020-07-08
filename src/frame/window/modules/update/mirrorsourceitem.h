@@ -39,13 +39,13 @@ class MirrorSourceItem : public QObject, public DStandardItem
 public:
     MirrorSourceItem(QObject *parent = nullptr);
 
-    void setMirrorState(QString value);
-    void setMirrorName(QString value);
+    void setMirrorState(const QString &value);
+    void setMirrorName(const QString &value);
 
     void setSelected(bool state);
     bool getSelectState();
 
-    void setMirrorInfo(const MirrorInfo &info, QString defaultValue = "");
+    void setMirrorInfo(const MirrorInfo &info, const QString &defaultValue = "");
     MirrorInfo mirrorInfo() const;
     QString getMirrorName();
 

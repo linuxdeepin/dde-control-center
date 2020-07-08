@@ -66,26 +66,12 @@ DBusControlCenterService::DBusControlCenterService(MainWindow *parent)
     : QDBusAbstractAdaptor(parent)
     , m_toggleProcessed(true)
 {
-    // constructor
 
-//    connect(parent, &Frame::xChanged, [parent]{
-//        QDBusMessage m = QDBusMessage::createSignal("/com/deepin/dde/ControlCenter", "org.freedesktop.DBus.Properties", "PropertiesChanged");
-//        QMap<QString, QVariant> changedProperties;
-//        changedProperties["X"] = parent->visibleFrameXPos();
-//        QList<QString> invalidatedProperties;
-//        m << QVariant("com.deepin.dde.ControlCenter") << changedProperties << QVariant(invalidatedProperties);
-//        QDBusConnection::sessionBus().send(m);
-//    });
-
-//    connect(parent, &Frame::hideInLeftChanged, parent, &Frame::xChanged);
-
-//    connect(parent, &MainWindow::rectChanged, this, &DBusControlCenterService::rectChanged, Qt::QueuedConnection);
-//    connect(parent, &MainWindow::destRectChanged, this, &DBusControlCenterService::destRectChanged, Qt::QueuedConnection);
 }
 
 DBusControlCenterService::~DBusControlCenterService()
 {
-    // destructor
+
 }
 
 MainWindow *DBusControlCenterService::parent() const
@@ -95,9 +81,6 @@ MainWindow *DBusControlCenterService::parent() const
 
 bool DBusControlCenterService::showInRight() const
 {
-    // get the value of property ShowInRight
-    // FIXME
-//    return qvariant_cast< bool >(!parent()->isHideInLeft());
     return true;
 }
 
@@ -116,14 +99,6 @@ void DBusControlCenterService::exitProc()
     qDebug() << "exit pid:" << pid;
     exit(0);
 }
-
-//int DBusControlCenterService::x() const
-//{
-//    if (!parent()->isVisible())
-//        return qApp->primaryScreen()->geometry().right();
-
-//    return parent()->x();
-//}
 
 void DBusControlCenterService::Hide()
 {
@@ -190,25 +165,8 @@ void DBusControlCenterService::ShowPage(const QString &module, const QString &pa
     parent()->showModulePage(module, page, false);
 }
 
-void DBusControlCenterService::SetAutoHide(const bool autoHide)
-{
-//    parent()->setDebugAutoHide(autoHide);
-}
-
 void DBusControlCenterService::Toggle()
 {
-    // handle method call com.deepin.dde.ControlCenter.Toggle
-
-    // drop incoming toggle requests until the previous request
-    // has been processed.
-//    if (m_toggleProcessed) {
-//        QTimer::singleShot(0, this, [this] {
-//            parent()->toggle();
-//            m_toggleProcessed = true;
-//        });
-//        m_toggleProcessed = false;
-//    }
-
     Show();
 }
 

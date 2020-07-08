@@ -62,7 +62,7 @@ public:
     ~UpdateCtrlWidget();
 
     void setModel(dcc::update::UpdateModel *model);
-    void setSystemVersion(QString version);
+    void setSystemVersion(const QString &version);
 
 Q_SIGNALS:
     void requestDownloadUpdates();

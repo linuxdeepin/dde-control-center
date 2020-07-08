@@ -30,11 +30,10 @@ using namespace NetworkManager;
 VpnSecOpenVPNSection::VpnSecOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN Security"), parent)
     , m_vpnSetting(vpnSetting)
+    , m_dataMap(vpnSetting->data())
     , m_cipherChooser(new ComboxWidget(this))
     , m_hmacChooser(new ComboxWidget(this))
 {
-    m_dataMap = vpnSetting->data();
-
     initStrMaps();
     initUI();
     initConnection();

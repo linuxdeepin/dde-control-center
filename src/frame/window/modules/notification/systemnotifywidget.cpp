@@ -99,13 +99,6 @@ void SystemNotifyWidget::initUI()
     m_settingsGrp->appendItem(m_itemTimeSlot);
     m_itemTimeSlot->setFixedHeight(48);
 
-    //设计需求变更，去掉全屏和投影选项
-    // m_itemFullScreen = new NotificationItem;
-    // m_itemFullScreen->setTitle(tr("When running apps in fullscreen"));
-    // m_settingsGrp->appendItem(m_itemFullScreen);
-    // m_itemProjector = new NotificationItem;
-    // m_itemProjector->setTitle(tr("When connected to a projector"));
-    // m_settingsGrp->appendItem(m_itemProjector);
     m_itemLockScreen = new NotificationItem;
     m_itemLockScreen->setTitle(tr("When the screen is locked"));
     m_settingsGrp->appendItem(m_itemLockScreen);

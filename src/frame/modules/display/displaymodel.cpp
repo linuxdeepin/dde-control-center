@@ -43,8 +43,11 @@ bool contains(const QList<Resolution> &container, const Resolution &item)
 
 DisplayModel::DisplayModel(QObject *parent)
     : QObject(parent)
+    , m_screenHeight(0)
+    , m_screenWidth(0)
     , m_uiScale(1)
-    //, m_redshiftSetting(false)
+    , m_minimumBrightnessScale(0.0)
+    , m_redshiftIsValid(false)
     , m_allowEnableMultiScaleRatio(false)
     , m_isMerged(false)
 {
@@ -211,15 +214,6 @@ void DisplayModel::setTouchMap(const TouchscreenMap &touchMap)
     Q_EMIT touchscreenMapChanged();
 }
 
-/*void DisplayModel::setRedshiftSetting(bool redshiftSetting)
-{
-    if (m_redshiftSetting == redshiftSetting) return;
-
-    m_redshiftSetting = redshiftSetting;
-
-    Q_EMIT redshiftSettingChanged(redshiftSetting);
-}*/
-
 void DisplayModel::setAutoLightAdjust(bool ala)
 {
     if (ala == m_isAutoLightAdjust) return;
@@ -263,21 +257,6 @@ void DisplayModel::setRedshiftIsValid(bool redshiftIsValid)
 
     Q_EMIT colorTemperatureChanged(redshiftIsValid);
 }
-
-/*bool DisplayModel::isNightMode() const
-{
-    return m_isNightMode;
-}
-
-void DisplayModel::setIsNightMode(bool isNightMode)
-{
-    if (m_isNightMode == isNightMode)
-        return;
-
-    m_isNightMode = isNightMode;
-
-    Q_EMIT nightModeChanged(isNightMode);
-}*/
 
 void DisplayModel::setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio)
 {

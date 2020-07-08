@@ -524,7 +524,6 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
 void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
 {
     auto inputFullName = m_inputLineEdit->lineEdit()->text();
-//    m_inputLineEdit->setText(m_curUser->fullname());
     m_inputLineEdit->lineEdit()->selectAll();
         if (inputFullName.size() > 100) {
             m_inputLineEdit->setVisible(!edit);

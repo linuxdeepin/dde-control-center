@@ -88,7 +88,6 @@ void FingerModel::setIsVaild(bool isVaild)
 
 void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
 {
-//    QString testJson = "{\"process\":\"50\", \"subcode\":{\"1\":\"error01\",\"2\":\"error02\"}}"; //测试代码
     qDebug() << "onEnrollStatusChanged,code is: " << code << ",msg is: " << msg;
     QJsonDocument jsonDocument;
     QJsonObject jsonObject;

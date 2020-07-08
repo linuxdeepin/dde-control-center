@@ -54,7 +54,7 @@ public:
     virtual const QString displayName() const override;
     virtual void active() override;
     virtual void deactive() override;
-    virtual int load(QString path) override;
+    virtual int load(const QString &path) override;
     QStringList availPage() const override;
 
 private Q_SLOTS:

@@ -302,9 +302,9 @@ void UpdateWidget::onAppendApplist(const QList<AppUpdateInfo> &infos)
     }
 
     for (const AppUpdateInfo &info : infos) {
-        UpdateItem *item = new UpdateItem();
-        item->setAppInfo(info);
+        UpdateItem *items = new UpdateItem();
+        items->setAppInfo(info);
 
-        m_applistGroup->appendItem(item);
+        m_applistGroup->appendItem(items);
     }
 }

@@ -85,6 +85,7 @@ private:
     dcc::widgets::SwitchWidget *m_nightShift{nullptr};
     dcc::widgets::SwitchWidget *m_nightManual{nullptr};
     dcc::widgets::SwitchWidget *m_autoLightMode{nullptr};
+    int m_miniScales = 0;
 };
 
 }

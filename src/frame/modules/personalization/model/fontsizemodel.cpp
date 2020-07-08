@@ -28,7 +28,9 @@
 using namespace dcc;
 using namespace dcc::personalization;
 
-FontSizeModel::FontSizeModel(QObject *parent) : QObject(parent)
+FontSizeModel::FontSizeModel(QObject *parent)
+    : QObject(parent)
+    , m_size(0)
 {
 
 }

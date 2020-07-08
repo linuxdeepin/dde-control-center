@@ -32,6 +32,7 @@ using namespace NetworkManager;
 VpnAdvVPNCSection::VpnAdvVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN Advanced"), parent)
     , m_vpnSetting(vpnSetting)
+    , m_dataMap(vpnSetting->data())
     , m_domain(new LineEditWidget(this))
     , m_vendorChooser(new ComboxWidget(this))
     , m_version(new LineEditWidget(this))
@@ -47,8 +48,6 @@ VpnAdvVPNCSection::VpnAdvVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting,
     , m_currentIkeDHGroup("dh2")
     , m_currentForwordSecrecy("server")
 {
-    m_dataMap = vpnSetting->data();
-
     initStrMaps();
 
     // init chooser current values

@@ -56,7 +56,7 @@ public:
     virtual void active() override;
     virtual void deactive() override;
     // 当搜索到相关字段后，load会被调用
-    virtual int load(QString path) override;
+    virtual int load(const QString &path) override;
     QStringList availPage() const override;
 public Q_SLOTS:
     void onShowBootWidget(); // for bootmenu

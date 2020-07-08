@@ -174,10 +174,10 @@ void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo> &infos)
     }
 
     for (const AppUpdateInfo &info : infos) {
-        UpdateItem *item = new UpdateItem();
-        item->setAppInfo(info);
+        UpdateItem *items = new UpdateItem();
+        items->setAppInfo(info);
 
-        m_summaryGroup->appendItem(item);
+        m_summaryGroup->appendItem(items);
     }
 
     // 更新应用列表的 重新检查按钮 和 更新时间标签 放到列表窗口内
@@ -390,7 +390,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
         return;
 
     const QList<AppUpdateInfo> &apps = downloadInfo->appInfos();
-    const qlonglong downloadSize = downloadInfo->downloadSize();
+    const qulonglong downloadSize = downloadInfo->downloadSize();
 
     int appCount = apps.length();
     for (const AppUpdateInfo &info : apps) {
@@ -417,7 +417,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
     } else {
         m_summary->setDetails(QString(tr("Size: %1").arg(formatCap(downloadSize))));
 
-        if ((downloadSize / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt())
+        if ((static_cast<int>(downloadSize) / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt())
             m_upgradeWarningGroup->setVisible(true);
     }
 
@@ -426,7 +426,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
 
 void UpdateCtrlWidget::setProgressValue(const double value)
 {
-    m_progress->setProcessValue(value * 100);
+    m_progress->setProcessValue(static_cast<int>(value * 100));
 
     if (m_status == UpdatesStatus::Downloading) {
         m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(qFloor(value * 100)));
@@ -451,7 +451,7 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
 
 void UpdateCtrlWidget::setUpdateProgress(const double value)
 {
-    m_checkUpdateItem->setProgressValue(value * 100);
+    m_checkUpdateItem->setProgressValue(static_cast<int>(value * 100));
 }
 
 void UpdateCtrlWidget::setRecoverBackingUp(const bool value)
@@ -503,7 +503,7 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     setDownloadInfo(m_model->downloadInfo());
 }
 
-void UpdateCtrlWidget::setSystemVersion(QString version)
+void UpdateCtrlWidget::setSystemVersion(const QString &version)
 {
     if (m_systemVersion != version) {
         m_systemVersion = version;

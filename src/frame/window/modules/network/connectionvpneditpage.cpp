@@ -289,7 +289,7 @@ void ConnectionVpnEditPage::processConfigCA(const QString &file)
     {
         // write ca
         f.write("<ca>\n");
-        for (const auto ca : ca_list)
+        for (const auto &ca : ca_list)
         {
             QFile caf(ca);
             caf.open(QIODevice::ReadOnly);

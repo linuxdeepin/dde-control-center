@@ -49,6 +49,10 @@ WacomModule::~WacomModule()
 
 void WacomModule::preInitialize(bool sync)
 {
+    Q_UNUSED(sync);
+    if (m_model) {
+        delete m_model;
+    }
     m_model  = new WacomModel(this);
     m_worker = new WacomWorker(m_model);
 

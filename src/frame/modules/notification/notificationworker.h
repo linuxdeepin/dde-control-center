@@ -46,9 +46,9 @@ public Q_SLOTS:
     void setBusSysnotify(const QJsonObject &jObj);
     void setBusAppnotify(const QJsonObject &jObj);
     void setBusAppnotify(const QString &appName, const QJsonObject &jObj);
-    void getDbusAllSetting(const QString &obj = "");
+    void getDbusAllSetting(const QString &jObj = "");
     void getDbusAppsetting(const QString &jObj);
-    void getDbusSyssetting(const QString &obj = "");
+    void getDbusSyssetting(const QString &jObj = "");
     void setIconTheme(const QString &theme);
 
 private:

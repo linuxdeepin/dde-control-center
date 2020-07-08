@@ -152,7 +152,7 @@ void TouchscreenPage::save()
         Q_EMIT requestAssociateTouch(output, touchscreenSerial);
 
         m_notifyInter->Notify("dde-control-center",
-                              QDateTime::currentMSecsSinceEpoch(),
+                              static_cast<uint>(QDateTime::currentMSecsSinceEpoch()),
                               "preferences-system",
                               tr("Touch Screen Settings"),
                               tr("The settings of touch screen %1 changed").arg(touchscreenName),

@@ -82,15 +82,15 @@ public:
     SearchWidget(QWidget *parent = nullptr);
     ~SearchWidget() override;
 
-    bool jumpContentPathWidget(QString path);
-    void setLanguage(QString type);
-    void addModulesName(QString moduleName, QString searchName, QIcon icon, QString translation = "");
-    void addUnExsitData(QString module = "", QString datail = "");
-    void removeUnExsitData(QString module = "", QString datail = "");
-    void setRemoveableDeviceStatus(QString name, bool isExist);
+    bool jumpContentPathWidget(const QString &path);
+    void setLanguage(const QString &type);
+    void addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation = "");
+    void addUnExsitData(const QString &module = "", const QString &datail = "");
+    void removeUnExsitData(const QString &module = "", const QString &datail = "");
+    void setRemoveableDeviceStatus(const QString &name, bool isExist);
 
 private Q_SLOTS:
-    void onCompleterActivated(QString value);
+    void onCompleterActivated(const QString &value);
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
@@ -98,13 +98,13 @@ Q_SIGNALS:
 private:
     void loadxml();
     SearchBoxStruct getModuleBtnString(QString value);
-    QString getModulesName(QString name, bool state = true);
+    QString getModulesName(const QString &name, bool state = true);
     QString removeDigital(QString input);
-    QString transPinyinToChinese(QString pinyin);
+    QString transPinyinToChinese(const QString &pinyin);
     QString containTxtData(QString txt);
     void appendChineseData(SearchBoxStruct data);
     void clearSearchData();
-    bool isLoadText(QString txt);
+    bool isLoadText(const QString &txt);
 
 private:
     QStandardItemModel *m_model;

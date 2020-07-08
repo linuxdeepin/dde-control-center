@@ -54,7 +54,7 @@ void RoundColorWidget::setSelected(bool selected)
     update();
 }
 
-void RoundColorWidget::setColor(QColor color)
+void RoundColorWidget::setColor(const QColor &color)
 {
     m_color = color;
     update();

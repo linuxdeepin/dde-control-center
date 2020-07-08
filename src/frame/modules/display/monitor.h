@@ -94,8 +94,8 @@ private Q_SLOTS:
     void setY(const int y);
     void setW(const int w);
     void setH(const int h);
-    void setMmWidth(const int mmWidth);
-    void setMmHeight(const int mmHeight);
+    void setMmWidth(const uint mmWidth);
+    void setMmHeight(const uint mmHeight);
     void setScale(const double scale);
     void setPrimary(const QString &primaryName);
     void setRotate(const quint16 rotate);
@@ -114,8 +114,8 @@ private:
     int m_w;
     int m_h;
     QPoint m_lastPoint;
-    int m_mmWidth;
-    int m_mmHeight;
+    uint m_mmWidth;
+    uint m_mmHeight;
     double m_scale;
     quint16 m_rotate;
     double m_brightness;

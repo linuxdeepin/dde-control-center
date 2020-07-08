@@ -264,5 +264,5 @@ void BootWidget::onCurrentItem(const QModelIndex &curIndex)
 void BootWidget::resizeEvent(QResizeEvent *event)
 {
     auto w = event->size().width();
-    m_listLayout->setContentsMargins(w * 0.2, 0, w * 0.2, 0);
+    m_listLayout->setContentsMargins(static_cast<int>(w * 0.2), 0, static_cast<int>(w * 0.2), 0);
 }

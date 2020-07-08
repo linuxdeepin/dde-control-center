@@ -259,7 +259,7 @@ QString AvatarListWidget::getUserAddedCustomPicPath(const QString& usrName)
 
 QString AvatarListWidget::getAvatarPath() const
 {
-    qsrand(QDateTime::currentDateTime().toTime_t());
+    qsrand(static_cast<uint>(QDateTime::currentDateTime().toTime_t()));
     auto index = qrand() % 14;
     if (m_currentSelectIndex.isValid())
         index = m_currentSelectIndex.row();
@@ -268,7 +268,7 @@ QString AvatarListWidget::getAvatarPath() const
     return  m_avatarItemModel->data(idx, SaveAvatarRole).toString();
 }
 
-void AvatarListWidget::setAvatarSize(QSize size)
+void AvatarListWidget::setAvatarSize(const QSize &size)
 {
     if(m_avatarSize == size)
         return;

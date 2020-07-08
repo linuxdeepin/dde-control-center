@@ -97,7 +97,7 @@ public:
     bool isModuleAvailable(const QString &m);
     void toggle();
     void popWidget();
-    void initAllModule(QString m = "");
+    void initAllModule(const QString &m = "");
     inline QStack<QPair<ModuleInterface *, QWidget *>> getcontentStack() {return m_contentStack;}
 
 Q_SIGNALS:
@@ -119,7 +119,7 @@ protected:
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
 private:
     void resetNavList(bool isIconMode);
-    void modulePreInitialize(QString m = nullptr);
+    void modulePreInitialize(const QString &m = nullptr);
     void popAllWidgets(int place = 0);//place is Remain count
     void onFirstItemClick(const QModelIndex &index);
     void pushNormalWidget(ModuleInterface *const inter, QWidget *const w);  //exchange third widget : push new widget

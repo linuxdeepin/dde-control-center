@@ -367,7 +367,7 @@ void CustomSettingDialog::initMoniList()
     if (m_displayListModel) {
         auto moniList = m_model->monitorList();
         for (int idx = 0; idx < moniList.size(); ++idx) {
-            disconnect(moniList[idx], &Monitor::enableChanged, this, 0);
+            disconnect(moniList[idx], &Monitor::enableChanged, this, nullptr);
         }
         m_displayListModel->clear();
     } else
@@ -377,7 +377,7 @@ void CustomSettingDialog::initMoniList()
     auto moniList = m_model->monitorList();
     for (int idx = 0; idx < moniList.size(); ++idx) {
         auto item = new DStandardItem;
-        item->setIcon(QIcon::fromTheme(idx % 2 ? "dcc_display_vga1" : "dcc_display_lvds1"));
+        item->setIcon(QIcon::fromTheme((idx % 2) ? "dcc_display_vga1" : "dcc_display_lvds1"));
 
         auto moni = moniList[idx];
         item->setText(moni->name());
@@ -667,6 +667,7 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
 
 void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
 {
+    Q_UNUSED(r);
     initResolutionList();
     initRefreshrateList();
     resetDialog();
