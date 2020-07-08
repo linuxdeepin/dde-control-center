@@ -26,6 +26,7 @@
 #include "indexframe.h"
 #include <QPainter>
 #include <QMouseEvent>
+#include <QDebug>
 
 namespace dcc {
 namespace keyboard{
@@ -106,6 +107,12 @@ void IndexFrame::mousePressEvent(QMouseEvent *e)
 {
     Q_UNUSED(e);
 
+    int count = m_letters.count();
+    if (count <= m_index) {
+        qDebug() << "IndexFrame err index:" << m_index << ", count:" << count;
+        return;
+    }
+
     m_pressed = true;
     Q_EMIT click(m_letters[m_index]);
 
@@ -123,6 +130,10 @@ void IndexFrame::mouseReleaseEvent(QMouseEvent *e)
 
 void IndexFrame::mouseMoveEvent(QMouseEvent *e)
 {
+    if (m_letters.isEmpty()) {
+        return;
+    }
+
     int h = height()/m_letters.count();
     int index = e->pos().y()/h;
 
