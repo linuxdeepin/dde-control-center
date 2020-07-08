@@ -217,7 +217,6 @@ void AvatarListWidget::addItemFromDefaultDir()
                                            Qt::KeepAspectRatio, Qt::FastTransformation);
         px.setDevicePixelRatio(ratio);
 
-        qDebug() << "add avatar item with path :" << iconpath;
         item->setData(QVariant::fromValue(px), Qt::DecorationRole);
         item->setData(QVariant::fromValue(iconpath), AvatarListWidget::SaveAvatarRole);
         item->setData(m_avatarSize, Qt::SizeHintRole);
