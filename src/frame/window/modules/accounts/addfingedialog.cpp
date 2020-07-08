@@ -91,7 +91,6 @@ void AddFingeDialog::initData()
         if (text == tr("Done")) {
             this->close();
         } else if (text == tr("Scan Again")) {
-            setInitStatus();
             Q_EMIT requestEnrollThumb();
         }
     });

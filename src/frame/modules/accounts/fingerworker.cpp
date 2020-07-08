@@ -25,6 +25,7 @@
 
 #include "fingerworker.h"
 
+#include <QDBusPendingCall>
 #include <QFutureWatcher>
 #include <QtConcurrent>
 #include <QProcess>
