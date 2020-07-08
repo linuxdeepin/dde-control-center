@@ -30,6 +30,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/translucentframe.h"
 #include "widgets/tipsitem.h"
+#include "widgets/titlelabel.h"
 #include "window/utils.h"
 
 #include <DStyle>
@@ -231,7 +232,6 @@ bool APItem::setLoading(bool isLoading)
 WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     : ContentWidget(parent)
     , m_device(dev)
-    , m_switch(new SwitchWidget())
     , m_closeHotspotBtn(new QPushButton)
     , m_lvAP(new DListView(this))
     , m_clickedItem(nullptr)
@@ -249,7 +249,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_lvAP->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_lvAP->setSelectionMode(QAbstractItemView::NoSelection);
-    m_lvAP->setSpacing(1);
     m_lvAP->setViewportMargins(0, 0, 7, 0);
 
     QScroller::grabGesture(m_lvAP->viewport(), QScroller::LeftMouseButtonGesture);
@@ -273,9 +272,10 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_modelAP->appendRow(nonbc);
 
     //~ contents_path /network/WirelessPage
-    m_switch->setTitle(tr("Wireless Network Adapter"));
+    TitleLabel *lblTitle = new TitleLabel(tr("Wireless Network Adapter"));//无线网卡
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
+    m_switch = new SwitchWidget(nullptr, lblTitle);
     m_switch->setChecked(dev->enabled());
-    m_switch->addBackground();
     m_lvAP->setVisible(dev->enabled());
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
@@ -290,7 +290,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     TipsItem *tips = new TipsItem;
     tips->setText(tr("Disable hotspot first if you want to connect to a wireless network"));
-
 
     m_tipsGroup = new SettingsGroup;
     m_tipsGroup->appendItem(tips);

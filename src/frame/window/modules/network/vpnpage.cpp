@@ -28,7 +28,7 @@
 #include "connectionvpneditpage.h"
 #include "widgets/contentwidget.h"
 #include "widgets/switchwidget.h"
-#include "widgets/settingsgroup.h"
+#include "widgets/titlelabel.h"
 #include "widgets/translucentframe.h"
 #include "widgets/optionitem.h"
 #include "widgets/nextpagewidget.h"
@@ -79,7 +79,6 @@ QString vpnConfigType(const QString &path)
 
 VpnPage::VpnPage(QWidget *parent)
     : QWidget(parent)
-    , m_vpnSwitch(new SwitchWidget)
     , m_lvprofiles(new DListView)
     , m_modelprofiles(new QStandardItemModel(this))
 {
@@ -88,14 +87,13 @@ VpnPage::VpnPage(QWidget *parent)
     m_lvprofiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvprofiles->setSelectionMode(QAbstractItemView::NoSelection);
-    m_lvprofiles->setSpacing(1);
-    m_vpnSwitch->setTitle(tr("VPN Status"));
 
-    SettingsGroup *switchGrp = new SettingsGroup;
-    switchGrp->appendItem(m_vpnSwitch);
+    TitleLabel *lblTitle = new TitleLabel(tr("VPN Status"));
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
+    m_vpnSwitch = new SwitchWidget(nullptr, lblTitle);
 
     QVBoxLayout *scrollLayout = new QVBoxLayout;
-    scrollLayout->addWidget(switchGrp);
+    scrollLayout->addWidget(m_vpnSwitch);
     scrollLayout->addWidget(m_lvprofiles);
     scrollLayout->setSpacing(10);
     scrollLayout->setContentsMargins(ThirdPageContentsMargins);

@@ -26,7 +26,6 @@
 
 #include "pppoepage.h"
 #include "connectioneditpage.h"
-#include "widgets/settingsgroup.h"
 #include "widgets/settingsheaderitem.h"
 #include "widgets/translucentframe.h"
 #include "widgets/loadingnextpagewidget.h"
@@ -62,7 +61,6 @@ PppoePage::PppoePage(QWidget *parent)
     m_lvsettings->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvsettings->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvsettings->setSelectionMode(QAbstractItemView::NoSelection);
-    m_lvsettings->setSpacing(1);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_lvsettings);
