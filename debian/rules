@@ -10,6 +10,8 @@ SYSTYPE=$(shell cat /etc/deepin-version | grep Type= | awk -F'=' '{print $$2}')
 %:
 ifeq ($(DEB_BUILD_ARCH), mips64el)
 	dh $@ --parallel --buildsystem=cmake+ninja
+else ifeq ($(DEB_BUILD_ARCH), sw_64)
+	dh $@ --parallel --buildsystem=cmake+ninja
 else
 	dh $@ --parallel
 endif
