@@ -54,7 +54,6 @@ using namespace dde::network;
 WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     : ContentWidget(parent)
     , m_device(dev)
-    , m_switch(new SwitchWidget())
     , m_lvProfiles(new DListView())
 {
     //有线连接
@@ -63,7 +62,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_lvProfiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvProfiles->setSelectionMode(QAbstractItemView::NoSelection);
     m_lvProfiles->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_lvProfiles->setSpacing(1);
 
     TipsItem *tips = new TipsItem;
     tips->setFixedHeight(80);
@@ -73,9 +71,10 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_tipsGrp->appendItem(tips);
 
     //~ contents_path /network/Wired Network
-    m_switch->setTitle(tr("Wired Network Adapter"));//有线网卡
+    TitleLabel *lblTitle = new TitleLabel(tr("Wired Network Adapter"));//有线网卡
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
+    m_switch = new SwitchWidget(nullptr, lblTitle);
     m_switch->setChecked(dev->enabled());
-    m_switch->addBackground();
     m_tipsGrp->setVisible(dev->enabled());
     connect(m_switch, &SwitchWidget::checkedChanged, this, [this] (const bool checked) {
         Q_EMIT requestDeviceEnabled(m_device->path(), checked);

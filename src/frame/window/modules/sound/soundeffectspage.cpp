@@ -24,6 +24,7 @@
 
 #include "modules/sound/soundmodel.h"
 #include "widgets/switchwidget.h"
+#include "widgets/titlelabel.h"
 
 #include <DIconButton>
 
@@ -46,16 +47,15 @@ const int AnimationDuration = 5000;
 SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    , m_sw(new SwitchWidget(tr("Sound Effects")))
     , m_effectList(new DListView)
     , m_sound(nullptr)
 {
     m_layout->setContentsMargins(ThirdPageContentsMargins);
-    m_layout->setSpacing(0);
 
-    m_sw->addBackground();
+    TitleLabel *lblTitle = new TitleLabel(tr("Sound Effects"));
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
+    m_sw = new SwitchWidget(nullptr, lblTitle);
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
-    m_layout->addSpacing(20);
 
     m_effectList->setAccessibleName("List_effectlist");
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
