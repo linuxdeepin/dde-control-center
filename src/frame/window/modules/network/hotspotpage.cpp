@@ -27,7 +27,7 @@
 #include "connectionhotspoteditpage.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/switchwidget.h"
-#include "widgets/settingsgroup.h"
+#include "widgets/titlelabel.h"
 #include "window/utils.h"
 
 #include <DFloatingButton>
@@ -52,7 +52,6 @@ const QString defaultHotspotName()
 HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebtn, QWidget *parent)
     : QWidget(parent)
     , m_wdev(wdev)
-    , m_hotspotSwitch(new SwitchWidget)
     , m_lvprofiles(new DListView)
     , m_modelprofiles(new QStandardItemModel(this))
     , m_createBtn(new QPushButton)
@@ -63,23 +62,20 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     m_lvprofiles->setModel(m_modelprofiles);
     m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvprofiles->setSelectionMode(QAbstractItemView::NoSelection);
-    m_lvprofiles->setSpacing(1);
     //~ contents_path /network/Personal Hotspot
-    m_hotspotSwitch->setTitle(tr("Hotspot"));
+    TitleLabel *lblTitle = new TitleLabel(tr("Hotspot"));//个人热点
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
+    m_hotspotSwitch = new SwitchWidget(nullptr, lblTitle);
     m_createBtn->setText(tr("Add Settings"));
     m_createBtn->setVisible(showcreatebtn);
 
     m_refreshActiveTimer->setInterval(300);
     m_refreshActiveTimer->setSingleShot(true);
 
-    SettingsGroup *sgrp = new SettingsGroup;
-    sgrp->appendItem(m_hotspotSwitch);
-
     QVBoxLayout *centralLayout = new QVBoxLayout;
-    centralLayout->setSpacing(10);
     centralLayout->setContentsMargins(0, 10, 0, 0);
 
-    centralLayout->addWidget(sgrp);
+    centralLayout->addWidget(m_hotspotSwitch);
     centralLayout->addWidget(m_lvprofiles);
     centralLayout->addWidget(m_createBtn);
     centralLayout->addStretch();
