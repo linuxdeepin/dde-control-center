@@ -179,7 +179,7 @@ void SystemLanguageWidget::setCurLangChecked(const QModelIndex &index)
             item->setCheckState(Qt::Checked);
             QString langKey = m_model->langFromText(item->text());
             Q_EMIT setCurLang(langKey);
-        } else {
+        } else if (item) {               //如果不加此判断，item会出现空指针
             item->setCheckState(Qt::Unchecked);
         }
     }

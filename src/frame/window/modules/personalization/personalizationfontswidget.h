@@ -60,7 +60,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void onSelectChanged(const QString &name);
-    void onDefaultFontChanged(const QString &name, dcc::personalization::FontModel *model = nullptr);
+    void onDefaultFontChanged(const QString &name, dcc::personalization::FontModel *sender = nullptr);
     void setList(const QList<QJsonObject> &list, dcc::personalization::FontModel *model = nullptr);
     void setCommboxItemFontSize();
 private:

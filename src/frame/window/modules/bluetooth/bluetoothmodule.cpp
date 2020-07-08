@@ -95,7 +95,7 @@ const QString BluetoothModule::displayName() const
     return tr("Bluetooth");
 }
 
-int BluetoothModule::load(QString path)
+int BluetoothModule::load(const QString &path)
 {
     if ((path == QStringLiteral("Ignore this device"))
             || (path == QStringLiteral("Disconnect"))

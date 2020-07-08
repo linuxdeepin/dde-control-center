@@ -77,13 +77,10 @@ public: // PROPERTIES
     Q_PROPERTY(QRect Rect READ rect NOTIFY rectChanged)
 
     bool showInRight() const;
-
-//    Q_PROPERTY(int X READ x)
-//    int x() const;
     const QRect rect() const;
 
 public Q_SLOTS: // METHODS
-    void exitProc();
+    void exitProc() __attribute__((noreturn));
     void Hide();
     void HideImmediately();
     void Show();
@@ -91,7 +88,6 @@ public Q_SLOTS: // METHODS
     void ShowHome();
     void ShowModule(const QString &module);
     void ShowPage(const QString &module, const QString &page);
-    void SetAutoHide(const bool autoHide);
     void Toggle();
     void ToggleInLeft();
     bool isNetworkCanShowPassword();

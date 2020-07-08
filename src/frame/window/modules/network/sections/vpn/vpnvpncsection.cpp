@@ -45,10 +45,10 @@ VpnVPNCSection::VpnVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFram
 
     initStrMaps();
 
-    m_currentPasswordType = (NetworkManager::Setting::SecretFlagType)m_dataMap
-                            .value("Xauth password-flags", "0").toInt();
-    m_currentGroupPasswordType = (NetworkManager::Setting::SecretFlagType)m_dataMap
-                                 .value("IPSec secret-flags", "0").toInt();
+    m_currentPasswordType = static_cast<NetworkManager::Setting::SecretFlagType>(m_dataMap
+                            .value("Xauth password-flags", "0").toInt());
+    m_currentGroupPasswordType = static_cast<NetworkManager::Setting::SecretFlagType>(m_dataMap
+                                 .value("IPSec secret-flags", "0").toInt());
 
     initUI();
     initConnection();

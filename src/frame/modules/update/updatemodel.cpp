@@ -61,15 +61,20 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_autoCleanCache(false)
     , m_autoDownloadUpdates(false)
     , m_autoCheckUpdates(false)
+    , m_updateNotify(false)
     , m_smartMirrorSwitch(false)
     , m_mirrorId("")
     , m_bRecoverBackingUp(false)
     , m_bRecoverConfigValid(false)
     , m_bRecoverRestoring(false)
     , m_systemVersionInfo("")
+    , m_metaEnum(QMetaEnum::fromType<ModelUpdatesStatus>())
     , m_bSystemActivation(false)
+    , m_autoCheckUpdateCircle(0)
+    , m_isUpdatablePackages(false)
+
 {
-    m_metaEnum = QMetaEnum::fromType<ModelUpdatesStatus>();
+
 }
 
 void UpdateModel::setMirrorInfos(const MirrorInfoList &list)
@@ -77,16 +82,16 @@ void UpdateModel::setMirrorInfos(const MirrorInfoList &list)
     m_mirrorList = list;
 }
 
-void UpdateModel::setDefaultMirror(const QString &mirror)
+void UpdateModel::setDefaultMirror(const QString &mirrorId)
 {
-    if (mirror == "")
+    if (mirrorId == "")
         return;
-    m_mirrorId = mirror;
+    m_mirrorId = mirrorId;
 
     QList<MirrorInfo>::iterator it = m_mirrorList.begin();
     for(; it != m_mirrorList.end(); ++it)
     {
-        if((*it).m_id == mirror)
+        if((*it).m_id == mirrorId)
         {
             Q_EMIT defaultMirrorChanged(*it);
         }
@@ -289,7 +294,7 @@ void UpdateModel::setRecoverRestoring(bool recoverRestoring)
     Q_EMIT recoverRestoringChanged(recoverRestoring);
 }
 
-void UpdateModel::setSystemVersionInfo(QString systemVersionInfo)
+void UpdateModel::setSystemVersionInfo(const QString &systemVersionInfo)
 {
     if (m_systemVersionInfo == systemVersionInfo)
         return;
@@ -299,7 +304,7 @@ void UpdateModel::setSystemVersionInfo(QString systemVersionInfo)
     Q_EMIT systemVersionChanged(systemVersionInfo);
 }
 
-void UpdateModel::setSystemActivation(int systemactivation)
+void UpdateModel::setSystemActivation(uint systemactivation)
 {
     bool activation;
     if (systeminfo::ActiveState::Authorized == systemactivation || systeminfo::ActiveState::TrialAuthorized == systemactivation) {

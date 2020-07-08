@@ -57,7 +57,7 @@ public:
     const QString name() const override;
     const QString displayName() const override;
     void contentPopped(QWidget *const w) override;
-    int load(QString path) override;
+    int load(const QString &path) override;
     QStringList availPage() const override;
 
 public Q_SLOTS:

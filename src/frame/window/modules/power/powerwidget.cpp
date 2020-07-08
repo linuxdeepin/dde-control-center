@@ -39,6 +39,7 @@ PowerWidget::PowerWidget(QWidget *parent)
     : QWidget(parent)
     , m_listview(new dcc::widgets::MultiSelectListView(this))
     , m_model(nullptr)
+    , m_bhasBattery(false)
 {
 
 }

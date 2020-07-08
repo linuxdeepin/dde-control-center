@@ -65,24 +65,11 @@ void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
     painter->setRenderHints(painter->renderHints() | QPainter::Antialiasing);
 
     painter->setPen(Qt::NoPen);
-//    if (md.key().isEmpty()) {
-//        painter->setOpacity(0.4);
-//        painter->setBrush(QColor(222, 222, 222));
-//        painter->drawRect(option.rect.adjusted(0, 0, 0, -1));
-//    } else {
     if (md.section()) {
         painter->setOpacity(0.2);
         painter->setBrush(QColor(222, 222, 222));
         painter->drawRect(option.rect.adjusted(0, 0, 0, -1));
     }
-//    }
-
-//    if (option.state & QStyle::State_Selected) {
-//        painter->setOpacity(1);
-//        const int x = option.rect.right() - 24;
-//        const int y = option.rect.top() + (option.rect.height() - 16) / 2;
-//        painter->drawPixmap(x, y, loadPixmap(":/keyboard/themes/dark/icons/select.svg"));
-//    }
 
     painter->setOpacity(1);
     painter->setPen(pen);

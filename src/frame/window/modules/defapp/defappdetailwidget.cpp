@@ -299,13 +299,15 @@ void DefappDetailWidget::onClearAll()
     m_userAppCnt = 0;
 }
 
-dcc::defapp::App DefappDetailWidget::getAppById(const QString &appId) {
-    for (dcc::defapp::App item : m_category->getappItem()) {
-        if (item.Id == appId) {
-            return item;
-        }
-    }
+dcc::defapp::App DefappDetailWidget::getAppById(const QString &appId)
+{
+    auto res = std::find_if(m_category->getappItem().cbegin(), m_category->getappItem().cend(), [ = ] (const dcc::defapp::App &item)->bool{
+        return item.Id == appId;
+    });
 
+    if (res != m_category->getappItem().cend()) {
+        return *res;
+    }
     dcc::defapp::App app;
     app.Id = nullptr;
     return app;

@@ -58,7 +58,7 @@ public:
     const QString name() const override;
     const QString displayName() const override;
     void active() override;
-    int load(QString path) override;
+    int load(const QString &path) override;
     void preInitialize(bool sync = false) override;
     QStringList availPage() const override;
 

@@ -53,7 +53,7 @@ public:
     const QString name() const override;
     const QString displayName() const override;
     void contentPopped(QWidget *const w) override;
-    int load(QString path) override;
+    int load(const QString &path) override;
 
 public Q_SLOTS:
     void showPinCode(const QDBusObjectPath &device, const QString &code);

@@ -205,12 +205,15 @@ void PersonalizationFontsWidget::onSelectChanged(const QString &name)
     auto combox  = qobject_cast<QComboBox *>(sender());
     auto list = (combox == m_standardFontsCbBox) ? m_model->getStandFontModel()->getFontList() : m_model->getMonoFontModel()->getFontList();
 
-    for (QJsonObject obj : list) {
-        if (obj["Name"].toString() == name) {
-            Q_EMIT requestSetDefault(obj);
-            return;
-        }
+    auto res = std::find_if(list.begin(), list.end(), [=] (const QJsonObject &data)->bool{
+        return data["Name"].toString() == name;
+    });
+
+    if (res != list.cend()) {
+        Q_EMIT requestSetDefault(*res);
+        return;
     }
+
 }
 
 void PersonalizationFontsWidget::onDefaultFontChanged(const QString &name, dcc::personalization::FontModel *sender)
@@ -225,6 +228,5 @@ void PersonalizationFontsWidget::onDefaultFontChanged(const QString &name, dcc::
             return;
         }
     }
-
     comboBox->setCurrentText(sender->getFontName() + tr(" (Unsupported font)"));
 }

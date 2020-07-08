@@ -54,22 +54,6 @@ void IndexView::onClick(const QString &ch)
     }
 }
 
-//void IndexView::paintEvent(QPaintEvent *e)
-//{
-//    QListView::paintEvent(e);
-//    return;
-//    QColor col = palette().color(QPalette::Background);
-//    QPainter painter(viewport());
-//    painter.setBrush(col);
-//    QRect rect(0,0,viewport()->rect().width(), 26 );
-//    painter.save();
-//    painter.setPen(Qt::NoPen);
-//    painter.setBrush(QColor(238, 238, 238, .2));
-//    painter.drawRect(rect);
-//    painter.restore();
-//    painter.drawText(rect.adjusted(3,0,0,0), Qt::AlignVCenter, m_section);
-//}
-
 void IndexView::showEvent(QShowEvent *e)
 {
     QVariant var = indexAt(QPoint(5,10)).data();

@@ -72,7 +72,7 @@ public:
 protected:
     explicit Secret8021xSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = nullptr);
     // This method must be called by subclass after initialization
-    void init(Secret8021xEnableWatcher *watcher, QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsSupportList);
+    void init(Secret8021xEnableWatcher *watcher, const QList<NetworkManager::Security8021xSetting::EapMethod> &eapMethodsSupportList);
     dcc::widgets::ComboxWidget *m_passwordFlagsChooser;
     NetworkManager::Setting::SecretFlagType m_currentPasswordType;
     QList<QPair<QString, NetworkManager::Setting::SecretFlagType>> PasswordFlagsStrMap;

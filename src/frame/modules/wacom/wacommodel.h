@@ -52,7 +52,6 @@ Q_SIGNALS:
 private:
     WacomModelBase *m_wacomModelBase;
     bool m_exist;
-    bool m_cursorMode;
 };
 }
 }

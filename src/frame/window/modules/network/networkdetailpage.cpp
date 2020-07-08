@@ -148,7 +148,6 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             grp->appendItem(head, SettingsGroup::NoneBackground);
             m_headTitleLayout->addWidget(head);
             m_headTitleLayout->setContentsMargins(20,0,0,0);
-            //grp->appendItem(head, SettingsGroup::NoneBackground);
         }
 
         if (isWireless) {

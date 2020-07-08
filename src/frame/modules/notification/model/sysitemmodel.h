@@ -41,22 +41,22 @@ public:
     QJsonObject convertQJson();
 
     inline bool isDisturbMode() const {return m_isDisturbMode;}
-    void setDisturbMode(const bool isDisturbMode);
+    void setDisturbMode(const bool disturbMode);
 
     inline bool isShowInDock()const {return m_isShowInDock;}
-    void setShowInDock(const bool isShowInDock);
+    void setShowInDock(const bool showInDock);
 
     inline bool isTimeSlot()const {return  m_isTimeSlot;}
-    void setTimeSlot(const bool isTimeSlot);
+    void setTimeSlot(const bool timeSlot);
 
     inline bool isFullScreen() const {return m_isFullScreen;}
-    void setFullScreen(const bool isFullScreen);
+    void setFullScreen(const bool fullScreen);
 
     inline bool isProjector()const {return m_isProjector;}
-    void setProjector(const bool isProjector);
+    void setProjector(const bool projector);
 
     inline bool isLockScreen()const {return m_isLockScreen;}
-    void setLockScreen(const bool isLockScreen);
+    void setLockScreen(const bool lockScreen);
 
     inline QTime timeStart()const {return m_timeStart;}
     void setTimeStart(const QTime &timeStart);

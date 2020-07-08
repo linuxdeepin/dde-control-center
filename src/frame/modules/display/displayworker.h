@@ -73,7 +73,7 @@ public Q_SLOTS:
     void modifyConfigName(const QString &oldName, const QString &newName);
     void switchMode(const int mode, const QString &name = QString());
     void setPrimary(const int index);
-    void setPrimaryByName(const QString name);
+    void setPrimaryByName(const QString &name);
     void setMonitorEnable(Monitor *mon, const bool enabled);
     void applyChanges();
 #ifndef DCC_DISABLE_ROTATE
@@ -86,7 +86,6 @@ public Q_SLOTS:
     void setUiScale(const double value);
     void setIndividualScaling(Monitor *m, const double scaling);
     void setNightMode(const bool nightmode);
-    void updateNightModeStatus();
     void record(); // save mutilScreenConfig
     void restore(); // restore mutilScreenConfig
     void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial);
@@ -107,10 +106,6 @@ private Q_SLOTS:
     void onCreateConfigFinshed(QDBusPendingCallWatcher *w);
 
 private:
-//    void loadRotations(Monitor * const mon);
-//    void loadRotationsFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher);
-//    void loadModes(Monitor * const mon);
-//    void loadModesFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher);
     void monitorAdded(const QString &path);
     void monitorRemoved(const QString &path);
 

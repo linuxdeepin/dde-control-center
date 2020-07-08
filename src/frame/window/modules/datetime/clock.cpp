@@ -45,7 +45,7 @@ Clock::~Clock()
 
 }
 
-QPixmap Clock::getPixmap(const QString name, const QSize size)
+QPixmap Clock::getPixmap(const QString &name, const QSize size)
 {
     const QIcon &icon = QIcon(name);
     const qreal ratio = devicePixelRatioF();

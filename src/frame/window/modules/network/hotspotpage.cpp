@@ -276,7 +276,7 @@ void HotspotPage::setModel(dde::network::NetworkModel *model)
     });
 }
 
-void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> devices)
+void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> &devices)
 {
     m_newprofile->setVisible(false);
     qDeleteAll(m_listdevw);

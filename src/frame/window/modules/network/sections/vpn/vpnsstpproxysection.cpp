@@ -30,14 +30,13 @@ using namespace NetworkManager;
 VpnSstpProxySection::VpnSstpProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN Proxy"), parent)
     , m_vpnSetting(vpnSetting)
+    , m_dataMap(vpnSetting->data())
+    , m_secretMap(vpnSetting->secrets())
     , m_server(new LineEditWidget(this))
     , m_port(new SpinBoxWidget(this))
     , m_userName(new LineEditWidget(this))
     , m_password(new LineEditWidget(true, this))
 {
-    m_dataMap = vpnSetting->data();
-    m_secretMap = vpnSetting->secrets();
-
     initUI();
     initConnection();
 }

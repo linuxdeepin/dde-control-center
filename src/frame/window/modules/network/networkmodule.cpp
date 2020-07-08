@@ -138,7 +138,7 @@ void NetworkModule::showPage(const QString &jsonData)
     showDeviceDetailPage(wireless);
 }
 
-void NetworkModule::onDeviceListChanged(const QList<dde::network::NetworkDevice *> devices)
+void NetworkModule::onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices)
 {
     // add wireless device list
     m_hasAp = false;
@@ -195,7 +195,7 @@ void NetworkModule::active()
     m_networkWidget->initSetting(0, "");
 }
 
-int NetworkModule::load(QString path)
+int NetworkModule::load(const QString &path)
 {
     if (!m_networkWidget) {
         active();
@@ -412,6 +412,7 @@ void NetworkModule::ShowAirplanePage()
 
 void NetworkModule::onSetFrameAutoHide(const bool autoHide)
 {
+    Q_UNUSED(autoHide);
     //m_frameProxy->setFrameAutoHide(this, autoHide);
 }
 

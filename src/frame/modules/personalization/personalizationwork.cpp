@@ -321,9 +321,9 @@ void PersonalizationWork::setFontList(FontModel *model, const QString &type, con
         if (!w->isError()) {
             QDBusPendingReply<QString> r = w->reply();
 
-            QJsonArray array = QJsonDocument::fromJson(r.value().toLocal8Bit().data()).array();
+            QJsonArray arrayValue = QJsonDocument::fromJson(r.value().toLocal8Bit().data()).array();
 
-            QList<QJsonObject> list = converToList(type, array);
+            QList<QJsonObject> list = converToList(type, arrayValue);
             // sort for display name
             std::sort(list.begin(), list.end(), [=] (const QJsonObject &obj1, const QJsonObject &obj2) {
                 QCollator qc;

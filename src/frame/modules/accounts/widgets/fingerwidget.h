@@ -57,9 +57,6 @@ public:
 Q_SIGNALS:
     void playEnd();
 
-protected:
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
-
 private:
     DPictureSequenceView *m_view;
     QLabel *m_tipLbl;

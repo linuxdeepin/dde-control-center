@@ -245,7 +245,7 @@ void SoundWorker::cardsChanged(const QString &cards)
     QJsonArray jCards = doc.array();
     for (QJsonValue cV : jCards) {
         QJsonObject jCard = cV.toObject();
-        const uint cardId = jCard["Id"].toInt();
+        const uint cardId = static_cast<uint>(jCard["Id"].toInt());
         const QString cardName = jCard["Name"].toString();
         QJsonArray jPorts = jCard["Ports"].toArray();
 
@@ -254,7 +254,7 @@ void SoundWorker::cardsChanged(const QString &cards)
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
             const double portAvai = jPort["Available"].toDouble();
-            if (portAvai == 2 || portAvai == 0 ) { // 0 Unknow 1 Not available 2 Available
+            if (portAvai == 2.0 || portAvai == 0.0 ) { // 0 Unknow 1 Not available 2 Available
                 const QString portId = jPort["Name"].toString();
                 const QString portName = jPort["Description"].toString();
 

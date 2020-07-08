@@ -67,7 +67,7 @@ public Q_SLOTS:
     //------------sp2 add-----------------------
     void setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode);
     void setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode);
-    void setPowerSavingModeLowerBrightnessThreshold(int dPowerSavingModeLowerBrightnessThreshold);
+    void setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingModeLowerBrightnessThreshold);
     void setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction);
     void setLinePowerLidClosedAction(int nLinePowerLidClosedAction);
     void setBatteryPressPowerBtnAction(int nBatteryPressPowerBtnAction);

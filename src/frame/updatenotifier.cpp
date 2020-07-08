@@ -124,8 +124,8 @@ void UpdateNotifier::updateIcon(bool isSuccessd)
 
     m_icon->setFixedSize(48, 48);
 
-    QPixmap pixmap = icon.pixmap(m_icon->width() * ratio, m_icon->height() * ratio);
-    pixmap = pixmap.scaled(m_icon->width() * ratio, m_icon->height() * ratio,
+    QPixmap pixmap = icon.pixmap(static_cast<int>(m_icon->width() * ratio), static_cast<int>(m_icon->height() * ratio));
+    pixmap = pixmap.scaled(static_cast<int>(m_icon->width() * ratio), static_cast<int>(m_icon->height() * ratio),
                            Qt::KeepAspectRatioByExpanding,
                            Qt::SmoothTransformation);
     pixmap.setDevicePixelRatio(ratio);

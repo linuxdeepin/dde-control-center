@@ -86,7 +86,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
 //    connect(&m_displayInter, &DisplayInter::HasCustomConfigChanged, model, &DisplayModel::setHasConfig);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
 
-    ///////display redSfit/autoLight
+    //display redSfit/autoLight
     connect(m_powerInter, &PowerInter::HasAmbientLightSensorChanged,
             m_model, &DisplayModel::autoLightAdjustVaildChanged);
     connect(m_powerInter, &PowerInter::AmbientLightAdjustBrightnessChanged,
@@ -98,7 +98,6 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     model->setScreenWidth(m_displayInter.screenWidth());
     model->setConfigList(m_displayInter.customIdList());
     model->setCurrentConfig(m_displayInter.currentCustomId());
-//    model->setHasConfig(m_displayInter.hasCustomConfig());
 
     m_model->setAutoLightAdjustIsValid(m_powerInter->hasAmbientLightSensor());
     m_model->setAutoLightAdjust(m_powerInter->ambientLightAdjustBrightness());
@@ -111,13 +110,8 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
     const bool isRedshiftValid = !sessionType.contains("wayland") && QProcess::execute("which", QStringList() << "redshift") == 0;
 
-    if (isRedshiftValid)
-        updateNightModeStatus();
-
     m_model->setRedshiftIsValid(isRedshiftValid);
     m_model->setMinimumBrightnessScale(m_dccSettings->get(GSETTINGS_MINIMUM_BRIGHTNESS).toDouble());
-
-//    active();
 }
 
 DisplayWorker::~DisplayWorker()
@@ -203,7 +197,7 @@ void DisplayWorker::mergeScreens()
         Q_ASSERT(mInter);
 
         replys << mInter->SetPosition(0, 0);
-        replys << mInter->SetModeBySize(mode.width(), mode.height());
+        replys << mInter->SetModeBySize(static_cast<ushort>(mode.width()), static_cast<ushort>(mode.height()));
         replys << mInter->SetRotation(rotate);
         replys << m_displayInter.SetBrightness(mon->name(), brightness);
     }
@@ -290,7 +284,7 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
 {
     qDebug() << Q_FUNC_INFO << mode << name;
 
-    m_displayInter.SwitchMode(mode, name).waitForFinished();
+    m_displayInter.SwitchMode(static_cast<uchar>(mode), name).waitForFinished();
 }
 
 void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
@@ -301,14 +295,14 @@ void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
 
     qDebug() << mons.size();
     QList<QString> pathList;
-    for (const auto op : mons) {
+    for (const auto &op : mons) {
         const QString path = op.path();
         pathList << path;
         if (!ops.contains(path))
             monitorAdded(path);
     }
 
-    for (const auto op : ops)
+    for (const auto &op : ops)
         if (!pathList.contains(op))
             monitorRemoved(op);
 }
@@ -397,7 +391,7 @@ void DisplayWorker::setPrimary(const int index)
     m_displayInter.SetPrimary(m_model->monitorList()[index]->name());
 }
 
-void DisplayWorker::setPrimaryByName(const QString name)
+void DisplayWorker::setPrimaryByName(const QString &name)
 {
     m_displayInter.SetPrimary(name);
 }
@@ -421,7 +415,7 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
     MonitorInter *inter = m_monitors.value(mon);
     Q_ASSERT(inter);
 
-    inter->SetMode(mode).waitForFinished();
+    inter->SetMode(static_cast<uint>(mode)).waitForFinished();
     m_displayInter.ApplyChanges().waitForFinished();
 }
 
@@ -435,7 +429,7 @@ void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
     MonitorInter *inter = m_monitors.value(mon);
     Q_ASSERT(inter);
 
-    inter->SetPosition(x, y).waitForFinished();
+    inter->SetPosition(static_cast<short>(x), static_cast<short>(y)).waitForFinished();
     m_displayInter.ApplyChanges().waitForFinished();
 }
 
@@ -491,48 +485,13 @@ void DisplayWorker::setNightMode(const bool nightmode)
     connect(process, static_cast<void (QProcess::*)(int exitCode)>(&QProcess::finished), this, [ = ] {
         process->close();
         process->deleteLater();
-        // reload
-        updateNightModeStatus();
     });
 
     process->start("bash", QStringList() << "-c" << QString("systemctl --user %1 redshift.service && systemctl --user %2 redshift.service")
                    .arg(serverCmd)
                    .arg(cmd));
-
     m_model->setRedshiftSetting(nightmode);
 }
-
-//void DisplayWorker::loadRotations(Monitor * const mon)
-//{
-//    MonitorInter *inter = m_monitors.value(mon);
-//    Q_ASSERT(inter);
-
-//    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(inter->ListRotations(), this);
-//    connect(watcher, &QDBusPendingCallWatcher::finished, [=] (QDBusPendingCallWatcher *watcher) { loadRotationsFinished(mon, watcher); });
-//}
-
-//void DisplayWorker::loadRotationsFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher)
-//{
-//    QDBusPendingReply<RotationList> reply = *watcher;
-//    mon->setRotateList(reply.value());
-//    watcher->deleteLater();
-//}
-
-//void DisplayWorker::loadModes(Monitor * const mon)
-//{
-//    MonitorInter *inter = m_monitors.value(mon);
-//    Q_ASSERT(inter);
-
-//    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(inter->ListModes(), this);
-//    connect(watcher, &QDBusPendingCallWatcher::finished, [=] (QDBusPendingCallWatcher *watcher) { loadModesFinished(mon, watcher); });
-//}
-
-//void DisplayWorker::loadModesFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher)
-//{
-//    QDBusPendingReply<ResolutionList> reply = *watcher;
-//    mon->setModeList(reply.value());
-//    watcher->deleteLater();
-//}
 
 void DisplayWorker::monitorAdded(const QString &path)
 {
@@ -597,20 +556,6 @@ void DisplayWorker::monitorRemoved(const QString &path)
     monitor->deleteLater();
 }
 
-void DisplayWorker::updateNightModeStatus()
-{
-    QProcess *process = new QProcess;
-
-    connect(process, &QProcess::readyRead, this, [ = ] {
-        m_model->setIsNightMode(process->readAll().replace("\n", "") == "active");
-        m_model->setRedshiftSetting(false);
-        process->close();
-        process->deleteLater();
-    });
-
-    process->start("systemctl", QStringList() << "--user" << "is-active" << "redshift.service");
-}
-
 void DisplayWorker::onGSettingsChanged(const QString &key)
 {
     const QVariant &value = m_dccSettings->get(key);
@@ -656,7 +601,7 @@ void DisplayWorker::setAmbientLightAdjustBrightness(bool able)
     m_powerInter->setAmbientLightAdjustBrightness(able);
 }
 
-void DisplayWorker::setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial)
+void DisplayWorker::setTouchScreenAssociation(const QString &touchscreenSerial, const QString &monitor)
 {
     m_displayInter.AssociateTouch(monitor, touchscreenSerial);
 }

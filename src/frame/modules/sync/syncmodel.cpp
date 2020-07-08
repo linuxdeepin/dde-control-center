@@ -7,6 +7,8 @@ SyncModel::SyncModel(QObject *parent)
     : QObject(parent)
     , m_syncIsValid(false)
     , m_enableSync(false)
+    , m_activation(false)
+    , m_lastSyncTime(0)
 {
 
 }

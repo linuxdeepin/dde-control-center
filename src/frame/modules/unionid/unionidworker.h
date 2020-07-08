@@ -28,7 +28,7 @@ public Q_SLOTS:
     void loginUser();
     void logoutUser();
     void setAutoSync(bool autoSync);
-    void requestAgreementPopup(QString filename);
+    void requestAgreementPopup(const QString &fileName);
     void  requestModifyDialog(QString dilogName);
 private:
     void onStateChanged(const IntString& state);

@@ -395,7 +395,7 @@ void CustomSettingDialog::initMoniList()
     auto moniList = m_model->monitorList();
     for (int idx = 0; idx < moniList.size(); ++idx) {
         auto item = new DStandardItem;
-        item->setIcon(QIcon::fromTheme(idx % 2 ? "dcc_display_vga1" : "dcc_display_lvds1"));
+        item->setIcon(QIcon::fromTheme((idx % 2) ? "dcc_display_vga1" : "dcc_display_lvds1"));
 
         auto moni = moniList[idx];
         auto *titleAction = new DViewItemAction;

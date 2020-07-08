@@ -58,11 +58,6 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_sw->switchButton()->setAccessibleName(lblTitle->text());
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
 
-//    auto tlabe = new QLabel(tr("Customize"));
-//    tlabe->setAlignment(Qt::AlignCenter);
-//    m_layout->addWidget(tlabe);
-//    m_layout->addSpacing(10);
-
     m_effectList->setAccessibleName("List_effectlist");
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);
@@ -189,15 +184,15 @@ void SoundEffectsPage::initList()
                 continue;
             }
 
-            auto item = static_cast<DStandardItem *>(m_listModel->item(idx));
-            auto action = item->actionList(Qt::Edge::RightEdge)[1];
+auto items = static_cast<DStandardItem *>(m_listModel->item(idx));
+            auto action = items->actionList(Qt::Edge::RightEdge)[1];
             auto checkstatus = enable ?
                                DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
             auto index = m_listModel->index(idx, 0);
             m_effectList->setCurrentIndex(index);
             auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
             action->setIcon(icon);
-            m_effectList->update(item->index());
+            m_effectList->update(items->index());
             break;
         }
     });

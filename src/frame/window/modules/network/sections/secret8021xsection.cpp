@@ -137,7 +137,7 @@ void Secret8021xSection::saveSettings()
 }
 
 void Secret8021xSection::init(Secret8021xEnableWatcher *watcher,
-                              QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsSupportList)
+                              const QList<NetworkManager::Security8021xSetting::EapMethod> &eapMethodsSupportList)
 {
     if (m_enableWatcher) {
         qDebug() << "Secret8021x enable watcher has been initialized";

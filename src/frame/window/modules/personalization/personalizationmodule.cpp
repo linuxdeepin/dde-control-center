@@ -48,6 +48,9 @@ PersonalizationModule::~PersonalizationModule()
 
 void PersonalizationModule::initialize()
 {
+    if (m_model) {
+        delete m_model;
+    }
     m_model  = new dcc::personalization::PersonalizationModel;
     m_work = new dcc::personalization::PersonalizationWork(m_model);
 
@@ -84,7 +87,7 @@ void PersonalizationModule::contentPopped(QWidget *const w)
     Q_UNUSED(w);
 }
 
-int PersonalizationModule::load(QString path)
+int PersonalizationModule::load(const QString &path)
 {
     QString loadPath = path.split("/").at(0);
     int row = -1;

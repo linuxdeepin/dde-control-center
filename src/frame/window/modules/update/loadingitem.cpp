@@ -91,7 +91,7 @@ void LoadingItem::setVersionVisible(bool state)
     m_labelText->setVisible(state);
 }
 
-void LoadingItem::setSystemVersion(QString version)
+void LoadingItem::setSystemVersion(const QString &version)
 {
     Q_UNUSED(version);
     m_labelText->setText(DSysInfo::uosProductTypeName() + " " + DSysInfo::majorVersion() + " " + DSysInfo::uosEditionName());
@@ -107,7 +107,7 @@ void LoadingItem::setImageVisible(bool state)
     m_labelImage->setVisible(state);
 }
 
-QPixmap LoadingItem::getPixmap(const QString name, const QSize size)
+QPixmap LoadingItem::getPixmap(const QString &name, const QSize size)
 {
     const QIcon &icon = QIcon(name);
     const qreal ratio = devicePixelRatioF();
@@ -129,7 +129,6 @@ void LoadingItem::setImageOrTextVisible(bool state)
 
     QString path = "";
     if (state) {
-        //path = ":/update/updatev20/dcc_all_updated.svg";
         path = ":/update/themes/common/icons/success.svg";
     } else {
         path = ":/update/updatev20/dcc_checking_update.svg";

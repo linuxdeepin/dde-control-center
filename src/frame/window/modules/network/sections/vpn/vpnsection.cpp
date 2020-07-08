@@ -36,7 +36,7 @@ VpnSection::VpnSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *paren
 {
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
-    m_currentPasswordType = (NetworkManager::Setting::SecretFlagType)m_dataMap.value("password-flags", "0").toInt();
+    m_currentPasswordType = static_cast<NetworkManager::Setting::SecretFlagType>(m_dataMap.value("password-flags", "0").toInt());
 
     initStrMaps();
     initUI();

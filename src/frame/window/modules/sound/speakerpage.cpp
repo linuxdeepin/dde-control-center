@@ -160,14 +160,14 @@ void SpeakerPage::initSlider()
 
     connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
         m_speakSlider->setRange(0, qRound(maxvalue * PercentageNum + 0.000001));
-        QStringList annotions;
+        QStringList annotion;
         if (maxvalue > 1.0) {
-            annotions << "0 " << "" << "100" << "150 ";
-            qDebug() << m_outputSlider << annotions;
-            m_outputSlider->slider()->setRightTicks(annotions);
+            annotion << "0 " << "" << "100" << "150 ";
+            qDebug() << m_outputSlider << annotion;
+            m_outputSlider->slider()->setRightTicks(annotion);
         }else{
-            annotions << "0 " << "" << "100";
-            m_outputSlider->slider()->setRightTicks(annotions);
+            annotion << "0 " << "" << "100";
+            m_outputSlider->slider()->setRightTicks(annotion);
         }
         m_outputSlider->update();
 

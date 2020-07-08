@@ -164,7 +164,7 @@ void GeneralWidget::setModel(const PowerModel *model)
     m_swLowPowerAutoIntoSaveEnergyMode->setChecked(model->powerSavingModeAutoWhenQuantifyLow());
     connect(model, &PowerModel::powerSavingModeAutoWhenQuantifyLowChanged, m_swLowPowerAutoIntoSaveEnergyMode, &SwitchWidget::setChecked);
     m_sldLowerBrightness->slider()->setValue(model->powerSavingModeLowerBrightnessThreshold() / 10);
-    connect(model, &PowerModel::powerSavingModeLowerBrightnessThresholdChanged, this,  [ = ](const int dLevel) {
+    connect(model, &PowerModel::powerSavingModeLowerBrightnessThresholdChanged, this,  [ = ](const uint dLevel) {
         m_sldLowerBrightness->slider()->setValue(dLevel / 10);
     });
     //---------------------------------------------

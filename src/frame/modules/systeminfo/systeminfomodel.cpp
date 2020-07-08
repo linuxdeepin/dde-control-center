@@ -52,7 +52,11 @@ static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision
 
 SystemInfoModel::SystemInfoModel(QObject *parent)
     : QObject(parent)
+    , m_bootDelay(false)
+    , m_themeEnabled(false)
+    , m_updating(false)
     , m_type(64)
+    , m_licenseState(0)
 {
 
 }

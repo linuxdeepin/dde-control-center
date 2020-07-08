@@ -34,6 +34,8 @@ KeyboardModel::KeyboardModel(QObject *parent)
     , m_numLock(true)
     , m_repeatInterval(1)
     , m_repeatDelay(1)
+    , m_layoutScope(0)
+    , m_kbSwitch()
 {
 }
 
@@ -54,10 +56,12 @@ void KeyboardModel::setLayoutLists(QMap<QString, QString> lists)
 
 QString KeyboardModel::langByKey(const QString &key) const
 {
-    for (const auto &lang : m_langList) {
-        if (lang.key() == key) {
-            return lang.text();
-        }
+    auto res = std::find_if(m_langList.cbegin(), m_langList.end(), [key] (const MetaData &data)->bool{
+        return data.key() == key;
+    });
+
+    if (res != m_langList.cend()) {
+        return res->text();
     }
 
     return QString();
@@ -65,10 +69,12 @@ QString KeyboardModel::langByKey(const QString &key) const
 
 QString KeyboardModel::langFromText(const QString &text) const
 {
-    for (const auto &lang : m_langList) {
-        if (lang.text() == text) {
-            return lang.key();
-        }
+    auto res = std::find_if(m_langList.cbegin(), m_langList.end(), [text] (const MetaData &data)->bool{
+        return data.text() == text;
+    });
+
+    if (res != m_langList.cend()) {
+        return res->key();
     }
 
     return QString();

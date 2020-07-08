@@ -46,7 +46,6 @@ protected:
 private:
     QHBoxLayout *m_mainLayout;
     QList<KeyLabel*> m_list;
-    QLineEdit *m_lineEdit;
 };
 
 #endif // SHORTCUTKEY_H

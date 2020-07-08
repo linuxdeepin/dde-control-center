@@ -221,6 +221,7 @@ void WiredPage::activateConnection(const QString &connectionPath)
 
 void WiredPage::activateEditConnection(const QString &connectPath, const QString &uuid)
 {
+    Q_UNUSED(connectPath);
     Q_EMIT requestActiveConnection(m_device->path(), uuid);
 }
 

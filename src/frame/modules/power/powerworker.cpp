@@ -199,7 +199,7 @@ void PowerWorker::setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode)
     m_sysPowerInter->setPowerSavingModeAuto(bAutoIntoSaveEnergyMode);
 }
 
-void PowerWorker::setPowerSavingModeLowerBrightnessThreshold(int dPowerSavingModeLowerBrightnessThreshold)
+void PowerWorker::setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingModeLowerBrightnessThreshold)
 {
     m_sysPowerInter->setPowerSavingModeBrightnessDropPercent(dPowerSavingModeLowerBrightnessThreshold);
 }

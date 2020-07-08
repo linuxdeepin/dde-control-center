@@ -109,7 +109,7 @@ void DisplayModule::active()
     }
 }
 
-int DisplayModule::load(QString path)
+int DisplayModule::load(const QString &path)
 {
     if (!m_displayWidget) {
         active();
@@ -120,6 +120,10 @@ int DisplayModule::load(QString path)
 
 void DisplayModule::preInitialize(bool sync)
 {
+    Q_UNUSED(sync);
+    if (m_displayModel) {
+        delete m_displayModel;
+    }
     m_displayModel = new DisplayModel;
     m_displayWorker = new DisplayWorker(m_displayModel);
 
@@ -159,8 +163,6 @@ QStringList DisplayModule::availPage() const
 
 void DisplayModule::showBrightnessPage()
 {
-    m_displayWorker->updateNightModeStatus();
-
     BrightnessPage *page = new BrightnessPage;
     page->setMode(m_displayModel);
 

@@ -58,12 +58,6 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     m_dtip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     m_dtip->setWordWrap(true);
 
-
-
-//    auto utip = new DTipLabel(tr("Developer mode needs Cloud Account login."));
-//    utip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-//    utip->setWordWrap(true);
-
     //绑定选择激活开发模式窗口
     connect(m_devBtn, &QPushButton::clicked, [this]{
         auto devDlg = new DeveloperModeDialog;
@@ -136,7 +130,6 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     vBoxLayout->addWidget(m_devBtn);
     vBoxLayout->addWidget(m_lab);
     vBoxLayout->addWidget(m_dtip);
-//    vBoxLayout->addWidget(utip);
     vBoxLayout->addStretch();
     setLayout(vBoxLayout);
 
@@ -163,6 +156,7 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
         DDialog dlg("", tr("To make some features effective, a restart is required. Restart now?"));
         dlg.addButtons({tr("Cancel"), tr("Restart Now")});
         connect(&dlg, &DDialog::buttonClicked, this, [](int idx, QString str){
+            Q_UNUSED(str);
             if (idx == 1) {
                 DDBusSender()
                 .service("com.deepin.SessionManager")

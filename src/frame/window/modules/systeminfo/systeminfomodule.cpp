@@ -37,6 +37,11 @@ using namespace DCC_NAMESPACE::systeminfo;
 SystemInfoModule::SystemInfoModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frame)
+    , m_work(nullptr)
+    , m_model(nullptr)
+    , m_backupAndRestoreWorker(nullptr)
+    , m_backupAndRestoreModel(nullptr)
+    , m_sysinfoWidget(nullptr)
 {
     m_frameProxy = frame;
 }
@@ -47,6 +52,9 @@ SystemInfoModule::~SystemInfoModule()
 
 void SystemInfoModule::initialize()
 {
+    if (m_model) {
+        delete m_model;
+    }
     m_model = new SystemInfoModel(this);
     m_work = new SystemInfoWork(m_model, this);
     m_backupAndRestoreModel = new BackupAndRestoreModel(this);
@@ -90,7 +98,7 @@ const QString SystemInfoModule::displayName() const
     return tr("System Info");
 }
 
-int SystemInfoModule::load(QString path)
+int SystemInfoModule::load(const QString &path)
 {
     if (!m_sysinfoWidget) {
         active();

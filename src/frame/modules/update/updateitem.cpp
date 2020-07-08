@@ -169,11 +169,6 @@ UpdateItem::UpdateItem(QFrame *parent)
             }
             update();
     });
-
-//    connect(m_openWebsite, &QPushButton::clicked, [this] {
-//        qDebug() << QString("open website %1 to see release notes of %2").arg(m_anchorAddress).arg(m_anchorName);
-//        QDesktopServices::openUrl(m_anchorAddress);
-//    });
     setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Expanding);
 }
 
@@ -190,12 +185,6 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
                         Qt::FastTransformation);
          pix.setDevicePixelRatio(ratio);
     } else {
-        /*pix = QIcon::fromTheme(m_info.m_packageId, QIcon::fromTheme("application-x-desktop"))
-                .pixmap(m_appIcon->size() * ratio)
-                .scaled(m_appIcon->size() * ratio,
-                        Qt::KeepAspectRatioByExpanding,
-                        Qt::FastTransformation);
-        pix.setDevicePixelRatio(ratio);*/
         pix = loadPixmap(":/update/themes/dde.svg").scaled(m_appIcon->size() * ratio,
                                                Qt::KeepAspectRatioByExpanding,
                                                Qt::SmoothTransformation);

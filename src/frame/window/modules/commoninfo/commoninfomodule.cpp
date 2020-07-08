@@ -113,7 +113,7 @@ void CommonInfoModule::deactive()
     m_commonWork->deactivate();
 }
 
-int CommonInfoModule::load(QString path)
+int CommonInfoModule::load(const QString &path)
 {
     if (!m_commonWidget) {
         active();

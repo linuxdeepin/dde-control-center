@@ -34,8 +34,6 @@ VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame 
     , m_mppeChooser(new ComboxWidget(this))
     , m_mppeStateful(new SwitchWidget(this))
 {
-    m_dataMap = vpnSetting->data();
-
     initStrMaps();
 
     m_currentMppeMethod = "require-mppe";

@@ -50,6 +50,9 @@ AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
 
 void AccountsModule::initialize()
 {
+    if (m_userModel) {
+        delete m_userModel;
+    }
     m_userModel = new UserModel(this);
     m_accountsWorker = new AccountsWorker(m_userModel);
 
@@ -102,7 +105,7 @@ void AccountsModule::active()
     m_frameProxy->pushWidget(this, m_accountsWidget);
 }
 
-int AccountsModule::load(QString path)
+int AccountsModule::load(const QString &path)
 {
     if (!m_accountsWidget) {
         active();

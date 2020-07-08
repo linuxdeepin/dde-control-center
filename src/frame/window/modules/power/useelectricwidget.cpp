@@ -137,7 +137,6 @@ UseElectricWidget::~UseElectricWidget()
 void UseElectricWidget::setModel(const PowerModel *model)
 {
     connect(model, &PowerModel::screenBlackDelayChangedOnPower, this, &UseElectricWidget::setScreenBlackDelayOnPower);
-//    connect(model, &PowerModel::sleepOnLidOnPowerCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
     connect(model, &PowerModel::powerLockScreenDelayChanged, this, &UseElectricWidget::setLockScreenAfter);
 
     if (!IsServerSystem) {
@@ -145,7 +144,6 @@ void UseElectricWidget::setModel(const PowerModel *model)
         setSleepDelayOnPower(model->sleepDelayOnPower());
     }
 
-//    m_suspendOnLidClose->setChecked(model->sleepOnLidOnPowerClose());
     setLockScreenAfter(model->getPowerLockScreenDelay());
 
     if (m_monitorSleepOnPower) {
@@ -156,7 +154,6 @@ void UseElectricWidget::setModel(const PowerModel *model)
     if (m_computerSleepOnPower) {
         m_computerSleepOnPower->setVisible(model->canSleep());
     }
-//    m_suspendOnLidClose->setVisible(model->canSleep());
 
     //--------------sp2 add-----------------
     m_cmbCloseLid->setVisible(model->lidPresent());
@@ -191,7 +188,6 @@ void UseElectricWidget::setModel(const PowerModel *model)
 
 void UseElectricWidget::setLidClose(bool state)
 {
-//    m_suspendOnLidClose->setVisible(state);
     m_cmbCloseLid->setVisible(state);
 }
 

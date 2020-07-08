@@ -44,8 +44,6 @@ public Q_SLOTS:
     void onClick(const QString& ch);
 
 protected:
-//    void paintEvent(QPaintEvent* e);
-//    void wheelEvent(QWheelEvent *e);
     void showEvent(QShowEvent* e);
     void scrollContentsBy(int dx, int dy);
 

@@ -49,6 +49,10 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
 
 void PowerModule::preInitialize(bool sync)
 {
+    //添加此判断是因为公共功能可能泄露。在分配指针“m_model”之前未释放它
+    if (m_model) {
+        delete m_model;
+    }
     m_model = new PowerModel;
     m_work = new PowerWorker(m_model);
     m_work->moveToThread(qApp->thread());
@@ -89,7 +93,7 @@ void PowerModule::active()
     m_widget->setDefaultWidget();
 }
 
-int PowerModule::load(QString path)
+int PowerModule::load(const QString &path)
 {
     if (!m_widget) {
         active();
