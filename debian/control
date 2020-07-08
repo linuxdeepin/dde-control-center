@@ -5,7 +5,7 @@ Maintainer: Deepin Sysdev <sysdev@deepin.com>
 Build-Depends: debhelper (>= 9),
  pkg-config,
  dpkg-dev,
- ninja-build [mips64el],
+ ninja-build,
  libx11-dev,
  cmake,
  qt5-default,
