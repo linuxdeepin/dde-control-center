@@ -259,6 +259,13 @@ bool ModifyPasswdPage::containsChar(const QString &password, const QString &vali
 
     return true;
 }
+//在修改密码页面当前密码处设置焦点
+void ModifyPasswdPage::showEvent(QShowEvent *event)
+{
+    if (m_oldPasswordEdit && !m_oldPasswordEdit->hasFocus()) {
+           m_oldPasswordEdit->lineEdit()->setFocus();
+       }
+}
 
 bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
 {
