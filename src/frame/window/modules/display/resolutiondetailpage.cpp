@@ -48,7 +48,7 @@ ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     m_mainLayout->setMargin(0);
     m_mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
-    QWidget *centralWidget = new TranslucentFrame;
+    QWidget *centralWidget = new TranslucentFrame(this);
     centralWidget->setLayout(m_mainLayout);
 
     layout()->setMargin(0);
@@ -83,7 +83,7 @@ void ResolutionDetailPage::initResoList()
     if (m_resoList) {
         stopScroller();
 
-        m_resoList->deleteLater();
+        delete m_resoList;
         m_resoList = nullptr;
     }
 
@@ -100,7 +100,7 @@ void ResolutionDetailPage::initResoList()
 
     auto moni = monitors.first();
 
-    DListView *rlist = new DListView();
+    DListView *rlist = new DListView(this);
     rlist->setAutoScroll(false);
     rlist->setFrameShape(QFrame::NoFrame);
     rlist->setEditTriggers(DListView::NoEditTriggers);
