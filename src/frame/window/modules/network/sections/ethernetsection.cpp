@@ -37,7 +37,7 @@ EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting,
     : AbstractSection(tr("Ethernet"), parent)
     , m_deviceMacLine(new ComboxWidget(this))
     , m_clonedMac(new LineEditWidget(this))
-    , m_customMtuSwitch(new NetSwitchWidget(this))
+    , m_customMtuSwitch(new SwitchWidget(this))
     , m_customMtu(new SpinBoxWidget(this))
     , m_wiredSetting(wiredSetting)
 {
@@ -91,7 +91,7 @@ void EthernetSection::saveSettings()
     QString clonedAddr = m_clonedMac->text().remove(":");
     m_wiredSetting->setClonedMacAddress(QByteArray::fromHex(clonedAddr.toUtf8()));
 
-    m_wiredSetting->setMtu(m_customMtuSwitch->switchWidget()->checked() ? m_customMtu->spinBox()->value() : 0);
+    m_wiredSetting->setMtu(m_customMtuSwitch->checked() ? m_customMtu->spinBox()->value() : 0);
 
     m_wiredSetting->setInitialized(true);
 }
@@ -128,13 +128,13 @@ void EthernetSection::initUI()
     m_clonedMac->setText(clonedMacAddr);
 
     m_customMtuSwitch->setTitle(tr("Customize MTU"));
-    m_customMtuSwitch->switchWidget()->setChecked(!(m_wiredSetting->mtu() == 0));
+    m_customMtuSwitch->setChecked(!(m_wiredSetting->mtu() == 0));
 
     m_customMtu->setTitle(tr("MTU"));
     m_customMtu->spinBox()->setMinimum(0);
     m_customMtu->spinBox()->setMaximum(10000);
     m_customMtu->spinBox()->setValue(m_wiredSetting->mtu());
-    onCostomMtuChanged(m_customMtuSwitch->switchWidget()->checked());
+    onCostomMtuChanged(m_customMtuSwitch->checked());
 
     appendItem(m_deviceMacLine);
     appendItem(m_clonedMac);
@@ -145,7 +145,7 @@ void EthernetSection::initUI()
 void EthernetSection::initConnection()
 {
     connect(m_clonedMac->textEdit(), &QLineEdit::editingFinished, this, &EthernetSection::allInputValid);
-    connect(m_customMtuSwitch->switchWidget(), &SwitchWidget::checkedChanged, this, &EthernetSection::onCostomMtuChanged);
+    connect(m_customMtuSwitch, &SwitchWidget::checkedChanged, this, &EthernetSection::onCostomMtuChanged);
 }
 
 void EthernetSection::onCostomMtuChanged(const bool enable)

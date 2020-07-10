@@ -208,7 +208,7 @@ set(WINDOW_FILES
     window/modules/wacom/pressuresettings.cpp
     window/modules/commoninfo/developermodewidget.cpp
     window/modules/commoninfo/developermodedialog.cpp
-     )
+)
 
 # load interfaces
 set(INTERFACES_FILES
@@ -763,7 +763,6 @@ set(NETWORK_FILES
 #               modules/network/wiredpage.h
 #               modules/network/wirelesspage.cpp
 #               modules/network/wirelesspage.h
-                window/modules/network/netswitchwidget.cpp
                 window/modules/network/networkdetailpage.cpp
                 window/modules/network/connectionhotspoteditpage.h
                 window/modules/network/networkmodule.cpp

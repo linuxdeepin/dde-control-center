@@ -23,7 +23,6 @@
 #define GENERICSECTION_H
 #include "interface/namespace.h"
 
-#include "window/modules/network/netswitchwidget.h"
 #include "window/modules/network/sections/abstractsection.h"
 
 #include "widgets/lineeditwidget.h"
@@ -56,7 +55,7 @@ private:
 
 private:
     dcc::widgets::LineEditWidget *m_connIdItem;
-    NetSwitchWidget *m_autoConnItem;
+    dcc::widgets::SwitchWidget *m_autoConnItem;
     NetworkManager::ConnectionSettings::Ptr m_connSettings;
     NetworkManager::ConnectionSettings::ConnectionType m_connType;
 };

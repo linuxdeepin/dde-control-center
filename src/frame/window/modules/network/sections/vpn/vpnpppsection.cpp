@@ -30,9 +30,9 @@ using namespace NetworkManager;
 VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN PPP"), parent)
     , m_vpnSetting(vpnSetting)
-    , m_mppeEnable(new NetSwitchWidget(this))
+    , m_mppeEnable(new SwitchWidget(this))
     , m_mppeChooser(new ComboxWidget(this))
-    , m_mppeStateful(new NetSwitchWidget(this))
+    , m_mppeStateful(new SwitchWidget(this))
 {
     m_dataMap = vpnSetting->data();
 
@@ -52,12 +52,12 @@ VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame 
             }
         }
     }
-    m_mppeEnable->switchWidget()->setChecked(mppeEnable);
+    m_mppeEnable->setChecked(mppeEnable);
 
     initUI();
     initConnection();
 
-    onMppeEnableChanged(m_mppeEnable->switchWidget()->checked());
+    onMppeEnableChanged(m_mppeEnable->checked());
 }
 
 VpnPPPSection::~VpnPPPSection()
@@ -76,14 +76,14 @@ void VpnPPPSection::saveSettings()
     m_dataMap = m_vpnSetting->data();
 
     for (auto it = MppeMethodStrMap.cbegin(); it != MppeMethodStrMap.cend(); ++it) {
-        if (m_mppeEnable->switchWidget()->checked() && m_currentMppeMethod == it->second) {
+        if (m_mppeEnable->checked() && m_currentMppeMethod == it->second) {
             m_dataMap.insert(it->second, "yes");
         } else {
             m_dataMap.remove(it->second);
         }
     }
 
-    if (m_mppeStateful->switchWidget()->checked()) {
+    if (m_mppeStateful->checked()) {
         m_dataMap.insert("mppe-stateful", "yes");
     } else {
         m_dataMap.remove("mppe-stateful");
@@ -91,7 +91,7 @@ void VpnPPPSection::saveSettings()
 
     for (auto optionWidget : m_optionsWidgets) {
         const QString &optionName = optionWidget->property("option").toString();
-        if (optionWidget->switchWidget()->checked()) {
+        if (optionWidget->checked()) {
             if (optionName == "lcp-echo-interval") {
                 m_dataMap.insert(optionName, "30");
                 m_dataMap.insert("lcp-echo-failure", "5");
@@ -118,13 +118,13 @@ void VpnPPPSection::setSupportOptions(const QStringList &supportOptions)
     for (auto option : m_supportOptions) {
         const QString &str = OptionsStrMap.key(option);
         if (!str.isEmpty()) {
-            NetSwitchWidget *optionWidget = new NetSwitchWidget(this);
+            SwitchWidget *optionWidget = new SwitchWidget(this);
             optionWidget->setTitle(str);
             optionWidget->setProperty("option", option);
             if (option == "lcp-echo-interval") {
-                optionWidget->switchWidget()->setChecked(m_dataMap.contains(option) && m_dataMap.contains("lcp-echo-failure"));
+                optionWidget->setChecked(m_dataMap.contains(option) && m_dataMap.contains("lcp-echo-failure"));
             } else {
-                optionWidget->switchWidget()->setChecked(m_dataMap.value(option) == "yes");
+                optionWidget->setChecked(m_dataMap.value(option) == "yes");
             }
             m_optionsWidgets.append(optionWidget);
             appendItem(optionWidget);
@@ -174,7 +174,7 @@ void VpnPPPSection::initUI()
     m_mppeChooser->setCurrentText(curOption);
 
     m_mppeStateful->setTitle(tr("Stateful MPPE"));
-    m_mppeStateful->switchWidget()->setChecked(m_dataMap.value("mppe-stateful") == "yes");
+    m_mppeStateful->setChecked(m_dataMap.value("mppe-stateful") == "yes");
 
     appendItem(m_mppeEnable);
     appendItem(m_mppeChooser);
@@ -183,7 +183,7 @@ void VpnPPPSection::initUI()
 
 void VpnPPPSection::initConnection()
 {
-    connect(m_mppeEnable->switchWidget(), &SwitchWidget::checkedChanged, this, &VpnPPPSection::onMppeEnableChanged);
+    connect(m_mppeEnable, &SwitchWidget::checkedChanged, this, &VpnPPPSection::onMppeEnableChanged);
     connect(m_mppeChooser, &ComboxWidget::onSelectChanged, this, &VpnPPPSection::onMppeMethodChanged);
 }
 
