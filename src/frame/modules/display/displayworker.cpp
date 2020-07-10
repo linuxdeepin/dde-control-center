@@ -625,7 +625,7 @@ void DisplayWorker::restore()
         break;
     }
     case MERGE_MODE:
-        mergeScreens();
+        duplicateMode();
         break;
     case EXTEND_MODE:
         extendMode();

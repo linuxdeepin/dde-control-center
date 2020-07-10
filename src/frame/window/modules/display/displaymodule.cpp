@@ -247,7 +247,6 @@ void DisplayModule::showCustomSettingDialog()
     connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
 
     m_displayModel->setIsMerge(m_displayModel->monitorsIsIntersect());
-    QString currentPrimaryName = m_displayModel->primary();
     QTimer::singleShot(100, this, [&](){
         dlg->setModel(m_displayModel);
     });
@@ -255,7 +254,6 @@ void DisplayModule::showCustomSettingDialog()
     if (dlg->exec() != QDialog::Accepted) {
         keybindInter.AddShortcutKeystroke("display",2,"XF86Display");
         m_displayWorker->restore();
-        m_displayWorker->setPrimaryByName(currentPrimaryName);
     } else {
         keybindInter.AddShortcutKeystroke("display",2,"XF86Display");
         m_displayWorker->saveChanges();
