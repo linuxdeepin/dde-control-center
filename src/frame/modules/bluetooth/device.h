@@ -29,6 +29,25 @@
 #include <QObject>
 #include <QDebug>
 
+static const QMap<QString,QString> deviceType2Icon {
+    {"unknow","other"},
+    {"computer","pc"},
+    {"phone","phone"},
+    {"video-display","vidicon"},
+    {"multimedia-player","tv"},
+    {"scanner","scaner"},
+    {"input-keyboard","keyboard"},
+    {"input-mouse","mouse"},
+    {"input-gaming","other"},
+    {"input-tablet","touchpad"},
+    {"audio-card","pheadset"},
+    {"network-wireless","lan"},
+    {"camera-video","vidicon"},
+    {"printer","print"},
+    {"camera-photo","camera"},
+    {"modem","other"}
+};
+
 namespace dcc {
 namespace bluetooth {
 
@@ -47,6 +66,9 @@ public:
 
 public:
     explicit Device(QObject *parent = 0);
+
+    inline QString deviceType () const {return m_devicetype; }
+    void setdeviceType(const QString &deviceType);
 
     inline QString id() const { return m_id; }
     void setId(const QString &id);
@@ -82,6 +104,7 @@ private:
     QString m_id;
     QString m_name;
     QString m_alias;
+    QString m_devicetype;
     bool m_paired;
     bool m_trusted;
     bool m_connecting;

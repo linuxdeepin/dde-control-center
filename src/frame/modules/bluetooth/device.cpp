@@ -41,6 +41,11 @@ Device::Device(QObject *parent) :
 
 }
 
+void Device::setdeviceType(const QString &deviceType)
+{
+    m_devicetype = deviceType2Icon[deviceType];
+}
+
 void Device::setId(const QString &id)
 {
     m_id = id;

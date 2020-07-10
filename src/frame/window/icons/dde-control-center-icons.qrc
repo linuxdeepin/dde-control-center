@@ -126,5 +126,41 @@
         <file>icons/dcc_common_subscript.svg</file>
         <file>texts/dcc_update_topsettings_32px.svg</file>
         <file>texts/dcc_update_topupdate_32px.svg</file>
+        <file>dark/bluetooth_camera_dark.svg</file>
+        <file>dark/bluetooth_clang_dark.svg</file>
+        <file>dark/bluetooth_keyboard_dark.svg</file>
+        <file>dark/bluetooth_lan_dark.svg</file>
+        <file>dark/bluetooth_laptop_dark.svg</file>
+        <file>dark/bluetooth_microphone_dark.svg</file>
+        <file>dark/bluetooth_mouse_dark.svg</file>
+        <file>dark/bluetooth_other_dark.svg</file>
+        <file>dark/bluetooth_pad_dark.svg</file>
+        <file>dark/bluetooth_pc_dark.svg</file>
+        <file>dark/bluetooth_pen_dark.svg</file>
+        <file>dark/bluetooth_pheadset_dark.svg</file>
+        <file>dark/bluetooth_phone_dark.svg</file>
+        <file>dark/bluetooth_print_dark.svg</file>
+        <file>dark/bluetooth_scaner_dark.svg</file>
+        <file>dark/bluetooth_touchpad_dark.svg</file>
+        <file>dark/bluetooth_tv_dark.svg</file>
+        <file>dark/bluetooth_vidicon_dark.svg</file>
+        <file>light/bluetooth_camera_light.svg</file>
+        <file>light/bluetooth_clang_light.svg</file>
+        <file>light/bluetooth_keyboard_light.svg</file>
+        <file>light/bluetooth_lan_light.svg</file>
+        <file>light/bluetooth_laptop_light.svg</file>
+        <file>light/bluetooth_microphone_light.svg</file>
+        <file>light/bluetooth_mouse_light.svg</file>
+        <file>light/bluetooth_pad_light.svg</file>
+        <file>light/bluetooth_pc_light.svg</file>
+        <file>light/bluetooth_pen_light.svg</file>
+        <file>light/bluetooth_pheadset_light.svg</file>
+        <file>light/bluetooth_phone_light.svg</file>
+        <file>light/bluetooth_print_light.svg</file>
+        <file>light/bluetooth_scaner_light.svg</file>
+        <file>light/bluetooth_touchpad_light.svg</file>
+        <file>light/bluetooth_tv_light.svg</file>
+        <file>light/bluetooth_vidicon_light.svg</file>
+        <file>light/bluetooth_other_light.svg</file>
     </qresource>
 </RCC>
