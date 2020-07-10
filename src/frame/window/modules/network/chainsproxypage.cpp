@@ -71,6 +71,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     m_password->setTitle(tr("Password"));
     m_password->setPlaceholderText(tr("Optional"));
     m_password->textEdit()->setEchoMode(QLineEdit::Password);
+    m_password->setForbiddenChineseInput();
 
     SettingsGroup *grp = new SettingsGroup;
     grp->appendItem(m_proxyType);

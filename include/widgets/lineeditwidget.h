@@ -69,6 +69,7 @@ public:
     void setTitleVisible(const bool visible) { m_title->setVisible(visible); }
     void addRightWidget(QWidget *widget);
     void setReadOnly(const bool state);
+    void setForbiddenChineseInput(const bool enable = true);
     void setIsErr(const bool err = true);
 
     bool isShowAlert() { return m_errTip->isVisible(); }

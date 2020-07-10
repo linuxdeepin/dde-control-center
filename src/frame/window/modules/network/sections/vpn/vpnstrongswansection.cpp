@@ -179,6 +179,7 @@ void VpnStrongSwanSection::initUI()
 
     m_password->setTitle(tr("Password"));
     m_password->setText(m_secretMap.value("password"));
+    m_password->setForbiddenChineseInput();
 
     m_requestInnerIp->setTitle(tr("Request an Inner IP Address"));
     m_requestInnerIp->setChecked(m_dataMap.value("virtual") == "yes");

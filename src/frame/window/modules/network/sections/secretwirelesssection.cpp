@@ -175,6 +175,7 @@ void SecretWirelessSection::initUI()
     m_keyMgmtChooser->setCurrentText(curMgmtOption);
 
     m_passwdEdit->setPlaceholderText(tr("Required"));
+    m_passwdEdit->setForbiddenChineseInput();
 
     m_enableWatcher->setSecretEnable(m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap);
 

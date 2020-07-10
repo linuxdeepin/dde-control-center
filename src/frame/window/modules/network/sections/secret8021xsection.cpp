@@ -247,6 +247,7 @@ void Secret8021xSection::initUI()
     m_passwordFlagsChooser->setCurrentText(pwdOptionText);
 
     m_password->setPlaceholderText(tr("Required"));
+    m_password->setForbiddenChineseInput();
     if (m_currentEapMethod == NetworkManager::Security8021xSetting::EapMethodTls) {
         m_password->setText(m_secretSetting->privateKeyPassword());
     } else {

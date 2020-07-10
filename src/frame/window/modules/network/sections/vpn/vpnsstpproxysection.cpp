@@ -115,6 +115,7 @@ void VpnSstpProxySection::initUI()
 
     m_password->setTitle(tr("Password"));
     m_password->setText(m_secretMap.value("proxy-password"));
+    m_password->setForbiddenChineseInput();
 
     appendItem(m_server);
     appendItem(m_port);

@@ -86,6 +86,7 @@ void PPPOESection::initUI()
     m_password->setTitle(tr("Password"));
     m_password->setPlaceholderText(tr("Required"));
     m_password->setText(m_pppoeSetting->password());
+    m_password->setForbiddenChineseInput();
 
     appendItem(m_userName);
     appendItem(m_service);

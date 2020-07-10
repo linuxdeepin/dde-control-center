@@ -26,7 +26,7 @@
 #include "widgets/lineeditwidget.h"
 
 #include <dpasswordedit.h>
-
+#include <QValidator>
 #include <QVBoxLayout>
 
 namespace dcc {
@@ -118,6 +118,15 @@ void LineEditWidget::addRightWidget(QWidget *widget)
 void LineEditWidget::setReadOnly(const bool state)
 {
     m_edit->lineEdit()->setReadOnly(state);
+}
+
+void LineEditWidget::setForbiddenChineseInput(const bool enable) {
+    if (enable) {
+        QRegExp reg("^((?![\u4e00-\u9fa5]).)*");
+        QValidator *validator = new QRegExpValidator(reg);
+        LineEditWidget::textEdit()->setValidator(validator);
+        LineEditWidget::textEdit()->setAttribute(Qt::WA_InputMethodEnabled, false);
+    }
 }
 
 void LineEditWidget::setIsErr(const bool err)

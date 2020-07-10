@@ -178,6 +178,7 @@ void VpnProxySection::initUI()
     m_password->setTitle(tr("Password"));
     m_password->setPlaceholderText(tr("Required"));
     m_password->setText(m_secretMap.value("http-proxy-password"));
+    m_password->setForbiddenChineseInput();
 
     appendItem(m_proxyTypeChooser);
     appendItem(m_server);

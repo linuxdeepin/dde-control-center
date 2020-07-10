@@ -187,6 +187,7 @@ void VpnVPNCSection::initUI()
     m_password->setTitle(tr("Password"));
     m_password->setPlaceholderText(tr("Required"));
     m_password->setText(m_secretMap.value("Xauth password"));
+    m_password->setForbiddenChineseInput();
 
     m_groupName->setTitle(tr("Group Name"));
     m_groupName->setPlaceholderText(tr("Required"));
@@ -206,6 +207,7 @@ void VpnVPNCSection::initUI()
     m_groupPassword->setTitle(tr("Group Pwd"));
     m_groupPassword->setPlaceholderText(tr("Required"));
     m_groupPassword->setText(m_secretMap.value("IPSec secret"));
+    m_groupPassword->setForbiddenChineseInput();
 
     m_userHybrid->setTitle(tr("Use Hybrid Authentication"));
     m_userHybrid->setChecked(m_dataMap.value("IKE Authmode") == "hybrid");

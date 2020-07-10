@@ -134,6 +134,7 @@ void VpnSection::initUI()
     m_password->setTitle(tr("Password"));
     m_password->setPlaceholderText(tr("Required"));
     m_password->setText(m_secretMap.value("password"));
+    m_password->setForbiddenChineseInput();
 
     m_domain->setTitle(tr("NT Domain"));
     m_domain->setText(m_dataMap.value("domain"));
