@@ -38,7 +38,7 @@ IpvxSection::IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *p
     , m_gateway(new LineEditWidget(this))
     , m_dnsPrimary(new LineEditWidget(this))
     , m_dnsSecond(new LineEditWidget(this))
-    , m_neverDefault(new NetSwitchWidget(this))
+    , m_neverDefault(new SwitchWidget(this))
     , m_currentIpvx(Ipv4)
     , m_ipvxSetting(ipv4Setting)
 {
@@ -58,7 +58,7 @@ IpvxSection::IpvxSection(NetworkManager::Ipv6Setting::Ptr ipv6Setting, QFrame *p
     , m_gateway(new LineEditWidget(this))
     , m_dnsPrimary(new LineEditWidget(this))
     , m_dnsSecond(new LineEditWidget(this))
-    , m_neverDefault(new NetSwitchWidget(this))
+    , m_neverDefault(new SwitchWidget(this))
     , m_currentIpvx(Ipv6)
     , m_ipvxSetting(ipv6Setting)
 {
@@ -138,7 +138,7 @@ bool IpvxSection::saveIpv4Settings()
     }
 
     if (m_neverDefault->isVisible()) {
-        ipv4Setting->setNeverDefault(m_neverDefault->switchWidget()->checked());
+        ipv4Setting->setNeverDefault(m_neverDefault->checked());
     }
 
     return true;
@@ -181,7 +181,7 @@ bool IpvxSection::saveIpv6Settings()
     }
 
     if (m_neverDefault->isVisible()) {
-        ipv6Setting->setNeverDefault(m_neverDefault->switchWidget()->checked());
+        ipv6Setting->setNeverDefault(m_neverDefault->checked());
     }
 
     return true;
@@ -306,7 +306,7 @@ void IpvxSection::initForIpv4()
     m_netmaskIpv4->textEdit()->setPlaceholderText(tr("Required"));
     appendItem(m_netmaskIpv4);
 
-    m_neverDefault->switchWidget()->setChecked(ipv4Setting->neverDefault());
+    m_neverDefault->setChecked(ipv4Setting->neverDefault());
 
     onIpv4MethodChanged(Ipv4ConfigMethodStrMap.value(m_methodChooser->currentText()));
 }
@@ -351,7 +351,7 @@ void IpvxSection::initForIpv6()
 
     appendItem(m_prefixIpv6);
 
-    m_neverDefault->switchWidget()->setChecked(ipv6Setting->neverDefault());
+    m_neverDefault->setChecked(ipv6Setting->neverDefault());
 
     onIpv6MethodChanged(Ipv6ConfigMethodStrMap.value(m_methodChooser->currentText()));
 }

@@ -140,7 +140,7 @@ set(WINDOW_FILES
     window/modules/wacom/pressuresettings.cpp
     window/modules/commoninfo/developermodewidget.cpp
     window/modules/commoninfo/developermodedialog.cpp
-     )
+)
 
 # load interfaces
 set(INTERFACES_FILES
@@ -364,7 +364,6 @@ set(MOUSE_FILES
 
 # load network
 set(NETWORK_FILES
-                window/modules/network/netswitchwidget.cpp
                 window/modules/network/networkdetailpage.cpp
                 window/modules/network/networkmodule.cpp
                 window/modules/network/sections/abstractsection.cpp

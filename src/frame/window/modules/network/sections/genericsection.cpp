@@ -32,7 +32,7 @@ using namespace DCC_NAMESPACE::network;
 GenericSection::GenericSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent)
     : AbstractSection(tr("General"), parent)
     , m_connIdItem(new LineEditWidget(this))
-    , m_autoConnItem(new NetSwitchWidget(this))
+    , m_autoConnItem(new SwitchWidget(this))
     , m_connSettings(connSettings)
     , m_connType(NetworkManager::ConnectionSettings::Unknown)
 {
@@ -81,12 +81,12 @@ bool GenericSection::allInputValid()
 void GenericSection::saveSettings()
 {
     m_connSettings->setId(m_connIdItem->text());
-    m_connSettings->setAutoconnect(m_autoConnItem->switchWidget()->checked());
+    m_connSettings->setAutoconnect(m_autoConnItem->checked());
 }
 
 bool GenericSection::autoConnectChecked() const
 {
-    return m_autoConnItem->switchWidget()->checked();
+    return m_autoConnItem->checked();
 }
 
 void GenericSection::setConnectionNameEditable(const bool editable)
@@ -99,7 +99,7 @@ void GenericSection::initUI()
 {
     m_connIdItem->setTitle(tr("Name"));
     m_connIdItem->setText(m_connSettings->id());
-    m_autoConnItem->switchWidget()->setChecked(m_connSettings->autoconnect());
+    m_autoConnItem->setChecked(m_connSettings->autoconnect());
     m_autoConnItem->setTitle(tr("Auto Connect"));
 
     appendItem(m_connIdItem);

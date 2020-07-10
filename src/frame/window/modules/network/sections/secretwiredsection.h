@@ -23,7 +23,7 @@
 #define SECRETWIREDSECTION_H
 
 #include "secret8021xsection.h"
-#include "window/modules/network/netswitchwidget.h"
+#include "widgets/switchwidget.h"
 
 namespace DCC_NAMESPACE {
 namespace network {
@@ -40,7 +40,7 @@ public:
     void saveSettings() Q_DECL_OVERRIDE;
 
 private:
-    NetSwitchWidget *m_secretEnable;
+    dcc::widgets::SwitchWidget *m_secretEnable;
     Secret8021xEnableWatcher *m_enableWatcher;
 };
 

@@ -23,7 +23,6 @@
 #define WIRELESSSECTION_H
 
 #include "abstractsection.h"
-#include "window/modules/network/netswitchwidget.h"
 
 #include "widgets/comboxwidget.h"
 #include "widgets/lineeditwidget.h"
@@ -69,7 +68,7 @@ private:
     QComboBox *m_deviceMacComboBox;
     dcc::widgets::ComboxWidget *m_deviceMacLine;
     //LineEditWidget *m_clonedMac;
-    NetSwitchWidget *m_customMtuSwitch;
+    dcc::widgets::SwitchWidget *m_customMtuSwitch;
     dcc::widgets::SpinBoxWidget *m_customMtu;
 
     NetworkManager::WirelessSetting::Ptr m_wirelessSetting;
