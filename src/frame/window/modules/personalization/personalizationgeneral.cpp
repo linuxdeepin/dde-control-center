@@ -89,9 +89,9 @@ const QList<ColorStru> Dark_ACTIVE_COLORST = {
     {31, 168, 1},
     {0, 138, 116},
     {0, 89, 210},
-    {48, 0, 175},
-    {104, 0, 147},
-    {77, 77, 77},
+    {67, 40, 255},
+    {120, 25, 168},
+    {100, 100, 100},
 };
 
 PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
