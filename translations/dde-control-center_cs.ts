@@ -166,6 +166,16 @@
         <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
         <translation>Použijte pouze písmena, číslice a podtržítka a ne delší než 15 znaků</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="164"/>
+        <source>Use letters, numbers and underlines only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="169"/>
+        <source>No more than 15 characters</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
@@ -271,23 +281,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="131"/>
         <source>Done</source>
         <translation>Hotovo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="160"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan Again</source>
         <translation>Nasnímat znovu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
         <source>Scan Suspended</source>
         <translation>Sken odložen</translation>
     </message>
@@ -523,43 +533,43 @@
         <translation>Chybné heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="283"/>
         <source>Passwords do not match</source>
         <translation>Zadání hesla se neshodují</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="293"/>
         <source>Password cannot be empty</source>
         <translation>Heslo nemůže být prázdné</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="297"/>
         <source>The password must have at least %1 characters</source>
         <translation>Je třeba, aby heslo mělo délku alespoň %1 znaků</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Heslo může mít délku nejvýše %1 znaků</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="305"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Heslo by mělo obsahovat alespoň %1 z následujících druhů znaků: malá a velká písmena, číslice a symboly</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Heslo může obsahovat pouze písmena z anglické abecedy (rozlišují se malá a VELKÁ písmena), číslice a dále ještě speciální symboly (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Je třeba, aby heslo mělo alespoň %1 znaků a obsahovalo alespoň dva %2 z následujících typů znaků: malá a velká písmena, číslice a symboly</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
         <source>New password should differ from the current one</source>
         <translation>Nové heslo by nemělo být stejné jako to původní</translation>
     </message>
@@ -632,34 +642,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="83"/>
         <source>Updating...</source>
         <translation>Aktualizace…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
         <source>Startup Delay</source>
         <translation>Prodleva před spuštěním</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Theme</source>
         <translation>Vzhled</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>Kliknutím na volbu pro nabídku před startem systému ji nastavíte jako první v pořadí a přetažením obrázku sem změníte pozadí</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>Aby se zobrazil v nabídce před startem systému, vzhled zapněte</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="131"/>
         <source>Boot Menu</source>
         <translation>Nabídka před startem systému</translation>
     </message>
@@ -3157,47 +3167,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Gateway</source>
         <translation>Brána</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="90"/>
         <source>Required</source>
         <translation>Vyžadováno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="93"/>
         <source>CA Cert</source>
         <translation>Certifikát cert. autority</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="96"/>
         <source>Proxy</source>
         <translation>Proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>Umožnit Cisco Secure Desktop Trojan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="102"/>
         <source>CSD Script</source>
         <translation>CSD skript</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="105"/>
         <source>User Cert</source>
         <translation>Uživatelský certifikát</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="108"/>
         <source>Private Key</source>
         <translation>Soukromý klíč</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="111"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>Pro heslovou frázi klíče použít FSID</translation>
     </message>
@@ -4903,7 +4913,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="28"/>
         <source>Back Up</source>
-        <translation type="unfinished"/>
+        <translation>Zazálohovat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="35"/>
@@ -4971,7 +4981,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="142"/>
         <source>Backup directory</source>
-        <translation type="unfinished"/>
+        <translation>Složka se zálohami</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="150"/>

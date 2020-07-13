@@ -164,7 +164,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="159"/>
         <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
-        <translation>只能由字母、数字、下划线组成，且不超过15个字符</translation>
+        <translation>只能由字母、数字、中文、下划线组成，且不超过15个字符</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="164"/>
+        <source>Use letters, numbers and underlines only</source>
+        <translation>只能由字母、数字、中文、下划线组成</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="169"/>
+        <source>No more than 15 characters</source>
+        <translation>不得超过15个字符</translation>
     </message>
 </context>
 <context>
@@ -271,23 +281,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="131"/>
         <source>Done</source>
         <translation>完成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="160"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan Again</source>
         <translation>重新录入</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
         <source>Scan Suspended</source>
         <translation>录入中断</translation>
     </message>
@@ -523,43 +533,43 @@
         <translation>密码错误</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="283"/>
         <source>Passwords do not match</source>
         <translation>密码不一致</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="293"/>
         <source>Password cannot be empty</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="297"/>
         <source>The password must have at least %1 characters</source>
         <translation>密码应包含至少%1个字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
         <source>Password must be no more than %1 characters</source>
         <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="305"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>密码应至少包含小写字母、大写字母、数字、符号中的%1种</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>密码最少%1位，至少同时包含小写字母、大写字母、数字、符号中的%2种</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
         <source>New password should differ from the current one</source>
         <translation>新密码和旧密码不能相同</translation>
     </message>
@@ -632,34 +642,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="83"/>
         <source>Updating...</source>
         <translation>正在更新...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
         <source>Startup Delay</source>
         <translation>启动延时</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Theme</source>
         <translation>主题</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>开启主题后您可以在开机时看到主题背景</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="131"/>
         <source>Boot Menu</source>
         <translation>启动菜单</translation>
     </message>
@@ -3157,47 +3167,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="90"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="93"/>
         <source>CA Cert</source>
         <translation>CA证书</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="96"/>
         <source>Proxy</source>
         <translation>代理</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>允许思科安全桌面木马</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="102"/>
         <source>CSD Script</source>
         <translation>CSD 脚本</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="105"/>
         <source>User Cert</source>
         <translation>用户证书</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="108"/>
         <source>Private Key</source>
         <translation>私钥</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="111"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>为密钥口令句使用FSID</translation>
     </message>

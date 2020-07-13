@@ -166,6 +166,16 @@
         <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
         <translation>Употребите само слова, бројеве, доње цртице и не више од 15 карактера</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="164"/>
+        <source>Use letters, numbers and underlines only</source>
+        <translation>Употребите само слова, бројеве и доње цртице</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="169"/>
+        <source>No more than 15 characters</source>
+        <translation>Не дуже од 15 карактера</translation>
+    </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
@@ -271,23 +281,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="131"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="160"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan Again</source>
         <translation>Поново очитај</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
         <source>Scan Suspended</source>
         <translation>Очитавање обустављено</translation>
     </message>
@@ -523,43 +533,43 @@
         <translation>Погрешна лозинка</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="283"/>
         <source>Passwords do not match</source>
         <translation>Лозинке се не подударају</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="293"/>
         <source>Password cannot be empty</source>
         <translation>Лозинка не може бити празна</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="297"/>
         <source>The password must have at least %1 characters</source>
         <translation>Лозинка мора садржати најмање %1 карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Лозинка не може бити дужа од %1 карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="305"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Лозинка мора садржати најмање %1 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Лозинка може садржати само енглеска слова (осетљива на величину), бројеве и специјалне карактере  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Лозинка мора садржати најмање %1 карактера и мора имати најмање %2 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
         <source>New password should differ from the current one</source>
         <translation>Нова лозинка треба да се разликује од тренутне</translation>
     </message>
@@ -632,34 +642,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="83"/>
         <source>Updating...</source>
         <translation>Ажурирање...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
         <source>Startup Delay</source>
         <translation>Одлагање покретања</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Theme</source>
         <translation>Тема</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>Кликните на ставку у изборнику покретача да буде прва која се покреће. Превуците и убаците слику да промените позадину.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>Укључите тему да се приказује при покретању.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="131"/>
         <source>Boot Menu</source>
         <translation>Покретач система</translation>
     </message>
@@ -3157,47 +3167,47 @@
         <translation>ВПН</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Gateway</source>
         <translation>Мрежни пролаз</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="90"/>
         <source>Required</source>
         <translation>Неопходно</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="93"/>
         <source>CA Cert</source>
         <translation>ЦА сертификат</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="96"/>
         <source>Proxy</source>
         <translation>Посредник</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>Дозволи Cisco Безбедни Тројанац</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="102"/>
         <source>CSD Script</source>
         <translation>ЦСД скрипта</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="105"/>
         <source>User Cert</source>
         <translation>Кориснички серт.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="108"/>
         <source>Private Key</source>
         <translation>Лични кључ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="111"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>Користи ФСИД као фразу за пролаз</translation>
     </message>
@@ -4903,7 +4913,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="28"/>
         <source>Back Up</source>
-        <translation type="unfinished"/>
+        <translation>Направи резерву</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="35"/>
@@ -4971,7 +4981,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="142"/>
         <source>Backup directory</source>
-        <translation type="unfinished"/>
+        <translation>Директоријум резерве</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="150"/>

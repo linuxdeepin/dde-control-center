@@ -166,6 +166,16 @@
         <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
         <translation>문자, 숫자 및 밑줄만 사용하고 15자를 넘지 않습니다</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="164"/>
+        <source>Use letters, numbers and underlines only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="169"/>
+        <source>No more than 15 characters</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
@@ -271,23 +281,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="131"/>
         <source>Done</source>
         <translation>완료</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="160"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan Again</source>
         <translation>다시 스캔</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
         <source>Scan Suspended</source>
         <translation>스캔 일시 중단됨</translation>
     </message>
@@ -390,7 +400,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="489"/>
         <source>The password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 %1자 이상이어야 합니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
@@ -400,7 +410,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 다음 네가지 문자 유형 중 적어도 %1자 이상이 포함되어야 합니다: 소문자, 대문자, 숫자 및 기호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="501"/>
@@ -410,7 +420,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 %1자 이상이어야 하며 사용 가능한 네 가지 문자 유형 중 %2자 이상을 포함해야 합니다: 소문자, 대문자, 숫자 및 기호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
@@ -523,43 +533,43 @@
         <translation>잘못된 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="283"/>
         <source>Passwords do not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="293"/>
         <source>Password cannot be empty</source>
         <translation>비밀번호는 비워 둘 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="297"/>
         <source>The password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 %1자 이상이어야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
         <source>Password must be no more than %1 characters</source>
         <translation>비밀번호는 %1 자 이하 여야합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="305"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 다음 네가지 문자 유형 중 적어도 %1자 이상이 포함되어야 합니다: 소문자, 대문자, 숫자 및 기호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>비밀번호는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)만 포함해야 합니다  </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 %1자 이상이어야 하며 사용 가능한 네 가지 문자 유형 중 %2자 이상을 포함해야 합니다: 소문자, 대문자, 숫자 및 기호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
         <source>New password should differ from the current one</source>
         <translation>새 비밀번호는 현재 비밀번호와 같을 수 없습니다</translation>
     </message>
@@ -632,34 +642,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="83"/>
         <source>Updating...</source>
         <translation>업데이트중...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
         <source>Startup Delay</source>
         <translation>시동 지연</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Theme</source>
         <translation>테마</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>부팅 메뉴에서 옵션을 클릭하여 첫 번째 부팅으로 설정하고 그림을 끌어다 놓아 배경을 변경하십시오</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>부팅 메뉴에서 보여지는 테마 전환</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="131"/>
         <source>Boot Menu</source>
         <translation>부팅 메뉴</translation>
     </message>
@@ -715,7 +725,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>먼저 Union ID에 로그인하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
@@ -779,7 +789,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="90"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="120"/>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>먼저 Union ID에 로그인하고 계속하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="95"/>
@@ -834,7 +844,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>먼저 Union ID에 로그인하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
@@ -859,7 +869,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="129"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>현재 이 기능을 사용할 수 없습니다. 먼저 시스템을 활성화하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="163"/>
@@ -3157,47 +3167,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Gateway</source>
         <translation>게이트웨이</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="90"/>
         <source>Required</source>
         <translation>필수 항목</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="93"/>
         <source>CA Cert</source>
         <translation>CA 인증서</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="96"/>
         <source>Proxy</source>
         <translation>프록시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>시스코 보안 바탕화면 트로이 목마 허용</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="102"/>
         <source>CSD Script</source>
         <translation>CSD 스크립트</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="105"/>
         <source>User Cert</source>
         <translation>사용자 인증서</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="108"/>
         <source>Private Key</source>
         <translation>개인키</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="111"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>키 암호화에 FSID 사용</translation>
     </message>
@@ -3442,7 +3452,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
         <source>File error</source>
-        <translation type="unfinished"/>
+        <translation>파일 오류</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="357"/>
@@ -4780,7 +4790,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="50"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>현재 이 기능을 사용할 수 없습니다. 먼저 시스템을 활성화하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
@@ -4864,12 +4874,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>After signing in, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation type="unfinished"/>
+        <translation>로그인한 후에는 클라우드 동기화, 앱 스토어, 이메일 클라이언트, 브라우저 및 기타 클라우드 서비스를 사용할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Union ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Union ID 로그인</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
@@ -4903,7 +4913,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="28"/>
         <source>Back Up</source>
-        <translation type="unfinished"/>
+        <translation>백업</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="35"/>
@@ -4956,7 +4966,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="103"/>
         <source>Restore Now</source>
-        <translation type="unfinished"/>
+        <translation>지금 복원</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="122"/>
@@ -4971,7 +4981,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="142"/>
         <source>Backup directory</source>
-        <translation type="unfinished"/>
+        <translation>백업 디렉토리</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="150"/>
@@ -5184,12 +5194,13 @@
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="59"/>
         <source>After signing in, all system features related with Union ID will be available.
 Visit User Center and manage your account there.</source>
-        <translation type="unfinished"/>
+        <translation>로그인하면 Union ID와 관련된 모든 시스템 기능을 사용할 수 있습니다.
+사용자 센터를 방문하여 계정을 관리하십시오.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="69"/>
         <source>Union ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Union ID 로그인</translation>
     </message>
 </context>
 <context>
@@ -5213,17 +5224,17 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="62"/>
         <source>Learn about %1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 및 %2에 대해 알아보기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="63"/>
         <source>Union ID Service Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Union ID 서비스 계약</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="64"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>개인정보 보호정책</translation>
     </message>
 </context>
 <context>
@@ -5399,7 +5410,7 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>새로운 시스템 버전 및 사용 가능한 %n개의 응용프로그램 업데이트</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>

@@ -166,6 +166,16 @@
         <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="164"/>
+        <source>Use letters, numbers and underlines only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="169"/>
+        <source>No more than 15 characters</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
@@ -271,23 +281,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="131"/>
         <source>Done</source>
         <translation>සම්පූර්ණයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="160"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
         <source>Scan Again</source>
         <translation>නැවතත් ස්කෑන් කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
         <source>Scan Suspended</source>
         <translation>ස්කෑන් අත්හිටුවීම</translation>
     </message>
@@ -523,43 +533,43 @@
         <translation>වැරදි මුරපදයකි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="283"/>
         <source>Passwords do not match</source>
         <translation>මුරපද නොගැලපේ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="293"/>
         <source>Password cannot be empty</source>
         <translation>මුරපදය හිස් විය නොහැක</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="297"/>
         <source>The password must have at least %1 characters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
         <source>Password must be no more than %1 characters</source>
         <translation>මුරපදය අක්ෂර %1 ට නොඅඩු විය යුතුය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="305"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>මුරපදයේ ඉංග්‍රීසි අකුරු (සිද්ධි සංවේදී), අංක හෝ විශේෂ සංකේත (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) අඩංගු විය යුතුය.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
         <source>New password should differ from the current one</source>
         <translation>නව මුරපදය වත්මන් එකට වඩා වෙනස් විය යුතුය</translation>
     </message>
@@ -632,34 +642,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="83"/>
         <source>Updating...</source>
         <translation>යාවත්කාලීන වෙමින් ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
         <source>Startup Delay</source>
         <translation>ආරම්භක ප්‍රමාදය</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Theme</source>
         <translation>තේමාව</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>පළමු ඇරඹුම ලෙස සැකසීමට ඇරඹුම් මෙනුවේ ඇති විකල්පය ක්ලික් කරන්න, පසුබිම වෙනස් කිරීම සඳහා පින්තූරයක් ඇද අතහරින්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>ඇරඹුම් මෙනුවේ දිස්වන ආකාරය නිරීක්ෂණයට තේමාව මාරු කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="131"/>
         <source>Boot Menu</source>
         <translation>ඇරඹුම් මෙනුව</translation>
     </message>
@@ -3157,47 +3167,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Gateway</source>
         <translation>දොරටුව</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="90"/>
         <source>Required</source>
         <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="93"/>
         <source>CA Cert</source>
         <translation>CA සහතිකය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="96"/>
         <source>Proxy</source>
         <translation>ප්‍රොක්සි</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>ඩෙස්ක්ටොප් ට්‍රෝජන් වලින් ආරක්ෂා කිරීමට Cisco හට ඉඩදෙන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="102"/>
         <source>CSD Script</source>
         <translation>CSD ස්ක්‍රිප්ට්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="105"/>
         <source>User Cert</source>
         <translation>පරිශීලක සහතිකය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="108"/>
         <source>Private Key</source>
         <translation>පුද්ගලික යතුරු කේතය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="111"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>යතුරු මුරපදය සඳහා FSID භාවිතා කරන්න</translation>
     </message>
