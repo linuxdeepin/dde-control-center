@@ -396,12 +396,12 @@ void WirelessPage::updateLayout(bool enabled)
 
 void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::DeviceStatus stat)
 {
-    const bool unavailable = stat <= NetworkDevice::Unavailable;
+    bool unavailable = stat <= NetworkDevice::Unavailable;
     if (m_preWifiStatus == Wifi_Unknown) {
         m_preWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
     }
     WifiStatus curWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
-    if (curWifiStatus != m_preWifiStatus) {
+    if (curWifiStatus != m_preWifiStatus && stat > NetworkDevice::Disconnected) {
         m_switch->setChecked(!unavailable);
         onNetworkAdapterChanged(!unavailable);
         m_preWifiStatus = curWifiStatus;
