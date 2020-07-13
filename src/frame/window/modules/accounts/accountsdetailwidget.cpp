@@ -411,6 +411,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     } else {
         deleteAccount->setEnabled(!isOnline);
     }
+    connect(m_curUser, &User::onlineChanged, deleteAccount, [ = ](const bool online) {
+        deleteAccount->setEnabled(!online);
+    });
 
     connect(m_curUser, &User::onlineChanged, this, [=] (const bool online) {
         deleteAccount->setDisabled(online);

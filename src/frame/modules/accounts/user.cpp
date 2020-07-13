@@ -102,9 +102,10 @@ void User::setRepeatPassword(const QString &repeatPassword)
 
 void User::setOnline(bool online)
 {
-    m_online = online;
-
-    Q_EMIT onlineChanged(online);
+    if (m_online != online) {
+        m_online = online;
+        Q_EMIT onlineChanged(online);
+    }
 }
 
 bool User::nopasswdLogin() const
