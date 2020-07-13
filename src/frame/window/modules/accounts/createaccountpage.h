@@ -83,11 +83,11 @@ public Q_SLOTS:
 protected:
     void resizeEvent(QResizeEvent *e) override; 
     /**
-     * @brief keyReleaseEvent
+     * @brief keyPressEvent
      * @param e
      * @arg 为了捕获回车按键进行添加
      */
-    void keyReleaseEvent(QKeyEvent *e) override;
+    void keyPressEvent(QKeyEvent *e) override;
 
 private:
     dcc::accounts::User *m_newUser;

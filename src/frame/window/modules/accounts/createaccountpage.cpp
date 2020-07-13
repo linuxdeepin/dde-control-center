@@ -98,7 +98,7 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
 
 }
 
-void CreateAccountPage::keyReleaseEvent(QKeyEvent *e)
+void CreateAccountPage::keyPressEvent(QKeyEvent *e)
 {
     //捕获回车事件，让其响应创建按钮的槽
     if (e->key() == Qt::Key_Enter || e->key() == Qt::Key_Return) {
