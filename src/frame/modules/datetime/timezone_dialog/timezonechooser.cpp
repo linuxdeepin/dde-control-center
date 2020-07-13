@@ -81,8 +81,8 @@ TimeZoneChooser::TimeZoneChooser()
     DPlatformWindowHandle handle(this);
     handle.setWindowRadius(18);
 
-    m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
-    m_blurEffect->setMaskColor(Qt::black);
+    m_blurEffect->setBlendMode(DBlurEffectWidget::InWindowBlend);
+    m_blurEffect->setMaskColor(Qt::gray);
 
 
     QHBoxLayout *wbLayout = new QHBoxLayout;
