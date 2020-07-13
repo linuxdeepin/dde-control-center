@@ -217,6 +217,7 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
 
 void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
 {
+    m_switch->setEnabled(true);
     m_switch->setChecked(bPower);
     m_tip->setVisible(!bPower);
     m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
@@ -231,13 +232,14 @@ void AdapterWidget::toggleSwitch(const bool checked)
 {
 //    onPowerStatus(checked);
     if (!checked) {
+        onPowerStatus(false, false);
         for (auto it : m_myDevices) {
             if (it->device()->connecting()) {
                 Q_EMIT requestDisconnectDevice(it->device());
             }
         }
     }
-
+    m_switch->setEnabled(false);
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
 }
 
