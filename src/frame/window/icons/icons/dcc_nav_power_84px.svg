@@ -1,50 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="84" viewBox="0 0 84 84">
-  <defs>
-    <linearGradient id="dcc_nav_power_84px-c" x1="50%" x2="50%" y1="0%" y2="96.884%">
-      <stop offset="0%" stop-color="#3F3F3F"/>
-      <stop offset="100%" stop-color="#5A5A5A"/>
-    </linearGradient>
-    <linearGradient id="dcc_nav_power_84px-d" x1="50%" x2="50%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#4F4F4F"/>
-      <stop offset="100%" stop-color="#434343"/>
-    </linearGradient>
-    <path id="dcc_nav_power_84px-b" d="M53,12 L52,12 L52,12 L52,8 C52,3.581722 48.418278,-8.11624501e-16 44,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,28 C5.41083001e-16,32.418278 3.581722,36 8,36 L44,36 C48.418278,36 52,32.418278 52,28 L52,24 L52,24 L53,24 C54.6568542,24 56,22.6568542 56,21 L56,15 C56,13.3431458 54.6568542,12 53,12 Z"/>
-    <filter id="dcc_nav_power_84px-a" width="153.6%" height="183.3%" x="-26.8%" y="-30.6%" filterUnits="objectBoundingBox">
-      <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
-      <feOffset dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
-      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
-      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
-      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.529411765   0 0 0 0 0.733333333   0 0 0 0 0  0 0 0 0.5 0"/>
-    </filter>
-    <linearGradient id="dcc_nav_power_84px-e" x1="50%" x2="50%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#ACACAC"/>
-      <stop offset="16.767%" stop-color="#E9E9E9"/>
-      <stop offset="56.689%" stop-color="#D6D6D6"/>
-      <stop offset="80.293%" stop-color="#B3B3B3"/>
-      <stop offset="94.123%" stop-color="#BDBDBD"/>
-      <stop offset="100%" stop-color="#616161"/>
-    </linearGradient>
-    <linearGradient id="dcc_nav_power_84px-f" x1="50%" x2="50%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#94DB00"/>
-      <stop offset="100%" stop-color="#5AB400"/>
-    </linearGradient>
-    <linearGradient id="dcc_nav_power_84px-g" x1="50%" x2="50%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#CCF20A"/>
-      <stop offset="100%" stop-color="#82D00E"/>
-    </linearGradient>
-    <linearGradient id="dcc_nav_power_84px-h" x1="50%" x2="50%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#FFF" stop-opacity=".62"/>
-      <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <g fill="none" fill-rule="evenodd" transform="translate(14 24)">
-    <g stroke-linejoin="round">
-      <use fill="#000" filter="url(#dcc_nav_power_84px-a)" xlink:href="#dcc_nav_power_84px-b"/>
-      <use fill="url(#dcc_nav_power_84px-c)" stroke="url(#dcc_nav_power_84px-d)" stroke-width="2" xlink:href="#dcc_nav_power_84px-b"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>dcc_nav_power_84px</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="96.8840318%" id="linearGradient-1">
+            <stop stop-color="#3F3F3F" offset="0%"></stop>
+            <stop stop-color="#5A5A5A" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#4F4F4F" offset="0%"></stop>
+            <stop stop-color="#434343" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#ACACAC" offset="0%"></stop>
+            <stop stop-color="#E9E9E9" offset="16.7667507%"></stop>
+            <stop stop-color="#D6D6D6" offset="56.6891104%"></stop>
+            <stop stop-color="#B3B3B3" offset="80.2928635%"></stop>
+            <stop stop-color="#BDBDBD" offset="94.1228367%"></stop>
+            <stop stop-color="#616161" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#94DB00" offset="0%"></stop>
+            <stop stop-color="#5AB400" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#CCF20A" offset="0%"></stop>
+            <stop stop-color="#82D00E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-6">
+            <stop stop-color="#FFFFFF" stop-opacity="0.620046422" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="dcc_nav_power_84px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="battery-060-symbolic" transform="translate(14.000000, 24.000000)">
+            <image id="位图" x="-4" y="-2" width="64" height="44" xlink:href="data:image/png;base64,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"></image>
+            <path d="M53,12 L52,12 L52,12 L52,8 C52,3.581722 48.418278,-8.11624501e-16 44,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,28 C-1.42102658e-15,32.418278 3.581722,36 8,36 L44,36 C48.418278,36 52,32.418278 52,28 L52,24 L52,24 L53,24 C54.6568542,24 56,22.6568542 56,21 L56,15 C56,13.3431458 54.6568542,12 53,12 Z" id="Stroke-238" stroke="url(#linearGradient-2)" stroke-width="2" fill="url(#linearGradient-1)" stroke-linejoin="round"></path>
+            <path d="M53,11 L54,11 C55.6568542,11 57,12.3431458 57,14 L57,22 C57,23.6568542 55.6568542,25 54,25 L53,25 L53,25 L53,11 Z" id="Rectangle-11" fill="url(#linearGradient-3)"></path>
+            <path d="M8,35 L35,35 L35,35 L35,1 L8,1 C4.13400675,1 1,4.13400675 1,8 L1,28 C1,31.8659932 4.13400675,35 8,35 Z" id="path-1" fill="url(#linearGradient-4)"></path>
+            <path d="M34,2 L34,34 L8,34 C6.34314575,34 4.84314575,33.3284271 3.75735931,32.2426407 C2.67157288,31.1568542 2,29.6568542 2,28 L2,28 L2,8 C2,6.34314575 2.67157288,4.84314575 3.75735931,3.75735931 C4.84314575,2.67157288 6.34314575,2 8,2 L8,2 L34,2 Z" id="Shape" stroke="url(#linearGradient-5)" stroke-width="2"></path>
+            <path d="M8,1 L44,1 C47.8659932,1 51,4.13400675 51,8 L51,18 L51,18 L1,18 L1,8 C1,4.13400675 4.13400675,1 8,1 Z" id="Rectangle-10" fill-opacity="0.67" fill="url(#linearGradient-6)"></path>
+        </g>
     </g>
-    <path fill="url(#dcc_nav_power_84px-e)" d="M53,11 L54,11 C55.6568542,11 57,12.3431458 57,14 L57,22 C57,23.6568542 55.6568542,25 54,25 L53,25 L53,25 L53,11 Z"/>
-    <path fill="url(#dcc_nav_power_84px-f)" d="M8,35 L35,35 L35,35 L35,1 L8,1 C4.13400675,1 1,4.13400675 1,8 L1,28 C1,31.8659932 4.13400675,35 8,35 Z"/>
-    <path stroke="url(#dcc_nav_power_84px-g)" stroke-width="2" d="M34,34 L34,2 L8,2 C4.6862915,2 2,4.6862915 2,8 L2,28 C2,31.3137085 4.6862915,34 8,34 L34,34 Z"/>
-    <path fill="url(#dcc_nav_power_84px-h)" fill-opacity=".67" d="M8,1 L44,1 C47.8659932,1 51,4.13400675 51,8 L51,18 L51,18 L1,18 L1,8 C1,4.13400675 4.13400675,1 8,1 Z"/>
-  </g>
 </svg>
