@@ -1,73 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" height="42" viewBox="0 0 42 42">
-  <defs>
-    <linearGradient id="dcc_nav_defapp_42px-c" x1="50%" x2="50%" y1="1.09%" y2="100%">
-      <stop offset="0%" stop-color="#FFF"/>
-      <stop offset="100%" stop-color="#ECF4FD"/>
-    </linearGradient>
-    <rect id="dcc_nav_defapp_42px-b" width="22" height="18" x="4" y="0" rx="1.25"/>
-    <filter id="dcc_nav_defapp_42px-a" width="163.6%" height="177.8%" x="-31.8%" y="-27.8%" filterUnits="objectBoundingBox">
-      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
-      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
-      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.00392156863   0 0 0 0 0.415686275   0 0 0 0 0.756862745  0 0 0 0.2 0"/>
-    </filter>
-    <linearGradient id="dcc_nav_defapp_42px-f" x1="50%" x2="50%" y1="1.09%" y2="100%">
-      <stop offset="0%" stop-color="#FFF"/>
-      <stop offset="100%" stop-color="#ECF4FD"/>
-    </linearGradient>
-    <rect id="dcc_nav_defapp_42px-e" width="13" height="12" x="19" y="8" rx="1.25"/>
-    <filter id="dcc_nav_defapp_42px-d" width="207.7%" height="216.7%" x="-53.8%" y="-41.7%" filterUnits="objectBoundingBox">
-      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
-      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
-      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.00392156863   0 0 0 0 0.415686275   0 0 0 0 0.756862745  0 0 0 0.2 0"/>
-    </filter>
-    <linearGradient id="dcc_nav_defapp_42px-i" x1="50%" x2="50%" y1="1.09%" y2="99.212%">
-      <stop offset="0%" stop-color="#FFF"/>
-      <stop offset="100%" stop-color="#D3E7FB"/>
-    </linearGradient>
-    <linearGradient id="dcc_nav_defapp_42px-j" x1="50%" x2="50%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#FFF" stop-opacity=".75"/>
-      <stop offset="100%" stop-color="#FFF"/>
-    </linearGradient>
-    <rect id="dcc_nav_defapp_42px-h" width="16" height="15" x="0" y="10.5" rx="1.5"/>
-    <filter id="dcc_nav_defapp_42px-g" width="193.8%" height="200%" x="-46.9%" y="-36.7%" filterUnits="objectBoundingBox">
-      <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1"/>
-      <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
-      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
-      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
-      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0053250477   0 0 0 0 0.41702088   0 0 0 0 0.755293252  0 0 0 0.4 0"/>
-    </filter>
-    <linearGradient id="dcc_nav_defapp_42px-m" x1="50%" x2="50%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#00B7FF"/>
-      <stop offset="100%" stop-color="#0081FF"/>
-    </linearGradient>
-    <path id="dcc_nav_defapp_42px-l" d="M5,19.7813253 L7.70208507,22.3188276 C7.80273323,22.4133453 7.96094644,22.4083756 8.05546417,22.3077275 C8.05871258,22.3042684 8.06186184,22.3007175 8.06490813,22.2970791 L12.5,17 L12.5,17"/>
-    <filter id="dcc_nav_defapp_42px-k" width="231%" height="269%" x="-65.5%" y="-71.1%" filterUnits="objectBoundingBox">
-      <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
-      <feOffset dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
-      <feMorphology in="SourceAlpha" radius="1" result="shadowInner"/>
-      <feOffset dy="1" in="shadowInner" result="shadowInner"/>
-      <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"/>
-      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1"/>
-      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0.505882353   0 0 0 0 1  0 0 0 0.5 0"/>
-    </filter>
-    <linearGradient id="dcc_nav_defapp_42px-n" x1="50%" x2="50%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#44BAFE"/>
-      <stop offset="100%" stop-color="#419EFF"/>
-    </linearGradient>
-  </defs>
-  <g fill="none" fill-rule="evenodd" transform="translate(6 8)">
-    <use fill="#000" filter="url(#dcc_nav_defapp_42px-a)" xlink:href="#dcc_nav_defapp_42px-b"/>
-    <use fill="url(#dcc_nav_defapp_42px-c)" xlink:href="#dcc_nav_defapp_42px-b"/>
-    <use fill="#000" filter="url(#dcc_nav_defapp_42px-d)" xlink:href="#dcc_nav_defapp_42px-e"/>
-    <use fill="url(#dcc_nav_defapp_42px-f)" xlink:href="#dcc_nav_defapp_42px-e"/>
-    <use fill="#000" filter="url(#dcc_nav_defapp_42px-g)" xlink:href="#dcc_nav_defapp_42px-h"/>
-    <use fill="url(#dcc_nav_defapp_42px-i)" stroke="url(#dcc_nav_defapp_42px-j)" xlink:href="#dcc_nav_defapp_42px-h"/>
-    <g stroke-linecap="round" stroke-linejoin="round">
-      <use fill="#000" filter="url(#dcc_nav_defapp_42px-k)" xlink:href="#dcc_nav_defapp_42px-l"/>
-      <use stroke="url(#dcc_nav_defapp_42px-m)" stroke-width="2" xlink:href="#dcc_nav_defapp_42px-l"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>dcc_nav_defapp_42px</title>
+    <defs>
+        <linearGradient x1="50%" y1="1.09016263%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#ECF4FD" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="1.09016263%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#ECF4FD" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="1.09016263%" x2="50%" y2="99.2116034%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#D3E7FB" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#FFFFFF" stop-opacity="0.75" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#00B7FF" offset="0%"></stop>
+            <stop stop-color="#0081FF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M5,20.7813253 L7.70208507,23.3188276 C7.80273323,23.4133453 7.96094644,23.4083756 8.05546417,23.3077275 C8.05871258,23.3042684 8.06186184,23.3007175 8.06490813,23.2970791 L12.5,18 L12.5,18" id="path-6"></path>
+        <filter x="-38.8%" y="-52.9%" width="177.6%" height="196.3%" filterUnits="objectBoundingBox" id="filter-7">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.505882353   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-8">
+            <stop stop-color="#44BAFE" offset="0%"></stop>
+            <stop stop-color="#419EFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="dcc_nav_defapp_42px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" transform="translate(6.000000, 7.000000)">
+            <image id="位图" x="2" y="0" width="26" height="22" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAWCAYAAADeiIy1AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGqADAAQAAAABAAAAFgAAAACJOVsLAAABO0lEQVRIDe2Wv2rDMBDGv5PtFEJSyFa6BEqmbnmPrM4jtFP7ClVfoa/hNXtfoNCtS0sh0KFLKTQhkD/y9U4ekkWYJCKTNdiyfP590ndCZ4I2ZvL3RxCuC+nn/vHwSwG85YwHsGcQcepFxoVB78rgcuIwtu5wgZ0vrTW4HaX4/SxFo6xWc/d+BstmJyxOV5nKFscM1C73lcGSqEZuylS2aBifk003iSyxxSlb8i52SeLbs2ozbF/H63l2jvh5CUyxEQoYUz/cWFfvUSCisS5gTP3wKa2TIrXoMuxzWj+vPSOUqWwUctZpJUxnDj9JDzcv2Z6ocLiylKls0SBfYe8/WiinHfB5G8m6BUfHneYJM1y2Av0tYPpzPA1WlV3frxtcDOdSpJZYSv04tmyoXboS019D2RhIddV2gp+Tf0ldbpwGmhbuAAAAAElFTkSuQmCC"></image>
+            <rect id="矩形" fill="url(#linearGradient-1)" x="4" y="1" width="22" height="18" rx="1.25"></rect>
+            <image id="位图" x="17" y="8" width="17" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAYAAADwMZRfAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAEaADAAQAAAABAAAAEAAAAACz87qxAAABE0lEQVQ4Ee2Uv1LCQBDGv7scRvEPvZ21JVUeJA9CRyd0Pgt5CDtTUUpLZ6+oQyBk+fYOLAjj3KR2J5Ncdu63t7vz7RmoiRhMYfBWGOTq8C9dnLEC4IPHXPAEgTESAswkweTF+WBnsJZLD9X9yukaE7EYvV5FBzhGVFg58taX0GtcSOu4I+KrZSjHFljkrN9c2gisvUU58gGuVqyrgx24bhmcnPcf5KQh/A09SW+lk9iUo3FWZgke7vteK8/DzyjRqVrH8zvIusHy/YczQNl/lCnq+gbb3TVzc0DazvnXUwENavSSbzj3hUFWGV9GQbQsL7yMVYV/ic+Xzgy2tkaWbTjwh5kRabDIKs6BOmmRV0EeroI9kbFsxLtFfS4AAAAASUVORK5CYII="></image>
+            <rect id="矩形备份" fill="url(#linearGradient-2)" x="19" y="9" width="13" height="12" rx="1.25"></rect>
+            <image id="位图" x="-2" y="9" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAFKADAAQAAAABAAAAFAAAAACy3fD9AAABOklEQVQ4Ee2VzUrEMBCAJz/tdmkpXooevS94762Cr6Cv4Sv07pso+waCvfW+sHh0L6JQBVkNbLPJxKRQqSJ0afciOCEkQzJfZhJmQqAjxhjSUXeeEkJMu5k4yMUN0LIsfWGblpoBxO16z7gG5jMdylCmaSqvzwEZITmdPyyma2ZiXUuOEHiowEM0vLdTzlAh23jT4OnxFUV5qHgBBRUffpgcybfV1dmmx6Vfl4/zu+DleRsXUVHTCiqqPeav8tNBMHeCs3UMx6IAMwCq7DhSGsYMGpBR9aDX7brQMsZ71qXa+T/wx4UMUP/IHRI++aoWA6JsTFqGDXkJgLYmjJWGsQSaQIJsq6VL8KFMZ+sYjsUzyPA+WohK1Afh5a2tjj4FRXdLRY6GGImVCEkUTd4zOMG9F9hvnuzjC/gElhOpUdcSW9YAAAAASUVORK5CYII="></image>
+            <rect id="矩形备份-2" stroke="url(#linearGradient-4)" fill="url(#linearGradient-3)" x="0" y="11.5" width="16" height="15" rx="1.5"></rect>
+            <g id="Path-3" stroke-linecap="round" stroke-linejoin="round">
+                <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+                <use stroke="url(#linearGradient-5)" stroke-width="2" xlink:href="#path-6"></use>
+            </g>
+            <path d="M1.75,12 L14.25,12 C14.9403559,12 15.5,12.5596441 15.5,13.25 L15.5,16 L15.5,16 L0.5,16 L0.5,13.25 C0.5,12.5596441 1.05964406,12 1.75,12 Z" id="矩形备份-3" fill="url(#linearGradient-8)"></path>
+            <path d="M20.5,9 L30.5,9 C31.3284271,9 32,9.67157288 32,10.5 L32,13 L32,13 L19,13 L19,10.5 C19,9.67157288 19.6715729,9 20.5,9 Z" id="矩形备份-4" fill-opacity="0.5" fill="#8EC6FF"></path>
+            <path d="M6,1 L24,1 C25.1045695,1 26,1.8954305 26,3 L26,6 L26,6 L4,6 L4,3 C4,1.8954305 4.8954305,1 6,1 Z" id="矩形备份-5" fill-opacity="0.5" fill="#B1D7FE"></path>
+        </g>
     </g>
-    <path fill="url(#dcc_nav_defapp_42px-n)" d="M1.75,11 L14.25,11 C14.9403559,11 15.5,11.5596441 15.5,12.25 L15.5,15 L15.5,15 L0.5,15 L0.5,12.25 C0.5,11.5596441 1.05964406,11 1.75,11 Z"/>
-    <path fill="#8EC6FF" fill-opacity=".5" d="M20.5,8 L30.5,8 C31.3284271,8 32,8.67157288 32,9.5 L32,12 L32,12 L19,12 L19,9.5 C19,8.67157288 19.6715729,8 20.5,8 Z"/>
-    <path fill="#B1D7FE" fill-opacity=".5" d="M6,0 L24,0 C25.1045695,-2.02906125e-16 26,0.8954305 26,2 L26,5 L26,5 L4,5 L4,2 C4,0.8954305 4.8954305,2.02906125e-16 6,0 Z"/>
-  </g>
 </svg>

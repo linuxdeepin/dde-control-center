@@ -1,57 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="84" viewBox="0 0 84 84">
-  <defs>
-    <linearGradient id="nav_notifi_84px-c" x1="50%" x2="50%" y1="1.09%" y2="100%">
-      <stop offset="0%" stop-color="#FFF"/>
-      <stop offset="100%" stop-color="#ECF4FD"/>
-    </linearGradient>
-    <rect id="nav_notifi_84px-b" width="44" height="37" x="0" y="0" rx="2.5"/>
-    <filter id="nav_notifi_84px-a" width="163.6%" height="175.7%" x="-31.8%" y="-27%" filterUnits="objectBoundingBox">
-      <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
-      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
-      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.00392156863   0 0 0 0 0.415686275   0 0 0 0 0.756862745  0 0 0 0.2 0"/>
-    </filter>
-    <linearGradient id="nav_notifi_84px-f" x1="50%" x2="50%" y1="1.09%" y2="99.212%">
-      <stop offset="0%" stop-color="#FFF"/>
-      <stop offset="100%" stop-color="#D3E7FB"/>
-    </linearGradient>
-    <linearGradient id="nav_notifi_84px-g" x1="50%" x2="50%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#FFF"/>
-      <stop offset="100%" stop-color="#FFF"/>
-    </linearGradient>
-    <rect id="nav_notifi_84px-e" width="38" height="36" x="0" y="0" rx="4"/>
-    <filter id="nav_notifi_84px-d" width="192.1%" height="197.2%" x="-46.1%" y="-34.7%" filterUnits="objectBoundingBox">
-      <feOffset dy="5" in="SourceAlpha" result="shadowOffsetOuter1"/>
-      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="5"/>
-      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
-      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0053250477   0 0 0 0 0.41702088   0 0 0 0 0.755293252  0 0 0 0.4 0"/>
-    </filter>
-    <linearGradient id="nav_notifi_84px-h" x1="50%" x2="50%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#44BAFE"/>
-      <stop offset="100%" stop-color="#419EFF"/>
-    </linearGradient>
-    <linearGradient id="nav_notifi_84px-i" x1="50%" x2="50%" y1="1.09%" y2="65.008%">
-      <stop offset="0%" stop-color="#F92D78"/>
-      <stop offset="100%" stop-color="#E01746"/>
-    </linearGradient>
-    <circle id="nav_notifi_84px-j" cx="62" cy="32" r="7"/>
-    <filter id="nav_notifi_84px-k" width="107.1%" height="107.1%" x="-3.6%" y="-3.6%" filterUnits="objectBoundingBox">
-      <feOffset dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
-      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
-      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.646417942   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"/>
-    </filter>
-  </defs>
-  <g fill="none" fill-rule="evenodd">
-    <g transform="translate(15 18)">
-      <use fill="#000" filter="url(#nav_notifi_84px-a)" xlink:href="#nav_notifi_84px-b"/>
-      <use fill="url(#nav_notifi_84px-c)" xlink:href="#nav_notifi_84px-b"/>
-      <path fill="#B1D7FE" fill-opacity=".5" d="M4,0 L40,0 C42.209139,-4.05812251e-16 44,1.790861 44,4 L44,10 L44,10 L0,10 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>dcc_nav_notification_84px</title>
+    <defs>
+        <linearGradient x1="50%" y1="1.09016263%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#ECF4FD" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="1.09016263%" x2="50%" y2="99.2116034%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#D3E7FB" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#44BAFE" offset="0%"></stop>
+            <stop stop-color="#419EFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="1.09016263%" x2="50%" y2="65.0083972%" id="linearGradient-5">
+            <stop stop-color="#F92D78" offset="0%"></stop>
+            <stop stop-color="#E01746" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-6" cx="62" cy="32" r="7"></circle>
+        <filter x="-3.6%" y="-3.6%" width="107.1%" height="107.1%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.646417942   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="dcc_nav_notification_84px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <image id="位图" x="12" y="17" width="50" height="43" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAMqADAAQAAAABAAAAKwAAAAAYO1pYAAACcUlEQVRoBe2aQW7TQBiFn8eJ42JKqSqxQGzZsA2b7lhwBa4Ax2g5RnuEcAUW7CohsmHBhi1igVQVCKGxY3v430zshMBUdNOx0YzkZvzbzXzvf+NWykuEzaF11J6+xHreFjswOYJuKaJoPTdFCuBxrBUmk9i8bopqf9Pz5G+MK07bdZ5YBxSOUOEPpZ4FbC9veWMp18KryauMExTxeSoX3qDzIijKNFpYyUx2EaZYxyM5yYoB8KQ25734IaxkJrsMK+T1VGFYD3Ac9UcIWclMdiOE1oy+KBQZ91y/BpnJLhqsI3go++5yNe+RFsMs7DIs/MGnCEXczf8bV/WVzGRvhVx1c0+u9W87ORobhDga460cHPHWesfCwRFHY7yVgyPeWu9YODjiaIy3cnDEW+sdCwdHHI3xVg6OeGu9Y+HgiKMx3srBEW+tdywcHHE0xlv5P3Vkovvz+e8Wq3Xk/IFGUmm8fZ962xvXXZisZCa7jNXW+gjonRqL2R62lF73/W/kfjKSlcwQdhk2O3wxHeDuIsWPJEM9T7G3e4EL/MTp4+WNgP3rIs/fDbGPW/g224fKFrhdzPE1XeBkXFohr8SZs7NE3m/HHHkur2qIKFaoom58Sh9rDV2JA/USo9GlcNrj8LDAM0jiw/FBAsV5UuLOeY5qVwpZJfcNxTCFVEUoC79iBonGsuazIEIy2SVlgXiW4/tBadjlggVsUl2Gi8zlGGkxDWKQ0pXchA82n4lkXmGpStP4++OqSXXXQkSVSUgZLjKXY6TFJGsVpPCy12H+OsmDnd+r8XRcGyeaLw9Iyvv7lqEzzWC22MXRwJNt4/sAvwCbrtRp9NqioQAAAABJRU5ErkJggg=="></image>
+        <g id="编组-2" transform="translate(15.000000, 18.000000)">
+            <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="0" width="44" height="37" rx="2.5"></rect>
+            <path d="M4,0 L40,0 C42.209139,-4.05812251e-16 44,1.790861 44,4 L44,10 L44,10 L0,10 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" id="矩形备份-5" fill-opacity="0.5" fill="#B1D7FE"></path>
+        </g>
+        <image id="位图" x="22" y="28" width="46" height="44" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAsCAYAAAAacYo8AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAALqADAAQAAAABAAAALAAAAAAoUndkAAADzElEQVRYCe2ZPW/bRhjHn7sjKYtSUyCCA9jxEBSd5KVpgGxBFKBz0UX9EEWAfgRRnyBLl45dq7EZO8hwpyJBgQLWkCGvagNUsYPUlmiS95L7H6O4NMqRNgfewLc7HX/318PngOfP6D/NGMPWt+MxueuD/sSeh+vHF3Se0O5saPCy0YjcGdeMsbNrPEAD9Hg8Zgf9PlvMhmxBM76kf7h812J6echoeysfWPXx79fEOz3jfZqYDl3Tm9TXm/2J2Z3NzGg0Mmt47wya2JTu8vn+jlglD8XWra1s+HqQRg+Yrpr1/+aPIsN/2Xosnjx+GMwPb6pFb1PRmLQV2CnP1koD+jmRd7Ly/fvhr8soii4F+PwiLAf/YfVVpxtm2Q0iOaA9DeU5BiI85oex+PewHXTD61ldoMEGFjCBDYxgxXNhY4bPFt/xv/Sz4FTxdj98u3o+/akWagMQ7YvBN/QqNl3TUip897V6sTcmq/iI8CGmgnuKgtY0uifz4fU5gglsYAQrmF2oIHuotCOMlwX1wS2SgA2MYEUPR55GyjM84CYll2WKP6nHHdjACFYwW/ohIU+bZcINk2419UAtUoANjG5Pscw5KDaXLga2iqNrdWfZwPhhIywq7GUft/xaMQPmHFsRvHa05UANeLk21fQ0ileja/msjeLl2lTT0yheja7lszaKl2tTTU+jeDW6ls/aKF6uTTU9jeLV6Fo+a6N4uTbV9DSKV6Nr+axFxaX/sXBe/pNL6jnHloPbYjqdACih3eigdmW4nCnJGcFqmwWfOAeAdVqaGU+/PI6vuJ4aHcAENjDCrXDM8FpgWzCdahaQPE3j67d+fOTXhRssYAIbGMEKZhcq8FpEsFRM+ikzWv85i78M7/+2fSN6tnFZC8C7wQAWMIENjGAFk63OjmmTRvqNmsuM0kQzb2Wk8lNPfz5/86otvt/3rbMlSOcuXOUL4dZlY0zZd2ckTMwkO2HcWwnLFigtYWaB2XlA304m/I/9rndEV1uJikMpgo4xMjTCbFgzzicmOElVzEBVrcATmozS1hnMmGKnzArpqXTZEu3VVTpKbt45kT8Ph9rVw2HFLXp3laQ4tV4LsUxp5bcSw7PA1aVZxsnnF1MQlZlxH6KLaRsemUoDv316pRenO9RWu7PfXcr24BvCgoMVN6WpnFPPHHefKmtbJM6l2LAFf5ZcjNofgpcZm+HshyjCY4Xw+CT5TO7QXA1oYB23gfM6neJn8Hv64E7fWINWWa8lW7Zh0JI1aI8uyaDdzg3a22uDNofG+gp/PzzPdejW3RJ/Dyix6eKw9ZdvAAAAAElFTkSuQmCC"></image>
+        <g id="编组-4" transform="translate(26.000000, 30.000000)">
+            <rect id="矩形备份-2" stroke="url(#linearGradient-3)" fill="url(#linearGradient-2)" x="0.5" y="0.5" width="37" height="35" rx="4"></rect>
+            <path d="M4,1 L34,1 C35.6568542,1 37,2.34314575 37,4 L37,11 L37,11 L1,11 L1,4 C1,2.34314575 2.34314575,1 4,1 Z" id="矩形备份-3" fill="url(#linearGradient-4)"></path>
+        </g>
+        <g id="椭圆形">
+            <use fill="url(#linearGradient-5)" fill-rule="evenodd" xlink:href="#path-6"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+        </g>
     </g>
-    <g transform="translate(26 30)">
-      <use fill="#000" filter="url(#nav_notifi_84px-d)" xlink:href="#nav_notifi_84px-e"/>
-      <rect width="37" height="35" x=".5" y=".5" fill="url(#nav_notifi_84px-f)" stroke="url(#nav_notifi_84px-g)" stroke-linejoin="square" rx="4"/>
-      <path fill="url(#nav_notifi_84px-h)" d="M4,1 L34,1 C35.6568542,1 37,2.34314575 37,4 L37,11 L37,11 L1,11 L1,4 C1,2.34314575 2.34314575,1 4,1 Z"/>
-    </g>
-    <use fill="url(#nav_notifi_84px-i)" xlink:href="#nav_notifi_84px-j"/>
-    <use fill="#000" filter="url(#nav_notifi_84px-k)" xlink:href="#nav_notifi_84px-j"/>
-  </g>
 </svg>
