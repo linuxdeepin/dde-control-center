@@ -1,18 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" height="42" viewBox="0 0 42 42">
-  <defs>
-    <linearGradient id="dcc_nav_cloudsync_42px-c" x1="50%" x2="50%" y1="0%" y2="96.184%">
-      <stop offset="0%" stop-color="#4BDEFA"/>
-      <stop offset="100%" stop-color="#3978FF"/>
-    </linearGradient>
-    <path id="dcc_nav_cloudsync_42px-b" d="M23.6,10 C28.3384976,10 32.2751528,13.3568045 33.0583355,17.7710419 C35.9408039,18.793681 38,21.4950422 38,24.6666667 C38,28.7167548 34.6421356,32 30.5,32 C27.9041085,32 15.5044802,32 12.5,32 C8.35786438,32 5,28.7167548 5,24.6666667 C5,20.6165785 8.35786438,17.3333333 12.5,17.3333333 C13.0810624,17.3333333 13.6466913,17.3979434 14.1897822,17.5202169 C15.0749551,13.2302698 18.9516691,10 23.6,10 Z"/>
-    <filter id="dcc_nav_cloudsync_42px-a" width="142.4%" height="163.6%" x="-21.2%" y="-22.7%" filterUnits="objectBoundingBox">
-      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
-      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
-      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.196078431   0 0 0 0 0.458823529   0 0 0 0 0.996078431  0 0 0 0.5 0"/>
-    </filter>
-  </defs>
-  <g fill="none" fill-rule="evenodd">
-    <use fill="#000" filter="url(#dcc_nav_cloudsync_42px-a)" xlink:href="#dcc_nav_cloudsync_42px-b"/>
-    <use fill="url(#dcc_nav_cloudsync_42px-c)" xlink:href="#dcc_nav_cloudsync_42px-b"/>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>dcc_nav_cloudsync_42px</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="96.1840679%" id="linearGradient-1">
+            <stop stop-color="#4BDEFA" offset="0%"></stop>
+            <stop stop-color="#3978FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="dcc_nav_cloudsync_42px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <image id="位图" x="2" y="8" width="39" height="28" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAcCAYAAADiHqZbAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAJ6ADAAQAAAABAAAAHAAAAADoxUs/AAAEN0lEQVRYCcWYT28bRRTA38zsrnftdeLacUJNi0qUCjWWkErLnwMHV0JUHBBc4q/AAaknFHHz5tSCkBAfgC8QH3tAAqT4glAQVS84l0alUkKo4tqx47V3vfbMMC8mIbVs13ZjMrLW3tk37/32vZk380zgJZuUkqytASlAgdYvZsj8H9sUri4BPNoGO7EkH+89kIsHj8X6+ooghMhxzJFxhHtlHUfSPGxpr7rLemCXlK5kR8l0NnLAs9k83UqnGXMTetymR8+Sy9BeX4GRISeCQ2/dWiuwinstFLcXSAag6ThE9MKfvs84f5oezBjxcqX1bmKp/SJ5HDs2HILd/OyBpqVuWBY8CQrO6/5piGG/Hceh971c1Ah2g9uzl1ovAhwLrusxYNVq1b64GPN+uENaw2AGPXv/S3mBt3b927PfK0BnoMfpIAX9+nEeeVAJh2JCTAqGej8woRbQ2UgRchq+cD9b2DcyHIaklH5bZ27c3HQSh4MUjtKP4TRZtPWoWg1n84MZRoYrLudIx79icRtGnmPDQH/5mtRZOGa5T2Gg97R+CtDVGMJSeoUklXfdOJDSVklvtKMzn5hf7Wz2GzRBH22D3P/rwMxmf8YUxHtVPBfvYyj3leual5jVK66Q+tWF4OO/gReLeaJg9YJDzsRzCPLhFzJSNpozhlep9lu9J3DdlVhgAGkTBxaceRe/p91wLv/U/DxSF1y88c6CfzpJn8BlnA3NgzfDtBZv//ot8aYN1asfvdigz2jq5lwznyVHIT5aELgNocc6XpycBxiC/vgNaTQCjdV+A7PLoyY7hnOzvK0HbjL8+z14qRTR641x7z+NfXdYMxp2EbormCDlfe8gKqhuPLwbLY2r8KzlbzhyToNK8BHEXVpQ3qPCsJJtu3nWhibS50EbgpB1xIV5jDFmBjZMtE9OBDBk0KIFXodHQiXYotQtb5MASN9kPETH1B6peSVAtPTXygY52b5U7ghPzeIYirscoaMRFI/SBsiO8GFuDB1TE0UOnfkcuSi6kXOOW1IC08rUrI6g+F/7CeRBLppRF0EDj8h28N4qqMrk/BraRw7kQS6ay4Gcb5Z9punP1JE0dX21kToPPLSL9pEDeZCLYrmGBUdIL9UotPYYhNNvrcpr/1eI0Q7aQ7toHzmQB7lO5lh348+E2z7MqzrqMiFgqiJzl9H6XiO0Uy866eCsPJp2ikakdTnKRTSlAC5JCb7a3Xd0E/YtKDQLzi083/1XfeEbYLkHkDG9pheTxEpwCXFC+IwAFqLqIilXupTIxI0DEUwKClx9WlKyQ0agQqRXtsJWVR3U/I1chh8X3yeeQ3sIiCdgPGzuhxMmFRcsxnwzAFPTCFDBW8/JT8JIWUh2JAgD/A7npi/ogYdzzH76sNP7r0BfY8eQp4/pXuVJX9lJAK34FWlXQGK6SBbzshfqWOc/RiP1V0Xk4MUAAAAASUVORK5CYII="></image>
+        <path d="M23.7272727,9 C28.752952,9 32.9281924,12.6619686 33.7588407,17.4775003 C36.8160041,18.5931065 39,21.5400461 39,25 C39,29.418278 35.4386287,33 31.0454545,33 C28.2922363,33 15.1411153,33 11.9545455,33 C7.56137131,33 4,29.418278 4,25 C4,20.581722 7.56137131,17 11.9545455,17 C12.5708237,17 13.1707332,17.0704837 13.7467387,17.203873 C14.6855585,12.5239307 18.7972248,9 23.7272727,9 Z" id="Path" fill="url(#linearGradient-1)"></path>
+    </g>
 </svg>

@@ -67,8 +67,6 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
     setCheckable(false);
 
     m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), false);
-    m_secureAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_LockElement, nullptr, nullptr));
-    m_secureAction->setVisible(false);
     setActionList(Qt::Edge::LeftEdge, {m_secureAction});
 
     m_parentView = parent;
@@ -100,7 +98,7 @@ APItem::~APItem()
 void APItem::setSecure(bool isSecure)
 {
     if (m_secureAction) {
-        m_secureAction->setVisible(isSecure);
+        m_secureAction->setIcon(m_dStyleHelper.standardIcon(isSecure ? DStyle::SP_LockElement : DStyle::SP_CustomBase, nullptr, nullptr));
     }
     setData(isSecure, SecureRole);
 }
