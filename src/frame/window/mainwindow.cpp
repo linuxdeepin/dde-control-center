@@ -61,6 +61,7 @@
 #include <QLinearGradient>
 #include <QGSettings>
 #include <QScroller>
+#include <QScreen>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -72,8 +73,8 @@ const QString GSettinsWindowWidth = "window-width";
 const QString GSettinsWindowHeight = "window-height";
 const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
 
-const int WidgetMinimumWidget = 820;
-const int WidgetMinimumHeight = 634;
+static int WidgetMinimumWidget = 820;
+static int WidgetMinimumHeight = 634;
 
 //此处为带边距的宽度
 const int first_widget_min_width = 188;
@@ -212,6 +213,18 @@ MainWindow::MainWindow(QWidget *parent)
         m_moduleName = "";
         resetNavList(m_contentStack.isEmpty());
     });
+    int w = QGuiApplication::primaryScreen()->geometry().width();
+    int h = QGuiApplication::primaryScreen()->geometry().height();
+    if (w > 820) {
+        WidgetMinimumWidget = 820;
+    } else {
+        WidgetMinimumWidget = w;
+    }
+    if (h > 634) {
+        WidgetMinimumHeight = 634;
+    } else {
+        WidgetMinimumHeight = h;
+    }
     setMinimumSize(QSize(WidgetMinimumWidget, WidgetMinimumHeight));
     updateViewBackground();
 }
@@ -419,7 +432,7 @@ void MainWindow::loadModules()
 {
     QDir moduleDir(ModuleDirectory);
     if (!moduleDir.exists()) {
-        qWarning() << "module directory not exists";
+        qDebug() << "module directory not exists";
     }
 
     auto moduleList = moduleDir.entryInfoList();
@@ -433,7 +446,7 @@ void MainWindow::loadModules()
         QPluginLoader loader(path);
         QObject* instance = loader.instance();
         if (!instance) {
-            qWarning() << loader.errorString();
+            qDebug() << loader.errorString();
             continue;
         }
 
@@ -689,11 +702,11 @@ void MainWindow::resizeEvent(QResizeEvent *event)
             auto ite = m_contentStack.pop();
             pushTopWidget(ite.first, ite.second);
         } else {
-            qWarning() << "Not satisfied , can't back.";
+            qDebug() << "Not satisfied , can't back.";
         }
     } else if (four_widget_min_widget <= dstWidth) {
         if (!m_topWidget) {
-            qWarning() << " The top widget is nullptr.";
+            qDebug() << " The top widget is nullptr.";
             return;
         }
 
@@ -927,19 +940,19 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
             }
         }
     } else {
-        qWarning() << Q_FUNC_INFO << "Not found module!";
+        qDebug() << Q_FUNC_INFO << "Not found module!";
     }
 }
 
 void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type)
 {
     if (!inter)  {
-        qWarning() << Q_FUNC_INFO << " inter is nullptr";
+        qDebug() << Q_FUNC_INFO << " inter is nullptr";
         return;
     }
 
     if (!w)  {
-        qWarning() << Q_FUNC_INFO << " widget is nullptr";
+        qDebug() << Q_FUNC_INFO << " widget is nullptr";
         return;
     }
 
@@ -1072,7 +1085,7 @@ void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *cons
         popAllWidgets(2);//move fourth widget(m_navView not in it , other level > 2)
         break;
     default:
-        qWarning() << Q_FUNC_INFO << " error widget content conut : " << contentCount;
+        qDebug() << Q_FUNC_INFO << " error widget content conut : " << contentCount;
         return;
     }
 

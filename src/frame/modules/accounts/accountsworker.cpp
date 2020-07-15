@@ -95,7 +95,7 @@ void AccountsWorker::getAllGroupsResult(QDBusPendingCallWatcher *watch)
     if (!watch->isError()) {
         m_userModel->setAllGroups(reply.value());
     } else {
-        qWarning() << "getAllGroupsResult error." << watch->error();
+        qDebug() << "getAllGroupsResult error." << watch->error();
     }
     watch->deleteLater();
 }
@@ -114,7 +114,7 @@ void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch)
     if (!watch->isError()) {
         m_userModel->setPresetGroups(reply.value());
     } else {
-        qWarning() << "getPresetGroupsResult error." << watch->error();
+        qDebug() << "getPresetGroupsResult error." << watch->error();
     }
     watch->deleteLater();
 }

@@ -206,7 +206,7 @@ void ScalingPage::addSlider(int monitorID)
     connect(moni, &Monitor::currentModeChanged, this, [ = ](const Resolution &r) {
         auto fscaleList = getScaleList(r);
         if (fscaleList.size() < slider->value()) {
-            qWarning() << "分辨率被设置，当前缩放会使屏幕过小，大部分窗口将无法被完整显示！";
+            qDebug() << "分辨率被设置，当前缩放会使屏幕过小，大部分窗口将无法被完整显示！";
         } else {
             auto tv = slider->value();
             slider->blockSignals(true);
@@ -230,7 +230,7 @@ void ScalingPage::onResolutionChanged()
 
     auto tslider = m_slider->slider();
     if (fscaleList.size() < tslider->value()) {
-        qWarning() << "分辨率被设置，当前缩放会使屏幕过小，大部分窗口将无法被完整显示！";
+        qDebug() << "分辨率被设置，当前缩放会使屏幕过小，大部分窗口将无法被完整显示！";
     } else {
         auto tv = tslider->value();
         tslider->blockSignals(true);

@@ -64,7 +64,7 @@ void PluginsController::loadPlugins()
         PluginInterface *interface = qobject_cast<PluginInterface *>(pluginLoader->instance());
         if (!interface)
         {
-            qWarning() << pluginLoader->errorString();
+            qDebug() << pluginLoader->errorString();
             pluginLoader->unload();
             pluginLoader->deleteLater();
             return;

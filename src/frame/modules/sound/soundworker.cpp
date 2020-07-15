@@ -229,7 +229,7 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
             connect(m_sourceMeter, &Meter::VolumeChanged, m_model, &SoundModel::setMicrophoneFeedback);
             m_model->setMicrophoneFeedback(m_sourceMeter->volume());
         } else {
-            qWarning() << "get meter failed " << call.error().message();
+            qDebug() << "get meter failed " << call.error().message();
         }
     });
 #endif
@@ -331,7 +331,7 @@ void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher) {
         }
     }
     else {
-        qWarning() << "get sound enabled map error." << watcher->error();
+        qDebug() << "get sound enabled map error." << watcher->error();
     }
 
     watcher->deleteLater();
@@ -345,7 +345,7 @@ void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher) {
             reply.value());
     }
     else {
-        qWarning() << "get sound path error." << watcher->error();
+        qDebug() << "get sound path error." << watcher->error();
     }
 
     watcher->deleteLater();

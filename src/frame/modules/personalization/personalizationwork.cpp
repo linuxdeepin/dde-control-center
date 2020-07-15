@@ -207,7 +207,7 @@ void PersonalizationWork::onGetFontFinished(QDBusPendingCallWatcher *w)
 
         setFontList(m_fontModels[category], category, reply.value());
     } else {
-        qWarning() << reply.error();
+        qDebug() << reply.error();
     }
 
     w->deleteLater();
@@ -223,7 +223,7 @@ void PersonalizationWork::onGetThemeFinished(QDBusPendingCallWatcher *w)
 
         addList(m_themeModels[category], category, array);
     } else {
-        qWarning() << reply.error();
+        qDebug() << reply.error();
     }
 
     w->deleteLater();
@@ -239,7 +239,7 @@ void PersonalizationWork::onGetPicFinished(QDBusPendingCallWatcher *w)
 
         m_themeModels[category]->addPic(id, reply.value());
     } else {
-        qWarning() << reply.error();
+        qDebug() << reply.error();
     }
 
     w->deleteLater();
@@ -252,7 +252,7 @@ void PersonalizationWork::onGetActiveColorFinished(QDBusPendingCallWatcher *w)
     if (!reply.isError()) {
         m_model->setActiveColor(reply.value());
     } else {
-        qWarning() << reply.error();
+        qDebug() << reply.error();
     }
 
     w->deleteLater();
@@ -293,7 +293,7 @@ void PersonalizationWork::onGetCurrentWMFinished(QDBusPendingCallWatcher *w)
     if (!reply.isError()) {
         onToggleWM(reply.value());
     } else {
-        qWarning() << reply.error();
+        qDebug() << reply.error();
     }
 
     w->deleteLater();
@@ -325,7 +325,7 @@ void PersonalizationWork::setFontList(FontModel *model, const QString &type, con
 
             model->setFontList(list);
         } else {
-            qWarning() << w->error();
+            qDebug() << w->error();
         }
 
         watcher->deleteLater();

@@ -209,7 +209,7 @@ void DateSettings::onConfirmButtonClicked()
             && m_bSystemIsServer
             && m_ntpServerList->currentText() == tr("Customize")) {
         if ("" == m_addressContent->text()) {
-            qWarning() << "The customize address is nullptr.";
+            qDebug() << "The customize address is nullptr.";
             return;
         }
         qDebug() << "ok clicked, requestNTPServer";

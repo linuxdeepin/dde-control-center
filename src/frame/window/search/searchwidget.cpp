@@ -278,10 +278,10 @@ bool SearchWidget::jumpContentPathWidget(QString path)
                 }
             }
         } else {
-            qWarning() << "[SearchWidget] translateContent : " << data.translateContent << " , fullPagePath : " << data.fullPagePath;
+            qDebug() << "[SearchWidget] translateContent : " << data.translateContent << " , fullPagePath : " << data.fullPagePath;
         }
     } else {
-        qWarning() << " [SearchWidget] QList is nullptr.";
+        qDebug() << " [SearchWidget] QList is nullptr.";
     }
 
     return bResult;
@@ -344,12 +344,12 @@ void SearchWidget::loadxml()
         QFile file(xmlPath);
 
         if (!file.exists()) {
-            qWarning() << " [SearchWidget] File not exist";
+            qDebug() << " [SearchWidget] File not exist";
             continue;
         }
 
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            qWarning() << " [SearchWidget] File open failed";
+            qDebug() << " [SearchWidget] File open failed";
             continue;
         }
 
@@ -842,7 +842,7 @@ void SearchWidget::setRemoveableDeviceStatus(QString name, bool isExist)
         qDebug() << "[setRemoveableDeviceStatus] loadWidget : " << name << " , isExist : " << isExist;
         loadxml();
     } else {
-        qWarning() << " Not remember the data , name : " << name;
+        qDebug() << " Not remember the data , name : " << name;
     }
 }
 

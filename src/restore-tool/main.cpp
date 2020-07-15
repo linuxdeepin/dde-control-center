@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
     actionType = typeMap.value(parser.value(actionTypeOption), ActionType::Null);
 
     if (!parser.isSet(actionTypeOption) || actionType == ActionType::Null) {
-        qWarning() << "not set Action Type";
+        qDebug() << "not set Action Type";
         return -2;
     }
 
@@ -178,7 +178,7 @@ int main(int argc, char *argv[])
     }
 
     if (mountPoint.isEmpty()) {
-        qWarning() << "mount point empty";
+        qDebug() << "mount point empty";
         return -1;
     } else {
         qDebug() << "mount point:" << mountPoint;

@@ -155,7 +155,7 @@ void SpeakerPage::initSlider()
     m_layout->insertWidget(1, m_outputSlider);
 
     //音量增强
-    auto hlayout = new QVBoxLayout(this);
+    auto hlayout = new QVBoxLayout();
     auto volumeBoost = new SwitchWidget(this);
     volumeBoost->setChecked(m_model->isIncreaseVolume());
     volumeBoost->setTitle(tr("Volume Boost"));

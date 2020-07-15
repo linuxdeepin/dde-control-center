@@ -120,19 +120,19 @@ void DatetimeWork::setDatetime(const QDateTime &datetime)
         if (!call.isError()) {
             const QDate date = datetime.date();
             const QTime time = datetime.time();
-            qWarning() << "set ntp success, m_timedateInter->SetDate";
+            qDebug() << "set ntp success, m_timedateInter->SetDate";
             QDBusPendingCall call1 = m_timedateInter->SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), 0, 0);
             QDBusPendingCallWatcher *watcher1 = new QDBusPendingCallWatcher(call1, this);
             connect(watcher1, &QDBusPendingCallWatcher::finished, this, [ = ] {
                 if (!call1.isError()) {
                     Q_EMIT m_model->systemTimeChanged();
                 } else {
-                    qWarning() << "m_timedateInter->SetDate failed : " << call.error().message();
+                    qDebug() << "m_timedateInter->SetDate failed : " << call.error().message();
                 }
                 watcher1->deleteLater();
             });
         } else {
-            qWarning() << "disable ntp failed : " << call.error().message();
+            qDebug() << "disable ntp failed : " << call.error().message();
         }
 
         Q_EMIT requestSetAutoHide(true);
@@ -176,7 +176,7 @@ void DatetimeWork::setNtpServer(QString server)
             qDebug() << "set server success.";
             Q_EMIT m_model->NTPServerChanged(m_timedateInter->nTPServer());
         } else {
-            qWarning() << "Not set server success.";
+            qDebug() << "Not set server success.";
             Q_EMIT m_model->NTPServerNotChanged(m_timedateInter->nTPServer());
         }
 
@@ -217,7 +217,7 @@ void DatetimeWork::refreshNtpServerList()
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
         if (call.isError()) {
-            qWarning() << Q_FUNC_INFO << " Failed to get ntpserver list.";
+            qDebug() << Q_FUNC_INFO << " Failed to get ntpserver list.";
         } else {
             QDBusReply<QStringList> reply = call.reply();
             m_model->setNTPServerList(reply.value());

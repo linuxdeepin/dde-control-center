@@ -50,7 +50,7 @@ const int kDotVerticalMargin = 2;
 const int kZonePinHeight = 30;
 const int kZonePinMinimumWidth = 60;
 
-const double kDistanceThreshold = 100.0;
+const double kDistanceThreshold = 64.0;
 const char kDotFile[] = ":/timezone_dialog/images/indicator_active.png";
 const char kTimezoneMapFile[] = ":/timezone_dialog/images/timezone_map_big@1x.svg";
 

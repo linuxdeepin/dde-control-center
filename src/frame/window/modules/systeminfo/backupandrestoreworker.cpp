@@ -195,7 +195,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
     process->waitForFinished(-1);
 
     if (process->exitCode() != 0) {
-        qWarning() << Q_FUNC_INFO << "restore tool run failed!";
+        qDebug() << Q_FUNC_INFO << "restore tool run failed!";
         return ErrorType::ToolError;
     }
 
@@ -211,7 +211,7 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
     process->waitForFinished(-1);
 
     if (process->exitCode() != 0) {
-        qWarning() << Q_FUNC_INFO << "restore tool run failed!";
+        qDebug() << Q_FUNC_INFO << "restore tool run failed!";
         return ErrorType::ToolError;
     }
 

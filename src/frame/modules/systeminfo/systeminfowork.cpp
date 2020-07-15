@@ -299,7 +299,7 @@ void SystemInfoWork::getEntryTitles()
             m_model->setEntryLists(entries);
             m_model->setDefaultEntry(m_dbusGrub->defaultEntry());
         } else {
-            qWarning() << "get grub entry list failed : " << w->error().message();
+            qDebug() << "get grub entry list failed : " << w->error().message();
         }
 
         w->deleteLater();
@@ -325,7 +325,7 @@ void SystemInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
 
         m_model->setBackground(pix);
     } else {
-        qWarning() << w->error().message();
+        qDebug() << w->error().message();
     }
 
     w->deleteLater();
@@ -339,7 +339,7 @@ void SystemInfoWork::getLicenseState()
                                QDBusConnection::systemBus());
 
     if (!licenseInfo.isValid()) {
-        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
         return;
     }
 
