@@ -156,10 +156,6 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
     }
 
     m_clearBtn->setVisible(m_listGrp->itemCount());
-    // 如果指纹数量大于等于10,则不显示添加指纹按钮
-    if (thumbs.size() >= 10) {
-        return;
-    }
     // 找到最小的指纹名以便作为缺省名添加
     for (int i = 0; i < m_model->getPredefineThumbsName().size(); ++i) {
         bool findNotUsedThumb = false;
