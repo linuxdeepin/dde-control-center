@@ -35,8 +35,14 @@
 
 #include <QScreen>
 #include <QStyle>
-#include <QGSettings>
 #include <QAccessible>
+
+#include <stdio.h>
+#include <time.h>
+#include <execinfo.h>
+#include <string>
+#include <sys/stat.h>
+#include <QStandardPaths>
 
 #include <signal.h>
 #include <unistd.h>
@@ -46,12 +52,86 @@ DCORE_USE_NAMESPACE
 
 static DCC_NAMESPACE::MainWindow *gwm{nullptr};
 
-void closeSignal(int s) {
-    qDebug() << "signal 15!";
-    if (gwm) {
-        delete gwm;
+const int MAX_STACK_FRAMES = 128;
+
+using namespace std;
+
+void sig_crash(int sig)
+{
+    FILE *fd;
+    struct stat buf;
+    char path[100];
+    memset(path, 0, 100);
+    //崩溃日志路径
+    QString strPath = QStandardPaths::standardLocations(QStandardPaths::ConfigLocation)[0] + "/dde-collapse.log";
+    memcpy(path, strPath.toStdString().data(), strPath.length());
+    qDebug() << path;
+
+    stat(path, &buf);
+    if (buf.st_size > 10 * 1024 * 1024) {
+        // 超过10兆则清空内容
+        fd = fopen(path, "w");
+    } else {
+        fd = fopen(path, "at");
     }
+
+    if (nullptr == fd) {
+        exit(0);
+    }
+    //捕获异常，打印崩溃日志到配置文件中
+    try {
+        char szLine[512] = {0};
+        time_t t = time(NULL);
+        tm *now = localtime(&t);
+        int nLen1 = sprintf(szLine, "#####dde-control-center#####\n[%04d-%02d-%02d %02d:%02d:%02d][crash signal number:%d]\n",
+                            now->tm_year + 1900,
+                            now->tm_mon + 1,
+                            now->tm_mday,
+                            now->tm_hour,
+                            now->tm_min,
+                            now->tm_sec,
+                            sig);
+        fwrite(szLine, 1, strlen(szLine), fd);
+#ifdef __linux
+        void *array[MAX_STACK_FRAMES];
+        size_t size = 0;
+        char **strings = nullptr;
+        size_t i, j;
+        signal(sig, SIG_DFL);
+        size = backtrace(array, MAX_STACK_FRAMES);
+        strings = (char **)backtrace_symbols(array, size);
+        for (i = 0; i < size; ++i) {
+            char szLine[512] = {0};
+            sprintf(szLine, "%d %s\n", i, strings[i]);
+            fwrite(szLine, 1, strlen(szLine), fd);
+
+            std::string symbol(strings[i]);
+
+            size_t pos1 = symbol.find_first_of("[");
+            size_t pos2 = symbol.find_last_of("]");
+            std::string address = symbol.substr(pos1 + 1, pos2 - pos1 - 1);
+            char cmd[128] = {0};
+            sprintf(cmd, "addr2line -C -f -e dde-control-center %s", address.c_str()); // 打印当前进程的id和地址
+            FILE *fPipe = popen(cmd, "r");
+            if (fPipe != nullptr) {
+                char buff[1024];
+                memset(buff, 0, sizeof(buff));
+                char *ret = fgets(buff, sizeof(buff), fPipe);
+                pclose(fPipe);
+                fwrite(ret, 1, strlen(ret), fd);
+            }
+        }
+        free(strings);
+#endif // __linux
+    } catch (...) {
+        //
+    }
+    fflush(fd);
+    fclose(fd);
+    fd = nullptr;
+    exit(0);
 }
+
 
 int main(int argc, char *argv[])
 {
@@ -121,8 +201,13 @@ int main(int argc, char *argv[])
     mw.setGeometry(mwRect);
     gwm = &mw;
 
-    //处理SIGTERM 信号，保证在控制中心被强制关闭时，正常退出
-    signal(15, closeSignal);
+    //崩溃信号
+    signal(SIGTERM, sig_crash);
+    signal(SIGSEGV, sig_crash);
+    signal(SIGILL, sig_crash);
+    signal(SIGINT, sig_crash);
+    signal(SIGABRT, sig_crash);
+    signal(SIGFPE, sig_crash);
 
     const QString &reqModule = parser.value(moduleOption);
     const QString &reqPage = parser.value(pageOption);
