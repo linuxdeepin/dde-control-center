@@ -65,7 +65,6 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
     connect(m_removeBtn, &DIconButton::clicked, this, &AccounntFingeItem::removeClicked);
     connect(m_editBtn, &DIconButton::clicked, this, [this] {
         setEditTitle(true);
-        m_editTitle->lineEdit()->setText(m_title->text());
         m_editTitle->lineEdit()->selectAll();
         m_editTitle->lineEdit()->setFocus();
     });
@@ -95,7 +94,7 @@ void AccounntFingeItem::setTitle(const QString &title)
 void AccounntFingeItem::alertTitleRepeat()
 {
     m_editTitle->setAlert(true);
-    m_editTitle->showAlertMessage(tr("The fingerprint name already exists"), parentWidget());
+    m_editTitle->showAlertMessage(tr("The name already exists"), parentWidget());
     m_editTitle->lineEdit()->selectAll();
 }
 
@@ -125,12 +124,27 @@ void AccounntFingeItem::setHideTitle(bool state)
 
 bool AccounntFingeItem::onNameEditFinished(DLineEdit *edit)
 {
+    //指纹名称字符串最大位数
+    const int MaxStringlength = 15;
     QString editName = edit->lineEdit()->text();
     if (editName.isEmpty())
         return false;
-    if(editName.size() >15 ) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("The name must only contain letters, numbers and underline, and no more than 15 characters."), parentWidget());
+
+    //正则表达式判断是否由字母、数字、中文、下划线组成
+    if (!editName.contains(QRegExp("(^[\\w\u4e00-\u9fa5]+$)")) && editName.size() > MaxStringlength) {
+        edit->showAlertMessage(tr("Use letters, numbers and underlines only, and no more than 15 characters"), parentWidget());
+        edit->lineEdit()->selectAll();
+        return false;
+    }
+
+    if (!editName.contains(QRegExp("(^[\\w\u4e00-\u9fa5]+$)"))) {
+        edit->showAlertMessage(tr("Use letters, numbers and underlines only"), parentWidget(), 2000);
+        edit->lineEdit()->selectAll();
+        return false;
+    }
+
+    if (editName.size() > MaxStringlength) {
+        edit->showAlertMessage(tr("No more than 15 characters"), parentWidget(), 2000);
         edit->lineEdit()->selectAll();
         return false;
     }
