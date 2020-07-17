@@ -114,6 +114,7 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
         cb->addItem(tr("OpenConnect"), VpnType::OPENCONNECT);
         cb->addItem(tr("StrongSwan"), VpnType::STRONGSWAN);
         cb->addItem(tr("VPNC"), VpnType::VPNC);
+
         cb->setCurrentIndex(0);
 
         connect(cb, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [this, cb]() {
