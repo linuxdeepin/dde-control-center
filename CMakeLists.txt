@@ -49,7 +49,7 @@ add_subdirectory("abrecovery")
 file(GLOB DOCS_FILES "docs/*")
 file(GLOB HEADERS "include/*")
 
-## qm files
+## qm file
 file(GLOB QM_FILES "translations/*.qm")
 install(FILES ${QM_FILES} DESTINATION share/dde-control-center/translations)
 
