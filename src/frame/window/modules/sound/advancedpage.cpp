@@ -158,15 +158,16 @@ void AdvancedPage::addPort(const Port *port)
     connect(port, &Port::cardNameChanged, cardAction, &DViewItemAction::setText);
     connect(port, &Port::isActiveChanged, this, [ = ](bool isActive) {
         pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+        initList();
     });
 
-    if (port->isActive())
+    if (port->isActive()) {
         pi->setCheckState(Qt::CheckState::Checked);
-
-    if (port->direction() == Port::Out) {
-        m_outputModel->appendRow(pi);
-    } else {
-        m_inputModel->appendRow(pi);
+        if (port->direction() == Port::Out) {
+            m_outputModel->appendRow(pi);
+        } else {
+            m_inputModel->appendRow(pi);
+        }
     }
 }
 
