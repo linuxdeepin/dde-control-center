@@ -36,7 +36,7 @@ using namespace DCC_NAMESPACE::systeminfo;
 
 static QString loadLicenses()
 {
-    const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement-%1.txt", "");
+    const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.txt", "");
     return body;
 }
 
