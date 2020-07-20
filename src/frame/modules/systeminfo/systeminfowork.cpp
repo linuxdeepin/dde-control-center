@@ -80,8 +80,12 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     if (DSysInfo::cpuModelName().contains("Hz")) {
         m_model->setProcessor(DSysInfo::cpuModelName());
     } else {
-        m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
-                              .arg(cpuMaxMhz / 1000));
+        if(DSysInfo::cpuModelName().isEmpty()){
+            m_model->setProcessor(QString("%1GHz").arg(cpuMaxMhz / 1000));
+        } else {
+            m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
+                                  .arg(cpuMaxMhz / 1000));
+        }
     }
 
     QDBusConnection::sessionBus().connect("com.deepin.daemon.SystemInfo",
@@ -162,8 +166,12 @@ void SystemInfoWork::processChanged(QDBusMessage msg)
     if (DSysInfo::cpuModelName().contains("Hz")) {
         m_model->setProcessor(DSysInfo::cpuModelName());
     } else {
-        m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
-                              .arg(cpuMaxMhz / 1000));
+        if(DSysInfo::cpuModelName().isEmpty()){
+            m_model->setProcessor(QString("%1GHz").arg(cpuMaxMhz / 1000));
+        } else {
+            m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
+                                  .arg(cpuMaxMhz / 1000));
+        }
     }
 }
 

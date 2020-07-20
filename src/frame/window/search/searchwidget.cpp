@@ -36,6 +36,7 @@
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
+#define GSETTINGS_CONTENS_SERVER "iscontens-server"
 
 class ddeCompleter : public QCompleter
 {
@@ -112,6 +113,11 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_bIsServerType = IsServerSystem;
     m_bIsIsDesktopType = IsDesktopSystem;
 
+    //是否是contens服务器
+    if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
+        m_searchModuleDevelop = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
+        m_bIsContensServerType =  m_searchModuleDevelop->get(GSETTINGS_CONTENS_SERVER).toBool();
+    }
     //first存储和服务器/桌面版有关的文言
     //second : true 用于记录"服务器"才有的搜索数据
     //second : false用于记录"桌面版"才有的搜索数据
@@ -136,6 +142,10 @@ SearchWidget::SearchWidget(QWidget *parent)
         {tr("Disable the touchpad while typing"), false},
         {tr("Disable the touchpad when inserting the mouse"), false},
 
+    };
+
+    m_contensServerTxtList = {
+        {tr("Developer Mode"), true},
     };
 
     //first : 可移除设备名称
@@ -479,6 +489,12 @@ void SearchWidget::loadxml()
                             continue;
                         }
 
+                        //判断是否为contens服务器,是contens服务器时,若当前不是服务器就不添加"Server"
+                        if (isLoadContensText(m_searchBoxStruct.translateContent)) {
+                            clearSearchData();
+                            continue;
+                        }
+
                         if (m_bIsIsDesktopType) {
                             if ((tr("Developer Mode") == m_searchBoxStruct.translateContent) ||
                                 (tr("End User License Agreement") == m_searchBoxStruct.translateContent)) {
@@ -751,6 +767,24 @@ bool SearchWidget::isLoadText(const QString &txt)
             //second:false,需要不是服务器才显示
             //m_bIsServerType当前是否为服务器,true是服务器(此处要取反,需要根据返回值判断)
             if (data.second == !m_bIsServerType) {
+                return true;
+            } else {
+                break;
+            }
+        }
+    }
+
+    return false;
+}
+
+bool SearchWidget::isLoadContensText(QString text)
+{
+    for (auto data : m_contensServerTxtList) {
+        //有first数据继续判断second
+        if (data.first == text) {
+            //second: true,需要是contens服务器不显示
+            //m_bIsContensServerType当前是否为服务器,true是contens服务器(此处要取反,需要根据返回值判断)
+            if (data.second == m_bIsContensServerType) {
                 return true;
             } else {
                 break;
