@@ -36,7 +36,10 @@ using namespace DCC_NAMESPACE::systeminfo;
 
 static QString loadLicenses()
 {
-    if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinPersonal) {
+    if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinServer) {
+        const QString serverPath = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Server/End-User-License-Agreement-Server-CN-%1.txt", "");
+        return serverPath;
+    }else if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinPersonal) {
         const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/End-User-License-Agreement-Home-CN-%1.txt", "");
         return body;
     } else {
