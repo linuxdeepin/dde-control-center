@@ -172,7 +172,7 @@ void BrightnessPage::addSlider()
 
         slideritem->addBackground();
         DCCSlider *slider = slideritem->slider();
-        int maxBacklight = (int)m_displayModel->maxBacklightBrightness();
+        int maxBacklight = static_cast<int>(m_displayModel->maxBacklightBrightness());
         if (maxBacklight == 0) {
             qDebug() << "MinimumBrightness:   " << m_displayModel->minimumBrightnessScale();
             int miniScale = int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
@@ -224,13 +224,13 @@ void BrightnessPage::addSlider()
         }
         else {
             qDebug() << "MinimumBrightness:   " << m_displayModel->minimumBrightnessScale();
-            int miniScale = int(m_displayModel->minimumBrightnessScale() * maxBacklight);
-            if (miniScale == 0) {
-                miniScale = 1;
+            m_miniScales = int(m_displayModel->minimumBrightnessScale() * maxBacklight);
+            if (m_miniScales == 0) {
+                m_miniScales = 1;
             }
             double brightness = monList[i]->brightness();
             //slideritem->setValueLiteral(brightnessToTickInterval(brightness));
-            slider->setRange(miniScale, maxBacklight);
+            slider->setRange(m_miniScales, maxBacklight);
             slider->setType(DCCSlider::Vernier);
             slider->setTickPosition(QSlider::TicksBelow);
             slider->setLeftIcon(QIcon::fromTheme("dcc_brightnesslow"));
@@ -240,7 +240,8 @@ void BrightnessPage::addSlider()
             slider->setValue(int((brightness + DoubleZero) * maxBacklight));
             slider->setPageStep(1);
             QStringList speedList;
-            for (int i(miniScale); i <= maxBacklight; i++) {
+            int j = m_miniScales;
+            for (; j <= maxBacklight; j++) {
                 //speedList << QString::number(i);
                 speedList << "";
             }

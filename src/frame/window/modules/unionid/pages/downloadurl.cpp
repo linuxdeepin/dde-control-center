@@ -35,6 +35,7 @@ using namespace DCC_NAMESPACE::unionid;
 DownloadUrl::DownloadUrl(QObject *parent)
     : QObject(parent)
     , m_manager(nullptr)
+    , m_file(nullptr)
     , m_isReady(true)
 {
 

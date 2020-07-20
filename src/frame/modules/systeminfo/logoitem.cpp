@@ -76,7 +76,6 @@ void LogoItem::setLogo(const QString &logo)
 
 void LogoItem::setLogo(const QIcon &icon, int w, int h)
 {
-    //m_logo->setPixmap(icon.pixmap(w, h));
     m_logo->setScaledContents(true);
     auto ratio = devicePixelRatio();
     m_logo->setPixmap(icon.pixmap(w, h).scaled(QSize(w,h)*ratio, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));

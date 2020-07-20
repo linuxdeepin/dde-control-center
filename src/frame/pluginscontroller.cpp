@@ -52,7 +52,7 @@ void PluginsController::loadPlugins()
     // pluginsDir.setSorting not working as expected on loongson.
     qSort(plugins.begin(), plugins.end());
 
-    for (const QString file : plugins)
+    for (const QString &file : plugins)
     {
         if (!QLibrary::isLibrary(file))
             continue;
@@ -64,7 +64,7 @@ void PluginsController::loadPlugins()
         PluginInterface *interface = qobject_cast<PluginInterface *>(pluginLoader->instance());
         if (!interface)
         {
-            qWarning() << pluginLoader->errorString();
+            qDebug() << pluginLoader->errorString();
             pluginLoader->unload();
             pluginLoader->deleteLater();
             return;

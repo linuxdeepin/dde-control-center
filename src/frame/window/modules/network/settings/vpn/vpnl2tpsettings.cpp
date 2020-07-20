@@ -68,32 +68,25 @@ void VpnL2tpSettings::initSections()
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
 
-    //IpvxSection *ipv6Section = new IpvxSection(
-            //m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
-
     connect(vpnSection, &VpnSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
     connect(vpnPPPSection, &VpnPPPSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
     connect(vpnIpsecSection, &VpnIpsecSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
-    //connect(ipv6Section, &IpvxSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
 
     connect(vpnSection, &VpnSection::requestFrameAutoHide, this, &VpnL2tpSettings::requestFrameAutoHide);
     connect(vpnPPPSection, &VpnPPPSection::requestFrameAutoHide, this, &VpnL2tpSettings::requestFrameAutoHide);
     connect(vpnIpsecSection, &VpnIpsecSection::requestFrameAutoHide, this, &VpnL2tpSettings::requestFrameAutoHide);
     connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnL2tpSettings::requestFrameAutoHide);
-    //connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &VpnL2tpSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnSection);
     m_sectionsLayout->addWidget(vpnPPPSection);
     m_sectionsLayout->addWidget(vpnIpsecSection);
     m_sectionsLayout->addWidget(ipv4Section);
-    //m_sectionsLayout->addWidget(ipv6Section);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(vpnSection);
     m_settingSections.append(vpnPPPSection);
     m_settingSections.append(vpnIpsecSection);
     m_settingSections.append(ipv4Section);
-    //m_settingSections.append(ipv6Section);
 }

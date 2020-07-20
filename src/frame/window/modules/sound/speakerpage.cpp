@@ -43,6 +43,8 @@ DWIDGET_USE_NAMESPACE
 SpeakerPage::SpeakerPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
+    , m_outputSlider(nullptr)
+    , m_speakSlider(nullptr)
 {
     TitleLabel *lblTitle = new TitleLabel(tr("Speaker"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
@@ -91,7 +93,7 @@ void SpeakerPage::initSlider()
 
     //初始化音量设置滚动条
     qDebug() << "max volume:" << m_model->MaxUIVolume();
-    int maxRange = static_cast<int>(m_model->MaxUIVolume() * 100.0f);
+    int maxRange = static_cast<int>(m_model->MaxUIVolume() * static_cast<int>(100.0f));
     m_speakSlider->setRange(0, maxRange);
     m_speakSlider->setType(DCCSlider::Vernier);
     m_speakSlider->setTickPosition(QSlider::NoTicks);
@@ -105,7 +107,7 @@ void SpeakerPage::initSlider()
 
     m_speakSlider->setTickInterval(1);
     qDebug() << "speaker volume:" << m_model->speakerVolume();
-    int val = static_cast<int>(m_model->speakerVolume() * 100.0f);
+    int val = static_cast<int>(m_model->speakerVolume() * static_cast<int>(100.0f));
     if (val > maxRange) {
         val = maxRange;
     }
@@ -115,9 +117,9 @@ void SpeakerPage::initSlider()
 
     //处理滑块位置变化的槽
     auto slotfunc1 = [ = ](int pos) {
-        double val = pos / 100.0;
+        double vals = pos / 100.0;
         //滑块位置改变时，发送设置音量的信号
-        Q_EMIT requestSetSpeakerVolume(val);
+        Q_EMIT requestSetSpeakerVolume(vals);
     };
     //当点击滑槽时不会有，sliderMoved消息，用这个补
     connect(m_speakSlider, &DCCSlider::valueChanged, slotfunc1);
@@ -135,14 +137,14 @@ void SpeakerPage::initSlider()
 
     connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
         m_speakSlider->setRange(0, static_cast<int>(maxvalue * 100));
-        QStringList annotions;
+        QStringList annotion;
         if (maxvalue > 1.0) {
-            annotions << "0 " << "" << "100" << "150 ";
-            qDebug() << m_outputSlider << annotions;
-            m_outputSlider->slider()->setRightTicks(annotions);
+            annotion << "0 " << "" << "100" << "150 ";
+            qDebug() << m_outputSlider << annotion;
+            m_outputSlider->slider()->setRightTicks(annotion);
         }else{
-            annotions << "0 " << "" << "100";
-            m_outputSlider->slider()->setRightTicks(annotions);
+            annotion << "0 " << "" << "100";
+            m_outputSlider->slider()->setRightTicks(annotion);
         }
         m_outputSlider->update();
 
@@ -155,7 +157,7 @@ void SpeakerPage::initSlider()
     m_layout->insertWidget(1, m_outputSlider);
 
     //音量增强
-    auto hlayout = new QVBoxLayout(this);
+    auto hlayout = new QVBoxLayout();
     auto volumeBoost = new SwitchWidget(this);
     volumeBoost->setChecked(m_model->isIncreaseVolume());
     volumeBoost->setTitle(tr("Volume Boost"));
@@ -200,8 +202,8 @@ void SpeakerPage::initSlider()
     balanceSlider->setAnnotations(balanceList);
 
     auto slotfunc2 = [ = ](int pos) {
-        double val = pos / 100.0;
-        Q_EMIT requestSetSpeakerBalance(val);
+        double value = pos / 100.0;
+        Q_EMIT requestSetSpeakerBalance(value);
     };
     connect(slider2, &DCCSlider::valueChanged, slotfunc2);
     connect(slider2, &DCCSlider::sliderMoved, slotfunc2);

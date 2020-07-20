@@ -112,13 +112,13 @@ Q_SIGNALS:
 
 public Q_SLOTS:
 #ifndef DCC_DISABLE_KBLAYOUT
-    void setLayout(const QString &value);
+    void setLayout(const QString &key);
     void setLayoutScope(int value);
 #endif
     void setLang(const QString &value);
     void setLocaleLang(const QStringList &localLangList);
     void addUserLayout(const QString &id, const QString &value);
-    void setLocaleList(const QList<MetaData> &langs);
+    void setLocaleList(const QList<MetaData> &langList);
     void setCapsLock(bool value);
     void setAllShortcut(const QMap<QStringList, int> &map);
 private:

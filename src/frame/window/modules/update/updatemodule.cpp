@@ -47,6 +47,7 @@ UpdateModule::UpdateModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 void UpdateModule::preInitialize(bool sync)
 {
+    Q_UNUSED(sync);
     if (!m_model)
         m_model = new UpdateModel(this);
 
@@ -164,7 +165,7 @@ void UpdateModule::deactive()
     }
 }
 
-int UpdateModule::load(QString path)
+int UpdateModule::load(const QString &path)
 {
     int hasPage = -1;
     if (m_updateWidget) {

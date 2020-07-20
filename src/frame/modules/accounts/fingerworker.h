@@ -57,9 +57,10 @@ public:
 
 Q_SIGNALS:
     void requestShowAddThumb(const QString &name, const QString &thumb);
+    void tryEnrollResult(EnrollResult enrollRes);
 
 public:
-    EnrollResult tryEnroll(const QString &name, const QString &thumb);
+    void tryEnroll(const QString &name, const QString &thumb);
 
 public Q_SLOTS:
     void refreshUserEnrollList(const QString &id);

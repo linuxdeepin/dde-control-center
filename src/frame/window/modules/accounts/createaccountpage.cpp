@@ -110,6 +110,7 @@ CreateAccountPage::~CreateAccountPage()
 
 void CreateAccountPage::resizeEvent(QResizeEvent *e)
 {
+    Q_UNUSED(e);
     if (m_tw) {
         m_tw->resize(m_scrollArea->size());
     }
@@ -202,6 +203,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     });
 
     connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString &str) {
+        Q_UNUSED(str);
         if (m_nameEdit->isAlert()) {
             m_nameEdit->hideAlertMessage();
             m_nameEdit->setAlert(false);
@@ -268,7 +270,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
 }
 
-void CreateAccountPage::showGroupList(const QString index)
+void CreateAccountPage::showGroupList(const QString &index)
 {
     Q_UNUSED(index)
 
@@ -372,15 +374,15 @@ void CreateAccountPage::createUser()
 
 int  CreateAccountPage::passwordCompositionType(const QStringList &validate, const QString &password)
 {
-    return std::count_if(validate.cbegin(), validate.cend(),
-                         [=](const QString &policy) {
-                             for (const QChar &c : policy) {
-                                 if (password.contains(c)) {
-                                     return true;
-                                 }
-                             }
-                             return false;
-                         });
+    return static_cast<int>(std::count_if(validate.cbegin(), validate.cend(),
+                                          [=](const QString &policy) {
+                                              for (const QChar &c : policy) {
+                                                  if (password.contains(c)) {
+                                                      return true;
+                                                  }
+                                              }
+                                              return false;
+                                          }));
 }
 
 int CreateAccountPage::verifyPassword(const QString &password)
@@ -461,7 +463,7 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
         m_repeatpasswdEdit->showAlertMessage(result->message(), -1);
         break; // reserved for future server edition feature.
     case CreationResult::UnknownError:
-        qWarning() << "error encountered creating user: " << result->message();
+        qDebug() << "error encountered creating user: " << result->message();
         break;
     }
 

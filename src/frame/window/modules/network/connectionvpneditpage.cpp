@@ -109,10 +109,10 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
         QComboBox *cb = cbvpntype->comboBox();
         cb->addItem(tr("L2TP"), VpnType::L2TP);
         cb->addItem(tr("PPTP"), VpnType::PPTP);
-        cb->addItem(tr("VPNC"), VpnType::VPNC);
         cb->addItem(tr("OpenVPN"), VpnType::OPENVPN);
-        cb->addItem(tr("StrongSwan"), VpnType::STRONGSWAN);
         cb->addItem(tr("OpenConnect"), VpnType::OPENCONNECT);
+        cb->addItem(tr("StrongSwan"), VpnType::STRONGSWAN);
+        cb->addItem(tr("VPNC"), VpnType::VPNC);
 
         cb->setCurrentIndex(0);
 
@@ -289,7 +289,7 @@ void ConnectionVpnEditPage::processConfigCA(const QString &file)
     {
         // write ca
         f.write("<ca>\n");
-        for (const auto ca : ca_list)
+        for (const auto &ca : ca_list)
         {
             QFile caf(ca);
             caf.open(QIODevice::ReadOnly);

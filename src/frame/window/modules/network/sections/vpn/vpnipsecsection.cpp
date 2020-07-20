@@ -28,19 +28,17 @@ using namespace NetworkManager;
 VpnIpsecSection::VpnIpsecSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN IPsec"), parent)
     , m_vpnSetting(vpnSetting)
-    , m_ipsecEnable(new NetSwitchWidget(this))
+    , m_ipsecEnable(new SwitchWidget(this))
     , m_groupName(new LineEditWidget(this))
     , m_gatewayId(new LineEditWidget(this))
     , m_psk(new LineEditWidget(this))
     , m_ike(new LineEditWidget(this))
     , m_esp(new LineEditWidget(this))
 {
-    m_dataMap = vpnSetting->data();
-
     initUI();
     initConnection();
 
-    onIpsecCheckedChanged(m_ipsecEnable->switchWidget()->checked());
+    onIpsecCheckedChanged(m_ipsecEnable->checked());
 }
 
 VpnIpsecSection::~VpnIpsecSection()
@@ -57,7 +55,7 @@ void VpnIpsecSection::saveSettings()
     // retrieve the data map
     m_dataMap = m_vpnSetting->data();
 
-    if (m_ipsecEnable->switchWidget()->checked()) {
+    if (m_ipsecEnable->checked()) {
         m_dataMap.insert("ipsec-enabled", "yes");
         m_dataMap.insert("ipsec-group-name", m_groupName->text());
         m_dataMap.insert("ipsec-gateway-id", m_gatewayId->text());
@@ -81,7 +79,7 @@ void VpnIpsecSection::saveSettings()
 void VpnIpsecSection::initUI()
 {
     m_ipsecEnable->setTitle(tr("Enable IPsec"));
-    m_ipsecEnable->switchWidget()->setChecked(m_dataMap.value("ipsec-enabled") == "yes");
+    m_ipsecEnable->setChecked(m_dataMap.value("ipsec-enabled") == "yes");
 
     m_groupName->setTitle(tr("Group Name"));
     m_groupName->setText(m_dataMap.value("ipsec-group-name"));
@@ -108,7 +106,7 @@ void VpnIpsecSection::initUI()
 
 void VpnIpsecSection::initConnection()
 {
-    connect(m_ipsecEnable->switchWidget(), &SwitchWidget::checkedChanged, this, &VpnIpsecSection::onIpsecCheckedChanged);
+    connect(m_ipsecEnable, &SwitchWidget::checkedChanged, this, &VpnIpsecSection::onIpsecCheckedChanged);
 }
 
 void VpnIpsecSection::onIpsecCheckedChanged(const bool enabled)

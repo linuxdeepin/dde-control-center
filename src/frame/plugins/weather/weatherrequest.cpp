@@ -155,7 +155,7 @@ void WeatherRequest::processGeoNameIdReply()
     QString errorMsg;
     if (!domDocument.setContent(ba, false, &errorMsg)) {
         qDebug() << ba;
-        qWarning() << "read xml content error! " << errorMsg;
+        qDebug() << "read xml content error! " << errorMsg;
     }
 
     QDomElement root = domDocument.documentElement();
@@ -184,7 +184,7 @@ void WeatherRequest::processGeoNameInfoReply()
     QString errorMsg;
     if (!domDocument.setContent(ba, false, &errorMsg)) {
         qDebug() << ba;
-        qWarning() << "read xml content error! " << errorMsg;
+        qDebug() << "read xml content error! " << errorMsg;
     }
 
     if (!m_city.name.isEmpty())
@@ -214,7 +214,7 @@ void WeatherRequest::processSearchCityReply()
     QString errorMsg;
     if (!domDocument.setContent(ba, false, &errorMsg)) {
         qDebug() << ba;
-        qWarning() << "read xml content error! " << errorMsg;
+        qDebug() << "read xml content error! " << errorMsg;
     }
 
     QDomElement root = domDocument.documentElement();

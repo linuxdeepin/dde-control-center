@@ -229,7 +229,7 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
             connect(m_sourceMeter, &Meter::VolumeChanged, m_model, &SoundModel::setMicrophoneFeedback);
             m_model->setMicrophoneFeedback(m_sourceMeter->volume());
         } else {
-            qWarning() << "get meter failed " << call.error().message();
+            qDebug() << "get meter failed " << call.error().message();
         }
     });
 #endif
@@ -243,7 +243,7 @@ void SoundWorker::cardsChanged(const QString &cards)
     QJsonArray jCards = doc.array();
     for (QJsonValue cV : jCards) {
         QJsonObject jCard = cV.toObject();
-        const uint cardId = jCard["Id"].toInt();
+        const uint cardId = static_cast<uint>(jCard["Id"].toInt());
         const QString cardName = jCard["Name"].toString();
         QJsonArray jPorts = jCard["Ports"].toArray();
 
@@ -252,7 +252,7 @@ void SoundWorker::cardsChanged(const QString &cards)
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
             const double portAvai = jPort["Available"].toDouble();
-            if (portAvai == 2 || portAvai == 0 ) { // 0 Unknow 1 Not available 2 Available
+            if (portAvai == 2.0 || portAvai == 0.0 ) { // 0 Unknow 1 Not available 2 Available
                 const QString portId = jPort["Name"].toString();
                 const QString portName = jPort["Description"].toString();
 
@@ -331,7 +331,7 @@ void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher) {
         }
     }
     else {
-        qWarning() << "get sound enabled map error." << watcher->error();
+        qDebug() << "get sound enabled map error." << watcher->error();
     }
 
     watcher->deleteLater();
@@ -345,7 +345,7 @@ void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher) {
             reply.value());
     }
     else {
-        qWarning() << "get sound path error." << watcher->error();
+        qDebug() << "get sound path error." << watcher->error();
     }
 
     watcher->deleteLater();

@@ -23,7 +23,6 @@
 #define IPVXSECTION_H
 
 #include "abstractsection.h"
-#include "window/modules/network/netswitchwidget.h"
 
 #include "widgets/comboxwidget.h"
 #include "widgets/lineeditwidget.h"
@@ -90,7 +89,7 @@ private:
     dcc::widgets::LineEditWidget *m_gateway;
     dcc::widgets::LineEditWidget *m_dnsPrimary;
     dcc::widgets::LineEditWidget *m_dnsSecond;
-    NetSwitchWidget *m_neverDefault;
+    dcc::widgets::SwitchWidget *m_neverDefault;
 
     QList<dcc::widgets::SettingsItem *> m_itemsList;
 

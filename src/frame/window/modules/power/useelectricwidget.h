@@ -78,7 +78,6 @@ private:
     dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
     dcc::widgets::TitledSliderItem *m_computerSleepOnPower = nullptr;
     dcc::widgets::TitledSliderItem *m_autoLockScreen = nullptr;
-//    dcc::widgets::SwitchWidget *m_suspendOnLidClose = nullptr;
 
     dcc::widgets::ComboxWidget *m_cmbPowerBtn;    //电源按钮
     dcc::widgets::ComboxWidget *m_cmbCloseLid;    //盒盖

@@ -154,11 +154,23 @@ bool AccounntFingeItem::onNameEditFinished(DLineEdit *edit)
     if (editName.isEmpty())
         return false;
     //正则表达式判断是否由字母、数字、中文、下划线组成
-    if (!editName.contains(QRegExp("(^[\\w\u4e00-\u9fa5]+$)")) || editName.size() > 15) {
+    bool regResult = editName.contains(QRegExp("(^[\\w\u4e00-\u9fa5]+$)"));
+    if (editName.size() > 15) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Use letters, numbers and underlines only, and no more than 15 characters"), parentWidget(), 2000);
+        if (!regResult) {
+            edit->showAlertMessage(tr("Use letters, numbers and underlines only, and no more than 15 characters"), parentWidget(), 2000);
+        } else {
+            edit->showAlertMessage(tr("No more than 15 characters"), parentWidget(), 2000);
+        }
         edit->lineEdit()->selectAll();
         return false;
+    } else {
+        if (!regResult) {
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Use letters, numbers and underlines only"), parentWidget(), 2000);
+            edit->lineEdit()->selectAll();
+            return false;
+        }
     }
     return true;
 }

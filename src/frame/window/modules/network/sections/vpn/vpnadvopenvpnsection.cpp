@@ -30,6 +30,7 @@ using namespace NetworkManager;
 VpnAdvOpenVPNSection::VpnAdvOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN Advanced"), parent)
     , m_vpnSetting(vpnSetting)
+    , m_dataMap(vpnSetting->data())
     , m_portSwitch(new SwitchWidget(this))
     , m_renegIntervalSwitch(new SwitchWidget(this))
     , m_compLZOSwitch(new SwitchWidget(this))
@@ -44,7 +45,6 @@ VpnAdvOpenVPNSection::VpnAdvOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSe
     , m_tunnelMTU(new SpinBoxWidget(this))
     , m_udpFragSize(new SpinBoxWidget(this))
 {
-    m_dataMap = vpnSetting->data();
 
     initUI();
     initConnection();

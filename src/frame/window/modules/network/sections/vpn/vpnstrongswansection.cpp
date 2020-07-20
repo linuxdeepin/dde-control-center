@@ -30,6 +30,8 @@ using namespace NetworkManager;
 VpnStrongSwanSection::VpnStrongSwanSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN"), parent)
     , m_vpnSetting(vpnSetting)
+    , m_dataMap(vpnSetting->data())
+    , m_secretMap(vpnSetting->secrets())
     , m_gateway(new LineEditWidget(this))
     , m_caCert(new FileChooseWidget(this))
     , m_authTypeChooser(new ComboxWidget(this))
@@ -44,9 +46,6 @@ VpnStrongSwanSection::VpnStrongSwanSection(NetworkManager::VpnSetting::Ptr vpnSe
     , m_ike(new LineEditWidget(this))
     , m_esp(new LineEditWidget(this))
 {
-    m_dataMap = vpnSetting->data();
-    m_secretMap = vpnSetting->secrets();
-
     initStrMaps();
     initUI();
     initConnection();
@@ -233,7 +232,7 @@ void VpnStrongSwanSection::initConnection()
     connect(m_userKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnStrongSwanSection::requestFrameAutoHide);
 }
 
-void VpnStrongSwanSection::onAuthTypeChanged(const QString type)
+void VpnStrongSwanSection::onAuthTypeChanged(const QString &type)
 {
     m_currentAuthType = type;
 

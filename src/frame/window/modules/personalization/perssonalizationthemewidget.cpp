@@ -34,6 +34,7 @@ using namespace DCC_NAMESPACE::personalization;
 PerssonalizationThemeWidget::PerssonalizationThemeWidget(QWidget *parent)
     : QWidget(parent)
     , m_centerLayout(nullptr)
+    , m_model(nullptr)
     , m_titleBelowPic(true)
 {
 }

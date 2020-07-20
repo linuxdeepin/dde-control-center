@@ -184,7 +184,7 @@ void MouseWorker::setPalmMinz(int palmMinz)
 
 void MouseWorker::setScrollSpeed(int speed)
 {
-    m_dbusDevices->setWheelSpeed(speed);
+    m_dbusDevices->setWheelSpeed(static_cast<uint>(speed));
 }
 
 void MouseWorker::onDefaultReset()

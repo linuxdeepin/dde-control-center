@@ -34,9 +34,33 @@ const double EPSINON = 1e-6;
 
 PowerModel::PowerModel(QObject *parent)
     : QObject(parent)
+    , m_lidPresent(false)
+    , m_sleepOnLidOnPowerClose(false)
+    , m_sleepOnLidOnBatteryClose(false)
+    , m_screenBlackLock(false)
+    , m_sleepLock(false)
     , m_canSleep(true)
+    , m_screenBlackDelayOnPower(0)
+    , m_sleepDelayOnPower(0)
+    , m_screenBlackDelayOnBattery(0)
+    , m_sleepDelayOnBattery(0)
+    , m_autoPowerSaveMode(false)
+    , m_powerSaveMode(false)
     , m_haveBettary(false)
+    , m_batteryLockScreenDelay(0)
+    , m_powerLockScreenDelay(0)
     , m_batteryPercentage(0.0)
+    , m_bPowerSavingModeAutoWhenQuantifyLow(0)
+    , m_bPowerSavingModeAuto(false)
+    , m_dPowerSavingModeLowerBrightnessThreshold(0)
+    , m_nLinePowerPressPowerBtnAction(0)
+    , m_nLinePowerLidClosedAction(0)
+    , m_nBatteryPressPowerBtnAction(0)
+    , m_nBatteryLidClosedAction(0)
+    , m_bLowPowerNotifyEnable(false)
+    , m_dLowPowerNotifyThreshold(0)
+    , m_dLowPowerAutoSleepThreshold(0)
+    , m_isSuspend(false)
 {
 }
 
@@ -103,12 +127,12 @@ void PowerModel::setSleepOnLidOnPowerClose(bool sleepOnLidClose)
     }
 }
 
-void PowerModel::setSleepOnLidOnBatteryClose(bool sleepOnLidClose)
+void PowerModel::setSleepOnLidOnBatteryClose(bool sleepOnLidOnBatteryClose)
 {
-    if (sleepOnLidClose != m_sleepOnLidOnBatteryClose) {
-        m_sleepOnLidOnBatteryClose = sleepOnLidClose;
+    if (sleepOnLidOnBatteryClose != m_sleepOnLidOnBatteryClose) {
+        m_sleepOnLidOnBatteryClose = sleepOnLidOnBatteryClose;
 
-        Q_EMIT sleepOnLidOnBatteryCloseChanged(sleepOnLidClose);
+        Q_EMIT sleepOnLidOnBatteryCloseChanged(sleepOnLidOnBatteryClose);
     }
 }
 
@@ -196,7 +220,7 @@ void PowerModel::setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode)
     }
 }
 
-void PowerModel::setPowerSavingModeLowerBrightnessThreshold(int dPowerSavingModeLowerBrightnessThreshold)
+void PowerModel::setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingModeLowerBrightnessThreshold)
 {
     if (dPowerSavingModeLowerBrightnessThreshold != m_dPowerSavingModeLowerBrightnessThreshold) {
         m_dPowerSavingModeLowerBrightnessThreshold = dPowerSavingModeLowerBrightnessThreshold;

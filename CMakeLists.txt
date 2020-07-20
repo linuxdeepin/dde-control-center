@@ -45,6 +45,7 @@ add_subdirectory("src/dialogs")
 add_subdirectory("src/develop-tool")
 add_subdirectory("src/restore-tool")
 add_subdirectory("abrecovery")
+add_subdirectory("unittest")
 
 file(GLOB DOCS_FILES "docs/*")
 file(GLOB HEADERS "include/*")

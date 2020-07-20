@@ -38,7 +38,7 @@ WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetti
     , m_apSsid(new LineEditWidget(this))
     , m_deviceMacLine(new ComboxWidget(this))
     //, m_clonedMac(new LineEditWidget(this))
-    , m_customMtuSwitch(new NetSwitchWidget(this))
+    , m_customMtuSwitch(new SwitchWidget(this))
     , m_customMtu(new SpinBoxWidget(this))
     , m_wirelessSetting(wiredSetting)
 {
@@ -84,14 +84,6 @@ bool WirelessSection::allInputValid()
     }
 
     return valid;
-
-    //const QString &clonedMacStr = m_clonedMac->text();
-    //if (clonedMacStr.isEmpty()) {
-        //return true;
-    //}
-    //bool matched = m_macAddrRegExp.exactMatch(clonedMacStr);
-    //m_clonedMac->setIsErr(!matched);
-    //return matched;
 }
 
 void WirelessSection::saveSettings()
@@ -107,7 +99,7 @@ void WirelessSection::saveSettings()
     //QString clonedAddr = m_clonedMac->text().remove(":");
     //m_wirelessSetting->setClonedMacAddress(QByteArray::fromHex(clonedAddr.toUtf8()));
 
-    m_wirelessSetting->setMtu(m_customMtuSwitch->switchWidget()->checked() ? m_customMtu->spinBox()->value() : 0);
+    m_wirelessSetting->setMtu(m_customMtuSwitch->checked() ? m_customMtu->spinBox()->value() : 0);
 
     m_wirelessSetting->setInitialized(true);
 }
@@ -140,31 +132,17 @@ void WirelessSection::initUI()
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(NotBindValue));
     }
 
-    //m_clonedMac->setTitle(tr("Cloned MAC Addr"));
-    //QString tmp = QString(m_wirelessSetting->clonedMacAddress().toHex()).toUpper();
-    //QString clonedMacAddr;
-    //if (!tmp.isEmpty()) {
-        //for (int i = 0; i < tmp.size(); ++i) {
-            //if (i != 0 && i % 2 == 0) {
-                //clonedMacAddr.append(":");
-            //}
-            //clonedMacAddr.append(tmp.at(i));
-        //}
-    //}
-    //m_clonedMac->setText(clonedMacAddr);
-
     m_customMtuSwitch->setTitle(tr("Customize MTU"));
-    m_customMtuSwitch->switchWidget()->setChecked(!(m_wirelessSetting->mtu() == 0));
+    m_customMtuSwitch->setChecked(!(m_wirelessSetting->mtu() == 0));
 
     m_customMtu->setTitle(tr("MTU"));
     m_customMtu->spinBox()->setMinimum(0);
     m_customMtu->spinBox()->setMaximum(10000);
     m_customMtu->spinBox()->setValue(m_wirelessSetting->mtu());
-    onCostomMtuChanged(m_customMtuSwitch->switchWidget()->checked());
+    onCostomMtuChanged(m_customMtuSwitch->checked());
 
     appendItem(m_apSsid);
     appendItem(m_deviceMacLine);
-    //appendItem(m_clonedMac);
     appendItem(m_customMtuSwitch);
     appendItem(m_customMtu);
 }
@@ -172,7 +150,7 @@ void WirelessSection::initUI()
 void WirelessSection::initConnection()
 {
     //connect(m_clonedMac->textEdit(), &QLineEdit::editingFinished, this, &WirelessSection::allInputValid);
-    connect(m_customMtuSwitch->switchWidget(), &SwitchWidget::checkedChanged, this, &WirelessSection::onCostomMtuChanged);
+    connect(m_customMtuSwitch, &SwitchWidget::checkedChanged, this, &WirelessSection::onCostomMtuChanged);
     connect(m_apSsid->textEdit(), &QLineEdit::textChanged, this, &WirelessSection::ssidChanged);
 }
 

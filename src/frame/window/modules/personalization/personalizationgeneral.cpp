@@ -90,9 +90,9 @@ const QList<ColorStru> Dark_ACTIVE_COLORST = {
     {31, 168, 1},
     {0, 138, 116},
     {0, 89, 210},
-    {48, 0, 175},
-    {104, 0, 147},
-    {77, 77, 77},
+    {67, 40, 255},
+    {120, 25, 168},
+    {100, 100, 100},
 };
 
 PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
@@ -198,11 +198,6 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         m_transparentSlider->slider()->setIconSize(QSize(24, 24));
         dcc::widgets::DCCSlider *slider = m_transparentSlider->slider();
         slider->setAccessibleName("transparency");
-        //设计效果图变更：去掉刻度数字显示
-    //    QStringList annotions;
-    //    annotions << "0.1" << "0.2" << "0.4" << "0.5" << "0.65" << "0.8" << "1.0";
-    //    m_transparentSlider->setAnnotations(annotions);
-    //    slider->setRange(0, 6);
         slider->setRange(0, 100);
         slider->setType(dcc::widgets::DCCSlider::Vernier);
         slider->setTickPosition(QSlider::TicksBelow);

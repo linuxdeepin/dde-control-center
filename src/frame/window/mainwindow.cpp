@@ -61,6 +61,7 @@
 #include <QLinearGradient>
 #include <QGSettings>
 #include <QScroller>
+#include <QScreen>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -72,8 +73,8 @@ const QString GSettinsWindowWidth = "window-width";
 const QString GSettinsWindowHeight = "window-height";
 const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
 
-const int WidgetMinimumWidget = 820;
-const int WidgetMinimumHeight = 634;
+static int WidgetMinimumWidget = 820;
+static int WidgetMinimumHeight = 634;
 
 //此处为带边距的宽度
 const int first_widget_min_width = 188;
@@ -212,6 +213,18 @@ MainWindow::MainWindow(QWidget *parent)
         m_moduleName = "";
         resetNavList(m_contentStack.isEmpty());
     });
+    int w = QGuiApplication::primaryScreen()->geometry().width();
+    int h = QGuiApplication::primaryScreen()->geometry().height();
+    if (w > 820) {
+        WidgetMinimumWidget = 820;
+    } else {
+        WidgetMinimumWidget = w;
+    }
+    if (h > 634) {
+        WidgetMinimumHeight = 634;
+    } else {
+        WidgetMinimumHeight = h;
+    }
     setMinimumSize(QSize(WidgetMinimumWidget, WidgetMinimumHeight));
     updateViewBackground();
 }
@@ -301,7 +314,7 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
     }
 }
 
-void MainWindow::initAllModule(QString m)
+void MainWindow::initAllModule(const QString &m)
 {
     if (m_bInit)
         return;
@@ -419,7 +432,7 @@ void MainWindow::loadModules()
 {
     QDir moduleDir(ModuleDirectory);
     if (!moduleDir.exists()) {
-        qWarning() << "module directory not exists";
+        qDebug() << "module directory not exists";
     }
 
     auto moduleList = moduleDir.entryInfoList();
@@ -433,7 +446,7 @@ void MainWindow::loadModules()
         QPluginLoader loader(path);
         QObject* instance = loader.instance();
         if (!instance) {
-            qWarning() << loader.errorString();
+            qDebug() << loader.errorString();
             continue;
         }
 
@@ -443,17 +456,18 @@ void MainWindow::loadModules()
         module->setFrameProxy(this);
 
         if (tr("Assistive Tools") == module->displayName() && !DCC_NAMESPACE::IsDesktopSystem) {
-            for (auto iter : m_modules) {
-                if (iter.second == tr("Keyboard and Language")) {
-                    m_modules.insert(m_modules.indexOf(iter) + 1, {module, module->displayName()});
-                    break;
+            auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+                    return data.second == tr("Keyboard and Language");
+                });
+
+                if (res != m_modules.end()) {
+                    m_modules.insert(m_modules.indexOf(*res) + 1, {module, module->displayName()});
                 }
-            }
         }
     }
 }
 
-void MainWindow::modulePreInitialize(QString m)
+void MainWindow::modulePreInitialize(const QString &m)
 {
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
         QElapsedTimer et;
@@ -537,12 +551,13 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     }
 
     auto findModule = [this](const QString & str)->ModuleInterface * {
-        for (auto m : m_modules)
-        {
-            if (m.first->name() == str) {
-                return m.first;
+        auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+                return data.first->name() == str;
+            });
+
+            if (res != m_modules.end()) {
+                return (*res).first;
             }
-        }
 
         return nullptr;
     };
@@ -609,11 +624,13 @@ void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDispla
 
 bool MainWindow::isModuleAvailable(const QString &m)
 {
-    for (auto ite : m_modules) {
-        if (ite.first->name() == m) {
-            return ite.first->isAvailable();
+    auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+            return data.first->name() == m;
+        });
+
+        if (res != m_modules.end()) {
+            return (*res).first->isAvailable();
         }
-    }
 
     qDebug() << QString("can not fine module named %1!").arg(m);
     return false;
@@ -689,11 +706,11 @@ void MainWindow::resizeEvent(QResizeEvent *event)
             auto ite = m_contentStack.pop();
             pushTopWidget(ite.first, ite.second);
         } else {
-            qWarning() << "Not satisfied , can't back.";
+            qDebug() << "Not satisfied , can't back.";
         }
     } else if (four_widget_min_widget <= dstWidth) {
         if (!m_topWidget) {
-            qWarning() << " The top widget is nullptr.";
+            qDebug() << " The top widget is nullptr.";
             return;
         }
 
@@ -806,20 +823,24 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
         qDebug() << Q_FUNC_INFO << " Search widget is current display widget.";
         // load wireless detail pages.
         if ((moduleName == "network") && (widgetPages.size() > 1)) {
-            for (auto ite : m_modules) {
-                if (ite.first->name() == moduleName) {
-                    ite.first->load(widget);
+            auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+                    return data.first->name() == moduleName;
+                });
+
+                if (res != m_modules.end()) {
+                    (*res).first->load(widget);
                     return;
                 }
-            }
         }
         if ((moduleName == "keyboard") && (widgetPages.size() >= 1)) {
-            for (auto ite : m_modules) {
-                if (ite.first->name() == moduleName) {
-                    ite.first->load(widget);
+            auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
+                    return data.first->name() == moduleName;
+                });
+
+                if (res != m_modules.end()) {
+                    (*res).first->load(widget);
                     return;
                 }
-            }
         }
         return;
     }
@@ -927,19 +948,19 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
             }
         }
     } else {
-        qWarning() << Q_FUNC_INFO << "Not found module!";
+        qDebug() << Q_FUNC_INFO << "Not found module!";
     }
 }
 
 void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type)
 {
     if (!inter)  {
-        qWarning() << Q_FUNC_INFO << " inter is nullptr";
+        qDebug() << Q_FUNC_INFO << " inter is nullptr";
         return;
     }
 
     if (!w)  {
-        qWarning() << Q_FUNC_INFO << " widget is nullptr";
+        qDebug() << Q_FUNC_INFO << " widget is nullptr";
         return;
     }
 
@@ -1072,7 +1093,7 @@ void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *cons
         popAllWidgets(2);//move fourth widget(m_navView not in it , other level > 2)
         break;
     default:
-        qWarning() << Q_FUNC_INFO << " error widget content conut : " << contentCount;
+        qDebug() << Q_FUNC_INFO << " error widget content conut : " << contentCount;
         return;
     }
 

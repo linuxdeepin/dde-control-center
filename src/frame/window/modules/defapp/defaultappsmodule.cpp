@@ -54,6 +54,9 @@ DefaultAppsModule::~DefaultAppsModule()
 
 void DefaultAppsModule::initialize()
 {
+    if (m_defAppModel) {
+        delete m_defAppModel;
+    }
     m_defAppModel  = new dcc::defapp::DefAppModel;
     m_defAppWorker = new dcc::defapp::DefAppWorker(m_defAppModel);
     m_defAppModel->moveToThread(qApp->thread());
@@ -87,7 +90,7 @@ void DefaultAppsModule::contentPopped(QWidget *const w)
     Q_UNUSED(w);
 }
 
-int DefaultAppsModule::load(QString path)
+int DefaultAppsModule::load(const QString &path)
 {
     QMap<QString, dcc::defapp::DefAppWorker::DefaultAppsCategory> maps = {
         { QStringLiteral("Webpage"), dcc::defapp::DefAppWorker::Browser},

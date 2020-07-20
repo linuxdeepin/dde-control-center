@@ -406,6 +406,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     } else {
         deleteAccount->setEnabled(!isOnline);
     }
+    connect(m_curUser, &User::onlineChanged, deleteAccount, [ = ](const bool online) {
+        deleteAccount->setEnabled(!online);
+    });
 
     //修改密码，删除账户操作
     connect(modifyPassword, &QPushButton::clicked, [ = ] {
@@ -521,7 +524,6 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
 void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
 {
     auto inputFullName = m_inputLineEdit->lineEdit()->text();
-//    m_inputLineEdit->setText(m_curUser->fullname());
     m_inputLineEdit->lineEdit()->selectAll();
         if (inputFullName.size() > 100) {
             m_inputLineEdit->setVisible(!edit);

@@ -23,7 +23,6 @@
 #define WIRELESSSECTION_H
 
 #include "abstractsection.h"
-#include "window/modules/network/netswitchwidget.h"
 
 #include "widgets/comboxwidget.h"
 #include "widgets/lineeditwidget.h"
@@ -44,7 +43,7 @@ class WirelessSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit WirelessSection(NetworkManager::WirelessSetting::Ptr wirelessSetting, bool isHotSpot = false, QFrame *parent = nullptr);
+    explicit WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetting, bool isHotSpot = false, QFrame *parent = nullptr);
     virtual ~WirelessSection() override;
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -69,7 +68,7 @@ private:
     QComboBox *m_deviceMacComboBox;
     dcc::widgets::ComboxWidget *m_deviceMacLine;
     //LineEditWidget *m_clonedMac;
-    NetSwitchWidget *m_customMtuSwitch;
+    dcc::widgets::SwitchWidget *m_customMtuSwitch;
     dcc::widgets::SpinBoxWidget *m_customMtu;
 
     NetworkManager::WirelessSetting::Ptr m_wirelessSetting;

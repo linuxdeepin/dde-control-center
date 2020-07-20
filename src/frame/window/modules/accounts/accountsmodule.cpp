@@ -49,6 +49,9 @@ AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
 
 void AccountsModule::initialize()
 {
+    if (m_userModel) {
+        delete m_userModel;
+    }
     m_userModel = new UserModel(this);
     m_accountsWorker = new AccountsWorker(m_userModel);
 
@@ -101,7 +104,7 @@ void AccountsModule::active()
     m_frameProxy->pushWidget(this, m_accountsWidget);
 }
 
-int AccountsModule::load(QString path)
+int AccountsModule::load(const QString &path)
 {
     if (!m_accountsWidget) {
         active();
@@ -207,38 +210,49 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 {
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
     m_pMainWindow = static_cast<MainWindow *>(m_frameProxy);
-    connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [ = ] {
-        FingerWorker::EnrollResult res = m_fingerWorker->tryEnroll(name, thumb);
-        if (res == FingerWorker::Enroll_AuthFailed) {
-            if (m_pMainWindow) {
-                m_pMainWindow->setEnabled(true);
-            }
-            dlg->deleteLater();
-        }
+    connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [=] {
+        m_fingerWorker->tryEnroll(name, thumb);
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
-    connect(dlg, &AddFingeDialog::requesetCloseDlg, this, [=](const QString &userName) {
+    connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [=](const QString &userName) {
         m_fingerWorker->refreshUserEnrollList(userName);
         if (m_pMainWindow) {
             m_pMainWindow->setEnabled(true);
         }
         dlg->deleteLater();
     });
-    if (m_fingerWorker->tryEnroll(name, thumb) == FingerWorker::Enroll_Success) {
-        if (m_pMainWindow) {
-            m_pMainWindow->setEnabled(false);
+
+    m_fingerWorker->tryEnroll(name, thumb);
+    connect(m_fingerWorker, &FingerWorker::tryEnrollResult, dlg, [=] (FingerWorker::EnrollResult res) {
+        // 第一次tryEnroll进入时显示添加指纹对话框
+        if (m_pMainWindow->isEnabled()) {
+            if (res == FingerWorker::Enroll_Success) {
+                if (m_pMainWindow) {
+                    m_pMainWindow->setEnabled(false);
+                }
+                m_fingerModel->resetProgress();
+                dlg->setFingerModel(m_fingerModel);
+                dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+                dlg->setUsername(name);
+                dlg->show();
+                dlg->setFocus();
+                dlg->activateWindow();
+            } else {
+                m_fingerWorker->stopEnroll(name);
+                dlg->deleteLater();
+            }
+        } else {
+            //　已经在添加指纹对话框中的Enroll处理
+            if (res == FingerWorker::Enroll_AuthFailed) {
+                if (m_pMainWindow) {
+                    m_pMainWindow->setEnabled(true);
+                }
+                dlg->deleteLater();
+            } else {
+                dlg->setInitStatus();
+            }
         }
-        m_fingerModel->resetProgress();
-        dlg->setFingerModel(m_fingerModel);
-        dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
-        dlg->setUsername(name);
-        dlg->show();
-        dlg->setFocus();
-        dlg->activateWindow();
-    } else {
-        m_fingerWorker->stopEnroll(name);
-        dlg->deleteLater();
-    }
+    });
 }
 
 void AccountsModule::onHandleVaildChanged(const bool isVaild)

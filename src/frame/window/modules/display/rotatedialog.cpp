@@ -248,8 +248,8 @@ void RotateDialog::resetGeometry()
             move(mon->x(), mon->y());
         } else {
             setFixedSize(700, 600);
-            move(((mon->w() - width()) / 2 + mon->x()) / ratio,
-                 ((mon->h() - height()) / 2 + mon->y()) / ratio);
+            move(static_cast<int>(((mon->w() - width()) / 2 + mon->x()) / ratio),
+                 static_cast<int>(((mon->h() - height()) / 2 + mon->y()) / ratio));
         }
     });
 }

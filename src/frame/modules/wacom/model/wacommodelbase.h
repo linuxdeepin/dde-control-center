@@ -44,7 +44,7 @@ Q_SIGNALS:
     void pressureValueChanged(const int &value);
 
 private:
-    int m_pressureValue;
+    int m_pressureValue = 0;
 };
 }
 }

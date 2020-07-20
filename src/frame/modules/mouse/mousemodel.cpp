@@ -225,7 +225,7 @@ void MouseModel::setTapClick(bool tapclick)
     Q_EMIT tapClickChanged(tapclick);
 }
 
-void MouseModel::setScrollSpeed(int speed)
+void MouseModel::setScrollSpeed(uint speed)
 {
     if (m_scrollSpeed == speed)
         return;

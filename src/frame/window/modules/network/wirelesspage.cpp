@@ -124,7 +124,6 @@ void APItem::setSignalStrength(int ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(6)));
     else if (65 < ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(8)));
-//    setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(ss / 10 & ~1)));
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = ss;
     si.ssid = text();

@@ -66,25 +66,6 @@ void UnionidWorker::deactivate()
 
 void UnionidWorker::loginUser()
 {
-   /* QList<QVariant> argumentList;
-
-    static QDBusInterface interface("com.deepin.deepinid.Client",
-                                        "/com/deepin/deepinid/Client",
-                                        "com.deepin.deepinid.Client",
-                                        QDBusConnection::sessionBus());
-    // TODO: replace with you own id
-    argumentList << "163296859db7ff8d72010e715ac06bdf6a2a6f87";
-    QDBusMessage msg0 = interface.callWithArgumentList(QDBus::NoBlock, "Register", argumentList);
-
-    argumentList = {};
-    // TODO: replace with you own id
-    argumentList << "163296859db7ff8d72010e715ac06bdf6a2a6f87";
-    argumentList << QStringList{};
-    // TODO: replace with you own redirect uri
-    argumentList << "https://sync.chinauos.com/oauth/callback";
-    // state must gen by server and verify on recive code on server
-    argumentList << "random_state";
-    QDBusMessage msg = interface.callWithArgumentList(QDBus::NoBlock, "Authorize", argumentList);*/
     m_deepinId_inter->Login();
 }
 
@@ -98,7 +79,7 @@ void UnionidWorker::setAutoSync(bool autoSync)
     m_syncInter->SwitcherSet("enabled", autoSync);
 }
 
-void UnionidWorker::requestAgreementPopup(QString fileName)
+void UnionidWorker::requestAgreementPopup(const QString &fileName)
 {
     auto infos = m_model->userinfo();
     const QString region = infos["Region"].toString();
@@ -118,45 +99,6 @@ void UnionidWorker::requestAgreementPopup(QString fileName)
             QDesktopServices::openUrl(QUrl("https://www.uniontech.com/agreement/privacy-cn/"));
         }
     }
-     //QDesktopServices::openUrl(QUrl("https://www.uniontech.com/agreement/privacy-cn/"));
-    /*QDateTime current_date_time = QDateTime::currentDateTime();
-    QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
-    if (enabled && (m_dBusUeProgram->IsEnabled() != enabled)) {
-        qInfo("suser opened experience project switch.");
-        // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
-        QString title(tr("UOS Privacy Policy"));
-        QString allowContent(tr("Agree and Join User Experience Program"));
-
-        // license路径
-        QString content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/deepinid-CN-%1.md", "");
-
-        QProcess *m_process = new QProcess(this);
-
-        auto pathType = "-c";
-        QStringList sl;
-        sl << "zh_CN" << "zh_TW";
-        if (!sl.contains(QLocale::system().name()))
-            pathType = "-e";
-        m_process->start("dde-license-dialog",
-                         QStringList() << "-t" << title << pathType << content << "-a" << allowContent);
-        qDebug() << " Deliver content QStringList() = " << "dde-license-dialog"
-                 << "-t" << title << pathType << content << "-a" << allowContent;
-        connect(m_process, &QProcess::stateChanged, this, [pMainWindow](QProcess::ProcessState state) {
-            if (pMainWindow) {
-                pMainWindow->setEnabled(state != QProcess::Running);
-            } else {
-                qDebug() << "setUeProgram pMainWindow is nullptr";
-            }
-        });
-        connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [ = ] {
-            m_process->deleteLater();
-        });
-    } else {
-        if (m_dBusUeProgram->IsEnabled() != enabled) {
-            m_dBusUeProgram->Enable(enabled);
-            qDebug() << QString("On %1, users close the switch to join the user experience program!").arg(current_date);
-        }
-    }*/
 }
 
 void UnionidWorker::requestModifyDialog(QString )

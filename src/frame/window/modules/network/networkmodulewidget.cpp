@@ -177,7 +177,6 @@ void NetworkModuleWidget::setModel(NetworkModel *model)
 
 void NetworkModuleWidget::initSetting(const int settingIndex, const QString &searchPath)
 {
-    //Model = m_modelpages->index(settingIndex, 0);
     if (!searchPath.isEmpty()) {
         m_modelpages->itemFromIndex(m_modelpages->index(settingIndex, 0))->setData(searchPath, SearchPath);
     }

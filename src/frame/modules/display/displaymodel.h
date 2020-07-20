@@ -80,8 +80,6 @@ public:
 
     inline int colorTemperature() const {return  m_colorTemperature; }
     void setColorTemperature(int value);
-    /*inline bool redshiftSetting() const { return m_redshiftSetting; }
-    void setRedshiftSetting(bool redshiftSetting);*/
 
     inline bool autoLightAdjustIsValid() const { return m_AutoLightAdjustIsValid;}
 
@@ -127,7 +125,6 @@ Q_SIGNALS:
     void monitorListChanged() const;
     void nightModeChanged(const bool nightmode) const;
     void redshiftVaildChanged(const bool isvalid) const;
-    //void redshiftSettingChanged(const bool setting) const;
     void autoLightAdjustSettingChanged(bool setting) const;
     void autoLightAdjustVaildChanged(bool isvalid) const;
     void mouseLeftHandChanged(bool isLeft) const;
@@ -164,9 +161,7 @@ private:
     QString m_currentConfig;
     QStringList m_configList;
     QList<Monitor *> m_monitors;
-    //bool m_isNightMode;
     bool m_redshiftIsValid;
-    //bool m_redshiftSetting;
     bool m_RefreshRateEnable{false};
     bool m_isAutoLightAdjust{false};
     bool m_AutoLightAdjustIsValid{false};

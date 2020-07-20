@@ -45,7 +45,7 @@ public:
     virtual const QString displayName() const override;
     virtual void active() override;
     virtual void contentPopped(QWidget *const w) override;
-    virtual int load(QString path) override;
+    virtual int load(const QString &path) override;
     QStringList availPage() const override;
 
 Q_SIGNALS:

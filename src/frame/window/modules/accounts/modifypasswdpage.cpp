@@ -184,21 +184,21 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
         m_oldPasswordEdit->showAlertMessage(tr("Wrong password"), -1);
         return;
     } else {
-        qWarning() << Q_FUNC_INFO << "exit =" << exitCode;
+        qDebug() << Q_FUNC_INFO << "exit =" << exitCode;
     }
 }
 
 int  ModifyPasswdPage::passwordCompositionType(const QStringList &validate, const QString &password)
 {
-    return std::count_if(validate.cbegin(), validate.cend(),
-                         [=](const QString &policy) {
-                             for (const QChar &c : policy) {
-                                 if (password.contains(c)) {
-                                     return true;
-                                 }
-                             }
-                             return false;
-                         });
+    return static_cast<int>(std::count_if(validate.cbegin(), validate.cend(),
+                                          [=](const QString &policy) {
+                                              for (const QChar &c : policy) {
+                                                  if (password.contains(c)) {
+                                                      return true;
+                                                  }
+                                              }
+                                              return false;
+                                          }));
 }
 
 int ModifyPasswdPage::verifyPassword(const QString &password)
@@ -258,6 +258,14 @@ bool ModifyPasswdPage::containsChar(const QString &password, const QString &vali
     }
 
     return true;
+}
+//在修改密码页面当前密码处设置焦点
+void ModifyPasswdPage::showEvent(QShowEvent *event)
+{
+    Q_UNUSED(event);
+    if (m_oldPasswordEdit && !m_oldPasswordEdit->hasFocus()) {
+           m_oldPasswordEdit->lineEdit()->setFocus();
+       }
 }
 
 bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)

@@ -122,7 +122,7 @@ void MicrophonePage::initSlider()
         double val = pos / 100.0;
         Q_EMIT requestSetMicrophoneVolume(val);
     };
-    int val = static_cast<int>(m_model->microphoneVolume() * 100.0f);
+    int val = static_cast<int>(m_model->microphoneVolume() * static_cast<int>(100.0f));
     slider->setValue(val);
     m_inputSlider->setValueLiteral(QString::number(m_model->microphoneVolume() * 100) + "%");
     connect(slider, &DCCSlider::valueChanged, this, slotfunc1);
@@ -135,7 +135,6 @@ void MicrophonePage::initSlider()
         slider->blockSignals(false);
         m_inputSlider->setValueLiteral(QString::number(v * 100) + "%");
     });
-//    connect(slider, &DCCSlider::valueChanged, this, [ = ](double v)
 #ifndef DCC_DISABLE_FEEDBACK
     //~ contents_path /sound/Microphone
     m_feedbackSlider = (new TitledSliderItem(tr("Input Level")));
@@ -146,7 +145,6 @@ void MicrophonePage::initSlider()
     slider2->setEnabled(false);
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::NoTicks);
-    //slider2->setTickPosition(QSlider::TicksBelow);
     slider2->setLeftIcon(QIcon::fromTheme("dcc_feedbacklow"));
     slider2->setRightIcon(QIcon::fromTheme("dcc_feedbackhigh"));
     slider2->setIconSize(QSize(24, 24));

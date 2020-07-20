@@ -32,6 +32,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QLineEdit>
+#include <DStyle>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::keyboard;
@@ -79,10 +80,10 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_testArea->lineEdit()->setPlaceholderText(tr("Test here"));
     m_testArea->lineEdit()->setAlignment(Qt::AlignCenter);
     m_testArea->setClearButtonEnabled(false);
+    DStyle::setFocusRectVisible(m_testArea->lineEdit(), false);
 
     DApplicationHelper *testAreaHelper = DApplicationHelper::instance();
     auto pa = testAreaHelper->palette(m_testArea);
-    pa.setColor(DPalette::Highlight, Qt::transparent);
     pa.setColor(DPalette::Button, Qt::transparent);
     testAreaHelper->setPalette(m_testArea, pa);
 

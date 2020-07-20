@@ -74,7 +74,6 @@ QStringList PopupMenu::stringList() const {
 void PopupMenu::popup(const QPoint& pos) {
   const QSize size = menu_view_->size();
   this->move(pos.x() - size.width() / 2, pos.y() - size.height());
-  //this->resize(size.width(), size.height() + kTriangleHeight);
   this->show();
 
   // Grab global keyboard events when menu window is popup.

@@ -53,7 +53,7 @@ Q_SIGNALS:
     void requestSetDouClick(const int value);
 private:
     void onDoubleClickSpeedChanged(int speed);
-    void onScrollSpeedChanged(int speed);
+    void onScrollSpeedChanged(uint speed);
 private:
     dcc::mouse::MouseModel *m_mouseModel;
     dcc::widgets::SettingsGroup *m_generalSettingsGrp;

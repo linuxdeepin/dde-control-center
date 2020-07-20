@@ -115,7 +115,7 @@ void UpdateHistoryButton::paintEvent(QPaintEvent *event)
 
     if (m_mouseType == MOUSE_PRESS) {
         path.addRoundedRect(rect(), 5, 5);
-        painter.fillPath(path, QColor(255, 255, 255, 0.2 * 255));
+        painter.fillPath(path, QColor(255, 255, 255, static_cast<int>(0.2 * 255)));
         m_mouseType = MOUSE_DEFAULT;
     }
 }

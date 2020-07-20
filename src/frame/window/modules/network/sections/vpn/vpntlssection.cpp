@@ -30,13 +30,14 @@ using namespace NetworkManager;
 VpnTLSSection::VpnTLSSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN TLS Authentication"), parent)
     , m_vpnSetting(vpnSetting)
+    , m_dataMap(vpnSetting->data())
     , m_remote(new LineEditWidget(this))
     , m_remoteCertTypeChooser(new ComboxWidget(this))
     , m_caCert(new FileChooseWidget(this))
     , m_customKeyDirection(new SwitchWidget(this))
     , m_keyDirectionChooser(new ComboxWidget(this))
 {
-    m_dataMap = vpnSetting->data();
+
 
     initStrMaps();
     initUI();

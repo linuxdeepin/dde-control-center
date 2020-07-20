@@ -113,7 +113,7 @@ void CommonInfoModule::deactive()
     m_commonWork->deactivate();
 }
 
-int CommonInfoModule::load(QString path)
+int CommonInfoModule::load(const QString &path)
 {
     if (!m_commonWidget) {
         active();
@@ -197,12 +197,13 @@ void CommonInfoModule::onShowTabletModeWidget()
 void CommonInfoModule::initBootWidget()
 {
     m_bootWidget = new BootWidget;
-    m_bootWidget->setModel(m_commonModel);
 
     connect(m_bootWidget, &BootWidget::bootdelay, m_commonWork, &CommonInfoWork::setBootDelay);
     connect(m_bootWidget, &BootWidget::enableTheme, m_commonWork, &CommonInfoWork::setEnableTheme);
     connect(m_bootWidget, &BootWidget::defaultEntry, m_commonWork, &CommonInfoWork::setDefaultEntry);
     connect(m_bootWidget, &BootWidget::requestSetBackground, m_commonWork, &CommonInfoWork::setBackground);
+
+    m_bootWidget->setModel(m_commonModel);
 }
 
 void CommonInfoModule::initUeProgramWidget()

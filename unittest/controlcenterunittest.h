@@ -1,9 +1,9 @@
 /*
- * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2018 ~ 2028 Uniontech Technology Co., Ltd.
  *
- * Author:     wuchuanfei <wuchuanfei_cm@deepin.com>
+ * Author:     huangweihua <huangweihua@uniontech.com>
  *
- * Maintainer: wuchuanfei <wuchuanfei_cm@deepin.com>
+ * Maintainer: huangweihua <huangweihua@uniontech.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,26 +18,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "netswitchwidget.h"
+#ifndef CONTROLCENTER_UNIT_TEST_H
+#define CONTROLCENTER_UNIT_TEST_H
+#include <QObject>
 
-#include "widgets/switchwidget.h"
-
-using namespace dcc;
-using namespace widgets;
-
-namespace DCC_NAMESPACE {
-namespace network {
-
-NetSwitchWidget::NetSwitchWidget(QFrame *parent)
-    : SwitchWidget(parent)
+class ControlCenterUnitTest : public QObject
 {
-    addBackground();
-}
+    Q_OBJECT
 
-SwitchWidget *NetSwitchWidget::switchWidget()
-{
-    return this;
-}
+public:
+    ControlCenterUnitTest();
+    ~ControlCenterUnitTest();
 
-}
-}
+private slots:
+    void SetPrimary(QString strDisplay = "HDMI-0");         //设置主屏
+};
+
+#endif // CONTROLCENTER_UNIT_TEST_H

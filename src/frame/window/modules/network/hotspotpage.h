@@ -115,7 +115,7 @@ Q_SIGNALS:
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
 
 private Q_SLOTS:
-    void deviceListChanged(const QList<dde::network::NetworkDevice *> devices);
+    void deviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
 
 private:
     dde::network::NetworkModel *m_model;

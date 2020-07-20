@@ -122,9 +122,9 @@ void GeneralSettingWidget::onDoubleClickSpeedChanged(int speed)
     m_doubleSlider->slider()->blockSignals(false);
 }
 
-void GeneralSettingWidget::onScrollSpeedChanged(int speed)
+void GeneralSettingWidget::onScrollSpeedChanged(uint speed)
 {
     m_scrollSpeedSlider->slider()->blockSignals(true);
-    m_scrollSpeedSlider->slider()->setValue(speed);
+    m_scrollSpeedSlider->slider()->setValue(static_cast<int>(speed));
     m_scrollSpeedSlider->slider()->blockSignals(false);
 }

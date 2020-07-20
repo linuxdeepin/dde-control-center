@@ -123,7 +123,7 @@ void CustomItem::mouseReleaseEvent(QMouseEvent *e)
 void CustomItem::paintEvent(QPaintEvent *event)
 {
     QPainter p(this);
-    auto Radius = 15.0f;
+    float Radius = 15.0f;
     if (isAlert) {
         p.setPen(Qt::NoPen);
         p.setBrush(QColor(241, 57, 50, qRound(0.15 * 255)));

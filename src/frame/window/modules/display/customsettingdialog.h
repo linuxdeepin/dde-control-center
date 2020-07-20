@@ -78,9 +78,9 @@ enum ResolutionRole {
 };
 
 struct ResolutionDate {
-    qint32 id;
-    qint32 w;
-    qint32 h;
+    qint32 id=0;
+    qint32 w=0;
+    qint32 h=0;
     double rate{0.0};
 };
 

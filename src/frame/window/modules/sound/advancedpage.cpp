@@ -147,6 +147,7 @@ void AdvancedPage::initList()
 
 void AdvancedPage::resizeEvent(QResizeEvent *event)
 {
+    Q_UNUSED(event);
     m_inputList->setFixedWidth(this->width());
     m_outputList->setFixedWidth(this->width());
 }

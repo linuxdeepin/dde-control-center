@@ -50,7 +50,7 @@ void WacomWorker::active()
     m_dbusWacom->blockSignals(false);
 
     WacomModelBase *ModelBase = m_model->getWacomModelBase();
-    ModelBase->setPressureValue(m_dbusWacom->stylusPressureSensitive());
+    ModelBase->setPressureValue(static_cast<int>(m_dbusWacom->stylusPressureSensitive()));
     m_model->setExist(m_dbusWacom->exist());
 }
 
@@ -67,8 +67,8 @@ void WacomWorker::setPressureSensitive(const int value)
 
 void WacomWorker::onPressureSensitiveChanged(const int value)
 {
-    m_dbusWacom->setStylusPressureSensitive(value);
-    m_dbusWacom->setEraserPressureSensitive(value);
+    m_dbusWacom->setStylusPressureSensitive(static_cast<uint>(value));
+    m_dbusWacom->setEraserPressureSensitive(static_cast<uint>(value));
 }
 
 bool WacomWorker::exist()

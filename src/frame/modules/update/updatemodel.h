@@ -41,7 +41,7 @@ public:
     explicit DownloadInfo(const qlonglong &downloadSize, const QList<AppUpdateInfo> &appInfos, QObject *parent = 0);
     virtual ~DownloadInfo() {}
 
-    inline qlonglong downloadSize() const { return m_downloadSize; }
+    inline qulonglong downloadSize() const { return m_downloadSize; }
     double downloadProgress() const { return m_downloadProgress; }
     QList<AppUpdateInfo> appInfos() const { return m_appInfos; }
 
@@ -140,12 +140,12 @@ public:
     void setRecoverRestoring(bool recoverRestoring);
 
     inline QString systemVersionInfo() const { return m_systemVersionInfo; }
-    void setSystemVersionInfo(QString systemVersionInfo);
+    void setSystemVersionInfo(const QString &systemVersionInfo);
 
     bool getIsRecoveryBackingup(UpdatesStatus state) const;
 
     inline bool systemActivation() const {return m_bSystemActivation;}
-    void setSystemActivation(int systemactivation);
+    void setSystemActivation(uint systemactivation);
 
     inline bool getUpdatablePackages() const {return m_isUpdatablePackages;}
     void isUpdatablePackages(bool isUpdatablePackages);

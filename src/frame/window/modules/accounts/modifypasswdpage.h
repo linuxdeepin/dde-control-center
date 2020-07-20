@@ -76,6 +76,8 @@ public:
         ModifyNewPwdSuccess = 0,
         InputOldPwdError  = 10
     };
+protected:
+    void showEvent(QShowEvent *event) override;
 
 private:
     bool onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit);

@@ -73,6 +73,7 @@ void UnionidModule::active()
 
 void UnionidModule::preInitialize(bool sync)
 {
+    Q_UNUSED(sync);
     m_model = new dcc::unionid::UnionidModel;
     m_worker = new dcc::unionid::UnionidWorker(m_model);
 

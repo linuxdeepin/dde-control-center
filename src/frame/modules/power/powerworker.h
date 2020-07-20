@@ -52,7 +52,6 @@ public Q_SLOTS:
     void setScreenBlackLock(const bool lock);
     void setSleepLock(const bool lock);
     void setSleepOnLidOnPowerClosed(const bool sleep);
-    void setSleepOnLidOnBatteryClosed(const bool sleep);
     void setSleepDelayOnPower(const int delay);
     void setSleepDelayOnBattery(const int delay);
     void setScreenBlackDelayOnPower(const int delay);
@@ -68,7 +67,7 @@ public Q_SLOTS:
     //------------sp2 add-----------------------
     void setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode);
     void setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode);
-    void setPowerSavingModeLowerBrightnessThreshold(int dPowerSavingModeLowerBrightnessThreshold);
+    void setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingModeLowerBrightnessThreshold);
     void setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction);
     void setLinePowerLidClosedAction(int nLinePowerLidClosedAction);
     void setBatteryPressPowerBtnAction(int nBatteryPressPowerBtnAction);

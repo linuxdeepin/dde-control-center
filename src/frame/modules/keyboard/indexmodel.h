@@ -82,18 +82,12 @@ public:
     QList<MetaData> metaData() const;
     int  indexOf(const MetaData &md);
 
-    void setLetters(QList<QString> letters);
+    void setLetters(QList<QString> &letters);
     QList<QString> letters() const;
-
-//    QModelIndex index(int row, int column = 0, const QModelIndex &parent = QModelIndex()) const;
-//    Qt::ItemFlags flags(const QModelIndex &index) const;
-
     int getModelCount();
 
 protected:
     int rowCount(const QModelIndex &parent) const;
-//    QVariant data(const QModelIndex &index, int role) const;
-
 private:
     QList<MetaData> m_datas;
     QList<QString> m_letters;

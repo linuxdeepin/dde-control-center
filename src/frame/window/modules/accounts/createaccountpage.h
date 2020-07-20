@@ -77,7 +77,7 @@ private:
     void initWidgets(QVBoxLayout *layout);
     void initUsrGroup(QVBoxLayout *layout);
     void createUser();
-    void showGroupList(const QString index);
+    void showGroupList(const QString &index);
     bool onPasswordEditFinished(DPasswordEdit *edit);
     int  verifyPassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);

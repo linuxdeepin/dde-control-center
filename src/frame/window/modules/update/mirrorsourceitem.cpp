@@ -19,7 +19,7 @@ MirrorSourceItem::MirrorSourceItem(QObject *parent)
     this->setActionList(Qt::RightEdge, {m_action});
 }
 
-void MirrorSourceItem::setMirrorState(QString value)
+void MirrorSourceItem::setMirrorState(const QString &value)
 {
     if ("" != value && m_rightLabel != value) {
         m_rightLabel = value;
@@ -27,7 +27,7 @@ void MirrorSourceItem::setMirrorState(QString value)
     }
 }
 
-void MirrorSourceItem::setMirrorName(QString value)
+void MirrorSourceItem::setMirrorName(const QString &value)
 {
     if ("" != value && m_leftLabel != value) {
         m_leftLabel = value;
@@ -43,7 +43,7 @@ void MirrorSourceItem::setSelected(bool state)
     }
 }
 
-void MirrorSourceItem::setMirrorInfo(const MirrorInfo &info, QString defaultValue)
+void MirrorSourceItem::setMirrorInfo(const MirrorInfo &info, const QString &defaultValue)
 {
     m_info = info;
     setMirrorName(info.m_name);

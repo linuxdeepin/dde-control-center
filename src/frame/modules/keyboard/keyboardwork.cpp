@@ -92,7 +92,7 @@ void KeyboardWorker::resetAll() {
         watcher->deleteLater();
 
         if (reply->isError()) {
-            qWarning() << Q_FUNC_INFO << reply->error();
+            qDebug() << Q_FUNC_INFO << reply->error();
         }
 
         Q_EMIT onResetFinished();
@@ -136,7 +136,7 @@ void KeyboardWorker::windowSwitch()
                                "com.deepin.wm",
                                QDBusConnection::sessionBus());
     if (!licenseInfo.isValid()) {
-        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
         return;
     }
 
@@ -209,7 +209,7 @@ bool KeyboardWorker::keyOccupy(const QStringList &list)
 #ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardWorker::onRefreshKBLayout()
 {
-    m_model->setKbSwitch(m_keybindInter->shortcutSwitchLayout());
+    m_model->setKbSwitch(static_cast<int>(m_keybindInter->shortcutSwitchLayout()));
 
     QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardInter->LayoutList(), this);
     connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onLayoutListsFinished);
@@ -249,9 +249,9 @@ void KeyboardWorker::modifyShortcutEditAux(ShortcutInfo *info, bool isKPDelete)
         connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onConflictShortcutCleanFinished);
     } else {
         if (isKPDelete) {
-            m_keybindInter->AddShortcutKeystroke(info->id, info->type, shortcut);
+            m_keybindInter->AddShortcutKeystroke(info->id, static_cast<int>(info->type), shortcut);
         } else {
-            cleanShortcutSlef(info->id, info->type, shortcut);
+            cleanShortcutSlef(info->id, static_cast<int>(info->type), shortcut);
         }
     }
 }
@@ -310,22 +310,22 @@ void KeyboardWorker::delShortcut(ShortcutInfo* info)
     m_shortcutModel->delInfo(info);
 }
 
-void KeyboardWorker::setRepeatDelay(int value)
+void KeyboardWorker::setRepeatDelay(uint value)
 {
     m_keyboardInter->setRepeatDelay(converToDBusDelay(value));
 }
 
 void KeyboardWorker::setRepeatInterval(int value)
 {
-    m_keyboardInter->setRepeatInterval(converToDBusInterval(value));
+    m_keyboardInter->setRepeatInterval(static_cast<uint>(converToDBusInterval(value)));
 }
 
-void KeyboardWorker::setModelRepeatDelay(int value)
+void KeyboardWorker::setModelRepeatDelay(uint value)
 {
     m_model->setRepeatDelay(converToModelDelay(value));
 }
 
-void KeyboardWorker::setModelRepeatInterval(int value)
+void KeyboardWorker::setModelRepeatInterval(uint value)
 {
     m_model->setRepeatInterval(converToModelInterval(value));
 }
@@ -422,7 +422,7 @@ void KeyboardWorker::onAdded(const QString &in0, int in1)
 void KeyboardWorker::onDisableShortcut(ShortcutInfo *info)
 {
     // disable shortcut need wait!
-    m_keybindInter->ClearShortcutKeystrokes(info->id, info->type).waitForFinished();
+    m_keybindInter->ClearShortcutKeystrokes(info->id, static_cast<int>(info->type)).waitForFinished();
     info->accels.clear();
 }
 
@@ -477,7 +477,7 @@ void KeyboardWorker::onLocalListsFinished(QDBusPendingCallWatcher *watch)
 
 void KeyboardWorker::onSetSwitchKBLayout(int value)
 {
-    m_keybindInter->setShortcutSwitchLayout(value);
+    m_keybindInter->setShortcutSwitchLayout(static_cast<uint>(value));
 }
 
 #ifndef DCC_DISABLE_KBLAYOUT
@@ -540,7 +540,7 @@ void KeyboardWorker::onSearchFinished(QDBusPendingCallWatcher *watch)
     if (!watch->isError()) {
         m_shortcutModel->setSearchResult(reply.value());
     } else {
-        qWarning() << "search finished error." << watch->error();
+        qDebug() << "search finished error." << watch->error();
     }
     watch->deleteLater();
 }
@@ -695,7 +695,7 @@ void KeyboardWorker::onShortcutCleanFinished(QDBusPendingCallWatcher *watch)
         if (shortcut.contains("Delete") && !shortcut.contains("KP_Delete")) {
             ShortcutInfo si;
             si.id = id;
-            si.type = type;
+            si.type = static_cast<uint>(type);
             si.accels = shortcut;
             si.accels = si.accels.replace("Delete", "KP_Delete");
             modifyShortcutEditAux(&si, true);
@@ -721,7 +721,7 @@ void KeyboardWorker::onCustomConflictCleanFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
-int KeyboardWorker::converToDBusDelay(int value)
+uint KeyboardWorker::converToDBusDelay(uint value)
 {
     switch (value) {
     case 1:
@@ -743,7 +743,7 @@ int KeyboardWorker::converToDBusDelay(int value)
     }
 }
 
-int KeyboardWorker::converToModelDelay(int value)
+uint KeyboardWorker::converToModelDelay(uint value)
 {
     if (value <= 20)
         return 1;
@@ -783,7 +783,7 @@ int KeyboardWorker::converToDBusInterval(int value)
     }
 }
 
-int KeyboardWorker::converToModelInterval(int value)
+uint KeyboardWorker::converToModelInterval(uint value)
 {
     if (value <= 20)
         return 7;

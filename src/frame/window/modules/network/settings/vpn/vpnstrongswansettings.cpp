@@ -56,26 +56,20 @@ void VpnStrongSwanSettings::initSections()
             m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
-    //IpvxSection *ipv6Section = new IpvxSection(
-            //m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
 
     connect(vpnStrongSwanSection, &VpnStrongSwanSection::requestNextPage,
             this, &VpnStrongSwanSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnStrongSwanSettings::requestNextPage);
-    //connect(ipv6Section, &IpvxSection::requestNextPage, this, &VpnStrongSwanSettings::requestNextPage);
 
     connect(vpnStrongSwanSection, &VpnStrongSwanSection::requestFrameAutoHide,
             this, &VpnStrongSwanSettings::requestFrameAutoHide);
     connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnStrongSwanSettings::requestFrameAutoHide);
-    //connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &VpnStrongSwanSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnStrongSwanSection);
     m_sectionsLayout->addWidget(ipv4Section);
-    //m_sectionsLayout->addWidget(ipv6Section);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(vpnStrongSwanSection);
     m_settingSections.append(ipv4Section);
-    //m_settingSections.append(ipv6Section);
 }

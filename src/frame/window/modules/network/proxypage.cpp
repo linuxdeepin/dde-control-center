@@ -210,17 +210,6 @@ ProxyPage::ProxyPage(QWidget *parent)
             m_socksPort->setText("65535");
         }
     });
-//    connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { Q_EMIT requestSetProxyMethod(ProxyMethodList[index]); });
-//    connect(m_ignoreList, &QPlainTextEdit::textChanged, [=] { Q_EMIT requestSetIgnoreHosts(m_ignoreList->toPlainText()); });
-//    connect(m_httpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
-//    connect(m_httpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
-//    connect(m_httpsAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("https"); });
-//    connect(m_httpsPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("https"); });
-//    connect(m_ftpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("ftp"); });
-//    connect(m_ftpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("ftp"); });
-//    connect(m_socksAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
-//    connect(m_socksPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
-//    connect(m_autoUrl->textEdit(), &QLineEdit::editingFinished, [=] { Q_EMIT requestSetAutoProxy(m_autoUrl->text()); });
 
     QTimer::singleShot(1, this, [ = ] {
         Q_EMIT requestQueryProxyData();

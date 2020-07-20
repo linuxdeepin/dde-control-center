@@ -39,6 +39,8 @@ using namespace DCC_NAMESPACE::datetime;
 DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
+    , m_work(nullptr)
+    , m_model(nullptr)
     , m_timezonelist(nullptr)
     , m_widget(nullptr)
 {
@@ -89,7 +91,7 @@ void DatetimeModule::active()
     m_widget->setDefaultWidget();
 }
 
-int DatetimeModule::load(QString path)
+int DatetimeModule::load(const QString &path)
 {
     if (!m_widget) {
         active();
@@ -298,7 +300,7 @@ void DatetimeModule::onPopWidget()
     DListView *list = m_widget->getListViewPointer();
 
     if (!list) {
-        qWarning() << " DListView is nullptr.";
+        qDebug() << " DListView is nullptr.";
         return;
     }
 

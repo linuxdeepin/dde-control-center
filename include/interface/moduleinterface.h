@@ -126,7 +126,7 @@ public:
     /// \brief load
     /// 当搜索到相关字段后，lead会被调用
     /// 如果可以正常显示则返回 0, 否则返回非0
-    virtual int load(QString path) {
+    virtual int load(const QString &path) {
         Q_UNUSED(path);
         return 0;
     }
