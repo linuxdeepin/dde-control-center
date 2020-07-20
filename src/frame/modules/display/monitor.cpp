@@ -185,7 +185,7 @@ bool Monitor::isSameResolution(const Resolution &r1, const Resolution &r2)
 
 bool Monitor::isSameRatefresh(const Resolution &r1, const Resolution &r2)
 {
-    return fabs(r1.rate() - r2.rate()) < 0.000001;
+    return fabs(r1.rate() - r2.rate()) < 1e-5;
 }
 
 bool Monitor::hasResolution(const Resolution &r)
@@ -199,15 +199,31 @@ bool Monitor::hasResolution(const Resolution &r)
     return false;
 }
 
-bool Monitor::hasResolutionAndRate(const Resolution &r)
+bool Monitor::hasResolutionAndRate(const Resolution &r, int mode)
 {
-    for (auto m : m_modeList) {
-        if (abs(m.rate() - r.rate()) < 0.000001 &&
-                m.width() == r.width() &&
-                m.height() == r.height()) {
-            return true;
+    //+ 双屏复制时，添加刷新率判断模式；当检测到两个屏幕的没有共同刷新率时启用；
+    if (0 == mode) {
+        for (auto m : m_modeList) {
+            if (abs(m.rate() - r.rate()) < 1e-5 &&
+                    m.width() == r.width() &&
+                    m.height() == r.height()) {
+                return true;
+            }
+        }
+    } else if (1 == mode) {
+        for (auto m : m_modeList) {
+            if (abs(m.rate() - r.rate()) < 0.5 && m.width() == r.width() && m.height() == r.height()) {
+                return true;
+            }
+        }
+    } else {
+        for (auto m : m_modeList) {
+            if (m.width() == r.width() && m.height() == r.height()) {
+                return true;
+            }
         }
     }
+
 
     return false;
 }

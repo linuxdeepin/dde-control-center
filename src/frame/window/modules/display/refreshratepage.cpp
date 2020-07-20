@@ -82,7 +82,7 @@ void RefreshRatePage::initRateList()
             tstr += QString(" (%1)").arg(tr("Recommended"));
             isFirst = false;
         }
-        if (fabs(trate - moni->currentMode().rate()) < 0.000001) {
+        if (fabs(trate - moni->currentMode().rate()) < 1e-5) {
             item->setCheckState(Qt::CheckState::Checked);
         } else {
             item->setCheckState(Qt::CheckState::Unchecked);

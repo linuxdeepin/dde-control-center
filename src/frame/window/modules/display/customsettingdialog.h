@@ -104,7 +104,7 @@ private:
     void initUI();
     void initWithModel();
     void initOtherDialog();
-    void initRefreshrateList();
+    void initRefreshrateList(int mode = 0);
     void initResolutionList();
     void initMoniList();
     void initMoniControlWidget();
@@ -112,6 +112,7 @@ private:
     void initPrimaryDialog();
 
     void initConnect();
+    void refreshRateListWhileMerge(double rate, int w, int h);
     void resetMonitorObject(dcc::display::Monitor *moni);
 
 private:

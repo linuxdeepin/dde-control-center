@@ -166,7 +166,32 @@ void CustomSettingDialog::initWithModel()
 
     initMoniControlWidget();
     initResolutionList();
-    initRefreshrateList();
+
+    if (m_model->isMerge()) {
+        //+ 对于merge模式需要获取共同的刷新率，这样切换分辨率时才能保证两个显示屏幕使用同样的刷新率，不会出现一个可以正常显示一个黑屏的现象；
+        double rate = -100;
+        for (auto m : m_monitor->modeList()) {
+            if (m.width() != m_model->screenWidth() || m.height() != m_model->screenHeight())
+                continue;
+
+            bool isCommen = true;
+            for (auto tmonitor : m_model->monitorList()) {
+                if (!tmonitor->hasResolutionAndRate(m)) {
+                    isCommen = false;
+                    break;
+                }
+            }
+
+            if (!isCommen)
+                continue;
+
+            rate = m.rate();
+        }
+
+        refreshRateListWhileMerge(rate, m_model->screenWidth(), m_model->screenHeight());
+    } else {
+        initRefreshrateList();
+    }
 
     if (m_moniList)
         m_moniList->setVisible(!m_model->isMerge()
@@ -228,7 +253,7 @@ void CustomSettingDialog::initOtherDialog()
     }
 }
 
-void CustomSettingDialog::initRefreshrateList()
+void CustomSettingDialog::initRefreshrateList(int mode)
 {
     QStandardItemModel *listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
     if (listModel) {
@@ -250,7 +275,7 @@ void CustomSettingDialog::initRefreshrateList()
         if (m_model->isMerge()) {
             bool isCommen = true;;
             for (auto tmonitor : m_model->monitorList()) {
-                if (!tmonitor->hasResolutionAndRate(m)) {
+                if (!tmonitor->hasResolutionAndRate(m, mode)) {
                     isCommen = false;
                     break;
                 }
@@ -268,7 +293,7 @@ void CustomSettingDialog::initRefreshrateList()
             tstr += QString(" (%1)").arg(tr("Recommended"));
             isFirst = false;
         }
-        if (fabs(trate - moni->currentMode().rate()) < 0.000001) {
+        if (fabs(trate - moni->currentMode().rate()) < 1e-5) {
             item->setCheckState(Qt::CheckState::Checked);
         } else {
             item->setCheckState(Qt::CheckState::Unchecked);
@@ -279,7 +304,15 @@ void CustomSettingDialog::initRefreshrateList()
         item->setData(QVariant(m.width()), WidthRole);
         item->setData(QVariant(m.height()), HeightRole);
         item->setText(tstr);
+
+        //+ 双屏复制模式，没有共同刷新率且刷新率相差很大时，只允许显示一个在列表中；
+        if (2 == mode)
+            break;
     }
+
+    //+ 刷新率列表中只有一个刷新率时，必须要勾选上；
+    if (1 == listModel->rowCount())
+        listModel->item(0,0)->setCheckState(Qt::CheckState::Checked);
 }
 
 void CustomSettingDialog::initResolutionList()
@@ -427,7 +460,7 @@ void CustomSettingDialog::initConnect()
         auto id = m_resolutionListModel->data(idx, IdRole).toInt();
 
         //+ 对于merge模式需要获取共同的刷新率，这样切换分辨率时才能保证两个显示屏幕使用同样的刷新率，不会出现一个可以正常显示一个黑屏的现象；
-        double rate = 60.0;
+        double rate = -100;
         for (auto m : m_monitor->modeList()) {
             if (m.width() != w || m.height() != h)
                 continue;
@@ -469,9 +502,12 @@ void CustomSettingDialog::initConnect()
             this->requestSetResolution(m_monitor, res);
         }
 
-        //+ 切换分辨率后，更新刷新率列表，防止出现刷新率未勾选的情况；
-        initRefreshrateList();
-        
+        if (m_model->isMerge()) {
+            refreshRateListWhileMerge(rate, w, h);
+        } else {
+            initRefreshrateList();
+        }
+
         const auto curMode = m_monitor->currentMode();
         for (auto i = 0; i < m_resolutionListModel->rowCount(); i++) {
             QStandardItem * aitem = m_resolutionListModel->item(i);
@@ -548,6 +584,42 @@ void CustomSettingDialog::initConnect()
     connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
     connect(m_model, &DisplayModel::screenHeightChanged, this, &CustomSettingDialog::resetDialog);
     connect(m_model, &DisplayModel::isMergeChange, m_monitroControlWidget, &MonitorControlWidget::setScreensMerged);
+}
+
+void CustomSettingDialog::refreshRateListWhileMerge(double rate, int w, int h)
+{
+    //+ 双屏复制模式时，对于刷新率判断有一定容错率；同时如果两者刷新率相差很大的情况也会出现，此种情况单独处理；
+    if (abs(rate + 100) < 1e-5) {
+        double rate = -100;
+        for (auto m : m_monitor->modeList()) {
+            if (m.width() != w || m.height() != h)
+                continue;
+
+            if (m_model->isMerge()) {
+                bool isCommen = true;
+                for (auto tmonitor : m_model->monitorList()) {
+                    if (!tmonitor->hasResolutionAndRate(m, 1)) {
+                        isCommen = false;
+                        break;
+                    }
+                }
+
+                if (!isCommen)
+                    continue;
+            }
+
+            rate = m.rate();
+        }
+
+        if (rate > 0) {
+            initRefreshrateList(1);
+        } else {
+            initRefreshrateList(2);
+        }
+    } else {
+        //+ 切换分辨率后，更新刷新率列表，防止出现刷新率未勾选的情况；
+        initRefreshrateList();
+    }
 }
 
 void CustomSettingDialog::resetMonitorObject(Monitor *moni)

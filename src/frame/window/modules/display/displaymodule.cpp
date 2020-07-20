@@ -313,9 +313,16 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
 //                        continue;
 //                    }
                     //+ 应该保证width，height,rate三者一致才能更新分辨率；
-                    if (res.width() == w && res.height() == h && abs(res.rate() - r) < 1e-5) {
-                        m_displayWorker->setMonitorResolution(m, res.id());
-                        break;
+                    if ((tmode.rate + 100) < 1e-5) {
+                        if (res.width() == w && res.height() == h) {
+                            m_displayWorker->setMonitorResolution(m, res.id());
+                            break;
+                        }
+                    } else {
+                        if (res.width() == w && res.height() == h && abs(res.rate() - r) < 1e-5) {
+                            m_displayWorker->setMonitorResolution(m, res.id());
+                            break;
+                        }
                     }
                 }
             }
@@ -330,6 +337,9 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
     tfunc(mon, mode);
 
     if (showTimeoutDialog(mon ? mon : m_displayModel->primaryMonitor()) != QDialog::Accepted) {
+        if ((mode.rate + 100) < 1e-5) {
+            lastres.rate = mode.rate;
+        }
         tfunc(mon, lastres);
     }
 }
