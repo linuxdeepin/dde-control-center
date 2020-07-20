@@ -123,8 +123,8 @@ private:
     int m_screenBlackDelayOnBattery;
     int m_sleepDelayOnBattery;
 #ifndef DCC_DISABLE_POWERSAVE
-    bool m_autoPowerSaveMode;
-    bool m_powerSaveMode;
+    bool m_autoPowerSaveMode{false};
+    bool m_powerSaveMode{false};
 #endif
     bool m_haveBettary;
     int m_batteryLockScreenDelay;
