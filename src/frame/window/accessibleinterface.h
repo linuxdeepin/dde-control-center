@@ -11,6 +11,7 @@
 #include <QMetaEnum>
 #include <QMouseEvent>
 #include <QApplication>
+#include <QRect>
 
 #define SEPARATOR "_"
 
@@ -113,11 +114,122 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
         }\
     }\
 
-// Label控件特有功能
+// QLABEL控件特有功能
 #define FUNC_TEXT_(classname) QString Accessible##classname::text(int startOffset, int endOffset) const{\
         Q_UNUSED(startOffset)\
         Q_UNUSED(endOffset)\
         return m_w->text();\
+    }\
+
+// EDITABLE控件特有功能
+#define FUNC_DELETETEXT(classname) void Accessible##classname::deleteText(int startOffset, int endOffset) {\
+        m_w->setText(m_w->text().remove(startOffset, endOffset - startOffset));\
+    }\
+
+#define FUNC_INSERTTEXT(classname) void Accessible##classname::insertText(int startOffset, const QString &text) {\
+        m_w->setText(m_w->text().insert(startOffset, text));\
+    }\
+
+#define FUNC_REPLACETEXT(classname) void Accessible##classname::replaceText(int startOffset, int endOffset, const QString &text) {\
+        m_w->setText(m_w->text().replace(startOffset, endOffset - startOffset, text));\
+    }\
+
+#define FUNC_SELECTION(classname) void Accessible##classname::selection(int selectionIndex, int *startOffset, int *endOffset) const {\
+        m_w->setSelection(*startOffset, *endOffset);\
+        *startOffset = *endOffset = 0;\
+        if (selectionIndex != 0)\
+            return;\
+        *startOffset = m_w->selectionStart();\
+        *endOffset = *startOffset + m_w->selectedText().count();\
+    }\
+
+#define FUNC_SELECTIONCOUNT(classname) int Accessible##classname::selectionCount() const {\
+        return m_w->hasSelectedText() ? 1 : 0;\
+    }\
+
+#define FUNC_ADDSELECTION(classname) void Accessible##classname::addSelection(int startOffset, int endOffset) {\
+        setSelection(0, startOffset, endOffset);\
+    }\
+
+#define FUNC_REMOVESELECTION(classname) void Accessible##classname::removeSelection(int selectionIndex) {\
+        if (selectionIndex != 0)\
+            return;\
+        m_w->deselect();\
+    }\
+
+#define FUNC_SETSELECTION(classname) void Accessible##classname::setSelection(int selectionIndex, int startOffset, int endOffset) {\
+        if (selectionIndex != 0)\
+            return;\
+        m_w->setSelection(startOffset, endOffset - startOffset);\
+    }\
+
+#define FUNC_CURORPOSITION(classname) int Accessible##classname::cursorPosition() const {\
+        return m_w->cursorPosition();\
+    }\
+
+#define FUNC_SETCURORPOSITION(classname) void Accessible##classname::setCursorPosition(int position) {\
+        m_w->setCursorPosition(position);\
+    }\
+
+#define FUNC_TEXT_LineEdit(classname) QString Accessible##classname::text(int startOffset, int endOffset) const{\
+        if (startOffset > endOffset)\
+            return QString();\
+        if (m_w->echoMode() != QLineEdit::Normal)\
+            return QString();\
+        return m_w->text().mid(startOffset, endOffset - startOffset);\
+    }\
+
+#define FUNC_TEXTBEFOREOFFSET(classname) QString Accessible##classname::textBeforeOffset(int offset, QAccessible::TextBoundaryType boundaryType, int *startOffset, int *endOffset) const {\
+        if (m_w->echoMode() != QLineEdit::Normal) {\
+            *startOffset = *endOffset = -1;\
+            return QString();\
+        }\
+        if (offset == -2)\
+            offset = cursorPosition();\
+        return QAccessibleTextInterface::textBeforeOffset(offset, boundaryType, startOffset, endOffset);\
+    }\
+
+#define FUNC_TEXTAFTEROFFSET(classname) QString Accessible##classname::textAfterOffset(int offset, QAccessible::TextBoundaryType boundaryType, int *startOffset, int *endOffset) const {\
+        if (lineEdit()->echoMode() != QLineEdit::Normal) {\
+            *startOffset = *endOffset = -1;\
+            return QString();\
+        }\
+        if (offset == -2)\
+            offset = cursorPosition();\
+        return QAccessibleTextInterface::textAfterOffset(offset, boundaryType, startOffset, endOffset);\
+    }\
+
+#define FUNC_TEXTATOFFSET(classname) QString Accessible##classname::textAtOffset(int offset, QAccessible::TextBoundaryType boundaryType, int *startOffset, int *endOffset) const {\
+        if (m_w->echoMode() != QLineEdit::Normal) {\
+            *startOffset = *endOffset = -1;\
+            return QString();\
+        }\
+        if (offset == -2)\
+            offset = cursorPosition();\
+        return QAccessibleTextInterface::textAtOffset(offset, boundaryType, startOffset, endOffset);\
+    }\
+
+#define FUNC_CHARACTERCOUNT(classname) int Accessible##classname::characterCount() const {\
+        return m_w->text().count();\
+    }\
+
+#define FUNC_CHARACTERRECT(classname) QRect Accessible##classname::characterRect(int offset) const {\
+        return QRect();\
+    }\
+
+#define FUNC_OFFSETATPOINT(classname) int Accessible##classname::offsetAtPoint(const QPoint &point) const {\
+        QPoint p = m_w->mapFromGlobal(point);\
+        return m_w->cursorPositionAt(p);\
+    }\
+
+#define FUNC_SCROLLTOSUBSTRING(classname) void Accessible##classname::scrollToSubstring(int startIndex, int endIndex) {\
+        m_w->setCursorPosition(endIndex);\
+        m_w->setCursorPosition(startIndex);\
+    }\
+
+#define FUNC_ATTRIBUTES(classname) QString Accessible##classname::attributes(int offset, int *startOffset, int *endOffset) const {\
+        *startOffset = *endOffset = offset;\
+        return QString();\
     }\
 
 // Slider控件特有功能
@@ -183,10 +295,10 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
     FUNC_ACTIONNAMES(classname)\
     FUNC_DOACTION(classname)\
 
-#define SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,accessdescription)  class Accessible##classname : public QAccessibleWidget, public QAccessibleTextInterface\
+#define SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,type,accessdescription)  class Accessible##classname : public QAccessibleWidget, public QAccessibleTextInterface\
     {\
     public:\
-        FUNC_CREATE(classname,QAccessible::StaticText,accessdescription)\
+        FUNC_CREATE(classname,type,accessdescription)\
         QString text(QAccessible::Text t) const override;\
         void *interface_cast(QAccessible::InterfaceType t) override{\
                 switch (t) {\
@@ -198,6 +310,7 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
                     return nullptr;\
                 }\
             }\
+        QAccessibleInterface *child(int index) const override { return nullptr; }\
         QString text(int startOffset, int endOffset) const override;\
         void selection(int selectionIndex, int *startOffset, int *endOffset) const override {}\
         int selectionCount() const override { return 0; }\
@@ -266,28 +379,48 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
                     return nullptr;\
                 }\
             }\
+        QAccessible::State state() const override {\
+                QAccessible::State state;\
+                state.editable = 1;\
+                return state;\
+            }\
         QString text(int startOffset, int endOffset) const override;\
-        void selection(int selectionIndex, int *startOffset, int *endOffset) const override {}\
-        int selectionCount() const override { return 0; }\
-        void addSelection(int startOffset, int endOffset) override {}\
-        void removeSelection(int selectionIndex) override {}\
-        void setSelection(int selectionIndex, int startOffset, int endOffset) override {}\
-        int cursorPosition() const override { return 0; }\
-        void setCursorPosition(int position) override {}\
-        int characterCount() const override { return 0; }\
-        QRect characterRect(int offset) const override { return QRect(); }\
-        int offsetAtPoint(const QPoint &point) const override { return 0; }\
-        void scrollToSubstring(int startIndex, int endIndex) override {}\
-        QString attributes(int offset, int *startOffset, int *endOffset) const override { return QString(); }\
-        void insertText(int offset, const QString &text) override {}\
-        void deleteText(int startOffset, int endOffset) override {};\
-        void replaceText(int startOffset, int endOffset, const QString &text) override {}\
+        void selection(int selectionIndex, int *startOffset, int *endOffset) const override;\
+        int selectionCount() const override;\
+        void addSelection(int startOffset, int endOffset) override;\
+        void removeSelection(int selectionIndex) override;\
+        void setSelection(int selectionIndex, int startOffset, int endOffset) override;\
+        int cursorPosition() const override;\
+        void setCursorPosition(int position) override;\
+        int characterCount() const override;\
+        QRect characterRect(int offset) const override;\
+        int offsetAtPoint(const QPoint &point) const override;\
+        void scrollToSubstring(int startIndex, int endIndex) override;\
+        QString attributes(int offset, int *startOffset, int *endOffset) const override;\
+        void insertText(int offset, const QString &text) override;\
+        void deleteText(int startOffset, int endOffset) override;\
+        void replaceText(int startOffset, int endOffset, const QString &text) override;\
     private:\
     classname *m_w;\
     QString m_description;\
     };\
     FUNC_TEXT(classname,accessiblename)\
-    FUNC_TEXT_(classname)\
+    FUNC_TEXT_LineEdit(classname)\
+    FUNC_DELETETEXT(classname)\
+    FUNC_INSERTTEXT(classname)\
+    FUNC_REPLACETEXT(classname)\
+    FUNC_SELECTION(classname)\
+    FUNC_SELECTIONCOUNT(classname)\
+    FUNC_ADDSELECTION(classname)\
+    FUNC_REMOVESELECTION(classname)\
+    FUNC_SETSELECTION(classname)\
+    FUNC_CURORPOSITION(classname)\
+    FUNC_SETCURORPOSITION(classname)\
+    FUNC_CHARACTERCOUNT(classname)\
+    FUNC_CHARACTERRECT(classname)\
+    FUNC_OFFSETATPOINT(classname)\
+    FUNC_SCROLLTOSUBSTRING(classname)\
+    FUNC_ATTRIBUTES(classname)
 
 #define USE_ACCESSIBLE(classnamestring,classname)    if (classnamestring == QLatin1String(#classname) && object && object->isWidgetType())\
     {\
@@ -305,7 +438,9 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
 
 #define SET_BUTTON_ACCESSIBLE(classname,accessiblename)                        SET_BUTTON_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")
 
-#define SET_LABEL_ACCESSIBLE(classname,accessiblename)                         SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")
+#define SET_LABEL_ACCESSIBLE(classname,accessiblename)                         SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,QAccessible::StaticText,"")
+
+#define SET_DTK_EDITABLE_ACCESSIBLE(classname,accessiblename)                  SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,QAccessible::EditableText,"")
 
 #define SET_SLIDER_ACCESSIBLE(classname,accessiblename)                        SET_SLIDER_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")
 
