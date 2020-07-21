@@ -22,36 +22,24 @@
             <stop stop-color="#00B7FF" offset="0%"></stop>
             <stop stop-color="#0081FF" offset="100%"></stop>
         </linearGradient>
-        <path d="M5,20.7813253 L7.70208507,23.3188276 C7.80273323,23.4133453 7.96094644,23.4083756 8.05546417,23.3077275 C8.05871258,23.3042684 8.06186184,23.3007175 8.06490813,23.2970791 L12.5,18 L12.5,18" id="path-6"></path>
-        <filter x="-38.8%" y="-52.9%" width="177.6%" height="196.3%" filterUnits="objectBoundingBox" id="filter-7">
-            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
-            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
-            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
-            <feOffset dx="0" dy="0" in="shadowInner" result="shadowInner"></feOffset>
-            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
-            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.505882353   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-        </filter>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-8">
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-6">
             <stop stop-color="#44BAFE" offset="0%"></stop>
             <stop stop-color="#419EFF" offset="100%"></stop>
         </linearGradient>
     </defs>
     <g id="dcc_nav_defapp_42px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="编组" transform="translate(6.000000, 7.000000)">
-            <image id="位图" x="2" y="0" width="26" height="22" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAWCAYAAADeiIy1AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGqADAAQAAAABAAAAFgAAAACJOVsLAAABO0lEQVRIDe2Wv2rDMBDGv5PtFEJSyFa6BEqmbnmPrM4jtFP7ClVfoa/hNXtfoNCtS0sh0KFLKTQhkD/y9U4ekkWYJCKTNdiyfP590ndCZ4I2ZvL3RxCuC+nn/vHwSwG85YwHsGcQcepFxoVB78rgcuIwtu5wgZ0vrTW4HaX4/SxFo6xWc/d+BstmJyxOV5nKFscM1C73lcGSqEZuylS2aBifk003iSyxxSlb8i52SeLbs2ozbF/H63l2jvh5CUyxEQoYUz/cWFfvUSCisS5gTP3wKa2TIrXoMuxzWj+vPSOUqWwUctZpJUxnDj9JDzcv2Z6ocLiylKls0SBfYe8/WiinHfB5G8m6BUfHneYJM1y2Av0tYPpzPA1WlV3frxtcDOdSpJZYSv04tmyoXboS019D2RhIddV2gp+Tf0ldbpwGmhbuAAAAAElFTkSuQmCC"></image>
-            <rect id="矩形" fill="url(#linearGradient-1)" x="4" y="1" width="22" height="18" rx="1.25"></rect>
-            <image id="位图" x="17" y="8" width="17" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAYAAADwMZRfAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAEaADAAQAAAABAAAAEAAAAACz87qxAAABE0lEQVQ4Ee2Uv1LCQBDGv7scRvEPvZ21JVUeJA9CRyd0Pgt5CDtTUUpLZ6+oQyBk+fYOLAjj3KR2J5Ncdu63t7vz7RmoiRhMYfBWGOTq8C9dnLEC4IPHXPAEgTESAswkweTF+WBnsJZLD9X9yukaE7EYvV5FBzhGVFg58taX0GtcSOu4I+KrZSjHFljkrN9c2gisvUU58gGuVqyrgx24bhmcnPcf5KQh/A09SW+lk9iUo3FWZgke7vteK8/DzyjRqVrH8zvIusHy/YczQNl/lCnq+gbb3TVzc0DazvnXUwENavSSbzj3hUFWGV9GQbQsL7yMVYV/ic+Xzgy2tkaWbTjwh5kRabDIKs6BOmmRV0EeroI9kbFsxLtFfS4AAAAASUVORK5CYII="></image>
-            <rect id="矩形备份" fill="url(#linearGradient-2)" x="19" y="9" width="13" height="12" rx="1.25"></rect>
-            <image id="位图" x="-2" y="9" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAFKADAAQAAAABAAAAFAAAAACy3fD9AAABOklEQVQ4Ee2VzUrEMBCAJz/tdmkpXooevS94762Cr6Cv4Sv07pso+waCvfW+sHh0L6JQBVkNbLPJxKRQqSJ0afciOCEkQzJfZhJmQqAjxhjSUXeeEkJMu5k4yMUN0LIsfWGblpoBxO16z7gG5jMdylCmaSqvzwEZITmdPyyma2ZiXUuOEHiowEM0vLdTzlAh23jT4OnxFUV5qHgBBRUffpgcybfV1dmmx6Vfl4/zu+DleRsXUVHTCiqqPeav8tNBMHeCs3UMx6IAMwCq7DhSGsYMGpBR9aDX7brQMsZ71qXa+T/wx4UMUP/IHRI++aoWA6JsTFqGDXkJgLYmjJWGsQSaQIJsq6VL8KFMZ+sYjsUzyPA+WohK1Afh5a2tjj4FRXdLRY6GGImVCEkUTd4zOMG9F9hvnuzjC/gElhOpUdcSW9YAAAAASUVORK5CYII="></image>
-            <rect id="矩形备份-2" stroke="url(#linearGradient-4)" fill="url(#linearGradient-3)" x="0" y="11.5" width="16" height="15" rx="1.5"></rect>
-            <g id="Path-3" stroke-linecap="round" stroke-linejoin="round">
-                <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
-                <use stroke="url(#linearGradient-5)" stroke-width="2" xlink:href="#path-6"></use>
-            </g>
-            <path d="M1.75,12 L14.25,12 C14.9403559,12 15.5,12.5596441 15.5,13.25 L15.5,16 L15.5,16 L0.5,16 L0.5,13.25 C0.5,12.5596441 1.05964406,12 1.75,12 Z" id="矩形备份-3" fill="url(#linearGradient-8)"></path>
-            <path d="M20.5,9 L30.5,9 C31.3284271,9 32,9.67157288 32,10.5 L32,13 L32,13 L19,13 L19,10.5 C19,9.67157288 19.6715729,9 20.5,9 Z" id="矩形备份-4" fill-opacity="0.5" fill="#8EC6FF"></path>
-            <path d="M6,1 L24,1 C25.1045695,1 26,1.8954305 26,3 L26,6 L26,6 L4,6 L4,3 C4,1.8954305 4.8954305,1 6,1 Z" id="矩形备份-5" fill-opacity="0.5" fill="#B1D7FE"></path>
+        <g id="编组" transform="translate(4.000000, 7.000000)">
+            <image id="位图" x="4" y="0" width="26" height="22" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAWCAYAAADeiIy1AAAABGdBTUEAALGOfPtRkwAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGqADAAQAAAABAAAAFgAAAACJOVsLAAABO0lEQVRIDe2Wv2rDMBDGv5PtFEJSyFa6BEqmbnmPrM4jtFP7ClVfoa/hNXtfoNCtS0sh0KFLKTQhkD/y9U4ekkWYJCKTNdiyfP590ndCZ4I2ZvL3RxCuC+nn/vHwSwG85YwHsGcQcepFxoVB78rgcuIwtu5wgZ0vrTW4HaX4/SxFo6xWc/d+BstmJyxOV5nKFscM1C73lcGSqEZuylS2aBifk003iSyxxSlb8i52SeLbs2ozbF/H63l2jvh5CUyxEQoYUz/cWFfvUSCisS5gTP3wKa2TIrXoMuxzWj+vPSOUqWwUctZpJUxnDj9JDzcv2Z6ocLiylKls0SBfYe8/WiinHfB5G8m6BUfHneYJM1y2Av0tYPpzPA1WlV3frxtcDOdSpJZYSv04tmyoXboS019D2RhIddV2gp+Tf0ldbpwGmhbuAAAAAElFTkSuQmCC"></image>
+            <path d="M6,6 L28,6 L28,17 C28,18.1045695 27.1045695,19 26,19 L8,19 C6.8954305,19 6,18.1045695 6,17 L6,6 L6,6 Z" id="矩形" fill="url(#linearGradient-1)"></path>
+            <image id="位图" x="19" y="8" width="17" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAYAAADwMZRfAAAABGdBTUEAALGOfPtRkwAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAEaADAAQAAAABAAAAEAAAAACz87qxAAABE0lEQVQ4Ee2Uv1LCQBDGv7scRvEPvZ21JVUeJA9CRyd0Pgt5CDtTUUpLZ6+oQyBk+fYOLAjj3KR2J5Ncdu63t7vz7RmoiRhMYfBWGOTq8C9dnLEC4IPHXPAEgTESAswkweTF+WBnsJZLD9X9yukaE7EYvV5FBzhGVFg58taX0GtcSOu4I+KrZSjHFljkrN9c2gisvUU58gGuVqyrgx24bhmcnPcf5KQh/A09SW+lk9iUo3FWZgke7vteK8/DzyjRqVrH8zvIusHy/YczQNl/lCnq+gbb3TVzc0DazvnXUwENavSSbzj3hUFWGV9GQbQsL7yMVYV/ic+Xzgy2tkaWbTjwh5kRabDIKs6BOmmRV0EeroI9kbFsxLtFfS4AAAAASUVORK5CYII="></image>
+            <path d="M21,13 L34,13 L34,19.5 C34,20.3284271 33.3284271,21 32.5,21 L22.5,21 C21.6715729,21 21,20.3284271 21,19.5 L21,13 L21,13 Z" id="矩形备份" fill="url(#linearGradient-2)"></path>
+            <image id="位图" x="0" y="9" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGOfPtRkwAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAFKADAAQAAAABAAAAFAAAAACy3fD9AAABOklEQVQ4Ee2VzUrEMBCAJz/tdmkpXooevS94762Cr6Cv4Sv07pso+waCvfW+sHh0L6JQBVkNbLPJxKRQqSJ0afciOCEkQzJfZhJmQqAjxhjSUXeeEkJMu5k4yMUN0LIsfWGblpoBxO16z7gG5jMdylCmaSqvzwEZITmdPyyma2ZiXUuOEHiowEM0vLdTzlAh23jT4OnxFUV5qHgBBRUffpgcybfV1dmmx6Vfl4/zu+DleRsXUVHTCiqqPeav8tNBMHeCs3UMx6IAMwCq7DhSGsYMGpBR9aDX7brQMsZ71qXa+T/wx4UMUP/IHRI++aoWA6JsTFqGDXkJgLYmjJWGsQSaQIJsq6VL8KFMZ+sYjsUzyPA+WohK1Afh5a2tjj4FRXdLRY6GGImVCEkUTd4zOMG9F9hvnuzjC/gElhOpUdcSW9YAAAAASUVORK5CYII="></image>
+            <rect id="矩形备份-2" stroke="url(#linearGradient-4)" fill="url(#linearGradient-3)" x="2" y="11.5" width="16" height="15" rx="1.5"></rect>
+            <image id="位图" x="5" y="16" width="12" height="10" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAYAAACALL/6AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAADKADAAQAAAABAAAACgAAAACcTA/9AAABGElEQVQYGX2QvU5CQRCFz+69goaAiYWxkEQ7Ir2FhTGx4A18BJ7AXngC3wMewsQYoSCxszEWt7KBQuIPXoX1m1UDiYHZzM7szDlzJuu0ykJwamtNJbyiXE19uaV4A19qXS86UFBNXn1NlaWRYE0z50KMdtnkgvbldIR7JZwpEHVConuVVSTfYh6ygBPeu2QNqBX8Dq2ezvWWKiNNaXxCGumGNTIAm7yPY/R6gDjQq95tg5RZM3Z8pllF8hSNAVp7vHeoP5Hfko/VcjMis8f6IPYhemIdwAkxwYfc1yiN/sDUaJu1gmexMtRDKnUqOfEKxUfAecT8Xj8EexippA1NtA3QVIe6YP7iz1GcE4xk39uNq0lnjk/8b98+Zk9wYpNoDQAAAABJRU5ErkJggg=="></image>
+            <path d="M7,20.7813253 L9.70208507,23.3188276 C9.80273323,23.4133453 9.96094644,23.4083756 10.0554642,23.3077275 C10.0587126,23.3042684 10.0618618,23.3007175 10.0649081,23.2970791 L14.5,18 L14.5,18" id="Path-3" stroke="url(#linearGradient-5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M3.75,12 L16.25,12 C16.9403559,12 17.5,12.5596441 17.5,13.25 L17.5,16 L17.5,16 L2.5,16 L2.5,13.25 C2.5,12.5596441 3.05964406,12 3.75,12 Z" id="矩形备份-3" fill="url(#linearGradient-6)"></path>
+            <path d="M22.5,9 L32.5,9 C33.3284271,9 34,9.67157288 34,10.5 L34,13 L34,13 L21,13 L21,10.5 C21,9.67157288 21.6715729,9 22.5,9 Z" id="矩形备份-4" fill="#C6E2FF"></path>
+            <path d="M8,1 L26,1 C27.1045695,1 28,1.8954305 28,3 L28,6 L28,6 L6,6 L6,3 C6,1.8954305 6.8954305,1 8,1 Z" id="矩形备份-5" fill="#C6E2FF"></path>
         </g>
     </g>
 </svg>
