@@ -26,6 +26,7 @@
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QIcon>
+#include <QPainter>
 #include <DSysInfo>
 
 DCORE_USE_NAMESPACE
@@ -112,6 +113,9 @@ QPixmap LoadingItem::getPixmap(const QString &name, const QSize size)
     const QIcon &icon = QIcon(name);
     const qreal ratio = devicePixelRatioF();
     QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
+    QPainter p(&pixmap);
+    p.setRenderHints(QPainter::Antialiasing);
+    p.drawPixmap(0, 0, pixmap);
     pixmap.setDevicePixelRatio(ratio);
     return pixmap;
 }
