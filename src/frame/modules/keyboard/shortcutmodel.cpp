@@ -247,6 +247,10 @@ void ShortcutModel::onParseInfo(const QString &info)
         return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
     });
 
+    qSort(m_assistiveToolsInfos.begin(), m_assistiveToolsInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+        return assistiveToolsFilter.indexOf(s1->id) < assistiveToolsFilter.indexOf(s2->id);
+    });
+
     Q_EMIT listChanged(m_systemInfos, InfoType::System);
     Q_EMIT listChanged(m_windowInfos, InfoType::Window);
     Q_EMIT listChanged(m_workspaceInfos, InfoType::Workspace);
