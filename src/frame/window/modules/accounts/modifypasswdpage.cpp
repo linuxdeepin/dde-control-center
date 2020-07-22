@@ -45,7 +45,6 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, QWidget *parent)
     , m_passwordMinLength(-1)
     , m_passwordMaxLength(-1)
     , m_validateRequiredString(-1)
-
 {
     initWidget();
 }
@@ -84,6 +83,8 @@ void ModifyPasswdPage::initWidget()
     cansaveLayout->addWidget(saveBtn);
     mainContentLayout->addLayout(cansaveLayout);
     setLayout(mainContentLayout);
+    cancleBtn->setDefault(true);
+    saveBtn->setDefault(true);
     cancleBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     saveBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
