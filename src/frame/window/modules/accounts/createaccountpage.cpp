@@ -100,7 +100,6 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
         Q_EMIT requestBack();
     });
     connect(addBtn, &DSuggestButton::clicked, this, &CreateAccountPage::createUser);
-
 }
 
 CreateAccountPage::~CreateAccountPage()
@@ -152,8 +151,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     //~ contents_path /accounts/New Account
     TitleLabel *titleLabel = new TitleLabel(tr("New Account"));
     titleLabel->setAlignment(Qt::AlignCenter);
-    layout->setContentsMargins(0,0,10,0);
-    layout->addSpacing(13);
+    layout->setContentsMargins(0, 0, 10, 0);
     layout->addWidget(titleLabel);
 
     m_avatarListWidget = new AvatarListWidget(m_newUser, this);
@@ -165,10 +163,12 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     layout->addSpacing(7);
     layout->addWidget(m_avatarListWidget, 0, Qt::AlignTop);
 
-    QLabel *accountTypeLabel = new QLabel(tr("Account Type") + ':');
-    layout->addWidget(accountTypeLabel);
-    layout->addWidget(m_accountChooser);
-    layout->addSpacing(7);
+    if (m_isServerSystem) {
+        QLabel *accountTypeLabel = new QLabel(tr("Account Type") + ':');
+        layout->addWidget(accountTypeLabel);
+        layout->addWidget(m_accountChooser);
+        layout->addSpacing(7);
+    }
 
     QLabel *nameLabel = new QLabel(tr("Username") + ':');
     m_nameEdit->setAccessibleName("username_edit");
@@ -202,17 +202,16 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         m_avatarListWidget->setCurrentAvatarChecked(file);
     });
 
-    connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString &str) {
-        Q_UNUSED(str);
+    connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString &strText) {
+        Q_UNUSED(strText);
         if (m_nameEdit->isAlert()) {
             m_nameEdit->hideAlertMessage();
             m_nameEdit->setAlert(false);
         }
 
-        if (m_nameEdit->text().isEmpty())
+        if (strText.isEmpty())
             return;
 
-        QString strText(m_nameEdit->text());
         QString strTemp;
         int idx;
         for (idx = 0; idx < strText.size(); ++idx) {
@@ -258,11 +257,6 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     m_accountChooser->addItem(tr("Standard"));
     m_accountChooser->addItem(tr("Administrator"));
     m_accountChooser->addItem(tr("Customized"));
-
-    if (!m_isServerSystem) {
-        m_accountChooser->setVisible(false);
-        accountTypeLabel->setVisible(false);
-    }
 
     m_nameEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
