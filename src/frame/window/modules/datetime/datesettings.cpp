@@ -41,6 +41,8 @@
 #include <QDate>
 #include <QSettings>
 #include <QFontDatabase>
+#include <QRegExp>
+#include <QRegExpValidator>
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -103,7 +105,13 @@ DateSettings::DateSettings(QWidget *parent)
 
     QTime time(QTime::currentTime());
     m_timeHourWidget = createDSpinBox(this, 0, 23);
+    QRegExp hourRx("^(\\d)|(0\\d)|(1\\d)|(2[0-3])$");
+    m_timeHourWidget->lineEdit()->setValidator(new QRegExpValidator(hourRx));
+
     m_timeMinWidget = createDSpinBox(this, 0, 59);
+    QRegExp minRx("^([0-5]?\\d)$");
+    m_timeMinWidget->lineEdit()->setValidator(new QRegExpValidator(minRx));
+
     m_timeHourWidget->setValue(time.hour());
     m_timeMinWidget->setValue(time.minute());
     m_timeHourWidget->setButtonSymbols(QAbstractSpinBox::NoButtons);
@@ -317,7 +325,7 @@ void DateSettings::setLastServerAddress(QString address)
     }
 }
 
-QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
+DSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
 {
     TimeSpinBox *spinBox = new TimeSpinBox(parent);
     spinBox->setFixedSize(93, 60);

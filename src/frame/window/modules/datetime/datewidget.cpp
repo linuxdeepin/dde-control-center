@@ -175,13 +175,14 @@ void DateWidget::setRange(int minimum, int maximum)
     m_maximum = maximum;
 
     //用正则表达岁来限制输入格式,这样不会出现可以输入"000000..."的情况
+    //为了方便用户输入,将可输入的年份限制为0000-9999,当输入非1970-9999的年份时,会自动fixup()到一个合法的年份
     QRegExp rx;
     if (m_type == Year) {
-        rx.setPattern("^(19[7-9]\\d|[2-9]\\d\\d\\d)$"); //1970-9999
+        rx.setPattern("^(\\d\\d\\d\\d)$"); //0000-9999
     } else if (m_type == Month) {
-        rx.setPattern("^([1-9][0-2]{0,1})$"); //1-12
+        rx.setPattern("^(\\d|0[1-9]|1[0-2])$"); //01-12
     } else {
-        rx.setPattern("^([1-9]|[1-2]\\d|3[0-1])$"); //1-31
+        rx.setPattern("^(\\d|0[1-9]|[1-2]\\d|3[0-1])$"); //01-31
     }
     m_lineEdit->setValidator(new QRegExpValidator(rx));
 

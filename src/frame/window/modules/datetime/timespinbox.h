@@ -22,18 +22,20 @@
 
 #include "interface/namespace.h"
 
-#include <QSpinBox>
+#include <DSpinBox>
+
+DWIDGET_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
-namespace  datetime{
-class TimeSpinBox : public QSpinBox
+namespace  datetime {
+class TimeSpinBox : public DSpinBox
 {
     Q_OBJECT
 public:
     explicit TimeSpinBox(QWidget *parent = nullptr);
 
 protected:
-     QString textFromValue(int value) const;
+    QString textFromValue(int value) const;
 };
 }
 }

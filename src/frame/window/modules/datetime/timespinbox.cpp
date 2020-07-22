@@ -24,7 +24,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 
 TimeSpinBox::TimeSpinBox(QWidget *parent)
-    : QSpinBox (parent)
+    : DSpinBox(parent)
 {
 
 }

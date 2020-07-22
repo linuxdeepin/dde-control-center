@@ -28,7 +28,9 @@
 #include <types/zoneinfo.h>
 
 #include <QWidget>
-#include <QSpinBox>
+#include <DSpinBox>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
@@ -83,15 +85,15 @@ private Q_SLOTS:
     void isUserOperate();
 
 private:
-    QSpinBox *createDSpinBox(QWidget *parent, int min, int max);
+    DSpinBox *createDSpinBox(QWidget *parent, int min, int max);
     void setControlVisible(bool state);
     void updateSettingTime();
 
 private:
     dcc::widgets::SettingsGroup *m_datetimeGroup;
     dcc::widgets::SwitchWidget *m_autoSyncTimeSwitch;
-    QSpinBox *m_timeHourWidget;
-    QSpinBox *m_timeMinWidget;
+    DSpinBox *m_timeHourWidget;
+    DSpinBox *m_timeMinWidget;
     DateWidget *m_yearWidget;
     DateWidget *m_monthWidget;
     DateWidget *m_dayWidget;
