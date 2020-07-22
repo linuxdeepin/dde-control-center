@@ -70,11 +70,14 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
 //    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     QStringList options;
-    options << tr("Shut down") << tr("Suspend") << tr("Hibernate")
-            << tr("Turn off the monitor") << tr("Do nothing");
-    if (!model->getSuspend()) {
-        options.removeAt(1);
+    options << tr("Shut down");
+    if (model->getSuspend()) {
+        options << tr("Suspend");
     }
+    if (!IsServerSystem && model->canHibernate()) {
+        options << tr("Hibernate");
+    }
+    options << tr("Turn off the monitor") << tr("Do nothing");
     m_cmbPowerBtn->setComboxOption(options);
     options.pop_front();
     m_cmbCloseLid->setComboxOption(options);
@@ -163,16 +166,32 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
 
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
-            Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
+            if (IsServerSystem && model->canHibernate()) {
+                Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 0 ? nIndex + 2 : nIndex);
+            } else {
+                Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
+            }
         } else {
-            Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex);
+            if (IsServerSystem && model->canHibernate()) {
+                Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 1 ? nIndex + 1 : nIndex);
+            } else {
+                Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex);
+            }
         }
     });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
         if (!model->getSuspend()) {
-            Q_EMIT requestSetBatteryLidClosedAction(nIndex + 2);
+            if (IsServerSystem && model->canHibernate()) {
+                Q_EMIT requestSetBatteryLidClosedAction(nIndex + 3);
+            } else {
+                Q_EMIT requestSetBatteryLidClosedAction(nIndex + 2);
+            }
         } else {
-            Q_EMIT requestSetBatteryLidClosedAction(nIndex + 1);
+            if (IsServerSystem && model->canHibernate()) {
+                Q_EMIT requestSetBatteryLidClosedAction(nIndex > 0 ? nIndex + 2 : nIndex + 1);
+            } else {
+                Q_EMIT requestSetBatteryLidClosedAction(nIndex + 1);
+            }
         }
     });
 }
@@ -209,31 +228,65 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     //--------------sp2 add-----------------
     m_cmbCloseLid->setVisible(model->lidPresent());
     if (!model->getSuspend()) {
-        m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 2);
+        if (IsServerSystem && model->canHibernate()) {
+            m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 3);
+        } else {
+            m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 2);
+        }
     } else {
-        m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 1);
+        if (IsServerSystem && model->canHibernate()) {
+            int serverIndex = model->batteryLidClosedAction();
+            m_cmbCloseLid->comboBox()->setCurrentIndex(serverIndex > 2 ? serverIndex - 2 : serverIndex - 1);
+        } else {
+            m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 1);
+        }
     }
     connect(model, &PowerModel::batteryLidClosedActionChanged, this, [ = ](const int reply) {
         if (reply - 1 < m_cmbCloseLid->comboBox()->count() && reply >= 1) {
             if (!model->getSuspend()) {
-                m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 2);
+                if (IsServerSystem && model->canHibernate()) {
+                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 3);
+                } else {
+                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 2);
+                }
             } else {
-                m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
+                if (IsServerSystem && model->canHibernate()) {
+                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply > 2 ? reply - 2 : reply - 1);
+                } else {
+                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
+                }
             }
         }
     });
 
+    int powIndex = model->batteryPressPowerBtnAction();
     if (!model->getSuspend()) {
-        m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction() > 0 ? model->batteryPressPowerBtnAction() - 1 : model->batteryPressPowerBtnAction());
+        if (IsServerSystem && model->canHibernate()) {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
+        } else {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
+        }
     } else {
-        m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction());
+        if (IsServerSystem && model->canHibernate()) {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
+        } else {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction());
+        }
     }
     connect(model, &PowerModel::batteryPressPowerBtnActionChanged, this, [ = ](const int reply) {
         if (reply < m_cmbPowerBtn->comboBox()->count()) {
             if (!model->getSuspend()) {
-                m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0? reply - 1 : reply);
+                if (IsServerSystem && model->canHibernate()) {
+                    m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0 ? reply - 2 : reply);
+                } else {
+                    m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0 ? reply - 1 : reply);
+                }
             } else {
-                m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
+                if (IsServerSystem && model->canHibernate()) {
+                    m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 2 ? reply - 1 : reply);
+                } else {
+                    m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
+                }
             }
         }
     });
@@ -253,16 +306,6 @@ void UseBatteryWidget::setModel(const PowerModel *model)
         Q_EMIT  requestSetLowPowerAutoSleepThreshold(value);
     });
     //--------------------------------------
-
-    //todo: visible set
-//    m_cmbCloseLid->setVisible(model->lidPresent());
-//    m_cmbSuspendBtn->setVisible(model->());
-    //todo: m_cmbPowerBtn;  m_cmbCloseLid;  m_cmbSuspendBtn; init combox current index
-    //通过gsetting设置电脑待机是否显示
-    QGSettings *comSlpSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    auto listModule =  comSlpSettings->get("hide-module").toStringList();
-    m_computerSleepOnBattery->setVisible(!listModule.contains("hw_cloud") && model->canSleep());
-//    m_suspendOnLidClose->setVisible(model->canSleep());
 }
 
 void UseBatteryWidget::setScreenBlackDelayOnBattery(const int delay)

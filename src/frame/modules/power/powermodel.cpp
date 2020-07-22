@@ -308,6 +308,13 @@ void PowerModel::setCanSleep(bool canSleep)
     }
 }
 
+void PowerModel::setCanHibernate(bool value)
+{
+    if (m_canHibernate != value) {
+        m_canHibernate = value;
+    }
+}
+
 void PowerModel::setSuspend(bool suspend)
 {
     if (suspend == m_isSuspend)
