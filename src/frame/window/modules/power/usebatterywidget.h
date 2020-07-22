@@ -49,7 +49,7 @@ class UseBatteryWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit UseBatteryWidget(QWidget *parent = nullptr);
+    explicit UseBatteryWidget(dcc::power::PowerModel *model, QWidget *parent = nullptr);
     virtual ~UseBatteryWidget();
 
     void setModel(const dcc::power::PowerModel *model);

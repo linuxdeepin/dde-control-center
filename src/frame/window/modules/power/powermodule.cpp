@@ -35,6 +35,7 @@ using namespace dcc;
 using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
+#define GSETTING_SHOW_SUSPEND "show-suspend"
 
 PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
@@ -82,6 +83,10 @@ void PowerModule::active()
     m_widget = new PowerWidget;
 
     m_widget->initialize(m_model->haveBettary());
+
+    m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    m_isSuspend = m_powerSetting->get(GSETTING_SHOW_SUSPEND).toBool();
+    m_model->setSuspend(m_isSuspend);
 
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::requestRemoveBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
@@ -160,7 +165,7 @@ void PowerModule::showUseElectric()
 {
     qDebug() << Q_FUNC_INFO;
 
-    UseElectricWidget *electric = new UseElectricWidget(m_widget);
+    UseElectricWidget *electric = new UseElectricWidget(m_model, m_widget);
     electric->setModel(m_model);
 
     //When use power : false -> hide (default : show)
@@ -186,7 +191,7 @@ void PowerModule::showUseBattery()
 {
     qDebug() << Q_FUNC_INFO;
 
-    UseBatteryWidget *battery = new UseBatteryWidget;
+    UseBatteryWidget *battery = new UseBatteryWidget(m_model);
     battery->setModel(m_model);
     m_frameProxy->pushWidget(this, battery);
 
