@@ -22,6 +22,8 @@
 #include "widgets/labels/normallabel.h"
 
 #include <QIntValidator>
+#include <QRegExp>
+#include <QRegExpValidator>
 #include <QHBoxLayout>
 #include <QMouseEvent>
 
@@ -172,8 +174,16 @@ void DateWidget::setRange(int minimum, int maximum)
     m_minimum = minimum;
     m_maximum = maximum;
 
-    QIntValidator *validator = new QIntValidator(m_minimum, m_maximum, this);
-    m_lineEdit->setValidator(validator);
+    //用正则表达岁来限制输入格式,这样不会出现可以输入"000000..."的情况
+    QRegExp rx;
+    if (m_type == Year) {
+        rx.setPattern("^(19[7-9]\\d|[2-9]\\d\\d\\d)$"); //1970-9999
+    } else if (m_type == Month) {
+        rx.setPattern("^([1-9][0-2]{0,1})$"); //1-12
+    } else {
+        rx.setPattern("^([1-9]|[1-2]\\d|3[0-1])$"); //1-31
+    }
+    m_lineEdit->setValidator(new QRegExpValidator(rx));
 
     fixup();
 }
