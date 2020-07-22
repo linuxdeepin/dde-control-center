@@ -44,6 +44,8 @@ namespace widgets {
 class LineEditWidget;
 class PlainTextItem;
 class ButtonTuple;
+class SwitchWidget;
+class ComboxWidget;
 }
 }
 
@@ -71,12 +73,10 @@ private Q_SLOTS:
     void onProxyMethodChanged(const QString &proxyMethod);
     void onIgnoreHostsChanged(const QString &hosts);
     void onProxyChanged(const QString &type, const dde::network::ProxyConfig &config);
-    void onProxyToggled(const int index);
-    void applySettings() const;
+    void applySettings();
 
 private:
-    void applyProxy(const QString &type);
-
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 private:
     dde::network::NetworkModel *m_model;
 
@@ -96,8 +96,8 @@ private:
 
     dcc::widgets::LineEditWidget *m_autoUrl;
 
-    DButtonBox *m_proxyTabs;
-    QList<DButtonBoxButton *> m_tablist;
+    dcc::widgets::SwitchWidget* m_proxySwitch;
+    dcc::widgets::ComboxWidget* m_proxyTypeBox;
 };
 }
 }
