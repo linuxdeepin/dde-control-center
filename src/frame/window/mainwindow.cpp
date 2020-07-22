@@ -266,7 +266,6 @@ void MainWindow::findFocusChild(QWidget *w, QWidget *&pre)
 void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
 {
     for (int i = 0; i < l->count(); ++i) {
-//        qDebug() << l->itemAt(i);
         auto cw = l->itemAt(i)->widget();
         auto cl = l->itemAt(i)->layout();
 
@@ -285,7 +284,6 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
                     && !qobject_cast<QLineEdit *>(cw)
                     && !qobject_cast<QAbstractItemView *>(cw)
                     && !qobject_cast<QAbstractSlider *>(cw)) || !cw->isEnabled()) {
-//                cw->setFocusPolicy(Qt::NoFocus);
                 continue;
             }
 
