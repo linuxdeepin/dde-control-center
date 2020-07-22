@@ -358,10 +358,12 @@ void ConnectionEditPage::updateConnection()
         if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WiredConnection)) {
             Q_EMIT activateWiredConnection(m_connection->path(), m_connectionUuid);
         } else {
+            deactivateConnection(m_connection->path());
             reply = activateConnection(m_connection->path(), DevicePath, "");
             reply.waitForFinished();
             if (reply.isError()) {
                 qDebug() << "error occurred while activate connection" << reply.error();
+                Q_EMIT requestRefreshVPNStatus();
             }
         }
     }

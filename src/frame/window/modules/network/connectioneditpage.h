@@ -73,6 +73,7 @@ Q_SIGNALS:
     // private signals
     void saveSettingsDone();
     void prepareConnectionDone();
+    void requestRefreshVPNStatus();
 
 protected:
     int connectionSuffixNum(const QString &matchConnName);

@@ -78,6 +78,8 @@ private Q_SLOTS:
     void importVPN();
     void createVPN();
     void changeVpnId();
+
+    void requestRefreshVPNStatus();
 private:
     dde::network::NetworkModel *m_model;
 

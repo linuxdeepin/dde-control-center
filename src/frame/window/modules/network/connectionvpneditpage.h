@@ -54,6 +54,12 @@ public:
     // init Widget by create a new vpn connection
     void initSettingsWidgetByType(ConnectionVpnEditPage::VpnType vpnType);
 
+public Q_SLOTS:
+    void requestRefreshVPNStatus();
+
+Q_SIGNALS:
+    void requestRefreshVPNStatusSignal();
+
 private:
     void initApSecretType(NetworkManager::AccessPoint::Ptr nmAp);
     void resetConnectionIdByType(ConnectionVpnEditPage::VpnType vpnType);

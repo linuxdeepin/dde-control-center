@@ -192,6 +192,7 @@ void VpnPage::onVpnDetailClicked(const QString &connectionUuid)
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
+    connect(m_editPage, &ConnectionVpnEditPage::requestRefreshVPNStatusSignal, this, &VpnPage::requestRefreshVPNStatus);
     Q_EMIT requestNextPage(m_editPage);
 }
 
@@ -324,6 +325,22 @@ void VpnPage::changeVpnId()
     }
 }
 
+void VpnPage::requestRefreshVPNStatus()
+{
+    //+ 当m_vpnSwitch为勾选状态时手动刷新连接，使本次修改生效！
+    if (m_vpnSwitch->checked()) {
+        QTimer::singleShot(100,this,[this](){
+            m_vpnSwitch->setChecked(false);
+            Q_EMIT requestVpnEnabled(false);
+        });
+
+        QTimer::singleShot(500,this,[this](){
+            m_vpnSwitch->setChecked(true);
+            Q_EMIT requestVpnEnabled(true);
+        });
+    }
+}
+
 void VpnPage::importVPN()
 {
     Q_EMIT requestFrameKeepAutoHide(false);
@@ -377,6 +394,7 @@ void VpnPage::createVPN()
     m_editPage->initSettingsWidgetByType(ConnectionVpnEditPage::VpnType::UNSET);
     connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
+    connect(m_editPage, &ConnectionVpnEditPage::requestRefreshVPNStatusSignal, this, &VpnPage::requestRefreshVPNStatus);
     Q_EMIT requestNextPage(m_editPage);
 }
 

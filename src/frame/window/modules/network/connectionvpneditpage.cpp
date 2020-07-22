@@ -51,6 +51,7 @@ ConnectionVpnEditPage::ConnectionVpnEditPage(const QString &connUuid, QWidget *p
     : ConnectionEditPage(ConnectionEditPage::ConnectionType::VpnConnection, QString(), connUuid, parent)
 {
     m_exportButton = nullptr;
+    connect(this, &ConnectionEditPage::requestRefreshVPNStatus, this, &ConnectionVpnEditPage::requestRefreshVPNStatus);
 }
 
 ConnectionVpnEditPage::~ConnectionVpnEditPage()
@@ -191,6 +192,11 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
             m_exportButton->setVisible(false);
         }
     }
+}
+
+void ConnectionVpnEditPage::requestRefreshVPNStatus()
+{
+    Q_EMIT requestRefreshVPNStatusSignal();
 }
 
 void ConnectionVpnEditPage::resetConnectionIdByType(ConnectionVpnEditPage::VpnType vpnType)
