@@ -88,6 +88,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     });
     connect(m_touchClickStn, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTapClick);
     connect(m_touchNaturalScroll, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTouchNaturalScroll);
+    m_palmDetectSetting->hide();
 }
 
 void TouchPadSettingWidget::setModel(dcc::mouse::MouseModel *const model)
