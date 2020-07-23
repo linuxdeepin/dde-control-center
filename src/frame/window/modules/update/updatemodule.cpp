@@ -118,6 +118,11 @@ const QString UpdateModule::displayName() const
 
 void UpdateModule::active()
 {
+    connect(m_model, &UpdateModel::downloadInfoChanged, m_work, &UpdateWorker::onNotifyDownloadInfoChanged);
+    connect(m_model, &UpdateModel::beginCheckUpdate, m_work, &UpdateWorker::checkForUpdates);
+    connect(m_model, &UpdateModel::updateHistoryAppInfos, m_work, &UpdateWorker::refreshHistoryAppsInfo, Qt::DirectConnection);
+    connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work, &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
+
     UpdateWidget *mainWidget = new UpdateWidget;
     mainWidget->initialize();
     m_work->getLicenseState();
@@ -128,11 +133,6 @@ void UpdateModule::active()
 
     mainWidget->setModel(m_model, m_work);
     m_updateWidget = mainWidget;
-
-    connect(m_model, &UpdateModel::downloadInfoChanged, m_work, &UpdateWorker::onNotifyDownloadInfoChanged);
-    connect(m_model, &UpdateModel::beginCheckUpdate, m_work, &UpdateWorker::checkForUpdates);
-    connect(m_model, &UpdateModel::updateHistoryAppInfos, m_work, &UpdateWorker::refreshHistoryAppsInfo, Qt::DirectConnection);
-    connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work, &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
 
     connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [=]() {
         m_mirrorsWidget = new MirrorsWidget(m_model);
