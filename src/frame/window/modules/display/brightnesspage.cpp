@@ -305,6 +305,10 @@ void BrightnessPage::addSlider()
         int kelvin = pos > 50 ? (6500 - (pos - 50) * 100) : (6500 + (50 - pos) * 300);
         this->requestSetColorTemperature(kelvin);
     });
+    connect(cctSlider, &DCCSlider::sliderMoved, this, [ = ](int pos) {
+        int kelvin = pos > 50 ? (6500 - (pos - 50) * 100) : (6500 + (50 - pos) * 300);
+        this->requestSetColorTemperature(kelvin);
+    });
     QStringList fscaleList ;
     fscaleList << tr("Cool") << tr("Warm");
 
