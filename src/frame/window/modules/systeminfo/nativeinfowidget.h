@@ -27,6 +27,7 @@
 #include "widgets/contentwidget.h"
 
 #include <QWidget>
+#include <QGSettings>
 
 using namespace dcc;
 
@@ -79,6 +80,8 @@ private:
     dcc::widgets::TitleValueItem *m_kernel;
     dcc::widgets::TitleValueItem *m_processor;
     dcc::widgets::TitleValueItem *m_memory;
+    QGSettings *m_moduleActive{nullptr};
+    bool isContensServers;
 };
 
 }

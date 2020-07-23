@@ -26,6 +26,7 @@
 
 #include <QWidget>
 #include <QMetaMethod>
+#include <QGSettings>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -72,6 +73,8 @@ private:
     dcc::widgets::MultiSelectListView *m_listView;
     QStandardItemModel *m_itemModel;
     QList<ListSubItem> m_itemList;
+    QGSettings *m_moduleDevelop{nullptr};
+    bool isContensServer;
 };
 }
 }

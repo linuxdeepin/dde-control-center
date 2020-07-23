@@ -184,6 +184,8 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
         m_oldPasswordEdit->showAlertMessage(tr("Wrong password"), -1);
         return;
     } else {
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(tr("Failed to change the password"), -1);
         qDebug() << Q_FUNC_INFO << "exit =" << exitCode;
     }
 }

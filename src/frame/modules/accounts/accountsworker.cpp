@@ -254,9 +254,7 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
 void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd)
 {
     QProcess process;
-    process.setProgram("passwd");
-    process.setArguments(QStringList() << user->name());
-    process.start();
+    process.start("/bin/bash", QStringList() << "-c" << QString("passwd"));
     if (user->passwordStatus() == NO_PASSWORD) {
         process.write(QString("%1\n%2\n").arg(passwd).arg(passwd).toLatin1());
     } else {

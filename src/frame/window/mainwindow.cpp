@@ -67,6 +67,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
 DTK_USE_NAMESPACE
 #define GSETTINGS_HIDE_MODULE "hide-module"
+#define GSETTINGS_HIDE_VERSIONTYPR "hide-version-type-module"
 
 const QByteArray ControlCenterGSettings = "com.deepin.dde.control-center";
 const QString GSettinsWindowWidth = "window-width";
@@ -359,6 +360,17 @@ void MainWindow::initAllModule(const QString &m)
     for (auto i : m_modules) {
         if (listModule.contains((i.first->name()))) {
             setModuleVisible(i.first, false);
+        }
+    }
+
+    //通过gsetting获取版本类型，设置某模块是否显示
+    if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
+        m_versionType  = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
+        auto versionTypeList =  m_versionType->get(GSETTINGS_HIDE_VERSIONTYPR).toStringList();
+        for (auto i : m_modules) {
+            if (versionTypeList.contains((i.first->name()))) {
+                setModuleVisible(i.first, false);
+            }
         }
     }
 
@@ -943,6 +955,13 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
             } else {
                 m_searchWidget->addUnExsitData(tr("General Settings"));
             }
+        } else if ("update" == find_it->first->name()) {
+                    if (visible) {
+                        m_searchWidget->removeUnExsitData(tr("Updates"));
+                    } else {
+                        m_searchWidget->addUnExsitData(tr("Updates"));
+                    }
+
         }
     } else {
         qDebug() << Q_FUNC_INFO << "Not found module!";

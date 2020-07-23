@@ -30,6 +30,7 @@
 #include <QListView>
 #include <QStandardItemModel>
 #include<QStyledItemDelegate>
+#include <QGSettings>
 
 QT_BEGIN_NAMESPACE
 class QListWidget;
@@ -105,6 +106,7 @@ private:
     void appendChineseData(SearchBoxStruct data);
     void clearSearchData();
     bool isLoadText(const QString &txt);
+    bool isLoadContensText(QString text);
 
 private:
     QStandardItemModel *m_model;
@@ -130,6 +132,10 @@ private:
     QList<QString> m_TxtList;
     bool m_speechState;
     DCompleterStyledItemDelegate styledItemDelegate;
+    QList<QPair<QString, bool>> m_contensServerTxtList;
+    bool m_bIsContensServerType;
+    QGSettings *m_searchModuleDevelop{nullptr};
+
 };
 
 }// namespace search

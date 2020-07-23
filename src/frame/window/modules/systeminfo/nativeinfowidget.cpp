@@ -37,6 +37,7 @@
 using namespace dcc::widgets;
 using namespace dcc::systeminfo;
 using namespace DCC_NAMESPACE::systeminfo;
+#define GSETTINGS_CONTENS_SERVER "iscontens-server"
 
 DCORE_USE_NAMESPACE
 namespace DCC_NAMESPACE {
@@ -46,6 +47,7 @@ NativeInfoWidget::NativeInfoWidget(SystemInfoModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(model)
     , m_mainLayout(new QVBoxLayout)
+    , isContensServers(false)
 {
     initWidget();
 }
@@ -72,7 +74,6 @@ void NativeInfoWidget::initWidget()
     } else {
         logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal, defIcon));
     }
-
     if (DSysInfo::osType() == DSysInfo::OSType::OSType_Server ||
             (DSysInfo::osType() == DSysInfo::OSType::OSType_Desktop)) {
         m_productName= new TitleValueItem();
@@ -85,6 +86,12 @@ void NativeInfoWidget::initWidget()
         m_versionNumber->setTitle(tr("Version:"));
         m_versionNumber->setValue(m_model->versionNumber());
     }
+    if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
+        m_moduleActive = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
+        isContensServers =  m_moduleActive->get(GSETTINGS_CONTENS_SERVER).toBool();
+
+    }
+
     m_version = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_version->setTitle(tr("Edition:"));
@@ -98,6 +105,12 @@ void NativeInfoWidget::initWidget()
     m_authorized->setValue(tr("To be activated"));
     m_authorized->setValueForegroundRole(QColor(255, 0, 0));
     m_authorized->setButtonText(tr("Activate"));
+    if (isContensServers) {
+        m_authorized->setVisable(false);
+    } else {
+        m_authorized->setVisable(true);
+    }
+
 
     m_kernel = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
