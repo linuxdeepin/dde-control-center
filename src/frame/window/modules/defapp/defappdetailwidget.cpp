@@ -313,11 +313,12 @@ dcc::defapp::App DefappDetailWidget::getAppById(const QString &appId) {
 
 void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
 {
+    qDebug() << "appendItemData=" << app.MimeTypeFit;
     DStandardItem *item = new DStandardItem;
-    QString appName = (!app.isUser || isDesktopOrBinaryFile(app.Exec))
+    QString appName = (!app.isUser || app.MimeTypeFit)
             ? app.Name : QString("%1(%2)").arg(app.Name).arg(tr("Invalid"));
 
-    if (!app.isUser || isDesktopOrBinaryFile(app.Exec)) {
+    if (!app.isUser || app.MimeTypeFit) {
         item->setText(appName);
         item->setIcon(getAppIcon(app.Icon, QSize(32, 32)));
     } else {

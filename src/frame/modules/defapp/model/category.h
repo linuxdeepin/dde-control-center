@@ -41,6 +41,7 @@ struct App {
     QString Exec;
     bool isUser;
     bool CanDelete;
+    bool MimeTypeFit;
 
     bool operator ==(const App &app) const {
         return app.Id == Id && app.isUser == isUser;
