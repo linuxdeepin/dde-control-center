@@ -101,6 +101,7 @@ private:
     bool m_bIsResting = false;
 
     dcc::widgets::SettingsHead *m_head;
+    dcc::widgets::SettingsHead *workspaceHead;
     dcc::widgets::SettingsGroup *m_systemGroup;
     dcc::widgets::SettingsGroup *m_windowGroup;
     dcc::widgets::SettingsGroup *m_workspaceGroup;
