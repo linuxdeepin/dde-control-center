@@ -138,23 +138,6 @@ void SystemInfoModel::setDistroVer(const QString &distrover)
     Q_EMIT distroverChanged(m_distrover);
 }
 
-void SystemInfoModel::setProductName(const QString& name)
-{
-    if(m_productName == name)
-        return;
-
-    m_productName = name;
-    Q_EMIT productNameChanged(m_productName);
-}
-void SystemInfoModel::setVersionNumber(const QString& number)
-{
-    if(m_versionNumber == number)
-        return;
-
-    m_versionNumber = number;
-    Q_EMIT versionNumberChanged(m_versionNumber);
-}
-
 void SystemInfoModel::setVersion(const QString &version)
 {
     if(m_version == version)
