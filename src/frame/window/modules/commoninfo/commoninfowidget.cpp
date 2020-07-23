@@ -34,12 +34,14 @@ DWIDGET_USE_NAMESPACE
 
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
+#define GSETTINGS_CONTENS_SERVER "iscontens-server"
 
 CommonInfoWidget::CommonInfoWidget(QWidget *parent)
     : QWidget(parent)
     , m_vBoxLayout(new QVBoxLayout(this))
     , m_listView(new dcc::widgets::MultiSelectListView(this))
     , m_itemModel(new QStandardItemModel(this))
+    , isContensServer(false)
 {
     initWidget();
     initData();
@@ -74,12 +76,19 @@ void CommonInfoWidget::initData()
                        QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget)});
 #endif
 
+     if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
+         m_moduleDevelop = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
+         isContensServer =  m_moduleDevelop->get(GSETTINGS_CONTENS_SERVER).toBool();
+     }
+
     //以下模块只在非服务器版本使用
     if (!IsServerSystem) {
-        if (!IsDesktopSystem) {
-            //~ contents_path /commoninfo/Developer Mode
-            m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
-                               QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)});
+        if (!isContensServer) {
+                    if (!IsDesktopSystem) {
+                        //~ contents_path /commoninfo/Developer Mode
+                        m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
+                                           QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)});
+                    }
         }
         //~ contents_path /commoninfo/User Experience Program
         m_itemList.append({"dcc_ue_plan", tr("User Experience Program"),

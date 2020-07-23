@@ -24,6 +24,7 @@
 #include "modules/update/common.h"
 
 #include <QObject>
+#include <QGSettings>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -68,6 +69,8 @@ private:
     dcc::update::UpdateWorker *m_work = nullptr;
     QPointer<UpdateWidget> m_updateWidget;
     MirrorsWidget *m_mirrorsWidget;
+    QGSettings *m_versionTypeModue{nullptr};
+    QStringList versionTypeList;
 };
 
 }// namespace datetime

@@ -81,6 +81,7 @@ public:
     void setWordWrap(bool enable);
     void setButtonText(const QString &str);
     void setValueForegroundRole(const QColor &color);
+    void setVisable(bool value);
 
 Q_SIGNALS:
     //传递button的点击信号

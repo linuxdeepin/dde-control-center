@@ -28,6 +28,8 @@
 #include "widgets/utils.h"
 
 #include <QVBoxLayout>
+#include <QGSettings>
+#define GSETTINGS_HIDE_VERSIONTYPR_MODULE "hide-version-type-module"
 
 using namespace dcc;
 using namespace dcc::update;
@@ -78,8 +80,18 @@ void UpdateModule::preInitialize(bool sync)
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateModule::notifyDisplayReminder);
     notifyDisplayReminder(m_model->status());
 
-    bool bShowUpdate = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showUpdate", true);
-    m_frameProxy->setModuleVisible(this, bShowUpdate);
+    //通过gsetting获取版本类型，设置某模块是否显示
+    if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
+        m_versionTypeModue  = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
+        versionTypeList =  m_versionTypeModue->get(GSETTINGS_HIDE_VERSIONTYPR_MODULE).toStringList();
+    }
+        if (versionTypeList.contains("update")) {
+            m_frameProxy->setModuleVisible(this, false);
+        } else {
+            bool bShowUpdate = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showUpdate", true);
+            m_frameProxy->setModuleVisible(this, bShowUpdate);
+        }
+
 }
 
 void UpdateModule::initialize()

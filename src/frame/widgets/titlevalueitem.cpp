@@ -138,6 +138,11 @@ void TitleAuthorizedItem::setButtonText(const QString &str)
     m_pActivatorBtn->setText(str);
 }
 
+void TitleAuthorizedItem::setVisable(bool value)
+{
+    m_pActivatorBtn->setVisible(value);
+}
+
 void TitleAuthorizedItem::setValueForegroundRole(const QColor &color)
 {
     auto pa = DApplicationHelper::instance()->palette(m_value);
