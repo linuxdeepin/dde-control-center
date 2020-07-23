@@ -73,7 +73,7 @@ const QString GSettinsWindowWidth = "window-width";
 const QString GSettinsWindowHeight = "window-height";
 const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
 
-static int WidgetMinimumWidget = 820;
+static int WidgetMinimumWidth = 820;
 static int WidgetMinimumHeight = 634;
 
 //此处为带边距的宽度
@@ -213,20 +213,8 @@ MainWindow::MainWindow(QWidget *parent)
         m_moduleName = "";
         resetNavList(m_contentStack.isEmpty());
     });
-    int w = QGuiApplication::primaryScreen()->geometry().width();
-    int h = QGuiApplication::primaryScreen()->geometry().height();
-    if (w > 820) {
-        WidgetMinimumWidget = 820;
-    } else {
-        WidgetMinimumWidget = w;
-    }
-    if (h > 634) {
-        WidgetMinimumHeight = 634;
-    } else {
-        WidgetMinimumHeight = h;
-    }
-    setMinimumSize(QSize(WidgetMinimumWidget, WidgetMinimumHeight));
     updateViewBackground();
+    updateWinsize();
 }
 
 MainWindow::~MainWindow()
@@ -426,6 +414,15 @@ void MainWindow::initAllModule(const QString &m)
         m_searchWidget->setLanguage(QLocale::system().name());
         qDebug() << QString("load search info with %1ms").arg(et.elapsed());
     });
+}
+
+void MainWindow::updateWinsize()
+{
+    int w = QGuiApplication::primaryScreen()->geometry().width();
+    int h = QGuiApplication::primaryScreen()->geometry().height();
+    WidgetMinimumWidth = qMin(w, 820);
+    WidgetMinimumHeight = qMin(h, 634);
+    setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));
 }
 
 void MainWindow::loadModules()
