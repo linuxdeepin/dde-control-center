@@ -43,7 +43,7 @@ AppNotifyWidget::AppNotifyWidget(int &index, NotificationModel *model, QWidget *
     , m_btnAllowNotify(new DSwitchButton)
     , m_itemNotifySound(new NotificationItem)
     , m_itemLockShowNotify(new NotificationItem)
-    , m_itemOnlyInNotifyCenter(new NotificationItem)
+    , m_itemShowInNotifyCenter(new NotificationItem)
     , m_itemShowNotifyPreview(new NotificationItem)
 {
     initUI();
@@ -91,9 +91,9 @@ void AppNotifyWidget::initUI()
     m_itemLockShowNotify = new NotificationItem;
     m_itemLockShowNotify->setTitle(tr("Show messages on lockscreen"));
     m_settingsGrp->appendItem(m_itemLockShowNotify);
-    m_itemOnlyInNotifyCenter = new NotificationItem;
-    m_itemOnlyInNotifyCenter->setTitle(tr("Show only in notification center"));
-    m_settingsGrp->appendItem(m_itemOnlyInNotifyCenter);
+    m_itemShowInNotifyCenter = new NotificationItem;
+    m_itemShowInNotifyCenter->setTitle(tr("Show in notification center"));
+    m_settingsGrp->appendItem(m_itemShowInNotifyCenter);
     m_itemShowNotifyPreview = new NotificationItem;
     m_itemShowNotifyPreview->setTitle(tr("Show message preview"));
     m_settingsGrp->appendItem(m_itemShowNotifyPreview);
@@ -123,10 +123,10 @@ void AppNotifyWidget::initConnect()
         m_itemShowNotifyPreview->setState(state);
     });
     m_itemShowNotifyPreview->setState(appModel->isShowNotifyPreview());
-    connect(appModel, &AppItemModel::onlyInNotifyCenterChanged, this, [this](bool state) {
-        m_itemOnlyInNotifyCenter->setState(state);
+    connect(appModel, &AppItemModel::showInNotifyCenterChanged, this, [this](bool state) {
+        m_itemShowInNotifyCenter->setState(state);
     });
-    m_itemOnlyInNotifyCenter->setState(appModel->isOnlyInNotifyCenter());
+    m_itemShowInNotifyCenter->setState(appModel->isShowInNotifyCenter());
 
     //set connects: this to module
     connect(m_btnAllowNotify, &DSwitchButton::checkedChanged, this, [ = ](bool state) {
@@ -151,8 +151,8 @@ void AppNotifyWidget::initConnect()
 
         Q_EMIT requestSetAppSetting(appModel->getActName(), appModel->convertQJson());
     });
-    connect(m_itemOnlyInNotifyCenter, &NotificationItem::stateChanged, this, [ = ](bool state) {
-        appModel->setOnlyInNotifyCenter(state);
+    connect(m_itemShowInNotifyCenter, &NotificationItem::stateChanged, this, [ = ](bool state) {
+        appModel->setShowInNotifyCenter(state);
 
         Q_EMIT requestSetAppSetting(appModel->getActName(), appModel->convertQJson());
     });

@@ -66,7 +66,7 @@ private:
     Dtk::Widget::DSwitchButton *m_btnAllowNotify;//是否允许通知
     NotificationItem *m_itemNotifySound;//播放声音
     NotificationItem *m_itemLockShowNotify;//锁屏通知
-    NotificationItem *m_itemOnlyInNotifyCenter;//仅通知中心显示
+    NotificationItem *m_itemShowInNotifyCenter;//仅通知中心显示
     NotificationItem *m_itemShowNotifyPreview;//显示预览
     Dtk::Widget::DLabel *m_lblTip;
     dcc::widgets::SettingsGroup *m_settingsGrp;

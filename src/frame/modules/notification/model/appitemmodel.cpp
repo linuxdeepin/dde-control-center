@@ -31,7 +31,7 @@ AppItemModel::AppItemModel(QObject *parent)
     , m_isAllowNotify(false)
     , m_isNotifySound(false)
     , m_isLockShowNotify(false)
-    , m_isOnlyInNotifyCenter(false)
+    , m_isShowInNotifyCenter(false)
     , m_isShowNotifyPreview(false)
 {
 
@@ -45,7 +45,7 @@ void AppItemModel::setItem(const QString &name, const QJsonObject &item)
     setAllowNotify(item["AllowNotify"].toBool());
     setLockShowNotify(item["LockShowNotify"].toBool());
     setNotifySound(item["NotificationSound"].toBool());
-    setOnlyInNotifyCenter(item["OnlyInNotifyCenter"].toBool());
+    setShowInNotifyCenter(item["ShowInNotifyCenter"].toBool());
     setShowNotifyPreview(item["ShowNotifyPreview"].toBool());
 }
 
@@ -57,7 +57,7 @@ QJsonObject AppItemModel::convertQJson()
     json.insert("AllowNotify", isAllowNotify());
     json.insert("LockShowNotify", isLockShowNotify());
     json.insert("NotificationSound", isNotifySound());
-    json.insert("OnlyInNotifyCenter", isOnlyInNotifyCenter());
+    json.insert("ShowInNotifyCenter", isShowInNotifyCenter());
     json.insert("ShowNotifyPreview", isShowNotifyPreview());
     return json;
 }
@@ -114,12 +114,12 @@ void AppItemModel::setLockShowNotify(const bool &state)
     }
 }
 
-void AppItemModel::setOnlyInNotifyCenter(const bool &state)
+void AppItemModel::setShowInNotifyCenter(const bool &state)
 {
-    if (m_isOnlyInNotifyCenter != state) {
-        m_isOnlyInNotifyCenter = state;
+    if (m_isShowInNotifyCenter != state) {
+        m_isShowInNotifyCenter = state;
 
-        Q_EMIT onlyInNotifyCenterChanged(state);
+        Q_EMIT showInNotifyCenterChanged(state);
     }
 }
 
