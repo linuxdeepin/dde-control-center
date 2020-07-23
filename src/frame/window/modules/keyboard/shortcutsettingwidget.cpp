@@ -66,7 +66,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_windowGroup->getLayout()->setMargin(0);
     m_windowGroup->appendItem(windowHead, SettingsGroup::NoneBackground);
 
-    SettingsHead *workspaceHead = new SettingsHead();
+    workspaceHead = new SettingsHead();
     workspaceHead->setEditEnable(false);
     workspaceHead->setTitle(tr("Workspace"));
     m_workspaceGroup = new SettingsGroup();
@@ -223,6 +223,9 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         case ShortcutModel::Workspace:
             m_workspaceGroup->appendItem(item);
             m_workspaceList.append(item);
+
+            if (m_workspaceGroup->itemCount() > 1)
+                workspaceHead->setVisible(true);
             break;
         case ShortcutModel::AssistiveTools:
             m_assistiveToolsGroup->appendItem(item);
