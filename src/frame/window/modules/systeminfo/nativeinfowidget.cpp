@@ -75,18 +75,6 @@ void NativeInfoWidget::initWidget()
         logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal, defIcon));
     }
 
-    if (DSysInfo::osType() == DSysInfo::OSType::OSType_Server ||
-            (DSysInfo::osType() == DSysInfo::OSType::OSType_Desktop)) {
-        m_productName= new TitleValueItem();
-        //~ contents_path /systeminfo/About This PC
-        m_productName->setTitle(tr("OS Name:"));
-        m_productName->setValue(m_model->productName());
-
-        m_versionNumber = new TitleValueItem();
-        //~ contents_path /systeminfo/About This PC
-        m_versionNumber->setTitle(tr("Version:"));
-        m_versionNumber->setValue(m_model->versionNumber());
-    }
     if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
         m_moduleActive = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
         isContensServers =  m_moduleActive->get(GSETTINGS_CONTENS_SERVER).toBool();
