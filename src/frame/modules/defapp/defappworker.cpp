@@ -218,6 +218,7 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, cons
         app.Exec = obj["Exec"].toString();
         app.isUser = isUser;
         app.CanDelete = obj["CanDelete"].toBool();
+        app.MimeTypeFit = obj["MimeTypeFit"].toBool();
 
         list << app;
     }
