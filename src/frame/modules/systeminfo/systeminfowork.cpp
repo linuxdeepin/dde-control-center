@@ -139,16 +139,12 @@ void SystemInfoWork::activate()
 {
     m_model->setDistroID(m_systemInfoInter->distroID());
     m_model->setDistroVer(m_systemInfoInter->distroVer());
-    // m_model->setVersion(m_systemInfoInter->version());
-    // m_model->setType(m_systemInfoInter->systemType());
-    //m_model->setProcessor(m_systemInfoInter->processor());
-    // m_model->setMemory(m_systemInfoInter->memoryCap());
     m_model->setDisk(m_systemInfoInter->diskCap());
 
     QString version;
     if (DSysInfo::isDeepin()) {
-        version = QString("%1 %2").arg(DSysInfo::deepinTypeDisplayName())
-                                  .arg(DSysInfo::deepinVersion());
+        version = QString("%1 (%2)").arg(DSysInfo::uosEditionName())
+                                    .arg(DSysInfo::minorVersion());
     } else {
         version = QString("%1 %2").arg(DSysInfo::productVersion())
                                   .arg(DSysInfo::productTypeString());

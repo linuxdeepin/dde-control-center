@@ -211,5 +211,23 @@ void SystemInfoModel::setLicenseState(quint32 state)
     }
 }
 
+void SystemInfoModel::setProductName(const QString& name)
+{
+    if(m_productName == name)
+        return;
+
+    m_productName = name;
+    Q_EMIT productNameChanged(m_productName);
+}
+
+void SystemInfoModel::setVersionNumber(const QString& number)
+{
+    if(m_versionNumber == number)
+        return;
+
+    m_versionNumber = number;
+    Q_EMIT versionNumberChanged(m_versionNumber);
+}
+
 }
 }

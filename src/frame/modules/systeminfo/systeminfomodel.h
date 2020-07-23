@@ -53,6 +53,8 @@ public:
 
     QString distroid() const { return m_distroid;}
     QString distrover() const { return m_distrover;}
+    QString productName() const { return m_productName;}
+    QString versionNumber() const { return m_versionNumber;}
     QString version() const { return m_version;}
     QString type() const { return m_type;}
     QString processor() const { return m_processor;}
@@ -76,6 +78,8 @@ Q_SIGNALS:
     void backgroundChanged(const QPixmap &pixmap);
     void distroidChanged(const QString& distroid);
     void distroverChanged(const QString& distrover);
+    void productNameChanged(const QString& version);
+    void versionNumberChanged(const QString& version);
     void versionChanged(const QString& version);
     void typeChanged(const QString& type);
     void processorChanged(const QString& processor);
@@ -91,6 +95,8 @@ public Q_SLOTS:
     void setUpdating(bool updating);
     void setDistroID(const QString& distroid);
     void setDistroVer(const QString& distrover);
+    void setProductName(const QString& name);
+    void setVersionNumber(const QString& number);
     void setVersion(const QString& version);
     void setType(qlonglong type);
     void setProcessor(const QString& processor);
@@ -110,6 +116,8 @@ private:
     QString m_distroid;
     QString m_distrover;
     QString m_version;
+    QString m_productName;
+    QString m_versionNumber;
     QString m_type;
     QString m_processor;
     QString m_memory;
