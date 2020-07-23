@@ -43,18 +43,12 @@ using namespace DCC_NAMESPACE::power;
 UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    , m_monitorSleepOnPower(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
 //    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
     , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
     , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    //~ contents_path /power/Plugged In
-    //~ child_page Plugged In
-    m_monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
-
     //~ contents_path /power/Plugged In
     //~ child_page Plugged In
     m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
@@ -64,7 +58,19 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
 
     SettingsGroup *powerSettingsGrp = new SettingsGroup;
     powerSettingsGrp->setSpacing(List_Interval);
-    powerSettingsGrp->appendItem(m_monitorSleepOnPower);
+    if (!IsServerSystem) {
+        m_monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
+        //~ contents_path /power/Plugged In
+        //~ child_page Plugged In
+        m_monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
+        m_monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
+        m_monitorSleepOnPower->slider()->setRange(1, 7);
+        m_monitorSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
+        m_monitorSleepOnPower->slider()->setTickInterval(1);
+        m_monitorSleepOnPower->slider()->setPageStep(1);
+        connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetScreenBlackDelayOnPower);
+        powerSettingsGrp->appendItem(m_monitorSleepOnPower);
+    }
     if (!IsServerSystem) {
         m_computerSleepOnPower = new TitledSliderItem(tr("Computer will suspend after"));
         //~ contents_path /power/Plugged In
@@ -106,12 +112,9 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
         m_computerSleepOnPower->setAnnotations(annos);
     }
 
-    m_monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
-    m_monitorSleepOnPower->slider()->setRange(1, 7);
-    m_monitorSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
-    m_monitorSleepOnPower->slider()->setTickInterval(1);
-    m_monitorSleepOnPower->slider()->setPageStep(1);
-    m_monitorSleepOnPower->setAnnotations(annos);
+    if (!IsServerSystem) {
+            m_monitorSleepOnPower->setAnnotations(annos);
+        }
 
     m_autoLockScreen->slider()->setType(DCCSlider::Vernier);
     m_autoLockScreen->slider()->setRange(1, 7);
@@ -122,7 +125,6 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
 
     setModel(model);
 
-    connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetScreenBlackDelayOnPower);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetAutoLockScreenOnPower);
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
@@ -148,16 +150,19 @@ UseElectricWidget::~UseElectricWidget()
 
 void UseElectricWidget::setModel(const PowerModel *model)
 {
-    connect(model, &PowerModel::screenBlackDelayChangedOnPower, this, &UseElectricWidget::setScreenBlackDelayOnPower);
     connect(model, &PowerModel::powerLockScreenDelayChanged, this, &UseElectricWidget::setLockScreenAfter);
 
-    setScreenBlackDelayOnPower(model->screenBlackDelayOnPower());
     if (!IsServerSystem) {
         connect(model, &PowerModel::sleepDelayChangedOnPower, this, &UseElectricWidget::setSleepDelayOnPower);
         setSleepDelayOnPower(model->sleepDelayOnPower());
     }
 
     setLockScreenAfter(model->getPowerLockScreenDelay());
+
+    if (m_monitorSleepOnPower) {
+        connect(model, &PowerModel::screenBlackDelayChangedOnPower, this, &UseElectricWidget::setScreenBlackDelayOnPower);
+        setScreenBlackDelayOnPower(model->screenBlackDelayOnPower());
+    }
 
     if (m_computerSleepOnPower) {
         m_computerSleepOnPower->setVisible(model->canSleep() && model->getSuspend());
