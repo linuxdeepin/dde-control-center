@@ -490,7 +490,9 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
 
     // default FullName is empty string
     auto type = IsServerSystem ? 0 : 1;
+    m_accountsInter->setTimeout(999999999); //pms 30025 防止dbus调用超时，避免验证对话框显示过程中此异步过程提前结束
     QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->fullname(), type);
+    m_accountsInter->setTimeout(-1);
 
     const QString userPath = path.path();
     if (userPath.isEmpty() || userPath.isNull()) {
