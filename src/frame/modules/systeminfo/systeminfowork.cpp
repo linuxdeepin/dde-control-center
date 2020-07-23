@@ -131,10 +131,17 @@ void SystemInfoWork::activate()
     m_model->setDistroVer(m_systemInfoInter->distroVer());
     m_model->setDisk(m_systemInfoInter->diskCap());
 
+    if (DSysInfo::osType() == DSysInfo::OSType::OSType_Server ||
+            (DSysInfo::osType() == DSysInfo::OSType::OSType_Desktop)) {
+        QString productName = QString("%1").arg(DSysInfo::osSystemName());
+        m_model->setProductName(productName);
+        QString versionNumber = QString("%1").arg(DSysInfo::majorVersion());
+        m_model->setVersionNumber(versionNumber);
+    }
     QString version;
     if (DSysInfo::isDeepin()) {
-        version = QString("%1 %2").arg(DSysInfo::deepinVersion())
-                                  .arg(DSysInfo::deepinTypeDisplayName());
+        version = QString("%1 (%2)").arg(DSysInfo::osEditionName())
+                                  .arg(DSysInfo::minorVersion());
     } else {
         version = QString("%1 %2").arg(DSysInfo::productVersion())
                                   .arg(DSysInfo::productTypeString());
