@@ -56,6 +56,11 @@ DisplayModule::~DisplayModule()
     m_displayWorker->deleteLater();
 }
 
+void DisplayModule::windowUpdate()
+{
+    if (m_pMainWindow)
+        m_pMainWindow->updateWinsize();
+}
 
 void DisplayModule::initialize()
 {
@@ -85,6 +90,7 @@ void DisplayModule::active()
     connect(m_displayWidget, &DisplayWidget::requestShowRefreshRatePage,
             this, &DisplayModule::showRefreshRotePage);
     connect(m_displayWidget, &DisplayWidget::requestRotate, this, [ this ] {
+        windowUpdate();
         showRotate();
     });
     connect(m_displayWidget, &DisplayWidget::requestShowMultiScreenPage,

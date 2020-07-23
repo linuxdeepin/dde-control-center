@@ -25,6 +25,7 @@
 #include "interface/moduleinterface.h"
 #include "interface/namespace.h"
 #include "customsettingdialog.h"
+#include "../../mainwindow.h"
 
 class Resolution;
 
@@ -50,6 +51,7 @@ class DisplayModule : public QObject, public DCC_NAMESPACE::ModuleInterface
 public:
     explicit DisplayModule(DCC_NAMESPACE::FrameProxyInterface *frame, QObject *parent = 0);
     ~DisplayModule();
+    void windowUpdate();
 
 public:
     void initialize() override;
@@ -77,6 +79,7 @@ private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
     dcc::display::DisplayWorker *m_displayWorker{nullptr};
     DCC_NAMESPACE::display::DisplayWidget *m_displayWidget{nullptr};
+    MainWindow *m_pMainWindow = nullptr;
 };
 
 } // namespace display

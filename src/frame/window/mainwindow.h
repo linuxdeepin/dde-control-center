@@ -99,6 +99,7 @@ public:
     void popWidget();
     void initAllModule(QString m = "");
     inline QStack<QPair<ModuleInterface *, QWidget *>> getcontentStack() {return m_contentStack;}
+    void updateWinsize();
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
