@@ -178,23 +178,23 @@ void NativeInfoWidget::setLicenseState(quint32 state)
 {
     if (state == Authorized) {
         m_authorized->setValue(tr("Activated"));
-        m_authorized->setValueForegroundRole(QColor(0, 255, 0));
+        m_authorized->setValueForegroundRole(QColor(21, 187, 24));
         m_authorized->setButtonText(tr("View"));
     } else if (state == Unauthorized) {
         m_authorized->setValue(tr("To be activated"));
-        m_authorized->setValueForegroundRole(QColor(255, 0, 0));
+        m_authorized->setValueForegroundRole(QColor(255, 87, 54));
         m_authorized->setButtonText(tr("Activate"));
     } else if (state == AuthorizedLapse) {
         m_authorized->setValue(tr("Expired"));
-        m_authorized->setValueForegroundRole(QColor(255, 0, 0));
+        m_authorized->setValueForegroundRole(QColor(255, 87, 54));
         m_authorized->setButtonText(tr("View"));
     } else if (state == TrialAuthorized) {
         m_authorized->setValue(tr("In trial period"));
-        m_authorized->setValueForegroundRole(QColor(255, 0, 0));
+        m_authorized->setValueForegroundRole(QColor(255, 170, 0));
         m_authorized->setButtonText(tr("Activate"));
     } else if (state == TrialExpired) {
         m_authorized->setValue(tr("Trial expired"));
-        m_authorized->setValueForegroundRole(QColor(255, 0, 0));
+        m_authorized->setValueForegroundRole(QColor(255, 87, 54));
         m_authorized->setButtonText(tr("Activate"));
     }
 }
