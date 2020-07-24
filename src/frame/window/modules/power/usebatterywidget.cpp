@@ -167,13 +167,13 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     });
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
-            if (IsServerSystem && model->canHibernate()) {
+            if (IsServerSystem || !model->canHibernate()) {
                 Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 0 ? nIndex + 2 : nIndex);
             } else {
                 Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
             }
         } else {
-            if (IsServerSystem && model->canHibernate()) {
+            if (IsServerSystem || !model->canHibernate()) {
                 Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 1 ? nIndex + 1 : nIndex);
             } else {
                 Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex);
@@ -182,13 +182,13 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
         if (!model->getSuspend()) {
-            if (IsServerSystem && model->canHibernate()) {
+            if (IsServerSystem || !model->canHibernate()) {
                 Q_EMIT requestSetBatteryLidClosedAction(nIndex + 3);
             } else {
                 Q_EMIT requestSetBatteryLidClosedAction(nIndex + 2);
             }
         } else {
-            if (IsServerSystem && model->canHibernate()) {
+            if (IsServerSystem || !model->canHibernate()) {
                 Q_EMIT requestSetBatteryLidClosedAction(nIndex > 0 ? nIndex + 2 : nIndex + 1);
             } else {
                 Q_EMIT requestSetBatteryLidClosedAction(nIndex + 1);
@@ -229,13 +229,13 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     //--------------sp2 add-----------------
     m_cmbCloseLid->setVisible(model->lidPresent());
     if (!model->getSuspend()) {
-        if (IsServerSystem && model->canHibernate()) {
+        if (IsServerSystem || !model->canHibernate()) {
             m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 3);
         } else {
             m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 2);
         }
     } else {
-        if (IsServerSystem && model->canHibernate()) {
+        if (IsServerSystem || !model->canHibernate()) {
             int serverIndex = model->batteryLidClosedAction();
             m_cmbCloseLid->comboBox()->setCurrentIndex(serverIndex > 2 ? serverIndex - 2 : serverIndex - 1);
         } else {
@@ -245,13 +245,13 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::batteryLidClosedActionChanged, this, [ = ](const int reply) {
         if (reply - 1 < m_cmbCloseLid->comboBox()->count() && reply >= 1) {
             if (!model->getSuspend()) {
-                if (IsServerSystem && model->canHibernate()) {
+                if (IsServerSystem || !model->canHibernate()) {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 3);
                 } else {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 2);
                 }
             } else {
-                if (IsServerSystem && model->canHibernate()) {
+                if (IsServerSystem || !model->canHibernate()) {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply > 2 ? reply - 2 : reply - 1);
                 } else {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
@@ -262,13 +262,13 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 
     int powIndex = model->batteryPressPowerBtnAction();
     if (!model->getSuspend()) {
-        if (IsServerSystem && model->canHibernate()) {
+        if (IsServerSystem || !model->canHibernate()) {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
         } else {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
         }
     } else {
-        if (IsServerSystem && model->canHibernate()) {
+        if (IsServerSystem || !model->canHibernate()) {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
         } else {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction());
@@ -277,13 +277,13 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::batteryPressPowerBtnActionChanged, this, [ = ](const int reply) {
         if (reply < m_cmbPowerBtn->comboBox()->count()) {
             if (!model->getSuspend()) {
-                if (IsServerSystem && model->canHibernate()) {
+                if (IsServerSystem || !model->canHibernate()) {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0 ? reply - 2 : reply);
                 } else {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0 ? reply - 1 : reply);
                 }
             } else {
-                if (IsServerSystem && model->canHibernate()) {
+                if (IsServerSystem || !model->canHibernate()) {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 2 ? reply - 1 : reply);
                 } else {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
