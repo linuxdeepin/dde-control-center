@@ -54,6 +54,7 @@ Q_SIGNALS:
     void requestDisconnectDevice(const dcc::bluetooth::Device *device);
     void requestConnectDevice(const dcc::bluetooth::Device *device, const dcc::bluetooth::Adapter *adapter);
     void requestSetDevAlias(const dcc::bluetooth::Device *device, QString &devAlias);
+    void requestSendFiles(const dcc::bluetooth::Device *device, QStringList &files);
 
 private Q_SLOTS:
     void onDeviceAliasChanged();
@@ -64,6 +65,7 @@ private:
     QPushButton *m_ignoreButton;
     QPushButton *m_disconnectButton;
     QPushButton *m_connectButton;
+    QPushButton *m_transfileButton;
     QLineEdit *m_editDevAlias;
     TitleLabel *m_devNameLabel;
 };

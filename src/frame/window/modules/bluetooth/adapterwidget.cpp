@@ -57,18 +57,27 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     , m_model(model)
     , m_isNotFirst(false)
     , m_delaySortTimer(new QTimer(this))
+    , m_discoverySwitch(new SwitchWidget(tr("Allow other Bluetooth devices to find this device"), this))
+
 {
     //~ contents_path /bluetooth/My Devices
     m_myDevicesGroup = new TitleLabel(tr("My Devices"));
     m_myDevicesGroup->setVisible(false);
 
+
     //~ contents_path /bluetooth/Other Devices
     m_otherDevicesGroup = new TitleLabel(tr("Other Devices"));
     QHBoxLayout *pshlayout = new QHBoxLayout;
+    QVBoxLayout *vlayout = new QVBoxLayout;
     m_spinnerBtn = new DSpinner(m_titleEdit);
 
     pshlayout->addWidget(m_switch);
     pshlayout->addWidget(m_spinnerBtn);
+
+    vlayout->setContentsMargins(0, 0, 0, 0);
+    vlayout->addLayout(pshlayout);
+    vlayout->addWidget(m_discoverySwitch);
+
     m_spinnerBtn->setFixedSize(24, 24);
     m_spinnerBtn->start();
     m_spinnerBtn->hide();
@@ -83,9 +92,18 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     phlayout->addWidget(m_otherDevicesGroup);
     phlayout->addWidget(m_spinner);
     phlayout->addWidget(m_refreshBtn);
+
     m_switch->addBackground();
     m_switch->layout()->setContentsMargins(10, 10, 10, 10);
     m_switch->setContentsMargins(0, 0, 10, 0);
+    //设置最小宽度,防止偶现情况下，开关按钮被压缩
+    m_switch->setMinimumHeight(50);
+    m_switch->switchButton()->setMinimumHeight(32);
+
+    m_discoverySwitch->addBackground();
+    m_discoverySwitch->switchButton()->setMinimumHeight(32);
+    m_discoverySwitch->setContentsMargins(0, 0, 10, 0);
+    m_discoverySwitch->setMinimumHeight(50);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -124,12 +142,8 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     m_otherDeviceListView->setViewportMargins(ScrollAreaMargins);
     m_otherDeviceListView->setSelectionMode(QListView::SelectionMode::NoSelection);
 
-    //设置最小宽度,防止偶现情况下，开关按钮被压缩
-    m_switch->setMinimumHeight(50);
-    m_switch->switchButton()->setMinimumHeight(32);
-
     layout->addSpacing(10);
-    layout->addLayout(pshlayout);
+    layout->addLayout(vlayout);
     layout->addWidget(m_tip, 0, Qt::AlignTop);
     layout->addSpacing(10);
     layout->addWidget(m_myDevicesGroup);
@@ -164,6 +178,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
         }
         m_dtime.restart();
     });
+    connect(m_discoverySwitch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleDiscoverableSwitch);
 
     connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [ = ](const QString &alias) {
         Q_EMIT requestSetAlias(adapter, alias);
@@ -266,6 +281,9 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
         m_switch->switchButton()->show();
         m_spinnerBtn->hide();
     });
+    connect(adapter, &Adapter::discoverabled, m_discoverySwitch, [ = ] {
+            m_discoverySwitch->setChecked(adapter->discoverabled());
+        });
     connect(m_model, &BluetoothModel::loadStatus, m_switch, [ = ] {
         m_switch->switchButton()->hide();
         m_spinnerBtn->show();
@@ -304,6 +322,8 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
 
     m_switch->setChecked(bPower);
     m_tip->setVisible(!bPower);
+    m_discoverySwitch->setVisible(bPower);
+    m_discoverySwitch->setChecked(m_adapter->discoverabled());
     m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(bPower);
     m_spinner->setVisible(bPower && bDiscovering);
@@ -335,6 +355,11 @@ void AdapterWidget::toggleSwitch(const bool checked)
     onPowerStatus(false, true);
 
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
+}
+
+void AdapterWidget::toggleDiscoverableSwitch(const bool &checked)
+{
+    Q_EMIT requestDiscoverable(m_adapter, checked);
 }
 
 void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool paired)

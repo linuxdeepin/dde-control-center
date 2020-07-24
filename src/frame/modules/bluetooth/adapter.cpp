@@ -74,6 +74,16 @@ void Adapter::setPowered(bool powered, bool discovering)
     }
 }
 
+void Adapter::setDiscoverabled(const bool discoverable)
+{
+    if (m_discoverable == discoverable) {
+        return;
+    }
+    qDebug() << "set Discoverabled : " << discoverable;
+    m_discoverable = discoverable;
+    Q_EMIT discoverableChanged(m_discoverable);
+}
+
 QMap<QString,const Device *> Adapter::devices() const
 {
     return m_devices;

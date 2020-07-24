@@ -102,6 +102,7 @@ void BluetoothModule::active()
     connect(m_bluetoothWidget, &BluetoothWidget::requestModuleVisible, [this](const bool visible) {
         m_frameProxy->setModuleVisible(this, visible);
     });
+    connect(m_bluetoothWidget, &BluetoothWidget::requestDiscoverable, m_bluetoothWorker, &BluetoothWorker::RequestSetDiscoverable);
     m_frameProxy->pushWidget(this, m_bluetoothWidget);
 }
 
@@ -142,6 +143,7 @@ void BluetoothModule::showDeviceDetail(const Adapter *adapter, const Device *dev
     connect(page, &DetailPage::requestIgnoreDevice, this, &BluetoothModule::popPage);
     connect(page, &DetailPage::back, this, &BluetoothModule::popPage);
     connect(page, &DetailPage::requestSetDevAlias, m_bluetoothWorker, &BluetoothWorker::setDeviceAlias);
+    connect(page, &DetailPage::requestSendFiles, m_bluetoothWorker, &BluetoothWorker::sendFiles);
 
     m_frameProxy->pushWidget(this, page);
 }

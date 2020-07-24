@@ -87,6 +87,7 @@ private:
     void categoryDevice(DeviceSettingsItem *deviceItem, const bool paired);
 public Q_SLOTS:
     void toggleSwitch(const bool checked);
+    void toggleDiscoverableSwitch(const bool &checked);
 
 Q_SIGNALS:
     void requestSetToggleAdapter(const dcc::bluetooth::Adapter *adapter, const bool &toggled);
@@ -97,6 +98,7 @@ Q_SIGNALS:
     void notifyLoadFinished();
     void notifyRemoveDevice();
     void requestRefresh(const dcc::bluetooth::Adapter *adapter);
+    void requestDiscoverable(const dcc::bluetooth::Adapter *adapter, const bool &discoverable);
 
 private Q_SLOTS:
     void addDevice(const dcc::bluetooth::Device *device);
@@ -108,6 +110,7 @@ private:
     TitleEdit *m_titleEdit;
     const dcc::bluetooth::Adapter *m_adapter;
     dcc::widgets::SwitchWidget *m_switch;
+    dcc::widgets::SwitchWidget *m_discoverySwitch;
     QList<QPointer<DeviceSettingsItem>> m_deviceLists;
     QList<QPointer<DeviceSettingsItem>> m_myDevices;
     TitleLabel *m_myDevicesGroup;

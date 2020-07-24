@@ -51,6 +51,9 @@ public:
     inline bool powered() const { return m_powered; }
     void setPowered(bool powered, bool discovering);
 
+    inline bool discoverabled() const { return m_discoverable; }
+    void setDiscoverabled(const bool discoverable);
+
     inline bool discovering() const {return m_discovering;}
 
 public Q_SLOTS:
@@ -62,12 +65,14 @@ Q_SIGNALS:
     void deviceAdded(const Device *device) const;
     void deviceRemoved(const QString &deviceId) const;
     void poweredChanged(const bool &powered, const bool &discovering) const;
+    void discoverableChanged(const bool &dicoverable) const;
 
 private:
     QString m_id;
     QString m_name;
     bool m_powered;
     bool m_discovering;
+    bool m_discoverable;
     QMap<QString, const Device *> m_devices;
 };
 
