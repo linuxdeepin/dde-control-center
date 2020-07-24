@@ -1,5 +1,6 @@
 #include "backupandrestoreworker.h"
 #include "backupandrestoremodel.h"
+#include "../restore-tool/toolerrortype.h"
 
 #include <QSharedPointer>
 #include <QProcess>
@@ -16,6 +17,9 @@ DWIDGET_USE_NAMESPACE
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::systeminfo;
+
+//restore-tool超时时间设置为1分钟
+const int TimeOut = 60000;
 
 BackupAndRestoreWorker::BackupAndRestoreWorker(BackupAndRestoreModel* model, QObject *parent)
     : QObject(parent)
@@ -130,18 +134,24 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
 
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << choosePath);
-    process->waitForFinished(-1);
+    process->waitForFinished(TimeOut);
 
-    if (process->exitCode() == 5) {
+    const int &exitCode = process->exitCode();
+    if (exitCode == ToolErrorType::SpaceError) {
         return ErrorType::SpaceError;
     }
 
-    if (process->exitCode() != 0 && process->exitCode() != 5) {
+    if (exitCode == ToolErrorType::GrubError) {
+        return ErrorType::GrubError;
+    }
+
+    if (exitCode == ToolErrorType::ToolError) {
+        qDebug() << process->readAllStandardError();
         return ErrorType::ToolError;
     }
 
     restart();
-    return setGrubAndRestart();
+    return ErrorType::NoError;
 }
 
 ErrorType BackupAndRestoreWorker::doSystemBackup()
@@ -173,19 +183,24 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
 
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_backup" << "--path" << choosePath);
-    process->waitForFinished(-1);
+    process->waitForFinished(TimeOut);
 
-    if (process->exitCode() == 5) {
+    const int &exitCode = process->exitCode();
+    if (exitCode == ToolErrorType::SpaceError) {
         return ErrorType::SpaceError;
     }
 
-    if (process->exitCode() != 0 && process->exitCode() != 5) {
+    if (exitCode == ToolErrorType::GrubError) {
+        return ErrorType::GrubError;
+    }
+
+    if (exitCode == ToolErrorType::ToolError) {
         qDebug() << process->readAllStandardError();
         return ErrorType::ToolError;
     }
 
     restart();
-    return setGrubAndRestart();
+    return ErrorType::NoError;
 }
 
 ErrorType BackupAndRestoreWorker::doManualRestore()
@@ -212,15 +227,20 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
 
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_restore" << "--path" << selectPath);
-    process->waitForFinished();
+    process->waitForFinished(TimeOut);
 
-    if (process->exitCode() != 0) {
-        qDebug() << Q_FUNC_INFO << "restore tool run failed!";
+    const int &exitCode = process->exitCode();
+    if (exitCode == ToolErrorType::GrubError) {
+        return ErrorType::GrubError;
+    }
+
+    if (exitCode == ToolErrorType::ToolError) {
+        qDebug() << process->readAllStandardError();
         return ErrorType::ToolError;
     }
 
     restart();
-    return setGrubAndRestart();
+    return ErrorType::NoError;
 }
 
 ErrorType BackupAndRestoreWorker::doSystemRestore()
@@ -229,38 +249,12 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
 
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
-    process->waitForFinished();
+    process->waitForFinished(TimeOut);
 
-    if (process->exitCode() != 0) {
-        qDebug() << Q_FUNC_INFO << "restore tool run failed!";
-        return ErrorType::ToolError;
+    const int &exitCode = process->exitCode();
+    if (exitCode == ToolErrorType::GrubError) {
+        return ErrorType::GrubError;
     }
-
-    return setGrubAndRestart();
-}
-
-ErrorType BackupAndRestoreWorker::setGrubAndRestart()
-{
-    QScopedPointer<GrubInter> grub(new GrubInter(GrubInter::staticInterfaceName(), "/com/deepin/daemon/Grub2", QDBusConnection::systemBus()));
-    if (grub->defaultEntry() != "UOS Backup & Restore") {
-        QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(grub->SetDefaultEntry("UOS Backup & Restore")));
-        watcher->waitForFinished();
-        if (watcher->isError()) {
-            qDebug() << Q_FUNC_INFO << watcher->error();
-            return ErrorType::GrubError;
-        }
-
-        do {
-            QThread::sleep(1);
-        } while (grub->updating());
-    }
-
-    DDBusSender()
-    .service("com.deepin.dde.shutdownFront")
-    .path("/com/deepin/dde/shutdownFront")
-    .interface("com.deepin.dde.shutdownFront")
-    .method("Restart")
-    .call();
 
     restart();
     return ErrorType::NoError;
