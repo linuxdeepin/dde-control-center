@@ -30,6 +30,7 @@ set(SRCS
 # Find the library
 find_package(PkgConfig REQUIRED)
 find_package(Qt5 COMPONENTS Core DBus REQUIRED)
+find_package(DtkWidget REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
@@ -41,6 +42,7 @@ target_include_directories(${BIN_NAME} PUBLIC
     ${PROJECT_BINARY_DIR}
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${UDisk2_INCLUDE_DIRS}
+    ${DtkWidget_INCLUDE_DIRS}
 )
 
 target_link_libraries(${BIN_NAME} PUBLIC
@@ -48,6 +50,7 @@ target_link_libraries(${BIN_NAME} PUBLIC
     Qt5::Core
     Qt5::DBus
     ${UDisk2_LIBRARIES}
+    ${DtkWidget_LIBRARIES}
 )
 
 # bin

@@ -19,6 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "partitionusage.h"
+#include "toolerrortype.h"
+
+#include <DDBusSender>
 
 #include <QCoreApplication>
 #include <QCommandLineParser>
@@ -31,12 +34,6 @@
 #include <QDir>
 #include <QDebug>
 #include <QSettings>
-#include <udisks2-qt5/ddiskdevice.h>
-#include <udisks2-qt5/dblockdevice.h>
-#include <udisks2-qt5/ddiskmanager.h>
-#include <udisks2-qt5/dblockpartition.h>
-#include <com_deepin_daemon_accounts.h>
-#include <com_deepin_daemon_accounts_user.h>
 #include <QScopedPointer>
 #include <QLocale>
 #include <QTextStream>
@@ -46,6 +43,15 @@
 #include <QProcess>
 #include <QStorageInfo>
 
+#include <udisks2-qt5/ddiskdevice.h>
+#include <udisks2-qt5/dblockdevice.h>
+#include <udisks2-qt5/ddiskmanager.h>
+#include <udisks2-qt5/dblockpartition.h>
+#include <com_deepin_daemon_accounts.h>
+#include <com_deepin_daemon_accounts_user.h>
+#include <com_deepin_daemon_grub2.h>
+
+using GrubInter = com::deepin::daemon::Grub2;
 using AccountsInter = com::deepin::daemon::Accounts;
 using UserInter = com::deepin::daemon::accounts::User;
 
@@ -73,6 +79,33 @@ enum class ActionType {
 };
 
 static ActionType actionType = ActionType::Null;
+
+ToolErrorType setGrubAndRestart()
+{
+    QScopedPointer<GrubInter> grub(new GrubInter(GrubInter::staticInterfaceName(), "/com/deepin/daemon/Grub2", QDBusConnection::systemBus()));
+    if (grub->defaultEntry() != "UOS Backup & Restore") {
+        QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(grub->SetDefaultEntry("UOS Backup & Restore")));
+        watcher->waitForFinished();
+        if (watcher->isError()) {
+            qWarning() << Q_FUNC_INFO << watcher->error();
+            return ToolErrorType::GrubError;
+        }
+
+        //设置grub默认项后,通过其updating属性判断是否设置结束,结束后重启系统
+        do {
+            QThread::sleep(1);
+        } while (grub->updating());
+    }
+
+    DDBusSender()
+    .service("com.deepin.dde.shutdownFront")
+    .path("/com/deepin/dde/shutdownFront")
+    .interface("com.deepin.dde.shutdownFront")
+    .method("Restart")
+    .call();
+
+    return ToolErrorType::NoError;
+}
 
 int main(int argc, char *argv[])
 {
@@ -109,7 +142,7 @@ int main(int argc, char *argv[])
 
     if (!parser.isSet(actionTypeOption) || actionType == ActionType::Null) {
         qDebug() << "not set Action Type";
-        return -2;
+        return ToolErrorType::ToolError;
     }
 
     const QString &recoveryPath{ "/etc/deepin/system-recovery.conf" };
@@ -117,7 +150,7 @@ int main(int argc, char *argv[])
     const QString recoveryUUID{ settings.value("UUID").toString() };
     if (recoveryUUID.isEmpty()) {
         qWarning() << "Cannot open " << recoveryPath;
-        return -1;
+        return ToolErrorType::ToolError;
     }
 
     QString bootUUID;
@@ -179,7 +212,7 @@ int main(int argc, char *argv[])
 
     if (mountPoint.isEmpty()) {
         qDebug() << "mount point empty";
-        return -1;
+        return ToolErrorType::ToolError;
     } else {
         qDebug() << "mount point:" << mountPoint;
     }
@@ -268,7 +301,7 @@ int main(int argc, char *argv[])
     if ((actionType == ActionType::ManualBackup || actionType == ActionType::SystemBackup)
             && getPathFreeSpace(absolutePath) < usage) {
         qWarning() << "target path don't have enough space";
-        return 5;
+        return ToolErrorType::SpaceError;
     }
     QJsonObject fstabObj{ { "boot", QString("UUID:%1").arg(bootUUID) },
                           { "root", QString("UUID:%1").arg(rootUUID) },
@@ -439,9 +472,9 @@ int main(int argc, char *argv[])
         process->waitForFinished(-1);
 
         if (process->exitCode() != 0) {
-            return -1;
+            return ToolErrorType::ToolError;
         }
     }
 
-    return 0;
+    return setGrubAndRestart();
 }
