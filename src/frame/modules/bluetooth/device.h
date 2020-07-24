@@ -67,11 +67,14 @@ public:
 public:
     explicit Device(QObject *parent = 0);
 
-    inline QString deviceType () const {return m_devicetype; }
-    void setdeviceType(const QString &deviceType);
+    inline QString deviceType () const {return m_deviceType; }
+    void setDeviceType(const QString &deviceType);
 
     inline QString id() const { return m_id; }
     void setId(const QString &id);
+
+    inline QString address() const { return m_address; }
+    void setAddress(const QString &address);
 
     inline QString name() const { return m_name; }
     void setName(const QString &name);
@@ -92,6 +95,8 @@ public:
     void setConnecting(bool connecting);
     inline bool connectState() const { return m_connectState; }
 
+    bool canSendFile() const;
+
 Q_SIGNALS:
     void nameChanged(const QString &name) const;
     void aliasChanged(const QString &alias) const;
@@ -104,12 +109,13 @@ private:
     QString m_id;
     QString m_name;
     QString m_alias;
-    QString m_devicetype;
+    QString m_deviceType;
     bool m_paired;
     bool m_trusted;
     bool m_connecting;
     bool m_connectState;
     State m_state;
+    QString m_address; //mac地址
 };
 
 QDebug &operator<<(QDebug &stream, const Device *device);

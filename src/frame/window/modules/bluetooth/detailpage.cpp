@@ -31,6 +31,11 @@
 #include <QLabel>
 #include <QString>
 #include <QApplication>
+
+#include <QDBusInterface>
+#include <QFileDialog>
+
+
 #include <DDesktopServices>
 
 using namespace dcc;
@@ -46,6 +51,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     m_ignoreButton = new QPushButton(tr("Ignore this device"));
     m_disconnectButton = new QPushButton(tr("Disconnect"));
     m_connectButton = new QPushButton(tr("Connect"));
+    m_transfileButton = new QPushButton(tr("Send Files"));
     setTitle(device->name());
     dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
@@ -59,15 +65,14 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     layout->addWidget(backWidgetBtn, Qt::AlignLeft);
     m_devNameLabel = new TitleLabel(device->name());
     layout->addWidget(m_devNameLabel, 0, Qt::AlignCenter);
-    layout->addSpacing(10);
+    layout->setSpacing(10);
     m_editDevAlias = new QLineEdit;
     m_editDevAlias->setPlaceholderText(device->alias().isEmpty() ? device->name() : device->alias());
     layout->addWidget(m_editDevAlias);
-    layout->addSpacing(10);
     layout->addWidget(m_disconnectButton);
     layout->addWidget(m_connectButton);
-    layout->addSpacing(10);
     layout->addWidget(m_ignoreButton);
+    layout->addWidget(m_transfileButton);
     layout->addStretch();
     setContent(frame);
     onDeviceStatusChanged();
@@ -84,6 +89,20 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     connect(m_connectButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestConnectDevice(m_device, m_adapter);
         QApplication::focusWidget()->clearFocus();
+    });
+    connect(m_transfileButton, &QPushButton::clicked, this, [this] {
+        // 调用接口选择文件进行传输
+        QStringList selectedFiles;
+        QFileDialog transFileDia(this);
+        transFileDia.setFileMode(QFileDialog::ExistingFiles);
+        if (transFileDia.exec() != QDialog::Accepted) {
+            return;
+        }
+        selectedFiles = transFileDia.selectedFiles();
+        if (selectedFiles.count() <= 0) {
+            return;
+        }
+        Q_EMIT requestSendFiles(m_device, selectedFiles);
     });
     connect(m_editDevAlias, &QLineEdit::textEdited, this, [ = ](const QString &str){
         if (str.length() > 32) {
@@ -114,10 +133,12 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
 
 void DetailPage::onDeviceStatusChanged()
 {
+    //盘古W上的需求，非连接状态也要显示传输按钮
+    m_transfileButton->setVisible(m_device->canSendFile());
     if (m_device->state() == Device::StateConnected && m_device->connectState()) {
         m_disconnectButton->show();
         m_connectButton->hide();
-        m_ignoreButton->setEnabled(true);
+        m_ignoreButton->setEnabled(true);  
     } else if (m_device->state() == Device::StateAvailable) {
         m_connectButton->show();
         m_connectButton->setText(tr("Connecting"));

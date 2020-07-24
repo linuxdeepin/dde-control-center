@@ -67,6 +67,7 @@ Q_SIGNALS:
     void requestShowDetail(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
     void requestSetAlias(const dcc::bluetooth::Adapter *adapter, const QString &alias);
     void showDeviceDetail(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
+    void requestDiscoverable(const dcc::bluetooth::Adapter *adapter, const bool &discoverable);
 
 public Q_SLOTS:
     void addAdapter(const dcc::bluetooth::Adapter *adapter);

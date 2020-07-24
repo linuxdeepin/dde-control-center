@@ -41,14 +41,19 @@ Device::Device(QObject *parent) :
 
 }
 
-void Device::setdeviceType(const QString &deviceType)
+void Device::setDeviceType(const QString &deviceType)
 {
-    m_devicetype = deviceType2Icon[deviceType];
+    m_deviceType = deviceType2Icon[deviceType];
 }
 
 void Device::setId(const QString &id)
 {
     m_id = id;
+}
+
+void Device::setAddress(const QString &address)
+{
+    m_address = address;
 }
 
 void Device::setName(const QString &name)
@@ -99,6 +104,17 @@ void Device::setConnecting(bool connecting)
         Q_EMIT connectingChanged(connecting);
     }
 }
+
+
+bool Device::canSendFile() const
+{
+    // 目前pc和手机可以发送蓝牙文件
+    if ((m_deviceType == "pc") || (m_deviceType == "phone")) {
+        return true;
+    }
+    return false;
+}
+
 
 QDebug &operator<<(QDebug &stream, const Device *device)
 {

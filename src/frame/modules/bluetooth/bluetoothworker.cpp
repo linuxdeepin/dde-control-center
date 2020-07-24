@@ -217,10 +217,12 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
     const QString alias = adapterObj["Alias"].toString();
     const bool powered = adapterObj["Powered"].toBool();
     const bool discovering = adapterObj["Discovering"].toBool();
+    const bool discoverabled = adapterObj["Discoverable"].toBool();
 
     adapter->setId(path);
     adapter->setName(alias);
     adapter->setPowered(powered, discovering);
+    adapter->setDiscoverabled(discoverabled);
 
     Q_EMIT deviceEnableChanged();
 
@@ -276,6 +278,7 @@ void BluetoothWorker::inflateDevice(Device *device, const QJsonObject &deviceObj
     const QString alias = deviceObj["Alias"].toString();
     const QString name = deviceObj["Name"].toString();
     const bool paired = deviceObj["Paired"].toBool();
+    const QString address = deviceObj["Address"].toString();
     const Device::State state = Device::State(deviceObj["State"].toInt());
     const bool connectState = deviceObj["ConnectState"].toBool();
     const QString icon = deviceObj["Icon"].toString();
@@ -285,7 +288,8 @@ void BluetoothWorker::inflateDevice(Device *device, const QJsonObject &deviceObj
     device->setAlias(alias);
     device->setPaired(paired);
     device->setState(state, connectState);
-    device->setdeviceType(icon);
+    device->setDeviceType(icon);
+    device->setAddress(address);
 }
 
 void BluetoothWorker::onAdapterPropertiesChanged(const QString &json)
@@ -428,6 +432,18 @@ void BluetoothWorker::pinCodeConfirm(const QDBusObjectPath &path, bool value)
 void BluetoothWorker::setAdapterDiscovering(const QDBusObjectPath &path, bool enable)
 {
     m_bluetoothInter->SetAdapterDiscovering(path, enable);
+}
+
+void BluetoothWorker::sendFiles(const Device *device, const QStringList &filesPath)
+{
+    qDebug() << "Bluetooth send Files: " << device->address() << filesPath;
+    m_bluetoothInter->SendFiles(device->address(), filesPath);
+}
+
+void BluetoothWorker::RequestSetDiscoverable(const Adapter *adapter, const bool &discoverable)
+{
+    QDBusObjectPath path(adapter->id());
+    m_bluetoothInter->SetAdapterDiscoverable(path, discoverable);
 }
 
 } // namespace bluetooth
