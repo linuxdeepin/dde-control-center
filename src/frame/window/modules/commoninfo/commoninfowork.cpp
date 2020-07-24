@@ -237,7 +237,7 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
     if (enabled && (m_dBusUeProgram->IsEnabled() != enabled)) {
         qInfo("suser opened experience project switch.");
         // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
-        QString title(tr(" "));
+        QString title(" ");
         QString allowContent(tr("Agree and Join User Experience Program"));
 
         // license路径

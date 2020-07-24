@@ -69,8 +69,8 @@ void NativeInfoWidget::initWidget()
     auto defIcon = ":/icons/deepin/builtin/icons/dcc_deepin_logo_164px.svg";
     if (DCC_NAMESPACE::IsDesktopSystem) {
         logo->setLogo(QIcon(defIcon), 156, 46);
-    } else if (DCC_NAMESPACE::IsProfessionalSystem) {
-        logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logo.svg"), 156, 46);
+    } else if (DCC_NAMESPACE::IsProfessionalSystem || DCC_NAMESPACE::IsServerSystem) {
+        logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logos.svg"), 156, 46);
     } else {
         logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal, defIcon));
     }
@@ -79,7 +79,19 @@ void NativeInfoWidget::initWidget()
         m_moduleActive = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
         isContensServers =  m_moduleActive->get(GSETTINGS_CONTENS_SERVER).toBool();
     }
-    
+
+    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
+            (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
+        m_productName= new TitleValueItem();
+        //~ contents_path /systeminfo/About This PC
+        m_productName->setTitle(tr("OS Name:"));
+        m_productName->setValue(m_model->productName());
+
+        m_versionNumber = new TitleValueItem();
+        //~ contents_path /systeminfo/About This PC
+        m_versionNumber->setTitle(tr("Version:"));
+        m_versionNumber->setValue(m_model->versionNumber());
+    }
     m_version = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_version->setTitle(tr("Edition:"));
@@ -115,6 +127,12 @@ void NativeInfoWidget::initWidget()
     m_memory->setValue(m_model->memory());
 
     logoGroup->appendItem(logo);
+    qDebug()<<"22222222 DSysInfo::uosType() ="<<DSysInfo::uosType() ;
+    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
+            (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
+        infoGroup->appendItem(m_productName);
+        infoGroup->appendItem(m_versionNumber);
+    }
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
     if (!DCC_NAMESPACE::IsDesktopSystem)
@@ -139,6 +157,8 @@ void NativeInfoWidget::initWidget()
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
+    connect(m_model, &SystemInfoModel::productNameChanged, this, &NativeInfoWidget::setProductName);
+    connect(m_model, &SystemInfoModel::versionNumberChanged, this, &NativeInfoWidget::setVersionNumber);
     connect(m_model, &SystemInfoModel::versionChanged, this, &NativeInfoWidget::setEdition);
     connect(m_model, &SystemInfoModel::typeChanged, this, &NativeInfoWidget::setType);
     connect(m_model, &SystemInfoModel::processorChanged, this, &NativeInfoWidget::setProcessor);
@@ -150,6 +170,16 @@ void NativeInfoWidget::initWidget()
 
     setType(m_model->type());
     setLicenseState(m_model->licenseState());
+}
+
+void NativeInfoWidget::setProductName(const QString &edition)
+{
+    m_productName->setValue(edition);
+}
+
+void NativeInfoWidget::setVersionNumber(const QString &type)
+{
+    m_versionNumber->setValue(type);
 }
 
 void NativeInfoWidget::setEdition(const QString &edition)
