@@ -86,7 +86,7 @@ void PowerModule::active()
 
     m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
     m_isSuspend = m_powerSetting->get(GSETTING_SHOW_SUSPEND).toBool();
-    m_model->setSuspend(m_isSuspend);
+    m_model->setSuspend(m_isSuspend && m_model->canSleep());
 
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::requestRemoveBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
