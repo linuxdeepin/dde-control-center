@@ -64,7 +64,6 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     headLayout->addStretch();
     headLayout->addWidget(m_editSystemLang);
 
-    layout->addLayout(headLayout);
     m_langListview = new DListView();
     m_langListview->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_langListview->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
@@ -89,6 +88,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
 
     QVBoxLayout *vLayout = new QVBoxLayout();
     vLayout->setMargin(0);
+    vLayout->addLayout(headLayout);
     vLayout->addWidget(contentWidget);
 
     DFloatingButton *addSystemLanguage = new DFloatingButton(DStyle::SP_IncreaseElement, this);
