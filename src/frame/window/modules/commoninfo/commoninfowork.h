@@ -79,6 +79,8 @@ private:
     QProcess *m_process = nullptr;
     GrubDevelopMode *m_dBusdeepinIdInter;
     QDBusInterface *m_activeInfo;
+    QString m_title;
+    QString m_content;
 };
 } // namespace commoninfo
 } // namespace DCC_NAMESPACE
