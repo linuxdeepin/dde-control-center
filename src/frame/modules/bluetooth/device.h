@@ -91,6 +91,8 @@ public:
     void setDeviceType(const QString deviceType);
     inline bool connectState() const { return m_connectState; }
 
+    bool canSendFile() const;
+
 Q_SIGNALS:
     void nameChanged(const QString &name) const;
     void aliasChanged(const QString &alias) const;

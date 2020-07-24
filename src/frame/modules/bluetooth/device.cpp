@@ -99,6 +99,15 @@ void Device::setDeviceType(const QString deviceType)
     m_deviceType = deviceType2Icon[deviceType];
 }
 
+bool Device::canSendFile() const
+{
+    // 目前pc和手机可以发送蓝牙文件
+    if ((m_deviceType == "pc") || (m_deviceType == "phone")) {
+        return true;
+    }
+    return false;
+}
+
 QDebug &operator<<(QDebug &stream, const Device *device)
 {
     stream << "Device name:" << device->name() << " paired:" << device->paired() << " state:" << device->state();

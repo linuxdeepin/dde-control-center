@@ -64,6 +64,7 @@ private:
     QPushButton *m_ignoreButton;
     QPushButton *m_disconnectButton;
     QPushButton *m_connectButton;
+    QPushButton *m_transfileButton;
     QLineEdit *m_editDevAlias;
     TitleLabel *m_devNameLabel;
 };
