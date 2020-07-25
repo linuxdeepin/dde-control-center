@@ -37,6 +37,9 @@ LoadingItem::LoadingItem(QFrame *parent)
     : QWidget(parent)
     , m_messageLabel(new NormalLabel)
     , m_progress(new QProgressBar(this))
+    , m_currLangSelector(new LangSelector("com.deepin.daemon.LangSelector",
+                                                "/com/deepin/daemon/LangSelector",
+                                                QDBusConnection::sessionBus(), this))
 {
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
@@ -93,7 +96,11 @@ void LoadingItem::setVersionVisible(bool state)
 
 void LoadingItem::setSystemVersion(QString version)
 {
-    m_labelText->setText(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion().left(2) + " " + DSysInfo::deepinTypeDisplayName());
+    if ("en_US.UTF-8" == m_currLangSelector->currentLocale() && DSysInfo::DeepinPersonal == DSysInfo::deepinType()) {
+        m_labelText->setText(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion().left(2) + " " + "home");
+    } else {
+        m_labelText->setText(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion().left(2) + " " + DSysInfo::deepinTypeDisplayName());
+    }
 }
 
 void LoadingItem::setImage(QImage *image)

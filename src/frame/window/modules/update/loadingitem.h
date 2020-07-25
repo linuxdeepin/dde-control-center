@@ -23,7 +23,10 @@
 #include "widgets/settingsitem.h"
 
 #include <QProgressBar>
+#include <com_deepin_daemon_langselector.h>
 #include <QLabel>
+
+using LangSelector = com::deepin::daemon::LangSelector;
 
 namespace dcc {
 namespace widgets {
@@ -56,6 +59,7 @@ private:
     QImage *m_image;
     QLabel *m_labelImage;
     QLabel *m_labelText;
+    LangSelector *m_currLangSelector;
 };
 
 } // namespace update
