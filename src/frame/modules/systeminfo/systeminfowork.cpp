@@ -39,6 +39,9 @@ static const int ItemHeight = 177;
 SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     :QObject(parent),
       m_model(model)
+    , m_currLangSelector(new LangSelector("com.deepin.daemon.LangSelector",
+                                                "/com/deepin/daemon/LangSelector",
+                                                QDBusConnection::sessionBus(), this))
 {
     m_systemInfoInter = new SystemInfoInter("com.deepin.daemon.SystemInfo",
                                             "/com/deepin/daemon/SystemInfo",
@@ -143,8 +146,13 @@ void SystemInfoWork::activate()
 
     QString version;
     if (DSysInfo::isDeepin()) {
-        version = QString("%1 %2").arg(DSysInfo::deepinVersion())
-                                  .arg(DSysInfo::deepinTypeDisplayName());
+        if ("en_US.UTF-8" == m_currLangSelector->currentLocale() && DSysInfo::DeepinPersonal == DSysInfo::deepinType()) {
+            version = QString("%1 %2").arg(DSysInfo::deepinVersion())
+                    .arg("home");
+        } else {
+            version = QString("%1 %2").arg(DSysInfo::deepinVersion())
+                    .arg(DSysInfo::deepinTypeDisplayName());
+        }
     } else {
         version = QString("%1 %2").arg(DSysInfo::productVersion())
                                   .arg(DSysInfo::productTypeString());

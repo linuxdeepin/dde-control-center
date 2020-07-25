@@ -30,10 +30,12 @@
 #include <com_deepin_daemon_systeminfo.h>
 #include <com_deepin_daemon_grub2.h>
 #include <com_deepin_daemon_grub2_theme.h>
+#include <com_deepin_daemon_langselector.h>
 
 using SystemInfoInter=com::deepin::daemon::SystemInfo;
 using GrubDbus=com::deepin::daemon::Grub2;
 using GrubThemeDbus = com::deepin::daemon::grub2::Theme;
+using LangSelector = com::deepin::daemon::LangSelector;
 
 namespace dcc{
 namespace systeminfo{
@@ -78,6 +80,7 @@ private:
     GrubThemeDbus *m_dbusGrubTheme;
     QDBusInterface *m_systemInfo;
     QDBusInterface *m_activeInfo;
+    LangSelector *m_currLangSelector;
 };
 
 }
