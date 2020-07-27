@@ -82,7 +82,6 @@ void LoadingItem::setProgressBarVisible(bool visible)
 void LoadingItem::setMessage(const QString &message)
 {
     m_messageLabel->setText(message);
-    m_messageLabel->setWordWrap(true);
 }
 
 void LoadingItem::setVersionVisible(bool state)
