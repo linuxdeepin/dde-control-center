@@ -255,6 +255,7 @@ set(ACCOUNTS_FILES
                 modules/accounts/usermodel.cpp
                 window/modules/accounts/accountsmodule.cpp
                 window/modules/accounts/accountswidget.cpp
+                window/modules/accounts/pwquality_manager.cpp
                 window/modules/accounts/createaccountpage.cpp
                 window/modules/accounts/modifypasswdpage.cpp
                 window/modules/accounts/accountsdetailwidget.cpp
@@ -750,6 +751,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${KF5_QT_LIBRARIES}
     crypt
     ${UDisk2_LIBRARIES}
+    pwquality
 )
 
 # bin

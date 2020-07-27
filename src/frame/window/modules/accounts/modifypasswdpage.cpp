@@ -21,6 +21,8 @@
 
 #include "modifypasswdpage.h"
 #include "widgets/titlelabel.h"
+#include "pwquality_manager.h"
+#include "../../utils.h"
 
 #include <DFontSizeManager>
 
@@ -137,6 +139,7 @@ void ModifyPasswdPage::clickSaveBtn()
     //校验输入密码
     if (m_oldPasswordEdit->lineEdit()->text().isEmpty()) {
         m_oldPasswordEdit->setAlert(true);
+        m_oldPasswordEdit->showAlertMessage(tr("Password cannot be empty"));
         return;
     }
     if (!onPasswordEditFinished(m_newPasswordEdit)) {
@@ -220,26 +223,47 @@ int ModifyPasswdPage::verifyPassword(const QString &password)
         if (!strong_password_check) {
             return _ENUM_PASSWORD_CHARACTER;
         }
-
         if (password.size() == 0) {
             return _ENUM_PASSWORD_NOTEMPTY;
-        } else if (password.size() > 0 && password.size() < m_passwordMinLength) {
+        }
+        if (password.size() > 0 && password.size() < m_passwordMinLength) {
             return _ENUM_PASSWORD_TOOSHORT;
-        } else if (passwordCompositionType(validate_policy, password) < m_validateRequiredString) {
+        } 
+        if (passwordCompositionType(validate_policy, password) < m_validateRequiredString) {
             if (password.size() < m_passwordMinLength) {
                 return _ENUM_PASSWORD_SEVERAL;
-            } else if (!(password.split("").toSet() - validate_policy.join("").split("").toSet()).isEmpty()) {
-                return _ENUM_PASSWORD_CHARACTER;
-            } else {
-                return _ENUM_PASSWORD_TYPE;
             }
-        } else if (password.size() > m_passwordMaxLength) {
+            if (!(password.split("").toSet() - validate_policy.join("").split("").toSet()).isEmpty()) {
+                return _ENUM_PASSWORD_CHARACTER;
+            }
+            return _ENUM_PASSWORD_TYPE;
+        } 
+        
+        if (password.size() > m_passwordMaxLength) {
             return _ENUM_PASSWORD_TOOLONG;
-        } else if (!containsChar(password, validate_policy_string)) {
-            return _ENUM_PASSWORD_CHARACTER;
-        } else {
-            return _ENUM_PASSWORD_SUCCESS;
         }
+        if (!containsChar(password, validate_policy_string)) {
+            return _ENUM_PASSWORD_CHARACTER;
+        }
+        if (IsServerSystem) {
+            if (!PwqualityManager::instance()->palindromeChecked(password).isEmpty()) {
+                return _ENUM_PASSWORD_PALINDROME;
+            }
+
+            int secChkLeastLen=6;
+            int length = password.length();
+            for (int i = 0; i < length - secChkLeastLen + 1; i++) {
+                for (int j = secChkLeastLen; i + j <= length; j++) {
+                    QString subStr = password.mid(i, j);
+                    QString sChkResult = PwqualityManager::instance()->dictChecked(subStr);
+                    if (!sChkResult.isEmpty()) {
+                        return _ENUM_PASSWORD_DICT_FORBIDDEN;
+                    }
+                }
+            }
+            return _ENUM_PASSWORD_SUCCESS;
+        } 
+        return _ENUM_PASSWORD_SUCCESS;
     } else {
         QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
                                       QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
@@ -276,6 +300,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
 
     if (password.isEmpty()) {
         edit->setAlert(true);
+        edit->showAlertMessage(tr("Password cannot be empty"));
         return false;
     }
 
@@ -314,6 +339,14 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
     case _ENUM_PASSWORD_SEVERAL:
         edit->setAlert(true);
         edit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_passwordMinLength).arg(m_validateRequiredString), -1);
+        return false;
+    case _ENUM_PASSWORD_PALINDROME:
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("The password cannot contain palindrome"));
+        return false;
+    case _ENUM_PASSWORD_DICT_FORBIDDEN:
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("The password cannot use the common words"));
         return false;
     }
 
