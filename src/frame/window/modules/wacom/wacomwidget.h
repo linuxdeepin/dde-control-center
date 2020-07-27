@@ -55,7 +55,6 @@ Q_SIGNALS:
     void modeChanged(const bool curMode);
 
 private:
-    QString getModeName(const bool curMode) const;
     void initWidget();
 
 private Q_SLOTS:
