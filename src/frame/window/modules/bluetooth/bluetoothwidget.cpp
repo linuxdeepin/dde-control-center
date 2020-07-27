@@ -37,6 +37,7 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model)
     : ContentWidget(nullptr)
     , m_model(model)
     , m_tFrame(new TranslucentFrame)
+    , m_airplaninter(new AirplanInter("com.deepin.daemon.AirplaneMode","/com/deepin/daemon/AirplaneMode",QDBusConnection::systemBus(),this))
 {
     layout()->setMargin(0);
     setContent(m_tFrame);
@@ -60,7 +61,7 @@ void BluetoothWidget::setModel(BluetoothModel *model)
     model->disconnect(this);
     connect(model, &BluetoothModel::adapterAdded, this, &BluetoothWidget::addAdapter);
     connect(model, &BluetoothModel::adapterRemoved, this, &BluetoothWidget::removeAdapter);
-
+    connect(m_airplaninter, &AirplanInter::BluetoothEnabledChanged, this, &BluetoothWidget::onBluetoothEnabledChanged);
     for (const Adapter *adapter : model->adapters())
         addAdapter(adapter);
 }
@@ -153,4 +154,14 @@ void BluetoothWidget::setVisibleState()
     Q_EMIT requestModuleVisible(m_valueMap.size());
 }
 
+void BluetoothWidget::onBluetoothEnabledChanged(const bool enabled)
+{
+    if (!enabled)  return ;
+    //等待bluez重新响应命令，如果不加延时则不会被响应
+    QTimer::singleShot(300, this, [=](){
+        for (const Adapter *adapter : m_model->adapters()) {
+            //告知后端可以开始刷新了
+            m_bluetoothWorker->setAdapterDiscovering(QDBusObjectPath(adapter->id()), true);
+        }});
+}
 

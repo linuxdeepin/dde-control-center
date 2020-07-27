@@ -69,7 +69,8 @@ public:
         SysProxyPage,
         AppProxyPage,
         HotspotPage,
-        NetworkInfoPage
+        NetworkInfoPage,
+        AirplaneModepage
     };
 
     explicit NetworkModuleWidget();
@@ -79,6 +80,7 @@ public:
     void setIndexFromPath(const QString &path);
 Q_SIGNALS:
     void requestShowVpnPage(const QString &path = "") const;
+    void requestShowAirplanePage () const;
     void requestShowPppPage(const QString &path = "") const;
     void requestShowProxyPage() const;
     void requestShowInfomation() const;

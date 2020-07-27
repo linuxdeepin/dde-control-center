@@ -71,6 +71,7 @@ private Q_SLOTS:
     void showProxyPage();
     void showDetailPage();
     void showHotspotPage();
+    void ShowAirplanePage();
     void showDeviceDetailPage(dde::network::NetworkDevice *dev, const QString &searchPath = "");
     void onSetFrameAutoHide(const bool autoHide);
     void onDeviceListChanged(const QList<dde::network::NetworkDevice *> devices);

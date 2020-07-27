@@ -38,6 +38,10 @@
 
 #include <QPointer>
 
+#include <com_deepin_daemon_airplanemode.h>
+
+using AirplanInter = com::deepin::daemon::AirplaneMode;
+
 QT_BEGIN_NAMESPACE
 class QTimer;
 class QListView;
@@ -186,6 +190,8 @@ private:
     QTimer *m_sortDelayTimer;
     QTimer *m_indicatorDelayTimer;
     QMap<QString, APItem *> m_apItems;
+
+    AirplanInter  *m_airplaninter;
 };
 }   // namespace dcc
 }   // namespace network

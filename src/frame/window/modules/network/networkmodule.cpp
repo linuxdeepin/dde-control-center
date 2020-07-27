@@ -39,6 +39,7 @@
 #include "connectioneditpage.h"
 #include "widgets/contentwidget.h"
 #include "modules/modulewidget.h"
+#include "airplanemodepage.h"
 
 #include <networkworker.h>
 #include <networkmodel.h>
@@ -189,6 +190,7 @@ void NetworkModule::active()
     connect(m_networkWidget, &NetworkModuleWidget::requestHotspotPage, this, &NetworkModule::showHotspotPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowInfomation, this, &NetworkModule::showDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestDeviceEnable, m_networkWorker, &NetworkWorker::setDeviceEnable);
+    connect(m_networkWidget, &NetworkModuleWidget::requestShowAirplanePage, this, &NetworkModule::ShowAirplanePage);
     m_frameProxy->pushWidget(this, m_networkWidget);
     m_networkWidget->initSetting(0, "");
 }
@@ -238,7 +240,7 @@ QStringList NetworkModule::availPage() const
 {
     QStringList list;
     list << "DSL" << "DSL/Create PPPoE Connection" << "VPN" << "VPN/Create VPN" << "VPN/Import VPN"
-         << "System Proxy" << "Application Proxy" << "Network Details";
+         << "System Proxy" << "Application Proxy" << "Network Details"<< "Airplane Mode";
     if (m_hasWired) {
         list << "Wired Network" << "Wired Network/Add Network Connection";
     }
@@ -400,6 +402,13 @@ void NetworkModule::showHotspotPage()
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
 
+    m_frameProxy->pushWidget(this, p);
+}
+
+
+void NetworkModule::ShowAirplanePage()
+{
+    AirplaneModepage *p = new AirplaneModepage();
     m_frameProxy->pushWidget(this, p);
 }
 

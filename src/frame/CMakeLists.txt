@@ -41,6 +41,7 @@ DISABLE_KAYBOARD
 DISABLE_WACOM
 DISABLE_SYSINFO
 DISABLE_NETWORK_PPPOE
+DISABLE_NETWORK_AIRPLANE
 DISABLE_NETWORK_VPN
 DISABLE_NETWORK_PROXY
 DISABLE_SYS_UPDATE_SOURCE_CHECK
@@ -865,6 +866,8 @@ set(NETWORK_FILES
                 window/modules/network/wiredpage.h
                 window/modules/network/wirelesspage.cpp
                 window/modules/network/wirelesspage.h
+                window/modules/network/airplanemodepage.cpp
+                window/modules/network/airplanemodepage.h
 )
 
 # load personalization

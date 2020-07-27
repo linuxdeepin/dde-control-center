@@ -29,6 +29,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
 #include "widgets/multiselectlistview.h"
+
 #include <DStyleOption>
 #include <networkmodel.h>
 #include <networkdevice.h>
@@ -62,6 +63,15 @@ NetworkModuleWidget::NetworkModuleWidget()
     setLayout(m_centralLayout);
 
 #if !defined(DISABLE_NETWORK_PROXY) || !defined(DISABLE_NETWORK_VPN) || !defined(DISABLE_NETWORK_PPPOE)
+
+#ifndef DISABLE_NETWORK_AIRPLANE
+    //~ contents_path /network/Airplane
+    DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
+    airplanemode->setData(QVariant::fromValue(AirplaneModepage), SectionRole);
+    airplanemode->setIcon(QIcon::fromTheme("dcc_airplane_mode"));
+    m_modelpages->appendRow(airplanemode);
+#endif
+
 #ifndef DISABLE_NETWORK_PPPOE
     //~ contents_path /network/DSL
     DStandardItem *pppit = new DStandardItem(tr("DSL"));
@@ -133,6 +143,9 @@ void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
     case WiredPage:
     case WirelessPage:
         Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice *>(), idx.data(SearchPath).toString());
+        break;
+    case AirplaneModepage:
+        Q_EMIT requestShowAirplanePage();
         break;
     default:
         break;
@@ -214,6 +227,8 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
         type = WiredPage;
     } else if (path == QStringLiteral("Personal Hotspot")) {
         type = HotspotPage;
+    } else if (path == QStringLiteral("Airplane Mode")) {
+        type = AirplaneModepage;
     }
     int index = -1;
     for (int i = 0; i < m_modelpages->rowCount(); ++i) {
@@ -340,7 +355,7 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
     ret->setActionList(Qt::Edge::RightEdge, {dummystatus});
 
     if (!dummystatus.isNull()) {
-        if (dev->enabled()) {
+        if (dev->enabled() && dev->status() != NetworkDevice::Unavailable) {
             dummystatus->setText(dev->statusString());
         } else {
             dummystatus->setText(tr("Disabled"));
@@ -357,7 +372,7 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
     });
     connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), this, [this, dev, dummystatus] {
         if (!dummystatus.isNull()) {
-            if (dev->enabled()) {
+            if (dev->enabled() && dev->status() != NetworkDevice::Unavailable) {
                 dummystatus->setText(dev->statusString());
             } else {
                 dummystatus->setText(tr("Disabled"));

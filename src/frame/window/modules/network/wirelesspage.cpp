@@ -34,8 +34,7 @@
 
 #include <DStyle>
 #include <DStyleHelper>
-#include <networkmodel.h>
-#include <wirelessdevice.h>
+#include <DDBusSender>
 
 #include <QMap>
 #include <QTimer>
@@ -43,13 +42,16 @@
 #include <QVBoxLayout>
 #include <QPointer>
 #include <QPushButton>
-#include <DDBusSender>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QStandardItem>
 #include <QStandardItemModel>
 #include <QThread>
 #include <QScroller>
+#include <QDBusConnection>
+
+#include <networkmodel.h>
+#include <wirelessdevice.h>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
@@ -242,6 +244,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
     , m_indicatorDelayTimer(new QTimer(this))
+    , m_airplaninter(new AirplanInter("com.deepin.daemon.AirplaneMode","/com/deepin/daemon/AirplaneMode",QDBusConnection::systemBus(),this))
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -277,15 +280,23 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     //~ contents_path /network/WirelessPage
     m_switch->setTitle(tr("Wireless Network Adapter"));
-    m_switch->setChecked(dev->enabled());
-    m_lvAP->setVisible(dev->enabled());
+
+    //初始化的时候判断一下飞行模式是否打开
+    bool isAirplan = m_airplaninter->wifiEnabled();
+    m_switch->setChecked(dev->enabled() && isAirplan);
+    m_lvAP->setVisible(dev->enabled() && isAirplan);
+
+    //关联信号和槽,防止信息不同步
+    connect(m_airplaninter, &AirplanInter::WifiEnabledChanged,this, [=](const bool enabled){
+            m_switch->setChecked(dev->enabled() && enabled);
+    });
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
-        m_switch->setChecked(enabled);
-        if (m_lvAP) {
-            m_lvAP->setVisible(enabled);
-            updateLayout(!m_lvAP->isHidden());
-        }
+            m_switch->setChecked(enabled);
+            if (m_lvAP) {
+                m_lvAP->setVisible(enabled);
+                updateLayout(!m_lvAP->isHidden());
+            }
     });
 
     m_closeHotspotBtn->setText(tr("Close Hotspot"));
@@ -412,7 +423,13 @@ void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
     m_lvAP->setVisible(m_switch->checked());
-    connect(m_model, &NetworkModel::deviceEnableChanged, this, [this] { m_switch->setChecked(m_device->enabled()); });
+    connect(m_model, &NetworkModel::deviceEnableChanged, this, [=](){
+            bool isAirplan = m_airplaninter->wifiEnabled();
+            m_switch->setChecked(m_device->enabled() && isAirplan);
+            m_lvAP->setVisible(m_device->enabled() && isAirplan);
+            updateLayout(!m_lvAP->isHidden());
+   	});
+
     connect(m_device,
             static_cast<void (WirelessDevice::*)(WirelessDevice::DeviceStatus) const>(&WirelessDevice::statusChanged),
             this,

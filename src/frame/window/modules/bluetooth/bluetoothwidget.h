@@ -23,7 +23,12 @@
 
 #include "interface/namespace.h"
 #include "widgets/contentwidget.h"
+
 #include <QMap>
+
+#include <com_deepin_daemon_airplanemode.h>
+
+using AirplanInter = com::deepin::daemon::AirplaneMode;
 
 namespace dcc {
 namespace bluetooth {
@@ -67,6 +72,8 @@ public Q_SLOTS:
     void addAdapter(const dcc::bluetooth::Adapter *adapter);
     void removeAdapter(const dcc::bluetooth::Adapter *adapter);
 
+    void onBluetoothEnabledChanged(const bool enabled);   //监听飞行模式开关
+
 private:
     void setVisibleState();
     AdapterWidget *getAdapter(const dcc::bluetooth::Adapter *adapter);
@@ -77,6 +84,8 @@ private:
     dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
     QMap<const dcc::bluetooth::Adapter *, AdapterWidget *> m_valueMap;
     dcc::widgets::TranslucentFrame *m_tFrame;
+
+    AirplanInter *m_airplaninter;           //飞行模式dbus接口(system dbus)  com.deepin.daemon.AirplaneMode
 };
 }
 }
