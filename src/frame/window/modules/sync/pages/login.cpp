@@ -1,12 +1,16 @@
 #include "login.h"
+#include "widgets/utils.h"
+#include "../../../mainwindow.h"
 
 #include <DSuggestButton>
 #include <DFontSizeManager>
 #include <DTipLabel>
 #include <DSysInfo>
 
+#include <QProcess>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QDebug>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
@@ -60,5 +64,43 @@ LoginPage::LoginPage(QWidget *parent)
 
     setLayout(m_mainLayout);
 
-    connect(loginBtn, &QPushButton::clicked, this, &LoginPage::requestLoginUser);
+    connect(loginBtn, &QPushButton::clicked, this, &LoginPage::licenceDialog);
+}
+
+void LoginPage::setMainWindow(MainWindow *pMainWindow)
+{
+    m_pMainWindow = pMainWindow;
+}
+
+void LoginPage::licenceDialog()
+{
+    bool isAgreeLicence = false;
+    // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
+    QString title(tr("Privacy Policy"));
+    QString allowContent(tr("I have read and agree to the Privacy Policy"));
+    // license路径
+    const QString zhCN_Content = "/usr/share/deepin-deepinid-client/privacy/deepinid-CN-zh_CN.md";
+    const QString enUS_Content = "/usr/share/deepin-deepinid-client/privacy/deepinid-CN-en_US.md";
+    m_licenceProcess = new QProcess(this);
+    m_licenceProcess->start("dde-license-dialog",
+                                  QStringList() << "-t" << title << "-c" << zhCN_Content << "-e" << enUS_Content << "-a" << allowContent);
+    qDebug() << "Deliver content QStringList() = " << "dde-license-dialog"
+                                                 << "-t" << title << "-a" << allowContent;
+    connect(m_licenceProcess, &QProcess::stateChanged, this, [this](QProcess::ProcessState state) {
+        if (m_pMainWindow) {
+            m_pMainWindow->setEnabled(state != QProcess::Running);
+        } else {
+            qDebug() << "licence dialog pMainWindow is nullptr";
+        }
+    });
+    connect(m_licenceProcess, static_cast<void (QProcess::*)(QProcess::ProcessError)>(&QProcess::errorOccurred), this, [](QProcess::ProcessError error) {
+        qDebug() << "error is " << error;
+    });
+    connect(m_licenceProcess, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int result) {
+        if (96 == result) {
+            Q_EMIT requestLoginUser();
+        }
+        m_licenceProcess->deleteLater();
+        m_licenceProcess = nullptr;
+    });
 }

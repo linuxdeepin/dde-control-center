@@ -6,6 +6,7 @@
 
 #include "syncwidget.h"
 #include "window/utils.h"
+#include "window/mainwindow.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
@@ -45,8 +46,8 @@ void SyncModule::active()
     connect(widget, &SyncWidget::requestSetAutoSync, m_worker, &dcc::cloudsync::SyncWorker::setAutoSync, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestLogoutUser, m_worker, &dcc::cloudsync::SyncWorker::logoutUser, Qt::QueuedConnection);
     connect(widget, &SyncWidget::requestSetModuleState, m_worker, &dcc::cloudsync::SyncWorker::setSync, Qt::UniqueConnection);
-
-    widget->setModel(m_model);
+    MainWindow *pMainWindow = static_cast<MainWindow *>(m_frameProxy);
+    widget->setModel(m_model, pMainWindow);
 
     m_frameProxy->pushWidget(this, widget);
 }

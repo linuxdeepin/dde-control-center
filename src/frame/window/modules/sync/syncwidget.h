@@ -39,6 +39,7 @@ enum SyncState : int;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace sync {
 class LoginPage;
 class IndexPage;
@@ -48,7 +49,7 @@ class SyncWidget : public QWidget
     Q_OBJECT
 public:
     SyncWidget(QWidget *parent = nullptr);
-    void setModel(dcc::cloudsync::SyncModel *model);
+    void setModel(dcc::cloudsync::SyncModel *model, MainWindow *pMainWindow);
 
 Q_SIGNALS:
     void requestLoginUser() const;
@@ -65,6 +66,7 @@ private:
     LoginPage *m_loginPage;
     IndexPage *m_indexPage;
     LogoutPage *m_cnonlyPage;
+    MainWindow *m_pMainWindow;
 };
 } // namespace sync
 

@@ -37,11 +37,12 @@ SyncWidget::SyncWidget(QWidget *parent)
     connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &SyncWidget::requestLogoutUser);
 }
 
-void SyncWidget::setModel(dcc::cloudsync::SyncModel *model)
+void SyncWidget::setModel(dcc::cloudsync::SyncModel *model, MainWindow *pMainWindow)
 {
     m_model = model;
     m_indexPage->setModel(model);
     m_cnonlyPage->setModel(model);
+    m_loginPage->setMainWindow(pMainWindow);
 
     connect(model, &dcc::cloudsync::SyncModel::userInfoChanged, this, &SyncWidget::onUserInfoChanged);
 

@@ -23,22 +23,30 @@
 #include "interface/namespace.h"
 
 #include <QWidget>
+#include <QProcess>
 
 class QVBoxLayout;
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace sync {
 class LoginPage : public QWidget
 {
     Q_OBJECT
 public:
     LoginPage(QWidget *parent = nullptr);
+    void setMainWindow(MainWindow *pMainWindow);
+
+private Q_SLOT:
+    void licenceDialog();
 
 Q_SIGNALS:
     void requestLoginUser() const;
 
 private:
     QVBoxLayout *m_mainLayout;
+    MainWindow *m_pMainWindow;
+    QProcess *m_licenceProcess;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE
