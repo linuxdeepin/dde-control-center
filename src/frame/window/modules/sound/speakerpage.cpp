@@ -193,6 +193,7 @@ void SpeakerPage::initSlider()
     slider2->setTickInterval(1);
     slider2->setSliderPosition(qRound(m_model->speakerBalance() * PercentageNum));
     slider2->setPageStep(1);
+    slider2->setEnabledAcrossStyle(true);
     balanceSlider->setAnnotations(balanceList);
 
     auto slotfunc2 = [ = ](int pos) {
