@@ -30,6 +30,8 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/settingsitem.h"
+#include "widgets/switchwidget.h"
+#include "widgets/comboxwidget.h"
 #include <networkmodel.h>
 
 #include <DPalette>
@@ -37,6 +39,7 @@
 
 #include <QVBoxLayout>
 #include <QDebug>
+#include <QComboBox>
 
 DWIDGET_USE_NAMESPACE
 
@@ -46,87 +49,84 @@ using namespace dde::network;
 
 namespace DCC_NAMESPACE {
 namespace network {
-const QStringList ProxyMethodList = { "none", "manual", "auto" };
+const QString MANUAL = "manual";
+const QString AUTO = "auto";
+const QStringList ProxyMethodList = { MANUAL, AUTO };
 
 ProxyPage::ProxyPage(QWidget *parent)
     : QWidget(parent)
     , m_autoWidget(new TranslucentFrame)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
-    , m_proxyTabs(new DButtonBox)
+    , m_proxySwitch(new SwitchWidget)
+    , m_proxyTypeBox(new ComboxWidget)
 {
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
     m_buttonTuple->rightButton()->setText(tr("Save"));
+    m_buttonTuple->setVisible(false);
 
-    DButtonBoxButton *tabNoneBtn = new DButtonBoxButton(tr("None"));
-    DButtonBoxButton *tabManualBtn = new DButtonBoxButton(tr("Manual"));
-    DButtonBoxButton *tabAutoBtn = new DButtonBoxButton(tr("Auto"));
-    m_tablist.append(tabNoneBtn);
-    m_tablist.append(tabManualBtn);
-    m_tablist.append(tabAutoBtn);
-    m_proxyTabs->setButtonList(m_tablist, true);
-    m_proxyTabs->setId(tabNoneBtn, 0);
-    m_proxyTabs->setId(tabManualBtn, 1);
-    m_proxyTabs->setId(tabAutoBtn, 2);
-    tabManualBtn->setChecked(true);
+    // 初始化代理开关、代理类型下拉框
+    SettingsGroup *proxyTypeGroup = new SettingsGroup;
+    m_proxySwitch->setTitle(tr("System Proxy"));
+    m_proxyTypeBox->setTitle(tr("Proxy Type"));
+    // 如果扩展，addItem添加顺序必须与ProxyMethodList顺序一致
+    m_proxyTypeBox->comboBox()->addItem(tr("Manual"));
+    m_proxyTypeBox->comboBox()->addItem(tr("Auto"));
+    m_proxyTypeBox->setVisible(false);
+    proxyTypeGroup->appendItem(m_proxySwitch);
+    proxyTypeGroup->appendItem(m_proxyTypeBox);
 
-    m_httpAddr = new LineEditWidget;
-    m_httpAddr->setPlaceholderText(tr("Optional"));
-    m_httpAddr->setTitle(tr("HTTP Proxy"));
-    m_httpPort = new LineEditWidget;
-    m_httpPort->setPlaceholderText(tr("Optional"));
-    m_httpPort->setTitle(tr("Port"));
+    // 手动代理编辑界面处理逻辑提取
+    auto initProxyGroup = [this](LineEditWidget *&proxyEdit, LineEditWidget *&portEdit, const QString &proxyTitle, SettingsGroup *&group){
+        proxyEdit = new LineEditWidget;
+        proxyEdit->setPlaceholderText(tr("Optional"));
+        proxyEdit->setTitle(proxyTitle);
+        proxyEdit->textEdit()->installEventFilter(this);
+        portEdit = new LineEditWidget;
+        portEdit->setPlaceholderText(tr("Optional"));
+        portEdit->setTitle(tr("Port"));
+        portEdit->textEdit()->installEventFilter(this);
+        group->appendItem(proxyEdit);
+        group->appendItem(portEdit);
+        connect(portEdit->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
+            if (str.toInt() < 0) {
+                m_httpPort->setText("0");
+            } else if(str.toInt() > 65535) {
+                m_httpPort->setText("65535");
+            }
+        });
+    };
 
-    m_httpsAddr = new LineEditWidget;
-    m_httpsAddr->setPlaceholderText(tr("Optional"));
-    m_httpsAddr->setTitle(tr("HTTPS Proxy"));
-    m_httpsPort = new LineEditWidget;
-    m_httpsPort->setPlaceholderText(tr("Optional"));
-    m_httpsPort->setTitle(tr("Port"));
+    //  手动代理编辑界面控件初始化
+    SettingsGroup *httpGroup = new SettingsGroup;
+    initProxyGroup(m_httpAddr, m_httpPort, tr("HTTP Proxy"), httpGroup);
 
-    m_ftpAddr = new LineEditWidget;
-    m_ftpAddr->setPlaceholderText(tr("Optional"));
-    m_ftpAddr->setTitle(tr("FTP Proxy"));
-    m_ftpPort = new LineEditWidget;
-    m_ftpPort->setPlaceholderText(tr("Optional"));
-    m_ftpPort->setTitle(tr("Port"));
+    SettingsGroup *httpsGroup = new SettingsGroup;
+    initProxyGroup(m_httpsAddr, m_httpsPort, tr("HTTPS Proxy"), httpsGroup);
 
-    m_socksAddr = new LineEditWidget;
-    m_socksAddr->setPlaceholderText(tr("Optional"));
-    m_socksAddr->setTitle(tr("SOCKS Proxy"));
-    m_socksPort = new LineEditWidget;
-    m_socksPort->setPlaceholderText(tr("Optional"));
-    m_socksPort->setTitle(tr("Port"));
+    SettingsGroup *ftpGroup = new SettingsGroup;
+    initProxyGroup(m_ftpAddr, m_ftpPort, tr("FTP Proxy"), ftpGroup);
 
+    SettingsGroup *socksGroup = new SettingsGroup;
+    initProxyGroup(m_socksAddr, m_socksPort, tr("SOCKS Proxy"), socksGroup);
+
+    // 手动代理界面忽略主机编辑框初始化
     m_ignoreList = new DTextEdit;
+    m_ignoreList->installEventFilter(this);
     QLabel *ignoreTips = new QLabel;
     ignoreTips->setWordWrap(true);
     ignoreTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     ignoreTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     ignoreTips->setText(tr("Ignore the proxy configurations for the above hosts and domains"));
 
+    // 自动代理界面控件初始化
+    SettingsGroup *autoGroup = new SettingsGroup;
     m_autoUrl = new LineEditWidget;
     m_autoUrl->setPlaceholderText(tr("Optional"));
     m_autoUrl->setTitle(tr("Configuration URL"));
-
-    SettingsGroup *httpGroup = new SettingsGroup;
-    httpGroup->appendItem(m_httpAddr);
-    httpGroup->appendItem(m_httpPort);
-
-    SettingsGroup *httpsGroup = new SettingsGroup;
-    httpsGroup->appendItem(m_httpsAddr);
-    httpsGroup->appendItem(m_httpsPort);
-
-    SettingsGroup *ftpGroup = new SettingsGroup;
-    ftpGroup->appendItem(m_ftpAddr);
-    ftpGroup->appendItem(m_ftpPort);
-
-    SettingsGroup *socksGroup = new SettingsGroup;
-    socksGroup->appendItem(m_socksAddr);
-    socksGroup->appendItem(m_socksPort);
-
-    SettingsGroup *autoGroup = new SettingsGroup;
+    m_autoUrl->textEdit()->installEventFilter(this);
     autoGroup->appendItem(m_autoUrl);
 
+    // 手动代理界面布局
     QVBoxLayout *manualLayout = new QVBoxLayout;
     manualLayout->addWidget(httpGroup);
     manualLayout->addWidget(httpsGroup);
@@ -136,78 +136,78 @@ ProxyPage::ProxyPage(QWidget *parent)
     manualLayout->addWidget(ignoreTips);
     manualLayout->setMargin(0);
     manualLayout->setSpacing(10);
+    m_manualWidget = new TranslucentFrame;
+    m_manualWidget->setLayout(manualLayout);
+    m_manualWidget->setVisible(false);
 
+    // 自动代理界面布局
     QVBoxLayout *autoLayout = new QVBoxLayout;
     autoLayout->addWidget(autoGroup);
     autoLayout->setSpacing(10);
     autoLayout->setMargin(0);
     m_autoWidget->setLayout(autoLayout);
+    m_autoWidget->setVisible(false);
 
-    m_manualWidget = new TranslucentFrame;
-    m_manualWidget->setLayout(manualLayout);
-
+    // 主窗口布局组合
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(proxyTypeGroup);
     mainLayout->addWidget(m_manualWidget);
     mainLayout->addWidget(m_autoWidget);
     mainLayout->addSpacing(10);
     mainLayout->addStretch();
 
+    // 加入button布局
     ContentWidget *conentwidget = new ContentWidget;
     setWindowTitle(tr("System Proxy"));
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(mainLayout);
     conentwidget->setContent(w);
+
     QVBoxLayout *vLayout = new QVBoxLayout;
     vLayout->setMargin(0);
-    vLayout->addWidget(m_proxyTabs);
     QVBoxLayout *btnLayout = new QVBoxLayout;
     btnLayout->setMargin(0);
     btnLayout->addWidget(m_buttonTuple);
     vLayout->addWidget(conentwidget);
     vLayout->addLayout(btnLayout);
     setLayout(vLayout);
+
+    // 响应系统代理开关
+    connect(m_proxySwitch, &SwitchWidget::checkedChanged, m_buttonTuple, &QPushButton::setEnabled);
+    connect(m_proxySwitch, &SwitchWidget::checkedChanged, m_proxyTypeBox, [=](const bool checked){
+        if (checked) {
+            // 打开代理默认手动
+            onProxyMethodChanged(MANUAL);
+        } else {
+            m_proxyTypeBox->setVisible(false);
+            m_manualWidget->setVisible(false);
+            m_autoWidget->setVisible(false);
+            m_buttonTuple->setVisible(false);
+            m_buttonTuple->rightButton()->clicked();
+        }
+    });
+
+    // 处理协议类型下拉框切换
+    connect(m_proxyTypeBox->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int index){
+        int manualId = ProxyMethodList.indexOf(MANUAL);
+        int autoId = ProxyMethodList.indexOf(AUTO);
+        m_manualWidget->setVisible(index == manualId);
+        m_autoWidget->setVisible(index == autoId);
+        m_buttonTuple->setVisible(index == manualId || index == autoId);
+        m_buttonTuple->setEnabled(true);
+    });
+
+    // 取消、确定按钮响应
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
-    connect(tabNoneBtn, &QPushButton::clicked, m_buttonTuple->rightButton(), &QPushButton::clicked);
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, [this] {
-        if (m_proxyTabs->checkedId() == 1) {
+        if (m_proxyTypeBox->comboBox()->currentIndex() == ProxyMethodList.indexOf(MANUAL)) {
             onProxyChanged("http", m_model->proxy("http"));
             onProxyChanged("https", m_model->proxy("https"));
             onProxyChanged("ftp", m_model->proxy("ftp"));
             onProxyChanged("socks", m_model->proxy("socks"));
+            onIgnoreHostsChanged(m_model->ignoreHosts());
         } else {
             m_autoUrl->setText(m_model->autoProxy());
-        }
-    });
-
-    connect(m_proxyTabs, &DButtonBox::buttonClicked, this, [this](QAbstractButton * value) {
-        onProxyToggled(m_proxyTabs->id(value));
-    });
-    connect(m_httpPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
-        if (str.toInt() < 0) {
-            m_httpPort->setText("0");
-        } else if(str.toInt() > 65535) {
-            m_httpPort->setText("65535");
-        }
-    });
-    connect(m_httpsPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
-        if (str.toInt() < 0) {
-            m_httpsPort->setText("0");
-        } else if(str.toInt() > 65535) {
-            m_httpsPort->setText("65535");
-        }
-    });
-    connect(m_ftpPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
-        if (str.toInt() < 0) {
-            m_ftpPort->setText("0");
-        } else if(str.toInt() > 65535) {
-            m_ftpPort->setText("65535");
-        }
-    });
-    connect(m_socksPort->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
-        if (str.toInt() < 0) {
-            m_socksPort->setText("0");
-        } else if(str.toInt() > 65535) {
-            m_socksPort->setText("65535");
         }
     });
 
@@ -236,40 +236,48 @@ void ProxyPage::setModel(NetworkModel *model)
 
 void ProxyPage::onProxyMethodChanged(const QString &proxyMethod)
 {
-    const int index = ProxyMethodList.indexOf(proxyMethod);
-    if ((index > 2) || (index < 0))
-        return;
-
-    m_tablist[index]->setChecked(true);
-    onProxyToggled(index);
+    if (proxyMethod == "none") {
+        m_proxySwitch->setChecked(false);
+        m_manualWidget->setVisible(false);
+        m_autoWidget->setVisible(false);
+        m_buttonTuple->setVisible(false);
+        m_proxyTypeBox->setVisible(false);
+    } else if (proxyMethod == MANUAL) {
+        m_proxySwitch->setChecked(true);
+        m_manualWidget->setVisible(true);
+        m_autoWidget->setVisible(false);
+        m_buttonTuple->setVisible(true);
+        m_proxyTypeBox->comboBox()->setCurrentIndex(ProxyMethodList.indexOf(MANUAL));
+        m_proxyTypeBox->setVisible(true);
+    } else if (proxyMethod == AUTO) {
+        m_proxySwitch->setChecked(true);
+        m_manualWidget->setVisible(false);
+        m_autoWidget->setVisible(true);
+        m_buttonTuple->setVisible(true);
+        m_proxyTypeBox->comboBox()->setCurrentIndex(ProxyMethodList.indexOf(AUTO));
+        m_proxyTypeBox->setVisible(true);
+    } else {
+        qDebug() << "error proxyMethod:" << proxyMethod;
+    }
 }
 
-void ProxyPage::onProxyToggled(const int index)
+void ProxyPage::applySettings()
 {
-    // refersh ui
-    m_manualWidget->setVisible(index == 1);
-    m_autoWidget->setVisible(index == 2);
-    m_buttonTuple->setVisible(index == 1 || index == 2);
-
-    setFocus();
-}
-
-void ProxyPage::applySettings() const
-{
-    if (m_proxyTabs->checkedId() == 1) {
+    this->setFocus();
+    m_buttonTuple->setEnabled(false);
+    if (!m_proxySwitch->checked()) {
+        Q_EMIT requestSetProxyMethod("none");
+    } else if (m_proxyTypeBox->comboBox()->currentIndex() == ProxyMethodList.indexOf(MANUAL)) {
         Q_EMIT requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
         Q_EMIT requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
         Q_EMIT requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
         Q_EMIT requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
-
         Q_EMIT requestSetIgnoreHosts(m_ignoreList->toPlainText());
-    }
-
-    if (m_proxyTabs->checkedId() == 2) {
+        Q_EMIT requestSetProxyMethod(MANUAL);
+    } else if (m_proxyTypeBox->comboBox()->currentIndex() == ProxyMethodList.indexOf(AUTO)) {
         Q_EMIT requestSetAutoProxy(m_autoUrl->text());
+        Q_EMIT requestSetProxyMethod(AUTO);
     }
-
-    Q_EMIT requestSetProxyMethod(ProxyMethodList[m_proxyTabs->checkedId()]);
 }
 
 void ProxyPage::onIgnoreHostsChanged(const QString &hosts)
@@ -280,19 +288,6 @@ void ProxyPage::onIgnoreHostsChanged(const QString &hosts)
     m_ignoreList->setPlainText(hosts);
     m_ignoreList->setTextCursor(cursor);
     m_ignoreList->blockSignals(false);
-}
-
-void ProxyPage::applyProxy(const QString &type)
-{
-    if (type == "http") {
-        Q_EMIT requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
-    } else if (type == "https") {
-        Q_EMIT requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
-    } else if (type == "ftp") {
-        Q_EMIT requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
-    } else if (type == "socks") {
-        Q_EMIT requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
-    }
 }
 
 void ProxyPage::onProxyChanged(const QString &type, const ProxyConfig &config)
@@ -310,6 +305,17 @@ void ProxyPage::onProxyChanged(const QString &type, const ProxyConfig &config)
         m_socksAddr->setText(config.url);
         m_socksPort->setText(QString::number(config.port));
     }
+}
+
+bool ProxyPage::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，捕捉FocusIn消息，DTextEdit没有鼠标点击消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched) || dynamic_cast<DTextEdit*>(watched))) {
+            m_buttonTuple->setEnabled(true);
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }
 }
 }
