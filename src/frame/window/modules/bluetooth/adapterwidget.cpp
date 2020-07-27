@@ -47,19 +47,30 @@ using namespace DCC_NAMESPACE::bluetooth;
 
 DWIDGET_USE_NAMESPACE
 
-AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
+AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::bluetooth::BluetoothModel *model)
     : m_titleEdit(new TitleEdit)
     , m_adapter(adapter)
     , m_switch(new SwitchWidget(nullptr, m_titleEdit))
     , m_switchFlag(Finished)
     , m_isFirstSetPower(true)
+    , m_model(model)
+    , m_isNotFirst(false)
 {
     //~ contents_path /bluetooth/My Devices
     m_myDevicesGroup = new TitleLabel(tr("My devices"));
     m_myDevicesGroup->setVisible(false);
 
     //~ contents_path /bluetooth/Other Devices
-    m_otherDevicesGroup = new TitleLabel(tr("Other devices"));
+
+    m_otherDevicesGroup = new TitleLabel(tr("Other Devices"));
+    QHBoxLayout *pshlayout = new QHBoxLayout;
+    m_spinnerBtn = new DSpinner(m_titleEdit);
+
+    pshlayout->addWidget(m_switch);
+    pshlayout->addWidget(m_spinnerBtn);
+    m_spinnerBtn->setFixedSize(24, 24);
+    m_spinnerBtn->start();
+    m_spinnerBtn->hide();
     m_spinner = new DSpinner();
     m_spinner->setFixedSize(24, 24);
     m_spinner->start();
@@ -73,7 +84,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     phlayout->addWidget(m_refreshBtn);
 
     m_switch->addBackground();
-    m_switch->setContentsMargins(0, 0, 20, 0);
+    m_switch->setContentsMargins(0, 0, 10, 0);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -109,7 +120,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_otherDeviceListView->setSelectionMode(QListView::SelectionMode::NoSelection);
 
     layout->addSpacing(10);
-    layout->addWidget(m_switch);
+    layout->addLayout(pshlayout);
     layout->addWidget(m_tip, 0, Qt::AlignTop);
     layout->addSpacing(10);
     layout->addWidget(m_myDevicesGroup);
@@ -121,7 +132,22 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     layout->addStretch();
     layout->setContentsMargins(0,0,15,0);
 
-    connect(m_switch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleSwitch);
+    connect(m_switch, &SwitchWidget::checkedChanged, this, [ = ] (const bool &value) {
+        if (!m_isNotFirst) {
+            m_dtime.start();
+            m_isNotFirst = true;
+            toggleSwitch(value);
+        } else {
+            if (m_dtime.elapsed() < 300) {
+                m_switch->blockSignals(true);
+                m_switch->setChecked(!value);
+                m_switch->blockSignals(false);
+            } else {
+                toggleSwitch(value);
+            }
+        }
+        m_dtime.restart();
+    });
 
     connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [ = ](const QString &alias) {
         Q_EMIT requestSetAlias(adapter, alias);
@@ -217,6 +243,14 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     connect(adapter, &Adapter::deviceAdded, this, &AdapterWidget::addDevice, Qt::QueuedConnection);
     connect(adapter, &Adapter::deviceRemoved, this, &AdapterWidget::removeDevice, Qt::QueuedConnection);
     connect(adapter, &Adapter::poweredChanged, this, &AdapterWidget::onPowerStatus, Qt::QueuedConnection);
+    connect(m_model, &BluetoothModel::adpaterPowerd, m_switch, [ = ] {
+        m_switch->switchButton()->show();
+        m_spinnerBtn->hide();
+    });
+    connect(m_model, &BluetoothModel::loadStatus, m_switch, [ = ] {
+        m_switch->switchButton()->hide();
+        m_spinnerBtn->show();
+    });
 
     m_titleEdit->setTitle(adapter->name());
     for (const Device *device : adapter->devices()) {
