@@ -359,7 +359,14 @@ void AccountsWorker::setMaxPasswordAge(User *user, const int maxAge)
     AccountsUser *userInter = m_userInters[user];
     Q_ASSERT(userInter);
 
-    userInter->SetMaxPasswordAge(maxAge);
+    QDBusPendingCall call = userInter->SetMaxPasswordAge(maxAge);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError()) {
+            Q_EMIT user->passwordAgeChanged(user->passwordAge());
+        }
+        watcher->deleteLater();
+    });
 }
 
 #ifdef DCC_ENABLE_ADDOMAIN
