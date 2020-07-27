@@ -1,0 +1,2 @@
+deb http://pools.corp.deepin.com/ppa/dde-eagle/ experimental main 
+deb [trusted=yes] http://shuttle.corp.deepin.com/cache/repos/eagle-sp2/release-candidate/W0RERV1TUDJVUERBVEUxXzIwMjAwNzIzMTE0OQ unstable main
