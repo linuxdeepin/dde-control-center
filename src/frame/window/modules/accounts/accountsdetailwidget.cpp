@@ -329,7 +329,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         });
         connect(ageEdit, &DLineEdit::editingFinished, this, [this, pwWidget, ageEdit](){
             if (ageEdit->text().isEmpty()) {
-                ageEdit->lineEdit()->setText(QString::number(m_curUser->passwordAge()));
+                ageEdit->lineEdit()->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
                 return;
             }
 
@@ -337,6 +337,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             auto age = ageEdit->text().toInt(&isInt);
             if (!isInt) {
                 ageEdit->setAlert(true);
+                if (ageEdit->text() == tr("Always")) ageEdit->setAlert(false);
                 return;
             }
 
