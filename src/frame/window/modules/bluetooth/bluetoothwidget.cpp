@@ -76,7 +76,7 @@ void BluetoothWidget::loadDetailPage()
 
 AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
 {
-    AdapterWidget *adpWidget = new AdapterWidget(adapter);
+    AdapterWidget *adpWidget = new AdapterWidget(adapter, m_model);
 
     const QDBusObjectPath path(adapter->id());
 
