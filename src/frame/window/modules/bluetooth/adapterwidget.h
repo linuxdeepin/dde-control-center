@@ -22,16 +22,21 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "modules/bluetooth/bluetoothmodel.h"
 
 #include <DListView>
 #include <DSpinner>
 #include <DIconButton>
 
 #include <QWidget>
+#include <QPointer>
+#include <QTime>
 
 const int interval = 30;
 const int minHeight = 150;
 const int maxHeight = 10000;
+
+DWIDGET_USE_NAMESPACE
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -61,7 +66,7 @@ class AdapterWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AdapterWidget(const dcc::bluetooth::Adapter *adapter);
+    explicit AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::bluetooth::BluetoothModel *model);
     virtual ~AdapterWidget();
     void setAdapter(const dcc::bluetooth::Adapter *adapter);
     const dcc::bluetooth::Adapter *adapter() const;
@@ -99,9 +104,13 @@ private:
     QStandardItemModel *m_myDeviceModel;
     TitleLabel *m_otherDevicesGroup;
     DTK_WIDGET_NAMESPACE::DSpinner *m_spinner;
+    QPointer<DTK_WIDGET_NAMESPACE::DSpinner> m_spinnerBtn;
     DTK_WIDGET_NAMESPACE::DListView *m_otherDeviceListView;
     QStandardItemModel *m_otherDeviceModel;
     DTK_WIDGET_NAMESPACE::DIconButton *m_refreshBtn;
+    dcc::bluetooth::BluetoothModel *m_model;
+    QTime m_dtime;
+    bool m_isNotFirst;
 };
 }
 }
