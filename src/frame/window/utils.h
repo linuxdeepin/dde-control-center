@@ -46,6 +46,7 @@ const QSize ListViweItemSize(170,168);
 const QSize ListViweItemIconSize_ListMode(42,42);
 const QSize ListViweItemSize_ListMode(168,48);
 const QSize ListViweIconSize(32,32);
+const QSize ListViweSysItemSize(168,58);
 
 const qint32 ActionIconSize=30;//大图标角标大小
 const qint32 ActionListSize=26;//list图标角标大小

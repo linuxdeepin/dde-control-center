@@ -60,6 +60,7 @@ void CommonInfoWidget::initWidget()
     m_listView->setEditTriggers(QListView::NoEditTriggers);
     m_listView->setIconSize(ListViweIconSize);
     m_listView->setModel(m_itemModel);
+    m_listView->setItemSize(ListViweSysItemSize);
 
     m_vBoxLayout->setContentsMargins(5, 5, 5, 0);
     m_vBoxLayout->setMargin(0);
