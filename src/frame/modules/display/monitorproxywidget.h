@@ -56,6 +56,7 @@ Q_SIGNALS:
     void requestApplyMove(MonitorProxyWidget *self) const;
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
+    void requestUpdateWidget();
 
 protected:
     void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;

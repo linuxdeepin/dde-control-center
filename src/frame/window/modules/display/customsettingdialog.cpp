@@ -438,6 +438,9 @@ void CustomSettingDialog::initMoniControlWidget()
             this, &CustomSettingDialog::requestSplit);
     connect(m_monitroControlWidget, &MonitorControlWidget::requestSetMonitorPosition,
             this, &CustomSettingDialog::requestSetMonitorPosition);
+    connect(m_monitroControlWidget, &MonitorControlWidget::requestUpdateWidget, this, [=] {
+        this->update();
+    });
 
     m_layout->insertWidget(0, m_monitroControlWidget);
 }

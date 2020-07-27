@@ -73,6 +73,9 @@ void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
         connect(pw, &MonitorProxyWidget::requestApplyMove, this, &MonitorsGround::monitorMoved);
         connect(pw, &MonitorProxyWidget::requestMonitorPress, this, &MonitorsGround::requestMonitorPress);
         connect(pw, &MonitorProxyWidget::requestMonitorRelease, this, &MonitorsGround::requestMonitorRelease);
+        connect(pw, &MonitorProxyWidget::requestUpdateWidget, this, [=] {
+            this->update();
+        });
         connect(mon, &Monitor::geometryChanged, m_refershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
         connect(m_model, &DisplayModel::primaryScreenChanged, pw, static_cast<void (MonitorProxyWidget::*)()>(&MonitorProxyWidget::update), Qt::QueuedConnection);
     };
@@ -163,6 +166,9 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
 
     pw->setGeometry(x + offsetX, y + offsetY, w, h);
     pw->update();
+
+    //解决设置1.25缩放，自定义拖动dp和edp缩略图有残影问题
+    Q_EMIT requestUpdateWidget();
 }
 
 void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)

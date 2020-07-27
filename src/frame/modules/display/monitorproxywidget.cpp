@@ -123,6 +123,9 @@ void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
 
     move(pos() + e->globalPos() - m_lastPos);
     m_lastPos = e->globalPos();
+
+    //解决设置1.25缩放，自定义拖动dp和edp缩略图有残影问题
+    Q_EMIT requestUpdateWidget();
 }
 
 void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
