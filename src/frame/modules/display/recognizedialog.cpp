@@ -28,6 +28,7 @@
 
 #include <QTimer>
 #include <QPainter>
+#include <QPainterPath>
 #include <QScreen>
 #include <QApplication>
 

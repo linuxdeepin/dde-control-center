@@ -41,6 +41,7 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QBitmap>
+#include <QPainterPath>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;

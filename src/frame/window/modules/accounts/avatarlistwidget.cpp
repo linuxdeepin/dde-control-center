@@ -194,7 +194,7 @@ void AvatarListWidget::addItemFromDefaultDir()
     QFileInfoList list = dir.entryInfoList();
 
     //根据文件名进行排序
-    qSort(list.begin(), list.end(), [&](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
+    std::sort(list.begin(), list.end(), [&](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
         return fileinfo1.baseName() < fileinfo2.baseName();
     });
 

@@ -28,6 +28,7 @@
 
 #include <QMimeDatabase>
 #include <QPainter>
+#include <QPainterPath>
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
 #include <QRect>

@@ -34,6 +34,7 @@
 #include <QKeyEvent>
 #include <QListView>
 #include <QPainter>
+#include <QPainterPath>
 #include <QStringListModel>
 
 #include "file_util.h"

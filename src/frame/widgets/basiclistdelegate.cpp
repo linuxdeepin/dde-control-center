@@ -27,6 +27,7 @@
 #include "widgets/basiclistmodel.h"
 
 #include <QPainter>
+#include <QPainterPath>
 
 QPixmap loadPixmap(const QString &path)
 {

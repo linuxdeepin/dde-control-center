@@ -28,6 +28,7 @@
 #include <QDebug>
 #include <QUrl>
 #include <QPainter>
+#include <QPainterPath>
 #include <QPaintEvent>
 #include <QVBoxLayout>
 #include <QApplication>

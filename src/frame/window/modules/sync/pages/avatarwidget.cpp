@@ -22,6 +22,7 @@
 
 #include <QVBoxLayout>
 #include <QPainter>
+#include <QPainterPath>
 #include <QPaintEvent>
 
 using namespace DCC_NAMESPACE;

@@ -34,6 +34,7 @@
 #include <QSize>
 #include <QRect>
 #include <QDebug>
+#include <QPainterPath>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE::accounts;
