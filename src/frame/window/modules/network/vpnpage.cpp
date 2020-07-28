@@ -91,6 +91,7 @@ VpnPage::VpnPage(QWidget *parent)
     TitleLabel *lblTitle = new TitleLabel(tr("VPN Status"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_vpnSwitch = new SwitchWidget(nullptr, lblTitle);
+    m_vpnSwitch->switchButton()->setAccessibleName(lblTitle->text());
 
     QVBoxLayout *scrollLayout = new QVBoxLayout;
     scrollLayout->addWidget(m_vpnSwitch);
