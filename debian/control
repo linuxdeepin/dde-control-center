@@ -29,7 +29,9 @@ Build-Depends: debhelper (>= 9),
  libfreetype6-dev,
  libegl1-mesa-dev,
  libxcb-ewmh-dev,
- libudisks2-qt5-dev
+ libudisks2-qt5-dev,
+ libpwquality-dev,
+ libpam-cracklib
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 
@@ -46,7 +48,10 @@ Depends: ${shlibs:Depends},
  deepin-installer-timezones,
  passwd,
  netselect,
- deepin-clone
+ deepin-clone,
+ libpwquality1,
+ wamerican,
+ libpam-cracklib
 Recommends: netselect, deepin-ab-recovery
 Suggests: redshift
 Conflicts:

@@ -23,7 +23,7 @@
 #include "widgets/titlelabel.h"
 #include "window/utils.h"
 #include "groupitem.h"
-#include "pwquality_manager.h"
+#include "pwqualitymanager.h"
 
 #include <DFontSizeManager>
 
@@ -54,9 +54,6 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
     , m_groupTip(new QLabel(tr("Group")))
-    , m_passwordMinLength(-1)
-    , m_passwordMaxLength(-1)
-    , m_validate_Required(-1)
 {
     m_groupListView = new DListView(this);
     m_isServerSystem = IsServerSystem;
@@ -367,98 +364,6 @@ void CreateAccountPage::createUser()
     }
 }
 
-int  CreateAccountPage::passwordCompositionType(const QStringList &validate, const QString &password)
-{
-    return static_cast<int>(std::count_if(validate.cbegin(), validate.cend(),
-                                          [=](const QString &policy) {
-                                              for (const QChar &c : policy) {
-                                                  if (password.contains(c)) {
-                                                      return true;
-                                                  }
-                                              }
-                                              return false;
-                                          }));
-}
-
-int CreateAccountPage::verifyPassword(const QString &password)
-{
-    QFileInfo fileInfo("/etc/deepin/dde.conf");
-    if (fileInfo.isFile()) {
-        // NOTE(justforlxz): 配置文件由安装器生成，后续改成PAM模块
-        QSettings setting("/etc/deepin/dde.conf", QSettings::IniFormat);
-        setting.beginGroup("Password");
-        const bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
-        m_passwordMinLength   = setting.value("PASSWORD_MIN_LENGTH").toInt();
-        m_passwordMaxLength   = setting.value("PASSWORD_MAX_LENGTH").toInt();
-        const QStringList validate_policy= setting.value("VALIDATE_POLICY").toString().split(";");
-        m_validate_Required      = setting.value("VALIDATE_REQUIRED").toInt();
-        QString validate_policy_string = setting.value("VALIDATE_POLICY").toString();
-
-        if (!strong_password_check) {
-            return ENUM_PASSWORD_CHARACTER;
-        }
-        if (password.size() == 0) {
-            return ENUM_PASSWORD_NOTEMPTY;
-        }
-        if (password.size() > 0 && password.size() < m_passwordMinLength) {
-            return ENUM_PASSWORD_TOOSHORT;
-        }
-        if (passwordCompositionType(validate_policy, password) < m_validate_Required) {
-            if (password.size() < m_passwordMinLength) {
-                return ENUM_PASSWORD_SEVERAL;
-            }
-            if (!(password.split("").toSet() - validate_policy.join("").split("").toSet()).isEmpty()) {
-                return ENUM_PASSWORD_CHARACTER;
-            }
-            return ENUM_PASSWORD_TYPE;
-        }
-        if (password.size() > m_passwordMaxLength) {
-            return ENUM_PASSWORD_TOOLONG;
-        }
-        if (!containsChar(password, validate_policy_string)) {
-            return ENUM_PASSWORD_CHARACTER;
-        } 
-        if (IsServerSystem) {
-            if (!PwqualityManager::instance()->palindromeChecked(password).isEmpty()) {
-                return ENUM_PASSWORD_PALINDROME;
-            }
-
-            int secChkLeastLen=6;
-            int length = password.length();
-            for (int i = 0; i < length - secChkLeastLen + 1; i++) {
-                for (int j = secChkLeastLen; i + j <= length; j++) {
-                    QString subStr = password.mid(i, j);
-                    QString sChkResult = PwqualityManager::instance()->dictChecked(subStr);
-                    if (!sChkResult.isEmpty()) {
-                        return ENUM_PASSWORD_DICT_FORBIDDEN;
-                    }
-                }    
-            }
-            return ENUM_PASSWORD_SUCCESS;
-        }
-        return ENUM_PASSWORD_SUCCESS;
-    } else {
-        QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
-                                      QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
-        bool ret = containsChar(password, validate_policy);
-        if (!ret) {
-            return ENUM_PASSWORD_CHARACTER;
-        }
-        return ENUM_PASSWORD_SUCCESS;
-    }
-}
-
-bool CreateAccountPage::containsChar(const QString &password, const QString &validate)
-{
-    for (const QChar &p : password) {
-        if (!validate.contains(p)) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 void CreateAccountPage::setCreationResult(CreationResult *result)
 {
     switch (result->type()) {
@@ -494,7 +399,7 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
         return false;
     }
 
-    int passResult = verifyPassword(userpassword);
+    int passResult = PwqualityManager::instance()->verifyPassword(userpassword);
     switch (passResult)
     {
     case ENUM_PASSWORD_NOTEMPTY:
@@ -503,15 +408,15 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
         return false;
     case ENUM_PASSWORD_TOOSHORT:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The password must have at least %1 characters").arg(m_passwordMinLength), -1);
+        edit->showAlertMessage(tr("The password must have at least %1 characters").arg(PwqualityManager::instance()->getPasswordMinLength()), -1);
         return false;
     case ENUM_PASSWORD_TOOLONG:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(m_passwordMaxLength), -1);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(PwqualityManager::instance()->getPasswordMaxLength()), -1);
         return false;
     case ENUM_PASSWORD_TYPE:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_validate_Required), -1);
+        edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(PwqualityManager::instance()->getValidateRequiredString()), -1);
         return false;
     case ENUM_PASSWORD_CHARACTER:
         edit->setAlert(true);
@@ -519,7 +424,9 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
         return false;
     case ENUM_PASSWORD_SEVERAL:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_passwordMinLength).arg(m_validate_Required), -1);
+        edit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols")
+        .arg(PwqualityManager::instance()->getPasswordMinLength())
+        .arg(PwqualityManager::instance()->getValidateRequiredString()), -1);
         return false;
     case ENUM_PASSWORD_PALINDROME:
         edit->setAlert(true);
@@ -545,7 +452,7 @@ bool CreateAccountPage::validateUsername(const QString &username)
 {
     const QString name_validate = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
                                   QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("-_");
-    return containsChar(username, name_validate);
+    return PwqualityManager::instance()->containsChar(username, name_validate);
 }
 
 bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)

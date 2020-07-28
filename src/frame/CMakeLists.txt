@@ -255,7 +255,7 @@ set(ACCOUNTS_FILES
                 modules/accounts/usermodel.cpp
                 window/modules/accounts/accountsmodule.cpp
                 window/modules/accounts/accountswidget.cpp
-                window/modules/accounts/pwquality_manager.cpp
+                window/modules/accounts/pwqualitymanager.cpp
                 window/modules/accounts/createaccountpage.cpp
                 window/modules/accounts/modifypasswdpage.cpp
                 window/modules/accounts/accountsdetailwidget.cpp

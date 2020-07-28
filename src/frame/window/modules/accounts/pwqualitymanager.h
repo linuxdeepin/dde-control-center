@@ -27,6 +27,18 @@
 #include <QString>
 #include <QScopedPointer>
 
+enum ErrorType {
+    ENUM_PASSWORD_NOTEMPTY,
+    ENUM_PASSWORD_TOOLONG,
+    ENUM_PASSWORD_TOOSHORT,
+    ENUM_PASSWORD_TYPE,
+    ENUM_PASSWORD_SEVERAL,
+    ENUM_PASSWORD_CHARACTER,
+    ENUM_PASSWORD_PALINDROME,
+    ENUM_PASSWORD_DICT_FORBIDDEN,
+    ENUM_PASSWORD_SUCCESS
+};
+
 class PwqualityManager {
 public:
     /**
@@ -49,6 +61,41 @@ public:
     */
     QString dictChecked(const QString &text);
 
+    /**
+    * @brief PwqualityManager::verifyPassword 校验密码
+    * @param password 带检密码字符串
+    * @return 若找到，返回text，反之返回空
+    */
+    int verifyPassword(const QString &password);
+
+    /**
+    * @brief PwqualityManager::passwordCompositionType 校验密码字符类型个数
+    * @param validate 密码字符集合
+    * @param password 密码字符串
+    * @return 返回检测到的字符类型
+    */
+    int passwordCompositionType(const QStringList &validate, const QString &password);
+
+    /**
+    * @brief PwqualityManager::containsChar 校验密码使用的字符是否合法
+    * @param password 密码字符串
+    * @param validate 所有密码字符集合
+    * @return 密码字符合法返回true,反之返回false
+    */
+    bool containsChar(const QString &password, const QString &validate);
+
+    inline int getPasswordMinLength() const {
+        return m_passwordMinLength;
+    }
+
+    inline int getPasswordMaxLength() const {
+        return m_passwordMaxLength;
+    }
+
+    inline int getValidateRequiredString() const {
+        return  m_validateRequiredString;
+    }
+
 private:
     PwqualityManager();
     PwqualityManager(const PwqualityManager&) = delete;
@@ -65,7 +112,11 @@ private:
     QScopedPointer<pwquality_settings_t, ScopedPointerCustomDeleter> m_pwqualitySetting;
 
     // 回文字符长度要求
-    int  m_palindromeLength = 4;
+    int m_palindromeLength = 4;
+    int m_passwordMinLength;
+    int m_passwordMaxLength;
+    // 密码字符类型个数
+    int m_validateRequiredString;
 };
 
 #endif  // DEEPIN_INSTALLER_PWQUALITY_MANAGER_H
