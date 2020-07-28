@@ -23,6 +23,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QPainter>
+#include <QPainterPath>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::update;

@@ -42,6 +42,7 @@
 #include <QSettings>
 #include <QComboBox>
 #include <QGraphicsDropShadowEffect>
+#include <QPainterPath>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
