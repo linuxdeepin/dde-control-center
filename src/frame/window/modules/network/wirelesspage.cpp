@@ -516,6 +516,15 @@ void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
         m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
         m_apItems.erase(m_apItems.find(ssid));
     }
+
+    //已连接wifi状态下，network后端防止数据过期，数据不同步。在连接上wifi后过一段时间会清空ap列表,发出清空信号。(正常处理)
+    //前端现象为wifi列表上过一段时间后只显示一个已连接ap。
+    //当前端wifi列表为该状态下时，重新扫描一次。
+    if (m_apItems.count()==1
+            && m_apItems.contains(m_device->activeWirelessConnName())) {
+        qDebug() << "Only one activedAp && requestWirelessScan";
+        Q_EMIT requestWirelessScan();
+    }
 }
 
 void WirelessPage::onHotspotEnableChanged(const bool enabled)
