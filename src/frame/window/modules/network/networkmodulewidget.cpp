@@ -39,6 +39,8 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QProcess>
+#include <QDBusInterface>
+#include <QDBusMessage>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
@@ -104,6 +106,9 @@ NetworkModuleWidget::NetworkModuleWidget()
     if (IsServerSystem) {
         handleNMEditor();
     }
+
+    initProxyStatus();
+
     connect(m_lvnmpages, &DListView::activated, this, &NetworkModuleWidget::onClickCurrentListIndex);
     connect(m_lvnmpages, &DListView::clicked, m_lvnmpages, &DListView::activated);
 }
@@ -141,6 +146,32 @@ void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
     m_lvnmpages->resetStatus(idx);
 }
 
+void NetworkModuleWidget::onProxyMethodChanged(const QString &proxyMethod)
+{
+    if (proxyMethod.isEmpty()) return;
+    DStandardItem *item = nullptr;
+    QPointer<DViewItemAction> action(new DViewItemAction(Qt::AlignmentFlag::AlignRight | Qt::AlignmentFlag::AlignVCenter));
+    if (action.isNull()) return;
+    //遍历获取系统代理项,设置状态
+    for (int i = 0; i < m_modelpages->rowCount(); i++) {
+        item = dynamic_cast<DStandardItem *>(m_modelpages->item(i));
+        if (nullptr == item) continue;
+        if (item->data(SectionRole).value<PageType>() == SysProxyPage) {
+            item->setActionList(Qt::Edge::RightEdge, {action});
+            if ("none" == proxyMethod) {
+                action->setText(tr("Disabled"));
+            } else if ("manual" == proxyMethod) {
+                action->setText(tr("Manual"));
+            } else if ("auto" == proxyMethod) {
+                action->setText(tr("Auto"));
+            } else {
+                action->setText(tr("Disabled"));
+            }
+            return;
+        }
+    }
+}
+
 bool NetworkModuleWidget::handleNMEditor()
 {
     m_strNetworkManageOutput = "";
@@ -166,6 +197,8 @@ bool NetworkModuleWidget::handleNMEditor()
 void NetworkModuleWidget::setModel(NetworkModel *model)
 {
     connect(model, &NetworkModel::deviceListChanged, this, &NetworkModuleWidget::onDeviceListChanged);
+    connect(model, &NetworkModel::proxyMethodChanged, this, &NetworkModuleWidget::onProxyMethodChanged);
+
 #ifndef DISABLE_NETWORK_PROXY
     //connect(model, &NetworkModel::appProxyExistChanged, m_appProxy, &NextPageWidget::setVisible);
     //m_appProxy->setVisible(model->appProxyExist());
@@ -198,6 +231,16 @@ void NetworkModuleWidget::setIndexFromPath(const QString &path)
             return;
         }
     }
+}
+
+void NetworkModuleWidget::initProxyStatus()
+{
+    QDBusInterface interface("com.deepin.daemon.Network", "/com/deepin/daemon/Network"
+                             , "com.deepin.daemon.Network", QDBusConnection::sessionBus(), this);
+    QDBusMessage msg = interface.call("GetProxyMethod");
+    QString method = msg.arguments().first().toString();
+    //初始化系统代理状态
+    onProxyMethodChanged(method);
 }
 
 int NetworkModuleWidget::gotoSetting(const QString &path)
@@ -239,7 +282,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     PageType currentType = currentIndex.data(SectionRole).value<PageType>();
 
     while ((m_modelpages->item(0)->data(SectionRole).value<PageType>() == WiredPage)
-            || (m_modelpages->item(0)->data(SectionRole).value<PageType>() == WirelessPage)) {
+           || (m_modelpages->item(0)->data(SectionRole).value<PageType>() == WirelessPage)) {
         m_modelpages->removeRow(0);
         if ((currentType == WiredPage) || (currentType == WirelessPage)) {
             bRemoveCurrentDevice = true;

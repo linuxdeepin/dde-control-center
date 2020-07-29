@@ -79,6 +79,8 @@ public:
     void setCurrentIndex(const int settingIndex);
     int gotoSetting(const QString &path);
     void setIndexFromPath(const QString &path);
+    void initProxyStatus();
+
 Q_SIGNALS:
     void requestShowVpnPage(const QString &path = "") const;
     void requestShowPppPage(const QString &path = "") const;
@@ -92,10 +94,12 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
     void onClickCurrentListIndex(const QModelIndex &idx);
+    void onProxyMethodChanged(const QString &proxyMethod);
 
 private:
     QStandardItem *createDeviceGroup(dde::network::NetworkDevice *dev, const int number, const bool multiple);
     bool handleNMEditor();
+
 private:
     QVBoxLayout *m_centralLayout;
     dcc::widgets::MultiSelectListView *m_lvnmpages;
