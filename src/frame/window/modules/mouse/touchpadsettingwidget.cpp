@@ -74,6 +74,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     m_contentLayout->addWidget(m_touchpadSettingsGrp);
     m_contentLayout->setSpacing(List_Interval);
     m_contentLayout->addWidget(m_palmDetectSetting);
+    m_palmDetectSetting->setVisible(false);
     m_contentLayout->addStretch();
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
