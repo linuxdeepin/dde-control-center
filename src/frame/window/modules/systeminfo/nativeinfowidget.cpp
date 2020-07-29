@@ -127,7 +127,6 @@ void NativeInfoWidget::initWidget()
     m_memory->setValue(m_model->memory());
 
     logoGroup->appendItem(logo);
-    qDebug()<<"22222222 DSysInfo::uosType() ="<<DSysInfo::uosType() ;
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
             (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
         infoGroup->appendItem(m_productName);
