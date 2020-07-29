@@ -1,6 +1,5 @@
 #include "backupandrestoreworker.h"
 #include "backupandrestoremodel.h"
-#include "../restore-tool/toolerrortype.h"
 
 #include <QSharedPointer>
 #include <QProcess>
@@ -17,7 +16,17 @@ DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::systeminfo;
 
-//restore-tool超时时间设置为1分钟
+/**
+ * @brief deepin-recovery-tool工具返回的错误值
+ */
+enum ToolErrorType {
+    NoError = 0,
+    ToolError,
+    GrubError,
+    SpaceError
+};
+
+//deepin-recovery-tool超时时间设置为1分钟
 const int TimeOut = 60000;
 
 BackupAndRestoreWorker::BackupAndRestoreWorker(BackupAndRestoreModel* model, QObject *parent)
@@ -115,7 +124,7 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
     }
 
     QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << choosePath);
+    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "manual_backup" << "--path" << choosePath);
     process->waitForFinished(TimeOut);
 
     const int &exitCode = process->exitCode();
@@ -163,7 +172,7 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
     }
 
     QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_backup" << "--path" << choosePath);
+    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "system_backup" << "--path" << choosePath);
     process->waitForFinished(TimeOut);
 
     const int &exitCode = process->exitCode();
@@ -206,7 +215,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
     }
 
     QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_restore" << "--path" << selectPath);
+    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "manual_restore" << "--path" << selectPath);
     process->waitForFinished(TimeOut);
 
     const int &exitCode = process->exitCode();
@@ -227,7 +236,7 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
     const bool formatData = m_model->formatData();
 
     QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
+    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
     process->waitForFinished(TimeOut);
 
     const int &exitCode = process->exitCode();
