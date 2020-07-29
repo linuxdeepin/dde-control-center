@@ -165,7 +165,8 @@ void AdvancedPage::addPort(const Port *port)
         pi->setCheckState(Qt::CheckState::Checked);
         if (port->direction() == Port::Out) {
             m_outputModel->appendRow(pi);
-        } else {
+            //这里加个判断，是因为盘古机器上没有内置麦克风，但是会出现这个多余的
+        } else if (port->id() != "analog-input-mic") {
             m_inputModel->appendRow(pi);
         }
     }
