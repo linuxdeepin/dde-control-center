@@ -108,19 +108,35 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
 
 void DetailPage::onDeviceStatusChanged()
 {
-    if (m_device->state() == Device::StateConnected) {
-        m_disconnectButton->show();
-        m_connectButton->hide();
-    } else if (m_device->state() == Device::StateAvailable) {
+    switch (m_device->state()) {
+    case Device::StateConnected:
+        if (m_device->connectState()) {
+            m_disconnectButton->show();
+            m_connectButton->hide();
+            m_ignoreButton->setEnabled(true);
+        }
+        break;
+    case Device::StateAvailable:
         m_connectButton->show();
         m_connectButton->setText(tr("Connecting"));
         m_connectButton->setDisabled(true);
         m_disconnectButton->hide();
-    } else {
+        m_ignoreButton->setEnabled(false);
+        break;
+    case Device::StateDisconnecting:
+        m_connectButton->show();
+        m_connectButton->setText(tr("Disconnecting"));
+        m_connectButton->setDisabled(true);
+        m_disconnectButton->hide();
+        m_ignoreButton->setEnabled(true);
+        break;
+    case Device::StateUnavailable:
         m_connectButton->show();
         m_connectButton->setText(tr("Connect"));
         m_connectButton->setEnabled(true);
         m_disconnectButton->hide();
+        m_ignoreButton->setEnabled(true);
+        break;
     }
 }
 

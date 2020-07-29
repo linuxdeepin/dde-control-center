@@ -59,7 +59,8 @@ public:
     enum State {
         StateUnavailable = 0,
         StateAvailable   = 1,
-        StateConnected   = 2
+        StateConnected   = 2,
+        StateDisconnecting = 3
     };
     Q_ENUM(State)
 
