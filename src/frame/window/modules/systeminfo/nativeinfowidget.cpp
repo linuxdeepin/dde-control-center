@@ -70,7 +70,7 @@ void NativeInfoWidget::initWidget()
     if (DCC_NAMESPACE::IsDesktopSystem) {
         logo->setLogo(QIcon(defIcon), 156, 46);
     } else if (DCC_NAMESPACE::IsProfessionalSystem || DCC_NAMESPACE::IsServerSystem) {
-        logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logos.svg"), 156, 46);
+        logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logos.svg"), 153, 32);
     } else {
         logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal, defIcon));
     }
