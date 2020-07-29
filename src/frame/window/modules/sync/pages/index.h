@@ -76,6 +76,7 @@ private:
     void onModuleStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state);
     void onModuleItemSwitched(const bool checked);
     void onAutoSyncChanged(bool autoSync);
+    void onHideSyncWidgets();
 
 private:
     QVBoxLayout *m_mainLayout;
@@ -87,6 +88,7 @@ private:
     QStandardItemModel *m_listModel;
     QMap<dcc::cloudsync::SyncType, QStandardItem *> m_itemMap;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_networkTip;
+    std::pair<qint32, QString> m_state;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE
