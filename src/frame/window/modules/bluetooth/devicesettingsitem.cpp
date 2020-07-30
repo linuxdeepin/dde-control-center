@@ -91,6 +91,26 @@ void DeviceSettingsItem::initItemActionList()
 void DeviceSettingsItem::setLoading(const bool loading)
 {
     if (loading) {
+        if (m_parentDListView) {
+            QModelIndex index;
+            for (int i = 0; i < m_parentDListView->count(); ++i) {
+                const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(m_parentDListView->model());
+                if (!deviceModel) {
+                    return;
+                }
+                DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(i));
+                if (!item) {
+                    return;
+                }
+                if (m_deviceItem == item) {
+                    index = m_parentDListView->model()->index(i, 0);
+                    break;
+                }
+            }
+            QRect itemrect = m_parentDListView->visualRect(index);
+            QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
+            m_loadingIndicator->move(point);
+        }
         QPalette pa = m_loadingIndicator->palette();
         pa.setBrush(QPalette::Highlight,Qt::white);
         m_loadingIndicator->setPalette(pa);
