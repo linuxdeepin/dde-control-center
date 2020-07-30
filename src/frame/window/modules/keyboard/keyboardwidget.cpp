@@ -91,13 +91,11 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
         Q_EMIT showSystemLanguageSetting();
         break;
     case 3:
-        if (index.row() != m_previewRow)
-            Q_EMIT showShortCutSetting();
+        Q_EMIT showShortCutSetting();
         break;
     default:
         Q_EMIT showGeneralSetting();
         break;
     }
-    m_previewRow = index.row();
     m_keyboardListView->resetStatus(index);
 }
