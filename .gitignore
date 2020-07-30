@@ -27,3 +27,6 @@ dde-control-center
 *.swp
 
 *.vscode
+
+.transifexrc
+lupdate.sh

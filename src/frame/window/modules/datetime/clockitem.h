@@ -23,9 +23,13 @@
 #include "interface/namespace.h"
 #include "widgets/settingsitem.h"
 
+#include <com_deepin_daemon_timedate.h>
+
 #include <QDateTime>
 
 #include <types/zoneinfo.h>
+
+using Timedate = com::deepin::daemon::Timedate;
 
 namespace dcc {
 namespace widgets {
@@ -59,6 +63,9 @@ private:
 
 private Q_SLOTS:
     void updateDateTime();
+    void setWeekdayFormatType(int type);
+    void setShortDateFormat(int type);
+    void setLongTimeFormat(int type);
 
 private:
     Clock *m_clock;
@@ -69,6 +76,10 @@ private:
     ZoneInfo m_zoneInfo;
     bool m_bIs24HourType;
     bool m_bIsEnglishType;
+    Timedate *m_timedateInter;
+    QString m_weekdayFormat;
+    QString m_shortDateFormat;
+    QString m_longTimeFormat;
 };
 
 } // namespace datetime

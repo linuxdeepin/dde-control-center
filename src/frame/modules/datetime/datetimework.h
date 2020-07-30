@@ -64,6 +64,11 @@ public Q_SLOTS:
 #endif
     void setNtpServer(QString server);
 
+    void setWeekdayFormat(int type);
+    void setShortDateFormat(int type);
+    void setLongDateFormat(int type);
+    void setLongTimeFormat(int type);
+    void setShortTimeFormat(int type);
 private Q_SLOTS:
 #ifndef DCC_DISABLE_TIMEZONE
     void onTimezoneListChanged(const QStringList &timezones);

@@ -63,6 +63,28 @@ public:
     inline QStringList ntpServerList() const { return  m_NtpServerList; }
     void setNTPServerList(QStringList list);
 
+    inline int weekdayFormatType() const { return  m_weekdayFormatType; }
+    inline int shortDateFormat() const { return  m_shortDateFormat; }
+    inline int longDateFormat() const { return  m_longDateFormat; }
+    inline int longTimeFormat() const { return  m_longTimeFormat; }
+    inline int shorTimeFormat() const { return  m_shorTimeFormat; }
+    inline int weekdayFormatTypeCount() const { return  m_weekdayFormatTypeCount; }
+    inline int shortDateFormatTypeCount() const { return  m_shortDateFormatTypeCount; }
+    inline int longDateFormatTypeCount() const { return  m_longDateFormatTypeCount; }
+    inline int longTimeFormatTypeCount() const { return  m_longTimeFormatTypeCount; }
+    inline int shorTimeFormatTypeCount() const { return  m_shorTimeFormatTypeCount; }
+
+    void setWeekdayFormatType(int type);
+    void setShortDateFormat(int type);
+    void setLongDateFormat(int type);
+    void setLongTimeFormat(int type);
+    void setShorTimeFormat(int type);
+    void setWeekdayFormatTypeCount(int size);
+    void setShortDateFormatTypeCount(int size);
+    void setLongDateFormatTypeCount(int size);
+    void setLongTimeFormatTypeCount(int size);
+    void setShorTimeFormatTypeCount(int size);
+
 Q_SIGNALS:
     void NTPChanged(bool value);
     void hourTypeChanged(bool value);
@@ -75,7 +97,11 @@ Q_SIGNALS:
     void NTPServerChanged(QString server);
     void NTPServerListChanged(QStringList list);
     void NTPServerNotChanged(QString server);
-
+    void weekdayFormatTypeChanged(int type);
+    void shortDateFormatChanged(int type);
+    void longDateFormatChanged(int type);
+    void longTimeFormatChanged(int type);
+    void shorTimeFormatChanged(int type);
 private:
     bool m_ntp;
     bool m_bUse24HourType;
@@ -89,6 +115,18 @@ private:
     bool m_bSystemIsServer;
     QString m_strNtpServerAddress;
     QStringList m_NtpServerList;
+
+    int m_weekdayFormatType{0};
+    int m_shortDateFormat{0};
+    int m_longDateFormat{0};
+    int m_longTimeFormat{0};
+    int m_shorTimeFormat{0};
+
+    int m_weekdayFormatTypeCount{0};
+    int m_shortDateFormatTypeCount{0};
+    int m_longDateFormatTypeCount{0};
+    int m_longTimeFormatTypeCount{0};
+    int m_shorTimeFormatTypeCount{0};
 };
 
 }

@@ -43,6 +43,10 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     , m_timeType(nullptr)
     , m_bIs24HourType(false)
     , m_bIsEnglishType(false)
+    , m_timedateInter(new Timedate("com.deepin.daemon.Timedate", "/com/deepin/daemon/Timedate", QDBusConnection::sessionBus(), this))
+    , m_weekdayFormat("dddd")
+    , m_shortDateFormat("yyyy-MM-dd")
+    , m_longTimeFormat("HH:mm:ss")
 {
     m_clock->setMinimumSize(224, 224);
     m_clock->setAutoNightMode(false);
@@ -86,7 +90,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
         twidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         tlayout->addWidget(twidget, 0, Qt::AlignVCenter);
 
-        QHBoxLayout *timeLayout=new QHBoxLayout;
+        QHBoxLayout *timeLayout = new QHBoxLayout;
         m_label = new DTipLabel("");
         m_labelDate = new DTipLabel("");
         timeLayout = new QHBoxLayout;
@@ -114,6 +118,14 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     connect(timer, &QTimer::timeout, this, &ClockItem::updateDateTime, Qt::DirectConnection);
 
     timer->start(1000);
+
+    setWeekdayFormatType(m_timedateInter->weekdayFormat());
+    setShortDateFormat(m_timedateInter->shortDateFormat());
+    setLongTimeFormat(m_timedateInter->longTimeFormat());
+
+    connect(m_timedateInter, &Timedate::WeekdayFormatChanged, this, &ClockItem::setWeekdayFormatType);
+    connect(m_timedateInter, &Timedate::ShortDateFormatChanged, this, &ClockItem::setShortDateFormat);
+    connect(m_timedateInter, &Timedate::LongTimeFormatChanged, this, &ClockItem::setLongTimeFormat);
 }
 
 void ClockItem::setTimeZone(const ZoneInfo &zone)
@@ -178,10 +190,13 @@ void ClockItem::translateHourType()
                          .arg(currentTime.minute(), 2, 10, QLatin1Char('0'))
                          .arg(currentTime.second(), 2, 10, QLatin1Char('0')));
 
-    m_timeType->setText(currentTime.hour() > 12 ? tr("PM") :tr("AM"));
+    m_timeType->setText(currentTime.hour() > 12 ? tr("PM") : tr("AM"));
     m_timeType->setVisible(true);
 }
 
+/**
+ * @brief ClockItem::updateDateTime 每一秒更新时间
+ */
 void ClockItem::updateDateTime()
 {
     m_clock->setTimeZone(m_zoneInfo);
@@ -189,9 +204,8 @@ void ClockItem::updateDateTime()
 
     if (!(m_labelTime && m_timeType && m_label && m_labelDate))
         return;
-
     if (m_bIs24HourType) {
-        m_labelTime->setText(QDateTime::currentDateTime().toString("HH:mm:ss"));
+        m_labelTime->setText(QDateTime::currentDateTime().toString(m_longTimeFormat));
         m_timeType->setVisible(false);
     } else {
         translateHourType();
@@ -201,7 +215,58 @@ void ClockItem::updateDateTime()
         m_label->setText(QDate::currentDate().toString("dddd"));
         m_labelDate->setText(QDate::currentDate().toString("MM-dd-yyyy"));
     } else {
-        m_label->setText(QDate::currentDate().toString("yyyy-MM-dd"));
-        m_labelDate->setText(QDate::currentDate().toString("dddd"));
+        m_label->setText(QDate::currentDate().toString(m_shortDateFormat));
+        m_labelDate->setText(QDate::currentDate().toString(m_weekdayFormat));
     }
+}
+
+/**
+ * @brief ClockItem::setWeekdayFormatType 根据类型设置周的显示格式
+ * @param type
+ */
+void ClockItem::setWeekdayFormatType(int type)
+{
+    switch (type) {
+    case 0: m_weekdayFormat = "dddd";  break;
+    case 1: m_weekdayFormat = "ddd"; break;
+    default: m_weekdayFormat = "dddd"; break;
+    }
+    updateDateTime();
+}
+
+/**
+ * @brief ClockItem::setShortDateFormat 根据类型,设置短日期的显示格式
+ * @param type
+ */
+void ClockItem::setShortDateFormat(int type)
+{
+    switch (type) {
+    case 0: m_shortDateFormat = "yyyy/M/d";  break;
+    case 1: m_shortDateFormat = "yyyy-M-d"; break;
+    case 2: m_shortDateFormat = "yyyy.M.d"; break;
+    case 3: m_shortDateFormat = "yyyy/MM/dd"; break;
+    case 4: m_shortDateFormat = "yyyy-MM-dd"; break;
+    case 5: m_shortDateFormat = "yyyy.MM.dd"; break;
+    case 6: m_shortDateFormat = "yy/M/d"; break;
+    case 7: m_shortDateFormat = "yy-M-d"; break;
+    case 8: m_shortDateFormat = "yy.M.d"; break;
+    default: m_shortDateFormat = "yyyy-MM-dd"; break;
+    }
+    updateDateTime();
+}
+
+/**
+ * @brief ClockItem::setLongTimeFormat 根据类型设置长时间的显示格式
+ * @param type
+ */
+void ClockItem::setLongTimeFormat(int type)
+{
+    switch (type) {
+    case 0: m_longTimeFormat = "H:m:s"; break;
+    case 1: m_longTimeFormat = "HH:mm:ss";  break;
+    case 2: m_longTimeFormat = "H:m:s"; break;
+    case 3: m_longTimeFormat = "HH:mm:ss";  break;
+    default: m_longTimeFormat = "HH:mm:ss"; break;
+    }
+    updateDateTime();
 }

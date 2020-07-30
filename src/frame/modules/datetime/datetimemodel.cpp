@@ -135,5 +135,80 @@ void DatetimeModel::setNTPServerList(QStringList list)
     }
 }
 
+void DatetimeModel::setWeekdayFormatType(int type)
+{
+    if (m_weekdayFormatType == type) return;
+
+    m_weekdayFormatType = type;
+    Q_EMIT weekdayFormatTypeChanged(type);
+}
+
+void DatetimeModel::setShortDateFormat(int type)
+{
+    if (m_shortDateFormat == type) return;
+
+    m_shortDateFormat = type;
+    Q_EMIT shortDateFormatChanged(type);
+}
+
+void DatetimeModel::setLongDateFormat(int type)
+{
+    if (m_longDateFormat == type) return;
+
+    m_longDateFormat = type;
+    Q_EMIT longDateFormatChanged(type);
+}
+
+void DatetimeModel::setLongTimeFormat(int type)
+{
+    if (m_longTimeFormat == type) return;
+
+    m_longTimeFormat = type;
+    Q_EMIT longTimeFormatChanged(type);
+}
+
+void DatetimeModel::setShorTimeFormat(int type)
+{
+    if (m_shorTimeFormat == type) return;
+
+    m_shorTimeFormat = type;
+    Q_EMIT shorTimeFormatChanged(type);
+}
+
+void DatetimeModel::setWeekdayFormatTypeCount(int size)
+{
+    if (m_weekdayFormatTypeCount == size) return;
+
+    m_weekdayFormatTypeCount = size;
+}
+
+void DatetimeModel::setShortDateFormatTypeCount(int size)
+{
+    if (m_shortDateFormatTypeCount == size) return;
+
+    m_shortDateFormatTypeCount = size;
+}
+
+void DatetimeModel::setLongDateFormatTypeCount(int size)
+{
+    if (m_longDateFormatTypeCount == size) return;
+
+    m_longDateFormatTypeCount = size;
+}
+
+void DatetimeModel::setLongTimeFormatTypeCount(int size)
+{
+    if (m_longTimeFormatTypeCount == size) return;
+
+    m_longTimeFormatTypeCount = size;
+}
+
+void DatetimeModel::setShorTimeFormatTypeCount(int size)
+{
+    if (m_shorTimeFormatTypeCount == size) return;
+
+    m_shorTimeFormatTypeCount = size;
+}
+
 }
 }

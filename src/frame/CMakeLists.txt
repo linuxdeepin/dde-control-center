@@ -91,6 +91,8 @@ set(WINDOW_FILES
     window/modules/datetime/timezonelist.cpp
     window/modules/datetime/timezonecontentlist.cpp
     window/modules/datetime/systemtimezone.cpp
+    window/modules/datetime/formatsetting.cpp
+    window/modules/datetime/formatsetting.h
     window/modules/datetime/datesettings.cpp
     window/modules/datetime/timesetedit.cpp
     window/modules/datetime/datetimecombox.cpp

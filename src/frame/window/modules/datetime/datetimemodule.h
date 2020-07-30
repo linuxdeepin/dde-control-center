@@ -48,6 +48,7 @@ public:
         Default = -1,
         ETimezoneList,
         TimeSetting,
+        FormatSetting,
         ESystemTimezone,
         AddTimeZone,
         Count
@@ -67,6 +68,11 @@ Q_SIGNALS:
     void requestAddUserTimeZone(const QString &zone);
     void requestRemoveUserTimeZone(const ZoneInfo &zone);
     void requestSetTimeZone(const QString &zone);
+    void weekdayFormatChanged(int index);
+    void shortDateFormatChanged(int index);
+    void longDateFormatChanged(int index);
+    void longTimeFormatChanged(int index);
+    void shortTimeFormatChanged(int index);
 
 public Q_SLOTS:
     void onPushWidget(const int &index);
@@ -79,6 +85,7 @@ private:
     void showTimezoneList();
     void showTimeSetting();
     void ensureZoneChooserDialog();
+    void showFormatSetting();
 
 private:
     dcc::datetime::DatetimeWork *m_work;

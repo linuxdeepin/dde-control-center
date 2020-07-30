@@ -60,7 +60,10 @@ void DatetimeWidget::init()
     menuIconText = {
         { QIcon::fromTheme("dcc_time_zone"), tr("Timezone List")},
         //~ contents_path /datetime/Time Settings
-        { QIcon::fromTheme("dcc_setting"), tr("Time Settings")}
+        { QIcon::fromTheme("dcc_setting"), tr("Time Settings")} ,
+        //~ contents_path /datetime/Format Settings
+        { QIcon::fromTheme("dcc_setting"), tr("Time Format")}
+
     };
 
     DStandardItem *item = nullptr;

@@ -24,6 +24,7 @@
 #include "datesettings.h"
 #include "clockitem.h"
 #include "systemtimezone.h"
+#include "formatsetting.h"
 
 #include <types/zoneinfo.h>
 
@@ -60,6 +61,11 @@ void DatetimeModule::initialize()
     connect(this, &DatetimeModule::requestRemoveUserTimeZone, m_work, &DatetimeWork::removeUserTimeZone);
     connect(this, &DatetimeModule::requestAddUserTimeZone, m_work, &DatetimeWork::addUserTimeZone);
 #endif
+    connect(this, &DatetimeModule::weekdayFormatChanged, m_work, &DatetimeWork::setWeekdayFormat);
+    connect(this, &DatetimeModule::shortDateFormatChanged, m_work, &DatetimeWork::setShortDateFormat);
+    connect(this, &DatetimeModule::longDateFormatChanged, m_work, &DatetimeWork::setLongDateFormat);
+    connect(this, &DatetimeModule::longTimeFormatChanged, m_work, &DatetimeWork::setLongTimeFormat);
+    connect(this, &DatetimeModule::shortTimeFormatChanged, m_work, &DatetimeWork::setShortTimeFormat);
 }
 
 const QString DatetimeModule::name() const
@@ -197,6 +203,22 @@ void DatetimeModule::ensureZoneChooserDialog()
     connect(m_model, &dcc::datetime::DatetimeModel::systemTimeZoneIdChanged, this, &DatetimeModule::updateSystemTimezone);
 }
 
+void DatetimeModule::showFormatSetting()
+{
+    DCC_NAMESPACE::datetime::FormatSetting* fsetting = new DCC_NAMESPACE::datetime::FormatSetting(m_model);
+    connect(fsetting, &FormatSetting::weekdayFormatChanged, this, &DatetimeModule::weekdayFormatChanged);
+    connect(fsetting, &FormatSetting::shortDateFormatChanged, this, &DatetimeModule::shortDateFormatChanged);
+    connect(fsetting, &FormatSetting::longDateFormatChanged, this, &DatetimeModule::longDateFormatChanged);
+    connect(fsetting, &FormatSetting::longTimeFormatChanged, this, &DatetimeModule::longTimeFormatChanged);
+    connect(fsetting, &FormatSetting::shortTimeFormatChanged, this, &DatetimeModule::shortTimeFormatChanged);
+    connect(m_model, &DatetimeModel::weekdayFormatTypeChanged, fsetting, &FormatSetting::setCururentWeekdayFormat);
+    connect(m_model, &DatetimeModel::shortDateFormatChanged, fsetting, &FormatSetting::setCururentShortDateFormat);
+    connect(m_model, &DatetimeModel::longDateFormatChanged, fsetting, &FormatSetting::setCururentLongDateFormat);
+    connect(m_model, &DatetimeModel::longTimeFormatChanged, fsetting, &FormatSetting::setCururentLongTimeFormat);
+    connect(m_model, &DatetimeModel::shorTimeFormatChanged, fsetting, &FormatSetting::setCururentShortTimeFormat);
+    m_frameProxy->pushWidget(this, fsetting);
+}
+
 void DatetimeModule::showTimezoneList()
 {
     SystemTimezone *sysTimezoneWidget = new SystemTimezone;
@@ -289,6 +311,9 @@ void DatetimeModule::onPushWidget(const int &index)
         break;
     case TimeSetting:
         showTimeSetting();
+        break;
+    case FormatSetting:
+        showFormatSetting();
         break;
     default:
         break;
