@@ -167,7 +167,9 @@ void SoundWorker::setPort(const Port *port)
 
 void SoundWorker::setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable)
 {
-    m_soundEffectInter->EnableSound(m_model->getNameByEffectType(effect), enable);
+    QDBusPendingCall async = m_soundEffectInter->EnableSound(m_model->getNameByEffectType(effect), enable);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
+    watcher->waitForFinished();
 }
 
 void SoundWorker::enableAllSoundEffect(bool enable)
