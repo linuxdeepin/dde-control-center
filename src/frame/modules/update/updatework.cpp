@@ -106,6 +106,9 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_downloadSize(0)
     , m_iconThemeState("")
     , m_beginUpdatesJob(false)
+    , m_currLangSelector(new LangSelector("com.deepin.daemon.LangSelector",
+                                                "/com/deepin/daemon/LangSelector",
+                                                QDBusConnection::sessionBus(), this))
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
@@ -115,9 +118,17 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     m_smartMirrorInter->setSync(true, false);
     m_iconTheme->setSync(false);
 
-    QString sVersion = QString("%1 %2 %3").arg(DSysInfo::productTypeString().toUpper(),
-                                                 DSysInfo::deepinVersion(),
-                                                 DSysInfo::deepinTypeDisplayName());
+    QString sVersion;
+    if ("zh_CN.UTF-8" != m_currLangSelector->currentLocale() && DSysInfo::DeepinPersonal == DSysInfo::deepinType()) {
+         sVersion= QString("%1 %2 %3").arg(DSysInfo::productTypeString().toUpper(),
+                                                     DSysInfo::deepinVersion(),
+                                                     "Home");
+    } else {
+        sVersion = QString("%1 %2 %3").arg(DSysInfo::productTypeString().toUpper(),
+                                                     DSysInfo::deepinVersion(),
+                                                     DSysInfo::deepinTypeDisplayName());
+    }
+
     m_model->setSystemVersionInfo(sVersion);
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);

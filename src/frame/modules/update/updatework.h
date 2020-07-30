@@ -40,6 +40,7 @@
 #include <com_deepin_abrecovery.h>
 #include <com_deepin_daemon_systeminfo.h>
 #include <com_deepin_daemon_appearance.h>
+#include <com_deepin_daemon_langselector.h>
 
 #include "common.h"
 
@@ -54,6 +55,8 @@ using SmartMirrorInter = com::deepin::lastore::Smartmirror;
 using RecoveryInter = com::deepin::ABRecovery;
 using SystemInfoInter=com::deepin::daemon::SystemInfo;
 using Appearance = com::deepin::daemon::Appearance;
+using LangSelector = com::deepin::daemon::LangSelector;
+
 namespace dcc{
 namespace update{
 
@@ -157,6 +160,7 @@ private:
     qlonglong m_downloadSize;
     QString m_iconThemeState;
     bool m_beginUpdatesJob;
+    LangSelector *m_currLangSelector;
 };
 }
 }

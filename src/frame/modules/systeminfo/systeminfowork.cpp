@@ -146,9 +146,9 @@ void SystemInfoWork::activate()
 
     QString version;
     if (DSysInfo::isDeepin()) {
-        if ("en_US.UTF-8" == m_currLangSelector->currentLocale() && DSysInfo::DeepinPersonal == DSysInfo::deepinType()) {
+        if ("zh_CN.UTF-8" != m_currLangSelector->currentLocale() && DSysInfo::DeepinPersonal == DSysInfo::deepinType()) {
             version = QString("%1 %2").arg(DSysInfo::deepinVersion())
-                    .arg("home");
+                    .arg("Home");
         } else {
             version = QString("%1 %2").arg(DSysInfo::deepinVersion())
                     .arg(DSysInfo::deepinTypeDisplayName());
