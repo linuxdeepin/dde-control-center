@@ -126,6 +126,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     m_centralLayout->addWidget(activeL);
 
     QHBoxLayout *colorLayout = new QHBoxLayout();
+    colorLayout->setAlignment(Qt::AlignLeft);
     m_bgWidget->setLayout(colorLayout);
     m_bgWidget->setFixedHeight(40);
     colorLayout->setContentsMargins(16, 0, 16, 0);
