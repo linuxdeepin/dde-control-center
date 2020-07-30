@@ -24,6 +24,16 @@ BackupAndRestoreWorker::BackupAndRestoreWorker(BackupAndRestoreModel* model, QOb
 
 }
 
+void BackupAndRestoreWorker::restart()
+{
+    DDBusSender()
+    .service("com.deepin.dde.shutdownFront")
+    .path("/com/deepin/dde/shutdownFront")
+    .interface("com.deepin.dde.shutdownFront")
+    .method("Restart")
+    .call();
+}
+
 void BackupAndRestoreWorker::manualBackup(const QString &directory)
 {
     m_model->setBackupDirectory(directory);
@@ -128,6 +138,7 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
         return ErrorType::ToolError;
     }
 
+    restart();
     return setGrubAndRestart();
 }
 
@@ -161,6 +172,7 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
         return ErrorType::ToolError;
     }
 
+    restart();
     return setGrubAndRestart();
 }
 
@@ -192,6 +204,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
         return ErrorType::ToolError;
     }
 
+    restart();
     return setGrubAndRestart();
 }
 
@@ -234,5 +247,6 @@ ErrorType BackupAndRestoreWorker::setGrubAndRestart()
     .method("Restart")
     .call();
 
+    restart();
     return ErrorType::NoError;
 }

@@ -17,6 +17,8 @@ class BackupAndRestoreWorker : public QObject
 public:
     explicit BackupAndRestoreWorker(BackupAndRestoreModel* model, QObject *parent = nullptr);
 
+    void restart();
+
 public Q_SLOTS:
     void manualBackup(const QString& directory);
     void systemBackup(const QString& directory);
