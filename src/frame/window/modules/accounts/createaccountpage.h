@@ -43,6 +43,16 @@
 using Defender = com::deepin::defender::hmiscreen;
 using DaemonService = com::deepin::defender::daemonservice;
 
+enum ErrorType {
+    ENUM_PASSWORD_EMPTY,
+    ENUM_PASSWORD_TOOLONG,
+    ENUM_PASSWORD_TOOSHORT,
+    ENUM_PASSWORD_TYPE,
+    ENUM_PASSWORD_SEVERAL,
+    ENUM_PASSWORD_CHARACTER,
+    ENUM_PASSWORD_SUCCESS
+};
+
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QHBoxLayout;
@@ -67,11 +77,18 @@ private:
     void initUsrGroup(QVBoxLayout *layout);
     void createUser();
     bool onPasswordEditFinished(DPasswordEdit *edit);
-    QString validatePassword(const QString &password);
+    int validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
     bool validateUsername(const QString &username);
     bool onNameEditFinished(DLineEdit *edit);
     bool onFullNameEidtFinished(DLineEdit *edit);
+    /**
+     * @brief passwordCompositionType 密码组成类型
+     * @param validate 有效字符列表 （由英文（区分大小写）、数字或特殊符号（~!@#$%^&*()[]{}\|/?,.<>）组成的字符列表）
+     * @param password 密码字符串
+     * @return  密码字符串是否包含有效字符列表中字符
+     */
+    int  passwordCompositionType(const QStringList &validate, const QString &password);
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
@@ -103,6 +120,9 @@ private:
     bool m_isServerSystem;
     QWidget *m_tw;
     QScrollArea *m_scrollArea;
+    int m_passwordMinLength;
+    int m_passwordMaxLength;
+    int m_validate_Required;
 };
 
 }
