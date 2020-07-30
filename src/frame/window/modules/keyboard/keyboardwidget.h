@@ -71,6 +71,7 @@ private:
     dcc::widgets::MultiSelectListView *m_keyboardListView;
     QVBoxLayout *m_contentLayout;
     QStandardItemModel *m_listviewModel;
+    int m_previewRow = 0;
 };
 }
 }

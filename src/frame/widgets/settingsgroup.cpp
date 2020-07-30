@@ -38,7 +38,7 @@ DWIDGET_USE_NAMESPACE
 namespace dcc {
 namespace widgets {
 
-SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
+SettingsGroup::SettingsGroup(QWidget *parent, BackgroundStyle bgStyle)
     : TranslucentFrame(parent)
     , m_layout(new QVBoxLayout)
     , m_headerItem(nullptr)
@@ -60,7 +60,7 @@ SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     setLayout(vLayout);
 }
 
-SettingsGroup::SettingsGroup(const QString &title, QFrame *parent)
+SettingsGroup::SettingsGroup(const QString &title, QWidget *parent)
     : SettingsGroup(parent)
 {
     setHeaderVisible(!title.isEmpty());
