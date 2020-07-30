@@ -23,7 +23,9 @@
 #define MICROPHONEPAGE_H_V20
 
 #include "interface/namespace.h"
+#include "modules/sound/soundmodel.h"
 
+#include <QStandardItemModel>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -35,6 +37,8 @@ namespace dcc {
 namespace widgets {
 class TitledSliderItem;
 class SwitchWidget;
+class ComboxWidget;
+class Port;
 }
 
 namespace sound {
@@ -59,6 +63,13 @@ public:
 Q_SIGNALS:
     void requestSwitchMicrophone(bool on);
     void requestSetMicrophoneVolume(double vol);
+    void requestSetPort(const dcc::sound::Port *);
+    //请求降噪
+   void requestReduceNoise(bool value);
+
+private Q_SLOTS:
+    void removePort(const QString &portId, const uint &cardId);
+    void addPort(const dcc::sound::Port *port);
 
 private:
     void initSlider();
@@ -70,7 +81,13 @@ private:
     dcc::widgets::TitledSliderItem *m_inputSlider{nullptr};
     dcc::widgets::TitledSliderItem *m_feedbackSlider{nullptr};
     QMetaObject::Connection m_conn;
+    //输入列表的下拉框列表
+    dcc::widgets::ComboxWidget *m_inputSoundCbx;
+    //噪音抑制
+    dcc::widgets::SwitchWidget *m_noiseReductionsw{nullptr};
 
+    QStandardItemModel *m_inputModel{nullptr};
+    const dcc::sound::Port  *m_currentPort{nullptr};
 };
 
 }

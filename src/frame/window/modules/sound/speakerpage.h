@@ -25,8 +25,11 @@
 #include "interface/namespace.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
+#include "widgets/comboxwidget.h"
+#include "modules/sound/soundmodel.h"
 
 #include <QWidget>
+#include <QStandardItemModel>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -41,8 +44,9 @@ class SoundModel;
 namespace widgets {
 class TitledSliderItem;
 class SwitchWidget;
+class ComboxWidget;
+class Port;
 }
-
 }
 
 namespace DCC_NAMESPACE {
@@ -65,8 +69,13 @@ public:
     void setModel(dcc::sound::SoundModel *model);
 
 Q_SIGNALS:
-    //发出请求切换扬声器打开/关闭的请求
-    void requestSwitchSpeaker(bool isOpen);
+    void requestSetPort(const dcc::sound::Port *);
+
+private Q_SLOTS:
+    void removePort(const QString &portId, const uint &cardId);
+    void addPort(const dcc::sound::Port *port);
+
+Q_SIGNALS:
     //请求改变输出音量 0-1.5
     void requestSetSpeakerVolume(double val);
     //请求改变左右平衡 0-1.5
@@ -83,10 +92,16 @@ private:
     dcc::sound::SoundModel *m_model{nullptr};
     //用于切换扬声器开/关的 switch
     dcc::widgets::SwitchWidget *m_sw{nullptr};
+    //输入列表的下拉框列表
+    dcc::widgets::ComboxWidget *m_outputSoundCbx;
     //界面的主layout
     QVBoxLayout *m_layout{nullptr};
     dcc::widgets::TitledSliderItem *m_outputSlider;
     dcc::widgets::DCCSlider *m_speakSlider;
+
+    QStandardItemModel *m_outputModel{nullptr};
+    //当前选中的音频
+    const dcc::sound::Port *m_currentPort{nullptr};
 };
 
 }

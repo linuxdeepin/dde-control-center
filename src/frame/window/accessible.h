@@ -101,7 +101,6 @@
 #include "./modules/power/usebatterywidget.h"
 
 #include "./modules/sound/soundwidget.h"
-#include "./modules/sound/advancedpage.h"
 #include "./modules/sound/microphonepage.h"
 #include "./modules/sound/speakerpage.h"
 #include "./modules/sound/soundeffectspage.h"
@@ -263,7 +262,6 @@ using namespace DCC_NAMESPACE::sound;
 
 SET_FORM_ACCESSIBLE(SoundWidget, "SoundWidget")
 SET_FORM_ACCESSIBLE(SpeakerPage, "SpeakerPage")
-SET_FORM_ACCESSIBLE(AdvancedPage, "AdvancedPage")
 SET_FORM_ACCESSIBLE(MicrophonePage, "MicrophonePage")
 SET_FORM_ACCESSIBLE(SoundEffectsPage, "SoundEffectsPage")
 
@@ -427,7 +425,6 @@ QAccessibleInterface *accessibleFactory(const QString &classname, QObject *objec
     // 声音模块
     USE_ACCESSIBLE(QString(classname).replace("dccV20::sound::", ""), SoundWidget);
     USE_ACCESSIBLE(QString(classname).replace("dccV20::sound::", ""), SpeakerPage);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::sound::", ""), AdvancedPage);
     USE_ACCESSIBLE(QString(classname).replace("dccV20::sound::", ""), MicrophonePage);
     USE_ACCESSIBLE(QString(classname).replace("dccV20::sound::", ""), SoundEffectsPage);
 

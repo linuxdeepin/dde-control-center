@@ -28,16 +28,21 @@
 #include <DStyle>
 #include <DTipLabel>
 #include <DFontSizeManager>
+#include <DStandardItem>
 
 #include <QAction>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QComboBox>
 #include <QLabel>
 #include <QDebug>
 
 using namespace dcc::sound;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::sound;
+
+Q_DECLARE_METATYPE(const dcc::sound::Port *)
+
 DWIDGET_USE_NAMESPACE
 
 SpeakerPage::SpeakerPage(QWidget *parent)
@@ -46,10 +51,26 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_outputSlider(nullptr)
     , m_speakSlider(nullptr)
 {
+    const int titleLeftMargin = 17;
+    //~ contents_path /sound/Advanced
+    TitleLabel *labelOutput = new TitleLabel(tr("Output"));
+    DFontSizeManager::instance()->bind(labelOutput, DFontSizeManager::T5, QFont::DemiBold);
+    labelOutput->setContentsMargins(titleLeftMargin, 0, 0, 0);
+    labelOutput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+    m_outputSoundCbx = new ComboxWidget(tr("Output Device"));
+    m_outputSoundCbx->setMaximumHeight(100);
+
+    m_outputModel  = new QStandardItemModel(m_outputSoundCbx->comboBox());
+    m_outputSoundCbx->comboBox()->setModel(m_outputModel);
+
     TitleLabel *lblTitle = new TitleLabel(tr("Speaker"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->setAccessibleName(tr("Speaker"));
+
+    m_layout->addWidget(labelOutput);
+    m_layout->addWidget(m_outputSoundCbx, Qt::AlignLeft);
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(m_sw);
@@ -65,13 +86,86 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 {
     m_model = model;
 
-    m_sw->setChecked(m_model->speakerOn());
-    //连接switch点击信号，发送切换开/关扬声器的请求信号
-    connect(m_sw, &SwitchWidget::checkedChanged, this, &SpeakerPage::requestSwitchSpeaker);
     //当扬声器状态发生变化，将switch设置为对应的状态
-    connect(m_model, &SoundModel::speakerOnChanged, m_sw, &SwitchWidget::setChecked);
+    connect(m_model, &SoundModel::isPortEnableChanged, this, [ = ](bool visible) {
+        if (visible)
+            m_sw->setChecked(true);
+        else
+            m_sw->setChecked(false);
+    });
+
+    connect(m_model, &SoundModel::setPortChanged, this, [ = ](const dcc::sound::Port  * port) {
+        m_currentPort = port;
+        Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->cardName());
+    });
+
+    auto ports = m_model->ports();
+    for (auto port : ports) {
+        addPort(port);
+    }
+
+    //连接switch点击信号，发送切换开/关扬声器的请求信号
+    connect(m_sw, &SwitchWidget::checkedChanged, this, [ = ] {
+        if(m_currentPort != nullptr)
+            Q_EMIT m_model->requestSwitchSetEnable(m_currentPort->cardId(), m_currentPort->cardName(), m_sw->checked());
+        else
+            m_sw->setChecked(false);
+    });
+
+
+
+    connect(m_model, &SoundModel::portAdded, this, &SpeakerPage::addPort);
+
+    connect(m_model, &SoundModel::portRemoved, this, &SpeakerPage::removePort);
+
+    connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+    this, [this](const int  idx) {
+        auto temp = m_outputModel->index(idx, 0);
+        this->requestSetPort(m_outputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
+    });
 
     initSlider();
+}
+
+void SpeakerPage::removePort(const QString &portId, const uint &cardId)
+{
+    auto rmFunc = [ = ](QStandardItemModel * model) {
+        for (int i = 0; i < model->rowCount();) {
+            auto item = model->item(i);
+            auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
+            if (port->id() == portId && cardId == port->cardId()) {
+                model->removeRow(i);
+            } else {
+                ++i;
+            }
+        }
+    };
+
+    rmFunc(m_outputModel);
+}
+
+void SpeakerPage::addPort(const dcc::sound::Port *port)
+{
+    if (port->Out == port->direction()) {
+        DStandardItem *pi = new DStandardItem;
+        pi->setText(port->name());
+
+        pi->setData(QVariant::fromValue<const dcc::sound::Port *>(port), Qt::WhatsThisPropertyRole);
+
+        connect(port, &dcc::sound::Port::nameChanged, this, [ = ](const QString str) {
+            pi->setText(str);
+        });
+        connect(port, &dcc::sound::Port::isActiveChanged, this, [ = ](bool isActive) {
+            pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+        });
+
+        m_outputModel->appendRow(pi);
+        if (port->isActive()) {
+            m_outputSoundCbx->comboBox()->setCurrentText(port->name());
+            m_currentPort = port;
+            Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->cardName());
+        }
+    }
 }
 
 void SpeakerPage::initSlider()
@@ -79,14 +173,14 @@ void SpeakerPage::initSlider()
     //~ contents_path /sound/Speaker
     m_outputSlider = new TitledSliderItem(tr("Output Volume"), this);
     m_outputSlider->addBackground();
-    m_outputSlider->setVisible(m_model->speakerOn());
+    m_outputSlider->setVisible(m_model->isPortEnable());
     m_speakSlider = m_outputSlider->slider();
 
     QStringList annotions;
     if (m_model->MaxUIVolume() > 1.0) {
         annotions << "0" << " " << "100" << "150";
         m_speakSlider->setAnnotations(annotions);
-    }else {
+    } else {
         annotions << "0" << " " << "100";
         m_speakSlider->setAnnotations(annotions);
     }
@@ -126,7 +220,7 @@ void SpeakerPage::initSlider()
     //滑块移动消息处理
     connect(m_speakSlider, &DCCSlider::sliderMoved, slotfunc1);
     //当扬声器开/关时，显示/隐藏控件
-    connect(m_model, &SoundModel::speakerOnChanged, m_outputSlider, &TitledSliderItem::setVisible);
+    connect(m_model, &SoundModel::isPortEnableChanged, m_outputSlider, &TitledSliderItem::setVisible);
     //当底层数据改变后，更新滑动条显示的数据
     connect(m_model, &SoundModel::speakerVolumeChanged, this, [ = ](double v) {
         m_speakSlider->blockSignals(true);
@@ -142,7 +236,7 @@ void SpeakerPage::initSlider()
             annotion << "0 " << "" << "100" << "150 ";
             qDebug() << m_outputSlider << annotion;
             m_outputSlider->slider()->setRightTicks(annotion);
-        }else{
+        } else {
             annotion << "0 " << "" << "100";
             m_outputSlider->slider()->setRightTicks(annotion);
         }
@@ -154,7 +248,7 @@ void SpeakerPage::initSlider()
         m_outputSlider->setValueLiteral(QString::number(m_model->speakerVolume() * 100) + "%");
     });
 
-    m_layout->insertWidget(1, m_outputSlider);
+    m_layout->insertWidget(3, m_outputSlider);
 
     //音量增强
     auto hlayout = new QVBoxLayout();
@@ -177,20 +271,20 @@ void SpeakerPage::initSlider()
     hlayout->addWidget(volumeBoostTip);
     auto vbWidget = new QWidget(this);
     vbWidget->setLayout(hlayout);
-    vbWidget->setVisible(m_model->speakerOn());
-    m_layout->insertWidget(2, vbWidget);
+    vbWidget->setVisible(m_model->isPortEnable());
+    m_layout->insertWidget(4, vbWidget);
     connect(volumeBoost, &SwitchWidget::checkedChanged, volumeBoostTip, &DTipLabel::setVisible);
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoostTip, &DTipLabel::setVisible);
-    connect(m_model, &SoundModel::speakerOnChanged, vbWidget, &QWidget::setVisible);
+    connect(m_model, &SoundModel::isPortEnableChanged, vbWidget, &QWidget::setVisible);
 
     //~ contents_path /sound/Speaker
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     balanceSlider->addBackground();
-    balanceSlider->setVisible(m_model->speakerOn());
+    balanceSlider->setVisible(m_model->isPortEnable());
 
     //信号处理与上面一致
     QStringList balanceList;
-    balanceList << tr("Left")<< " ";
+    balanceList << tr("Left") << " ";
     balanceList << tr("Right");
     DCCSlider *slider2 = balanceSlider->slider();
     slider2->setRange(-100, 100);
@@ -207,12 +301,12 @@ void SpeakerPage::initSlider()
     };
     connect(slider2, &DCCSlider::valueChanged, slotfunc2);
     connect(slider2, &DCCSlider::sliderMoved, slotfunc2);
-    connect(m_model, &SoundModel::speakerOnChanged, balanceSlider, &TitledSliderItem::setVisible);
+    connect(m_model, &SoundModel::isPortEnableChanged, balanceSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::speakerBalanceChanged, this, [ = ](double v) {
         slider2->blockSignals(true);
         slider2->setSliderPosition(static_cast<int>(v * 100 + 0.000001));
         slider2->blockSignals(false);
     });
 
-    m_layout->insertWidget(3, balanceSlider);
+    m_layout->insertWidget(5, balanceSlider);
 }

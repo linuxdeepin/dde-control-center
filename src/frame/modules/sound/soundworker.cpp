@@ -34,7 +34,7 @@
 namespace dcc {
 namespace sound {
 
-SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
+SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_activeOutputCard(UINT_MAX)
@@ -61,12 +61,16 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     connect(m_model, &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
     connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
     connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
+    connect(m_model, &SoundModel::requestSwitchEnable, this, &SoundWorker::isPortEnabled);
+    connect(m_model, &SoundModel::requestSwitchSetEnable, this, &SoundWorker::setPortEnabled);
 
     connect(m_audioInter, &Audio::DefaultSinkChanged, m_model, &SoundModel::setDefaultSink);
     connect(m_audioInter, &Audio::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
     connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
     connect(m_audioInter, &Audio::MaxUIVolumeChanged, m_model, &SoundModel::setMaxUIVolume);
     connect(m_audioInter, &Audio::IncreaseVolumeChanged, model, &SoundModel::setIncreaseVolume);
+    connect(m_audioInter, &Audio::CardsWithoutUnavailableChanged, model, &SoundModel::setAudioCards);
+    connect(m_audioInter, &Audio::ReduceNoiseChanged, model, &SoundModel::setReduceNoise);
 
     connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);
 
@@ -76,10 +80,11 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
 
     m_model->setDefaultSink(m_audioInter->defaultSink());
     m_model->setDefaultSource(m_audioInter->defaultSource());
-    m_model->setAudioCards(m_audioInter->cards());
+    m_model->setAudioCards(m_audioInter->cardsWithoutUnavailable());
     m_model->setIsLaptop(m_powerInter->lidIsPresent());
     m_model->setMaxUIVolume(m_audioInter->maxUIVolume());
     m_model->setIncreaseVolume(m_audioInter->increaseVolume());
+    m_model->setReduceNoise(m_audioInter->reduceNoise());
 }
 
 void SoundWorker::activate()
@@ -129,6 +134,23 @@ void SoundWorker::switchMicrophone(bool on)
     }
 }
 
+void SoundWorker::isPortEnabled(unsigned int cardid, QString portName)
+{
+    if (m_audioInter) {
+        bool isEnable =  m_audioInter->IsPortEnabled(cardid, portName);
+        m_model->setPortEnable(isEnable);
+    }
+}
+
+void SoundWorker::setPortEnabled(unsigned int cardid, QString portName, bool enable)
+{
+    if (m_audioInter) {
+        m_audioInter->SetPortEnabled(cardid, portName, enable);
+        //查询,通知界面显示是否可用
+        isPortEnabled(cardid, portName);
+    }
+}
+
 void SoundWorker::setSinkBalance(double balance)
 {
     if (m_defaultSink) {
@@ -158,11 +180,17 @@ void SoundWorker::setIncreaseVolume(bool value)
     m_audioInter->setIncreaseVolume(value);
 }
 
+void SoundWorker::setReduceNoise(bool value)
+{
+    m_audioInter->setReduceNoise(value);
+}
+
 void SoundWorker::setPort(const Port *port)
 {
     auto rep = m_audioInter->SetPort(port->cardId(), port->id(), int(port->direction()));
-    qDebug() << port->cardId() << "  " << port->id() << "  " << port->direction();
-    qDebug() << rep.error();
+    qDebug() << "cardID:" << port->cardId()  << "portName:" << "  " << port->id() << "  " << port->direction();
+    qDebug() << rep.error() << "isError:" << rep.isError();
+    m_model->setPort(port);
 }
 
 void SoundWorker::setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable)
@@ -182,7 +210,7 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
     if (m_defaultSink) m_defaultSink->deleteLater();
     m_defaultSink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
 
-    connect(m_defaultSink, &Sink::MuteChanged, [this] (bool mute) { m_model->setSpeakerOn(!mute); });
+    connect(m_defaultSink, &Sink::MuteChanged, [this](bool mute) { m_model->setSpeakerOn(!mute); });
     connect(m_defaultSink, &Sink::BalanceChanged, m_model, &SoundModel::setSpeakerBalance);
     connect(m_defaultSink, &Sink::VolumeChanged, m_model, &SoundModel::setSpeakerVolume);
     connect(m_defaultSink, &Sink::ActivePortChanged, this, &SoundWorker::activeSinkPortChanged);
@@ -191,6 +219,7 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
     m_model->setSpeakerOn(!m_defaultSink->mute());
     m_model->setSpeakerBalance(m_defaultSink->balance());
     m_model->setSpeakerVolume(m_defaultSink->volume());
+
     activeSinkPortChanged(m_defaultSink->activePort());
     onSinkCardChanged(m_defaultSink->card());
 }
@@ -202,7 +231,7 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
     if (m_defaultSource) m_defaultSource->deleteLater();
     m_defaultSource = new Source("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
 
-    connect(m_defaultSource, &Source::MuteChanged, [this] (bool mute) { m_model->setMicrophoneOn(!mute); });
+    connect(m_defaultSource, &Source::MuteChanged, [this](bool mute) { m_model->setMicrophoneOn(!mute); });
     connect(m_defaultSource, &Source::VolumeChanged, m_model, &SoundModel::setMicrophoneVolume);
     connect(m_defaultSource, &Source::ActivePortChanged, this, &SoundWorker::activeSourcePortChanged);
     connect(m_defaultSource, &Source::CardChanged, this, &SoundWorker::onSourceCardChanged);
@@ -238,7 +267,6 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 void SoundWorker::cardsChanged(const QString &cards)
 {
     QMap<uint, QStringList> tmpCardIds;
-
     QJsonDocument doc = QJsonDocument::fromJson(cards.toUtf8());
     QJsonArray jCards = doc.array();
     for (QJsonValue cV : jCards) {
@@ -252,7 +280,7 @@ void SoundWorker::cardsChanged(const QString &cards)
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
             const double portAvai = jPort["Available"].toDouble();
-            if (portAvai == 2.0 || portAvai == 0.0 ) { // 0 Unknow 1 Not available 2 Available
+            if (portAvai == 2.0 || portAvai == 0.0) {  // 0 Unknow 1 Not available 2 Available
                 const QString portId = jPort["Name"].toString();
                 const QString portName = jPort["Description"].toString();
 
@@ -313,7 +341,8 @@ void SoundWorker::onSourceCardChanged(const uint &cardId)
     m_activeTimer->start();
 }
 
-void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher) {
+void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher)
+{
     if (!watcher->isError()) {
         QDBusReply<QMap<QString, bool>> value = watcher->reply();
         auto map = value.value();
@@ -329,22 +358,21 @@ void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher) {
             watcher->setProperty("Type", type);
             connect(watcher, &QDBusPendingCallWatcher::finished, this, &SoundWorker::getSoundPathFinished);
         }
-    }
-    else {
+    } else {
         qDebug() << "get sound enabled map error." << watcher->error();
     }
 
     watcher->deleteLater();
 }
 
-void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher) {
+void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher)
+{
     if (!watcher->isError()) {
         QDBusReply<QString> reply = watcher->reply();
         m_model->updateSoundEffectPath(
             watcher->property("Type").value<DDesktopServices::SystemSoundEffect>(),
             reply.value());
-    }
-    else {
+    } else {
         qDebug() << "get sound path error." << watcher->error();
     }
 

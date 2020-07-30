@@ -69,10 +69,14 @@ public Q_SLOTS:
     void switchSpeaker(bool on);
     void switchMicrophone(bool on);
 
+    void setPortEnabled(unsigned int cardid,QString portName,bool enable);
+    void isPortEnabled(unsigned int cardid, QString portName);
+
     void setSinkBalance(double balance);
     void setSourceVolume(double volume);
     void setSinkVolume(double volume);
     void setIncreaseVolume(bool value);
+    void setReduceNoise(bool value);
 
     void setPort(const Port *port);
     void setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);

@@ -95,6 +95,12 @@ public:
     inline bool speakerOn() const { return m_speakerOn; }
     void setSpeakerOn(bool speakerOn);
 
+    inline bool isPortEnable() const { return m_portEnable; }
+    void setPortEnable(bool enable);
+
+    inline bool reduceNoise() const { return m_reduceNoise; }
+    void setReduceNoise(bool reduceNoise);
+
     inline bool microphoneOn() const { return m_microphoneOn; }
     void setMicrophoneOn(bool microphoneOn);
 
@@ -109,6 +115,7 @@ public:
     void setMicrophoneFeedback(double microphoneFeedback);
 #endif
 
+    void setPort(const Port *port);
     void addPort(Port *port);
     void removePort(const QString &portId, const uint &cardId);
     bool containsPort(const Port *port);
@@ -164,6 +171,14 @@ Q_SIGNALS:
     void audioCardsChanged(const QString &audioCards) const;
     void maxUIVolumeChanged(double value) const;
     void increaseVolumeChanged(bool value) const;
+    void reduceNoiseChanged(bool reduceNoise) const;
+    void isPortEnableChanged(bool enable) const;
+
+    void setPortChanged(const Port* port) const;
+    //发出请求切换扬声器打开/关闭的请求
+    void requestSwitchSetEnable(unsigned int cardId,QString cardName, bool enable);
+    //查询是否可用
+    void requestSwitchEnable(unsigned int cardId,QString cardName);
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
@@ -180,6 +195,8 @@ private:
     bool m_enableSoundEffect;
     bool m_isLaptop;
     bool m_increaseVolume{false};
+    bool m_reduceNoise{true};
+    bool m_portEnable{false};
     double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;

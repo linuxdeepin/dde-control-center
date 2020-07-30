@@ -23,7 +23,6 @@
 #include "soundwidget.h"
 #include "speakerpage.h"
 #include "microphonepage.h"
-#include "advancedpage.h"
 #include "soundeffectspage.h"
 
 #include "modules/sound/soundmodel.h"
@@ -69,7 +68,6 @@ void SoundModule::active()
 
     connect(m_soundWidget, &SoundWidget::requsetSpeakerPage, this, &SoundModule::showSpeakerPage);
     connect(m_soundWidget, &SoundWidget::requestMicrophonePage, this, &SoundModule::showMicrophonePage);
-    connect(m_soundWidget, &SoundWidget::requestAdvancedPage, this, &SoundModule::showAdvancedPage);
     connect(m_soundWidget, &SoundWidget::requsetSoundEffectsPage, this, &SoundModule::showSoundEffectsPage);
 
     m_frameProxy->pushWidget(this, m_soundWidget);
@@ -96,31 +94,23 @@ void SoundModule::showSpeakerPage()
 {
     SpeakerPage *w = new SpeakerPage;
 
+    m_model->setPortEnable(false);
     w->setModel(m_model);
-    connect(w, &SpeakerPage::requestSwitchSpeaker, m_worker, &SoundWorker::switchSpeaker);
     connect(w, &SpeakerPage::requestSetSpeakerBalance, m_worker, &SoundWorker::setSinkBalance);
     connect(w, &SpeakerPage::requestSetSpeakerVolume, m_worker, &SoundWorker::setSinkVolume);
     connect(w, &SpeakerPage::requestIncreaseVolume, m_worker, &SoundWorker::setIncreaseVolume);
-
+    connect(w, &SpeakerPage::requestSetPort, m_worker, &SoundWorker::setPort);
     m_frameProxy->pushWidget(this, w);
 }
 
 void SoundModule::showMicrophonePage()
 {
     MicrophonePage *w = new MicrophonePage;
-    connect(w, &MicrophonePage::requestSwitchMicrophone, m_worker, &SoundWorker::switchMicrophone);
+    m_model->setPortEnable(false);
+    w->setModel(m_model);
     connect(w, &MicrophonePage::requestSetMicrophoneVolume, m_worker, &SoundWorker::setSourceVolume);
-
-    w->setModel(m_model);
-    m_frameProxy->pushWidget(this, w);
-}
-
-void SoundModule::showAdvancedPage()
-{
-    AdvancedPage *w = new AdvancedPage;
-
-    w->setModel(m_model);
-    connect(w, &AdvancedPage::requestSetPort, m_worker, &SoundWorker::setPort);
+    connect(w, &MicrophonePage::requestSetPort, m_worker, &SoundWorker::setPort);
+    connect(w, &MicrophonePage::requestReduceNoise, m_worker, &SoundWorker::setReduceNoise);
     m_frameProxy->pushWidget(this, w);
 }
 

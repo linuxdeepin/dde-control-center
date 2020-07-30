@@ -114,7 +114,6 @@ set(WINDOW_FILES
     window/modules/sound/soundmodule.cpp
     window/modules/sound/speakerpage.cpp
     window/modules/sound/microphonepage.cpp
-    window/modules/sound/advancedpage.cpp
     window/modules/sound/soundeffectspage.cpp
     window/modules/update/updatemodule.cpp
     window/modules/update/updatewidget.cpp

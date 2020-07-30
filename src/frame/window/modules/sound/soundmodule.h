@@ -58,7 +58,6 @@ public:
 public Q_SLOTS:
     void showSpeakerPage();
     void showMicrophonePage();
-    void showAdvancedPage();
     void showSoundEffectsPage();
 
 private:

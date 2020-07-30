@@ -121,6 +121,22 @@ void SoundModel::setSpeakerOn(bool speakerOn)
     }
 }
 
+void SoundModel::setPortEnable(bool enable)
+{
+    if (enable != m_portEnable)
+        m_portEnable = enable;
+    Q_EMIT isPortEnableChanged(enable);
+}
+
+void SoundModel::setReduceNoise(bool reduceNoise)
+{
+    if (reduceNoise != m_reduceNoise) {
+        m_reduceNoise = reduceNoise;
+        Q_EMIT reduceNoiseChanged(reduceNoise);
+    }
+}
+
+
 void SoundModel::setMicrophoneOn(bool microphoneOn)
 {
     if (microphoneOn != m_microphoneOn) {
@@ -156,6 +172,11 @@ void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
     }
 }
 #endif
+
+void SoundModel::setPort(const Port *port)
+{
+    Q_EMIT setPortChanged(port);
+}
 
 void SoundModel::addPort(Port *port)
 {
