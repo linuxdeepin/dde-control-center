@@ -127,6 +127,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         const bool isHotspot = type == "wireless-hotspot";
         const bool isWireless = type == "wireless";
         const QJsonObject &hotspotInfo = info.value("Hotspot").toObject();
+        QVBoxLayout *m_headTitleLayout = new QVBoxLayout;
 
         if (isHotspot) {
             SettingsHead *head = new SettingsHead();
@@ -138,7 +139,6 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             appendInfo(grp, tr("SSID"), ssid);
         } else {
             const QString name = info.value("ConnectionName").toString();
-
             SettingsHead *head = new SettingsHead();
             head->setTitle(name);
             head->setEditEnable(false);
