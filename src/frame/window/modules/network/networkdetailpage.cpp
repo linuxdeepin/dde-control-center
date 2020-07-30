@@ -121,7 +121,6 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         delete item;
     }
 
-    QVBoxLayout *m_headTitleLayout = new QVBoxLayout;
     int infoCount = infos.count();
     for (const auto &info : infos) {
         SettingsGroup *grp = new SettingsGroup;
@@ -129,6 +128,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         const bool isHotspot = type == "wireless-hotspot";
         const bool isWireless = type == "wireless";
         const QJsonObject &hotspotInfo = info.value("Hotspot").toObject();
+        QVBoxLayout *m_headTitleLayout = new QVBoxLayout;
 
         if (isHotspot) {
             SettingsHead *head = new SettingsHead();
@@ -140,7 +140,6 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             appendInfo(grp, tr("SSID"), ssid);
         } else {
             const QString name = info.value("ConnectionName").toString();
-
             SettingsHead *head = new SettingsHead();
             head->setTitle(name);
             DFontSizeManager::instance()->bind(head, DFontSizeManager::T5, QFont::DemiBold);
