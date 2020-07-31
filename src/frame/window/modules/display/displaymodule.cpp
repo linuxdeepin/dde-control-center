@@ -63,6 +63,15 @@ void DisplayModule::windowUpdate()
 
 void DisplayModule::initialize()
 {
+    m_displayModel = new DisplayModel;
+    m_displayWorker = new DisplayWorker(m_displayModel);
+
+    m_displayModel->moveToThread(qApp->thread());
+    m_displayWorker->moveToThread(qApp->thread());
+
+    connect(m_displayModel, &DisplayModel::monitorListChanged, this, [this]() {
+        m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
+    });
 }
 
 const QString DisplayModule::name() const
@@ -77,6 +86,10 @@ const QString DisplayModule::displayName() const
 
 void DisplayModule::active()
 {
+    m_displayWorker->active();
+
+    m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
+
     m_displayWidget = new DisplayWidget(m_displayModel);
     m_displayWidget->setModel();
 
@@ -124,27 +137,6 @@ int DisplayModule::load(const QString &path)
     }
 
     return m_displayWidget->showPath(path);
-}
-
-void DisplayModule::preInitialize(bool sync)
-{
-    Q_UNUSED(sync);
-    if (m_displayModel) {
-        delete m_displayModel;
-    }
-    m_displayModel = new DisplayModel;
-    m_displayWorker = new DisplayWorker(m_displayModel);
-
-    m_displayModel->moveToThread(qApp->thread());
-    m_displayWorker->moveToThread(qApp->thread());
-
-    m_displayWorker->active();
-
-    m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
-
-    connect(m_displayModel, &DisplayModel::monitorListChanged, this, [this]() {
-        m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
-    });
 }
 
 QStringList DisplayModule::availPage() const
