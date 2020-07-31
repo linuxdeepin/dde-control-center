@@ -79,6 +79,7 @@ private:
     ClockItem *m_clockItem;
     const dcc::datetime::DatetimeModel *m_model;
     dcc::widgets::SwitchWidget *m_hourTypeSwitch;
+    QModelIndex m_lastIndex;
 };
 
 }// namespace datetime

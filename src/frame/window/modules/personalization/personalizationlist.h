@@ -25,6 +25,7 @@
 #include <dtkwidget_global.h>
 
 #include <QWidget>
+#include <QModelIndex>
 
 DWIDGET_BEGIN_NAMESPACE
 class DListView;
@@ -63,6 +64,7 @@ private:
     dcc::widgets::MultiSelectListView *m_categoryListView;
     QStandardItemModel *m_model;
     QVBoxLayout *m_centralLayout;
+    QModelIndex m_lastIndex;
 };
 }
 }

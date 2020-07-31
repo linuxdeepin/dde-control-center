@@ -107,8 +107,11 @@ void CommonInfoWidget::initData()
         item->setText(m.itemText);
         m_itemModel->appendRow(item);
     }
-
+    m_lastIndex = m_listView->model()->index(0, 0);
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
+        if (m_lastIndex == index) return;
+
+        m_lastIndex = index;
         m_itemList[index.row()].itemSignal.invoke(this);
         m_listView->resetStatus(index);
     });

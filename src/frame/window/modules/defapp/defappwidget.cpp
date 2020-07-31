@@ -83,7 +83,8 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
 
     m_defAppCatView->setModel(model);
     //show default browser app
-    m_defAppCatView->setCurrentIndex(model->indexFromItem(model->item(0)));
+    m_lastIndex = model->indexFromItem(model->item(0));
+    m_defAppCatView->setCurrentIndex(m_lastIndex);
 
     m_centralLayout->setMargin(0);
     m_centralLayout->addWidget(m_defAppCatView);
@@ -103,6 +104,9 @@ void DefaultAppsWidget::setCurrentIndex(int row)
 }
 
 void DefaultAppsWidget::onCategoryClicked(const QModelIndex &index) {
+    if (m_lastIndex == index) return;
+
+    m_lastIndex = index;
     qDebug() << "DefaultAppsWidget clicked row " << index.row();
     Q_EMIT requestCategoryClicked(dcc::defapp::DefAppWorker::DefaultAppsCategory(index.row()));
     m_defAppCatView->resetStatus(index);

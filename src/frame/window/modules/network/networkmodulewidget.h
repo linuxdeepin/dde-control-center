@@ -108,6 +108,7 @@ private:
         DeviceRole,
         SearchPath
     };
+    QModelIndex m_lastIndex;
 };
 }   // namespace network
 }   // namespace dcc

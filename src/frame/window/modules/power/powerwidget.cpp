@@ -125,6 +125,9 @@ void PowerWidget::setDefaultWidget()
 
 void PowerWidget::onItemClicked(const QModelIndex &index)
 {
+    if (index == m_lastIndex) return;
+
+    m_lastIndex = index;
     m_listview->setCurrentIndex(index);
     m_menuIconText[index.row()].method.invoke(this);
     m_listview->resetStatus(index);

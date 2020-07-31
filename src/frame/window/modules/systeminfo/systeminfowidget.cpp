@@ -112,6 +112,9 @@ void SystemInfoWidget::initData()
     }
 
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
+        if (m_lastIndex == index) return;
+
+        m_lastIndex = index;
         m_itemList[index.row()].method.invoke(this);
         m_listView->resetStatus(index);
     });

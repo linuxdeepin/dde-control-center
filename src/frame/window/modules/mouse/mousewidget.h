@@ -72,6 +72,7 @@ private:
     dcc::widgets::MultiSelectListView *m_mouseListView;
     QVBoxLayout *m_contentLayout;
     QStandardItemModel *m_listviewModel;
+    QModelIndex m_lastIndex;
 };
 }
 }

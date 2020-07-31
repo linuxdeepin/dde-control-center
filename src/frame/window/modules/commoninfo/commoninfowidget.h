@@ -75,6 +75,7 @@ private:
     QList<ListSubItem> m_itemList;
     QGSettings *m_moduleDevelop{nullptr};
     bool isContensServer;
+    QModelIndex m_lastIndex;
 };
 }
 }

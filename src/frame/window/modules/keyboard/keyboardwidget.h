@@ -72,6 +72,7 @@ private:
     QVBoxLayout *m_contentLayout;
     QStandardItemModel *m_listviewModel;
     int m_previewRow = 0;
+    QModelIndex m_lastIndex;
 };
 }
 }

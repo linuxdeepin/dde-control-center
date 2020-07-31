@@ -70,7 +70,8 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
 
     connect(m_systemListView, &DListView::clicked, this, &NotificationWidget::onSystemClicked);
     connect(m_systemListView, &DListView::activated, m_systemListView, &DListView::clicked);
-    m_systemListView->setCurrentIndex(m_sysmodel->indexFromItem(m_sysmodel->item(0)));
+    m_lastIndex = m_sysmodel->indexFromItem(m_sysmodel->item(0));
+    m_systemListView->setCurrentIndex(m_lastIndex);
 
     QLabel *themeL = new QLabel(tr("App Notifications"));
     themeL->setMargin(3);
@@ -115,8 +116,11 @@ void NotificationWidget::setModel(NotificationModel *model)
 void NotificationWidget::onAppClicked(const QModelIndex &index)
 {
     if (index.row() >= 0) {
-        Q_EMIT requestShowApp(index.row());
         m_systemListView->clearSelection();
+        if (m_lastIndex == index) return;
+
+        m_lastIndex = index;
+        Q_EMIT requestShowApp(index.row());
         m_softwareListView->setCurrentIndex(index);
     }
 }
@@ -131,6 +135,9 @@ void NotificationWidget::setAppCurrentIndex(int row)
 
 void NotificationWidget::onSystemClicked(const QModelIndex &index)
 {
+    if (m_lastIndex == index) return;
+
+    m_lastIndex = index;
     switch (index.row()) {
     case 0:
         Q_EMIT requestShowSystem();

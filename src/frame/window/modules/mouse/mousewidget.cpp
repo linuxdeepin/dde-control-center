@@ -76,7 +76,8 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     m_mouseListView->setModel(m_listviewModel);
     m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_mouseListView->setCurrentIndex(m_listviewModel->index(0, 0));
+    m_lastIndex = m_listviewModel->index(0, 0);
+    m_mouseListView->setCurrentIndex(m_lastIndex);
     m_mouseListView->setRowHidden(2, !tpadExist);
     m_mouseListView->setRowHidden(3, !redPointExist);
     m_mouseListView->setViewportMargins(ScrollAreaMargins);
@@ -101,6 +102,9 @@ void MouseWidget::initSetting(const int settingIndex)
 
 void MouseWidget::onItemClicked(const QModelIndex &index)
 {
+    if (m_lastIndex == index) return;
+
+    m_lastIndex = index;
     switch (index.row()) {
     case 0:
         Q_EMIT showGeneralSetting();
