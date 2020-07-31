@@ -54,6 +54,7 @@ class ShortCutSettingWidget : public QWidget
     Q_OBJECT
 public:
     explicit ShortCutSettingWidget(dcc::keyboard::ShortcutModel *model, QWidget *parent = nullptr);
+    ~ShortCutSettingWidget();
     void addShortcut(QList<dcc::keyboard::ShortcutInfo *> list, dcc::keyboard::ShortcutModel::InfoType type);
     dcc::widgets::SettingsHead *getHead() const;
     void showCustomShotcut();

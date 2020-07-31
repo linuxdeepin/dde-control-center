@@ -54,8 +54,8 @@ public:
         NoneBackground
     };
 
-    explicit SettingsGroup(QWidget *parent = nullptr, BackgroundStyle bgStyle = ItemBackground);
-    explicit SettingsGroup(const QString &title, QWidget *parent = nullptr);
+    explicit SettingsGroup(QFrame *parent = nullptr, BackgroundStyle bgStyle = ItemBackground);
+    explicit SettingsGroup(const QString &title, QFrame *parent = nullptr);
     ~SettingsGroup();
 
     SettingsHeaderItem *headerItem() const { return m_headerItem; }

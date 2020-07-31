@@ -49,36 +49,36 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_searchDelayTimer->setSingleShot(true);
 
     m_searchText = QString();
-    m_systemGroup = new SettingsGroup(this);
+    m_systemGroup = new SettingsGroup();
     m_systemGroup->getLayout()->setMargin(0);
     SettingsHead *systemHead = new SettingsHead(m_systemGroup);
     systemHead->setEditEnable(false);
     systemHead->setTitle(tr("System"));
     m_systemGroup->appendItem(systemHead, SettingsGroup::NoneBackground);
 
-    m_windowGroup = new SettingsGroup(this);
+    m_windowGroup = new SettingsGroup();
     m_windowGroup->getLayout()->setMargin(0);
     SettingsHead *windowHead = new SettingsHead(m_windowGroup);
     windowHead->setEditEnable(false);
     windowHead->setTitle(tr("Window"));
     m_windowGroup->appendItem(windowHead, SettingsGroup::NoneBackground);
 
-    m_workspaceGroup = new SettingsGroup(this);
+    m_workspaceGroup = new SettingsGroup();
     SettingsHead *workspaceHead = new SettingsHead(m_workspaceGroup);
     workspaceHead->setEditEnable(false);
     workspaceHead->setTitle(tr("Workspace"));
     m_workspaceGroup->appendItem(workspaceHead, SettingsGroup::NoneBackground);
 
     if (!DCC_NAMESPACE::IsServerSystem) {
-        m_assistiveToolsGroup = new SettingsGroup(this);
+        m_assistiveToolsGroup = new SettingsGroup();
         SettingsHead *speechHead = new SettingsHead(m_assistiveToolsGroup);
         speechHead->setTitle(tr("Assistive Tools"));
         speechHead->setEditEnable(false);
         m_assistiveToolsGroup->appendItem(speechHead, SettingsGroup::NoneBackground);
     }
 
-    m_customGroup = new SettingsGroup(this);
-    m_searchGroup = new SettingsGroup(this);
+    m_customGroup = new SettingsGroup();
+    m_searchGroup = new SettingsGroup();
     m_searchInput = new SearchInput(this);
     m_searchInput->setContentsMargins(0, 0, 0, 0);
 
@@ -147,6 +147,34 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     connect(m_model, &ShortcutModel::shortcutChanged, this, &ShortCutSettingWidget::onShortcutChanged);
     connect(m_model, &ShortcutModel::keyEvent, this, &ShortCutSettingWidget::onKeyEvent);
     connect(m_model, &ShortcutModel::searchFinished, this, &ShortCutSettingWidget::onSearchStringFinish);
+}
+
+ShortCutSettingWidget::~ShortCutSettingWidget()
+{
+    if (m_systemGroup != nullptr) {
+        delete  m_systemGroup;
+        m_systemGroup = nullptr;
+    }
+    if (m_windowGroup != nullptr) {
+        delete  m_windowGroup;
+        m_windowGroup = nullptr;
+    }
+    if (m_workspaceGroup != nullptr) {
+        delete  m_workspaceGroup;
+        m_workspaceGroup = nullptr;
+    }
+    if (m_assistiveToolsGroup != nullptr) {
+        delete  m_assistiveToolsGroup;
+        m_assistiveToolsGroup = nullptr;
+    }
+    if (m_customGroup != nullptr) {
+        delete  m_customGroup;
+        m_customGroup = nullptr;
+    }
+    if (m_searchGroup != nullptr) {
+        delete  m_searchGroup;
+        m_searchGroup = nullptr;
+    }
 }
 
 void ShortCutSettingWidget::showCustomShotcut()
