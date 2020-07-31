@@ -89,7 +89,7 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
     }
 
     //check choosePath file system type
-    QStringList fileSystems{"ext4", "ntfs"};
+    QStringList fileSystems{"ext4", "ntfs-3g", "fuseblk"};
     QStorageInfo storageInfo(choosePath);
     if (!fileSystems.contains(storageInfo.fileSystemType().toLower())) {
         return ErrorType::FsError;
