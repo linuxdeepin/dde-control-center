@@ -82,6 +82,9 @@ PersonalizationList::PersonalizationList(QWidget *parent)
 
 void PersonalizationList::onCategoryClicked(const QModelIndex &index)
 {
+    if (index == m_lastIndex) return;
+
+    m_lastIndex = index;
     switch (index.row()) {
     case 0:
         Q_EMIT requestShowGeneral();
@@ -105,6 +108,6 @@ void PersonalizationList::setCurrentIndex(int row)
 {
     if (row > m_model->rowCount())
         row = 0;
-
-    m_categoryListView->setCurrentIndex(m_model->indexFromItem(m_model->item(row)));
+    m_lastIndex = m_model->indexFromItem(m_model->item(row));
+    m_categoryListView->setCurrentIndex(m_lastIndex);
 }

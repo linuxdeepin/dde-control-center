@@ -73,6 +73,7 @@ private:
     dcc::widgets::MultiSelectListView *m_listView;
     QStandardItemModel *m_itemModel;
     QList<ListMethod> m_itemList;
+    QModelIndex m_lastIndex;
 };
 
 }

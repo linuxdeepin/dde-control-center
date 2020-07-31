@@ -26,6 +26,7 @@
 #include <dtkwidget_global.h>
 
 #include <QWidget>
+#include <QModelIndex>
 
 DWIDGET_BEGIN_NAMESPACE
 class DListView;
@@ -64,6 +65,7 @@ private:
     QVBoxLayout *m_centralLayout;
     dcc::notification::NotificationModel  *m_model;
     QString m_theme;
+    QModelIndex m_lastIndex;
 };
 
 }
