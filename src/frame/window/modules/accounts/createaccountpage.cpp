@@ -430,11 +430,11 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
         return false;
     case ENUM_PASSWORD_PALINDROME:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The password cannot contain palindrome"));
+        edit->showAlertMessage(tr("Password must not contain more than 4 palindrome characters"));
         return false;
     case ENUM_PASSWORD_DICT_FORBIDDEN:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The password cannot use the common words"));
+        edit->showAlertMessage(tr("Password must not contain common words and combinations"));
         return false;
     }
 
