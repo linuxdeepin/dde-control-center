@@ -143,6 +143,61 @@ int main(int argc, char *argv[])
     }
     app.setOrganizationName("deepin");
     app.setApplicationName("dde-control-center");
+
+    // take care of command line options
+    QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
+    QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
+    QCommandLineOption moduleOption("m", "the module' id of which to be shown.", "module");
+    QCommandLineOption pageOption("p", "specified module page", "page");
+
+    QCommandLineParser parser;
+    parser.setApplicationDescription("DDE Control Center");
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.addOption(showOption);
+    parser.addOption(toggleOption);
+    parser.addOption(moduleOption);
+    parser.addOption(pageOption);
+    parser.process(app);
+
+    const QString &reqModule = parser.value(moduleOption);
+    const QString &reqPage = parser.value(pageOption);
+
+    if (!app.setSingleInstance(app.applicationName(), DApplication::SingleScope::UserScope)) {
+        if (parser.isSet(toggleOption)) {
+            DDBusSender()
+            .service("com.deepin.dde.ControlCenter")
+            .interface("com.deepin.dde.ControlCenter")
+            .path("/com/deepin/dde/ControlCenter")
+            .method("Toggle")
+            .call();
+        }
+
+        if (!reqModule.isEmpty()) {
+            DDBusSender()
+            .service("com.deepin.dde.ControlCenter")
+            .interface("com.deepin.dde.ControlCenter")
+            .path("/com/deepin/dde/ControlCenter")
+            .method("ShowPage")
+            .arg(reqModule)
+            .arg(reqPage)
+            .call();
+        }
+        else if (parser.isSet(showOption)) {
+            DDBusSender()
+            .service("com.deepin.dde.ControlCenter")
+            .interface("com.deepin.dde.ControlCenter")
+            .path("/com/deepin/dde/ControlCenter")
+            .method("Show")
+            .call();
+        }
+
+        return -1;
+    }
+
+    DLogManager::registerConsoleAppender();
+    DLogManager::registerFileAppender();
+
 #ifdef CVERSION
     QString verstr(CVERSION);
     if (verstr.isEmpty())
@@ -165,26 +220,7 @@ int main(int argc, char *argv[])
     app.setApplicationDisplayName(QObject::tr("Control Center"));
     app.setApplicationDescription(QApplication::translate("main", "Control Center provides the options for system settings."));
 
-    DLogManager::registerConsoleAppender();
-    DLogManager::registerFileAppender();
-
     QAccessible::installFactory(accessibleFactory);
-
-    // take care of command line options
-    QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
-    QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
-    QCommandLineOption moduleOption("m", "the module' id of which to be shown.", "module");
-    QCommandLineOption pageOption("p", "specified module page", "page");
-
-    QCommandLineParser parser;
-    parser.setApplicationDescription("DDE Control Center");
-    parser.addHelpOption();
-    parser.addVersionOption();
-    parser.addOption(showOption);
-    parser.addOption(toggleOption);
-    parser.addOption(moduleOption);
-    parser.addOption(pageOption);
-    parser.process(app);
 
     QGSettings gs(ControlCenterGSettings, QByteArray(), &app);
     auto w = gs.get(GSettinsWindowWidth).toInt();
@@ -211,77 +247,22 @@ int main(int argc, char *argv[])
         signal(SIGFPE, sig_crash);
     }
 
-    const QString &reqModule = parser.value(moduleOption);
-    const QString &reqPage = parser.value(pageOption);
-
     DBusControlCenterService adaptor(&mw);
-    Q_UNUSED(adaptor);
-
-    auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.ControlCenter");
-    if (req.value()) {
-        QDBusInterface inter("com.deepin.dde.ControlCenter",
-                             "/com/deepin/dde/ControlCenter",
-                             "com.deepin.dde.ControlCenter",
-                             QDBusConnection::sessionBus(), nullptr);
-        if (inter.isValid()) {
-            qDebug() << "inter.isValid() call exitProc";
-            inter.call("exitProc");
-        } else {
-            qDebug() << "inter isn't valid";
-        }
-    }
 
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("com.deepin.dde.ControlCenter") ||
-            !conn.registerObject("/com/deepin/dde/ControlCenter", &mw)) {
+        !conn.registerObject("/com/deepin/dde/ControlCenter", &mw)) {
         qDebug() << "dbus service already registered!" << "pid is:" << pid;
-
-        if (parser.isSet(toggleOption))
-            DDBusSender()
-            .service("com.deepin.dde.ControlCenter")
-            .interface("com.deepin.dde.ControlCenter")
-            .path("/com/deepin/dde/ControlCenter")
-            .method("Toggle")
-            .call();
-
-        if (!reqModule.isEmpty()) {
-            DDBusSender()
-            .service("com.deepin.dde.ControlCenter")
-            .interface("com.deepin.dde.ControlCenter")
-            .path("/com/deepin/dde/ControlCenter")
-            .method("ShowPage")
-            .arg(reqModule)
-            .arg(reqPage)
-            .call();
-        } else if (parser.isSet(showOption)) {
-            DDBusSender()
-            .service("com.deepin.dde.ControlCenter")
-            .interface("com.deepin.dde.ControlCenter")
-            .path("/com/deepin/dde/ControlCenter")
-            .method("Show")
-            .call();
-        }
-        // 当前服务注册失败，发送完dbus请求后退出，否则进程无法退出
-        return 0;
+        return -1;
     }
 
-    if (!reqModule.isEmpty())
-        DDBusSender()
-        .service("com.deepin.dde.ControlCenter")
-        .interface("com.deepin.dde.ControlCenter")
-        .path("/com/deepin/dde/ControlCenter")
-        .method("ShowPage")
-        .arg(reqModule)
-        .arg(reqPage)
-        .call();
+    if (!reqModule.isEmpty()) {
+        adaptor.ShowPage(reqModule, reqPage);
+    }
 
-    if (parser.isSet(showOption))
-        DDBusSender()
-        .service("com.deepin.dde.ControlCenter")
-        .interface("com.deepin.dde.ControlCenter")
-        .path("/com/deepin/dde/ControlCenter")
-        .method("Show")
-        .call();
+    if (parser.isSet(showOption)) {
+        adaptor.Show();
+    }
 
 #ifdef QT_DEBUG
     //debug时会直接show
