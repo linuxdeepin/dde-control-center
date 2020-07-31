@@ -217,6 +217,7 @@ void NetworkModuleWidget::initSetting(const int settingIndex, const QString &sea
         m_modelpages->itemFromIndex(m_modelpages->index(settingIndex, 0))->setData(searchPath, SearchPath);
     }
     m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
+        qDebug() << m_modelpages->index(settingIndex, 0).data(SectionRole).value<PageType>();
     m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
 }
 
