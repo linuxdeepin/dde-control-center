@@ -1,5 +1,4 @@
 #!/bin/bash
-cp ".transifexrc" ${HOME}/
 cd ./translations
 rm -f dde-control-center_en_US.ts
 lupdate ../src/ -ts -no-obsolete dde-control-center_en_US.ts
