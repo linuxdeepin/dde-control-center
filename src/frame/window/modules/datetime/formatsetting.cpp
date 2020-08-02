@@ -28,6 +28,7 @@
 
 #include <QVBoxLayout>
 #include <QComboBox>
+#include <QDBusInterface>
 
 using namespace dcc::datetime;
 using namespace DCC_NAMESPACE::datetime;
@@ -41,18 +42,15 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     TitleLabel *headTitle = new TitleLabel(tr("Date and Time Formats"));     //时间格式设置
-    QLabel *txtLbael = new QLabel(tr("Format the date  you see in the system bar")); //设置您在系统栏中看到的日期格式
     m_layout->setSpacing(10);
     m_layout->setMargin(0);
     m_layout->addWidget(headTitle, 0, Qt::AlignLeft);
-    m_layout->addWidget(txtLbael, 0, Qt::AlignLeft);
     m_layout->setSpacing(2);
 
     QVBoxLayout *vbox = new QVBoxLayout;
     m_weekCbx = new ComboxWidget();
 
     m_weekCbx->setTitle(tr("Weeks"));   //星期
-
 
     m_shortDateCbx = new ComboxWidget();
     m_shortDateCbx->setTitle(tr("Short Date"));  //短日期
@@ -67,7 +65,17 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
     m_longtimeCbx = new ComboxWidget();
     m_longtimeCbx->setTitle(tr("Long Time"));  //长时间
 
+    m_weekStartDayCbx = new ComboxWidget();
+    m_weekStartDayCbx->setTitle(tr("First Day of Week"));  //长时间
+
+    QDBusInterface interLangSelector("com.deepin.daemon.LangSelector",
+                                "/com/deepin/daemon/LangSelector",
+                                "com.deepin.daemon.LangSelector",
+                                QDBusConnection::sessionBus(), this);
+    //如果不是中文就不显示星期的选项
+    m_weekCbx->setVisible(interLangSelector.property("CurrentLocale").toString().startsWith("zh_CN"));
     vbox->addWidget(m_weekCbx);
+    vbox->addWidget(m_weekStartDayCbx);
     vbox->addWidget(m_longdateCbx);
     vbox->addWidget(m_shortDateCbx);
     vbox->addWidget(m_longtimeCbx);
@@ -91,6 +99,10 @@ void FormatSetting::initComboxWidgetList()
         m_weekCbx->comboBox()->addItem(fotmatWeek(i));
     }
 
+    for (int i = 0; i < formatcount; i++) {
+        m_weekStartDayCbx->comboBox()->addItem(weekStartWithDay(i));
+    }
+
     int shortdatecount = 9;
     for (int i = 0; i < shortdatecount; i++) {
         m_shortDateCbx->comboBox()->addItem(fotmatShortDate(i));
@@ -101,12 +113,12 @@ void FormatSetting::initComboxWidgetList()
         m_longdateCbx->comboBox()->addItem(fotmatLongDate(i));
     }
 
-    int longtimecount = 4;
+    int longtimecount = 2;
     for (int i = 0; i < longtimecount; i++) {
         m_longtimeCbx->comboBox()->addItem(fotmatLongTime(i));
     }
 
-    int shorttimecount = 4;
+    int shorttimecount = 2;
     for (int i = 0; i < shorttimecount; i++) {
         m_shortimeCbx->comboBox()->addItem(fotmatShortTime(i));
     }
@@ -116,6 +128,7 @@ void FormatSetting::initComboxWidgetList()
     m_shortDateCbx->comboBox()->setCurrentIndex(mModel->shortDateFormat());
     m_longdateCbx->comboBox()->setCurrentIndex(mModel->longDateFormat());
     m_longtimeCbx->comboBox()->setCurrentIndex(mModel->longTimeFormat());
+    m_weekStartDayCbx->comboBox()->setCurrentIndex(mModel->weekStartDayFormat());
 
     connect(m_weekCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &FormatSetting::weekdayFormatChanged);
@@ -127,6 +140,8 @@ void FormatSetting::initComboxWidgetList()
             this, &FormatSetting::longTimeFormatChanged);
     connect(m_shortimeCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &FormatSetting::shortTimeFormatChanged);
+    connect(m_weekStartDayCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &FormatSetting::weekStartDayFormatChanged);
 }
 
 QString FormatSetting::fotmatWeek(int type)
@@ -140,6 +155,24 @@ QString FormatSetting::fotmatWeek(int type)
         day = tr("sunday"); //周天
         break;
     default:
+        day = tr("Sunday"); //星期天
+        break;
+    }
+    return day;
+}
+
+QString FormatSetting::weekStartWithDay(int type)
+{
+    QString day("");
+    switch (type) {
+    case 0:
+        day = tr("Sunday"); //星期天
+        break;
+    case 1:
+        day = tr("Monday"); //星期一
+        break;
+    default:
+        day = tr("Monday"); //星期一
         break;
     }
     return day;
@@ -163,6 +196,7 @@ QString FormatSetting::fotmatLongDate(int type)
         date = tr("Sunday, April 5, 2020");
         break;
     default:
+        date = tr("April 5, 2020");
         break;
     }
     return date;
@@ -205,6 +239,7 @@ QString FormatSetting::fotmatShortDate(int type)
         date = tr("20.4.5");
         break;
     default:
+        date = tr("2020/04/05");
         break;
     }
     return date;
@@ -225,13 +260,8 @@ QString FormatSetting::fotmatLongTime(int type)
     case 1:
         time = tr("09:40:07");
         break;
-    case 2:
-        time = tr("9:40:07 AM");
-        break;
-    case 3:
-        time = tr("09:40:07 AM");
-        break;
     default:
+        time = tr("09:40:07");
         break;
     }
     return time;
@@ -252,13 +282,8 @@ QString FormatSetting::fotmatShortTime(int type)
     case 1:
         time = tr("09:40");
         break;
-    case 2:
-        time = tr("9:40 AM");
-        break;
-    case 3:
-        time = tr("09:40 AM");
-        break;
     default:
+        time = tr("09:40");
         break;
     }
     return time;
@@ -329,4 +354,12 @@ void FormatSetting::setCururentShortTimeFormat(int type)
     }
 }
 
+void FormatSetting::setCururentWeekStartDayFormat(int type)
+{
+    if (m_shortimeCbx && m_shortimeCbx->comboBox()->count() > type) {
+        m_shortimeCbx->blockSignals(true);
+        m_shortimeCbx->comboBox()->setCurrentIndex(type);
+        m_shortimeCbx->blockSignals(false);
+    }
+}
 

@@ -69,6 +69,7 @@ public Q_SLOTS:
     void setLongDateFormat(int type);
     void setLongTimeFormat(int type);
     void setShortTimeFormat(int type);
+    void setWeekStartDayFormat(int type);
 private Q_SLOTS:
 #ifndef DCC_DISABLE_TIMEZONE
     void onTimezoneListChanged(const QStringList &timezones);

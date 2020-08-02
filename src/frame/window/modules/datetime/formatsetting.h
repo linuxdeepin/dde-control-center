@@ -54,12 +54,14 @@ Q_SIGNALS:
     void longDateFormatChanged(int index);
     void longTimeFormatChanged(int index);
     void shortTimeFormatChanged(int index);
+    void weekStartDayFormatChanged(int index);
 public Q_SLOTS:
     void setCururentWeekdayFormat(int type);
     void setCururentShortDateFormat(int type);
     void setCururentLongDateFormat(int type);
     void setCururentLongTimeFormat(int type);
     void setCururentShortTimeFormat(int type);
+    void setCururentWeekStartDayFormat(int type);
 private:
     void initComboxWidgetList();
     QString fotmatWeek(int type);
@@ -67,6 +69,7 @@ private:
     QString fotmatShortDate(int type);
     QString fotmatLongTime(int type);
     QString fotmatShortTime(int type);
+    QString weekStartWithDay(int type);
     QVBoxLayout *m_layout;
     dcc::datetime::DatetimeModel *mModel;
     dcc::widgets::ComboxWidget *m_weekCbx = nullptr ;
@@ -74,6 +77,7 @@ private:
     dcc::widgets::ComboxWidget *m_shortDateCbx = nullptr ;
     dcc::widgets::ComboxWidget *m_longtimeCbx = nullptr;
     dcc::widgets::ComboxWidget *m_shortimeCbx = nullptr ;
+    dcc::widgets::ComboxWidget *m_weekStartDayCbx = nullptr ;
 };
 
 }// namespace datetime

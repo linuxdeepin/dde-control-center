@@ -73,6 +73,7 @@ Q_SIGNALS:
     void longDateFormatChanged(int index);
     void longTimeFormatChanged(int index);
     void shortTimeFormatChanged(int index);
+    void weekStartDayFormatChanged(int index);
 
 public Q_SLOTS:
     void onPushWidget(const int &index);

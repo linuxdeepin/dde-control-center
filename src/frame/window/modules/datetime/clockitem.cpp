@@ -48,7 +48,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     , m_shortDateFormat("yyyy-MM-dd")
     , m_longTimeFormat("HH:mm:ss")
 {
-    m_clock->setMinimumSize(224, 224);
+    m_clock->setMinimumSize(210, 210);
     m_clock->setAutoNightMode(false);
     updateDateTime();
 
@@ -184,11 +184,11 @@ void ClockItem::translateHourType()
             m_labelTime->setFont(fontThis);
         }
     }
-
+	//12小时格式显示的时候长日期不会显示个位数
     m_labelTime->setText(QString("%1:%2:%3")
-                         .arg(nHour, 2, 10, QLatin1Char('0'))
-                         .arg(currentTime.minute(), 2, 10, QLatin1Char('0'))
-                         .arg(currentTime.second(), 2, 10, QLatin1Char('0')));
+                         .arg(nHour, (m_longTimeFormat == "h:m:s" && nHour < 10) ? 1 : 2, 10, QLatin1Char('0'))
+                         .arg(currentTime.minute(), m_longTimeFormat == "h:m:s" && currentTime.minute() < 10 ? 1 : 2, 10, QLatin1Char('0'))
+                         .arg(currentTime.second(), m_longTimeFormat == "h:m:s" && currentTime.second() < 10 ? 1 : 2, 10, QLatin1Char('0')));
 
     m_timeType->setText(currentTime.hour() > 12 ? tr("PM") : tr("AM"));
     m_timeType->setVisible(true);
@@ -262,11 +262,9 @@ void ClockItem::setShortDateFormat(int type)
 void ClockItem::setLongTimeFormat(int type)
 {
     switch (type) {
-    case 0: m_longTimeFormat = "H:m:s"; break;
-    case 1: m_longTimeFormat = "HH:mm:ss";  break;
-    case 2: m_longTimeFormat = "H:m:s"; break;
-    case 3: m_longTimeFormat = "HH:mm:ss";  break;
-    default: m_longTimeFormat = "HH:mm:ss"; break;
+    case 0: m_longTimeFormat = "h:m:s"; break;
+    case 1: m_longTimeFormat = "hh:mm:ss";  break;
+    default: m_longTimeFormat = "hh:mm:ss"; break;
     }
     updateDateTime();
 }

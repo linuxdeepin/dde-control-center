@@ -160,7 +160,6 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
 
 void MicrophonePage::addPort(const dcc::sound::Port *port)
 {
-    qDebug() << "===========" << port->name();
     if (port->In == port->direction()) {
         DStandardItem *pi = new DStandardItem;
         pi->setText(port->name());

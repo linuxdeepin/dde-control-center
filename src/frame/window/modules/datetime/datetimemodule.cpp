@@ -66,6 +66,7 @@ void DatetimeModule::initialize()
     connect(this, &DatetimeModule::longDateFormatChanged, m_work, &DatetimeWork::setLongDateFormat);
     connect(this, &DatetimeModule::longTimeFormatChanged, m_work, &DatetimeWork::setLongTimeFormat);
     connect(this, &DatetimeModule::shortTimeFormatChanged, m_work, &DatetimeWork::setShortTimeFormat);
+    connect(this, &DatetimeModule::weekStartDayFormatChanged, m_work, &DatetimeWork::setWeekStartDayFormat);
 }
 
 const QString DatetimeModule::name() const
@@ -211,11 +212,13 @@ void DatetimeModule::showFormatSetting()
     connect(fsetting, &FormatSetting::longDateFormatChanged, this, &DatetimeModule::longDateFormatChanged);
     connect(fsetting, &FormatSetting::longTimeFormatChanged, this, &DatetimeModule::longTimeFormatChanged);
     connect(fsetting, &FormatSetting::shortTimeFormatChanged, this, &DatetimeModule::shortTimeFormatChanged);
+    connect(fsetting, &FormatSetting::weekStartDayFormatChanged, this, &DatetimeModule::weekStartDayFormatChanged);
     connect(m_model, &DatetimeModel::weekdayFormatTypeChanged, fsetting, &FormatSetting::setCururentWeekdayFormat);
     connect(m_model, &DatetimeModel::shortDateFormatChanged, fsetting, &FormatSetting::setCururentShortDateFormat);
     connect(m_model, &DatetimeModel::longDateFormatChanged, fsetting, &FormatSetting::setCururentLongDateFormat);
     connect(m_model, &DatetimeModel::longTimeFormatChanged, fsetting, &FormatSetting::setCururentLongTimeFormat);
     connect(m_model, &DatetimeModel::shorTimeFormatChanged, fsetting, &FormatSetting::setCururentShortTimeFormat);
+    connect(m_model, &DatetimeModel::weekStartDayFormatChanged, fsetting, &FormatSetting::setCururentWeekStartDayFormat);
     m_frameProxy->pushWidget(this, fsetting);
 }
 

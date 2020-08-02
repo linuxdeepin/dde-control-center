@@ -76,6 +76,7 @@ private:
     ZoneInfo m_zoneInfo;
     bool m_bIs24HourType;
     bool m_bIsEnglishType;
+    bool m_weekStartMonType;
     Timedate *m_timedateInter;
     QString m_weekdayFormat;
     QString m_shortDateFormat;

@@ -175,6 +175,14 @@ void DatetimeModel::setShorTimeFormat(int type)
     Q_EMIT shorTimeFormatChanged(type);
 }
 
+void DatetimeModel::setWeekStartDayFormat(int type)
+{
+    if (m_weekStartDayFormat == type) return;
+
+    m_weekStartDayFormat = type;
+    Q_EMIT weekStartDayFormatChanged(type);
+}
+
 void DatetimeModel::setWeekdayFormatTypeCount(int size)
 {
     if (m_weekdayFormatTypeCount == size) return;
@@ -210,5 +218,11 @@ void DatetimeModel::setShorTimeFormatTypeCount(int size)
     m_shorTimeFormatTypeCount = size;
 }
 
+void DatetimeModel::setWeekStartDayFormatTypeCount(int size)
+{
+    if (m_weekStartDayFormatTypeCount == size) return;
+
+    m_weekStartDayFormatTypeCount = size;
+}
 }
 }
