@@ -183,6 +183,17 @@ DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     m_deviceItem = new DStandardItem;
     m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
+    if (DApplicationHelper::instance()->themeType() == DApplicationHelper::LightType) {
+        if (!m_device->deviceType().isEmpty())
+            m_deviceItem->setIcon(QIcon(lightIcon + m_device->deviceType() + "_light.svg"));
+        else
+            m_deviceItem->setIcon(QIcon(lightIcon + QString("other_light.svg")));
+    } else {
+        if (!m_device->deviceType().isEmpty())
+            m_deviceItem->setIcon(QIcon(darkIcon + m_device->deviceType() + "_dark.svg"));
+        else
+            m_deviceItem->setIcon(QIcon(darkIcon + QString("other_dark.svg")));
+    }
     return m_deviceItem;
 }
 
