@@ -81,9 +81,9 @@ void sig_crash(int sig)
     //捕获异常，打印崩溃日志到配置文件中
     try {
         char szLine[512] = {0};
-        time_t t = time(NULL);
+        time_t t = time(nullptr);
         tm *now = localtime(&t);
-        int nLen1 = sprintf(szLine, "#####dde-control-center#####\n[%04d-%02d-%02d %02d:%02d:%02d][crash signal number:%d]\n",
+        sprintf(szLine, "#####dde-control-center#####\n[%04d-%02d-%02d %02d:%02d:%02d][crash signal number:%d]\n",
                             now->tm_year + 1900,
                             now->tm_mon + 1,
                             now->tm_mday,
@@ -94,13 +94,12 @@ void sig_crash(int sig)
         fwrite(szLine, 1, strlen(szLine), fd);
 #ifdef __linux
         void *array[MAX_STACK_FRAMES];
-        size_t size = 0;
+        int size = 0;
         char **strings = nullptr;
-        size_t i, j;
         signal(sig, SIG_DFL);
         size = backtrace(array, MAX_STACK_FRAMES);
-        strings = (char **)backtrace_symbols(array, size);
-        for (i = 0; i < size; ++i) {
+        strings = static_cast<char **>(backtrace_symbols(array, size));
+        for (int i = 0; i < size; ++i) {
             char szLine[512] = {0};
             sprintf(szLine, "%d %s\n", i, strings[i]);
             fwrite(szLine, 1, strlen(szLine), fd);

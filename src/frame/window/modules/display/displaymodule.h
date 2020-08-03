@@ -44,12 +44,13 @@ namespace display {
 
 class DisplayWidget;
 
-class DisplayModule : public QObject, public DCC_NAMESPACE::ModuleInterface
+class DisplayModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
+    Q_INTERFACES(DCC_NAMESPACE::ModuleInterface)
 public:
-    explicit DisplayModule(DCC_NAMESPACE::FrameProxyInterface *frame, QObject *parent = 0);
-    ~DisplayModule();
+    explicit DisplayModule(DCC_NAMESPACE::FrameProxyInterface *frame, QObject *parent = nullptr);
+    ~DisplayModule() override;
 
 public:
     void initialize() override;
@@ -79,7 +80,7 @@ private Q_SLOTS:
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
     dcc::display::DisplayWorker *m_displayWorker{nullptr};
-    DCC_NAMESPACE::display::DisplayWidget *m_displayWidget{nullptr};
+    DisplayWidget *m_displayWidget{nullptr};
 };
 
 } // namespace display
