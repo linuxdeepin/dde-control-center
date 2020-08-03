@@ -55,12 +55,13 @@ const qint32 ListViweRightSubscriptItemDis=qMax(ActionIconSize,ActionListSize)+1
 const int List_Interval = 10;
 const QMargins ArrowEnterClickMargin(8, 8, 8, 8);
 
-const QString SystemTypeName = DSysInfo::deepinTypeDisplayName(QLocale::c());
+const QString SystemTypeName = DSysInfo::uosEditionName(QLocale::c());
 
-const DSysInfo::DeepinType DeepinType = DSysInfo::deepinType();
-const bool IsServerSystem = (DSysInfo::DeepinServer == DeepinType);
-const bool IsDesktopSystem = DSysInfo::isCommunityEdition();
-const bool IsProfessionalSystem = (DSysInfo::DeepinProfessional == DeepinType);
+const DSysInfo::UosType UosType = DSysInfo::UosType();
+const DSysInfo::UosEdition UosEdition = DSysInfo::UosEdition();
+const bool IsServerSystem = (DSysInfo::UosServer == UosType);
+const bool IsDesktopSystem = (DSysInfo::UosProfessional == UosEdition);
+const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);
 
 }
 
