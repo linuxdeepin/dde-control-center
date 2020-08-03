@@ -70,7 +70,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     phlayout->addWidget(m_spinner);
 
     m_switch->addBackground();
-    m_switch->setContentsMargins(0, 0, 20, 0);
+    m_switch->layout()->setContentsMargins(10, 10, 10, 10);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -87,6 +87,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_myDeviceListView->setFrameShape(QFrame::NoFrame);
     m_myDeviceListView->setModel(m_myDeviceModel);
     m_myDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_myDeviceListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_myDeviceListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_myDeviceListView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     m_myDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -100,6 +101,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_otherDeviceListView->setFrameShape(QFrame::NoFrame);
     m_otherDeviceListView->setModel(m_otherDeviceModel);
     m_otherDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_otherDeviceListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_otherDeviceListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_otherDeviceListView->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     m_otherDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
