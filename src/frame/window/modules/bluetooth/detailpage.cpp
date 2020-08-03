@@ -104,7 +104,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
             return;
         }
         // 蓝牙传输dbus接口: SendFile(destination string, filename string) 接口支持文件多选
-        inter.call("SendBluetoothTransDialog", m_device->id(), selectedFiles);
+        inter.call("showBluetoothTransDialog", m_device->address(), selectedFiles);
     });
     connect(m_editDevAlias, &QLineEdit::textEdited, this, [ = ](const QString &str){
         if (str.length() > 32) {

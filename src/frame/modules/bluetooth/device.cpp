@@ -45,6 +45,11 @@ void Device::setId(const QString &id)
     m_id = id;
 }
 
+void Device::setAddress(const QString &addr)
+{
+    m_address = addr;
+}
+
 void Device::setName(const QString &name)
 {
     if (name != m_name) {

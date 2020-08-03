@@ -70,6 +70,9 @@ public:
     inline QString id() const { return m_id; }
     void setId(const QString &id);
 
+    inline QString address() const { return m_address; }
+    void setAddress(const QString &addr);
+
     inline QString name() const { return m_name; }
     void setName(const QString &name);
 
@@ -104,6 +107,7 @@ Q_SIGNALS:
 
 private:
     QString m_id;
+    QString m_address;
     QString m_name;
     QString m_alias;
     QString m_deviceType;
