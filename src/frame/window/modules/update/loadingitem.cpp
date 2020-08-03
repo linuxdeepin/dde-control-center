@@ -94,7 +94,7 @@ void LoadingItem::setVersionVisible(bool state)
 void LoadingItem::setSystemVersion(const QString &version)
 {
     Q_UNUSED(version);
-    m_labelText->setText(DSysInfo::productTypeString() + " " + DSysInfo::deepinVersion() + " " + DSysInfo::deepinTypeDisplayName());
+    m_labelText->setText(DSysInfo::uosProductTypeName() + " " + DSysInfo::majorVersion() + " " + DSysInfo::uosEditionName());
 }
 
 void LoadingItem::setImage(QImage *image)
