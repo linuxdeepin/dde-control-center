@@ -144,6 +144,8 @@ void TimezoneItem::updateInfo()
     m_details->setText(QString("%1, %2").arg(dateLiteral).arg(compareLiteral));
     m_city->setText(m_timezone.getZoneCity() + gmData);
     m_clock->setTimeZone(m_timezone);
+
+    m_removeBtn->setAccessibleName(m_timezone.getZoneCity() + "_DEL");
 }
 
 void TimezoneItem::setDetailVisible(bool state)
