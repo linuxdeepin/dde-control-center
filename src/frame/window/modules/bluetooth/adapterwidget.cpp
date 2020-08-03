@@ -140,6 +140,12 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
             } else {
                 toggleSwitch(value);
             }
+            if (m_dtime.elapsed() >= 300) {
+                toggleSwitch(value);
+            }
+            m_switch->blockSignals(true);
+            m_switch->setChecked(value);
+            m_switch->blockSignals(false);
         }
         m_dtime.restart();
     });
