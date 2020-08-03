@@ -66,6 +66,7 @@ TimezoneList::TimezoneList(QWidget *parent)
 
     //~ contents_path /datetime/Timezone List
     m_addTimezoneButton->setToolTip(tr("Add Timezone"));
+    m_addTimezoneButton->setAccessibleName(tr("Add Timezone"));
 
     connect(m_addTimezoneButton, &QPushButton::clicked, this, [this]{
         m_contentList->onEditClicked(false);
