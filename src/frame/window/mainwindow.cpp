@@ -338,6 +338,7 @@ void MainWindow::initAllModule(QString m)
 
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
         DStandardItem *item = new DStandardItem;
+        item->setEditable(false);
         item->setIcon(it->first->icon());
         item->setText(it->second);
 
@@ -417,6 +418,24 @@ void MainWindow::loadModules()
             m_modules.append({module, module->displayName()});
         }
 
+    }
+}
+
+void MainWindow::setListViewEditDisable(QWidget *w)
+{
+    QList<DListView*> list = w->findChildren<DListView*>();
+    if (list.size() <= 0)
+        return;
+
+    for (auto listView : list) {
+        QStandardItemModel *model = dynamic_cast<QStandardItemModel*>(listView->model());
+        if (!model)
+            continue;
+
+        for (int i = 0; i < model->rowCount(); ++i) {
+            QStandardItem *item = model->item(i);
+            item->setEditable(false);
+        }
     }
 }
 
@@ -890,6 +909,9 @@ void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, Push
     }
 
     resetTabOrder();
+
+    //设置所有ListView子窗口中的Item不可编辑
+    setListViewEditDisable(w);
 }
 
 //First save the third level page, Then pop the third level page

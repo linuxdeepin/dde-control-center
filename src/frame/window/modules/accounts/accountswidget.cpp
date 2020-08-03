@@ -132,6 +132,7 @@ void AccountsWidget::addUser(User *user, bool t1)
     m_userList << user;
     DStandardItem *item = new DStandardItem;
     item->setData(0, AccountsWidget::ItemDataRole);
+    item->setEditable(false);
     if (IsServerSystem) {
         auto *subTitleAction = new DViewItemAction;
         if (1 == user->userType()) {
