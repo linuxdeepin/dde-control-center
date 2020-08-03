@@ -46,7 +46,8 @@ Depends: ${shlibs:Depends},
  deepin-installer-timezones,
  passwd,
  netselect,
- deepin-clone
+ deepin-clone,
+ deepin-recovery-tool
 Recommends: netselect, deepin-ab-recovery
 Suggests: redshift
 Conflicts:
