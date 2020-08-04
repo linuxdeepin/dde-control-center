@@ -33,8 +33,9 @@ SysItemModel::SysItemModel(QObject *parent)
     , m_isFullScreen(false)
     , m_isProjector(false)
     , m_isLockScreen(false)
+    , m_timeStart(QTime::fromString("22:00","hh:mm"))
+    , m_timeEnd(QTime::fromString("07:00","hh:mm"))
 {
-
 }
 
 void SysItemModel::setItem(const QJsonObject &item)

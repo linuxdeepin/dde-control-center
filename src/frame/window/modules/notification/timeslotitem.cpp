@@ -43,6 +43,7 @@ TimeSlotItem::TimeSlotItem(QWidget *parent)
     m_editEnd->setAccessibleName("End_Time_Edit");
     m_editEnd->setFixedWidth(90);
     m_chkState->setAccessibleName("Time_CheckBox");
+    m_chkState->setMinimumHeight(40);
 
     QLabel *lblFrom = new QLabel(tr("From"));
     lblFrom->adjustSize();
