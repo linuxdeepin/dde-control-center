@@ -108,6 +108,7 @@ void SystemInfoWidget::initData()
         DStandardItem *item = new DStandardItem;
         item->setIcon(QIcon::fromTheme(m.icon));
         item->setText(m.text);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_itemModel->appendRow(item);
     }
 
