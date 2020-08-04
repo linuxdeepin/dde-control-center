@@ -186,9 +186,9 @@ void ClockItem::translateHourType()
     }
 	//12小时格式显示的时候长日期不会显示个位数
     m_labelTime->setText(QString("%1:%2:%3")
-                         .arg(nHour, (m_longTimeFormat == "h:m:s" && nHour < 10) ? 1 : 2, 10, QLatin1Char('0'))
-                         .arg(currentTime.minute(), m_longTimeFormat == "h:m:s" && currentTime.minute() < 10 ? 1 : 2, 10, QLatin1Char('0'))
-                         .arg(currentTime.second(), m_longTimeFormat == "h:m:s" && currentTime.second() < 10 ? 1 : 2, 10, QLatin1Char('0')));
+                         .arg(nHour, (m_longTimeFormat == "h:mm:ss" && nHour < 10) ? 1 : 2, 10, QLatin1Char('0'))
+                         .arg(currentTime.minute(), 2, 10, QLatin1Char('0'))
+                         .arg(currentTime.second(), 2, 10, QLatin1Char('0')));
 
     m_timeType->setText(currentTime.hour() > 12 ? tr("PM") : tr("AM"));
     m_timeType->setVisible(true);
@@ -262,7 +262,7 @@ void ClockItem::setShortDateFormat(int type)
 void ClockItem::setLongTimeFormat(int type)
 {
     switch (type) {
-    case 0: m_longTimeFormat = "h:m:s"; break;
+    case 0: m_longTimeFormat = "h:mm:ss"; break;
     case 1: m_longTimeFormat = "hh:mm:ss";  break;
     default: m_longTimeFormat = "hh:mm:ss"; break;
     }
