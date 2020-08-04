@@ -58,6 +58,16 @@ class TitleEdit;
 class DeviceSettingsItem;
 class AdapterWidget : public QWidget
 {
+    /**
+     * @brief The SwitchState enum
+     * 蓝牙功能开关时态
+     */
+    enum SwitchState {
+        Finished,       //蓝牙打开关闭完成
+        OnPower,        //蓝牙正在打开
+        OffPower        //蓝牙正在关闭
+    };
+
     Q_OBJECT
 public:
     explicit AdapterWidget(const dcc::bluetooth::Adapter *adapter);
@@ -100,6 +110,10 @@ private:
     DTK_WIDGET_NAMESPACE::DSpinner *m_spinner;
     DTK_WIDGET_NAMESPACE::DListView *m_otherDeviceListView;
     QStandardItemModel *m_otherDeviceModel;
+    //记录蓝牙切换时态
+    SwitchState m_switchFlag;
+    //onPowerStatus第一次初始化
+    bool m_isFirstSetPower;
 };
 }
 }
