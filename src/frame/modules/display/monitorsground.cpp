@@ -176,7 +176,9 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
 
     if(bSingle)
     {
-        pw->setGeometry(static_cast<int>((width()-w)/2), static_cast<int>((height()-h)/2), static_cast<int>(scale * pw->w()), static_cast<int>(scale * pw->h()));
+        const double wSingle = 0.15 * pw->w();
+        const double hSingle = 0.15 * pw->h();
+        pw->setGeometry(static_cast<int>((width() - wSingle)/2), static_cast<int>((height() - hSingle)/2), static_cast<int>(wSingle), static_cast<int>(hSingle));
         this->setEnabled(false);//单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发方大
     } else {
         this->setEnabled(true);
