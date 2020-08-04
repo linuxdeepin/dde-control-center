@@ -52,7 +52,29 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     , m_adapter(adapter)
     , m_switch(new SwitchWidget(nullptr, m_titleEdit))
     , m_model(model)
-    , m_isNotFirst(false)
+    , m_lastCheck(false)
+{
+    initUI();
+    initConnect();
+
+    QTimer::singleShot(0, this, [this] {
+        setAdapter(m_adapter);
+    });
+}
+
+AdapterWidget::~AdapterWidget()
+{
+    qDeleteAll(m_deviceLists);
+    m_myDevices.clear();
+    m_deviceLists.clear();
+}
+
+bool AdapterWidget::getSwitchState()
+{
+    return m_switch ? m_switch->checked() : false;
+}
+
+void AdapterWidget::initUI()
 {
     //~ contents_path /bluetooth/My Devices
     m_myDevicesGroup = new TitleLabel(tr("My Devices"));
@@ -128,31 +150,16 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     layout->addStretch();
     layout->setContentsMargins(0,0,15,0);
 
-    connect(m_switch, &SwitchWidget::checkedChanged, this, [ = ] (const bool &value) {
-        if (!m_isNotFirst) {
-            m_dtime.start();
-            m_isNotFirst = true;
-            toggleSwitch(value);
-        } else {
-            if (m_dtime.elapsed() < 300) {
-                m_switch->blockSignals(true);
-                m_switch->setChecked(!value);
-                m_switch->blockSignals(false);
-            } else {
-                toggleSwitch(value);
-            }
-            if (m_dtime.elapsed() >= 300) {
-                toggleSwitch(value);
-            }
-            m_switch->blockSignals(true);
-            m_switch->setChecked(value);
-            m_switch->blockSignals(false);
-        }
-        m_dtime.restart();
-    });
+    setLayout(layout);
 
+    m_tickTimer.setSingleShot(true);
+    m_tickTimer.setInterval(300);
+}
+
+void AdapterWidget::initConnect()
+{
     connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [ = ](const QString &alias) {
-        Q_EMIT requestSetAlias(adapter, alias);
+        Q_EMIT requestSetAlias(m_adapter, alias);
     });
 
     connect(m_myDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
@@ -175,6 +182,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
             }
         }
     });
+
     connect(m_myDeviceListView, &DListView::activated, m_myDeviceListView, &DListView::clicked);
 
     connect(m_otherDeviceListView, &DListView::clicked, this, [this](const QModelIndex & idx) {
@@ -194,28 +202,25 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
             }
         }
     });
+
     connect(m_otherDeviceListView, &DListView::activated, m_otherDeviceListView, &DListView::clicked);
 
     connect(m_refreshBtn, &DIconButton::clicked, this , [=]{
         Q_EMIT requestRefresh(m_adapter);
     });
 
-    setLayout(layout);
-    QTimer::singleShot(0, this, [this] {
-        setAdapter(m_adapter);
+    connect(m_switch, &SwitchWidget::checkedChanged, this, [ = ](const bool check){
+        if (check == m_lastCheck)
+        {
+            m_tickTimer.stop();
+            return;
+        }
+        m_tickTimer.start();
     });
-}
 
-AdapterWidget::~AdapterWidget()
-{
-    qDeleteAll(m_deviceLists);
-    m_myDevices.clear();
-    m_deviceLists.clear();
-}
-
-bool AdapterWidget::getSwitchState()
-{
-    return m_switch ? m_switch->checked() : false;
+    connect(&m_tickTimer, &QTimer::timeout, this, [ = ](){
+        toggleSwitch(!m_lastCheck);
+    });
 }
 
 void AdapterWidget::loadDetailPage()
@@ -245,6 +250,9 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     for (const Device *device : adapter->devices()) {
         addDevice(device);
     }
+
+    m_lastCheck = adapter->powered();
+
     onPowerStatus(adapter->powered(),adapter->discovering());
 }
 
@@ -263,7 +271,9 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
 
 void AdapterWidget::toggleSwitch(const bool checked)
 {
-    QApplication::focusWidget()->clearFocus();
+    if (QApplication::focusWidget()) {
+        QApplication::focusWidget()->clearFocus();
+    }
     if (!checked) {
         for (auto it : m_myDevices) {
             if (it->device()->connecting()) {
@@ -271,6 +281,7 @@ void AdapterWidget::toggleSwitch(const bool checked)
             }
         }
     }
+    m_lastCheck = checked;
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
 }
 

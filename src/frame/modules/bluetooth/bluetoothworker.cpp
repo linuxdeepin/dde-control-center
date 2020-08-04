@@ -139,8 +139,8 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
 {
     QTimer *timer = new QTimer;
     timer->setSingleShot(true);
-    // 1秒后后端还不响应,前端就显示一个加载中的状态
-    timer->setInterval(1000);
+    // 500后后端还不响应,前端就显示一个加载中的状态
+    timer->setInterval(500);
 
     connect(timer, &QTimer::timeout, this, [ & ] {
         m_model->loadStatus();
@@ -158,12 +158,11 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
                 QDBusPendingCall adapterPoweredOffCall  = m_bluetoothInter->SetAdapterPowered(path, false);
                 QDBusPendingCallWatcher *watchers = new QDBusPendingCallWatcher(adapterPoweredOffCall, this);
                 connect(watchers, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOffCall, adapter, timer] {
-                    if (!adapterPoweredOffCall.isError()) {
-                        setAdapterDiscoverable(adapter->id());
-                        m_model->adpaterPowerd(adapter->powered());
-                    } else {
+                    if (adapterPoweredOffCall.isError()) {
                         qDebug() << adapterPoweredOffCall.error().message();
+                        adapter->poweredChanged(adapter->powered(), adapter->discovering());
                     }
+                    m_model->adpaterPowerd(adapter->powered());
                     delete timer;
                 });
             } else {
@@ -174,12 +173,11 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
         QDBusPendingCall adapterPoweredOnCall  = m_bluetoothInter->SetAdapterPowered(path, true);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(adapterPoweredOnCall, this);
         connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOnCall, adapter, timer] {
-            if (!adapterPoweredOnCall.isError()) {
-                setAdapterDiscoverable(adapter->id());
-                m_model->adpaterPowerd(adapter->powered());
-            } else {
+            if (adapterPoweredOnCall.isError()) {
                 qDebug() << adapterPoweredOnCall.error().message();
+                adapter->poweredChanged(adapter->powered(), adapter->discovering());
             }
+            m_model->adpaterPowerd(adapter->powered());
             delete timer;
         });
     }

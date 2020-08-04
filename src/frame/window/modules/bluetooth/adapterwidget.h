@@ -31,6 +31,7 @@
 #include <QWidget>
 #include <QPointer>
 #include <QTime>
+#include <QTimer>
 
 const int interval = 30;
 const int minHeight = 150;
@@ -74,7 +75,10 @@ public:
     bool getSwitchState();
 
 private:
+    void initUI();
+    void initConnect();
     void categoryDevice(DeviceSettingsItem *deviceItem, const bool paired);
+
 public Q_SLOTS:
     void toggleSwitch(const bool checked);
 
@@ -87,6 +91,7 @@ Q_SIGNALS:
     void notifyLoadFinished();
     void notifyRemoveDevice();
     void requestRefresh(const dcc::bluetooth::Adapter *adapter);
+
 private Q_SLOTS:
     void addDevice(const dcc::bluetooth::Device *device);
     void removeDevice(const QString &deviceId);
@@ -109,8 +114,8 @@ private:
     QStandardItemModel *m_otherDeviceModel;
     DTK_WIDGET_NAMESPACE::DIconButton *m_refreshBtn;
     dcc::bluetooth::BluetoothModel *m_model;
-    QTime m_dtime;
-    bool m_isNotFirst;
+    QTimer m_tickTimer;         // 用于300ms内反复操作不需要响应
+    bool m_lastCheck;           // 开关按钮的上一次的有效状态
 };
 }
 }
