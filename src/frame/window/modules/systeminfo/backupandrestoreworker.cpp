@@ -154,7 +154,7 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
         return ErrorType::GrubError;
     }
 
-    if (exitCode == ToolErrorType::ToolError) {
+    if (exitCode != ToolErrorType::NoError) {
         qDebug() << process->readAllStandardError();
         return ErrorType::ToolError;
     }
@@ -203,7 +203,7 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
         return ErrorType::GrubError;
     }
 
-    if (exitCode == ToolErrorType::ToolError) {
+    if (exitCode != ToolErrorType::NoError) {
         qDebug() << process->readAllStandardError();
         return ErrorType::ToolError;
     }
@@ -243,7 +243,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
         return ErrorType::GrubError;
     }
 
-    if (exitCode == ToolErrorType::ToolError) {
+    if (exitCode != ToolErrorType::NoError) {
         qDebug() << process->readAllStandardError();
         return ErrorType::ToolError;
     }
@@ -263,6 +263,11 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
     const int &exitCode = process->exitCode();
     if (exitCode == ToolErrorType::GrubError) {
         return ErrorType::GrubError;
+    }
+
+    if (exitCode != ToolErrorType::NoError) {
+        qDebug() << process->readAllStandardError();
+        return ErrorType::ToolError;
     }
 
     restart();
