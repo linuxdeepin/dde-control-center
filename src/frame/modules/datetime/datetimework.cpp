@@ -80,7 +80,7 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     connect(m_timedateInter, &Timedate::ShortDateFormatChanged, m_model, &DatetimeModel::setShortDateFormat);
     connect(m_timedateInter, &Timedate::ShortTimeFormatChanged, m_model, &DatetimeModel::setShorTimeFormat);
     connect(m_timedateInter, &Timedate::LongTimeFormatChanged, m_model, &DatetimeModel::setLongTimeFormat);
-    connect(m_timedateInter, &Timedate::WeekdayBeginsChanged, m_model, &DatetimeModel::setWeekStartDayFormat);
+    connect(m_timedateInter, &Timedate::WeekBeginsChanged, m_model, &DatetimeModel::setWeekStartDayFormat);
     refreshNtpServerList();
     m_model->setNtpServerAddress(m_timedateInter->nTPServer());
 }
