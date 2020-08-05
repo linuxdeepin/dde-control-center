@@ -1,3 +1,23 @@
+/*
+ * Copyright (C) 2018 ~ 2028 Uniontech Technology Co., Ltd.
+ *
+ * Author:     chenwei <chenwei@uniontech.com>
+ *
+ * Maintainer: chenwei <chenwei@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #ifndef ACCESSIBLEINTERFACE_H
 #define ACCESSIBLEINTERFACE_H
 
@@ -121,6 +141,10 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
         return m_w->text();\
     }\
 
+#define FUNC_CHILD_LABLE(classname) QAccessibleInterface *Accessible##classname::child(int index) const{\
+        return QAccessibleWidget::child(index);\
+    }\
+
 // EDITABLE控件特有功能
 #define FUNC_DELETETEXT(classname) void Accessible##classname::deleteText(int startOffset, int endOffset) {\
         m_w->setText(m_w->text().remove(startOffset, endOffset - startOffset));\
@@ -132,6 +156,10 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
 
 #define FUNC_REPLACETEXT(classname) void Accessible##classname::replaceText(int startOffset, int endOffset, const QString &text) {\
         m_w->setText(m_w->text().replace(startOffset, endOffset - startOffset, text));\
+    }\
+
+#define FUNC_CHILD_EDITABLE(classname) QAccessibleInterface *Accessible##classname::child(int index) const{\
+        return nullptr;\
     }\
 
 #define FUNC_SELECTION(classname) void Accessible##classname::selection(int selectionIndex, int *startOffset, int *endOffset) const {\
@@ -310,7 +338,7 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
                     return nullptr;\
                 }\
             }\
-        QAccessibleInterface *child(int index) const override { return nullptr; }\
+        QAccessibleInterface *child(int index) const override;\
         QString text(int startOffset, int endOffset) const override;\
         void selection(int selectionIndex, int *startOffset, int *endOffset) const override {}\
         int selectionCount() const override { return 0; }\
@@ -420,7 +448,7 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
     FUNC_CHARACTERRECT(classname)\
     FUNC_OFFSETATPOINT(classname)\
     FUNC_SCROLLTOSUBSTRING(classname)\
-    FUNC_ATTRIBUTES(classname)
+    FUNC_ATTRIBUTES(classname)\
 
 #define USE_ACCESSIBLE(classnamestring,classname)    if (classnamestring == QLatin1String(#classname) && object && object->isWidgetType())\
     {\
@@ -438,9 +466,11 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
 
 #define SET_BUTTON_ACCESSIBLE(classname,accessiblename)                        SET_BUTTON_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")
 
-#define SET_LABEL_ACCESSIBLE(classname,accessiblename)                         SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,QAccessible::StaticText,"")
+#define SET_LABEL_ACCESSIBLE(classname,accessiblename)                         SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,QAccessible::StaticText,"") \
+                                                                               FUNC_CHILD_LABLE(classname)
 
-#define SET_DTK_EDITABLE_ACCESSIBLE(classname,accessiblename)                  SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,QAccessible::EditableText,"")
+#define SET_DTK_EDITABLE_ACCESSIBLE(classname,accessiblename)                  SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,QAccessible::EditableText,"") \
+                                                                               FUNC_CHILD_EDITABLE(classname)
 
 #define SET_SLIDER_ACCESSIBLE(classname,accessiblename)                        SET_SLIDER_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")
 
