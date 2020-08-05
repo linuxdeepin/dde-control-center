@@ -89,7 +89,7 @@ public Q_SLOTS:
     void updateNightModeStatus();
     void record(); // save mutilScreenConfig
     void restore(); // restore mutilScreenConfig
-    void setTouchScreenAssociation(const QString &touchscreenSerial, const QString &monitor);
+    void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial);
 
 public Q_SLOTS:
     void setAmbientLightAdjustBrightness(bool);
