@@ -116,6 +116,9 @@ NetworkModuleWidget::NetworkModuleWidget()
 void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
 {
     PageType type = idx.data(SectionRole).value<PageType>();
+    if (m_lastIndex == idx) return;
+
+    m_lastIndex = idx;
     m_lvnmpages->setCurrentIndex(idx);
     switch (type) {
     case DSLPage:
@@ -219,7 +222,8 @@ void NetworkModuleWidget::initSetting(const int settingIndex, const QString &sea
 
 void NetworkModuleWidget::setCurrentIndex(const int settingIndex)
 {
-    m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
+    m_lastIndex = m_modelpages->index(settingIndex, 0);
+    m_lvnmpages->setCurrentIndex(m_lastIndex);
 }
 
 void NetworkModuleWidget::setIndexFromPath(const QString &path)

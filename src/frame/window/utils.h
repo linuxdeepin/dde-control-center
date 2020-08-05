@@ -46,6 +46,7 @@ const QSize ListViweItemSize(170,168);
 const QSize ListViweItemIconSize_ListMode(42,42);
 const QSize ListViweItemSize_ListMode(168,48);
 const QSize ListViweIconSize(32,32);
+const QSize ListViweSysItemSize(168,58);
 
 const qint32 ActionIconSize=30;//大图标角标大小
 const qint32 ActionListSize=26;//list图标角标大小
@@ -53,12 +54,13 @@ const qint32 ActionListSize=26;//list图标角标大小
 const int List_Interval = 10;
 const QMargins ArrowEnterClickMargin(8, 8, 8, 8);
 
-const QString SystemTypeName = DSysInfo::deepinTypeDisplayName(QLocale::c());
+const QString SystemTypeName = DSysInfo::uosEditionName(QLocale::c());
 
-const DSysInfo::DeepinType DeepinType = DSysInfo::deepinType();
-const bool IsServerSystem = (DSysInfo::DeepinServer == DeepinType);
-const bool IsDesktopSystem = DSysInfo::isCommunityEdition();
-const bool IsProfessionalSystem = (DSysInfo::DeepinProfessional == DeepinType);
+const DSysInfo::UosType UosType = DSysInfo::UosType();
+const DSysInfo::UosEdition UosEdition = DSysInfo::UosEdition();
+const bool IsServerSystem = (DSysInfo::UosServer == UosType);
+const bool IsDesktopSystem = (DSysInfo::UosProfessional == UosEdition);
+const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);
 
 }
 

@@ -142,7 +142,13 @@ SearchWidget::SearchWidget(QWidget *parent)
         {tr("Create PPPoE Connection"), false},
         {tr("Disable the touchpad while typing"), false},
         {tr("Disable the touchpad when inserting the mouse"), false},
+        {tr("Computer will suspend after"), false},
+        {tr("Sign In"), false},
+        {tr("Auto power saving on battery"), false},
+    };
 
+    m_contensServerTxtList = {
+        {tr("Developer Mode"), true},
     };
 
     m_contensServerTxtList = {

@@ -155,6 +155,7 @@ void PerssonalizationThemeWidget::setMainLayout(QBoxLayout *layout, bool titleBe
 {
     m_centerLayout = layout;
     m_centerLayout->setMargin(0);
+    m_centerLayout->setAlignment(Qt::AlignLeft);
     setLayout(m_centerLayout);
     m_titleBelowPic = titleBelowPic;
 }

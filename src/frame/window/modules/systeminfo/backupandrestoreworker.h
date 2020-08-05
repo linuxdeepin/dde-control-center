@@ -5,9 +5,6 @@
 #include "backupandrestoremodel.h"
 
 #include <QObject>
-#include <com_deepin_daemon_grub2.h>
-
-using GrubInter = com::deepin::daemon::Grub2;
 
 namespace DCC_NAMESPACE {
 namespace systeminfo {
@@ -16,6 +13,8 @@ class BackupAndRestoreWorker : public QObject
     Q_OBJECT
 public:
     explicit BackupAndRestoreWorker(BackupAndRestoreModel* model, QObject *parent = nullptr);
+
+    void restart();
 
 public Q_SLOTS:
     void manualBackup(const QString& directory);
@@ -28,7 +27,6 @@ private:
     ErrorType doSystemBackup();
     ErrorType doManualRestore();
     ErrorType doSystemRestore();
-    ErrorType setGrubAndRestart();
 
 private:
     BackupAndRestoreModel* m_model;

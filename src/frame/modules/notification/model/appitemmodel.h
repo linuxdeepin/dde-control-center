@@ -54,8 +54,8 @@ public:
     inline bool isLockShowNotify()const {return m_isLockShowNotify;}
     void setLockShowNotify(const bool &state);
 
-    inline bool isOnlyInNotifyCenter()const {return m_isOnlyInNotifyCenter;}
-    void setOnlyInNotifyCenter(const bool &state);
+    inline bool isShowInNotifyCenter()const {return m_isShowInNotifyCenter;}
+    void setShowInNotifyCenter(const bool &state);
 
     inline bool isShowNotifyPreview()const {return m_isShowNotifyPreview;}
     void setShowNotifyPreview(const bool &state);
@@ -69,7 +69,7 @@ Q_SIGNALS:
     void allowNotifyChanged(bool state);
     void notifySoundChanged(bool state);
     void lockShowNotifyChanged(bool state);
-    void onlyInNotifyCenterChanged(bool state);
+    void showInNotifyCenterChanged(bool state);
     void showNotifyPreviewChanged(bool state);
 
 private:
@@ -79,7 +79,7 @@ private:
     bool m_isAllowNotify;//允许应用通知
     bool m_isNotifySound;//是否有通知声音
     bool m_isLockShowNotify;//锁屏显示通知
-    bool m_isOnlyInNotifyCenter;//通知仅在通知中心显示
+    bool m_isShowInNotifyCenter;//通知仅在通知中心显示
     bool m_isShowNotifyPreview;//显示消息预览
 };
 

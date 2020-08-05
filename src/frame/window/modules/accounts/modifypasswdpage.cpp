@@ -82,6 +82,8 @@ void ModifyPasswdPage::initWidget()
     cansaveLayout->addWidget(saveBtn);
     mainContentLayout->addLayout(cansaveLayout);
     setLayout(mainContentLayout);
+    cancleBtn->setDefault(true);
+    saveBtn->setDefault(true);
     cancleBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     saveBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 

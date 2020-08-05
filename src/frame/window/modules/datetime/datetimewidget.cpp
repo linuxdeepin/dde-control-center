@@ -136,6 +136,9 @@ void DatetimeWidget::setDefaultWidget()
 
 void DatetimeWidget::onItemClicked(const QModelIndex &index)
 {
+    if (m_lastIndex == index) return;
+
+    m_lastIndex = index;
     Q_EMIT requestPushWidget(index.row());
     m_listview->resetStatus(index);
 }

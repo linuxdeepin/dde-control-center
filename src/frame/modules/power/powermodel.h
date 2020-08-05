@@ -125,6 +125,9 @@ public:
     inline bool getSuspend() const { return m_isSuspend; }
     void setSuspend(bool suspend);
 
+    inline bool canHibernate() const { return m_canHibernate; }
+    void setCanHibernate(bool value);
+
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void canSleepChanged(const bool canSleep);
@@ -168,13 +171,14 @@ private:
     bool m_screenBlackLock;
     bool m_sleepLock;
     bool m_canSleep;
+    bool m_canHibernate;
     int m_screenBlackDelayOnPower;
     int m_sleepDelayOnPower;
     int m_screenBlackDelayOnBattery;
     int m_sleepDelayOnBattery;
 #ifndef DCC_DISABLE_POWERSAVE
-    bool m_autoPowerSaveMode;
-    bool m_powerSaveMode;
+    bool m_autoPowerSaveMode{false};
+    bool m_powerSaveMode{false};
 #endif
     bool m_haveBettary;
     int m_batteryLockScreenDelay;

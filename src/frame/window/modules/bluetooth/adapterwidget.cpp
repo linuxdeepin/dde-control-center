@@ -37,6 +37,7 @@
 #include <QDebug>
 #include <QThread>
 #include <QLabel>
+#include <QApplication>
 
 using namespace dcc;
 using namespace dcc::bluetooth;
@@ -262,6 +263,7 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
 
 void AdapterWidget::toggleSwitch(const bool checked)
 {
+    QApplication::focusWidget()->clearFocus();
     if (!checked) {
         for (auto it : m_myDevices) {
             if (it->device()->connecting()) {

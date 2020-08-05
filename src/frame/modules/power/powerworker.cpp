@@ -79,9 +79,14 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     bool envVal = QVariant(env.value(POWER_CAN_SLEEP)).toBool();
     bool confVal = valueByQSettings<bool>(DCC_CONFIG_FILES, "Power", "sleep", true);
     bool dbusVal = m_login1ManagerInter->CanSuspend().value().contains("yes");
+    bool envVal_hibernate = QVariant(env.value(POWER_CAN_HIBERNATE)).toBool();
+    bool dbusVal_hibernate = m_login1ManagerInter->CanHibernate().value().contains("yes");
+
     qDebug() << "envVal: " << envVal << " confVal: " << confVal << " dbusVal: " << dbusVal;
     bool can_sleep = env.contains(POWER_CAN_SLEEP) ? envVal : confVal && dbusVal;
+    bool can_hibernate = env.contains(POWER_CAN_HIBERNATE) ? envVal_hibernate : dbusVal_hibernate;
     m_powerModel->setCanSleep(can_sleep);
+    m_powerModel->setCanHibernate(can_hibernate);
 }
 
 void PowerWorker::active(bool isSync)

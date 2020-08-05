@@ -244,6 +244,10 @@ void ShortcutModel::onParseInfo(const QString &info)
         return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
     });
 
+    qSort(m_assistiveToolsInfos.begin(), m_assistiveToolsInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+        return assistiveToolsFilter.indexOf(s1->id) < assistiveToolsFilter.indexOf(s2->id);
+    });
+
     Q_EMIT listChanged(m_systemInfos, InfoType::System);
     Q_EMIT listChanged(m_windowInfos, InfoType::Window);
     Q_EMIT listChanged(m_workspaceInfos, InfoType::Workspace);
@@ -273,17 +277,17 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
     const QJsonObject &obj       = QJsonDocument::fromJson(value.toStdString().c_str()).object();
     const QString     &update_id = obj["Id"].toString();
     auto res = std::find_if(m_infos.begin(), m_infos.end(), [ = ] (const ShortcutInfo *info)->bool{
-            return info->id == update_id;
-        });
+        return info->id == update_id;
+    });
 
-        if (res != m_infos.end()) {
-            (*res)->type = obj["Type"].toInt();
-            (*res)->accels  = obj["Accels"].toArray().first().toString();
-            (*res)->name    = obj["Name"].toString();
-            (*res)->command = obj["Exec"].toString();
+    if (res != m_infos.end()) {
+        (*res)->type = obj["Type"].toInt();
+        (*res)->accels  = obj["Accels"].toArray().first().toString();
+        (*res)->name    = obj["Name"].toString();
+        (*res)->command = obj["Exec"].toString();
 
-            Q_EMIT shortcutChanged((*res));
-        }
+        Q_EMIT shortcutChanged((*res));
+    }
 }
 
 void ShortcutModel::onWindowSwitchChanged(bool value)
@@ -311,12 +315,12 @@ void ShortcutModel::setCurrentInfo(ShortcutInfo *currentInfo)
 ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
 {
     auto res = std::find_if(m_infos.begin(), m_infos.end(), [ = ] (const ShortcutInfo *info)->bool{
-            return QString::compare(info->accels, shortcut, Qt::CaseInsensitive);
-        });
+        return QString::compare(info->accels, shortcut, Qt::CaseInsensitive);
+    });
 
-        if (res != m_infos.end()) {
-            return *res;
-        }
+    if (res != m_infos.end()) {
+        return *res;
+    }
 
     return nullptr;
 }

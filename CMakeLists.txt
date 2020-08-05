@@ -43,7 +43,6 @@ add_definitions(-DWINDOW_MODE)
 add_subdirectory("src/frame")
 add_subdirectory("src/dialogs")
 add_subdirectory("src/develop-tool")
-add_subdirectory("src/restore-tool")
 add_subdirectory("abrecovery")
 add_subdirectory("unittest")
 
@@ -90,4 +89,3 @@ configure_package_config_file(DdeControlCenterConfig.cmake.in
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
 
-install(FILES com.deepin.controlcenter.restore.policy DESTINATION share/polkit-1/actions)

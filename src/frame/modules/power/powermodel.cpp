@@ -44,8 +44,6 @@ PowerModel::PowerModel(QObject *parent)
     , m_sleepDelayOnPower(0)
     , m_screenBlackDelayOnBattery(0)
     , m_sleepDelayOnBattery(0)
-    , m_autoPowerSaveMode(false)
-    , m_powerSaveMode(false)
     , m_haveBettary(false)
     , m_batteryLockScreenDelay(0)
     , m_powerLockScreenDelay(0)
@@ -307,6 +305,13 @@ void PowerModel::setCanSleep(bool canSleep)
         m_canSleep = canSleep;
 
         Q_EMIT canSleepChanged(canSleep);
+    }
+}
+
+void PowerModel::setCanHibernate(bool value)
+{
+    if (m_canHibernate != value) {
+        m_canHibernate = value;
     }
 }
 

@@ -40,8 +40,8 @@ using namespace DCC_NAMESPACE::systeminfo;
 
 SystemInfoWidget::SystemInfoWidget(QWidget *parent)
     : QWidget(parent)
-    , m_mainContentLayout(new QVBoxLayout)
-    , m_listView(new dcc::widgets::MultiSelectListView)
+    , m_mainContentLayout(new QVBoxLayout(this))
+    , m_listView(new dcc::widgets::MultiSelectListView(this))
     , m_itemModel(new QStandardItemModel(this))
 {
     initWidget();
@@ -56,6 +56,7 @@ void SystemInfoWidget::initWidget()
     m_listView->setModel(m_itemModel);
     m_listView->setViewportMargins(ScrollAreaMargins);
     m_listView->setIconSize(ListViweIconSize);
+    m_listView->setItemSize(ListViweSysItemSize);
 
     m_mainContentLayout->setMargin(0);
     m_mainContentLayout->addWidget(m_listView);
@@ -107,10 +108,14 @@ void SystemInfoWidget::initData()
         DStandardItem *item = new DStandardItem;
         item->setIcon(QIcon::fromTheme(m.icon));
         item->setText(m.text);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_itemModel->appendRow(item);
     }
 
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
+        if (m_lastIndex == index) return;
+
+        m_lastIndex = index;
         m_itemList[index.row()].method.invoke(this);
         m_listView->resetStatus(index);
     });

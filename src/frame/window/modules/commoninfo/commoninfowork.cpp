@@ -39,6 +39,8 @@ const QString UeProgramObjPath("/com/deepin/userexperience/Daemon");
 CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     : QObject(parent)
     , m_commomModel(model)
+    , m_title("")
+    , m_content("")
 {
     m_dBusGrub = new GrubDbus("com.deepin.daemon.Grub2",
                              "/com/deepin/daemon/Grub2",
@@ -237,12 +239,14 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
     if (enabled && (m_dBusUeProgram->IsEnabled() != enabled)) {
         qInfo("suser opened experience project switch.");
         // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
-        QString title(tr(" "));
         QString allowContent(tr("Agree and Join User Experience Program"));
 
         // license路径
-        QString content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
-
+        m_content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
+        QFile file(m_content);
+        if (false == file.exists()) {
+            m_content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement-%1.md", "");
+        }
         m_process = new QProcess(this);
 
         auto pathType = "-c";
@@ -251,9 +255,9 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         if (!sl.contains(QLocale::system().name()))
             pathType = "-e";
         m_process->start("dde-license-dialog",
-                                      QStringList() << "-t" << title << pathType << content << "-a" << allowContent);
+                                      QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent);
         qDebug()<<" Deliver content QStringList() = "<<"dde-license-dialog"
-                                                     << "-t" << title << pathType << content << "-a" << allowContent;
+                                                     << "-t" << m_title << pathType << m_content << "-a" << allowContent;
         connect(m_process, &QProcess::stateChanged, this, [pMainWindow](QProcess::ProcessState state) {
             if (pMainWindow) {
                 pMainWindow->setEnabled(state != QProcess::Running);

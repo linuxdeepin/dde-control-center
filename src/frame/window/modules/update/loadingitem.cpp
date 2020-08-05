@@ -26,6 +26,7 @@
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QIcon>
+#include <QPainter>
 #include <DSysInfo>
 
 DCORE_USE_NAMESPACE
@@ -83,7 +84,6 @@ void LoadingItem::setProgressBarVisible(bool visible)
 void LoadingItem::setMessage(const QString &message)
 {
     m_messageLabel->setText(message);
-    m_messageLabel->setWordWrap(true);
 }
 
 void LoadingItem::setVersionVisible(bool state)
@@ -94,7 +94,7 @@ void LoadingItem::setVersionVisible(bool state)
 void LoadingItem::setSystemVersion(const QString &version)
 {
     Q_UNUSED(version);
-    m_labelText->setText(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion().left(2) + " " + DSysInfo::deepinTypeDisplayName());
+    m_labelText->setText(DSysInfo::uosProductTypeName() + " " + DSysInfo::majorVersion() + " " + DSysInfo::uosEditionName());
 }
 
 void LoadingItem::setImage(QImage *image)
@@ -112,6 +112,9 @@ QPixmap LoadingItem::getPixmap(const QString &name, const QSize size)
     const QIcon &icon = QIcon(name);
     const qreal ratio = devicePixelRatioF();
     QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
+    QPainter p(&pixmap);
+    p.setRenderHints(QPainter::Antialiasing);
+    p.drawPixmap(0, 0, pixmap);
     pixmap.setDevicePixelRatio(ratio);
     return pixmap;
 }

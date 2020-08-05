@@ -36,15 +36,34 @@ using namespace DCC_NAMESPACE::systeminfo;
 
 static QString loadLicenses()
 {
-    if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinServer) {
-        const QString serverPath = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Server/End-User-License-Agreement-Server-CN-%1.txt", "");
-        return serverPath;
-    }else if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinPersonal) {
-        const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/End-User-License-Agreement-Home-CN-%1.txt", "");
-        return body;
+    if (DSysInfo::UosType() == DSysInfo::UosType::UosServer) {
+
+        const QString serverPath = getLicensePath("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Server/End-User-License-Agreement-Server-CN-%1.txt", "");
+        if ( QFile::exists(serverPath)) {
+            const QString serverbody = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Server/End-User-License-Agreement-Server-CN-%1.txt", "");
+            return serverbody;
+        } else {
+            const QString oldPody = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.txt", "");
+            return oldPody;
+        }
+    } else if (DSysInfo::UosEdition() == DSysInfo::UosEdition::UosProfessional) {
+        const QString bodypath = getLicensePath("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/End-User-License-Agreement-Home-CN-%1.txt", "");
+        if (QFile::exists(bodypath)) {
+            const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/End-User-License-Agreement-Home-CN-%1.txt", "");
+            return body;
+        } else {
+            const QString oldPody = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.txt", "");
+            return oldPody;
+        }
     } else {
-        const QString path = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Professional/End-User-License-Agreement-Professional-CN-%1.txt", "");
-        return path;
+        const QString newpath = getLicensePath("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Professional/End-User-License-Agreement-Professional-CN-%1.txt", "");
+        if (QFile::exists(newpath)) {
+            const QString path = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Professional/End-User-License-Agreement-Professional-CN-%1.txt", "");
+            return path;
+        } else {
+            const QString oldPath = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.txt", "");
+            return oldPath;
+        }
     }
 }
 

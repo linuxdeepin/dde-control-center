@@ -70,6 +70,7 @@ void KeyboardWidget::init()
     m_keyboardListView->setCurrentIndex(m_listviewModel->index(0, 0));
     m_keyboardListView->setViewportMargins(ScrollAreaMargins);
     m_keyboardListView->setIconSize(ListViweIconSize);
+    m_lastIndex = m_keyboardListView->currentIndex();
     connect(m_keyboardListView, &DListView::clicked, this, &KeyboardWidget::onItemClick);
     connect(m_keyboardListView, &DListView::activated, m_keyboardListView, &QListView::clicked);
 }
@@ -82,6 +83,9 @@ void KeyboardWidget::initSetting(const int settingIndex)
 
 void KeyboardWidget::onItemClick(const QModelIndex &index)
 {
+    if (index == m_lastIndex) {
+        return;
+    }
     switch (index.row()) {
     case 0:
         Q_EMIT showGeneralSetting();
@@ -99,5 +103,6 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
         Q_EMIT showGeneralSetting();
         break;
     }
+    m_lastIndex = index;
     m_keyboardListView->resetStatus(index);
 }

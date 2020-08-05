@@ -63,6 +63,7 @@ public Q_SLOTS:
 private:
     dcc::widgets::MultiSelectListView *m_defAppCatView;
     QVBoxLayout *m_centralLayout;
+    QModelIndex m_lastIndex;
 };
 }
 }

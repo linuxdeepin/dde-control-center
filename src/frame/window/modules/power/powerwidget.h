@@ -73,6 +73,7 @@ private:
     const dcc::power::PowerModel *m_model;
     bool m_bhasBattery;
     QList<MenuMethod> m_menuIconText;
+    QModelIndex m_lastIndex;
 };
 
 }// namespace datetime

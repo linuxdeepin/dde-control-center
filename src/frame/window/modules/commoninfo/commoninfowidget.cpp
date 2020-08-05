@@ -60,6 +60,7 @@ void CommonInfoWidget::initWidget()
     m_listView->setEditTriggers(QListView::NoEditTriggers);
     m_listView->setIconSize(ListViweIconSize);
     m_listView->setModel(m_itemModel);
+    m_listView->setItemSize(ListViweSysItemSize);
 
     m_vBoxLayout->setContentsMargins(5, 5, 5, 0);
     m_vBoxLayout->setMargin(0);
@@ -106,8 +107,11 @@ void CommonInfoWidget::initData()
         item->setText(m.itemText);
         m_itemModel->appendRow(item);
     }
-
+    m_lastIndex = m_listView->model()->index(0, 0);
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
+        if (m_lastIndex == index) return;
+
+        m_lastIndex = index;
         m_itemList[index.row()].itemSignal.invoke(this);
         m_listView->resetStatus(index);
     });

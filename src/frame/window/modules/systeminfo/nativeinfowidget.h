@@ -58,6 +58,8 @@ private:
     const QString systemLogo() const;
 
 public Q_SLOTS:
+    void setProductName(const QString &edition);
+    void setVersionNumber(const QString &type);
     void setEdition(const QString &edition);
     void setType(const QString &type);
     void setProcessor(const QString &processor);
@@ -70,6 +72,8 @@ Q_SIGNALS:
 private:
     dcc::systeminfo::SystemInfoModel *m_model;
     QVBoxLayout *m_mainLayout;
+    dcc::widgets::TitleValueItem *m_productName;
+    dcc::widgets::TitleValueItem *m_versionNumber;
     dcc::widgets::TitleValueItem *m_version;
     dcc::widgets::TitleValueItem *m_type;
     dcc::widgets::TitleAuthorizedItem *m_authorized;

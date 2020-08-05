@@ -51,7 +51,8 @@ Depends: ${shlibs:Depends},
  deepin-clone,
  libpwquality1,
  wamerican,
- libpam-cracklib
+ libpam-cracklib,
+ deepin-recovery-tool
 Recommends: netselect, deepin-ab-recovery
 Suggests: redshift
 Conflicts:
