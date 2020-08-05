@@ -46,6 +46,7 @@ public:
     void setId(const QString &id);
 
     QMap<QString, const Device *> devices() const;
+    QList<QString> devicesId() const;
     const Device *deviceById(const QString &id) const;
 
     inline bool powered() const { return m_powered; }
@@ -69,6 +70,8 @@ private:
     bool m_powered;
     bool m_discovering;
     QMap<QString, const Device *> m_devices;
+    //按序存放设备id,确定设备显示顺序
+    QList<QString> m_devicesId;
 };
 
 } // namespace bluetooth

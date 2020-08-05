@@ -247,8 +247,11 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     });
 
     m_titleEdit->setTitle(adapter->name());
-    for (const Device *device : adapter->devices()) {
-        addDevice(device);
+    for (QString id : adapter->devicesId()) {
+        if (adapter->devices().contains(id)) {
+            const Device *device = adapter->devices()[id];
+            addDevice(device);
+        }
     }
 
     m_lastCheck = adapter->powered();

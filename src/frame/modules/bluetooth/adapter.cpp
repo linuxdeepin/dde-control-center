@@ -49,6 +49,7 @@ void Adapter::setName(const QString &name)
 void Adapter::addDevice(const Device *device)
 {
     if (!deviceById(device->id())) {
+        m_devicesId << device->id();
         m_devices[device->id()] = device;
         Q_EMIT deviceAdded(device);
     }
@@ -60,6 +61,7 @@ void Adapter::removeDevice(const QString &deviceId)
 
     device = deviceById(deviceId);
     if (device) {
+        m_devicesId.removeOne(deviceId);
         m_devices.remove(deviceId);
         Q_EMIT deviceRemoved(deviceId);
     }
@@ -77,6 +79,11 @@ void Adapter::setPowered(bool powered, bool discovering)
 QMap<QString,const Device *> Adapter::devices() const
 {
     return m_devices;
+}
+
+QList<QString> Adapter::devicesId() const
+{
+    return m_devicesId;
 }
 
 const Device *Adapter::deviceById(const QString &id) const
