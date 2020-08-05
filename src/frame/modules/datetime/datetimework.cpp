@@ -66,7 +66,7 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     m_model->setShortDateFormat(m_timedateInter->shortDateFormat());
     m_model->setShorTimeFormat(m_timedateInter->shortTimeFormat());
     m_model->setLongTimeFormat(m_timedateInter->longTimeFormat());
-    m_model->setWeekStartDayFormat(m_timedateInter->weekdayBegins());
+    m_model->setWeekStartDayFormat(m_timedateInter->weekBegins());
 
     m_model->setWeekdayFormatTypeCount(3);
     m_model->setLongDateFormatTypeCount(3);
@@ -232,7 +232,7 @@ void DatetimeWork::setShortTimeFormat(int type)
 
 void DatetimeWork::setWeekStartDayFormat(int type)
 {
-    m_timedateInter->setWeekdayBegins(type);
+    m_timedateInter->setWeekBegins(type);
 }
 
 void DatetimeWork::onTimezoneListChanged(const QStringList &timezones)
