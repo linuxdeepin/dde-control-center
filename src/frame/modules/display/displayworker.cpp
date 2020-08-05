@@ -218,7 +218,7 @@ void DisplayWorker::splitScreens()
     Q_ASSERT(m_monitors.contains(primary));
     m_monitors[primary]->SetPosition(0, 0).waitForFinished();
 
-    int xOffset = primary->w();
+    double xOffset = static_cast<double>(primary->w()) * m_appearanceInter->GetScaleFactor();
     for (auto *mon : mList) {
         // pass primary
         if (mon == primary)
@@ -227,7 +227,7 @@ void DisplayWorker::splitScreens()
         Q_ASSERT(m_monitors.contains(mon));
         auto *mInter = m_monitors[mon];
 
-        mInter->SetPosition(xOffset, 0).waitForFinished();
+        mInter->SetPosition(static_cast<int>(xOffset), 0).waitForFinished();
         xOffset += mon->w();
     }
 
