@@ -212,7 +212,6 @@ void DisplayModule::showScalingPage()
     m_frameProxy->pushWidget(this, page);
 }
 
-
 void DisplayModule::showMultiScreenSettingPage()
 {
     MultiScreenSettingPage *page = new MultiScreenSettingPage();
@@ -319,10 +318,8 @@ void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mod
 
     if (showTimeoutDialog(mon) == QDialog::Accepted) {
         m_displayWorker->saveChanges();
-        qDebug() << "showTimeoutDialog:Accepted()";
     } else {
         m_displayWorker->setMonitorResolution(mon, lastMode);
-        qDebug() << "showTimeoutDialog:reject()";
     }
 }
 
@@ -379,7 +376,6 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
 int DisplayModule::showTimeoutDialog(Monitor *mon)
 {
     TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
-    qDebug() << "new TimeoutDialog";
     qreal radio = qApp->devicePixelRatio();
     connect(mon, &Monitor::geometryChanged, timeoutDialog, [ = ] {
         if (timeoutDialog)

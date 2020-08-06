@@ -26,17 +26,19 @@
 #include "modules/display/monitorcontrolwidget.h"
 #include "modules/display/monitorindicator.h"
 #include "widgets/basiclistview.h"
+#include "widgets/comboxwidget.h"
+#include "widgets/settingsgroup.h"
 
 #include <DSuggestButton>
-#include "widgets/comboxwidget.h"
+
 #include <QLabel>
 #include <QListView>
 #include <QVBoxLayout>
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QDebug>
-#include<QComboBox>
-#include "widgets/settingsgroup.h"
+#include <QComboBox>
+
 using namespace dcc::display;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::display;
@@ -150,7 +152,7 @@ void CustomSettingDialog::initUI()
 
     for (auto obj : this->children()) {
         QWidget* item = qobject_cast<QWidget*>(obj);
-        if(item !=nullptr){
+        if (item !=nullptr) {
             item->setFocusPolicy(Qt::NoFocus);
         }
     }

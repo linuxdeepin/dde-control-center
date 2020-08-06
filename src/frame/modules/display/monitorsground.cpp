@@ -26,7 +26,6 @@
 #include "monitorsground.h"
 #include "monitorproxywidget.h"
 #include "displaymodel.h"
-#include "monitorproxywidget.h"
 #include "monitor.h"
 
 #include <QPainter>
@@ -40,9 +39,8 @@ const int VIEW_WIDTH = 400;
 const int VIEW_HEIGHT = 200;
 
 MonitorsGround::MonitorsGround(QWidget *parent)
-    : QFrame(parent),
-
-      m_refershTimer(new QTimer(this))
+    : QFrame(parent)
+    , m_refershTimer(new QTimer(this))
 {
     m_refershTimer->setInterval(100);
     m_refershTimer->setSingleShot(true);
@@ -50,9 +48,6 @@ MonitorsGround::MonitorsGround(QWidget *parent)
     connect(m_refershTimer, &QTimer::timeout, this, &MonitorsGround::resetMonitorsView);
 
     setFixedSize(VIEW_WIDTH + MARGIN_W * 2, VIEW_HEIGHT + MARGIN_H * 2);
-#ifdef QT_DEBUG
-//    setStyleSheet("background-color: cyan;");
-#endif
 }
 
 MonitorsGround::~MonitorsGround()
@@ -153,13 +148,12 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     int enabledCount = 0;
     for (auto* value : m_monitors)
     {
-        if(value->enable())
-        {
+        if (value->enable()) {
             enabledCount++;
             m_monitors.key(value)->setVisible(true);
         }
     }
-    if(1 == enabledCount)
+    if (1 == enabledCount)
         bSingle = true;
 
     qDebug() << "adjust" << pw->name();
@@ -174,8 +168,7 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     const double x = scale * pw->x();
     const double y = scale * pw->y();
 
-    if(bSingle)
-    {
+    if (bSingle) {
         const double wSingle = 0.15 * pw->w();
         const double hSingle = 0.15 * pw->h();
         pw->setGeometry(static_cast<int>((width() - wSingle)/2), static_cast<int>((height() - hSingle)/2), static_cast<int>(wSingle), static_cast<int>(hSingle));

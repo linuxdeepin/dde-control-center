@@ -36,9 +36,8 @@ using namespace dcc::display;
 const int AUTOHIDE_DELAY = 1000 * 5;
 
 RecognizeDialog::RecognizeDialog(DisplayModel *model, QWidget *parent)
-    : QDialog(parent),
-
-      m_model(model)
+    : QDialog(parent)
+    , m_model(model)
 {
     connect(m_model, &DisplayModel::screenHeightChanged, this, &RecognizeDialog::onScreenRectChanged);
     connect(m_model, &DisplayModel::screenWidthChanged, this, &RecognizeDialog::onScreenRectChanged);
@@ -69,9 +68,7 @@ void RecognizeDialog::paintEvent(QPaintEvent *)
     painter.setPen(p);
     painter.setBrush(b);
 
-    if (m_model->monitorsIsIntersect())
-    {
-
+    if (m_model->monitorsIsIntersect()) {
         const QRect intersectRect = QRect(0, 0, m_model->monitorList()[0]->w(), m_model->monitorList()[0]->h());
         QString intersectName = m_model->monitorList().first()->name();
         for (int i(1); i != m_model->monitorList().size(); ++i)
