@@ -206,8 +206,14 @@ bool APItem::setLoading(bool isLoading)
         m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false);
         m_loadingAction->setWidget(m_loadingIndicator);
         m_loadingAction->setVisible(true);
-        m_loadingIndicator->start();
-        m_loadingIndicator->show();
+        for (int i = 0; m_parentView != nullptr && i < m_parentView->count(); ++i) {
+            if (m_parentView->isRowHidden(i)) {
+                m_loadingIndicator->hide();
+            } else {
+                m_loadingIndicator->start();
+                m_loadingIndicator->show();
+            }
+        }
         setActionList(Qt::Edge::RightEdge, {m_loadingAction});
     } else {
         m_loadingIndicator->stop();
@@ -218,7 +224,7 @@ bool APItem::setLoading(bool isLoading)
         m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
         QStyleOption opt;
         m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-        m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin); // ArrowEnterClickMargin
+        m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);
         m_arrowAction->setVisible(true);
         setActionList(Qt::Edge::RightEdge, {m_arrowAction});
         isReconnect = true;
@@ -300,7 +306,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_mainLayout->addWidget(m_tipsGroup);
     m_mainLayout->addWidget(m_closeHotspotBtn);
     m_layoutCount = m_mainLayout->layout()->count();
-    updateLayout(!m_lvAP->isHidden());    
+    updateLayout(!m_lvAP->isHidden());
     m_mainLayout->setSpacing(10);//三级菜单控件间的间隙
     m_mainLayout->setMargin(0);
 
@@ -308,11 +314,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     mainWidget->setLayout(m_mainLayout);
 
     setContent(mainWidget);
-#ifdef QT_DEBUG
-    setTitle(m_device->path());
-#else
-    setTitle(tr("WLAN"));
-#endif
 
     connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex & idx) {
         if (idx.data(APItem::PathRole).toString().length() == 0) {
@@ -498,8 +499,6 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
         } else if (it->uuid() != m_clickedItem->uuid()) {
             m_lvAP->setRowHidden(it->row(), true);
         }
-
-
     } else {
         m_lvAP->setRowHidden(it->row(), false);
     }
