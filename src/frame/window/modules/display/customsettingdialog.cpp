@@ -42,7 +42,7 @@ using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 
 CustomSettingDialog::CustomSettingDialog(QWidget *parent)
-    : DAbstractDialog(parent)
+    : DAbstractDialog(false, parent)
     , m_isPrimary(true)
 {
     initUI();
