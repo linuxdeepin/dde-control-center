@@ -108,8 +108,11 @@ void TouchscreenPage::onMonitorChanged()
         oldWidget->deleteLater();
     }
     m_list.clear();
+    m_titleName.clear();
+    m_labels.clear();
 
     auto *mainWidget = new QWidget();
+    mainWidget->installEventFilter(this);
     m_contentArea->setWidget(mainWidget);
 
     auto *layout = new QVBoxLayout();
@@ -122,8 +125,8 @@ void TouchscreenPage::onMonitorChanged()
     for (const auto &i : touchscreenList) {
         QString touchscreenSerial = i.serialNumber;
 
-        auto text = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
-        auto *label = new QLabel(text);
+        auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
+        auto *label = new QLabel(title);
         layout->addWidget(label);
         layout->addSpacing(5);
 
@@ -133,6 +136,8 @@ void TouchscreenPage::onMonitorChanged()
         layout->addWidget(listCombo);
         layout->addSpacing(10);
         m_list.push_back(listCombo);
+        m_labels.push_back(label);
+        m_titleName << title;
 
         for (Monitor *m : monitorList) {
             listCombo->addItem(m->name());
@@ -166,4 +171,23 @@ void TouchscreenPage::save()
                               QVariantMap(),
                               3000);
     }
+}
+
+bool TouchscreenPage::eventFilter(QObject *obj, QEvent *event)
+{
+    Q_UNUSED(obj);
+    if (event->type() == QEvent::Resize) {
+        for (int i = 0; i < m_labels.count(); i++)
+        {
+            QFontMetrics fontMetrics(m_titleName[i]);
+            int fontSize = fontMetrics.width(m_titleName[i]);
+            if (fontSize > m_labels[i]->width()) {
+                m_labels[i]->setText(fontMetrics.elidedText(m_titleName[i], Qt::ElideMiddle, m_labels[i]->width()));
+            } else {
+                m_labels[i]->setText(m_titleName[i]);
+            }
+        }
+        return true;
+    }
+    return false;
 }
