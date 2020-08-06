@@ -64,7 +64,7 @@ void sig_crash(int sig)
     memset(path, 0, 100);
     //崩溃日志路径
     QString strPath = QStandardPaths::standardLocations(QStandardPaths::ConfigLocation)[0] + "/dde-collapse.log";
-    memcpy(path, strPath.toStdString().data(), strPath.length());
+    memcpy(path, strPath.toStdString().data(), static_cast<size_t>(strPath.length()));
     qDebug() << path;
 
     stat(path, &buf);
@@ -186,7 +186,7 @@ int main(int argc, char *argv[])
     auto w = gs.get(GSettinsWindowWidth).toInt();
     auto h = gs.get(GSettinsWindowHeight).toInt();
     pid_t pid = getpid();
-    qDebug() << QString("main window size: %1 * %2").arg(w, h) << ", pid is:" << pid;
+    qDebug() << QString("main window size: %1 * %2").arg(w).arg(h) << ", pid is:" << pid;
 
     auto screen = app.primaryScreen();
     QRect mwRect(0, 0, w, h);
@@ -237,7 +237,7 @@ int main(int argc, char *argv[])
             .method("Toggle")
             .call();
 
-        if (!reqModule.isEmpty())
+        if (!reqModule.isEmpty()) {
             DDBusSender()
             .service("com.deepin.dde.ControlCenter")
             .interface("com.deepin.dde.ControlCenter")
@@ -246,14 +246,16 @@ int main(int argc, char *argv[])
             .arg(reqModule)
             .arg(reqPage)
             .call();
-
-        else if (parser.isSet(showOption))
+        } else if (parser.isSet(showOption)) {
             DDBusSender()
             .service("com.deepin.dde.ControlCenter")
             .interface("com.deepin.dde.ControlCenter")
             .path("/com/deepin/dde/ControlCenter")
             .method("Show")
             .call();
+        }
+        // 当前服务注册失败，发送完dbus请求后退出，否则进程无法退出
+        return 0;
     }
 
     if (!reqModule.isEmpty())
