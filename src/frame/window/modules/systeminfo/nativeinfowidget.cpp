@@ -66,14 +66,7 @@ void NativeInfoWidget::initWidget()
     LogoItem *logo = new LogoItem;
     logo->setDescription(true); //显示文字描述
     logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
-    auto defIcon = ":/icons/deepin/builtin/icons/dcc_deepin_logo_164px.svg";
-    if (DCC_NAMESPACE::IsDesktopSystem) {
-        logo->setLogo(QIcon(defIcon), 156, 46);
-    } else if (DCC_NAMESPACE::IsProfessionalSystem) {
-        logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logo.svg"), 156, 46);
-    } else {
-        logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal, defIcon));
-    }
+    logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal));
 
     if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
         m_moduleActive = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
