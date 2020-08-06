@@ -32,7 +32,6 @@
 
 #include <QVBoxLayout>
 #include <QGridLayout>
-#include <QComboBox>
 #include <QScrollArea>
 #include <QScroller>
 #include <QList>
@@ -41,6 +40,13 @@ using namespace DCC_NAMESPACE::display;
 using namespace dcc::display;
 using namespace dcc::widgets;
 DWIDGET_USE_NAMESPACE
+
+void MCombobox::showPopup()
+{
+    QComboBox::showPopup();
+    QWidget *popup = this->findChild<QFrame*>();
+    popup->move(this->mapToGlobal(this->pos()).x() - this->x(), popup->y());
+}
 
 TouchscreenPage::TouchscreenPage(QWidget *parent)
     : ContentWidget(parent)
@@ -121,7 +127,7 @@ void TouchscreenPage::onMonitorChanged()
         layout->addWidget(label);
         layout->addSpacing(5);
 
-        auto *listCombo = new QComboBox();
+        auto *listCombo = new MCombobox();
         listCombo->setProperty("touchscreenName", i.name);
         listCombo->setProperty("touchscreenSerial", touchscreenSerial);
         layout->addWidget(listCombo);
