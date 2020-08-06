@@ -32,12 +32,12 @@
 #include <DListView>
 
 #include <QWidget>
+#include <QComboBox>
 
 using Notifications = org::freedesktop::Notifications;
 
 class QVBoxLayout;
 class QGridLayout;
-class QComboBox;
 
 namespace dcc {
 
@@ -54,6 +54,13 @@ class ButtonTuple;
 namespace DCC_NAMESPACE {
 
 namespace display {
+
+class MCombobox : public QComboBox
+{
+    Q_OBJECT
+protected:
+    void showPopup() override;
+};
 
 class TouchscreenPage : public dcc::ContentWidget
 {
@@ -74,7 +81,7 @@ private:
     dcc::display::DisplayModel *m_model{nullptr};
     dcc::widgets::ButtonTuple *m_buttonTuple;
     QScrollArea *m_contentArea;
-    QList<QComboBox *> m_list;
+    QList<MCombobox *> m_list;
     Notifications *m_notifyInter;
 };
 
