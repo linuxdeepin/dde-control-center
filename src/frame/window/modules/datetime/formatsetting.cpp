@@ -149,13 +149,13 @@ QString FormatSetting::fotmatWeek(int type)
     QString day("");
     switch (type) {
     case 0:
-        day = tr("Sunday"); //星期天
+        day = tr("Monday"); //星期一
         break;
     case 1:
-        day = tr("sunday"); //周天
+        day = tr("monday"); //周一
         break;
     default:
-        day = tr("Sunday"); //星期天
+        day = tr("Monday"); //星期一
         break;
     }
     return day;
@@ -166,10 +166,10 @@ QString FormatSetting::weekStartWithDay(int type)
     QString day("");
     switch (type) {
     case 0:
-        day = tr("Sunday"); //星期天
+        day = tr("Monday"); //星期一
         break;
     case 1:
-        day = tr("Monday"); //星期一
+        day = tr("Sunday"); //星期天
         break;
     default:
         day = tr("Monday"); //星期一
