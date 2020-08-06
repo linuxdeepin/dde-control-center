@@ -122,6 +122,11 @@ public:
     inline int lowPowerAutoSleepThreshold() const { return m_dLowPowerAutoSleepThreshold; }
     void setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold);
     //-----------------------------------------------
+    inline bool getSuspend() const { return m_isSuspend; }
+    void setSuspend(bool suspend);
+
+    inline bool canHibernate() const { return m_canHibernate; }
+    void setCanHibernate(bool value);
 
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
@@ -156,7 +161,7 @@ Q_SIGNALS:
     void lowPowerNotifyThresholdChanged(const int value);
     void lowPowerAutoSleepThresholdChanged(const int value);
     //--------------------------------------------------------------
-
+    void suspendChanged(bool suspendState);
 
 private:
     bool m_lidPresent;//以此判断是否为笔记本
@@ -189,6 +194,8 @@ private:
     int m_dLowPowerNotifyThreshold;
     int m_dLowPowerAutoSleepThreshold;
     //--------------------------------------
+    bool m_isSuspend;
+    bool m_canHibernate;
 };
 
 }

@@ -167,7 +167,21 @@ void UseElectricWidget::setModel(const PowerModel *model)
             m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
     });
 
-    m_cmbPowerBtn->comboBox()->setCurrentIndex(model->linePowerPressPowerBtnAction());
+    int powIndex = model->linePowerPressPowerBtnAction();
+    if (!model->getSuspend()) {
+        if (IsServerSystem || !model->canHibernate()) {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
+        } else {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
+        }
+    } else {
+        if (IsServerSystem || !model->canHibernate()) {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
+        } else {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex);
+        }
+    }
+
     connect(model, &PowerModel::linePowerPressPowerBtnActionChanged, this, [=](const int reply){
         if (reply < m_cmbPowerBtn->comboBox()->count())
             m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
