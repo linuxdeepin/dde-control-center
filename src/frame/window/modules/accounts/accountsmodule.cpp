@@ -36,6 +36,7 @@
 #include <QStringList>
 #include <QTimer>
 #include <QDebug>
+#include <QtConcurrent>
 
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
@@ -211,7 +212,18 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
 
-    if (m_fingerWorker->tryEnroll(name, thumb)) {
+    QEventLoop eventLoop(this);
+    QFutureWatcher<bool> watcher(this);
+
+    auto future = QtConcurrent::run([=]{
+        return m_fingerWorker->tryEnroll(name, thumb);
+    });
+
+    watcher.setFuture(future);
+    connect(&watcher, &QFutureWatcher<bool>::finished, &eventLoop, &QEventLoop::quit);
+    eventLoop.exec();
+
+    if (watcher.result()) {
         dlg->startFoucosTimer();
         dlg->exec();
         m_fingerWorker->refreshUserEnrollList(name);
