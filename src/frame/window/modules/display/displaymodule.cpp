@@ -369,6 +369,7 @@ void DisplayModule::showRotate(Monitor *mon)
 
     connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
     connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
+    connect(m_displayWorker, &DisplayWorker::endRotate,dialog, &RotateDialog::onEndRotate);
 
     QMap<Monitor *, quint16> mMonitorRotate;
     for (auto m : m_displayModel->monitorList()) {

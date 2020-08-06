@@ -93,6 +93,9 @@ public Q_SLOTS:
 public Q_SLOTS:
     void setAmbientLightAdjustBrightness(bool);
 
+Q_SIGNALS:
+    void endRotate();
+
 private Q_SLOTS:
     void onGSettingsChanged(const QString &key);
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);

@@ -369,6 +369,7 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
         }
     }
     m_displayInter.ApplyChanges();
+    Q_EMIT DisplayWorker::endRotate();
 }
 
 void DisplayWorker::setMonitorRotateAll(const quint16 rotate)
@@ -378,6 +379,7 @@ void DisplayWorker::setMonitorRotateAll(const quint16 rotate)
         mi->SetRotation(rotate).waitForFinished();
 
     qDebug() << m_displayInter.ApplyChanges().error();
+    Q_EMIT DisplayWorker::endRotate();
 }
 #endif
 

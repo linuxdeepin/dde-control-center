@@ -51,6 +51,9 @@ public:
 public:
     void setModel(dcc::display::DisplayModel *model);
 
+public Q_SLOTS:
+    void onEndRotate();
+
 Q_SIGNALS:
     void requestRotate(dcc::display::Monitor *mon, const quint16 nextValue);
     void requestRotateAll(const quint16 nextValue);
@@ -72,7 +75,7 @@ private:
     void resetGeometry();
 
 private:
-    bool m_changed{false};
+    bool m_changed{false}; //定义是否已经旋转屏幕
     dcc::display::DisplayModel *m_model{nullptr};
     dcc::display::Monitor *m_mon{nullptr};
     Dtk::Gui::DWindowManagerHelper *m_wmHelper;

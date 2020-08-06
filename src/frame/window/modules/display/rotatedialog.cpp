@@ -105,6 +105,16 @@ void RotateDialog::setModel(dcc::display::DisplayModel *model)
     resetGeometry();
 }
 
+void RotateDialog::onEndRotate()
+{
+    //旋转屏幕完成接收结束信号
+    //延迟1秒(同步customSettingDialog窗口界面更新时间)，将m_changed置为false，才允许再次按左键去旋转屏幕。
+    QTimer::singleShot(1000, this, [=]{
+        m_changed = false;
+    });
+
+}
+
 void RotateDialog::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
@@ -126,8 +136,10 @@ void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
         reject();
         break;
     case Qt::LeftButton:
-        rotate();
-        m_changed = true;
+        if (!m_changed) {
+            m_changed = true;
+            rotate();
+        }
         break;
     default:
         break;
