@@ -249,6 +249,9 @@ void DisplayModule::showCustomSettingDialog()
             &DisplayModule::onCustomPageRequestSetResolution);
     connect(dlg, &CustomSettingDialog::requestMerge,
             m_displayWorker, &DisplayWorker::mergeScreens);
+    connect(dlg, &CustomSettingDialog::requestEnalbeMonitor, [=](Monitor *mon, bool enable) {
+        m_displayWorker->onMonitorEnable(mon, enable);
+    });
     connect(dlg, &CustomSettingDialog::requestSplit, this, [&](){
         m_displayWorker->splitScreens();
         dlg->setModel(m_displayModel);

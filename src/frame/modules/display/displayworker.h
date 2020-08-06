@@ -76,6 +76,8 @@ public Q_SLOTS:
     void setPrimaryByName(const QString &name);
     void setMonitorEnable(Monitor *mon, const bool enabled);
     void applyChanges();
+    //响应自定义模式下，禁用/启用指定屏幕并排列位置
+    void onMonitorEnable(Monitor *monitor, const bool enabled);
 #ifndef DCC_DISABLE_ROTATE
     void setMonitorRotateAll(const quint16 rotate);
     void setMonitorRotate(Monitor *mon, const quint16 rotate);

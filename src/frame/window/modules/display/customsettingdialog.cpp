@@ -26,6 +26,8 @@
 #include "modules/display/monitorcontrolwidget.h"
 #include "modules/display/monitorindicator.h"
 #include "widgets/basiclistview.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/comboxwidget.h"
 
 #include <DSuggestButton>
 
@@ -35,6 +37,7 @@
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QDebug>
+#include <QComboBox>
 
 using namespace dcc::display;
 using namespace dcc::widgets;
@@ -91,7 +94,7 @@ void CustomSettingDialog::initUI()
         m_moniList = new DListView;
         initlistfunc(m_moniList);
         m_listLayout->addWidget(m_moniList);
-        m_vSegBtn << new DButtonBoxButton(tr("Main Screen"));
+        m_vSegBtn << new DButtonBoxButton(tr("Displays"));
     }
 
     m_resolutionList = new DListView;
@@ -207,17 +210,7 @@ void CustomSettingDialog::initWithModel()
     }
 
     if (m_moniList)
-        m_moniList->setVisible(!m_model->isMerge()
-                               && m_vSegBtn.at(0)->isChecked()
-                               && m_vSegBtn.size() > 2);
-
-    qDebug() << "isMerge:" << m_model->isMerge();
-    qDebug() << "select monitor checked:" << m_vSegBtn.at(0)->isChecked();
-    if (m_monitor->isPrimary())
-        m_vSegBtn.at(0)->setVisible(!m_model->isMerge());
-
-    if (m_model->isMerge() && m_vSegBtn.at(0)->isChecked())
-        m_vSegBtn.at(1)->setChecked(true);
+        m_moniList->setVisible(m_vSegBtn.at(0)->isChecked() && m_vSegBtn.size() > 2);
 }
 
 void CustomSettingDialog::initOtherDialog()
@@ -389,8 +382,15 @@ void CustomSettingDialog::initResolutionList()
 
 void CustomSettingDialog::initMoniList()
 {
-    auto listModel = new QStandardItemModel;
-    m_moniList->setModel(listModel);
+    if (m_displayListModel) {
+        auto moniList = m_model->monitorList();
+        for (int idx = 0; idx < moniList.size(); ++idx) {
+            disconnect(moniList[idx], &Monitor::enableChanged, this, nullptr);
+        }
+        m_displayListModel->clear();
+    } else
+        m_displayListModel = new QStandardItemModel(this);
+    m_moniList->setModel(m_displayListModel);
 
     auto moniList = m_model->monitorList();
     for (int idx = 0; idx < moniList.size(); ++idx) {
@@ -398,36 +398,58 @@ void CustomSettingDialog::initMoniList()
         item->setIcon(QIcon::fromTheme((idx % 2) ? "dcc_display_vga1" : "dcc_display_lvds1"));
 
         auto moni = moniList[idx];
-        auto *titleAction = new DViewItemAction;
-        titleAction->setText(moni->name());
-
-        auto *subTitleAction = new DViewItemAction;
-        QString str = QString("%1 %2 ").arg(moni->w()).arg(tr("inch"));
-        str += (tr("Resolution %1x%2").arg(QString::number(moni->w())).arg(QString::number(moni->h())));
-        subTitleAction->setText(str);
-
-        DViewItemActionList actionList;
-        actionList << titleAction << subTitleAction;
-        item->setTextActionList(actionList);
-        listModel->appendRow(item);
-
-        if (moni->isPrimary())
-            item->setCheckState(Qt::Checked);
+        item->setText(moni->name());
+        item->setCheckState(moni->enable() ? Qt::Checked : Qt::Unchecked);
+        if (moni->name() == m_model->primary() && !m_model->isMerge()) {
+            item->setEnabled(false);
+        }
+        m_displayListModel->appendRow(item);
+        connect(moniList[idx], &Monitor::enableChanged, this, [ = ](bool enable) {
+            item->setCheckState(enable ? Qt::Checked : Qt::Unchecked);
+        });
     }
 
-    connect(m_moniList, &DListView::clicked, this, [this] {
-        this->requestSetPrimaryMonitor(m_moniList->currentIndex().row());
-    });
-    connect(m_model, &DisplayModel::primaryScreenChanged, this, [ = ] {
-        Q_ASSERT(listModel->rowCount() == m_model->monitorList().size());
-
-        auto monis = m_model->monitorList();
-        for (int idx = 0 ; idx < listModel->rowCount(); ++idx)
-        {
-            auto item = listModel->item(idx);
-            item->setCheckState(monis[idx] == m_model->primaryMonitor() ? Qt::Checked : Qt::Unchecked);
+    int vseg_size = m_vSegBtn.size();
+    if (vseg_size > 2 && m_vSegBtn[0]->isChecked()) {
+        if (m_displaylist == nullptr) {
+            m_displaylist = new SettingsGroup();
+            m_layout->insertWidget(1, m_displaylist);
         }
-    });
+        if (m_displayComboxWidget == nullptr) {
+            m_displayComboxWidget = new ComboxWidget(m_displaylist);
+            m_displayComboxWidget->setTitle(tr("Main Screen"));
+            m_displaylist->appendItem(m_displayComboxWidget);
+            m_layout->setAlignment(m_displayComboxWidget, Qt::AlignLeft);
+        } else {
+            m_displayComboxWidget->comboBox()->blockSignals(true);
+            m_displayComboxWidget->comboBox()->clear();
+        }
+        for (int idx = 0; idx < moniList.size(); ++idx) {
+            m_displayComboxWidget->comboBox()->addItem(moniList[idx]->name());
+            if (moniList[idx]->name() == m_model->primary()) {
+                m_displayComboxWidget->comboBox()->setCurrentIndex(idx);
+            }
+        }
+        m_displayComboxWidget->comboBox()->blockSignals(false);
+        m_displaylist->setVisible(false);
+    }
+    if (m_main_select_lab_widget == nullptr) {
+        m_main_select_lab_widget = new QWidget(this);
+        QLabel *main_select_lab = new QLabel(tr("Monitor Connected (Multiple)"), m_main_select_lab_widget);
+        m_main_select_lab_widget->setFixedHeight(50);
+        QHBoxLayout *m_main_select_lab_layout = new QHBoxLayout();
+        m_main_select_lab_layout->addWidget(main_select_lab);
+        m_main_select_lab_widget->setLayout(m_main_select_lab_layout);
+        m_layout->insertWidget(2, m_main_select_lab_widget);
+        m_layout->setAlignment(m_main_select_lab_widget, Qt::AlignLeft);
+        m_main_select_lab_widget->setVisible(false);
+    }
+    if (m_isPrimary && m_model->isMerge() == false) {
+        if(m_vSegBtn.at(0)->isChecked()) {
+            m_displaylist->setVisible(true);
+            m_main_select_lab_widget->setVisible(true);
+        }
+    }
 }
 
 void CustomSettingDialog::initMoniControlWidget()
@@ -600,6 +622,49 @@ void CustomSettingDialog::initConnect()
     connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
     connect(m_model, &DisplayModel::screenHeightChanged, this, &CustomSettingDialog::resetDialog);
     connect(m_model, &DisplayModel::isMergeChange, m_monitroControlWidget, &MonitorControlWidget::setScreensMerged);
+
+    if (m_displayComboxWidget) {
+        connect(m_model, &DisplayModel::primaryScreenChanged, this, [ = ](const QString & name) {
+            auto monis = m_model->monitorList();
+            for (int idx = 0 ; idx < m_displayComboxWidget->comboBox()->count(); ++idx) {
+                if (name == m_displayComboxWidget->comboBox()->itemText(idx)) {
+                    m_displayComboxWidget->comboBox()->blockSignals(true);
+                    m_displayComboxWidget->comboBox()->setCurrentIndex(idx);
+                    m_displayComboxWidget->comboBox()->blockSignals(false);
+                    break;
+                }
+            }
+        });
+    }
+
+    if (m_moniList) {
+        connect(m_moniList, &DListView::clicked, this, [this](QModelIndex index) {
+            if (m_displayListModel->item(index.row())->isEnabled() == false) {
+                return;
+            }
+            dcc::display::Monitor *mon = m_model->monitorList()[m_moniList->currentIndex().row()];
+            auto monis = m_model->monitorList();
+            int enableCount = 0;
+            for (auto *tm : monis) {
+                enableCount += tm->enable() ? 1 : 0;
+            }
+            auto listModel = qobject_cast<QStandardItemModel *>(m_moniList->model());
+            for (int idx = 0 ; idx < listModel->rowCount(); ++idx) {
+                if (monis[idx]->name() != mon->name()) {
+                    continue;
+                }
+                DStandardItem *item = dynamic_cast<DStandardItem *>(listModel->item(idx));
+                bool flag = item->checkState() != Qt::Checked;
+                if (enableCount <= 1 && flag == false) {
+                    break;
+                }
+                this->requestEnalbeMonitor(monis[idx], flag);
+                item->setCheckState(item->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
+                //initOtherDialog();
+                break;
+            }
+        });
+    }
 }
 
 void CustomSettingDialog::refreshRateListWhileMerge(double rate, int w, int h)
@@ -662,7 +727,10 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
 
     if (m_moniList)
         m_moniList->setVisible(false);
-
+    if (m_main_select_lab_widget)
+        m_main_select_lab_widget->setVisible(false);
+    if (m_displaylist)
+        m_displaylist->setVisible(false);
     m_resolutionList->setVisible(false);
     m_rateList->setVisible(false);
 
@@ -673,6 +741,8 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
     case 0:
         if (m_isPrimary) {
             m_moniList->setVisible(true);
+            m_main_select_lab_widget->setVisible(!m_model->isMerge());
+            m_displaylist->setVisible(!m_model->isMerge());
         } else {
             m_resolutionList->setVisible(true);
         }
@@ -831,7 +901,15 @@ void CustomSettingDialog::resetDialog()
 
 void CustomSettingDialog::onPrimaryMonitorChanged()
 {
+    initMoniList();
     resetMonitorObject(m_model->primaryMonitor());
+    bool flag = m_isPrimary && (m_model->isMerge() == false) && m_vSegBtn.at(0)->isChecked();
+    if (m_displaylist) {
+        m_displaylist->setVisible(flag);
+    }
+    if (m_main_select_lab_widget) {
+        m_main_select_lab_widget->setVisible(flag);
+    }
 
     initWithModel();
     initOtherDialog();

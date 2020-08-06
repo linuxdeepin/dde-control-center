@@ -49,6 +49,8 @@ class MonitorIndicator;
 }
 
 namespace widgets {
+class SettingsGroup;
+class ComboxWidget;
 class BasicListView;
 }
 }
@@ -90,7 +92,7 @@ Q_SIGNALS:
     void requestSetMonitorPosition(dcc::display::Monitor *mon, const int x, const int y);
     void requestSetResolution(dcc::display::Monitor *mon, ResolutionDate resolution);
     void requestSetPrimaryMonitor(int idx);
-
+    void requestEnalbeMonitor(dcc::display::Monitor *mon, bool enable);
 
 private Q_SLOTS:
     void onMonitorPress(dcc::display::Monitor *mon);
@@ -120,6 +122,9 @@ private:
     dcc::display::Monitor *m_monitor{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
     QVBoxLayout *m_layout{nullptr};
+    QWidget *m_main_select_lab_widget{nullptr};
+    dcc::widgets::ComboxWidget *m_displayComboxWidget{nullptr};
+    dcc::widgets::SettingsGroup *m_displaylist{nullptr};
     std::unique_ptr<dcc::display::MonitorIndicator> m_fullIndication;
     dcc::display::MonitorControlWidget *m_monitroControlWidget{nullptr};
 
@@ -129,6 +134,7 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_resolutionList{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_rateList{nullptr};
     QStandardItemModel *m_resolutionListModel{nullptr};
+    QStandardItemModel *m_displayListModel{nullptr};
     QList<CustomSettingDialog *> m_otherDialog;
 };
 }
