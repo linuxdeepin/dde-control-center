@@ -47,14 +47,14 @@ public:
     void removeUser(const QString &id);
     bool contains(const QString &id);
 
-    inline bool isAutoLoginValid() const { return m_bAutoLoginValid; }
-    void setAutoLoginValid(bool bValid);
+    inline bool isAutoLoginVisable() const { return m_autoLoginVisable; }
+    void setAutoLoginVisable(const bool visable);
 
     inline bool isCreateUserValid() const { return m_bCreateUserValid; }
     void setCreateUserValid(bool bValid);
 
-    inline bool isNoPassWordLoginValid() const { return m_bNoPassWordLoginValid; }
-    void setNoPassWordLoginValid(bool bValid);
+    inline bool isNoPassWordLoginVisable() const { return m_noPassWordLoginVisable; }
+    void setNoPassWordLoginVisable(const bool visable);
 #ifdef DCC_ENABLE_ADDOMAIN
     bool isJoinADDomain() const { return m_isJoinADDomain; }
     void setIsJoinADDomain(bool isJoinADDomain);
@@ -74,10 +74,11 @@ Q_SIGNALS:
     void isADUserLoginChanged(bool isLogind);
 #endif
     void deleteUserSuccess();
-
+    void autoLoginVisableChanged(bool autoLogin);
+    void noPassWordLoginVisableChanged(bool noPassword);
 private:
-    bool m_bAutoLoginValid;
-    bool m_bNoPassWordLoginValid;
+    bool m_autoLoginVisable;
+    bool m_noPassWordLoginVisable;
     bool m_bCreateUserValid;
     QMap<QString, User *> m_userList;
     QStringList m_allGroups;

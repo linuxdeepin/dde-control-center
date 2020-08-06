@@ -78,12 +78,13 @@ bool UserModel::contains(const QString &id)
     return m_userList.contains(id);
 }
 
-void UserModel::setAutoLoginValid(bool bValid)
+void UserModel::setAutoLoginVisable(const bool visable)
 {
-    if (m_bAutoLoginValid == bValid)
+    if (m_autoLoginVisable == visable)
         return;
 
-    m_bAutoLoginValid = bValid;
+    m_autoLoginVisable = visable;
+    Q_EMIT autoLoginVisableChanged(m_autoLoginVisable);
 }
 
 void UserModel::setCreateUserValid(bool bValid)
@@ -94,12 +95,13 @@ void UserModel::setCreateUserValid(bool bValid)
     m_bCreateUserValid = bValid;
 }
 
-void UserModel::setNoPassWordLoginValid(bool bValid)
+void UserModel::setNoPassWordLoginVisable(const bool visable)
 {
-    if (m_bNoPassWordLoginValid == bValid)
+    if (m_noPassWordLoginVisable == visable)
         return;
 
-    m_bNoPassWordLoginValid = bValid;
+    m_noPassWordLoginVisable = visable;
+    Q_EMIT noPassWordLoginVisableChanged(m_noPassWordLoginVisable);
 }
 
 QStringList UserModel::getAllGroups()

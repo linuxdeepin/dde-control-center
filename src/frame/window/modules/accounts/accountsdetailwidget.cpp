@@ -451,8 +451,14 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         return;
     }
     m_userModel = model;
-    m_autoLogin->setVisible(m_userModel->isAutoLoginValid() && !IsServerSystem);
-    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginValid() && !IsServerSystem);
+    m_autoLogin->setVisible(m_userModel->isAutoLoginVisable() && !IsServerSystem);
+    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable() && !IsServerSystem);
+
+    // 非服务器系统，关联配置改变信号，控制自动登陆开关/无密码登陆开关显隐
+    if (!IsServerSystem) {
+        connect(m_userModel, &UserModel::autoLoginVisableChanged, m_autoLogin, &SwitchWidget::setVisible);
+        connect(m_userModel, &UserModel::noPassWordLoginVisableChanged, m_nopasswdLogin, &SwitchWidget::setVisible);
+    }
 
     if (!m_groupItemModel)
         return;

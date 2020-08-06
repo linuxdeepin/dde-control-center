@@ -34,6 +34,8 @@
 #include <QStandardPaths>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QGSettings>
+
 #include <pwd.h>
 #include <unistd.h>
 #include <libintl.h>
@@ -45,6 +47,9 @@ using namespace DCC_NAMESPACE;
 
 const QString AccountsService("com.deepin.daemon.Accounts");
 const QString DisplayManagerService("org.freedesktop.DisplayManager");
+
+const QString AutoLoginVisable = "auto-login-visable";
+const QString NoPasswordVisable = "nopasswd-login-visable";
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
@@ -75,10 +80,19 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     getAllGroups();
     getPresetGroups();
 
-    bool bShowAutoLogin = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showAutologin", true);
+    // 关联gsetting自动登陆/无密码登陆配置
+    QGSettings *gsetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
+    m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
+    connect(gsetting, &QGSettings::changed, m_userModel, [=](const QString &key){
+        if (key == "autoLoginVisable") {
+            m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
+        } else if (key == "nopasswdLoginVisable") {
+            m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
+        }
+    });
+
     bool bShowCreateUser = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showCreateUser", true);
-    m_userModel->setAutoLoginValid(bShowAutoLogin);
-    m_userModel->setNoPassWordLoginValid(bShowAutoLogin);
     m_userModel->setCreateUserValid(bShowCreateUser);
 }
 
