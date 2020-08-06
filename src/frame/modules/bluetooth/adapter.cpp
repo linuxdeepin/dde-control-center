@@ -51,6 +51,9 @@ void Adapter::addDevice(const Device *device)
     if (!deviceById(device->id())) {
         m_devicesId << device->id();
         m_devices[device->id()] = device;
+        //打印配对设备信息,方便查看设备显示顺序
+        if (!device->name().isEmpty() && device->paired())
+            qDebug() << "Adapter add device " << device->name();
         Q_EMIT deviceAdded(device);
     }
 }

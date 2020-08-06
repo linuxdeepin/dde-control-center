@@ -102,8 +102,8 @@ private:
     TitleEdit *m_titleEdit;
     const dcc::bluetooth::Adapter *m_adapter;
     dcc::widgets::SwitchWidget *m_switch;
-    QList<DeviceSettingsItem *> m_deviceLists;
-    QList<DeviceSettingsItem *> m_myDevices;
+    QList<QPointer<DeviceSettingsItem>> m_deviceLists;
+    QList<QPointer<DeviceSettingsItem>> m_myDevices;
     TitleLabel *m_myDevicesGroup;
     DTK_WIDGET_NAMESPACE::DListView *m_myDeviceListView;
     QStandardItemModel *m_myDeviceModel;
