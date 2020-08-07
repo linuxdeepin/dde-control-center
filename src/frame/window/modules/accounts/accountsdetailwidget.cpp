@@ -397,6 +397,11 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     const bool isOnline = m_curUser->online();
     deleteAccount->setEnabled(!isOnline);
 
+    connect(m_curUser, &User::onlineChanged, this, [=] (const bool online) {
+        deleteAccount->setDisabled(online);
+        this->update();
+    });
+
     //修改密码，删除账户操作
     connect(modifyPassword, &QPushButton::clicked, [ = ] {
         Q_EMIT requestShowPwdSettings(m_curUser);
