@@ -184,6 +184,10 @@ void ManualBackup::onManualBackupErrorTypeChanged(ErrorType type)
         m_tipsLabel->setText(tr("Insufficient disk space"));
         break;
     }
+    case ErrorType::FsError: {
+        m_tipsLabel->setText(tr("The file system is not supported for backup"));
+        break;
+    }
     default: {
         m_tipsLabel->setVisible(false);
         break;

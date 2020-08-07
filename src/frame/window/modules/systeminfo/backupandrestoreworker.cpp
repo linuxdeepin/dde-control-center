@@ -23,7 +23,8 @@ enum ToolErrorType {
     NoError = 0,
     ToolError,
     GrubError,
-    SpaceError
+    SpaceError,
+    FsError
 };
 
 //deepin-recovery-tool超时时间设置为1分钟
@@ -138,6 +139,10 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
     process->waitForFinished(TimeOut);
 
     const int &exitCode = process->exitCode();
+    if (exitCode == ToolErrorType::FsError) {
+        return ErrorType::FsError;
+    }
+
     if (exitCode == ToolErrorType::SpaceError) {
         return ErrorType::SpaceError;
     }
@@ -187,6 +192,10 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
     process->waitForFinished(TimeOut);
 
     const int &exitCode = process->exitCode();
+    if (exitCode == ToolErrorType::FsError) {
+        return ErrorType::FsError;
+    }
+    
     if (exitCode == ToolErrorType::SpaceError) {
         return ErrorType::SpaceError;
     }
