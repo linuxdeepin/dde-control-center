@@ -128,20 +128,16 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
     }
     case ET_StagePass: {
         if (msg.isEmpty()) {
+            // 厂商未给出进度值的情况,直接让进度值递减增加,无限趋近于100,直到录入完成
+            m_progress += (100 - m_progress)/3;
             Q_EMIT enrollStagePass(m_progress);
-            m_progress = m_progress + 20;
-            if (m_progress >= 80) {
-                m_progress = m_progress + 5;
-            }
             break;
         }
         QStringList keys = jsonObject.keys();
         if (!keys.contains("progress")) {
+            // 厂商未给出进度值的情况,直接让进度值递减增加,无限趋近于100,直到录入完成
+            m_progress += (100 - m_progress)/3;
             Q_EMIT enrollStagePass(m_progress);
-            m_progress = m_progress + 20;
-            if (m_progress >= 80) {
-                m_progress = m_progress + 5;
-            }
             break;
         }
         auto pro = jsonObject.value("progress").toInt();
