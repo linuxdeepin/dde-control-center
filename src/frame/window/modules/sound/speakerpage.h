@@ -87,6 +87,7 @@ private:
     QVBoxLayout *m_layout{nullptr};
     dcc::widgets::TitledSliderItem *m_outputSlider;
     dcc::widgets::DCCSlider *m_speakSlider;
+    int m_lastsetvalue;
 };
 
 }
