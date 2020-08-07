@@ -157,12 +157,17 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
             if (!call.isError()) {
                 QDBusPendingCall adapterPoweredOffCall  = m_bluetoothInter->SetAdapterPowered(path, false);
                 QDBusPendingCallWatcher *watchers = new QDBusPendingCallWatcher(adapterPoweredOffCall, this);
-                connect(watchers, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOffCall, adapter, timer] {
+                connect(watchers, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOffCall, adapter, timer, powered] {
                     if (adapterPoweredOffCall.isError()) {
                         qDebug() << adapterPoweredOffCall.error().message();
                         adapter->poweredChanged(adapter->powered(), adapter->discovering());
                     }
-                    m_model->adpaterPowerd(adapter->powered());
+                    m_model->loadStatus();
+                    connect(adapter, &Adapter::poweredChanged, [=](const bool &receivePowerd, const bool &) {
+                        if (powered == receivePowerd) {
+                            m_model->adpaterPowerd(adapter->powered());
+                        }
+                    });
                     delete timer;
                 });
             } else {
@@ -172,12 +177,18 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
     } else {
         QDBusPendingCall adapterPoweredOnCall  = m_bluetoothInter->SetAdapterPowered(path, true);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(adapterPoweredOnCall, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOnCall, adapter, timer] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOnCall, adapter, timer, powered] {
             if (adapterPoweredOnCall.isError()) {
                 qDebug() << adapterPoweredOnCall.error().message();
                 adapter->poweredChanged(adapter->powered(), adapter->discovering());
+                return;
             }
-            m_model->adpaterPowerd(adapter->powered());
+            m_model->loadStatus();
+            connect(adapter, &Adapter::poweredChanged, [=](const bool &receivePowerd, const bool &) {
+                if (powered == receivePowerd) {
+                    m_model->adpaterPowerd(adapter->powered());
+                }
+            });
             delete timer;
         });
     }
@@ -417,8 +428,6 @@ void BluetoothWorker::setDeviceAlias(const Device *device, const QString &alias)
 void BluetoothWorker::setAdapterDiscoverable(const QString &path)
 {
     QDBusObjectPath dPath(path);
-    m_bluetoothInter->SetAdapterDiscoverableTimeout(dPath, 60 * 5);
-    m_bluetoothInter->SetAdapterDiscoverable(dPath, true);
 
     m_bluetoothInter->RequestDiscovery(dPath);
 }
