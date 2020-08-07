@@ -401,7 +401,7 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
         m_preWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
     }
     WifiStatus curWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
-    if (curWifiStatus != m_preWifiStatus) {
+    if (curWifiStatus != m_preWifiStatus && stat > NetworkDevice::Disconnected) {
         m_switch->setChecked(!unavailable);
         onNetworkAdapterChanged(!unavailable);
         m_preWifiStatus = curWifiStatus;
