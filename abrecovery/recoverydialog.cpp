@@ -127,12 +127,10 @@ void Manage::recoveryCanRestore()
 
 QString Manage::getBackupTime()
 {
-    struct tm *p;
     time_t t = static_cast<time_t>(m_systemRecovery->backupTime());
-    //将time_t 转化为tm
-    p = localtime(&t);
+    QDateTime time = QDateTime::fromSecsSinceEpoch(t);
 
-    return QString("%1/%2/%3 %4:%5:%6").arg(1900 + p->tm_year).arg(1 + p->tm_mon).arg(p->tm_mday).arg(p->tm_hour).arg(p->tm_min).arg(p->tm_sec);
+    return time.toString("yyyy/MM/dd hh:mm:ss");
 }
 
 //退出进程
