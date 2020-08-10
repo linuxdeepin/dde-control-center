@@ -99,7 +99,8 @@ void FormatSetting::initComboxWidgetList()
         m_weekCbx->comboBox()->addItem(fotmatWeek(i));
     }
 
-    for (int i = 0; i < formatcount; i++) {
+    int weekbeginscount = 7;
+    for (int i = 0; i < weekbeginscount; i++) {
         m_weekStartDayCbx->comboBox()->addItem(weekStartWithDay(i));
     }
 
@@ -169,6 +170,21 @@ QString FormatSetting::weekStartWithDay(int type)
         day = tr("Monday"); //星期一
         break;
     case 1:
+        day = tr("Tuesday"); //星期二
+        break;
+    case 2:
+        day = tr("Wednesday"); //星期三
+        break;
+    case 3:
+        day = tr("Thursday"); //星期四
+        break;
+    case 4:
+        day = tr("Friday"); //星期五
+        break;
+    case 5:
+        day = tr("Saturday"); //星期六
+        break;
+    case 6:
         day = tr("Sunday"); //星期天
         break;
     default:
