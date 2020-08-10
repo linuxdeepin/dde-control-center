@@ -54,8 +54,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
       m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
 
 {
-
-    m_displayInter.setSync(isSync);
+    m_displayInter.setSync(true);
     m_appearanceInter->setSync(isSync);
 
     model->setPrimary(m_displayInter.primary());
@@ -63,6 +62,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
                                "/com/deepin/daemon/Display",
                                "com.deepin.daemon.Display",
                                QDBusConnection::sessionBus());
+
     auto reply = m_displayDBusInter->property("Monitors");
     onMonitorListChanged(reply.value<QList<QDBusObjectPath>>());
 
