@@ -206,7 +206,9 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
 
     onUserInfoChanged(model->userinfo());
     m_autoSyncSwitch->setChecked(model->enableSync() && model->getActivation());
-    Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->checked());
+    if (!model->getActivation()) {
+        Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->checked());
+    }
     m_autoSyncSwitch->setEnabled(model->getActivation());
     m_networkTip->setVisible(model->enableSync());
     m_listView->setVisible(model->enableSync());
