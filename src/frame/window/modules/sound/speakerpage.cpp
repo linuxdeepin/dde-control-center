@@ -159,7 +159,9 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
             pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
         });
 
+        m_outputModel->blockSignals(true);
         m_outputModel->appendRow(pi);
+        m_outputModel->blockSignals(false);
         if (port->isActive()) {
             m_outputSoundCbx->comboBox()->setCurrentText(port->name());
             m_currentPort = port;
