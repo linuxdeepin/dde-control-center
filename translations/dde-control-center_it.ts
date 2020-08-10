@@ -165,8 +165,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="161"/>
-        <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
-        <translation>Usa lettere, numeri ed il trattino basso, e non più di 15 caratteri</translation>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="163"/>
@@ -175,8 +175,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="170"/>
-        <source>Use letters, numbers and underlines only</source>
-        <translation>Utilizza delle lettere, numeri e trattini bassi</translation>
+        <source>Use letters, numbers and underscores only</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -236,12 +236,12 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="489"/>
         <source>Group</source>
         <translation>Gruppo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="538"/>
         <source>The full name is too long</source>
         <translation>Il nome completo è troppo lungo</translation>
     </message>
@@ -608,19 +608,19 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="80"/>
         <source>My Devices</source>
         <translation>I miei dispositivi</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="84"/>
         <source>Other Devices</source>
         <translation>Altri dispositivi</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="111"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Abilita il bluetooth per identificare dispositivi nelle vicinanze (Speakers, mouse, tastiere..)</translation>
     </message>
@@ -6185,32 +6185,32 @@ Vai al Pannello di controllo per gestire il tuo account.</translation>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="404"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="418"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>L&apos;host è stato correttamente rimosso dal domain server</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="405"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="419"/>
         <source>Your host joins the domain server successfully</source>
         <translation>L&apos;host si è unito correttamente al domain server</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="427"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="441"/>
         <source>Your host failed to leave the domain server</source>
         <translation>L&apos;host ha fallito la disconnessione dal domain server</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="442"/>
         <source>Your host failed to join the domain server</source>
         <translation>L&apos;host ha fallitto l&apos;aggancio al domain server</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="431"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="445"/>
         <source>AD domain settings</source>
         <translation>Impostazioni Dominio AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="514"/>
         <source>Password not match</source>
         <translation>La password non corrisponde</translation>
     </message>

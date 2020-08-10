@@ -165,7 +165,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="161"/>
-        <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
         <translation>只能由字母、数字、中文、下划线组成，且不超过15个字符</translation>
     </message>
     <message>
@@ -175,7 +175,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="170"/>
-        <source>Use letters, numbers and underlines only</source>
+        <source>Use letters, numbers and underscores only</source>
         <translation>只能由字母、数字、中文、下划线组成</translation>
     </message>
 </context>
@@ -236,12 +236,12 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="489"/>
         <source>Group</source>
         <translation>用户组</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="538"/>
         <source>The full name is too long</source>
         <translation>名称过长</translation>
     </message>
@@ -608,19 +608,19 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="80"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="84"/>
         <source>Other Devices</source>
         <translation>其它设备</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="111"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>启用蓝牙寻找附近设备（扬声器、键盘、鼠标）</translation>
     </message>
@@ -6185,32 +6185,32 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="404"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="418"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>您的主机成功退出了域服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="405"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="419"/>
         <source>Your host joins the domain server successfully</source>
         <translation>您的主机成功加入了域服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="427"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="441"/>
         <source>Your host failed to leave the domain server</source>
         <translation>您的主机退出域服务器失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="442"/>
         <source>Your host failed to join the domain server</source>
         <translation>您的主机加入域服务器失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="431"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="445"/>
         <source>AD domain settings</source>
         <translation>AD域设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="514"/>
         <source>Password not match</source>
         <translation>密码不一致</translation>
     </message>

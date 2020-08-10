@@ -165,8 +165,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="161"/>
-        <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
-        <translation>문자, 숫자 및 밑줄만 사용하고 15자를 넘지 않습니다</translation>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="163"/>
@@ -175,8 +175,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="170"/>
-        <source>Use letters, numbers and underlines only</source>
-        <translation>문자, 숫자 및 밑줄만 사용</translation>
+        <source>Use letters, numbers and underscores only</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -236,12 +236,12 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="489"/>
         <source>Group</source>
         <translation>그룹</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="538"/>
         <source>The full name is too long</source>
         <translation>이름이 너무 깁니다</translation>
     </message>
@@ -608,19 +608,19 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="80"/>
         <source>My Devices</source>
         <translation>내 장치</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="84"/>
         <source>Other Devices</source>
         <translation>기타 장치</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="111"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>블루투스를 활성화하여 근처 장치 찾기 (스피커, 키보드, 마우스)</translation>
     </message>
@@ -6185,32 +6185,32 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="404"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="418"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>호스트가 도메인 서버에서 제거되었습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="405"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="419"/>
         <source>Your host joins the domain server successfully</source>
         <translation>호스트가 도메인 서버에 성공적으로 참여합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="427"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="441"/>
         <source>Your host failed to leave the domain server</source>
         <translation>호스트가 도메인 서버를 종료하지 못했습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="442"/>
         <source>Your host failed to join the domain server</source>
         <translation>호스트가 도메인 서버에 참여하지 못했습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="431"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="445"/>
         <source>AD domain settings</source>
         <translation>광고 도메인 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="514"/>
         <source>Password not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>

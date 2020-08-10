@@ -165,8 +165,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="161"/>
-        <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
-        <translation>Używaj tylko liter, cyfr i podkreśleń oraz nie więcej niż 15 znaków</translation>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="163"/>
@@ -175,8 +175,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="170"/>
-        <source>Use letters, numbers and underlines only</source>
-        <translation>Używaj tylko liter, cyfr i podkreśleń</translation>
+        <source>Use letters, numbers and underscores only</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -236,12 +236,12 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="489"/>
         <source>Group</source>
         <translation>Grupa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="538"/>
         <source>The full name is too long</source>
         <translation>Pełna nazwa jest za długa</translation>
     </message>
@@ -608,19 +608,19 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="80"/>
         <source>My Devices</source>
         <translation>Moje urządzenia</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="84"/>
         <source>Other Devices</source>
         <translation>Inne urządzenia</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="111"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Włącz Bluetooth, aby znaleźć pobliskie urządzenia (głośniki, klawiaturę, mysz)</translation>
     </message>
@@ -1108,7 +1108,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="155"/>
         <source>monday</source>
-        <translation type="unfinished"/>
+        <translation>poniedziałek</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="172"/>
@@ -4171,7 +4171,7 @@
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="95"/>
         <source>Show in notification center</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż w centrum powiadomień</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="98"/>
@@ -5251,7 +5251,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
         <source>OS Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa OS:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -6186,32 +6186,32 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="404"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="418"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Twój host został pomyślnie usunięty z serwera domeny</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="405"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="419"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Twój host pomyślnie dołącza do serwera domeny</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="427"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="441"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Twój host nie mógł opuścić serwera domeny</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="442"/>
         <source>Your host failed to join the domain server</source>
         <translation>Twój host nie przyłączył się do serwera domeny</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="431"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="445"/>
         <source>AD domain settings</source>
         <translation>Ustawienia domeny AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="514"/>
         <source>Password not match</source>
         <translation>Hasło nie pasuje</translation>
     </message>
