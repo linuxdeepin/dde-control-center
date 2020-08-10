@@ -43,7 +43,7 @@ ButtonTuple::ButtonTuple(ButtonType type, QWidget *parent)
     layout->setMargin(0);
     layout->setSpacing(0);
     layout->addWidget(m_leftButton);
-    layout->addSpacing(1);
+    layout->addSpacing(10);
     layout->addWidget(m_rightButton);
     setLayout(layout);
 
