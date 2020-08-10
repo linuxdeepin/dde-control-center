@@ -142,9 +142,7 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
     // 500后后端还不响应,前端就显示一个加载中的状态
     timer->setInterval(500);
 
-    connect(timer, &QTimer::timeout, this, [ & ] {
-        m_model->loadStatus();
-    });
+    connect(timer, &QTimer::timeout, adapter, &Adapter::loadStatus);
 
     timer->start();
 
@@ -162,7 +160,7 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
                         qDebug() << adapterPoweredOffCall.error().message();
                         adapter->poweredChanged(adapter->powered(), adapter->discovering());
                     }
-                    m_model->loadStatus();
+                    adapter->loadStatus();
                     connect(adapter, &Adapter::poweredChanged, [=](const bool &receivePowerd, const bool &) {
                         if (powered == receivePowerd) {
                             m_model->adpaterPowerd(adapter->powered());
@@ -183,7 +181,7 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
                 adapter->poweredChanged(adapter->powered(), adapter->discovering());
                 return;
             }
-            m_model->loadStatus();
+            adapter->loadStatus();
             connect(adapter, &Adapter::poweredChanged, [=](const bool &receivePowerd, const bool &) {
                 if (powered == receivePowerd) {
                     m_model->adpaterPowerd(adapter->powered());

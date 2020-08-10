@@ -241,7 +241,7 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
         m_switch->switchButton()->show();
         m_spinnerBtn->hide();
     });
-    connect(m_model, &BluetoothModel::loadStatus, m_switch, [ = ] {
+    connect(adapter, &Adapter::loadStatus, m_switch, [ = ] {
         m_switch->switchButton()->hide();
         m_spinnerBtn->show();
     });
@@ -256,7 +256,7 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
 
     m_lastCheck = adapter->powered();
 
-    onPowerStatus(adapter->powered(),adapter->discovering());
+    onPowerStatus(adapter->powered(), adapter->discovering());
 }
 
 void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)

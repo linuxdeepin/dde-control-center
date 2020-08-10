@@ -63,6 +63,7 @@ Q_SIGNALS:
     void deviceAdded(const Device *device) const;
     void deviceRemoved(const QString &deviceId) const;
     void poweredChanged(const bool &powered, const bool &discovering) const;
+    void loadStatus() const;
 
 private:
     QString m_id;

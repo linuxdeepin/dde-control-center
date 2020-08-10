@@ -51,7 +51,6 @@ Q_SIGNALS:
     void adapterRemoved(const Adapter *adapter) const;
     void adpaterListChanged();
     void adpaterPowerd(const bool &power) const;
-    void loadStatus();
 
 private:
     QMap<QString, const Adapter *> m_adapters;
