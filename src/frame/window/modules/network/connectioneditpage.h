@@ -65,6 +65,9 @@ public:
 
     static void setFrameProxy(dccV20::FrameProxyInterface *_frame);
 
+    // 根据连接状态更新断开连接按钮是否显示
+    void updateDisconnectButtons();
+
 Q_SIGNALS:
     void requestNextPage(ContentWidget *const page);
     void requestFrameAutoHide(const bool autoHide) const;

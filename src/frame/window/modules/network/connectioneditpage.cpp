@@ -449,3 +449,19 @@ void ConnectionEditPage::setFrameProxy(dccV20::FrameProxyInterface *_frame)
 {
     m_frame = _frame;
 }
+
+void ConnectionEditPage::updateDisconnectButtons()
+{
+    if (m_isNewConnection) {
+        return;
+    }
+
+    bool bActiveCon = false;
+    for (auto conn : activeConnections()) {
+        if (conn->uuid() == m_connection->uuid()) {
+            bActiveCon = true;
+            break;
+        }
+    }
+    m_disconnectBtn->setVisible(bActiveCon);
+}

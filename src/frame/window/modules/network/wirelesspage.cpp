@@ -493,6 +493,10 @@ void WirelessPage::onNetworkAdapterChanged(bool checked)
     m_clickedItem = nullptr;
     m_lvAP->setVisible(checked);
     updateLayout(!m_lvAP->isHidden());
+
+    if (!m_apEditPage.isNull() && !checked) {
+        Q_EMIT m_apEditPage->back();
+    }
 }
 
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
