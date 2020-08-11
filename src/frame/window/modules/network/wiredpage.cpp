@@ -232,6 +232,10 @@ void WiredPage::checkActivatedConnection()
             it.key()->setCheckState(Qt::CheckState::Unchecked);
         }
     }
+
+    if (!m_editPage.isNull()){
+        m_editPage->updateDisconnectButtons();
+    }
 }
 
 void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
