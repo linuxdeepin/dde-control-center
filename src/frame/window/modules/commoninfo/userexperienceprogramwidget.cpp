@@ -49,8 +49,8 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
                                            "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
                                            "To know more about the management of your data, please refer to UnionTech OS Privacy Policy ( https://www.uniontech.com/agreement/privacy-en)."));
     tipLabel->setWordWrap(true);
-    tipLabel->setContentsMargins(5, 0, 10, 0);
-    tipLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    tipLabel->setContentsMargins(5, 0, 5, 0);
+    tipLabel->setAlignment(Qt::AlignJustify);
 
     vBoxLayout->setMargin(0);
     vBoxLayout->setSpacing(0);
