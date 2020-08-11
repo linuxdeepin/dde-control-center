@@ -30,9 +30,11 @@
 #include <QList>
 #include <QSettings>
 #include <QDebug>
+#ifndef DISABLE_RECOVERY
 #include <udisks2-qt5/dblockdevice.h>
 #include <udisks2-qt5/dblockpartition.h>
 #include <udisks2-qt5/ddiskmanager.h>
+#endif
 #include <QDir>
 
 DWIDGET_USE_NAMESPACE

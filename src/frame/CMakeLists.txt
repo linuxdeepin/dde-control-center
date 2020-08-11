@@ -613,9 +613,11 @@ pkg_check_modules(QGSettings REQUIRED gsettings-qt)
 pkg_check_modules(DDE-Network-Utils REQUIRED dde-network-utils)
 pkg_check_modules(Gio-2.0 REQUIRED gio-2.0)
 pkg_check_modules(LibNM REQUIRED libnm)
-pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
 
-include_directories(AFTER ${UDisk2_INCLUDE_DIRS})
+if (NOT DEFINED DISABLE_RECOVERY)
+    pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
+    include_directories(AFTER ${UDisk2_INCLUDE_DIRS})
+endif()
 
 set(Qt_LIBS
     Qt5::Core
@@ -714,6 +716,20 @@ foreach(LETTER ${BUILD_MACRO})
     add_build_macro(${LETTER})
 endforeach()
 
+set(LIBS)
+set(INCLUDES)
+
+if (NOT DEFINED DISABLE_RECOVERY)
+    set(INCLUDE
+        ${INCLUDES}
+        ${UDisk2_INCLUDE_DIRS}
+        )
+    set(LIBS
+        ${LIBS}
+        ${UDisk2_LIBRARIES}
+        )
+endif()
+
 add_library(dccwidgets SHARED
     ${WIDGETS_FILES}
 )
@@ -741,7 +757,7 @@ target_include_directories(${BIN_NAME} PUBLIC
     ${LibNM_INCLUDE_DIRS}
     ${Qt5X11Extras_INCLUDE_DIRS}
     ${KF5_QT_INCLUDE_DIRS}
-    ${UDisk2_INCLUDE_DIRS}
+    ${INCLUDES}
 )
 target_link_libraries(${BIN_NAME} PRIVATE
     dccwidgets
@@ -760,7 +776,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${LibNM_LIBRARIES}
     ${KF5_QT_LIBRARIES}
     crypt
-    ${UDisk2_LIBRARIES}
+    ${LIBS}
     pwquality
 )
 
