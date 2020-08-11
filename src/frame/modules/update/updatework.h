@@ -74,7 +74,9 @@ public:
     void setOnBattery(bool onBattery);
     void setBatteryPercentage(const BatteryPercentageInfo &info);
     void setSystemBatteryPercentage(const double &value);
+#ifndef DISABLE_ACTIVATOR
     void getLicenseState();
+#endif
 
 public Q_SLOTS:
     void checkForUpdates();
@@ -98,7 +100,9 @@ public Q_SLOTS:
     void recoveryCanBackup();
     void recoveryStartRestore();
     void onNotifyDownloadInfoChanged();
+#ifndef DISABLE_ACTIVATOR
     void licenseStateChangeSlot();
+#endif
 
     void refreshHistoryAppsInfo();
     void refreshLastTimeAndCheckCircle();

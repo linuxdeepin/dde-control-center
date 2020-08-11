@@ -126,11 +126,15 @@ void UpdateModule::active()
 
     UpdateWidget *mainWidget = new UpdateWidget;
     mainWidget->initialize();
+#ifndef DISABLE_ACTIVATOR
     m_work->getLicenseState();
 
     if (m_model->systemActivation()) {
         mainWidget->setSystemVersion(m_model->systemVersionInfo());
     }
+#else
+    mainWidget->setSystemVersion(m_model->systemVersionInfo());
+#endif
 
     mainWidget->setModel(m_model, m_work);
     m_updateWidget = mainWidget;

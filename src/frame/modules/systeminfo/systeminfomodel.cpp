@@ -56,7 +56,9 @@ SystemInfoModel::SystemInfoModel(QObject *parent)
     , m_themeEnabled(false)
     , m_updating(false)
     , m_type(64)
-    , m_licenseState(0)
+#ifndef DISABLE_ACTIVATOR
+    , m_licenseState(ActiveState::Unauthorized)
+#endif
 {
 
 }
@@ -214,13 +216,15 @@ void SystemInfoModel::setKernel(const QString &kernel)
     kernelChanged(kernel);
 }
 
-void SystemInfoModel::setLicenseState(quint32 state)
+#ifndef DISABLE_ACTIVATOR
+void SystemInfoModel::setLicenseState(ActiveState state)
 {
     if (m_licenseState != state) {
         m_licenseState = state;
         Q_EMIT licenseStateChanged(state);
     }
 }
+#endif
 
 }
 }

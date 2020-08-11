@@ -106,7 +106,9 @@ private:
     bool m_bRecoverConfigValid;
     bool m_bRecoverRestoring;
     dcc::ContentWidget *m_updateList;
+#ifndef DISABLE_ACTIVATOR
     dcc::widgets::TipsLabel *m_authorizationPrompt;
+#endif
 
     QPushButton *m_checkUpdateBtn;
     dcc::widgets::TipsLabel *m_lastCheckTimeTip;

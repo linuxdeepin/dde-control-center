@@ -24,6 +24,7 @@
 #include "widgets/titlevalueitem.h"
 #include "modules/systeminfo/logoitem.h"
 #include "window/utils.h"
+#include "modules/systeminfo/systeminfomodel.h"
 
 #include <QVBoxLayout>
 #include <QApplication>
@@ -36,7 +37,6 @@
 
 using namespace dcc::widgets;
 using namespace dcc::systeminfo;
-using namespace DCC_NAMESPACE::systeminfo;
 #define GSETTINGS_CONTENS_SERVER "iscontens-server"
 
 DCORE_USE_NAMESPACE
@@ -100,6 +100,7 @@ void NativeInfoWidget::initWidget()
     //~ contents_path /systeminfo/About This PC
     m_type->setTitle(tr("Type:"));
 
+#ifndef DISABLE_ACTIVATOR
     m_authorized = new TitleAuthorizedItem();
     m_authorized->setTitle(tr("Authorization") + ':');
     m_authorized->setValue(tr("To be activated"));
@@ -110,6 +111,7 @@ void NativeInfoWidget::initWidget()
     } else {
         m_authorized->setVisable(true);
     }
+#endif
 
     m_kernel = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
@@ -134,8 +136,10 @@ void NativeInfoWidget::initWidget()
     }
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
+#ifndef DISABLE_ACTIVATOR
     if (!DCC_NAMESPACE::IsDesktopSystem)
         infoGroup->appendItem(m_authorized);
+#endif
     infoGroup->appendItem(m_kernel);
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);
@@ -163,12 +167,17 @@ void NativeInfoWidget::initWidget()
     connect(m_model, &SystemInfoModel::processorChanged, this, &NativeInfoWidget::setProcessor);
     connect(m_model, &SystemInfoModel::memoryChanged, this, &NativeInfoWidget::setMemory);
 
+#ifndef DISABLE_ACTIVATOR
     //传递button的点击信号
     connect(m_authorized, &TitleAuthorizedItem::clicked, this, &NativeInfoWidget::clickedActivator);
     connect(m_model, &SystemInfoModel::licenseStateChanged, this, &NativeInfoWidget::setLicenseState);
+#endif
 
     setType(m_model->type());
+
+#ifndef DISABLE_ACTIVATOR
     setLicenseState(m_model->licenseState());
+#endif
 }
 
 void NativeInfoWidget::setProductName(const QString &edition)
@@ -201,7 +210,8 @@ void NativeInfoWidget::setMemory(const QString &memory)
     m_memory->setValue(memory);
 }
 
-void NativeInfoWidget::setLicenseState(quint32 state)
+#ifndef DISABLE_ACTIVATOR
+void NativeInfoWidget::setLicenseState(ActiveState state)
 {
     if (state == Authorized) {
         m_authorized->setValue(tr("Activated"));
@@ -225,6 +235,7 @@ void NativeInfoWidget::setLicenseState(quint32 state)
         m_authorized->setButtonText(tr("Activate"));
     }
 }
+#endif
 
 const QString NativeInfoWidget::systemCopyright() const
 {

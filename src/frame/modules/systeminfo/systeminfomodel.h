@@ -32,14 +32,16 @@
 namespace dcc{
 namespace systeminfo{
 
+#ifndef DISABLE_ACTIVATOR
 //授权状态
-enum ActiveState {
+enum ActiveState: unsigned int {
     Unauthorized = 0,  //未授权
     Authorized,  //已授权
     AuthorizedLapse,  //授权失效
     TrialAuthorized, //试用期已授权
     TrialExpired //试用期已过期
 };
+#endif
 
 class SystemInfoModel : public QObject
 {
@@ -61,7 +63,10 @@ public:
     QString memory() const { return m_memory;}
     QString disk() const { return m_disk;}
     QString kernel() const { return m_kernel;}
-    inline quint32 licenseState() const { return m_licenseState; }
+
+#ifndef DISABLE_ACTIVATOR
+    inline ActiveState licenseState() const { return m_licenseState; }
+#endif
 
     bool bootDelay() const;
     bool themeEnabled() const { return m_themeEnabled; }
@@ -86,7 +91,10 @@ Q_SIGNALS:
     void memoryChanged(const QString& memory);
     void diskChanged(const QString& disk);
     void kernelChanged(const QString& kernel);
-    void licenseStateChanged(quint32 state);
+
+#ifndef DISABLE_ACTIVATOR
+    void licenseStateChanged(ActiveState state);
+#endif
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -103,7 +111,10 @@ public Q_SLOTS:
     void setMemory(qulonglong totalMemory, qulonglong installedMemory);
     void setDisk(qulonglong disk);
     void setKernel(const QString &kernel);
-    void setLicenseState(quint32 state);
+
+#ifndef DISABLE_ACTIVATOR
+    void setLicenseState(ActiveState state);
+#endif
 
 private:
     bool m_bootDelay;
@@ -123,9 +134,16 @@ private:
     QString m_memory;
     QString m_disk;
     QString m_kernel;
-    quint32 m_licenseState;
+#ifndef DISABLE_ACTIVATOR
+    ActiveState m_licenseState;
+#endif
 };
 
 }
 }
+
+#ifndef DISABLE_ACTIVATOR
+Q_DECLARE_METATYPE(dcc::systeminfo::ActiveState);
+#endif
+
 #endif // SYSTEMINFOMODEL_H

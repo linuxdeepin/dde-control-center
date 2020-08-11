@@ -126,7 +126,10 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
         output.remove(idx, 1);
     }
     m_model->setKernel(output);
+
+#ifndef DISABLE_ACTIVATOR
     getLicenseState();
+#endif
 }
 
 void SystemInfoWork::activate()
@@ -276,6 +279,7 @@ void SystemInfoWork::setBackground(const QString &path)
     });
 }
 
+#ifndef DISABLE_ACTIVATOR
 void SystemInfoWork::showActivatorDialog()
 {
     QDBusInterface activator("com.deepin.license.activator",
@@ -289,6 +293,7 @@ void SystemInfoWork::licenseStateChangeSlot()
 {
     getLicenseState();
 }
+#endif
 
 void SystemInfoWork::getEntryTitles()
 {
@@ -333,6 +338,7 @@ void SystemInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
+#ifndef DISABLE_ACTIVATOR
 void SystemInfoWork::getLicenseState()
 {
     QDBusInterface licenseInfo("com.deepin.license",
@@ -345,10 +351,11 @@ void SystemInfoWork::getLicenseState()
         return;
     }
 
-    quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    ActiveState reply = licenseInfo.property("AuthorizationState").value<ActiveState>();
     qDebug() << "authorize result:" << reply;
     m_model->setLicenseState(reply);
 }
+#endif
 
 }
 }

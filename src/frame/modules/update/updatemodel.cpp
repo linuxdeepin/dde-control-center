@@ -69,7 +69,9 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_bRecoverRestoring(false)
     , m_systemVersionInfo("")
     , m_metaEnum(QMetaEnum::fromType<ModelUpdatesStatus>())
+#ifndef DISABLE_ACTIVATOR
     , m_bSystemActivation(false)
+#endif
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
 
@@ -304,6 +306,7 @@ void UpdateModel::setSystemVersionInfo(const QString &systemVersionInfo)
     Q_EMIT systemVersionChanged(systemVersionInfo);
 }
 
+#ifndef DISABLE_ACTIVATOR
 void UpdateModel::setSystemActivation(uint systemactivation)
 {
     bool activation;
@@ -319,6 +322,7 @@ void UpdateModel::setSystemActivation(uint systemactivation)
 
     Q_EMIT setSystemActivationChanged(systemactivation);
 }
+#endif
 
 void UpdateModel::isUpdatablePackages(bool isUpdatablePackages)
 {

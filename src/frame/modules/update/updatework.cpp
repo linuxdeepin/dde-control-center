@@ -189,6 +189,8 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     refreshMirrors();
 #endif
+
+#ifndef DISABLE_ACTIVATOR
     getLicenseState();
 
     QDBusConnection::systemBus().connect("com.deepin.license",
@@ -197,6 +199,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
                                          "LicenseStateChange",
                                          this,
                                          SLOT(licenseStateChangeSlot()));
+#endif
 
     QDBusInterface Interface("com.deepin.lastore",
                                  "/com/deepin/lastore",
@@ -206,6 +209,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
         qDebug() << "com.deepin.license error ," << Interface.lastError().name();
         return;
     }
+
     QList<QString> updatablePackages;
     updatablePackages << Interface.property("UpdatablePackages").toStringList();
     qDebug() << "UpdatablePackages = " << updatablePackages.count();
@@ -221,11 +225,11 @@ UpdateWorker::~UpdateWorker()
 
 }
 
+#ifndef DISABLE_ACTIVATOR
 void UpdateWorker::licenseStateChangeSlot()
 {
     getLicenseState();
 }
-
 
 void UpdateWorker::getLicenseState()
 {
@@ -241,6 +245,7 @@ void UpdateWorker::getLicenseState()
     qDebug() << "Authorization State:" << reply;
     m_model->setSystemActivation(reply);
 }
+#endif
 
 void UpdateWorker::activate()
 {
