@@ -43,8 +43,11 @@ add_definitions(-DWINDOW_MODE)
 add_subdirectory("src/frame")
 add_subdirectory("src/dialogs")
 add_subdirectory("src/develop-tool")
-add_subdirectory("abrecovery")
 add_subdirectory("unittest")
+
+if (NOT DEFINED DISABLE_RECOVERY)
+    add_subdirectory("abrecovery")
+endif()
 
 file(GLOB DOCS_FILES "docs/*")
 file(GLOB HEADERS "include/*")
@@ -88,4 +91,3 @@ configure_package_config_file(DdeControlCenterConfig.cmake.in
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
-

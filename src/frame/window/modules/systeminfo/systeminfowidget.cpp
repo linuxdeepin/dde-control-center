@@ -75,6 +75,7 @@ void SystemInfoWidget::initData()
         {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
     };
 
+#ifndef DISABLE_RECOVERY
 #ifndef QT_DEBUG
     const QString &recoveryPath{ "/etc/deepin/system-recovery.conf" };
     QSettings settings(recoveryPath, QSettings::IniFormat);
@@ -98,6 +99,7 @@ void SystemInfoWidget::initData()
     else {
         qDebug() << "Cannot open " << recoveryPath;
     }
+#endif
 #endif
 
     if(DCC_NAMESPACE::IsDesktopSystem) {

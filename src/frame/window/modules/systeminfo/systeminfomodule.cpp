@@ -24,12 +24,15 @@
 #include "nativeinfowidget.h"
 #include "versionprotocolwidget.h"
 #include "userlicensewidget.h"
-#include "systemrestore.h"
-#include "backupandrestoremodel.h"
-#include "backupandrestoreworker.h"
 #include "modules/systeminfo/systeminfowork.h"
 #include "modules/systeminfo/systeminfomodel.h"
 #include "window/mainwindow.h"
+
+#ifndef DISABLE_RECOVERY
+#include "systemrestore.h"
+#include "backupandrestoremodel.h"
+#include "backupandrestoreworker.h"
+#endif
 
 using namespace dcc::systeminfo;
 using namespace DCC_NAMESPACE::systeminfo;
@@ -39,8 +42,10 @@ SystemInfoModule::SystemInfoModule(FrameProxyInterface *frame, QObject *parent)
     , ModuleInterface(frame)
     , m_work(nullptr)
     , m_model(nullptr)
+#ifndef DISABLE_RECOVERY
     , m_backupAndRestoreWorker(nullptr)
     , m_backupAndRestoreModel(nullptr)
+#endif
     , m_sysinfoWidget(nullptr)
 {
     m_frameProxy = frame;
@@ -57,13 +62,16 @@ void SystemInfoModule::initialize()
     }
     m_model = new SystemInfoModel(this);
     m_work = new SystemInfoWork(m_model, this);
-    m_backupAndRestoreModel = new BackupAndRestoreModel(this);
-    m_backupAndRestoreWorker = new BackupAndRestoreWorker(m_backupAndRestoreModel, this);
 
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
+
+#ifndef DISABLE_RECOVERY
+    m_backupAndRestoreModel = new BackupAndRestoreModel(this);
+    m_backupAndRestoreWorker = new BackupAndRestoreWorker(m_backupAndRestoreModel, this);
     m_backupAndRestoreModel->moveToThread(qApp->thread());
     m_backupAndRestoreWorker->moveToThread(qApp->thread());
+#endif
 
     m_work->activate();
 }
@@ -83,7 +91,9 @@ void SystemInfoModule::active()
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowAboutNative, this, &SystemInfoModule::onShowAboutNativePage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowEndUserLicenseAgreement, this, &SystemInfoModule::onShowEndUserLicenseAgreementPage);
+#ifndef DISABLE_RECOVERY
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowRestore, this, &SystemInfoModule::onShowSystemRestore);
+#endif
     m_frameProxy->pushWidget(this, m_sysinfoWidget);
     m_sysinfoWidget->setCurrentIndex(0);
 }
@@ -142,6 +152,7 @@ void SystemInfoModule::onShowEndUserLicenseAgreementPage()
     m_frameProxy->pushWidget(this, w);
 }
 
+#ifndef DISABLE_RECOVERY
 void SystemInfoModule::onShowSystemRestore() {
     MainWindow* mainwindow = dynamic_cast<MainWindow*>(m_frameProxy);
     if (mainwindow->getcontentStack().size() == 2 && mainwindow->getcontentStack().at(1).second->objectName() == "SystemRestore") {
@@ -155,3 +166,4 @@ void SystemInfoModule::onShowSystemRestore() {
 
     m_frameProxy->pushWidget(this, restore);
 }
+#endif

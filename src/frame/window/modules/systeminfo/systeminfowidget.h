@@ -59,7 +59,9 @@ Q_SIGNALS:
     void requestShowAboutNative();
     void requestShowVersionProtocol();
     void requestShowEndUserLicenseAgreement();
+#ifndef DISABLE_RECOVERY
     void requestShowRestore();
+#endif
 
 private:
     struct ListMethod {

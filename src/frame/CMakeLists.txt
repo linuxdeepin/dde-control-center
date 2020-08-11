@@ -46,6 +46,7 @@ DISABLE_NETWORK_PROXY
 DISABLE_SYS_UPDATE_SOURCE_CHECK
 DISABLE_SYS_UPDATE_MIRRORS
 DISABLE_MAIN_PAGE
+DISABLE_RECOVERY
 DCC_ENABLE_ADDOMAIN
 DCC_DISABLE_KBLAYOUT
 DCC_DISABLE_LANGUAGE
@@ -496,12 +497,18 @@ set(SYSTEMINFO_FILES
                 window/modules/systeminfo/nativeinfowidget.cpp
                 window/modules/systeminfo/versionprotocolwidget.cpp
                 window/modules/systeminfo/userlicensewidget.cpp
-                window/modules/systeminfo/systemrestore.cpp
-                window/modules/systeminfo/manualbackup.cpp
-                window/modules/systeminfo/manualrestore.cpp
-                window/modules/systeminfo/backupandrestoremodel.cpp
-                window/modules/systeminfo/backupandrestoreworker.cpp
 )
+
+if (NOT DEFINED DISABLE_RECOVERY)
+    set(SYSTEMINFO_FILES
+        ${SYSTEMINFO_FILES}
+        window/modules/systeminfo/systemrestore.cpp
+        window/modules/systeminfo/manualbackup.cpp
+        window/modules/systeminfo/manualrestore.cpp
+        window/modules/systeminfo/backupandrestoremodel.cpp
+        window/modules/systeminfo/backupandrestoreworker.cpp
+    )
+endif()
 
 # load update
 set(UPDATE_FILES
