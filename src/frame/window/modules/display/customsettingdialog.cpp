@@ -149,6 +149,11 @@ void CustomSettingDialog::setModel(DisplayModel *model)
 {
     m_model = model;
 
+    connect(m_model, &DisplayModel::displayModeChanged, this, [&]() {
+        if (isVisible())
+            accept();
+    });
+
     resetMonitorObject(model->primaryMonitor());
     m_isPrimary = true;
     initPrimaryDialog();
