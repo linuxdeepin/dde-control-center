@@ -200,20 +200,34 @@ bool APItem::setLoading(bool isLoading)
         m_preLoading = isLoading;
     }
     if (isLoading) {
+        if (m_parentView) {
+            QModelIndex index;
+            const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(m_parentView->model());
+            if (!deviceModel) {
+                return isReconnect;
+            }
+            for (int i = 0; i < m_parentView->count(); ++i) {
+                DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(i));
+                if (!item) {
+                    return isReconnect;
+                }
+                if (this == item) {
+                    index = m_parentView->model()->index(i, 0);
+                    break;
+                }
+            }
+            QRect itemrect = m_parentView->visualRect(index);
+            QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
+            m_loadingIndicator->move(point);
+        }
         if (!m_arrowAction.isNull()) {
             m_arrowAction->setVisible(false);
         }
         m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false);
         m_loadingAction->setWidget(m_loadingIndicator);
         m_loadingAction->setVisible(true);
-        for (int i = 0; m_parentView != nullptr && i < m_parentView->count(); ++i) {
-            if (m_parentView->isRowHidden(i)) {
-                m_loadingIndicator->hide();
-            } else {
-                m_loadingIndicator->start();
-                m_loadingIndicator->show();
-            }
-        }
+        m_loadingIndicator->start();
+        m_loadingIndicator->show();
         setActionList(Qt::Edge::RightEdge, {m_loadingAction});
     } else {
         m_loadingIndicator->stop();
@@ -477,9 +491,8 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
             this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(),
                                           apItem->data(Qt::ItemDataRole::DisplayRole).toString());
         });
+        m_sortDelayTimer->start();
     }
-
-    onAPChanged(apInfo);
 }
 
 void WirelessPage::onAPChanged(const QJsonObject &apInfo)
