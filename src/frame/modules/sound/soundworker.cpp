@@ -66,7 +66,8 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
 
     connect(m_audioInter, &Audio::DefaultSinkChanged, m_model, &SoundModel::setDefaultSink);
     connect(m_audioInter, &Audio::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
-    connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
+    // 此接口后端已经不再维护，过几个版本直接删除吧
+//    connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
     connect(m_audioInter, &Audio::MaxUIVolumeChanged, m_model, &SoundModel::setMaxUIVolume);
     connect(m_audioInter, &Audio::IncreaseVolumeChanged, model, &SoundModel::setIncreaseVolume);
     connect(m_audioInter, &Audio::CardsWithoutUnavailableChanged, model, &SoundModel::setAudioCards);
@@ -300,7 +301,8 @@ void SoundWorker::cardsChanged(const QString &cards)
                 tmpPorts << portId;
             }
         }
-        tmpCardIds.insert(cardId, tmpPorts);
+        if (!jPorts.isEmpty())
+            tmpCardIds.insert(cardId, tmpPorts);
     }
 
     for (Port *port : m_model->ports()) {
