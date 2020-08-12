@@ -263,9 +263,7 @@ void DisplayModule::showCustomSettingDialog()
     connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
 
     m_displayModel->setIsMerge(m_displayModel->monitorsIsIntersect());
-    QTimer::singleShot(100, this, [&](){
-        dlg->setModel(m_displayModel);
-    });
+    dlg->setModel(m_displayModel);
 
     if (dlg->exec() != QDialog::Accepted) {
         keybindInter.AddShortcutKeystroke("display",2,"XF86Display");
