@@ -232,6 +232,10 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
             m_passwdEdit->hideAlertMessage();
             m_passwdEdit->setAlert(false);
         }
+        if (m_repeatpasswdEdit->isAlert()) {
+            m_repeatpasswdEdit->hideAlertMessage();
+            m_repeatpasswdEdit->setAlert(false);
+        }
     });
 
     connect(m_repeatpasswdEdit, &DPasswordEdit::textEdited, this, [ = ] {
@@ -289,13 +293,10 @@ void CreateAccountPage::createUser()
     if (!onNameEditFinished(m_nameEdit)) {
         return;
     }
-    if (!onPasswordEditFinished(m_passwdEdit)) {
+    if (!onPasswordEditFinished(m_passwdEdit, m_repeatpasswdEdit)) {
         return;
     }
     if (!onFullNameEidtFinished(m_fullnameEdit)) {
-        return;
-    }
-    if (!onPasswordEditFinished(m_repeatpasswdEdit)) {
         return;
     }
 
@@ -344,48 +345,83 @@ void CreateAccountPage::createUser()
 
 int CreateAccountPage::validatePassword(const QString &password)
 {
+    // NOTE(justforlxz): 配置文件由安装器生成，后续改成PAM模块
     QFileInfo fileInfo("/etc/deepin/dde.conf");
     if (fileInfo.isFile()) {
-        // NOTE(justforlxz): 配置文件由安装器生成，后续改成PAM模块
         QSettings setting("/etc/deepin/dde.conf", QSettings::IniFormat);
         setting.beginGroup("Password");
         const bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
         m_passwordMinLength   = setting.value("PASSWORD_MIN_LENGTH").toInt();
         m_passwordMaxLength   = setting.value("PASSWORD_MAX_LENGTH").toInt();
-        const QStringList validate_policy= setting.value("VALIDATE_POLICY").toString().split(";");
-        m_validate_Required      = setting.value("VALIDATE_REQUIRED").toInt();
-        QString validate_policy_string = setting.value("VALIDATE_POLICY").toString();
+        m_validate_Required   = setting.value("VALIDATE_REQUIRED").toInt();
+        QStringList validate_policy = setting.value("VALIDATE_POLICY").toString().split(";");
+        setting.endGroup();
 
-        if (!strong_password_check) {
-            return ENUM_PASSWORD_CHARACTER;
+        //由于安装器之前配置文件中,反斜杠被当成转义字符了,这里确保校验规则中包含以下字符: "\", "|", "空格符"
+        for (auto &policy : validate_policy) {
+            if (policy.contains("~")) {
+                if (!policy.contains("\\")) {
+                    policy.append("\\");
+                }
+                if (!policy.contains("|")) {
+                    policy.append("|");
+                }
+                if (!policy.contains(" ")) {
+                    policy.append(" ");
+                }
+            }
         }
 
-        if (password.size() == 0) {
-            return ENUM_PASSWORD_EMPTY;
-        } else if (password.size() > 0 && password.size() < m_passwordMinLength) {
-            return ENUM_PASSWORD_TOOSHORT;
-        } else if (passwordCompositionType(validate_policy, password) < m_validate_Required) {
-            if (password.size() < m_passwordMinLength) {
-                return ENUM_PASSWORD_SEVERAL;
-            } else if (!(password.split("").toSet() - validate_policy.join("").split("").toSet()).isEmpty()) {
-                return ENUM_PASSWORD_CHARACTER;
-            } else {
-                return ENUM_PASSWORD_TYPE;
-            }
-        } else if (password.size() > m_passwordMaxLength) {
-            return ENUM_PASSWORD_TOOLONG;
-        } else if (!containsChar(password, validate_policy_string)) {
-            return ENUM_PASSWORD_CHARACTER;
-        } else {
+        // 如果不是强密码校验,则直接返回成功
+        if (!strong_password_check) {
             return ENUM_PASSWORD_SUCCESS;
         }
+
+        // 密码太短
+        if (password.size() < m_passwordMinLength) {
+            return ENUM_PASSWORD_TOOSHORT;
+        }
+
+        // 密码不能包含校验规则字符之外的其他字符
+        QString allPolicyStr;
+        for (auto policy : validate_policy) {
+            allPolicyStr.append(policy);
+        }
+        if (!containsChar(password, allPolicyStr)) {
+            return ENUM_PASSWORD_SEVERAL;
+        }
+
+        // 密码至少同时包括小写字母,大写字母,数字,符号中的m_validate_Required种
+        if (passwordCompositionType(validate_policy, password) < m_validate_Required) {
+            return ENUM_PASSWORD_SEVERAL;
+        }
+
+        // 密码不可为用户名重复或倒置
+        QString username = m_nameEdit->lineEdit()->text();
+        QString reversusername;
+        QStringList reversenamelist;
+        for (int i = username.count() - 1; i > -1; i--) {
+            reversenamelist << username.at(i);
+        }
+        reversusername = reversenamelist.join("");
+        if (password == username || password == reversusername) {
+            return ENUM_PASSWORD_REPEATED;
+        }
+
+        // 密码长度不能超过m_passwordMinLength个字符
+        if (password.size() > m_passwordMaxLength) {
+            return ENUM_PASSWORD_TOOLONG;
+        }
+
+        return ENUM_PASSWORD_SUCCESS;
     } else {
         QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
-                                      QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
+                                      QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<> ");
         bool ret = containsChar(password, validate_policy);
         if (!ret) {
             return ENUM_PASSWORD_CHARACTER;
         }
+
         return ENUM_PASSWORD_SUCCESS;
     }
 }
@@ -427,51 +463,52 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
     result->deleteLater();
 }
 
-bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
+bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *passwdEdit, DPasswordEdit *repeatpasswdEdit)
 {
-    const QString &userpassword = edit->lineEdit()->text();
+    const QString &userpassword = passwdEdit->lineEdit()->text();
+    const QString &repeatpassword = repeatpasswdEdit->lineEdit()->text();
     if (userpassword.isEmpty()) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password cannot be empty"), -1);
+        passwdEdit->setAlert(true);
+        return false;
+    }
+
+    if (repeatpassword.isEmpty()) {
+        repeatpasswdEdit->setAlert(true);
+        return false;
+    }
+
+    if (userpassword != repeatpassword) {
+        m_repeatpasswdEdit->setAlert(true);
+        m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), -1);
         return false;
     }
 
     int passResult = validatePassword(userpassword);
     switch (passResult)
     {
-    case ENUM_PASSWORD_EMPTY:
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password cannot be empty"), -1);
-        return false;
     case ENUM_PASSWORD_TOOSHORT:
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("The password must have at least %1 characters").arg(m_passwordMinLength), -1);
+    case ENUM_PASSWORD_SEVERAL:
+        passwdEdit->setAlert(true);
+        passwdEdit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_passwordMinLength).arg(m_validate_Required), -1);
         return false;
     case ENUM_PASSWORD_TOOLONG:
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(m_passwordMaxLength), -1);
+        passwdEdit->setAlert(true);
+        passwdEdit->showAlertMessage(tr("Password must be no more than %1 characters").arg(m_passwordMaxLength), -1);
         return false;
     case ENUM_PASSWORD_TYPE:
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_validate_Required), -1);
+        passwdEdit->setAlert(true);
+        passwdEdit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_validate_Required), -1);
         return false;
     case ENUM_PASSWORD_CHARACTER:
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+        passwdEdit->setAlert(true);
+        passwdEdit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
         return false;
-    case ENUM_PASSWORD_SEVERAL:
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_passwordMinLength).arg(m_validate_Required), -1);
+    case ENUM_PASSWORD_REPEATED:
+        passwdEdit->setAlert(true);
+        passwdEdit->showAlertMessage(tr("Password should not be the repeated or reversed username"), -1);
         return false;
     }
 
-    if (edit == m_repeatpasswdEdit) {
-        if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
-            m_repeatpasswdEdit->setAlert(true);
-            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), -1);
-            return false;
-        }
-    }
     return true;
 }
 

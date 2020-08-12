@@ -50,6 +50,7 @@ enum ErrorType {
     ENUM_PASSWORD_TYPE,
     ENUM_PASSWORD_SEVERAL,
     ENUM_PASSWORD_CHARACTER,
+    ENUM_PASSWORD_REPEATED,
     ENUM_PASSWORD_SUCCESS
 };
 
@@ -76,7 +77,7 @@ private:
     void initWidgets(QVBoxLayout *layout);
     void initUsrGroup(QVBoxLayout *layout);
     void createUser();
-    bool onPasswordEditFinished(DPasswordEdit *edit);
+    bool onPasswordEditFinished(DPasswordEdit *passwdEdit, DPasswordEdit *repeatpasswdEdit);
     int validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
     bool validateUsername(const QString &username);
