@@ -27,6 +27,7 @@
 #include <DListView>
 #include <DSpinner>
 #include <DIconButton>
+#include <DCheckBox>
 
 #include <QWidget>
 #include <QPointer>
@@ -100,8 +101,10 @@ private Q_SLOTS:
 private:
     QLabel *m_tip;
     TitleEdit *m_titleEdit;
+    QLabel *m_hideAnonymousLabel;
     const dcc::bluetooth::Adapter *m_adapter;
     dcc::widgets::SwitchWidget *m_switch;
+    DCheckBox *m_showAnonymousCheckBox;
     QList<QPointer<DeviceSettingsItem>> m_deviceLists;
     QList<QPointer<DeviceSettingsItem>> m_myDevices;
     TitleLabel *m_myDevicesGroup;

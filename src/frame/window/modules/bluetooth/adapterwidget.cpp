@@ -49,8 +49,10 @@ DWIDGET_USE_NAMESPACE
 
 AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::bluetooth::BluetoothModel *model)
     : m_titleEdit(new TitleEdit)
+    , m_hideAnonymousLabel(new QLabel(tr("Show Bluetooth devices without names")))
     , m_adapter(adapter)
-    , m_switch(new SwitchWidget(nullptr, m_titleEdit))
+    , m_switch(new dcc::widgets::SwitchWidget(nullptr, m_titleEdit))
+    , m_showAnonymousCheckBox(new DCheckBox(this))
     , m_model(model)
     , m_lastCheck(false)
 {
@@ -96,10 +98,18 @@ void AdapterWidget::initUI()
     m_refreshBtn = new DIconButton (this);
     m_refreshBtn->setFixedSize(36, 36);
     m_refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
+    m_showAnonymousCheckBox->setChecked(true);
     QHBoxLayout *phlayout = new QHBoxLayout;
     phlayout->addWidget(m_otherDevicesGroup);
-    phlayout->addWidget(m_spinner);
-    phlayout->addWidget(m_refreshBtn);
+
+    m_hideAnonymousLabel->setFixedHeight(36);
+    m_showAnonymousCheckBox->setFixedHeight(36);
+    QHBoxLayout *phlayoutShowAnonymous = new QHBoxLayout;
+    phlayoutShowAnonymous->addWidget(m_showAnonymousCheckBox);
+    phlayoutShowAnonymous->addWidget(m_hideAnonymousLabel);
+    phlayoutShowAnonymous->addStretch();
+    phlayoutShowAnonymous->addWidget(m_spinner);
+    phlayoutShowAnonymous->addWidget(m_refreshBtn);
 
     m_switch->addBackground();
     m_switch->setContentsMargins(0, 0, 10, 0);
@@ -145,6 +155,7 @@ void AdapterWidget::initUI()
     layout->addWidget(m_myDeviceListView);
     layout->addSpacing(10);
     layout->addLayout(phlayout);
+    layout->addLayout(phlayoutShowAnonymous);
     layout->addWidget(m_otherDeviceListView);
     layout->addSpacing(interval);
     layout->addStretch();
@@ -218,6 +229,35 @@ void AdapterWidget::initConnect()
         m_tickTimer.start();
     });
 
+    connect(m_showAnonymousCheckBox, &DCheckBox::stateChanged, this, [=](int state) {
+        if (state == Qt::CheckState::Unchecked) {
+            // 将蓝牙名称为空的设备过滤掉
+            for (int i = 0; i < m_deviceLists.size(); i++) {
+                DeviceSettingsItem *pDeviceItem = m_deviceLists[i];
+
+                if (pDeviceItem->device()->paired())
+                    continue;
+                
+                DStandardItem *dListItem = pDeviceItem->getStandardItem();
+                QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
+                if (index.isValid() && pDeviceItem->device()->name().isEmpty())
+                    m_otherDeviceModel->takeRow(index.row());
+            }
+        } else {
+            // 显示所有蓝牙设备
+            for (int i = 0; i < m_deviceLists.size(); i++) {
+                DeviceSettingsItem *pDeviceItem = m_deviceLists[i];
+                if (pDeviceItem->device()->paired())
+                    continue;
+                
+                DStandardItem *dListItem = pDeviceItem->getStandardItem();
+                QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
+                if ((false == index.isValid()) && pDeviceItem->device()->name().isEmpty()) {
+                    m_otherDeviceModel->insertRow(0, dListItem);
+                }
+            }
+        }
+    });
     connect(&m_tickTimer, &QTimer::timeout, this, [ = ](){
         toggleSwitch(!m_lastCheck);
     });
@@ -265,6 +305,8 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
     m_tip->setVisible(!bPower);
     m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(bPower);
+    m_showAnonymousCheckBox->setVisible(bPower);
+    m_hideAnonymousLabel->setVisible(bPower);
     m_spinner->setVisible(bPower && bDiscovering);
     m_refreshBtn->setVisible(bPower && !bDiscovering);
     m_myDeviceListView->setVisible(bPower && !m_myDevices.isEmpty());
@@ -296,7 +338,13 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
         m_myDeviceModel->appendRow(dListItem);
     } else {
         DStandardItem *dListItem = deviceItem->getStandardItem(m_otherDeviceListView);
-        m_otherDeviceModel->appendRow(dListItem);
+        if (m_showAnonymousCheckBox->checkState() == Qt::CheckState::Unchecked) {
+            if (false == deviceItem->device()->name().isEmpty()) { // 只关注有名称的蓝牙设备,没有名称的忽略
+                m_otherDeviceModel->insertRow(0, dListItem);
+            }
+        } else {
+            m_otherDeviceModel->insertRow(0,dListItem);
+        }
     }
     bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
     m_myDevicesGroup->setVisible(isVisible);
