@@ -60,6 +60,8 @@ TouchscreenPage::TouchscreenPage(QWidget *parent)
     setTitle(tr("Select your touch screen"));
 
     auto dtip = new DTipLabel(tr("Select your touch screen when connected or set it here."));
+    dtip->setContentsMargins(10, 0, 0, 0);
+    dtip->setAlignment(Qt::AlignLeft);
 
     m_contentArea->setWidgetResizable(true);
     m_contentArea->setFrameStyle(QFrame::NoFrame);
@@ -118,6 +120,7 @@ void TouchscreenPage::onMonitorChanged()
     auto *layout = new QVBoxLayout();
     mainWidget->setLayout(layout);
     layout->setAlignment(Qt::AlignTop);
+    layout->setContentsMargins(0,0,0,0);
 
     TouchscreenMap touchMap = m_model->touchMap();
     TouchscreenInfoList touchscreenList = m_model->touchscreenList();
@@ -127,10 +130,13 @@ void TouchscreenPage::onMonitorChanged()
 
         auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new QLabel(title);
+        label->setContentsMargins(10, 0, 0, 0);
+        label->setAlignment(Qt::AlignLeft);
         layout->addWidget(label);
         layout->addSpacing(5);
 
         auto *listCombo = new MCombobox();
+        listCombo->setContentsMargins(0, 0, 0, 10);
         listCombo->setProperty("touchscreenName", i.name);
         listCombo->setProperty("touchscreenSerial", touchscreenSerial);
         layout->addWidget(listCombo);
