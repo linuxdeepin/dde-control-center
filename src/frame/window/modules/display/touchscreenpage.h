@@ -30,6 +30,7 @@
 #include <org_freedesktop_notifications.h>
 
 #include <DListView>
+#include <DTipLabel>
 
 #include <QWidget>
 #include <QComboBox>
@@ -74,6 +75,9 @@ private Q_SLOTS:
     void onMonitorChanged();
     void save();
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
+
 Q_SIGNALS:
     void requestAssociateTouch(const QString &monitor, const QString &touchscreenSerial);
 
@@ -83,6 +87,10 @@ private:
     QScrollArea *m_contentArea;
     QList<MCombobox *> m_list;
     Notifications *m_notifyInter;
+    QStringList m_titleName;
+    QList<QLabel *> m_labels;
+    DTipLabel *m_dTipLabel;
+    QString m_titleString;
 };
 
 } // namespace display
