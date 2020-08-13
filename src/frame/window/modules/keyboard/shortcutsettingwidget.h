@@ -55,7 +55,7 @@ class ShortCutSettingWidget : public QWidget
 public:
     explicit ShortCutSettingWidget(dcc::keyboard::ShortcutModel *model, QWidget *parent = nullptr);
     ~ShortCutSettingWidget();
-    void addShortcut(QList<dcc::keyboard::ShortcutInfo *> list, dcc::keyboard::ShortcutModel::InfoType type);
+    void addShortcut(QList<QPair<dcc::keyboard::ShortcutInfoList, dcc::keyboard::ShortcutModel::InfoType>> shotcutInfos);
     dcc::widgets::SettingsHead *getHead() const;
     void showCustomShotcut();
 protected:
@@ -87,6 +87,9 @@ public Q_SLOTS:
     void onShortcutChanged(dcc::keyboard::ShortcutInfo *info);
     void onKeyEvent(bool press, const QString &shortcut);
     void onResetFinished();
+
+private:
+    void setGroupSettingVisible(bool enable);
 
 private:
     QWidget *m_searchWidget;
