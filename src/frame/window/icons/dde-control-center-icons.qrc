@@ -170,6 +170,8 @@
         <file>light/buletooth_other_light.svg</file>
         <file>texts/dcc_refresh_12px.svg</file>
         <file>actions/dcc_backup_32px.svg</file>
+        <file>icons/dcc_nav_deepin_systeminfo_42px.svg</file>
+        <file>icons/dcc_nav_deepin_systeminfo_84px.svg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

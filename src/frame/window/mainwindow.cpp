@@ -367,6 +367,8 @@ void MainWindow::initAllModule(QString m)
         DStandardItem *item = new DStandardItem;
         item->setIcon(it->first->icon());
         item->setText(it->second);
+        if (it->first->name() == "systeminfo" && DSysInfo::DeepinDesktop == DSysInfo::deepinType())
+            item->setIcon(QIcon::fromTheme(QString("dcc_nav_deepin_systeminfo")));
         if (it->first->name() == "commoninfo") {
             item->setAccessibleText("SECOND_MENU_COMMON");
         } else {
