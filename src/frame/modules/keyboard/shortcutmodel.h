@@ -66,7 +66,7 @@ struct ShortcutInfo {
     }
 };
 
-typedef QList<ShortcutInfo> ShortcutInfoList;
+typedef QList<ShortcutInfo *> ShortcutInfoList;
 
 class ShortcutModel : public QObject
 {
@@ -98,7 +98,7 @@ public:
     ShortcutInfo *getInfo(const QString &shortcut);
     void setSearchResult(const QString &searchResult);
 Q_SIGNALS:
-    void listChanged(QList<ShortcutInfo *>, InfoType);
+    void listChanged(QList<QPair<ShortcutInfoList, InfoType>>);
     void addCustomInfo(ShortcutInfo *info);
     void shortcutChanged(ShortcutInfo *info);
     void keyEvent(bool press, const QString &shortcut);

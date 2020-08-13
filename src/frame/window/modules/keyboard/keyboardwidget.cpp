@@ -80,6 +80,9 @@ void KeyboardWidget::initSetting(const int settingIndex)
 
 void KeyboardWidget::onItemClick(const QModelIndex &index)
 {
+    if (index.row() == m_previewRow)
+        return;
+
     switch (index.row()) {
     case 0:
         Q_EMIT showGeneralSetting();
@@ -91,8 +94,7 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
         Q_EMIT showSystemLanguageSetting();
         break;
     case 3:
-        if (index.row() != m_previewRow)
-            Q_EMIT showShortCutSetting();
+        Q_EMIT showShortCutSetting();
         break;
     default:
         Q_EMIT showGeneralSetting();

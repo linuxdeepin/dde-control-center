@@ -204,11 +204,14 @@ void ShortcutModel::onParseInfo(const QString &info)
         return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
     });
 
-    Q_EMIT listChanged(m_systemInfos, InfoType::System);
-    Q_EMIT listChanged(m_windowInfos, InfoType::Window);
-    Q_EMIT listChanged(m_workspaceInfos, InfoType::Workspace);
-    Q_EMIT listChanged(m_assistiveToolsInfos, InfoType::AssistiveTools);
-    Q_EMIT listChanged(m_customInfos, InfoType::Custom);
+    QList<QPair<ShortcutInfoList, InfoType>> infoList;
+    infoList << qMakePair(m_systemInfos, InfoType::System);
+    infoList << qMakePair(m_windowInfos, InfoType::Window);
+    infoList << qMakePair(m_workspaceInfos, InfoType::Workspace);
+    infoList << qMakePair(m_assistiveToolsInfos, InfoType::AssistiveTools);
+    infoList << qMakePair(m_customInfos, InfoType::Custom);
+    Q_EMIT listChanged(infoList);
+
 }
 
 void ShortcutModel::onCustomInfo(const QString &json)
