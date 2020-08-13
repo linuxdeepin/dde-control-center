@@ -148,7 +148,7 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
 {
     if (port->Out == port->direction()) {
         DStandardItem *pi = new DStandardItem;
-        pi->setText(port->name());
+        pi->setText(port->name() + "(" + port->cardName() + ")");
 
         pi->setData(QVariant::fromValue<const dcc::sound::Port *>(port), Qt::WhatsThisPropertyRole);
 
