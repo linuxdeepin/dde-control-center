@@ -406,6 +406,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     } else {
         deleteAccount->setEnabled(!isOnline);
     }
+    connect(m_curUser, &User::onlineChanged, deleteAccount, [ = ](const bool online) {
+        deleteAccount->setEnabled(!online);
+    });
 
     //修改密码，删除账户操作
     connect(modifyPassword, &QPushButton::clicked, [ = ] {
