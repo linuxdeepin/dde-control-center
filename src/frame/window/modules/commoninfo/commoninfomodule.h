@@ -24,6 +24,7 @@
 #include "interface/namespace.h"
 
 #include "interface/moduleinterface.h"
+#include "../../mainwindow.h"
 
 QT_BEGIN_NAMESPACE
 #include <QObject>
@@ -72,6 +73,7 @@ private:
     CommonInfoWidget *m_commonWidget{nullptr}; // main widget
     BootWidget *m_bootWidget{nullptr}; // for bootmenu
     UserExperienceProgramWidget *m_ueProgramWidget{nullptr}; // for user experience program
+    MainWindow *m_pMainWindow{nullptr};
     // 以下内容为平板模式做预留
     //TabletModeWidget* mTabletModeWidget;
 };

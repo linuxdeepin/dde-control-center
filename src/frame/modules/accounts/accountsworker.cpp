@@ -239,6 +239,7 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
             Q_EMIT user->autoLoginChanged(user->autoLogin());
         }
 
+        Q_EMIT requesetMainWindowEnabled(true);
         Q_EMIT requestFrameAutoHide(true);
         watcher->deleteLater();
     });
@@ -351,6 +352,7 @@ void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
             Q_EMIT user->nopasswdLoginChanged(user->nopasswdLogin());
         }
 
+        Q_EMIT requesetMainWindowEnabled(true);
         Q_EMIT requestFrameAutoHide(true);
         watcher->deleteLater();
     });

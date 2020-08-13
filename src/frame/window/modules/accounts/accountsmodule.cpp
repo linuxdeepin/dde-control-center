@@ -146,6 +146,7 @@ QStringList AccountsModule::availPage() const
 void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     w->setVisible(false);
     w->setAccountModel(m_userModel);
     m_fingerWorker->refreshUserEnrollList(account->name());
@@ -153,8 +154,15 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
 
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
-    connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
-    connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
+    connect(w, &AccountsDetailWidget::requestSetAutoLogin, this, [ = ] (User *user, const bool autoLogin) {
+        m_pMainWindow->setEnabled(false);
+        m_accountsWorker->setAutoLogin(user, autoLogin);
+    });
+    connect(w, &AccountsDetailWidget::requestNopasswdLogin, this, [ = ] (User *user, const bool autoLogin) {
+        m_pMainWindow->setEnabled(false);
+        m_accountsWorker->setNopasswdLogin(user, autoLogin);
+    });
+    connect(m_accountsWorker, &AccountsWorker::requesetMainWindowEnabled, m_pMainWindow, &MainWindow::setEnabled);
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
     connect(w, &AccountsDetailWidget::requestSetGroups, m_accountsWorker, &AccountsWorker::setGroups);
     connect(w, &AccountsDetailWidget::requestBack, this, [&]() {

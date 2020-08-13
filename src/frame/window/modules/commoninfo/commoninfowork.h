@@ -66,6 +66,9 @@ public Q_SLOTS:
     void login();
     void licenseStateChangeSlot();
 
+Q_SIGNALS:
+    void requesetMainWindowEnabled(const bool isEnabled) const;
+
 private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);

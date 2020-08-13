@@ -105,6 +105,7 @@ void DatetimeWork::setNTP(bool ntp)
         if (call.isError()) {
             Q_EMIT m_model->NTPChanged(m_model->nTP());
         }
+        Q_EMIT requesetMainWindowEnabled(true);
         Q_EMIT requestSetAutoHide(true);
         watcher->deleteLater();
     });

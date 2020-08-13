@@ -28,7 +28,6 @@
 #include "window/modules/commoninfo/userexperienceprogramwidget.h"
 #include "window/modules/commoninfo/developermodewidget.h"
 #include "window/utils.h"
-#include "window/mainwindow.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::commoninfo;
@@ -198,9 +197,17 @@ void CommonInfoModule::initBootWidget()
 {
     m_bootWidget = new BootWidget;
     m_bootWidget->setModel(m_commonModel);
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
 
-    connect(m_bootWidget, &BootWidget::bootdelay, m_commonWork, &CommonInfoWork::setBootDelay);
-    connect(m_bootWidget, &BootWidget::enableTheme, m_commonWork, &CommonInfoWork::setEnableTheme);
+    connect(m_bootWidget, &BootWidget::bootdelay, this, [ = ] (bool value) {
+        m_pMainWindow->setEnabled(false);
+        m_commonWork->setBootDelay(value);
+    });
+    connect(m_bootWidget, &BootWidget::enableTheme, this, [ = ] (bool value) {
+        m_pMainWindow->setEnabled(false);
+        m_commonWork->setEnableTheme(value);
+    });
+    connect(m_commonWork, &CommonInfoWork::requesetMainWindowEnabled, m_pMainWindow, &MainWindow::setEnabled);
     connect(m_bootWidget, &BootWidget::defaultEntry, m_commonWork, &CommonInfoWork::setDefaultEntry);
     connect(m_bootWidget, &BootWidget::requestSetBackground, m_commonWork, &CommonInfoWork::setBackground);
 }

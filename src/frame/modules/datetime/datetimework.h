@@ -52,6 +52,7 @@ public:
 
 Q_SIGNALS:
     void requestSetAutoHide(const bool visible) const;
+    void requesetMainWindowEnabled(const bool isEnabled) const;
 
 public Q_SLOTS:
     void setNTP(bool ntp);

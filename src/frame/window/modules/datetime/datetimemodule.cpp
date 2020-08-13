@@ -245,8 +245,13 @@ void DatetimeModule::showSystemTimezone()
 void DatetimeModule::showTimeSetting()
 {
     m_setting = new DateSettings;
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
 
-    connect(m_setting, &DateSettings::requestSetAutoSyncdate, m_work, &dcc::datetime::DatetimeWork::setNTP);
+    connect(m_setting, &DateSettings::requestSetAutoSyncdate, this, [ = ] (bool state) {
+        m_pMainWindow->setEnabled(false);
+        m_work->setNTP(state);
+    });
+    connect(m_work, &dcc::datetime::DatetimeWork::requesetMainWindowEnabled, m_pMainWindow, &MainWindow::setEnabled);
     connect(m_setting, &DateSettings::requestSetTime, m_work, &dcc::datetime::DatetimeWork::setDatetime);
     connect(m_setting, &DateSettings::requestBack, this, &DatetimeModule::onPopWidget);
     connect(m_setting, &DateSettings::requestNTPServer, [this](const QString server) {

@@ -21,6 +21,7 @@
 #pragma once
 
 #include "interface/moduleinterface.h"
+#include "../../mainwindow.h"
 
 #include <QObject>
 
@@ -87,6 +88,7 @@ private:
     QPointer<TimezoneList> m_timezonelist;//timezonelist in other page, need exchangle data from this page
     QPointer<DatetimeWidget> m_widget;
     QPointer<DateSettings> m_setting;
+    MainWindow *m_pMainWindow;
 };
 
 }// namespace datetime

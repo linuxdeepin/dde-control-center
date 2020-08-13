@@ -167,6 +167,7 @@ void CommonInfoWork::setBootDelay(bool value)
             Q_EMIT m_commomModel->bootDelayChanged(m_commomModel->bootDelay());
         }
 
+        Q_EMIT requesetMainWindowEnabled(true);
         w->deleteLater();
     });
 }
@@ -180,6 +181,7 @@ void CommonInfoWork::setEnableTheme(bool value)
             Q_EMIT m_commomModel->themeEnabledChanged(m_commomModel->themeEnabled());
         }
 
+        Q_EMIT requesetMainWindowEnabled(true);
         w->deleteLater();
     });
 }
