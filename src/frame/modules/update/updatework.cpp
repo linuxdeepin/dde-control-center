@@ -242,6 +242,10 @@ void UpdateWorker::licenseStateChangeSlot()
 
 void UpdateWorker::getLicenseState()
 {
+    if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
+        m_model->setSystemActivation(true);
+        return;
+    }
     QDBusInterface licenseInfo("com.deepin.license",
                                "/com/deepin/license/Info",
                                "com.deepin.license.Info",
