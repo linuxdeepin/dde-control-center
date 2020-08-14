@@ -59,9 +59,10 @@ TouchscreenPage::TouchscreenPage(QWidget *parent)
 {
     setTitle(tr("Select your touch screen"));
 
-    auto dtip = new DTipLabel(tr("Select your touch screen when connected or set it here."));
-    dtip->setContentsMargins(10, 0, 0, 0);
-    dtip->setAlignment(Qt::AlignLeft);
+    m_titleString = tr("Select your touch screen when connected or set it here.");
+    m_dTipLabel = new DTipLabel(m_titleString);
+    m_dTipLabel->setContentsMargins(10, 0, 0, 0);
+    m_dTipLabel->setAlignment(Qt::AlignLeft);
 
     m_contentArea->setWidgetResizable(true);
     m_contentArea->setFrameStyle(QFrame::NoFrame);
@@ -79,7 +80,7 @@ TouchscreenPage::TouchscreenPage(QWidget *parent)
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
-    mainLayout->addWidget(dtip);
+    mainLayout->addWidget(m_dTipLabel);
     mainLayout->addWidget(m_contentArea);
     layout()->addWidget(m_buttonTuple);
 
@@ -130,6 +131,8 @@ void TouchscreenPage::onMonitorChanged()
 
         auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new QLabel(title);
+        label->setMinimumSize(5, 5);
+        label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         label->setContentsMargins(10, 0, 0, 0);
         label->setAlignment(Qt::AlignLeft);
         layout->addWidget(label);
@@ -139,6 +142,7 @@ void TouchscreenPage::onMonitorChanged()
         listCombo->setContentsMargins(0, 0, 0, 10);
         listCombo->setProperty("touchscreenName", i.name);
         listCombo->setProperty("touchscreenSerial", touchscreenSerial);
+        listCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         layout->addWidget(listCombo);
         layout->addSpacing(10);
         m_list.push_back(listCombo);
@@ -193,7 +197,15 @@ bool TouchscreenPage::eventFilter(QObject *obj, QEvent *event)
                 m_labels[i]->setText(m_titleName[i]);
             }
         }
+
+        QFontMetrics fontMetric(m_titleString);
+        int fontSizes = fontMetric.width(m_titleString);
+        if (fontSizes > m_dTipLabel->width()) {
+            m_dTipLabel->setText(fontMetric.elidedText(m_titleString, Qt::ElideRight, m_dTipLabel->width()));
+        } else {
+            m_dTipLabel->setText(m_titleString);
+        }
         return true;
     }
-    return false;
+    return dcc::ContentWidget::eventFilter(obj, event);
 }

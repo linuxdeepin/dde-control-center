@@ -30,6 +30,7 @@
 #include <org_freedesktop_notifications.h>
 
 #include <DListView>
+#include <DTipLabel>
 
 #include <QWidget>
 #include <QComboBox>
@@ -88,6 +89,8 @@ private:
     Notifications *m_notifyInter;
     QStringList m_titleName;
     QList<QLabel *> m_labels;
+    DTipLabel *m_dTipLabel;
+    QString m_titleString;
 };
 
 } // namespace display
