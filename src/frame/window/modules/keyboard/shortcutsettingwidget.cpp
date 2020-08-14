@@ -72,7 +72,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_workspaceGroup = new SettingsGroup();
     m_workspaceGroup->appendItem(workspaceHead, SettingsGroup::NoneBackground);
 
-    if (!DCC_NAMESPACE::IsServerSystem) {
+    if (!DCC_NAMESPACE::IsServerSystem && !DSysInfo::isCommunityEdition()) {
         SettingsHead *speechHead = new SettingsHead();
         speechHead->setTitle(tr("Assistive Tools"));
         speechHead->setEditEnable(false);

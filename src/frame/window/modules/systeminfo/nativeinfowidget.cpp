@@ -235,8 +235,8 @@ const QString NativeInfoWidget::systemCopyright() const
     const QString oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
 
     if (oem_copyright.isEmpty()) {
-        if (DCC_NAMESPACE::IsCommunitySystem)
-            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "www.deepin.org")).arg(2019);
+        if (DSysInfo::isCommunityEdition())
+            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "copyrigth© 2011-2020 Deepin Community"));
         else
             return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-2020 UnionTech Software Technology Co., LTD")).arg(2019);
     } else {
