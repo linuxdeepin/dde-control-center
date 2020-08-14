@@ -445,8 +445,7 @@ void WirelessPage::jumpByUuid(const QString &uuid)
     if (uuid.isEmpty()) return;
 
     QTimer::singleShot(50, this, [ = ] {
-        if (m_apItems.contains(connectionSsid(uuid)))
-        {
+        if (m_apItems.contains(connectionSsid(uuid))) {
             onApWidgetEditRequested("", uuid);
         }
     });
@@ -484,7 +483,21 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 {
     const QString &ssid = apInfo.value("Ssid").toString();
-    if (!m_apItems.contains(ssid)) return;
+    if (!m_apItems.contains(ssid)) {
+        APItem *apItem = new APItem(ssid, style(), m_lvAP);
+        m_apItems[ssid] = apItem;
+        m_modelAP->appendRow(apItem);
+        apItem->setSecure(apInfo.value("Secured").toBool());
+        apItem->setPath(apInfo.value("Path").toString());
+        apItem->setConnected(ssid == m_device->activeApSsid());
+        apItem->setSignalStrength(apInfo.value("Strength").toInt());
+        connect(apItem->action(), &QAction::triggered, [this, apItem] {
+            this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(),
+                                          apItem->data(Qt::ItemDataRole::DisplayRole).toString());
+        });
+        m_sortDelayTimer->start();
+        return;
+    }
 
     const QString &path = apInfo.value("Path").toString();
     const int strength = apInfo.value("Strength").toInt();
@@ -492,14 +505,10 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
     APItem *it = m_apItems[ssid];
 
-    if (5 >= strength && !it->checkState() && ssid != m_device->activeApSsid()) {
-        if (nullptr == m_clickedItem) {
-            m_lvAP->setRowHidden(it->row(), true);
-        } else if (it->uuid() != m_clickedItem->uuid()) {
+    if (strength < 5 && !it->checkState() && ssid != m_device->activeApSsid()) {
+        if (nullptr == m_clickedItem || it->uuid() != m_clickedItem->uuid()) {
             m_lvAP->setRowHidden(it->row(), true);
         }
-
-
     } else {
         m_lvAP->setRowHidden(it->row(), false);
     }
