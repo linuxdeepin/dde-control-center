@@ -68,6 +68,9 @@ install(FILES ${DOCS_FILES} DESTINATION share/dman/dde-control-center)
 #datebases
 install(FILES data/timezone.db DESTINATION share/dde-control-center)
 
+# dict file
+install(FILES data/MainEnglishDictionary_ProbWL.txt DESTINATION share/dict)
+
 # conf file
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION share/dde-control-center)
 

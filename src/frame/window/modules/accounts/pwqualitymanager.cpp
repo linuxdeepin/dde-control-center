@@ -72,14 +72,22 @@ QString PwqualityManager::palindromeChecked(const QString &text)
 
 QString PwqualityManager::dictChecked(const QString &text)
 {
-    int code = pwquality_check(m_pwqualitySetting.get(),
-                               text.toStdString().c_str(),
-                               NULL, NULL, NULL);
-
-    if (code == PWQ_ERROR_CRACKLIB_CHECK) {
-        return text;
+    QFile file("/usr/share/dict/MainEnglishDictionary_ProbWL.txt");
+    if (!file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        qDebug() << "dict file not found, skip check";
+        return QString();
     }
-    return QString();
+
+    QStringList dictList;
+    QTextStream out(&file);
+    while (!out.atEnd()) {
+        dictList.append(out.readLine());
+    }
+
+    if (!dictList.contains(text))
+        return QString();
+
+    return QString("error password");
 }
 
 int PwqualityManager::verifyPassword(const QString &password)
@@ -125,16 +133,9 @@ int PwqualityManager::verifyPassword(const QString &password)
                 return ENUM_PASSWORD_PALINDROME;
             }
 
-            int secChkLeastLen=6;
-            int length = password.length();
-            for (int i = 0; i < length - secChkLeastLen + 1; i++) {
-                for (int j = secChkLeastLen; i + j <= length; j++) {
-                    QString subStr = password.mid(i, j);
-                    QString sChkResult = PwqualityManager::instance()->dictChecked(subStr);
-                    if (!sChkResult.isEmpty()) {
-                        return ENUM_PASSWORD_DICT_FORBIDDEN;
-                    }
-                }
+            QString sChkResult = PwqualityManager::instance()->dictChecked(password);
+            if (!sChkResult.isEmpty()) {
+                return ENUM_PASSWORD_DICT_FORBIDDEN;
             }
             return ENUM_PASSWORD_SUCCESS;
         }
