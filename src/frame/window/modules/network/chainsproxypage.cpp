@@ -57,19 +57,23 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     m_addr = new LineEditWidget;
     m_addr->setTitle(tr("IP Address"));
     m_addr->setPlaceholderText(tr("Required"));
+    m_addr->textEdit()->installEventFilter(this);
 
     m_port = new LineEditWidget;
     m_port->setTitle(tr("Port"));
     m_port->setPlaceholderText(tr("Required"));
+    m_port->textEdit()->installEventFilter(this);
 
     m_username = new LineEditWidget;
     m_username->setTitle(tr("Username"));
     m_username->setPlaceholderText(tr("Optional"));
+    m_username->textEdit()->installEventFilter(this);
 
     m_password = new LineEditWidget;
     m_password->setTitle(tr("Password"));
     m_password->setPlaceholderText(tr("Optional"));
     m_password->textEdit()->setEchoMode(QLineEdit::Password);
+    m_password->textEdit()->installEventFilter(this);
 
     SettingsGroup *grp = new SettingsGroup;
     grp->appendItem(m_proxyType);
@@ -150,22 +154,6 @@ void ChainsProxyPage::setModel(NetworkModel *model)
     m_password->setText(config.password);
 
     connect(m_proxyType, &ComboxWidget::onIndexChanged, this, [ = ] {
-        m_btns->leftButton()->setEnabled(true);
-        m_btns->rightButton()->setEnabled(true);
-    });
-    connect(m_addr->textEdit(), &QLineEdit::textChanged, this, [ = ] {
-        m_btns->leftButton()->setEnabled(true);
-        m_btns->rightButton()->setEnabled(true);
-    });
-    connect(m_port->textEdit(), &QLineEdit::textChanged, this, [ = ] {
-        m_btns->leftButton()->setEnabled(true);
-        m_btns->rightButton()->setEnabled(true);
-    });
-    connect(m_username->textEdit(), &QLineEdit::textChanged, this, [ = ] {
-        m_btns->leftButton()->setEnabled(true);
-        m_btns->rightButton()->setEnabled(true);
-    });
-    connect(m_password->textEdit(), &QLineEdit::textChanged, this, [ = ] {
         m_btns->leftButton()->setEnabled(true);
         m_btns->rightButton()->setEnabled(true);
     });
@@ -255,4 +243,16 @@ bool ChainsProxyPage::isIPV4(const QString &ipv4)
     }
 
     return true;
+}
+
+bool ChainsProxyPage::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            m_btns->leftButton()->setEnabled(true);
+            m_btns->rightButton()->setEnabled(true);
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }
