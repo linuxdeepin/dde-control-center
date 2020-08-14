@@ -299,7 +299,6 @@ void ConnectionEditPage::initConnectionSecrets()
 void ConnectionEditPage::saveConnSettings()
 {
     if (!m_settingsWidget->allInputValid()) {
-        Q_EMIT back();
         return;
     }
 
