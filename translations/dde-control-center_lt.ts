@@ -46,112 +46,112 @@
         <translation>Žinynas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="332"/>
         <source>Accounts</source>
         <translation>Paskyros</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
         <source>Display</source>
         <translation>Ekranas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
         <source>Default Applications</source>
         <translation>Numatytosios programos</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Personalization</source>
         <translation>Personalizacija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Network</source>
         <translation>Tinklas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Notification</source>
         <translation>Pranešimai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Sound</source>
         <translation>Garsas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="924"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Date and Time</source>
         <translation>Laikas ir data</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Power</source>
         <translation>Energija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Mouse</source>
         <translation>Pelė</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="936"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>Piešimo planšetė</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="471"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="469"/>
         <source>Keyboard and Language</source>
         <translation>Klaviatūra ir kalba</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="964"/>
         <source>Updates</source>
         <translation>Atnaujinimai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>System Info</source>
         <translation>Sistemos informacija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="954"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="956"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
         <source>General Settings</source>
         <translation>Bendri nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="422"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="420"/>
         <source>Touchpad</source>
         <translation>Jutiklinis kilimėlis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="423"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="421"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="469"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="467"/>
         <source>Assistive Tools</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="948"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>Sinchronizavimas su debesija</translation>
     </message>
@@ -471,7 +471,7 @@
     <name>dccV20::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="89"/>
         <source>Edit</source>
         <translation>Redaguoti</translation>
     </message>
@@ -491,7 +491,7 @@
         <translation>Atlikta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="187"/>
         <source>Add Fingerprint</source>
         <translation>Pridėti piršto atspaudą</translation>
     </message>
@@ -608,19 +608,24 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="52"/>
+        <source>Show Bluetooth devices without names</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="93"/>
         <source>My Devices</source>
         <translation type="unfinished"/>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="97"/>
         <source>Other Devices</source>
         <translation type="unfinished"/>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="132"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Įjunkite Bluetooth, norėdami rasti šalia esančius įrenginius (garsiakalbius, klaviatūrą, pelę)</translation>
     </message>
@@ -671,12 +676,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="226"/>
         <source>Connected</source>
         <translation>Prisijungta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="229"/>
         <source>Not connected</source>
         <translation>Neprijungta</translation>
     </message>
@@ -1098,129 +1103,129 @@
         <translation>Pirmoji savaitės diena</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="158"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="191"/>
         <source>Monday</source>
         <translation>Pirmadienis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="156"/>
         <source>monday</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="173"/>
         <source>Tuesday</source>
         <translation>Antradienis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="176"/>
         <source>Wednesday</source>
         <translation>Trečiadienis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="179"/>
         <source>Thursday</source>
         <translation>Ketvirtadienis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="182"/>
         <source>Friday</source>
         <translation>Penktadienis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="185"/>
         <source>Saturday</source>
         <translation>Šeštadienis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="188"/>
         <source>Sunday</source>
         <translation>Sekmadienis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="215"/>
         <source>April 5, 2020</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="209"/>
         <source>April 5, 2020, Sunday</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="212"/>
         <source>Sunday, April 5, 2020</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="231"/>
         <source>2020/4/5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="234"/>
         <source>2020-4-5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="237"/>
         <source>2020.4.5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="258"/>
         <source>2020/04/05</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="243"/>
         <source>2020-04-05</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="246"/>
         <source>2020.04.05</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="249"/>
         <source>20/4/5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="252"/>
         <source>20-4-5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="255"/>
         <source>20.4.5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="274"/>
         <source>9:40:07</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="280"/>
         <source>09:40:07</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="296"/>
         <source>9:40</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="298"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="302"/>
         <source>09:40</source>
         <translation type="unfinished"/>
     </message>
@@ -1250,6 +1255,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="69"/>
         <source>Add Timezone</source>
         <translation>Pridėti laiko juostą</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
@@ -1615,13 +1621,13 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="161"/>
         <source>Touch Screen Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="158"/>
-        <source>The settings of touch screen %1 changed</source>
+        <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="162"/>
+        <source>The settings of touch screen changed</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2069,53 +2075,53 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
         <source>Required</source>
         <translation>Būtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
         <source>Port</source>
         <translation>Prievadas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="68"/>
         <source>Username</source>
         <translation>Naudotojo vardas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="74"/>
         <source>Optional</source>
         <translation>Nebūtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="73"/>
         <source>Password</source>
         <translation>Slaptažodis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="94"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
         <translation>Sukonfigūravę, leistuke, programos kontekstiniame meniu ieškokite &quot;Naudoti įgaliotąjį serverį&quot;</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="100"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="101"/>
         <source>Save</source>
         <translation>Įrašyti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="200"/>
         <source>Invalid IP address</source>
         <translation>Neteisingas IP adresas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="208"/>
         <source>Invalid port</source>
         <translation>Neteisingas prievadas</translation>
     </message>
@@ -4979,34 +4985,34 @@
         <translation>Garsiakalbis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="176"/>
         <source>Output Volume</source>
         <translation>Išvesties garsis</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="259"/>
         <source>Volume Boost</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="269"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="283"/>
         <source>Left/Right Balance</source>
         <translation>Kairės/Dešinės balansas</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="289"/>
         <source>Left</source>
         <translation>Kairė</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="290"/>
         <source>Right</source>
         <translation>Dešinė</translation>
     </message>
@@ -5084,12 +5090,12 @@
         <translation>Energijos nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="321"/>
         <source>Last Sync: %1</source>
         <translation>Paskutinis sinchronizavimas: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="323"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
@@ -5201,6 +5207,11 @@
         <source>Insufficient disk space</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="188"/>
+        <source>The file system is not supported for backup</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>dccV20::systeminfo::ManualRestore</name>
@@ -5271,104 +5282,9 @@
     </message>
 </context>
 <context>
-    <name>dccV20::systeminfo::NativeInfoWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
-        <source>OS Name:</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="92"/>
-        <source>Version:</source>
-        <translation>Versija:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="97"/>
-        <source>Edition:</source>
-        <translation>Laida:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="101"/>
-        <source>Type:</source>
-        <translation>Tipas:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="104"/>
-        <source>Authorization</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="105"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
-        <source>To be activated</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="107"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
-        <source>Activate</source>
-        <translation>Aktyvuoti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="116"/>
-        <source>Kernel:</source>
-        <translation>Branduolys:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="121"/>
-        <source>Processor:</source>
-        <translation>Procesorius:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="126"/>
-        <source>Memory:</source>
-        <translation>Atmintis:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="191"/>
-        <source>%1-bit</source>
-        <translation>%1 bitų</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
-        <source>Activated</source>
-        <translation>Aktyvuotas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="217"/>
-        <source>View</source>
-        <translation>Žiūrėti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="215"/>
-        <source>Expired</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
-        <source>In trial period</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="223"/>
-        <source>Trial expired</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>dccV20::systeminfo::SystemInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="108"/>
         <source>System Info</source>
         <translation>Sistemos informacija</translation>
     </message>
@@ -5376,25 +5292,25 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="73"/>
         <source>About This PC</source>
         <translation>Apie šį kompiuterį</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="75"/>
         <source>Edition License</source>
         <translation>Laidos licencija</translation>
         <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>End User License Agreement</source>
         <translation>Galutinio naudotojo licencijos sutikimas</translation>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="93"/>
         <source>Backup and Restore</source>
         <translation type="unfinished"/>
     </message>
@@ -5544,143 +5460,143 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="75"/>
         <source>Restart the computer to use the system and the applications properly</source>
         <translation>Norėdami tinkamai naudotis sistema ir programomis, paleiskite kompiuterį iš naujo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="76"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Tinklas atjungtas, prisijungę prie tinklo bandykite dar kartą</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="86"/>
         <source>Your system is not authorized, please activate first</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="109"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>Šis atnaujinimas gali užimti daug laiko, prašome proceso metu neišjungti ir nepaleisti kompiuterio iš naujo.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="349"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="359"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="384"/>
         <source>Check Again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="207"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="282"/>
         <source>Last checking time: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="278"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="343"/>
         <source>Your system is up to date</source>
         <translation>Jūsų sistemoje yra įdiegti visi atnaujinimai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="281"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
         <source>Check for Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="303"/>
         <source>Checking for updates, please wait...</source>
         <translation>Tikrinami atnaujinimai, prašome palaukti...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="311"/>
         <source>Download and install updates</source>
         <translation>Atsisiųsti ir įdiegti atnaujinimus</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="309"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="449"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% atsisiųsta (Spustelėkite, norėdami pristabdyti)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="316"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="451"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% atsisiųsta (Spustelėkite, norėdami tęsti)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
         <source>Install updates</source>
         <translation>Įdiegti atnaujinimus</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="352"/>
         <source>Updating, please wait...</source>
         <translation>Atnaujinama, prašome palaukti...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="366"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Naujausia sistema įdiegta, paleiskite iš naujo, kad įsigaliotų pakeitimai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="377"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Atnaujinimas nepavyko: trūksta vietos diske</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="370"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="383"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Priklausomybių klaida, nepavyko aptikti atnaujinimų</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="391"/>
         <source>Backing up, please wait...</source>
         <translation>Daroma atsarginė kopija, palaukite...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="396"/>
         <source>System backup failed</source>
         <translation>Sistemos atsarginė kopija patyrė nesėkmę</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="419"/>
         <source>%n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="424"/>
         <source>New system edition available</source>
         <translation>Yra prieinama nauja sistemos laida</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="426"/>
         <source>New system edition and %n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="433"/>
         <source>Downloaded</source>
         <translation>Atsisiųsta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="422"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="435"/>
         <source>Size: %1</source>
         <translation>Dydis: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="459"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Jūsų baterijos įkrova yra žemiau 50%, norėdami tęsti prijunkite prie maitinimo šaltinio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="461"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Prašome užtikrinti, kad pakaks energijos kompiuterio paleidimui iš naujo bei neišjungti kompiuterio ir neištraukti kištuko</translation>
     </message>
@@ -5932,6 +5848,101 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="92"/>
         <source>None</source>
         <translation>Nėra</translation>
+    </message>
+</context>
+<context>
+    <name>NativeInfoWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
+        <source>OS Name:</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="92"/>
+        <source>Version:</source>
+        <translation>Versija:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="97"/>
+        <source>Edition:</source>
+        <translation>Laida:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="101"/>
+        <source>Type:</source>
+        <translation>Tipas:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="105"/>
+        <source>Authorization</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
+        <source>To be activated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="235"/>
+        <source>Activate</source>
+        <translation>Aktyvuoti</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="118"/>
+        <source>Kernel:</source>
+        <translation>Branduolys:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="123"/>
+        <source>Processor:</source>
+        <translation>Procesorius:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
+        <source>Memory:</source>
+        <translation>Atmintis:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="200"/>
+        <source>%1-bit</source>
+        <translation>%1 bitų</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="217"/>
+        <source>Activated</source>
+        <translation>Aktyvuotas</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="227"/>
+        <source>View</source>
+        <translation>Žiūrėti</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
+        <source>Expired</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="229"/>
+        <source>In trial period</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="233"/>
+        <source>Trial expired</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6908,7 +6919,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="193"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="195"/>
         <source>available</source>
         <translation>prieinama</translation>
     </message>
@@ -6921,12 +6932,12 @@ Visit User Center and manage your account there.</source>
         <translation>Sistemos informacija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="247"/>
         <source>www.deepin.org</source>
         <translation>www.deepin.org</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="249"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
         <translation>Autorių teisės © 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
@@ -7007,17 +7018,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="390"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="395"/>
         <source>Patches</source>
         <translation>Pataisos</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="391"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="396"/>
         <source>System patches</source>
         <translation>Sistemos pataisos</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1129"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1134"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>
