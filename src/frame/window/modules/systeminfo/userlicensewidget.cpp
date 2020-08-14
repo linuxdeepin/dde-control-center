@@ -39,6 +39,9 @@ static QString loadLicenses()
     if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinPersonal) {
         const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/End-User-License-Agreement-Home-CN-%1.txt", "");
         return body;
+    } else if (DSysInfo::deepinType() == DSysInfo::DeepinDesktop) {
+        const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Community/End-User-License-Agreement-CN-%1.txt", "");
+        return body;
     } else {
         const QString path = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Professional/End-User-License-Agreement-Professional-CN-%1.txt", "");
         return path;

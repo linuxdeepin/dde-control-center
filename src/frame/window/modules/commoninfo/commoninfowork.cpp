@@ -243,8 +243,12 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         QString allowContent(tr("Agree and Join User Experience Program"));
 
         // license路径
-        QString content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
-
+        QString content;
+        if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
+            content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Community/User-Experience-Program-License-Agreement-CN-%1.md", "");
+        } else {
+            content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
+        }
 
         m_process = new QProcess(this);
 

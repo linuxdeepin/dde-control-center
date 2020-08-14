@@ -21,7 +21,7 @@
 
 #include "userexperienceprogramwidget.h"
 #include "window/modules/commoninfo/commoninfomodel.h"
-
+#include "window/utils.h"
 #include "widgets/switchwidget.h"
 #include "widgets/labels/tipslabel.h"
 
@@ -45,9 +45,17 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     //~ contents_path /commoninfo/User Experience Program
     m_joinUeProgram->setTitle(tr("Join User Experience Program"));
 
-    DTipLabel *tipLabel = new DTipLabel(tr("Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
-                                           "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
-                                           "For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience)."));
+    DTipLabel *tipLabel = nullptr;
+    QString tipLabelDeepinTxt(tr("Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
+                                 "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
+                                 "For details, please refer to Deepin Privacy Policy (https://www.uniontech.com/agreement/deepin-privacy-cn)."));
+    if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
+        tipLabel = new DTipLabel(tipLabelDeepinTxt);
+    } else {
+        tipLabel = new DTipLabel(tr("Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
+                                    "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
+                                    "For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience)."));
+    }
     tipLabel->setWordWrap(true);
     tipLabel->setContentsMargins(5, 0, 10, 0);
     tipLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
