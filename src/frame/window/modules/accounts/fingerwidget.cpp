@@ -83,8 +83,12 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     connect(m_clearBtn, &DCommandLinkButton::clicked, this, [ = ](bool checked) {
         if (checked) {
             m_clearBtn->setText(tr("Done"));
+            //添加一个空白区域
+            mainContentLayout->addSpacing(20);
         } else {
             m_clearBtn->setText(tr("Edit"));
+            //把之前添加的空白区域移除
+            mainContentLayout->removeItem(mainContentLayout->itemAt(mainContentLayout->count() - 1));
         }
         for (auto &item : m_vecItem) {
             item->setShowIcon(checked);

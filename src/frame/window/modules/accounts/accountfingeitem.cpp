@@ -158,16 +158,16 @@ bool AccounntFingeItem::onNameEditFinished(DLineEdit *edit)
     if (editName.size() > 15) {
         edit->setAlert(true);
         if (!regResult) {
-            edit->showAlertMessage(tr("Use letters, numbers and underscores only, and no more than 15 characters"), parentWidget(), 2000);
+            edit->showAlertMessage(tr("Use letters, numbers and underscores only, and no more than 15 characters"), parentWidget()->parentWidget(), 2000);
         } else {
-            edit->showAlertMessage(tr("No more than 15 characters"), parentWidget(), 2000);
+            edit->showAlertMessage(tr("No more than 15 characters"), parentWidget()->parentWidget(), 2000);
         }
         edit->lineEdit()->selectAll();
         return false;
     } else {
         if (!regResult) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("Use letters, numbers and underscores only"), parentWidget(), 2000);
+            edit->showAlertMessage(tr("Use letters, numbers and underscores only"), parentWidget()->parentWidget(), 2000);
             edit->lineEdit()->selectAll();
             return false;
         }
