@@ -76,6 +76,7 @@ public:
     bool getSwitchState();
 
 private:
+    void initMember();
     void initUI();
     void initConnect();
     void categoryDevice(DeviceSettingsItem *deviceItem, const bool paired);
@@ -119,6 +120,7 @@ private:
     dcc::bluetooth::BluetoothModel *m_model;
     QTimer m_tickTimer;         // 用于300ms内反复操作不需要响应
     bool m_lastCheck;           // 开关按钮的上一次的有效状态
+    QTimer *m_delaySortTimer;
 };
 }
 }

@@ -55,7 +55,9 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     , m_showAnonymousCheckBox(new DCheckBox(this))
     , m_model(model)
     , m_lastCheck(false)
+    , m_delaySortTimer(new QTimer(this))
 {
+    initMember();
     initUI();
     initConnect();
 
@@ -74,6 +76,15 @@ AdapterWidget::~AdapterWidget()
 bool AdapterWidget::getSwitchState()
 {
     return m_switch ? m_switch->checked() : false;
+}
+
+void AdapterWidget::initMember()
+{
+    m_tickTimer.setSingleShot(true);
+    m_tickTimer.setInterval(300);
+
+    m_delaySortTimer->setSingleShot(true);
+    m_delaySortTimer->setInterval(10);
 }
 
 void AdapterWidget::initUI()
@@ -125,6 +136,7 @@ void AdapterWidget::initUI()
 
     m_myDeviceListView = new DListView(this);
     m_myDeviceModel = new QStandardItemModel(m_myDeviceListView);
+    m_myDeviceModel->setSortRole(BtStandardItem::SortRole);
     m_myDeviceListView->setAccessibleName("List_mydevicelist");
     m_myDeviceListView->setFrameShape(QFrame::NoFrame);
     m_myDeviceListView->setModel(m_myDeviceModel);
@@ -162,9 +174,6 @@ void AdapterWidget::initUI()
     layout->setContentsMargins(0,0,15,0);
 
     setLayout(layout);
-
-    m_tickTimer.setSingleShot(true);
-    m_tickTimer.setInterval(300);
 }
 
 void AdapterWidget::initConnect()
@@ -179,7 +188,7 @@ void AdapterWidget::initConnect()
         if (!deviceModel) {
             return;
         }
-        DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(idx.row()));
+        BtStandardItem *item = dynamic_cast<BtStandardItem *>(deviceModel->item(idx.row()));
         if (!item) {
             return;
         }
@@ -202,7 +211,7 @@ void AdapterWidget::initConnect()
         if (!deviceModel) {
             return;
         }
-        DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(idx.row()));
+        BtStandardItem *item = dynamic_cast<BtStandardItem *>(deviceModel->item(idx.row()));
         if (!item) {
             return;
         }
@@ -238,7 +247,7 @@ void AdapterWidget::initConnect()
                 if (pDeviceItem->device()->paired())
                     continue;
                 
-                DStandardItem *dListItem = pDeviceItem->getStandardItem();
+                BtStandardItem *dListItem = pDeviceItem->getStandardItem();
                 QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
                 if (index.isValid() && pDeviceItem->device()->name().isEmpty())
                     m_otherDeviceModel->takeRow(index.row());
@@ -250,7 +259,7 @@ void AdapterWidget::initConnect()
                 if (pDeviceItem->device()->paired())
                     continue;
                 
-                DStandardItem *dListItem = pDeviceItem->getStandardItem();
+                BtStandardItem *dListItem = pDeviceItem->getStandardItem();
                 QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
                 if ((false == index.isValid()) && pDeviceItem->device()->name().isEmpty()) {
                     m_otherDeviceModel->insertRow(0, dListItem);
@@ -260,6 +269,10 @@ void AdapterWidget::initConnect()
     });
     connect(&m_tickTimer, &QTimer::timeout, this, [ = ](){
         toggleSwitch(!m_lastCheck);
+    });
+
+    connect(m_delaySortTimer, &QTimer::timeout, this, [ = ] {
+       m_myDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
     });
 }
 
@@ -333,11 +346,12 @@ void AdapterWidget::toggleSwitch(const bool checked)
 void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool paired)
 {
     if (paired) {
-        DStandardItem *dListItem = deviceItem->getStandardItem(m_myDeviceListView);
+        BtStandardItem *dListItem = deviceItem->getStandardItem(m_myDeviceListView);
         m_myDevices << deviceItem;
         m_myDeviceModel->appendRow(dListItem);
+        m_delaySortTimer->start();
     } else {
-        DStandardItem *dListItem = deviceItem->getStandardItem(m_otherDeviceListView);
+        BtStandardItem *dListItem = deviceItem->getStandardItem(m_otherDeviceListView);
         if (m_showAnonymousCheckBox->checkState() == Qt::CheckState::Unchecked) {
             if (false == deviceItem->device()->name().isEmpty()) { // 只关注有名称的蓝牙设备,没有名称的忽略
                 m_otherDeviceModel->insertRow(0, dListItem);
@@ -349,6 +363,10 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
     bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
     m_myDevicesGroup->setVisible(isVisible);
     m_myDeviceListView->setVisible(isVisible);
+
+    connect(deviceItem, &DeviceSettingsItem::requestSort, this, [ = ] {
+        m_delaySortTimer->start();
+    });
 }
 
 void AdapterWidget::addDevice(const Device *device)
@@ -361,12 +379,16 @@ void AdapterWidget::addDevice(const Device *device)
     connect(device, &Device::pairedChanged, this, [this, deviceItem](const bool paired) {
         if (paired) {
             qDebug() << "paired :" << deviceItem->device()->name();
-            DStandardItem *item = deviceItem->getStandardItem();
+            BtStandardItem *item = deviceItem->getStandardItem();
             QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
             m_otherDeviceModel->removeRow(otherDeviceIndex.row());
-            DStandardItem *dListItem = deviceItem->createStandardItem(m_myDeviceListView);
+            BtStandardItem *dListItem = deviceItem->createStandardItem(m_myDeviceListView);
             m_myDevices << deviceItem;
+            connect(deviceItem, &DeviceSettingsItem::requestSort, this, [ = ] {
+                m_delaySortTimer->start();
+            });
             m_myDeviceModel->appendRow(dListItem);
+            m_delaySortTimer->start();
         } else {
             qDebug() << "unpaired :" << deviceItem->device()->name();
             for (auto it : m_myDevices) {
@@ -375,10 +397,10 @@ void AdapterWidget::addDevice(const Device *device)
                     break;
                 }
             }
-            DStandardItem *item = deviceItem->getStandardItem();
+            BtStandardItem *item = deviceItem->getStandardItem();
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
             m_myDeviceModel->removeRow(myDeviceIndex.row());
-            DStandardItem *dListItem = deviceItem->createStandardItem(m_otherDeviceListView);
+            BtStandardItem *dListItem = deviceItem->createStandardItem(m_otherDeviceListView);
             m_otherDeviceModel->appendRow(dListItem);
         }
         bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
@@ -398,7 +420,7 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     for (auto it : m_myDevices) {
         if (it && it->device() && it->device()->id() == deviceId) {
             qDebug() << "removeDevice my: " << it->device()->name();
-            DStandardItem *item = it->getStandardItem();
+            BtStandardItem *item = it->getStandardItem();
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
             m_myDeviceModel->removeRow(myDeviceIndex.row());
             m_myDevices.removeOne(it);
@@ -414,7 +436,7 @@ void AdapterWidget::removeDevice(const QString &deviceId)
         for (auto it : m_deviceLists) {
             if (it && it->device() && it->device()->id() == deviceId) {
                 qDebug() << "removeDevice other: " << it->device()->name();
-                DStandardItem *item = it->getStandardItem();
+                BtStandardItem *item = it->getStandardItem();
                 QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
                 m_otherDeviceModel->removeRow(otherDeviceIndex.row());
                 m_deviceLists.removeOne(it);

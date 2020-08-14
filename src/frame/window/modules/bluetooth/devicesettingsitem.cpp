@@ -38,7 +38,7 @@ using namespace DCC_NAMESPACE::bluetooth;
 #define darkIcon ":icons/deepin/builtin/dark/buletooth_"
 DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     : m_device(device)
-    , m_deviceItem(new DStandardItem)
+    , m_deviceItem(new BtStandardItem)
     , m_parentDListView(nullptr)
     , m_style(style)
 {
@@ -56,6 +56,11 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     }
     m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
+
+    BtSortInfo info;
+    info.connected = m_device->connectState();
+    info.name = m_deviceItem->text();
+    m_deviceItem->setSortInfo(info);
 }
 
 DeviceSettingsItem::~DeviceSettingsItem()
@@ -157,13 +162,19 @@ void DeviceSettingsItem::setDevice(const Device *device)
     });
     connect(device, &Device::aliasChanged, this, [this](const QString &alias) {
         m_deviceItem->setText(alias);
+
+        BtSortInfo info = m_deviceItem->sortInfo();
+        info.name = alias;
+        m_deviceItem->setSortInfo(info);
+
+        Q_EMIT requestSort();
     });
 
     onDeviceStateChanged(device->state(), device->connectState());
     onDevicePairedChanged(device->paired());
 }
 
-DStandardItem *DeviceSettingsItem::getStandardItem(DListView *parent)
+BtStandardItem *DeviceSettingsItem::getStandardItem(DListView *parent)
 {
     if (parent != nullptr) {
         m_parentDListView = parent;
@@ -173,7 +184,7 @@ DStandardItem *DeviceSettingsItem::getStandardItem(DListView *parent)
     return m_deviceItem;
 }
 
-DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
+BtStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
 {
     initItemActionList();
     if (parent != nullptr) {
@@ -181,7 +192,8 @@ DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
         m_loadingIndicator->setParent(parent->viewport());
         setDevice(m_device);
     }
-    m_deviceItem = new DStandardItem;
+    m_deviceItem = new BtStandardItem;
+
     if (DApplicationHelper::instance()->themeType() == DApplicationHelper::LightType) {
         if (!m_device->deviceType().isEmpty())
             m_deviceItem->setIcon(QIcon(lightIcon + m_device->deviceType() + "_light.svg"));
@@ -195,6 +207,11 @@ DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     }
     m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
+
+    BtSortInfo info;
+    info.connected = m_device->connectState();
+    info.name = m_deviceItem->text();
+    m_deviceItem->setSortInfo(info);
     return m_deviceItem;
 }
 
@@ -213,6 +230,12 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool c
         setLoading(false);
     }
     m_textAction->setText(tip);
+
+    BtSortInfo info = m_deviceItem->sortInfo();
+    info.connected = (state == Device::StateConnected && connectState);
+    m_deviceItem->setSortInfo(info);
+
+    Q_EMIT requestSort();
 }
 
 void DeviceSettingsItem::onDevicePairedChanged(const bool &paired)

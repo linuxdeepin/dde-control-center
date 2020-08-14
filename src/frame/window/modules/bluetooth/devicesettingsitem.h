@@ -44,16 +44,56 @@ class Device;
 
 namespace DCC_NAMESPACE {
 namespace bluetooth {
+
+struct BtSortInfo {
+    bool connected = false;
+    QString name;
+    bool operator < (const BtSortInfo &other)
+    {
+        if (connected ^ other.connected) {
+            return !connected;
+        } else {
+            return name > other.name;
+        }
+    }
+};
+
+class BtStandardItem : public DStandardItem
+{
+public:
+    enum {
+        SortRole = Dtk::UserRole + 1,
+    };
+
+    using DStandardItem::DStandardItem;
+
+    void setSortInfo(const BtSortInfo &sortInfo) {
+        setData(QVariant::fromValue(sortInfo), SortRole);
+    }
+
+    BtSortInfo sortInfo() {
+        return data(SortRole).value<BtSortInfo>();
+    }
+
+    bool operator < (const QStandardItem &other) const {
+        BtSortInfo thisApInfo = data(SortRole).value<BtSortInfo>();
+        BtSortInfo otherApInfo = other.data(SortRole).value<BtSortInfo>();
+        bool bRet = thisApInfo < otherApInfo;
+        return bRet;
+    }
+};
+
 class DeviceSettingsItem : public QObject
 {
     Q_OBJECT
 public:
     explicit DeviceSettingsItem(const dcc::bluetooth::Device *device, QStyle *style);
     virtual ~DeviceSettingsItem();
-    DStandardItem *getStandardItem(DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
-    DStandardItem *createStandardItem(DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
+    BtStandardItem *getStandardItem(DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
+    BtStandardItem *createStandardItem(DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
     const dcc::bluetooth::Device *device() const;
     void setLoading(const bool loading);
+
 private:
     void setDevice(const dcc::bluetooth::Device *device);
     void initItemActionList();
@@ -61,6 +101,7 @@ private:
 Q_SIGNALS:
     void requestConnectDevice(const dcc::bluetooth::Device *device) const;
     void requestShowDetail(const dcc::bluetooth::Device *device) const;
+    void requestSort();
 
 private Q_SLOTS:
     void onDeviceStateChanged(const dcc::bluetooth::Device::State &state, bool paired);
@@ -69,7 +110,7 @@ private Q_SLOTS:
 private:
     const dcc::bluetooth::Device *m_device;
     QPointer<DTK_WIDGET_NAMESPACE::DSpinner> m_loadingIndicator;
-    DStandardItem *m_deviceItem;
+    BtStandardItem *m_deviceItem;
     DTK_WIDGET_NAMESPACE::DListView *m_parentDListView;
     DViewItemActionList m_dActionList;
     QPointer<DViewItemAction> m_loadingAction;
@@ -79,3 +120,4 @@ private:
 };
 } // namespace DCC_NAMESPACE
 } // namespace dcc
+Q_DECLARE_METATYPE(DCC_NAMESPACE::bluetooth::BtSortInfo)
