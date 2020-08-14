@@ -140,6 +140,7 @@ void TouchscreenPage::onMonitorChanged()
 
 void TouchscreenPage::save()
 {
+    bool changed = false;
     for (auto i : m_list) {
         QString touchscreenName = i->property("touchscreenName").toString();
         QString touchscreenSerial = i->property("touchscreenSerial").toString();
@@ -149,13 +150,16 @@ void TouchscreenPage::save()
             continue;
         }
 
+        changed = true;
         Q_EMIT requestAssociateTouch(output, touchscreenSerial);
+    }
 
+    if (changed) {
         m_notifyInter->Notify("dde-control-center",
                               static_cast<uint>(QDateTime::currentMSecsSinceEpoch()),
                               "preferences-system",
                               tr("Touch Screen Settings"),
-                              tr("The settings of touch screen %1 changed").arg(touchscreenName),
+                              tr("The settings of touch screen changed"),
                               QStringList(),
                               QVariantMap(),
                               3000);
