@@ -36,8 +36,6 @@
 #include <QListView>
 #include <QDebug>
 
-#define GSETTING_BOOT_DELAY "boot-delay"
-
 using namespace dcc;
 using namespace widgets;
 using namespace dcc::widgets;
@@ -190,24 +188,6 @@ void BootWidget::setEntryList(const QStringList &list)
 {
     m_bootItemModel = new QStandardItemModel(this);
     m_bootList->setModel(m_bootItemModel);
-    m_gSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-
-    if (m_gSetting->keys().contains("bootDelay", Qt::CaseInsensitive) &&
-        !m_gSetting->get(GSETTING_BOOT_DELAY).toBool()) {
-        if (list.count() <= 0) {
-            return;
-        } else if (list.count() < 2) {
-            m_bootDelay->setChecked(false);
-            Q_EMIT bootdelay(false);
-            m_gSetting->set(GSETTING_BOOT_DELAY, true);
-        } else {
-            m_bootDelay->setChecked(true);
-            Q_EMIT bootdelay(true);
-            m_gSetting->set(GSETTING_BOOT_DELAY, true);
-        }
-    } else {
-        m_bootDelay->setChecked(m_commonInfoModel->bootDelay());
-    }
 
     for (int i = 0; i < list.count(); i++) {
         const QString entry = list.at(i);
