@@ -32,9 +32,11 @@
 namespace dcc{
 namespace systeminfo{
 
+// !!! 不要用C++11的前置声明枚举类型，这里lupdate命令有个bug．具体见
+// https://stackoverflow.com/questions/6504902/lupdate-error-qualifying-with-unknown-namespace-class
 #ifndef DISABLE_ACTIVATOR
 //授权状态
-enum ActiveState: unsigned int {
+enum ActiveState {
     Unauthorized = 0,  //未授权
     Authorized,  //已授权
     AuthorizedLapse,  //授权失效

@@ -24,6 +24,7 @@
 #include "interface/namespace.h"
 #include "widgets/titlevalueitem.h"
 #include "widgets/contentwidget.h"
+#include "modules/systeminfo/systeminfomodel.h"
 
 #include <QWidget>
 #include <QGSettings>
@@ -35,13 +36,6 @@ QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 
 QT_END_NAMESPACE
-
-namespace dcc {
-namespace systeminfo {
-class SystemInfoModel;
-enum ActiveState: unsigned int;
-}
-}
 
 namespace DCC_NAMESPACE {
 namespace systeminfo {

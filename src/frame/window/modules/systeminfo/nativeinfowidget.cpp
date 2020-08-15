@@ -24,7 +24,6 @@
 #include "widgets/titlevalueitem.h"
 #include "modules/systeminfo/logoitem.h"
 #include "window/utils.h"
-#include "modules/systeminfo/systeminfomodel.h"
 
 #include <QVBoxLayout>
 #include <QApplication>
