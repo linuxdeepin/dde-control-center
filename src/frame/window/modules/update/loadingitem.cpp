@@ -98,8 +98,10 @@ void LoadingItem::setSystemVersion(QString version)
 {
     if ("zh_CN.UTF-8" != m_currLangSelector->currentLocale() && DSysInfo::DeepinPersonal == DSysInfo::deepinType()) {
         m_labelText->setText(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion().left(2) + " " + "Home");
+    } else if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
+        m_labelText->setText(DSysInfo::productTypeString() + " " + DSysInfo::deepinVersion().left(2));
     } else {
-        m_labelText->setText(DSysInfo::productTypeString().toUpper() + " " + DSysInfo::deepinVersion().left(2) + " " + DSysInfo::deepinTypeDisplayName());
+        m_labelText->setText(DSysInfo::productTypeString() + " " + DSysInfo::deepinVersion().left(2) + " " + DSysInfo::deepinTypeDisplayName());
     }
 }
 

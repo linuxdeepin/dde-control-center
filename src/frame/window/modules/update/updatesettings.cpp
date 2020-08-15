@@ -202,7 +202,8 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_setFreeTimeLbl->setVisible(false);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal") {
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+        qDebug() << "connect m_sourceCheck";
         connect(m_sourceCheck, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetSourceCheck);
     }
 #endif
@@ -218,7 +219,7 @@ void UpdateSettings::setModel(UpdateModel *model)
         m_autoDownloadSwitch->setChecked(autoDownload);
     };
 
-    if (SystemTypeName != "Professional" && SystemTypeName != "Personal") {
+    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
         auto setDefaultMirror = [this](const MirrorInfo & mirror) {
             m_updateMirrors->setValue(mirror.m_name);
         };
@@ -255,7 +256,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_updateLbl->setVisible(model->updateNotify());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal") {
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
         connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
         m_sourceCheck->setChecked(model->sourceCheck());
     }
