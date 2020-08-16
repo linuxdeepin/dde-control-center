@@ -166,7 +166,7 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
         m_outputModel->appendRow(pi);
         m_outputModel->blockSignals(false);
         if (port->isActive()) {
-            m_outputSoundCbx->comboBox()->setCurrentText(port->name());
+            m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->cardName());
         }
