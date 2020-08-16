@@ -310,6 +310,9 @@ void SoundWorker::cardsChanged(const QString &cards)
         if (!tmpCardIds.contains(port->cardId())) {
             m_model->removePort(port->id(), port->cardId());
         }
+        else if (!tmpCardIds[port->cardId()].contains(port->id())) {
+            m_model->removePort(port->id(), port->cardId());
+        }
     }
 }
 
@@ -372,8 +375,8 @@ void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher)
     if (!watcher->isError()) {
         QDBusReply<QString> reply = watcher->reply();
         m_model->updateSoundEffectPath(
-            watcher->property("Type").value<DDesktopServices::SystemSoundEffect>(),
-            reply.value());
+                    watcher->property("Type").value<DDesktopServices::SystemSoundEffect>(),
+                    reply.value());
     } else {
         qDebug() << "get sound path error." << watcher->error();
     }
