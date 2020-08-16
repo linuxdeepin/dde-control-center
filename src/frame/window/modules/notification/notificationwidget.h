@@ -58,6 +58,8 @@ public Q_SLOTS:
     void onSystemClicked(const QModelIndex &index);
     void refreshList();
 private:
+    const QPixmap loadSvg(const QString &fileName, const QSize &size);
+private:
     Dtk::Widget::DListView *m_softwareListView;
     Dtk::Widget::DListView *m_systemListView;
     QStandardItemModel *m_sysmodel;

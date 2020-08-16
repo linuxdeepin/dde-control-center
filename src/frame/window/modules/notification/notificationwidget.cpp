@@ -25,12 +25,15 @@
 
 #include <DListView>
 
+#include <QSvgRenderer>
 #include <QLabel>
+#include <QPainter>
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QIcon>
 #include <QMessageBox>
 #include <QScroller>
+#include <QFile>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::notification;
@@ -157,13 +160,40 @@ void NotificationWidget::refreshList()
     }
 }
 
+const QPixmap NotificationWidget::loadSvg(const QString &fileName, const QSize &size)
+{
+    QPixmap pixmap(size);
+    QSvgRenderer renderer(fileName);
+    pixmap.fill(Qt::transparent);
+
+    QPainter painter;
+    painter.begin(&pixmap);
+    renderer.render(&painter);
+    painter.end();
+
+    return pixmap;
+}
+
 QIcon NotificationWidget::getAppIcon(const QString &appIcon, const QSize &size)
 {
-    QIcon icon = QIcon::fromTheme(appIcon, QIcon::fromTheme(m_theme, QIcon::fromTheme("application-x-desktop")));
-
     const qreal ratio = devicePixelRatioF();
-    QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    pixmap.setDevicePixelRatio(ratio);
+    QPixmap pixmap;
 
+    QIcon icon = QIcon::fromTheme(appIcon, QIcon::fromTheme(m_theme));
+
+    if (icon.isNull()) {
+        // 有些图标是svg格式，加载
+        if (appIcon.endsWith(".svg") && QFile::exists(appIcon)) {
+            pixmap = loadSvg(appIcon, size * ratio);
+        }
+        if (!pixmap.isNull()) {
+            return pixmap;
+        }
+        // 依然找不到，那么使用application-x-desktop代替
+        icon = QIcon::fromTheme("application-x-desktop");
+    }
+
+    pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixmap.setDevicePixelRatio(ratio);
     return pixmap;
 }

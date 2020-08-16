@@ -48,6 +48,11 @@ NotificationModule::~NotificationModule()
 
 void NotificationModule::preInitialize(bool sync)
 {
+
+}
+
+void NotificationModule::initialize()
+{
     if (m_model) {
         delete m_model;
     }
@@ -55,12 +60,7 @@ void NotificationModule::preInitialize(bool sync)
     m_worker = new NotificationWorker(m_model, this);
     m_worker->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
-    m_worker->active(sync); //refresh data
-}
-
-void NotificationModule::initialize()
-{
-
+    m_worker->active(false); //refresh data
 }
 
 const QString NotificationModule::name() const

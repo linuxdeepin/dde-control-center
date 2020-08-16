@@ -605,6 +605,7 @@ find_package(Qt5 COMPONENTS
     DBus
     Network
     Multimedia
+    Svg
 REQUIRED)
 
 pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext)
@@ -775,6 +776,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Gio-2.0_LIBRARIES}
     ${LibNM_LIBRARIES}
     ${KF5_QT_LIBRARIES}
+    ${Qt5Svg_LIBRARIES}
     crypt
     ${LIBS}
     pwquality

@@ -29,6 +29,8 @@
 using namespace dcc;
 using namespace dcc::notification;
 
+#define SYSTEMNOTIFY_NAME "SystemNotify"
+
 NotificationModel::NotificationModel(QObject *parent)
     : QObject(parent)
     , m_sysItemModel(new SysItemModel(this))
@@ -38,7 +40,7 @@ NotificationModel::NotificationModel(QObject *parent)
 
 void NotificationModel::setAllSetting(const QJsonObject &obj)
 {
-    QJsonObject object = obj["SystemNotify"].toObject();
+    QJsonObject object = obj[SYSTEMNOTIFY_NAME].toObject();
 
     setSysSetting(object);
     setAllAppSetting(obj);
@@ -51,7 +53,11 @@ void NotificationModel::setAllAppSetting(const QJsonObject &obj)
     qDeleteAll(m_appItemModels);
     m_appItemModels.clear();
     auto keys = obj.keys();
-    for (int i = 1; i < keys.size(); i++) {
+    // 所有的app设置中需要去掉系统设置选项
+    for (int i = 0; i < keys.size(); i++) {
+        if (keys[i] == SYSTEMNOTIFY_NAME) {
+            continue;
+        }
         AppItemModel *sitem = new AppItemModel(this);
         sitem->setItem(keys[i], obj.value(keys[i]).toObject());
         m_appItemModels.append(sitem);
