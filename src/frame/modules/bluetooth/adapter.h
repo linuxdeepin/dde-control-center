@@ -52,7 +52,10 @@ public:
     inline bool powered() const { return m_powered; }
     void setPowered(bool powered, bool discovering);
 
-    inline bool discovering() const {return m_discovering;}
+    inline bool discoverabled() const { return m_discoverable; }
+    void setDiscoverabled(const bool discoverable);
+
+    inline bool discovering() const { return m_discovering; }
 
 public Q_SLOTS:
     void addDevice(const Device *device);
@@ -64,12 +67,14 @@ Q_SIGNALS:
     void deviceRemoved(const QString &deviceId) const;
     void poweredChanged(const bool &powered, const bool &discovering) const;
     void loadStatus() const;
+    void discoverableChanged(const bool &discoverable) const;
 
 private:
     QString m_id;
     QString m_name;
     bool m_powered;
     bool m_discovering;
+    bool m_discoverable;
     QMap<QString, const Device *> m_devices;
     //按序存放设备id,确定设备显示顺序
     QList<QString> m_devicesId;

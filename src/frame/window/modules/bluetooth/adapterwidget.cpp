@@ -54,6 +54,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     , m_switch(new dcc::widgets::SwitchWidget(nullptr, m_titleEdit))
     , m_showAnonymousCheckBox(new DCheckBox(this))
     , m_model(model)
+    , m_discoverySwitch(new SwitchWidget(tr("Allow other Bluetooth devices to find this device")))
     , m_lastCheck(false)
     , m_delaySortTimer(new QTimer(this))
 {
@@ -110,8 +111,6 @@ void AdapterWidget::initUI()
     m_refreshBtn->setFixedSize(36, 36);
     m_refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
     m_showAnonymousCheckBox->setChecked(true);
-    QHBoxLayout *phlayout = new QHBoxLayout;
-    phlayout->addWidget(m_otherDevicesGroup);
 
     m_hideAnonymousLabel->setFixedHeight(36);
     m_showAnonymousCheckBox->setFixedHeight(36);
@@ -123,11 +122,14 @@ void AdapterWidget::initUI()
     phlayoutShowAnonymous->addWidget(m_refreshBtn);
 
     m_switch->addBackground();
+    m_switch->setFixedHeight(39);
     m_switch->setContentsMargins(0, 0, 10, 0);
-
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setMargin(0);
-    layout->setSpacing(10);
+    m_discoverySwitch->addBackground();
+    m_discoverySwitch->setContentsMargins(0, 0, 10, 0);
+    m_discoverySwitch->setFixedHeight(39);
+    QVBoxLayout *vlayout = new QVBoxLayout;
+    vlayout->addLayout(pshlayout);
+    vlayout->addWidget(m_discoverySwitch);
 
     m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
     m_tip->setVisible(!m_switch->checked());
@@ -159,14 +161,19 @@ void AdapterWidget::initUI()
     m_otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_otherDeviceListView->setViewportMargins(ScrollAreaMargins);
 
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->setMargin(0);
+    layout->setSpacing(10);
+
     layout->addSpacing(10);
-    layout->addLayout(pshlayout);
+    layout->addLayout(vlayout);
     layout->addWidget(m_tip, 0, Qt::AlignTop);
     layout->addSpacing(10);
     layout->addWidget(m_myDevicesGroup);
     layout->addWidget(m_myDeviceListView);
     layout->addSpacing(10);
-    layout->addLayout(phlayout);
+
+    layout->addWidget(m_otherDevicesGroup);
     layout->addLayout(phlayoutShowAnonymous);
     layout->addWidget(m_otherDeviceListView);
     layout->addSpacing(interval);
@@ -236,7 +243,10 @@ void AdapterWidget::initConnect()
             return;
         }
         m_tickTimer.start();
+        m_discoverySwitch->setVisible(check);
     });
+
+    connect(m_discoverySwitch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleDiscoverableSwitch);
 
     connect(m_showAnonymousCheckBox, &DCheckBox::stateChanged, this, [=](int state) {
         if (state == Qt::CheckState::Unchecked) {
@@ -306,15 +316,18 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
             addDevice(device);
         }
     }
-
+    connect(adapter, &Adapter::discoverableChanged, m_discoverySwitch, [ = ] {
+        m_discoverySwitch->setChecked(adapter->discoverabled());
+    });
     m_lastCheck = adapter->powered();
-
+    m_discoverySwitch->setChecked(m_adapter->discoverabled());
     onPowerStatus(adapter->powered(), adapter->discovering());
 }
 
 void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
 {
     m_switch->setChecked(bPower);
+    m_discoverySwitch->setVisible(bPower);
     m_tip->setVisible(!bPower);
     m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(bPower);
@@ -341,6 +354,11 @@ void AdapterWidget::toggleSwitch(const bool checked)
     }
     m_lastCheck = checked;
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
+}
+
+void AdapterWidget::toggleDiscoverableSwitch(const bool checked)
+{
+    Q_EMIT requestDiscoverable(m_adapter, checked);
 }
 
 void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool paired)

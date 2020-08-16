@@ -83,6 +83,7 @@ private:
 
 public Q_SLOTS:
     void toggleSwitch(const bool checked);
+    void toggleDiscoverableSwitch(const bool checked);
 
 Q_SIGNALS:
     void requestSetToggleAdapter(const dcc::bluetooth::Adapter *adapter, const bool &toggled);
@@ -93,6 +94,7 @@ Q_SIGNALS:
     void notifyLoadFinished();
     void notifyRemoveDevice();
     void requestRefresh(const dcc::bluetooth::Adapter *adapter);
+    void requestDiscoverable(const dcc::bluetooth::Adapter *adapter, const bool &discoverable);
 
 private Q_SLOTS:
     void addDevice(const dcc::bluetooth::Device *device);
@@ -118,6 +120,7 @@ private:
     QStandardItemModel *m_otherDeviceModel;
     DTK_WIDGET_NAMESPACE::DIconButton *m_refreshBtn;
     dcc::bluetooth::BluetoothModel *m_model;
+    dcc::widgets::SwitchWidget *m_discoverySwitch;
     QTimer m_tickTimer;         // 用于300ms内反复操作不需要响应
     bool m_lastCheck;           // 开关按钮的上一次的有效状态
     QTimer *m_delaySortTimer;

@@ -84,6 +84,7 @@ void BluetoothModule::active()
         m_frameProxy->setModuleVisible(this, visible);
     });
     m_frameProxy->pushWidget(this, m_bluetoothWidget);
+    connect(m_bluetoothWidget, &BluetoothWidget::requestDiscoverable, m_bluetoothWorker, &BluetoothWorker::onRequestSetDiscoverable);
 }
 
 const QString BluetoothModule::name() const

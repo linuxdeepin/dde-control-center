@@ -28,12 +28,13 @@
 namespace dcc {
 namespace bluetooth {
 
-Adapter::Adapter(QObject *parent) :
-    QObject(parent),
-    m_id(""),
-    m_name(""),
-    m_powered(false),
-    m_discovering(false)
+Adapter::Adapter(QObject *parent)
+    : QObject(parent)
+    , m_id("")
+    , m_name("")
+    , m_powered(false)
+    , m_discovering(false)
+    , m_discoverable(false)
 {
 
 }
@@ -77,6 +78,15 @@ void Adapter::setPowered(bool powered, bool discovering)
         m_discovering = discovering;
         Q_EMIT poweredChanged(powered, discovering);
     }
+}
+
+void Adapter::setDiscoverabled(const bool discoverable)
+{
+    if (m_discoverable == discoverable) {
+        return;
+    }
+    m_discoverable = discoverable;
+    Q_EMIT discoverableChanged(discoverable);
 }
 
 QMap<QString,const Device *> Adapter::devices() const

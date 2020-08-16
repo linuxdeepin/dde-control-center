@@ -226,7 +226,9 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
     const QString alias = adapterObj["Alias"].toString();
     const bool powered = adapterObj["Powered"].toBool();
     const bool discovering = adapterObj["Discovering"].toBool();
+    const bool discovered = adapterObj["Discoverable"].toBool();
 
+    adapter->setDiscoverabled(discovered);
     adapter->setId(path);
     adapter->setName(alias);
     adapter->setPowered(powered, discovering);
@@ -437,6 +439,12 @@ void BluetoothWorker::pinCodeConfirm(const QDBusObjectPath &path, bool value)
 void BluetoothWorker::setAdapterDiscovering(const QDBusObjectPath &path, bool enable)
 {
     m_bluetoothInter->SetAdapterDiscovering(path, enable);
+}
+
+void BluetoothWorker::onRequestSetDiscoverable(const Adapter *adapter, const bool &discoverable)
+{
+    QDBusObjectPath path(adapter->id());
+    m_bluetoothInter->SetAdapterDiscoverable(path, discoverable);
 }
 
 } // namespace bluetooth
