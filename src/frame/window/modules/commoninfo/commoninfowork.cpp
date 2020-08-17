@@ -245,7 +245,7 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         // license路径
         QString content;
         if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
-            content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Community/User-Experience-Program-License-Agreement-CN-%1.md", "");
+            content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement-Community/User-Experience-Program-License-Agreement-CN-%1.md", "");
         } else {
             content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
         }

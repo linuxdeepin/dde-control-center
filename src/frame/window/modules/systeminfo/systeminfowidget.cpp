@@ -99,10 +99,6 @@ void SystemInfoWidget::initData()
     }
 #endif
 
-    if(DCC_NAMESPACE::IsDesktopSystem) {
-        m_itemList.removeAt(2);
-    }
-
     for (auto m : m_itemList) {
         DStandardItem *item = new DStandardItem;
         item->setIcon(QIcon::fromTheme(m.icon));
