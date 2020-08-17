@@ -4221,12 +4221,12 @@
 <context>
     <name>dccV20::notification::NotificationWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="64"/>
         <source>System Notifications</source>
         <translation>පද්ධති දැනුම්දීම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="77"/>
         <source>App Notifications</source>
         <translation>යෙදවුම් දැනුම්දීම්</translation>
     </message>
@@ -4985,34 +4985,34 @@
         <translation>ස්පීකරය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="179"/>
         <source>Output Volume</source>
         <translation>ප්‍රතිදාන ශබ්ද පරිමාව</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="262"/>
         <source>Volume Boost</source>
         <translation>පරිමාව වැඩි කිරීම</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="272"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>ශබ්ද පරිමාව 100% ට වඩා වැඩි නම්, එය හඩ විකෘති වීම් ඇතිකරයි. එසේම එය ඔබේ ස්පීකරයට හානිකර විය හැකිය</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="286"/>
         <source>Left/Right Balance</source>
         <translation>වම්/දකුණු සමබරතාව</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="292"/>
         <source>Left</source>
         <translation>වම</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="293"/>
         <source>Right</source>
         <translation>දකුණ</translation>
     </message>
@@ -5279,6 +5279,101 @@
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="296"/>
         <source>Confirm</source>
         <translation>තහවුරු කරන්න</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="86"/>
+        <source>OS Name:</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="91"/>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="96"/>
+        <source>Edition:</source>
+        <translation>සංස්කරණය:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="100"/>
+        <source>Type:</source>
+        <translation>වර්ගය:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="104"/>
+        <source>Authorization</source>
+        <translation>අවසර ලබාගැනීම්</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="220"/>
+        <source>To be activated</source>
+        <translation>සක්‍රීය කළ යුතුව ඇත</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="234"/>
+        <source>Activate</source>
+        <translation>සක්‍රිය කරන්න</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="117"/>
+        <source>Kernel:</source>
+        <translation>කර්නලය:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="122"/>
+        <source>Processor:</source>
+        <translation>ප්‍රොසෙසරය:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="127"/>
+        <source>Memory:</source>
+        <translation>මතකය:</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
+        <source>%1-bit</source>
+        <translation>%1-bit</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="216"/>
+        <source>Activated</source>
+        <translation>සක්‍රීයයි</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="226"/>
+        <source>View</source>
+        <translation>දැක්ම</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="224"/>
+        <source>Expired</source>
+        <translation>කල් ඉකුත් වී ඇත</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="228"/>
+        <source>In trial period</source>
+        <translation>අත්හදා බැලීමේ කාල පරිච්ඡේදයේ පවතී</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="232"/>
+        <source>Trial expired</source>
+        <translation>අත්හදා බැලීමේ කාල පරිච්ඡේදය අවසන් වී ඇත</translation>
     </message>
 </context>
 <context>
@@ -5848,101 +5943,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="92"/>
         <source>None</source>
         <translation>කිසිවක් නැත</translation>
-    </message>
-</context>
-<context>
-    <name>NativeInfoWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="87"/>
-        <source>OS Name:</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="92"/>
-        <source>Version:</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="97"/>
-        <source>Edition:</source>
-        <translation>සංස්කරණය:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="101"/>
-        <source>Type:</source>
-        <translation>වර්ගය:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="105"/>
-        <source>Authorization</source>
-        <translation>අවසර ලබාගැනීම්</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="106"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
-        <source>To be activated</source>
-        <translation>සක්‍රීය කළ යුතුව ඇත</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="223"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="235"/>
-        <source>Activate</source>
-        <translation>සක්‍රිය කරන්න</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="118"/>
-        <source>Kernel:</source>
-        <translation>කර්නලය:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="123"/>
-        <source>Processor:</source>
-        <translation>ප්‍රොසෙසරය:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
-        <source>Memory:</source>
-        <translation>මතකය:</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="200"/>
-        <source>%1-bit</source>
-        <translation>%1-bit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="217"/>
-        <source>Activated</source>
-        <translation>සක්‍රීයයි</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="227"/>
-        <source>View</source>
-        <translation>දැක්ම</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
-        <source>Expired</source>
-        <translation>කල් ඉකුත් වී ඇත</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="229"/>
-        <source>In trial period</source>
-        <translation>අත්හදා බැලීමේ කාල පරිච්ඡේදයේ පවතී</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="233"/>
-        <source>Trial expired</source>
-        <translation>අත්හදා බැලීමේ කාල පරිච්ඡේදය අවසන් වී ඇත</translation>
     </message>
 </context>
 <context>
@@ -6932,12 +6932,12 @@ Visit User Center and manage your account there.</source>
         <translation>පද්ධති තොරතුරු</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="246"/>
         <source>www.deepin.org</source>
         <translation>www.deepin.org</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="248"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
         <translation>ප්‍රකාශන හිමිකම © 2019-2020 යුනියන් ටෙක් මෘදුකාංග තාක්ෂණ සීමිත සමාගම,</translation>
     </message>
