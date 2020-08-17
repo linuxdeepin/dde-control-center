@@ -176,11 +176,8 @@ ManualRestore::ManualRestore(BackupAndRestoreModel* model, QWidget *parent)
         m_loadingWidget->setVisible(!enable);
     });
 
-    m_directoryChooseWidget->lineEdit()->setText(model->restoreDirectory());
     m_saveUserDataCheckBox->setChecked(model->formatData());
     onManualRestoreErrorChanged(model->manualRestoreErrorType());
-
-    m_backupBtn->setVisible(model->restoreButtonEnabled());
 
     m_loadingWidget->setVisible(!model->restoreButtonEnabled());
 
@@ -259,12 +256,8 @@ void ManualRestore::onManualRestoreErrorChanged(ErrorType errorType)
             m_tipsLabel->setText(tr("Backup file is invalid"));
             break;
         }
-        case ErrorType::PathError2: {
+        case ErrorType::PathError: {
             m_tipsLabel->setText(tr("Invalid path"));
-            break;
-        }
-        case ErrorType::GrubError: {
-            m_tipsLabel->setText(tr("Grub authentication failed"));
             break;
         }
         default: {

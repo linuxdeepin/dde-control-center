@@ -82,7 +82,8 @@ void SystemInfoWidget::initData()
     const QString &recoveryPath{ "/etc/deepin/system-recovery.conf" };
     QSettings settings(recoveryPath, QSettings::IniFormat);
     const QString UUID {settings.value("UUID").toString() };
-    if (!UUID.isEmpty() && QDir("/recovery/doppel/").exists()) {
+    //live系统文件从原来的/recovery分区改到了根分区，此处作相应修改
+    if (!UUID.isEmpty() && QDir("/doppel/").exists()) {
         const QStringList &devices = DDiskManager::blockDevices({});
         for (const QString &path : devices) {
             QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));

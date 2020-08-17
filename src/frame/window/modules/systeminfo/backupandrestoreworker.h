@@ -23,10 +23,12 @@ public Q_SLOTS:
     void systemRestore(bool formatData);
 
 private:
-    ErrorType doManualBackup();
-    ErrorType doSystemBackup();
-    ErrorType doManualRestore();
-    ErrorType doSystemRestore();
+    /**
+     * @brief doWorkTool 运行deepin-recovery-tool
+     * @param args 工具所需的参数列表
+     * @return 错误值，0表示无错误
+     */
+    ErrorType doWorkTool(const QStringList &args);
 
 private:
     BackupAndRestoreModel* m_model;

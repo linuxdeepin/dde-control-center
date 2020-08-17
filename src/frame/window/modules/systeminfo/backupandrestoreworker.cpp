@@ -21,14 +21,12 @@ using namespace DCC_NAMESPACE::systeminfo;
  */
 enum ToolErrorType {
     NoError = 0,
-    ToolError,
-    GrubError,
-    SpaceError,
-    FsError
+    SpaceError,     //磁盘空间不足
+    FsError,        //文件系统不支持
+    PathError,      //不是有效路径
+    LocationError,  //路径位置不允许
+    MD5Error        //备份文件错误
 };
-
-//deepin-recovery-tool超时时间设置为1分钟
-const int TimeOut = 60000;
 
 BackupAndRestoreWorker::BackupAndRestoreWorker(BackupAndRestoreModel* model, QObject *parent)
     : QObject(parent)
@@ -49,8 +47,6 @@ void BackupAndRestoreWorker::restart()
 
 void BackupAndRestoreWorker::manualBackup(const QString &directory)
 {
-    m_model->setBackupDirectory(directory);
-
     QFutureWatcher<ErrorType> *watcher = new QFutureWatcher<ErrorType>(this);
     connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher] {
         const ErrorType type = watcher->result();
@@ -60,7 +56,8 @@ void BackupAndRestoreWorker::manualBackup(const QString &directory)
         watcher->deleteLater();
     });
 
-    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doManualBackup);
+    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doWorkTool,
+        QStringList() << "/bin/deepin-recovery-tool" << "-a" << "manual_backup" << "-p" << directory);
     watcher->setFuture(future);
 
     m_model->setBackupButtonEnabled(false);
@@ -68,8 +65,6 @@ void BackupAndRestoreWorker::manualBackup(const QString &directory)
 
 void BackupAndRestoreWorker::systemBackup(const QString &directory)
 {
-    m_model->setBackupDirectory(directory);
-
     QFutureWatcher<ErrorType> *watcher = new QFutureWatcher<ErrorType>(this);
     connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher] {
         const ErrorType type = watcher->result();
@@ -79,7 +74,8 @@ void BackupAndRestoreWorker::systemBackup(const QString &directory)
         watcher->deleteLater();
     });
 
-    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doSystemBackup);
+    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doWorkTool,
+        QStringList() << "/bin/deepin-recovery-tool" << "-a" << "system_backup" << "-p" << directory);
     watcher->setFuture(future);
 
     m_model->setBackupButtonEnabled(false);
@@ -87,8 +83,6 @@ void BackupAndRestoreWorker::systemBackup(const QString &directory)
 
 void BackupAndRestoreWorker::manualRestore(const QString &directory)
 {
-    m_model->setRestoreDirectory(directory);
-
     QFutureWatcher<ErrorType> *watcher = new QFutureWatcher<ErrorType>(this);
     connect(watcher, &QFutureWatcher<ErrorType>::finished, [this, watcher] {
         const ErrorType result = watcher->result();
@@ -98,7 +92,8 @@ void BackupAndRestoreWorker::manualRestore(const QString &directory)
         watcher->deleteLater();
     });
 
-    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doManualRestore);
+    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doWorkTool,
+        QStringList() << "/bin/deepin-recovery-tool" << "-a" << "manual_restore" << "-p" << directory);
     watcher->setFuture(future);
 
     m_model->setRestoreButtonEnabled(false);
@@ -106,8 +101,6 @@ void BackupAndRestoreWorker::manualRestore(const QString &directory)
 
 void BackupAndRestoreWorker::systemRestore(bool formatData)
 {
-    m_model->setFormatData(formatData);
-
     QFutureWatcher<ErrorType> *watcher = new QFutureWatcher<ErrorType>(this);
     connect(watcher, &QFutureWatcher<ErrorType>::finished, [this, watcher] {
         const ErrorType result = watcher->result();
@@ -117,160 +110,38 @@ void BackupAndRestoreWorker::systemRestore(bool formatData)
         watcher->deleteLater();
     });
 
-    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doSystemRestore);
+    QFuture<ErrorType> future = QtConcurrent::run(this, &BackupAndRestoreWorker::doWorkTool,
+        QStringList() << "/bin/deepin-recovery-tool" << "-a" << "system_restore" << (formatData ? "-f" : ""));
     watcher->setFuture(future);
 
     m_model->setRestoreButtonEnabled(false);
 }
 
-ErrorType BackupAndRestoreWorker::doManualBackup()
+ErrorType BackupAndRestoreWorker::doWorkTool(const QStringList &args)
 {
-    const QString& choosePath { m_model->backupDirectory()};
-
-    if (choosePath.isEmpty() || !QDir(choosePath).exists()) {
-        return ErrorType::PathError2;
-    }
-    if (!choosePath.startsWith("/media")) {
-        return ErrorType::PathError;
-    }
-
     QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "manual_backup" << "--path" << choosePath);
-    process->waitForFinished(TimeOut);
+    process->start("pkexec", args);
+    process->waitForFinished();
 
     const int &exitCode = process->exitCode();
-    if (exitCode == ToolErrorType::FsError) {
-        return ErrorType::FsError;
-    }
-
-    if (exitCode == ToolErrorType::SpaceError) {
+    qDebug() << "exit code:" << exitCode;
+    switch (exitCode)
+    {
+    case ToolErrorType::NoError:
+        restart();
+        return ErrorType::NoError;
+    case ToolErrorType::SpaceError:
         return ErrorType::SpaceError;
-    }
-
-    if (exitCode == ToolErrorType::GrubError) {
-        return ErrorType::GrubError;
-    }
-
-    if (exitCode == ToolErrorType::ToolError) {
-        qDebug() << process->readAllStandardError();
-        return ErrorType::ToolError;
-    }
-
-    restart();
-    return ErrorType::NoError;
-}
-
-ErrorType BackupAndRestoreWorker::doSystemBackup()
-{
-    auto checkMountPoint = [](const QString &path)->QString const{
-        if (path.isEmpty()) return "Error";
-        QScopedPointer<QProcess> process(new QProcess);
-        process->start("df", {path});
-        process->waitForFinished(-1);
-        QTextStream stream(process->readAllStandardOutput());
-        QString line;
-        while (stream.readLineInto(&line)) {
-            line = line.simplified();
-            if (line.startsWith("/dev")) {
-                return line.split(' ').last();
-            }
-        }
-        return "Error";
-    };
-    const QString& choosePath { m_model->backupDirectory()};
-
-    if (choosePath.isEmpty() || !QDir(choosePath).exists()) {
-        return ErrorType::PathError2;
-    }
-
-    if (checkMountPoint(choosePath) == "Error" || checkMountPoint(choosePath) == "/" || checkMountPoint(choosePath) == "/boot") {
+    case ToolErrorType::FsError:
+        return ErrorType::FsError;
+    case ToolErrorType::PathError:
         return ErrorType::PathError;
-    }
-
-    QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "system_backup" << "--path" << choosePath);
-    process->waitForFinished(TimeOut);
-
-    const int &exitCode = process->exitCode();
-    if (exitCode == ToolErrorType::FsError) {
-        return ErrorType::FsError;
-    }
-    
-    if (exitCode == ToolErrorType::SpaceError) {
-        return ErrorType::SpaceError;
-    }
-
-    if (exitCode == ToolErrorType::GrubError) {
-        return ErrorType::GrubError;
-    }
-
-    if (exitCode == ToolErrorType::ToolError) {
-        qDebug() << process->readAllStandardError();
-        return ErrorType::ToolError;
-    }
-
-    restart();
-    return ErrorType::NoError;
-}
-
-ErrorType BackupAndRestoreWorker::doManualRestore()
-{
-    const QString& selectPath = m_model->restoreDirectory();
-
-    if (selectPath.isEmpty() || !QDir(selectPath).exists()) {
-        return ErrorType::PathError2;
-    }
-    auto checkValid = [](const QString& filePath) -> bool {
-        QScopedPointer<QProcess> process(new QProcess);
-        process->setProgram("deepin-clone");
-        process->setArguments({"--dim-info", filePath});
-        process->start();
-        process->waitForFinished();
-
-        return process->exitCode() == 0 && process->exitStatus() == QProcess::NormalExit;
-    };
-
-    if (!checkValid(QString("%1/system.dim").arg(selectPath))) {
-        qWarning() << Q_FUNC_INFO << "md5 check failed!";
+    case ToolErrorType::LocationError:
+        return ErrorType::LocationError;
+    case ToolErrorType::MD5Error:
         return ErrorType::MD5Error;
-    }
-
-    QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "manual_restore" << "--path" << selectPath);
-    process->waitForFinished(TimeOut);
-
-    const int &exitCode = process->exitCode();
-    if (exitCode == ToolErrorType::GrubError) {
-        return ErrorType::GrubError;
-    }
-
-    if (exitCode == ToolErrorType::ToolError) {
+    default:
         qDebug() << process->readAllStandardError();
         return ErrorType::ToolError;
     }
-
-    restart();
-    return ErrorType::NoError;
-}
-
-ErrorType BackupAndRestoreWorker::doSystemRestore()
-{
-    const bool formatData = m_model->formatData();
-
-    QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
-    process->waitForFinished(TimeOut);
-
-    const int &exitCode = process->exitCode();
-    if (exitCode == ToolErrorType::GrubError) {
-        return ErrorType::GrubError;
-    }
-
-    if (exitCode == ToolErrorType::ToolError) {
-        qDebug() << process->readAllStandardError();
-        return ErrorType::ToolError;
-    }
-
-    restart();
-    return ErrorType::NoError;
 }

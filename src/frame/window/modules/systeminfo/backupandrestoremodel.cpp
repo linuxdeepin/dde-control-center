@@ -28,16 +28,6 @@ void BackupAndRestoreModel::setRestoreButtonEnabled(bool restoreButtonEnabled)
     Q_EMIT restoreButtonEnabledChanged(restoreButtonEnabled);
 }
 
-void BackupAndRestoreModel::setBackupDirectory(const QString &directory)
-{
-    m_backupDirectory = directory;
-}
-
-void BackupAndRestoreModel::setRestoreDirectory(const QString &directory)
-{
-    m_restoreDirectory = directory;
-}
-
 void BackupAndRestoreModel::setFormatData(bool formatData)
 {
     m_formatData = formatData;

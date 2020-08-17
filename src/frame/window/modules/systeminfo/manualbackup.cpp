@@ -92,10 +92,8 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
         m_actionType = index.row() > 0 ? ActionType::SystemBackup : ActionType::ManualBackup;
     });
 
-    m_backupBtn->setEnabled(!model->backupDirectory().isEmpty());
+    m_backupBtn->setEnabled(false);
     m_backupBtn->setVisible(model->backupButtonEnabled());
-
-    m_directoryChooseWidget->lineEdit()->setText(model->backupDirectory());
 
     onManualBackupErrorTypeChanged(model->manualBackupErrorType());
 
@@ -168,16 +166,12 @@ void ManualBackup::onManualBackupErrorTypeChanged(ErrorType type)
     m_tipsLabel->setVisible(true);
 
     switch (type) {
-    case ErrorType::PathError: {
+    case ErrorType::LocationError: {
         m_tipsLabel->setText(tr("The storage location cannot be in source disk, please reselect"));
         break;
     }
-    case ErrorType::PathError2: {
+    case ErrorType::PathError: {
         m_tipsLabel->setText(tr("Invalid path"));
-        break;
-    }
-    case ErrorType::GrubError: {
-        m_tipsLabel->setText(tr("Grub authentication failed"));
         break;
     }
     case ErrorType::SpaceError: {

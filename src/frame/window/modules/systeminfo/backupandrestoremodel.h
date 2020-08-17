@@ -7,16 +7,13 @@
 namespace DCC_NAMESPACE {
 namespace systeminfo {
 enum ErrorType {
-    NoError,
+    NoError = 0,
     ToolError,
-    MD5Error,
-    MissingBoot,
-    MissingRoot,
-    GrubError,
-    PathError,
-    PathError2,
-    SpaceError,
-    FsError
+    SpaceError,     //磁盘空间不足
+    FsError,        //文件系统不支持
+    PathError,      //不是有效路径
+    LocationError,  //路径位置不允许
+    MD5Error,       //备份文件错误
 };
 
 class BackupAndRestoreModel : public QObject
@@ -37,14 +34,6 @@ public:
         return m_formatData;
     }
 
-    inline QString backupDirectory() const {
-        return m_backupDirectory;
-    }
-
-    inline QString restoreDirectory() const {
-        return m_restoreDirectory;
-    }
-
     inline ErrorType manualRestoreErrorType() const {
         return m_manualBackupErrorType;
     }
@@ -62,8 +51,6 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setBackupButtonEnabled(bool backupButtonEnabled);
     void setRestoreButtonEnabled(bool restoreButtonEnabled);
-    void setBackupDirectory(const QString& directory);
-    void setRestoreDirectory(const QString& directory);
     void setFormatData(bool formatData);
     void setManualRestoreErrorType(ErrorType errorType);
     void setManualBackupErrorType(ErrorType type);
@@ -74,8 +61,6 @@ private:
     bool m_formatData;
     ErrorType m_manualBackupErrorType;
     ErrorType m_manualRestoreErrorType;
-    QString m_backupDirectory;
-    QString m_restoreDirectory;
 };
 }
 }
