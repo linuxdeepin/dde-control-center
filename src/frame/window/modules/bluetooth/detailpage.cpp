@@ -32,6 +32,7 @@
 #include <QString>
 #include <QDBusInterface>
 #include <QFileDialog>
+#include <QApplication>
 
 #include <DDesktopServices>
 
@@ -75,12 +76,15 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     onDeviceStatusChanged();
     connect(m_ignoreButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestIgnoreDevice(m_adapter, m_device);
+        QApplication::focusWidget()->clearFocus();
     });
     connect(m_disconnectButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestDisconnectDevice(m_device);
+        QApplication::focusWidget()->clearFocus();
     });
     connect(m_connectButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestConnectDevice(m_device);
+        QApplication::focusWidget()->clearFocus();
     });
     connect(m_transfileButton, &QPushButton::clicked, this, [this] {
         // 调用接口选择文件进行传输
