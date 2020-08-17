@@ -61,6 +61,10 @@ void ProtocolFile::getPrivacyFile(QString &zhCN_Content, QString &enUS_Content)
 QString ProtocolFile::getUserExpContent()
 {
     QString userExpContent = getLicensePath("/usr/share/protocol/userexperience-agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
+    if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
+        userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement-Community/User-Experience-Program-License-Agreement-CN-%1.md", "");
+        return userExpContent;
+    }
     QFile newfile(userExpContent);
     if (false == newfile.exists()) {
         userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
