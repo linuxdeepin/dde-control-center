@@ -232,3 +232,14 @@ bool Monitor::hasResolutionAndRate(const Resolution &r)
 
     return false;
 }
+
+bool Monitor::hasRatefresh(const double r)
+{
+    for (auto m : m_modeList) {
+        if (fabs(m.rate() - r) < 0.000001) {
+            return true;
+        }
+    }
+
+    return false;
+}
