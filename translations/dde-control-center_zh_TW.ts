@@ -82,8 +82,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="894"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="896"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="898"/>
         <source>Bluetooth</source>
         <translation>藍牙</translation>
     </message>
@@ -95,7 +95,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Power</source>
-        <translation>電源</translation>
+        <translation>電源管理</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
@@ -104,21 +104,21 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="906"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="908"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="910"/>
         <source>Drawing Tablet</source>
         <translation>繪圖板</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="449"/>
         <source>Keyboard and Language</source>
         <translation>鍵盤和語言</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Updates</source>
-        <translation>檢查更新</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
@@ -127,29 +127,29 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="924"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>General Settings</source>
         <translation>一般設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="407"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="409"/>
         <source>Touchpad</source>
         <translation>觸控板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="408"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
         <source>TrackPoint</source>
         <translation>小紅點 (TrackPoint)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="445"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
         <source>Assistive Tools</source>
         <translation>輔助功能</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="918"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="922"/>
         <source>Cloud Sync</source>
         <translation>雲端同步</translation>
     </message>
@@ -164,7 +164,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="159"/>
         <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
-        <translation>只能由字母、數字、下劃線組成，且不超過15個字元</translation>
+        <translation>只能由字母、數字、中文、下劃線組成，且不超過15個字符</translation>
     </message>
 </context>
 <context>
@@ -222,12 +222,12 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="479"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="482"/>
         <source>Group</source>
         <translation>分組</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
         <source>The full name is too long</source>
         <translation>名稱過長</translation>
     </message>
@@ -469,7 +469,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="179"/>
         <source>Add Fingerprint</source>
-        <translation>加入指紋</translation>
+        <translation>新增指紋</translation>
     </message>
 </context>
 <context>
@@ -667,13 +667,13 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="67"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="68"/>
         <source>Boot Menu</source>
         <translation>開機選單</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="88"/>
         <source>General Settings</source>
         <translation>一般設定</translation>
     </message>
@@ -738,22 +738,22 @@
         <translation>簽名驗證失敗，無法進入開發者模式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="240"/>
-        <source>UOS Privacy Policy</source>
-        <translation>UOS隱私政策</translation>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
+        <source> </source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
         <translation>同意並加入使用者經驗計畫</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="307"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>開發者模式免責聲明</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="308"/>
         <source>Agree and Request Root Access</source>
         <translation>同意並進入開發者模式</translation>
     </message>
@@ -874,7 +874,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="164"/>
         <source>Restart Now</source>
-        <translation>Restart Now</translation>
+        <translation>立刻重新啟動</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="201"/>
@@ -891,7 +891,12 @@
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
+        <source>By collecting and analyzing the information of your device, system and applications, as well as the exceptions, this program helps improving the quality of products and services. Joining User Experience Program means that you grant and authorize us to collect and use the information. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en.</source>
+        <translation>用戶體驗計劃通過收集和分析設備及系統訊息、應用軟體訊息、系統運行異常訊息，來提升產品和服務質量。開啟用戶體驗計劃視為您授權我們收集和使用您的前述訊息。您可以關閉用戶體驗計劃以拒絕我們對前述訊息的收集和使用。了解數據的管理方式，參照隱私政策：https://www.uniontech.com/agreement/deepin-privacy-cn。</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="57"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
         <translation>開啟用戶體驗計劃視為您授權我們收集和使用您的裝置及系統訊息，以及 應用程式軟體訊息，您可以關閉使用者體驗計劃以拒絕我們對前述訊息的收集和使用。詳細說明請見 【UOS隱私政策(https://www.chinauos.com/agreement/experience)】。</translation>
     </message>
@@ -1151,12 +1156,12 @@
         <translation>螢幕亮度</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="313"/>
         <source>Cool</source>
         <translation>較冷</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="313"/>
         <source>Warm</source>
         <translation>較暖</translation>
     </message>
@@ -1178,7 +1183,7 @@
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="167"/>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="190"/>
         <source>Refresh Rate</source>
-        <translation>重新整理頻率</translation>
+        <translation>刷新率</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="138"/>
@@ -1234,7 +1239,7 @@
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="181"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="189"/>
         <source>Refresh Rate</source>
-        <translation>重新整理頻率</translation>
+        <translation>刷新率</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
     <message>
@@ -1439,7 +1444,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="103"/>
         <source>Add</source>
-        <translation>加入其他程式</translation>
+        <translation>加入</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="134"/>
@@ -1627,12 +1632,12 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="69"/>
         <source>Add</source>
-        <translation>加入其他程式</translation>
+        <translation>新增</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="74"/>
         <source>Add System Language</source>
-        <translation>加入系統語言</translation>
+        <translation>新增系統語言</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
@@ -1835,69 +1840,69 @@
 <context>
     <name>dccV20::network::ChainsProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="47"/>
         <source>Application Proxy</source>
         <translation>應用程式代理伺服器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="50"/>
         <source>Proxy Type</source>
         <translation>代理伺服器類型</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="58"/>
         <source>IP Address</source>
         <translation>IP 位址</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="62"/>
         <source>Port</source>
         <translation>連線埠</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="66"/>
         <source>Username</source>
         <translation>使用者名稱</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
         <source>Optional</source>
         <translation>選填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
         <source>Password</source>
         <translation>密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="90"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
         <translation>設定完後，請在啟動器中的應用程式右鍵選單核取「使用代理伺服器」選項</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="96"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
         <source>Save</source>
         <translation>儲存</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="212"/>
         <source>Invalid IP address</source>
         <translation>無效的IP位址</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="220"/>
         <source>Invalid port</source>
         <translation>無效的埠</translation>
     </message>
@@ -2378,7 +2383,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="148"/>
         <source>Configure by Network Manager</source>
-        <translation>依 NetworkManager 設定</translation>
+        <translation>依網絡管理器設定</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="307"/>
@@ -3157,47 +3162,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Gateway</source>
         <translation>閘道器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="90"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="93"/>
         <source>CA Cert</source>
         <translation>CA 憑證</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="96"/>
         <source>Proxy</source>
         <translation>代理伺服器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>允許 Cisco Secure Desktop Trojan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="102"/>
         <source>CSD Script</source>
         <translation>CSD 指令碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="105"/>
         <source>User Cert</source>
         <translation>使用者憑證</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="108"/>
         <source>Private Key</source>
         <translation>私鑰</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="111"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>為金鑰密碼使用 FSID</translation>
     </message>
@@ -3890,28 +3895,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
         <source>Connect to hidden network</source>
         <translation>連線到隱藏網路</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="277"/>
         <source>Wireless Network Adapter</source>
         <translation>無線網路介面卡</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="290"/>
         <source>Close Hotspot</source>
         <translation>關閉熱點</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="293"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>如想連線無線網路，請先關閉熱點</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="316"/>
         <source>WLAN</source>
         <translation>無線</translation>
     </message>
@@ -4067,41 +4072,41 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="111"/>
         <source>Theme</source>
         <translation>主題</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="123"/>
         <source>Accent Color</source>
         <translation>強調色</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="181"/>
         <source>Window Effect</source>
         <translation>視窗特效</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
         <source>Transparency</source>
         <translation>透明度</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="214"/>
         <source>Window Minimize Effect</source>
         <translation>最小化時效果</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
         <source>Scale</source>
         <translation>縮放</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
         <source>Magic Lamp</source>
         <translation>魔燈</translation>
     </message>
@@ -4644,7 +4649,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="488"/>
         <source>Cloud Account</source>
-        <translation>進入開發者模式</translation>
+        <translation>網路帳戶</translation>
     </message>
 </context>
 <context>
@@ -4762,12 +4767,12 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="191"/>
         <source>Left</source>
-        <translation>Left</translation>
+        <translation>左聲道</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="192"/>
         <source>Right</source>
-        <translation>Right</translation>
+        <translation>右聲道</translation>
     </message>
 </context>
 <context>
@@ -4815,12 +4820,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="180"/>
         <source>Update Settings</source>
-        <translation>更新設定</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="181"/>
         <source>Dock</source>
-        <translation>Dock</translation>
+        <translation>駐停</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="182"/>
@@ -4895,7 +4900,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
         <source>Union ID</source>
-        <translation>統信帳號</translation>
+        <translation>Union ID</translation>
     </message>
 </context>
 <context>
@@ -5030,7 +5035,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="82"/>
         <source>Type:</source>
-        <translation>Type:</translation>
+        <translation>類型：</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -5205,7 +5210,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidmodule.cpp" line="52"/>
         <source>Union ID</source>
-        <translation>統信帳號</translation>
+        <translation>Union ID</translation>
     </message>
 </context>
 <context>
@@ -5435,7 +5440,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="104"/>
         <source>Updates</source>
-        <translation>檢查更新</translation>
+        <translation>更新</translation>
     </message>
 </context>
 <context>
@@ -5697,7 +5702,7 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n 天前</numerusform></translation>
+        <translation><numerusform>%n天前</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5876,7 +5881,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation>檢查更新</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="162"/>
@@ -5949,32 +5954,32 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="399"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="401"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>您的主機已順利從網域伺服器移除</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="400"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="402"/>
         <source>Your host joins the domain server successfully</source>
         <translation>您的主機已順利加入網域伺服器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="422"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="424"/>
         <source>Your host failed to leave the domain server</source>
         <translation>您的主機離開網域伺服器失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="423"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="425"/>
         <source>Your host failed to join the domain server</source>
         <translation>您的主機加入網域伺服器失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="426"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
         <source>AD domain settings</source>
         <translation>AD 網域設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="495"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
         <source>Password not match</source>
         <translation>密碼不符</translation>
     </message>
@@ -6261,7 +6266,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
         <source>Add</source>
-        <translation>加入其他程式</translation>
+        <translation>新增</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="205"/>
@@ -6431,7 +6436,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="77"/>
         <source>Add</source>
-        <translation>加入其他程式</translation>
+        <translation>新增</translation>
     </message>
 </context>
 <context>
@@ -6662,8 +6667,8 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
-        <source>www.deepin.org</source>
-        <translation>www.deepin.org</translation>
+        <source>Copyright© 2011-2020 Deepin Community</source>
+        <translation>Copyright © 2011-2017 Deepin 社群</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
@@ -6747,17 +6752,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="392"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
         <source>Patches</source>
         <translation>修補程式</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="393"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
         <source>System patches</source>
         <translation>系統修補程式</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1139"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
         <source>System</source>
         <translation>系統</translation>
     </message>

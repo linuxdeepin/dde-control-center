@@ -192,7 +192,7 @@ const QString NativeInfoWidget::systemCopyright() const
 
     if (oem_copyright.isEmpty()) {
         if (DCC_NAMESPACE::IsDesktopSystem)
-            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "copyrigth© 2011-2020 Deepin Community"));
+            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2011-2020 Deepin Community"));
         else
             return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-2020 UnionTech Software Technology Co., LTD")).arg(2019);
     } else {

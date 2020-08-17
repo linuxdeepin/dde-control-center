@@ -73,7 +73,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Notification</source>
-        <translation>Notificação</translation>
+        <translation>Notificações</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
@@ -82,8 +82,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="894"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="896"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="898"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -104,14 +104,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="906"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="908"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="910"/>
         <source>Drawing Tablet</source>
         <translation>Mesa Digitalizadora</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="449"/>
         <source>Keyboard and Language</source>
         <translation>Teclado e Idioma</translation>
     </message>
@@ -127,29 +127,29 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="924"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>General Settings</source>
         <translation>Configurações Gerais</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="407"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="409"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="408"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="445"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
         <source>Assistive Tools</source>
         <translation>Ferramentas de Assistência</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="918"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="922"/>
         <source>Cloud Sync</source>
         <translation>Sincronização em Nuvem</translation>
     </message>
@@ -164,7 +164,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="159"/>
         <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
-        <translation>Use apenas letras, números e underline; não mais do que 15 caracteres</translation>
+        <translation>Use apenas letras, números e underlines; não mais do que 15 caracteres</translation>
     </message>
 </context>
 <context>
@@ -222,12 +222,12 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="479"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="482"/>
         <source>Group</source>
         <translation>Grupo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
         <source>The full name is too long</source>
         <translation>O nome completo é muito longo</translation>
     </message>
@@ -667,13 +667,13 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="67"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="68"/>
         <source>Boot Menu</source>
         <translation>Menu de Inicialização</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="88"/>
         <source>General Settings</source>
         <translation>Configurações Gerais</translation>
     </message>
@@ -738,22 +738,22 @@
         <translation>A verificação da assinatura falhou, impossível obter o acesso administrativo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="240"/>
-        <source>UOS Privacy Policy</source>
-        <translation>Política de Privacidade do UOS</translation>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
+        <source> </source>
+        <translation> </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Concordar e Participar do Programa de Experiência do Usuário</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="307"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Aviso Legal do Modo de Desenvolvedor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="308"/>
         <source>Agree and Request Root Access</source>
         <translation>Concordar e Solicitar Acesso Administrativo</translation>
     </message>
@@ -891,7 +891,12 @@
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
+        <source>By collecting and analyzing the information of your device, system and applications, as well as the exceptions, this program helps improving the quality of products and services. Joining User Experience Program means that you grant and authorize us to collect and use the information. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="57"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
         <translation>Ao participar do Programa de Experiência do Usuário, você nos autoriza a coletar e utilizar as informações do dispositivo, sistema e aplicativos. Para maiores informações, consulte a Política de Privacidade do UOS (https://www.chinauos.com/agreement/experience).</translation>
     </message>
@@ -1151,12 +1156,12 @@
         <translation>Brilho</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="313"/>
         <source>Cool</source>
         <translation>Frio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="313"/>
         <source>Warm</source>
         <translation>Quente</translation>
     </message>
@@ -1835,69 +1840,69 @@
 <context>
     <name>dccV20::network::ChainsProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="47"/>
         <source>Application Proxy</source>
         <translation>Proxy de Aplicativos</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="50"/>
         <source>Proxy Type</source>
         <translation>Tipo de Proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="58"/>
         <source>IP Address</source>
         <translation>Endereço IP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
         <source>Required</source>
         <translation>Obrigatório</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="62"/>
         <source>Port</source>
         <translation>Porta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="66"/>
         <source>Username</source>
         <translation>Nome de Usuário</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
         <source>Optional</source>
         <translation>Opcional</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
         <source>Password</source>
         <translation>Senha</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="90"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
         <translation>Selecione &quot;Usar Proxy&quot; no menu de contexto do Lançador, após a configuração</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="96"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
         <source>Save</source>
         <translation>Salvar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="212"/>
         <source>Invalid IP address</source>
         <translation>Endereço IP inválido</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="220"/>
         <source>Invalid port</source>
         <translation>Porta inválida</translation>
     </message>
@@ -3157,47 +3162,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Gateway</source>
         <translation>Gateway</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="90"/>
         <source>Required</source>
         <translation>Obrigatório</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="93"/>
         <source>CA Cert</source>
         <translation>Certificado CA</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="96"/>
         <source>Proxy</source>
         <translation>Proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>Permitir o Trojan do Cisco Secure Desktop</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="102"/>
         <source>CSD Script</source>
         <translation>Script CSD</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="105"/>
         <source>User Cert</source>
         <translation>Certificado de Usuário</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="108"/>
         <source>Private Key</source>
         <translation>Chave Privada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="111"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>Usar o FSID para a Dica de Senha</translation>
     </message>
@@ -3442,7 +3447,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
         <source>File error</source>
-        <translation>Erro no arquivo</translation>
+        <translation>Erro de arquivo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="357"/>
@@ -3890,28 +3895,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
         <source>Connect to hidden network</source>
         <translation>Conectar-se à rede oculta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="277"/>
         <source>Wireless Network Adapter</source>
         <translation>Placa de Rede Wi-Fi</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="290"/>
         <source>Close Hotspot</source>
         <translation>Fechar Hotspot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="293"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Desative o hotspot para conectar-se ao Wi-Fi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="316"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3987,7 +3992,7 @@
     <message>
         <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="70"/>
         <source>Notification</source>
-        <translation>Notificação</translation>
+        <translation>Notificações</translation>
     </message>
 </context>
 <context>
@@ -4067,41 +4072,41 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="111"/>
         <source>Theme</source>
         <translation>Tema</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="123"/>
         <source>Accent Color</source>
         <translation>Cor em destaque</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="181"/>
         <source>Window Effect</source>
         <translation>Efeito Janela</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
         <source>Transparency</source>
         <translation>Transparência</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="214"/>
         <source>Window Minimize Effect</source>
         <translation>Efeito de minimizar janela</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
         <source>Scale</source>
         <translation>Escala</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
         <source>Magic Lamp</source>
         <translation>Lâmpada Mágica</translation>
     </message>
@@ -5232,12 +5237,12 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="10"/>
         <source>Untested</source>
-        <translation>Não Testado</translation>
+        <translation>Não testado</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="80"/>
         <source>Timeout</source>
-        <translation>Tempo excedido</translation>
+        <translation>Tempo esgotado</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="82"/>
@@ -5247,7 +5252,7 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="84"/>
         <source>Medium</source>
-        <translation>Médio</translation>
+        <translation>Mediano</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="86"/>
@@ -5271,7 +5276,7 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="141"/>
         <source>Untested</source>
-        <translation>Não Testado</translation>
+        <translation>Não testado</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="170"/>
@@ -5706,7 +5711,7 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
-        <translation>Nenhuma Notificação</translation>
+        <translation>Nenhuma notificação do sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
@@ -5950,32 +5955,32 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="399"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="401"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Seu host foi removido do servidor de domínio com sucesso</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="400"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="402"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Seu host juntou-se ao servidor de domínio com sucesso</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="422"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="424"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Seu host falhou em deixar o servidor de domínio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="423"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="425"/>
         <source>Your host failed to join the domain server</source>
         <translation>Seu host falhou em juntar-se ao servidor de domínio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="426"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
         <source>AD domain settings</source>
         <translation>Configurações de domínio AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="495"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
         <source>Password not match</source>
         <translation>A senha não coincide</translation>
     </message>
@@ -5985,52 +5990,52 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint1</source>
-        <translation>Digital1</translation>
+        <translation>Impressão digital 1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint2</source>
-        <translation>Digital2</translation>
+        <translation>Impressão digital 2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint3</source>
-        <translation>Digital3</translation>
+        <translation>Impressão digital 3</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint4</source>
-        <translation>Digital4</translation>
+        <translation>Impressão digital 4</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint5</source>
-        <translation>Digital5</translation>
+        <translation>Impressão digital 5</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint6</source>
-        <translation>Digital6</translation>
+        <translation>Impressão digital 6</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint7</source>
-        <translation>Digital7</translation>
+        <translation>Impressão digital 7</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint8</source>
-        <translation>Digital8</translation>
+        <translation>Impressão digital 8</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint9</source>
-        <translation>Digital9</translation>
+        <translation>Impressão digital 9</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
         <source>Fingerprint10</source>
-        <translation>Digital10</translation>
+        <translation>Impressão digital 10</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="108"/>
@@ -6256,7 +6261,7 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="202"/>
         <source>Add Timezone</source>
-        <translation>Adicionar Fuso horário</translation>
+        <translation>Adicionar Fuso Horário</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
@@ -6352,12 +6357,12 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="179"/>
         <source>Primary</source>
-        <translation>Primária</translation>
+        <translation>Primário</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="346"/>
         <source> (Recommended)</source>
-        <translation>(Recomendada)</translation>
+        <translation>(recomendada)</translation>
     </message>
 </context>
 <context>
@@ -6421,7 +6426,7 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="49"/>
         <source>Add Keyboard Layout</source>
-        <translation>Adicionar layout de teclado</translation>
+        <translation>Adicionar Layout de Teclado</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
@@ -6549,7 +6554,7 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
         <source>Power Management</source>
-        <translation>Gerenciamento de energia</translation>
+        <translation>Gerenciamento de Energia</translation>
     </message>
 </context>
 <context>
@@ -6570,7 +6575,7 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="69"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="86"/>
         <source>Log out</source>
-        <translation>Encerrar sessão</translation>
+        <translation>Sair</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="70"/>
@@ -6607,7 +6612,7 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="75"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="91"/>
         <source>Empty Trash</source>
-        <translation>Esvaziar a Lixeira</translation>
+        <translation>Esvaziar Lixeira</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="76"/>
@@ -6663,8 +6668,8 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
-        <source>www.deepin.org</source>
-        <translation>www.deepin.org</translation>
+        <source>Copyright© 2011-2020 Deepin Community</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
@@ -6678,13 +6683,13 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="45"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="129"/>
         <source>Untested</source>
-        <translation>Não Testado</translation>
+        <translation>Não testado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="91"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="125"/>
         <source>Timeout</source>
-        <translation>Tempo excedido</translation>
+        <translation>Tempo esgotado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="93"/>
@@ -6696,7 +6701,7 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="95"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="127"/>
         <source>Medium</source>
-        <translation>Médio</translation>
+        <translation>Mediano</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="97"/>
@@ -6720,7 +6725,7 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="80"/>
         <source>Failed to update</source>
-        <translation>Falha na atualização</translation>
+        <translation>Falha ao atualizar</translation>
     </message>
 </context>
 <context>
@@ -6748,17 +6753,17 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="392"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
         <source>Patches</source>
         <translation>Correções</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="393"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
         <source>System patches</source>
         <translation>Correções do sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1139"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>

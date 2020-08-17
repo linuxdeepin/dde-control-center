@@ -82,8 +82,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="894"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="896"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="898"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -104,14 +104,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="906"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="908"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="910"/>
         <source>Drawing Tablet</source>
         <translation>Drawing Tablet</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="449"/>
         <source>Keyboard and Language</source>
         <translation>Bàn phím và Ngôn ngữ</translation>
     </message>
@@ -127,29 +127,29 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="924"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>General Settings</source>
         <translation>Cài đặt chung</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="407"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="409"/>
         <source>Touchpad</source>
         <translation>Miếng cảm ứng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="408"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
         <source>TrackPoint</source>
         <translation>Điểm theo dõi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="445"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
         <source>Assistive Tools</source>
         <translation>Công cụ hỗ trợ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="918"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="922"/>
         <source>Cloud Sync</source>
         <translation>Đồng bộ hóa trên đám mây</translation>
     </message>
@@ -222,12 +222,12 @@
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="479"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="482"/>
         <source>Group</source>
         <translation>Nhóm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
         <source>The full name is too long</source>
         <translation>Tên quá dài</translation>
     </message>
@@ -667,13 +667,13 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="67"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="68"/>
         <source>Boot Menu</source>
         <translation>Danh sách Khởi động</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="88"/>
         <source>General Settings</source>
         <translation>Cài đặt chung</translation>
     </message>
@@ -715,7 +715,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Vui lòng đăng nhập vào Union ID của bạn trước</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
@@ -738,22 +738,22 @@
         <translation>Xác minh chữ ký không thành công, không thể truy cập root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="240"/>
-        <source>UOS Privacy Policy</source>
-        <translation>Chính sách bảo mật của UOS</translation>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
+        <source> </source>
+        <translation>.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Đồng ý và gia nhập chương trình trải nghiệm người dùng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="307"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Tuyên bố miễn trừ trách nhiệm của Chế độ nhà phát triển</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="308"/>
         <source>Agree and Request Root Access</source>
         <translation>Đồng ý và yêu cầu quyền truy cập root</translation>
     </message>
@@ -779,7 +779,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="90"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="120"/>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Vui lòng đăng nhập vào Union ID của bạn trước và tiếp tục</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="95"/>
@@ -834,7 +834,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Vui lòng đăng nhập vào Union ID của bạn trước</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
@@ -891,7 +891,12 @@
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
+        <source>By collecting and analyzing the information of your device, system and applications, as well as the exceptions, this program helps improving the quality of products and services. Joining User Experience Program means that you grant and authorize us to collect and use the information. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="57"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
         <translation>Tham gia Chương trình Trải nghiệm Người dùng nghĩa là bạn cấp và ủy quyền cho chúng tôi thu thập và sử dụng thông tin của thiết bị, hệ thống và ứng dụng của bạn. Nếu bạn từ chối việc thu thập và sử dụng thông tin nói trên của chúng tôi, đừng tham gia Chương trình Trải nghiệm Người dùng. Để biết chi tiết, vui lòng tham khảo Chính sách bảo mật của UOS (https://www.chinauos.com/agferences/experience).</translation>
     </message>
@@ -1151,12 +1156,12 @@
         <translation>Độ sáng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="313"/>
         <source>Cool</source>
         <translation>Lạnh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="313"/>
         <source>Warm</source>
         <translation>Ấm</translation>
     </message>
@@ -1835,69 +1840,69 @@
 <context>
     <name>dccV20::network::ChainsProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="47"/>
         <source>Application Proxy</source>
         <translation>Ứng dụng Proxy  </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="50"/>
         <source>Proxy Type</source>
         <translation>Dạng Ủy quyền</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="58"/>
         <source>IP Address</source>
         <translation>Địa chỉ IP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
         <source>Required</source>
         <translation>Cần thiết</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="62"/>
         <source>Port</source>
         <translation>Cổng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="66"/>
         <source>Username</source>
         <translation>Tên người dùng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
         <source>Optional</source>
         <translation>Không bắt buộc</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
         <source>Password</source>
         <translation>Mật mã</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="90"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
         <translation>Chọn &quot;Sử dụng proxy&quot; trong menu ngữ cảnh ứng dụng trong Trình khởi chạy sau khi được định cấu hình</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="96"/>
         <source>Cancel</source>
         <translation>Hủy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
         <source>Save</source>
         <translation>Lưu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="212"/>
         <source>Invalid IP address</source>
         <translation>Địa chỉ IP sai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="220"/>
         <source>Invalid port</source>
         <translation>Port không đúng</translation>
     </message>
@@ -3157,47 +3162,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Gateway</source>
         <translation>Cổng vào</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="90"/>
         <source>Required</source>
         <translation>Cần thiết</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="93"/>
         <source>CA Cert</source>
         <translation>Xác nhận CA</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="96"/>
         <source>Proxy</source>
         <translation>Ủy thác</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>Cho phép Trojan Trang đầu Bảo mật Cisco</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="102"/>
         <source>CSD Script</source>
         <translation>Mã CSD</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="105"/>
         <source>User Cert</source>
         <translation>Xác nhận Người dùng</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="108"/>
         <source>Private Key</source>
         <translation>Chìa khóa Cá nhân</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="111"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>Sử dụng FSID cho Cụm mật khẩu Chìa khóa</translation>
     </message>
@@ -3890,28 +3895,28 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
         <source>Connect to hidden network</source>
         <translation>Kết nối với mạng ẩn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="277"/>
         <source>Wireless Network Adapter</source>
         <translation>Wireless Network Adapter</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="290"/>
         <source>Close Hotspot</source>
         <translation>Đóng điểm truy cập</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="293"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Trước tiên hãy tắt điểm phát sóng nếu bạn muốn kết nối với mạng không dây</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="316"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -4067,41 +4072,41 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="111"/>
         <source>Theme</source>
         <translation>Chủ đề</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="123"/>
         <source>Accent Color</source>
         <translation>Màu chính</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="181"/>
         <source>Window Effect</source>
         <translation>Hiệu ứng của sổ</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
         <source>Transparency</source>
         <translation>Trong suốt</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="214"/>
         <source>Window Minimize Effect</source>
         <translation>Hiệu ứng thu nhỏ của sổ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
         <source>Scale</source>
         <translation>Tỷ lệ giãn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
         <source>Magic Lamp</source>
         <translation>Magic Lamp</translation>
     </message>
@@ -4864,7 +4869,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>After signing in, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation type="unfinished"/>
+        <translation>Sau khi đăng nhập, bạn có thể sử dụng đồng bộ đám mây, cửa hàng ứng dụng, ứng dụng email, trình duyệt và các dịch vụ đám mây khác.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
@@ -4928,7 +4933,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="125"/>
         <source>Applying changes to your system...</source>
-        <translation>Đang áp dụng các thay đổi cho hệ thống của bạn ...</translation>
+        <translation>Đang áp dụng các thay đổi Đang áp dụng các thay đổi cho hệ thống của bạn ...cho hệ thống của bạn ...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="172"/>
@@ -5400,7 +5405,7 @@ Truy cập Trung tâm người dùng và quản lý tài khoản của bạn ở
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>Phiên bản hệ thống và %n ứng dụng có cập nhật mới</numerusform></translation>
+        <translation><numerusform>Bản cập nhật hệ thống và %n ứng dụng có cập nhật mới</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
@@ -5950,32 +5955,32 @@ Truy cập Trung tâm người dùng và quản lý tài khoản của bạn ở
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="399"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="401"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Máy chủ của bạn đã được xóa khỏi máy chủ tên miền thành công</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="400"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="402"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Máy chủ của bạn tham gia máy chủ tên miền thành công</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="422"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="424"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Máy chủ của bạn không thể rời khỏi máy chủ tên miền</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="423"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="425"/>
         <source>Your host failed to join the domain server</source>
         <translation>Máy chủ của bạn không thể tham gia máy chủ tên miền</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="426"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
         <source>AD domain settings</source>
         <translation>Cài đặt miền AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="495"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
         <source>Password not match</source>
         <translation>Mậu mã không khớp.</translation>
     </message>
@@ -6663,8 +6668,8 @@ Truy cập Trung tâm người dùng và quản lý tài khoản của bạn ở
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
-        <source>www.deepin.org</source>
-        <translation>www.deepin.org</translation>
+        <source>Copyright© 2011-2020 Deepin Community</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
@@ -6748,17 +6753,17 @@ Truy cập Trung tâm người dùng và quản lý tài khoản của bạn ở
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="392"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
         <source>Patches</source>
         <translation>Các bản vá</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="393"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
         <source>System patches</source>
         <translation>Các bản vá Hệ thống.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1139"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
         <source>System</source>
         <translation>Hệ thống</translation>
     </message>

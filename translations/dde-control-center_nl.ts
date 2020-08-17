@@ -14,7 +14,7 @@
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Bluetooth inschakelen om apparaten in de buurt te vinden (bv. luidsprekers, toetsenborden, muizen)</translation>
+        <translation>Schakel Bluetooth in om apparaten in de buurt te vinden (zoals luidsprekers, toetsenborden en muizen)</translation>
     </message>
 </context>
 <context>
@@ -30,12 +30,12 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>Klik op het pictogram om bluetooth in te schakelen</translation>
+        <translation>Klik op het pictogram om Bluetooth in te schakelen</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation>Verbind met andere apparaten</translation>
+        <translation>Verbinden met andere apparaten</translation>
     </message>
 </context>
 <context>
@@ -58,12 +58,12 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Default Applications</source>
-        <translation>Standaardtoepassingen</translation>
+        <translation>Standaardprogramma&apos;s</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
         <source>Personalization</source>
-        <translation>Personalisatie</translation>
+        <translation>Vormgeving</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Notification</source>
-        <translation>Melding</translation>
+        <translation>Meldingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
@@ -82,8 +82,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="894"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="896"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="898"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -104,14 +104,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="906"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="908"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="910"/>
         <source>Drawing Tablet</source>
         <translation>Tekentablet</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="449"/>
         <source>Keyboard and Language</source>
         <translation>Toetsenbord en taal</translation>
     </message>
@@ -127,29 +127,29 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="924"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>General Settings</source>
-        <translation>Algemene Instellingen</translation>
+        <translation>Algemene instellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="407"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="409"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="408"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="445"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
         <source>Assistive Tools</source>
         <translation>Hulpmiddelen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="918"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="922"/>
         <source>Cloud Sync</source>
         <translation>Automatisch synchroniseren</translation>
     </message>
@@ -159,12 +159,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="103"/>
         <source>The name already exists</source>
-        <translation>De naam bestaat al</translation>
+        <translation>Deze naam is al in gebruik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="159"/>
         <source>Use letters, numbers and underlines only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik max. 15 letters, cijfers en onderliggende streepjes</translation>
     </message>
 </context>
 <context>
@@ -178,12 +178,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="250"/>
         <source>The full name already exists</source>
-        <translation>Deze volledige naam bestaat al</translation>
+        <translation>Deze volledige naam is al in gebruik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="290"/>
         <source>Validity Days</source>
-        <translation>Dagen Geldig</translation>
+        <translation>Geldigheidsduur</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="292"/>
@@ -195,7 +195,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
         <source>Please input a number between 1-99999</source>
-        <translation>Geef a.u.b. een getal van 1 tot 99999 in</translation>
+        <translation>Voer een getal tussen 1 en 99999 in</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="390"/>
@@ -218,16 +218,16 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="399"/>
         <source>Login Without Password</source>
-        <translation>Login Zonder Wachtwoord</translation>
+        <translation>Aanmelden zonder wachtwoord</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="479"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="482"/>
         <source>Group</source>
         <translation>Groep</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
         <source>The full name is too long</source>
         <translation>De volledige naam is te lang</translation>
     </message>
@@ -289,7 +289,7 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="186"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="202"/>
         <source>Scan Suspended</source>
-        <translation>Scan opgeheven</translation>
+        <translation>Scan onderbroken</translation>
     </message>
 </context>
 <context>
@@ -327,7 +327,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="167"/>
         <source>Account Type</source>
-        <translation>Accounttype</translation>
+        <translation>Soort account</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
@@ -362,7 +362,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="258"/>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>Aangepast</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
@@ -379,18 +379,18 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="359"/>
         <source>Go to Settings</source>
-        <translation>Ga naar Instellingen</translation>
+        <translation>Ga naar de instellingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="476"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="485"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Voer een wachtwoord in</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="489"/>
         <source>The password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Het wachtwoord moet minimaal %1 tekens bevatten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
@@ -400,22 +400,22 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Het wachtwoord moet minstens %1 van de volgende tekens bevatten: kleine letters, hoofdletters, cijfers en speciale tekens</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="501"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Wachtwoorden kunnen enkel Nederlandse letters (hoofdlettergevoelig), cijfers of speciale tekens (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bevatten</translation>
+        <translation>Wachtwoorden mogen enkel Nederlandstalige letters (hoofdlettergevoelig), cijfers of speciale tekens (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bevatten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Het wachtwoord moet minstens %1 tekens bevatten én minstens %2 van de volgende tekens: kleine letters, hoofdletters, cijfers en symbolen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
         <source>Passwords do not match</source>
-        <translation>Wachtwoorden komen niet overeen</translation>
+        <translation>De wachtwoorden komen niet overeen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
@@ -430,12 +430,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Je gebruikersnaam mag niet alleen uit cijfers bestaan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="567"/>
         <source>The full name already exists</source>
-        <translation>Deze volledige naam bestaat al</translation>
+        <translation>Deze volledige naam is al in gebruik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="574"/>
@@ -449,17 +449,17 @@
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="87"/>
         <source>Edit</source>
-        <translation>Bewerken</translation>
+        <translation>Aanpassen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
         <source>Fingerprint Password</source>
-        <translation>Wachtwoord voor vingerafdrukken</translation>
+        <translation>Vingerafdrukwachtwoord</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
         <source>You can add up to 10 fingerprints</source>
-        <translation>Je kan tot 10 vingerafdrukken toevoegen</translation>
+        <translation>Je kan max. 10 vingerafdrukken toevoegen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="85"/>
@@ -503,7 +503,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
         <source>Save</source>
-        <translation>Bewaren</translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
@@ -515,7 +515,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="158"/>
         <source>Go to Settings</source>
-        <translation>Ga naar Instellingen</translation>
+        <translation>Ga naar de instellingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="184"/>
@@ -525,43 +525,43 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
         <source>Passwords do not match</source>
-        <translation>Wachtwoorden komen niet overeen</translation>
+        <translation>De wachtwoorden komen niet overeen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="286"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Voer een wachtwoord in</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
         <source>The password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Het wachtwoord moet minimaal %1 tekens bevatten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
         <source>Password must be no more than %1 characters</source>
-        <translation>Het wachtwoord mag niet meer dan %1  tekens lang zijn</translation>
+        <translation>Het wachtwoord mag niet meer dan %1 tekens lang zijn</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="298"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Het wachtwoord moet minstens %1 van de volgende tekens bevatten: kleine letters, hoofdletters, cijfers en speciale tekens</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="302"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Wachtwoorden kunnen enkel Nederlandse letters (hoofdlettergevoelig), cijfers of speciale tekens (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bevatten</translation>
+        <translation>Wachtwoorden mogen enkel Nederlandstalige letters (hoofdlettergevoelig), cijfers of speciale tekens (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bevatten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Het wachtwoord moet minstens %1 tekens bevatten én minstens %2 van de volgende tekens: kleine letters, hoofdletters, cijfers en symbolen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
         <source>New password should differ from the current one</source>
-        <translation>Het nieuwe wachtwoord moet verschillen van het huidige wachtwoord</translation>
+        <translation>Het nieuwe wachtwoord moet verschillen van het huidige</translation>
     </message>
 </context>
 <context>
@@ -569,13 +569,13 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="55"/>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Mijn apparaten</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="59"/>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Andere apparaten</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
@@ -597,7 +597,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="45"/>
         <source>Ignore this device</source>
-        <translation>Negeer dit apparaat</translation>
+        <translation>Apparaat negeren</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
@@ -651,12 +651,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>Klik op de optie in het opstartmenu om deze in te stellen als eerste opstart, en drag &amp; drop een afbeelding om de achtergrond te wijzigen</translation>
+        <translation>Klik op de optie in het opstartmenu om deze in te stellen als eerste opstart, of sleep een afbeelding hiernaartoe om de achtergrond te wijzigen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="105"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Schakel thema in om het te zien in het opstartmenu</translation>
+        <translation>Schakel het thema in om het te zien in het opstartmenu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="129"/>
@@ -667,15 +667,15 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="67"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="68"/>
         <source>Boot Menu</source>
         <translation>Opstartmenu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="88"/>
         <source>General Settings</source>
-        <translation>Algemene Instellingen</translation>
+        <translation>Algemene instellingen</translation>
     </message>
 </context>
 <context>
@@ -695,7 +695,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="85"/>
         <source>User Experience Program</source>
-        <translation>Programma voor Gebruikerservaringen</translation>
+        <translation>Programma omtrent gebruikerservaringen</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
@@ -710,52 +710,52 @@
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="92"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="104"/>
         <source>Failed to get root access</source>
-        <translation>Root toegang mislukt</translation>
+        <translation>Kan geen beheerderstoegang verkrijgen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Log in met je Union ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
         <source>Cannot read your PC information</source>
-        <translation>Kan je PC informatie niet lezen</translation>
+        <translation>Je computerinformatie kan niet worden uitgelezen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
         <source>No network connection</source>
-        <translation>Geen netwerkverbinding</translation>
+        <translation>Geen internetverbinding</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="100"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Laden van het certificaat mislukt, kan geen root toegang verkrijgen</translation>
+        <translation>Het certificaat kan niet worden geladen omdat er geen beheerderstoegang kan worden verkregen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="102"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Handtekeningverificatie mislukt, kan geen root toegang verkrijgen</translation>
+        <translation>De handtekeningverificatie is mislukt omdat er geen beheerderstoegang kan worden verkregen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="240"/>
-        <source>UOS Privacy Policy</source>
-        <translation>UOS Privacybeleid</translation>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
+        <source> </source>
+        <translation> </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
-        <translation>Akkoord en neem deel aan het Programma voor Gebruikerservaringen</translation>
+        <translation>Ik ga akkoord en neem deel aan het programma omtrent gebruikerservaringen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="307"/>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>Vrijwaringsclausule voor Ontwikkelaarsmodus</translation>
+        <translation>Vrijwaringsclausule omtrent ontwikkelaarsmodus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="308"/>
         <source>Agree and Request Root Access</source>
-        <translation>Akkoord en verzoek root toegang</translation>
+        <translation>Ik ga akkoord en verzoek administratortoegang</translation>
     </message>
 </context>
 <context>
@@ -763,7 +763,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="64"/>
         <source>Request Root Access</source>
-        <translation>Verzoek root toegang</translation>
+        <translation>Administratortoegang verzoeken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="73"/>
@@ -779,7 +779,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="90"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="120"/>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Log in met je Union ID om verder te gaan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="95"/>
@@ -789,7 +789,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="99"/>
         <source>Export PC Info</source>
-        <translation>Exporteer PC Info</translation>
+        <translation>Computerinformatie exporteren</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="100"/>
@@ -799,12 +799,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="126"/>
         <source>1. Export your PC information</source>
-        <translation>1. Exporteer je PC informatie</translation>
+        <translation>1. Exporteer je computerinformatie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="127"/>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation>2. Ga naar https://www.chinauos.com/developMode om een offline certificaat te downloaden</translation>
+        <translation>2. Ga naar https://www.chinauos.com/developMode om een offline-certificaat op te halen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="128"/>
@@ -818,53 +818,53 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="208"/>
         <source>Request Root Access</source>
-        <translation>Verzoek root toegang</translation>
+        <translation>Administratortoegang verzoeken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>De ontwikkelaarsmodus stelt je in staat root privileges te verkrijgen en niet-ondertekende apps die niet in de appstore te vinden zijn te installeren en te draaien. De systeemintegriteit wordt daardoor kwetsbaar. Wees voorzichtig.</translation>
+        <translation>De ontwikkelaarsmodus stelt je in staat administratortoegang te verkrijgen en niet-ondertekende programma&apos;s, die niet in de appwinkel te vinden zijn, te installeren en uit te voeren. Hierdoor komt de systeemintegriteit in het gedrang - wees dus voorzichtig.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="106"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="118"/>
         <source>Failed to get root access</source>
-        <translation>Root toegang mislukt</translation>
+        <translation>Geen administratortoegang</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Log in met je Union ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
         <source>Cannot read your PC information</source>
-        <translation>Kan je PC informatie niet lezen</translation>
+        <translation>Je computerinformatie kan niet worden uitgelezen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
         <source>No network connection</source>
-        <translation>Geen netwerkverbinding</translation>
+        <translation>Geen internetverbinding</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="114"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Laden van het certificaat mislukt, kan geen root toegang verkrijgen</translation>
+        <translation>Het certificaat kan niet worden geladen omdat er geen beheerderstoegang kan worden verkregen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="116"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Handtekeningverificatie mislukt, kan geen root toegang verkrijgen</translation>
+        <translation>De handtekeningverificatie is mislukt omdat er geen beheerderstoegang kan worden verkregen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="129"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Deze optie is momenteel niet beschikbaar. Activeer je systeem.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="163"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation>Om bepaalde opties beschikbaar te maken is een herstart vereist. Wil je nu herstarten?</translation>
+        <translation>Om bepaalde opties beschikbaar te maken, is een herstart vereist. Wil je nu herstarten?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="164"/>
@@ -879,7 +879,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="201"/>
         <source>Root Access Allowed</source>
-        <translation>Root toegang toegestaan</translation>
+        <translation>Administratortoegang toegestaan</translation>
     </message>
 </context>
 <context>
@@ -887,13 +887,18 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="46"/>
         <source>Join User Experience Program</source>
-        <translation>Sluit je aan bij het Programma voor Gebruikerservaringen</translation>
+        <translation>Neem deel aan het programma omtrent gebruikerservaringen</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
+        <source>By collecting and analyzing the information of your device, system and applications, as well as the exceptions, this program helps improving the quality of products and services. Joining User Experience Program means that you grant and authorize us to collect and use the information. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="57"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
-        <translation>Je aansluiten bij het Programma voor Gebruikerservaringen betekent dat je toestaat dat we informatie over je apparaat, systeem en applicaties verzamelen. Als je dat niet wil sluit je je beter niet aan. Voor meer informatie kan je onze UOS Privacy Policy doorlezen: https://www.chinauos.com/agreement/experience</translation>
+        <translation>Door deel te nemen aan het programma omtrent gebruikerservaringen sta je toe dat we informatie over je apparaat, systeem en programma&apos;s verzamelen en verwerken. Meer informatie is te vinden in het UOS-privacybeleid: https://www.chinauos.com/agreement/experience</translation>
     </message>
 </context>
 <context>
@@ -926,7 +931,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="89"/>
         <source>Confirm</source>
-        <translation>Bevestigen</translation>
+        <translation>Oké</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="136"/>
@@ -992,7 +997,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="61"/>
         <source>Timezone List</source>
-        <translation>Tijdzone lijst</translation>
+        <translation>Tijdzonelijst</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="63"/>
@@ -1003,7 +1008,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="85"/>
         <source>24-hour Time</source>
-        <translation>24-uren tijd</translation>
+        <translation>24-uursklok</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -1012,13 +1017,13 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="42"/>
         <source>Change System Timezone</source>
-        <translation>Tijdzone Systeem wijzigen</translation>
+        <translation>Systeemtijdzone wijzigen</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="46"/>
         <source>System Timezone</source>
-        <translation>Tijdzone van systeem</translation>
+        <translation>Systeemtijdzone</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -1027,7 +1032,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="48"/>
         <source>Timezone List</source>
-        <translation>Tijdzone lijst</translation>
+        <translation>Tijdzonelijst</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
     <message>
@@ -1043,13 +1048,13 @@
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="75"/>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="76"/>
         <source>Add Application</source>
-        <translation>Applicatie toevoegen</translation>
+        <translation>Programma toevoegen</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="258"/>
         <source>Open Desktop file</source>
-        <translation>Open bureaublad bestand</translation>
+        <translation>Bureaubladbestand openen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="318"/>
@@ -1062,7 +1067,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="82"/>
         <source>Default Applications</source>
-        <translation>Standaardtoepassingen</translation>
+        <translation>Standaardprogramma&apos;s</translation>
     </message>
 </context>
 <context>
@@ -1076,7 +1081,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
         <source>Mail</source>
-        <translation>Mail</translation>
+        <translation>E-mail</translation>
         <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
@@ -1112,7 +1117,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="94"/>
         <source>Default Applications</source>
-        <translation>Standaardtoepassingen</translation>
+        <translation>Standaardprogramma&apos;s</translation>
     </message>
 </context>
 <context>
@@ -1120,12 +1125,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="60"/>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Kleurtemperatuur</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="68"/>
         <source>Night Shift</source>
-        <translation>Nachtdienst</translation>
+        <translation>Nachtmodus</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
@@ -1136,7 +1141,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="84"/>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Kleurtemperatuur aanpassen</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
@@ -1151,14 +1156,14 @@
         <translation>Helderheid</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="313"/>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>Koel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="313"/>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>Warm</translation>
     </message>
 </context>
 <context>
@@ -1166,7 +1171,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="95"/>
         <source>Displays</source>
-        <translation type="unfinished"/>
+        <translation>Beeldschermen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="101"/>
@@ -1178,7 +1183,7 @@
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="167"/>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="190"/>
         <source>Refresh Rate</source>
-        <translation>Verversingsratio</translation>
+        <translation>Ververssnelheid</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="138"/>
@@ -1188,7 +1193,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="142"/>
         <source>Save</source>
-        <translation>Bewaren</translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="288"/>
@@ -1209,7 +1214,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="420"/>
         <source>Monitor Connected (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>Verbonden beeldschermen (meerdere)</translation>
     </message>
 </context>
 <context>
@@ -1223,7 +1228,7 @@
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="132"/>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="135"/>
         <source>Multiple Displays</source>
-        <translation>Meerdere schermen</translation>
+        <translation>Meerdere beeldschermen</translation>
     </message>
 </context>
 <context>
@@ -1234,13 +1239,13 @@
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="181"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="189"/>
         <source>Refresh Rate</source>
-        <translation>Verversingsratio</translation>
+        <translation>Ververssnelheid</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="131"/>
         <source>Multiple Displays</source>
-        <translation>Meerdere schermen</translation>
+        <translation>Meerdere beeldschermen</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
@@ -1261,19 +1266,19 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="155"/>
         <source>Display Scaling</source>
-        <translation>Schaling Weergeven</translation>
+        <translation>Beeldgrootte</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="170"/>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Touchscreen</translation>
         <extra-contents_path>/display/Touch Screen</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="219"/>
         <source>Rotate Screen</source>
-        <translation>Scherm roteren</translation>
+        <translation>Scherm draaien</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -1287,7 +1292,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="130"/>
         <source>Duplicate</source>
-        <translation>Dupliceer</translation>
+        <translation>Klonen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="130"/>
@@ -1297,12 +1302,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="133"/>
         <source>Show the same image on other screens</source>
-        <translation>Toon hetzelfde beeld op ander scherm(en)</translation>
+        <translation>Toon hetzelfde beeld op ander(e) scherm(en)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="134"/>
         <source>Expand the desktop across the screens</source>
-        <translation>Breidt het bureaublad uit naar andere scherm(en)</translation>
+        <translation>Breidt het bureaublad uit naar ander(e) scherm(en)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="138"/>
@@ -1312,7 +1317,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="139"/>
         <source>Configure the display according to your needs</source>
-        <translation>Schermweergave aanpassen aan jouw noden</translation>
+        <translation>Pas de schermweergave aan aan jouw wensen</translation>
     </message>
 </context>
 <context>
@@ -1342,17 +1347,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation>Linkermuisklik om te roteren, rechtermuisklik om te herstellen en stoppen. Ctrl+S om op te slaan.</translation>
+        <translation>Linksklikken om te draaien, rechtsklikken om te herstellen en stoppen, Ctrl+S om op te slaan.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="166"/>
         <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="unfinished"/>
+        <translation>Rechtsklikken om te draaien, linksklikken om te herstellen en stoppen, Ctrl+S om op te slaan.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="169"/>
         <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Wil je de instellingen opslaan? Als je niks doet, worden over %1s de standaardwaarden hersteld.</translation>
     </message>
 </context>
 <context>
@@ -1361,12 +1366,12 @@
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="53"/>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="130"/>
         <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation type="unfinished"/>
+        <translation>Sommige programma&apos;s kunnen niet worden geschaald op basis van de instellingen omtrent meerdere schermen.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="126"/>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Het beeldscherm ondersteunt 100% beeldgrootte</translation>
     </message>
 </context>
 <context>
@@ -1374,12 +1379,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="54"/>
         <source>Select your touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Kies je touchscreen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="56"/>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Kies je touchscreen (indien verbonden) of stel het hier in.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="69"/>
@@ -1389,22 +1394,22 @@
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="70"/>
         <source>Confirm</source>
-        <translation>Bevestigen</translation>
+        <translation>Oké</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="119"/>
         <source>Touch Screen - %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Touchscreen - %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="157"/>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>Touchscreeninstellingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="158"/>
         <source>The settings of touch screen %1 changed</source>
-        <translation type="unfinished"/>
+        <translation>De instellingen van &apos;%1&apos; zijn aangepast</translation>
     </message>
 </context>
 <context>
@@ -1412,7 +1417,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="61"/>
         <source>Add Custom Shortcut</source>
-        <translation>Aangepaste sneltoets toevoegen</translation>
+        <translation>Eigen sneltoets toevoegen</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
@@ -1429,7 +1434,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="79"/>
         <source>Command</source>
-        <translation>Commando</translation>
+        <translation>Opdracht</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="101"/>
@@ -1444,7 +1449,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="134"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Deze sneltoets conflicteert met 1%, klik op &apos;Toevoegen&apos; om deze snelkoppeling onmiddellijk actief te maken</translation>
+        <translation>Deze sneltoets wordt al gebruikt door &apos;%1&apos;. Klik op &apos;Toevoegen&apos; om de nieuwe sneltoets toe te wijzen.</translation>
     </message>
 </context>
 <context>
@@ -1490,7 +1495,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="101"/>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Numeriek toetsenbord</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
@@ -1505,7 +1510,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="57"/>
         <source>Keyboard Layout</source>
-        <translation>Indeling Toetsenbord</translation>
+        <translation>Toetsenbordindeling</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="62"/>
@@ -1516,12 +1521,12 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="79"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Wissel Lay-out (Meerdere)</translation>
+        <translation>Schakelen tussen indelingen (meerdere)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="109"/>
         <source>Applies to</source>
-        <translation type="unfinished"/>
+        <translation>Van toepassing op</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
@@ -1532,7 +1537,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="111"/>
         <source>Application</source>
-        <translation>Toepassing</translation>
+        <translation>Programma</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="193"/>
@@ -1563,7 +1568,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="53"/>
         <source>Keyboard Layout</source>
-        <translation>Indeling Toetsenbord</translation>
+        <translation>Toetsenbordindeling</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
@@ -1632,7 +1637,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="74"/>
         <source>Add System Language</source>
-        <translation type="unfinished"/>
+        <translation>Systeemtaal toevoegen</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
@@ -1641,7 +1646,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
-        <translation type="unfinished"/>
+        <translation>Taallijst</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
@@ -1666,13 +1671,13 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="48"/>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad uitschakelen tijdens typen</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="50"/>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Scrollsnelheid</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
@@ -1702,7 +1707,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="61"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>TrackPoint</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="146"/>
@@ -1715,7 +1720,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="44"/>
         <source>Pointer Speed</source>
-        <translation>Aanwijzersnelheid</translation>
+        <translation>Cursorsnelheid</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
@@ -1723,14 +1728,14 @@
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="46"/>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="47"/>
         <source>Mouse Acceleration</source>
-        <translation>Muis versnelling</translation>
+        <translation>Muisversnelling</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="49"/>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="50"/>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad uitschakelen als er een muis verbonden is</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
@@ -1775,7 +1780,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="63"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>TrackPoint</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
@@ -1784,7 +1789,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="47"/>
         <source>Pointer Speed</source>
-        <translation>Aanwijzersnelheid</translation>
+        <translation>Cursorsnelheid</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -1817,7 +1822,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="39"/>
         <source>Pointer Speed</source>
-        <translation>Aanwijzersnelheid</translation>
+        <translation>Cursorsnelheid</translation>
         <extra-child_page>TrackPoint</extra-child_page>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
@@ -1835,71 +1840,71 @@
 <context>
     <name>dccV20::network::ChainsProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="47"/>
         <source>Application Proxy</source>
-        <translation>Toepassingsproxy</translation>
+        <translation>Programmaproxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="50"/>
         <source>Proxy Type</source>
-        <translation>Proxytype</translation>
+        <translation>Soort proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="58"/>
         <source>IP Address</source>
         <translation>IP-adres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
         <source>Required</source>
         <translation>Vereist</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="62"/>
         <source>Port</source>
         <translation>Poort</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="66"/>
         <source>Username</source>
         <translation>Gebruikersnaam</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
         <source>Optional</source>
         <translation>Optioneel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
         <source>Password</source>
         <translation>Wachtwoord</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="90"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Kruis na instellen de optie &quot;Proxy gebruiken&quot; aan in het rechtermuisknopmenu van de programmastarter</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="96"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
         <source>Save</source>
-        <translation>Bewaren</translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="212"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig ip-adres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="220"/>
         <source>Invalid port</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldige poort</translation>
     </message>
 </context>
 <context>
@@ -1907,7 +1912,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation>Proxytype</translation>
+        <translation>Soort proxy</translation>
     </message>
 </context>
 <context>
@@ -1932,13 +1937,13 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
         <source>Save</source>
-        <translation>Bewaren</translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="206"/>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
         <source>Are you sure you want to delete this configuration?</source>
-        <translation type="unfinished"/>
+        <translation>Weet je zeker dat je deze configuratie wilt verwijderen?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="384"/>
@@ -1958,7 +1963,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="397"/>
         <source>PPPoE Connection %1</source>
-        <translation>PPPoE verbinding %1</translation>
+        <translation>PPPoE-verbinding %1</translation>
     </message>
 </context>
 <context>
@@ -1966,12 +1971,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="104"/>
         <source>New VPN</source>
-        <translation>Nieuwe VPN</translation>
+        <translation>Nieuwe vpn</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="108"/>
         <source>VPN Type</source>
-        <translation>VPN-type</translation>
+        <translation>Soort vpn</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="110"/>
@@ -2095,7 +2100,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="70"/>
         <source>The name already exists</source>
-        <translation>De naam bestaat al</translation>
+        <translation>Deze naam is al in gebruik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="100"/>
@@ -2105,7 +2110,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch verbinden</translation>
     </message>
 </context>
 <context>
@@ -2119,7 +2124,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation>Instellingen Toevoegen</translation>
+        <translation>Instellingen toevoegen</translation>
     </message>
 </context>
 <context>
@@ -2127,7 +2132,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="263"/>
         <source>Create Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot opzetten</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
@@ -2180,17 +2185,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>Primary DNS</source>
-        <translation>Primaire DNS-server</translation>
+        <translation>Primaire dns-server</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
         <source>Secondary DNS</source>
-        <translation>Secundaire DNS-server</translation>
+        <translation>Secundaire dns-server</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
         <source>Only applied in corresponding resources</source>
-        <translation>Alleen toegepast in overeenkomstige bronnen</translation>
+        <translation>Alleen van toepassing op overeenkomstige bronnen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="249"/>
@@ -2211,18 +2216,18 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="449"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="517"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig ip-adres</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="461"/>
         <source>Invalid netmask</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig netmasker</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="470"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="533"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldige gateway</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="480"/>
@@ -2230,7 +2235,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="543"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="552"/>
         <source>Invalid DNS address</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig dns-adres</translation>
     </message>
 </context>
 <context>
@@ -2238,7 +2243,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
-        <translation>Netwerkgegevens</translation>
+        <translation>Netwerkinformatie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="135"/>
@@ -2253,13 +2258,13 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="158"/>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>Protocol</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="162"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="178"/>
         <source>Security Type</source>
-        <translation type="unfinished"/>
+        <translation>Soort beveiliging</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="167"/>
@@ -2297,7 +2302,7 @@
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="207"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="227"/>
         <source>Primary DNS</source>
-        <translation>Primaire DNS-server</translation>
+        <translation>Primaire dns-server</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="211"/>
@@ -2325,7 +2330,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="158"/>
         <source>Wired Network</source>
-        <translation>Bekabeld Netwerk</translation>
+        <translation>Bekabeld netwerk</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="159"/>
@@ -2335,7 +2340,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="160"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Persoonlijke hotspot</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="264"/>
@@ -2366,41 +2371,41 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="91"/>
         <source>Application Proxy</source>
-        <translation>Toepassingsproxy</translation>
+        <translation>Programmaproxy</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="99"/>
         <source>Network Details</source>
-        <translation>Netwerkgegevens</translation>
+        <translation>Netwerkinformatie</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="148"/>
         <source>Configure by Network Manager</source>
-        <translation type="unfinished"/>
+        <translation>Ingesteld door NetworkManager</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="307"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Persoonlijke hotspot</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="326"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Bekabeld netwerk: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="329"/>
         <source>Wired Network</source>
-        <translation>Bekabeld Netwerk</translation>
+        <translation>Bekabeld netwerk</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="333"/>
         <source>Wireless Network %1</source>
-        <translation>Draadloos Netwerk %1</translation>
+        <translation>Draadloos netwerk: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="336"/>
@@ -2419,7 +2424,7 @@
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="385"/>
         <source>Disconnected</source>
-        <translation>Ontkoppeld</translation>
+        <translation>Niet verbonden</translation>
     </message>
 </context>
 <context>
@@ -2486,32 +2491,32 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
-        <translation>Geen BSD-datacompressie</translation>
+        <translation>Geen BSD-gegevenscompressie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation>Geen Deflate Datacompressie</translation>
+        <translation>Geen deflate-gegevenscompressie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
-        <translation>Geen TCP Header Compressie</translation>
+        <translation>Geen tcp-kopcompressie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
-        <translation>Geen Protocol Veldcompressie</translation>
+        <translation>Geen protocolveldcompressie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation>Geen Adres/Controle Compressie</translation>
+        <translation>Geen adres-/controlecompressie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
-        <translation>PPP Echopakketen Verzenden</translation>
+        <translation>PPP-echopakketten versturen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="104"/>
@@ -2536,7 +2541,7 @@
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="58"/>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="79"/>
         <source>Create PPPoE Connection</source>
-        <translation>PPPoE-verbinding creëren</translation>
+        <translation>PPPoE-verbinding opzetten</translation>
         <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
@@ -2555,7 +2560,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>Save</source>
-        <translation>Bewaren</translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
@@ -2611,17 +2616,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
         <source>SOCKS Proxy</source>
-        <translation>SOCKS Proxy</translation>
+        <translation>SOCKS-proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Negeer de proxyconfiguraties voor bovenstaande hosts en domeinen</translation>
+        <translation>Negeer de proxy-instellingen voor bovenstaande hosts en domeinen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
         <source>Configuration URL</source>
-        <translation>Configuratie-URL</translation>
+        <translation>Configuratie-url</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="156"/>
@@ -2669,17 +2674,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
         <source>Save password for this user</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord opslaan voor gebruiker</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Save password for all users</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord opslaan voor alle gebruikers</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
         <source>Ask me always</source>
-        <translation type="unfinished"/>
+        <translation>Altijd vragen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="177"/>
@@ -2735,7 +2740,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="238"/>
         <source>Pwd Options</source>
-        <translation>Pwd Opties</translation>
+        <translation>Pwd-opties</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="345"/>
@@ -2800,7 +2805,7 @@
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
         <source>Invalid password</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig wachtwoord</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="113"/>
@@ -2852,7 +2857,7 @@
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="99"/>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>Invalid password</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig wachtwoord</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="158"/>
@@ -2872,17 +2877,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
         <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2-Enterprise</translation>
+        <translation>WPA/WPA2 enterprise</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="165"/>
         <source>Shared key</source>
-        <translation type="unfinished"/>
+        <translation>Gedeelde sleutel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="166"/>
         <source>Open system</source>
-        <translation type="unfinished"/>
+        <translation>Open systeem</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
@@ -2917,7 +2922,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>Geavanceerde VPN</translation>
+        <translation>Geavanceerde vpn</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
@@ -2932,32 +2937,32 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation>Gebruik aangepast heronderhandeling interval</translation>
+        <translation>Aangepaste heronderhandelingstussenpoos gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
-        <translation>Heronderhandeling interval</translation>
+        <translation>Heronderhandelingstussenpoos</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation>LZO Datacompressie Gebruiken</translation>
+        <translation>LZO-gegevenscompressie gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation>TCP-verbinding Gebruiken</translation>
+        <translation>TCP-verbinding gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation>TAP-apparaat Gebruiken</translation>
+        <translation>TAP-apparaat gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
         <source>Customize Tunnel MTU</source>
-        <translation>Aangepaste Tunnel MTU Gebruiken</translation>
+        <translation>Aangepaste tunnel-mtu gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
@@ -2967,7 +2972,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
         <source>Customize UDP Fragment Size</source>
-        <translation>Aangepaste UDP-fragmentgrootte Gebruiken</translation>
+        <translation>Aangepaste UDP-fragmentgrootte gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
@@ -2990,7 +2995,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
         <source>VPN Advanced</source>
-        <translation>Geavanceerde VPN</translation>
+        <translation>Geavanceerde vpn</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
@@ -3021,7 +3026,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
         <source>NAT-T When Available (default)</source>
-        <translation>NAT-T wanneer beschikbaar (standaard)</translation>
+        <translation>NAT-T indien beschikbaar (standaard)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
@@ -3083,17 +3088,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>Encryption</source>
-        <translation>Encryptie</translation>
+        <translation>Versleuteling</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="198"/>
         <source>NAT Traversal Mode</source>
-        <translation>NAT Traversal Mode</translation>
+        <translation>NAT-traversalmodus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="208"/>
         <source>IKE DH Group</source>
-        <translation>IKE DH Groep</translation>
+        <translation>IKE DH Group</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="218"/>
@@ -3108,7 +3113,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="233"/>
         <source>Disable Dead Peer Detection</source>
-        <translation>Inactieve Peer Detectie Uitschakelen</translation>
+        <translation>Inactieve peerdetectie uitschakelen</translation>
     </message>
 </context>
 <context>
@@ -3141,12 +3146,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
         <source>Phase1 Algorithms</source>
-        <translation>Fase1 Algoritme</translation>
+        <translation>Fase1-algoritme</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
         <source>Phase2 Algorithms</source>
-        <translation>Fase2 Algoritme</translation>
+        <translation>Fase2-algoritme</translation>
     </message>
 </context>
 <context>
@@ -3157,47 +3162,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Gateway</source>
         <translation>Gateway</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="90"/>
         <source>Required</source>
         <translation>Vereist</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="93"/>
         <source>CA Cert</source>
         <translation>CA-certificaat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="96"/>
         <source>Proxy</source>
         <translation>Proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>Cisco Secure Desktop Trojan toestaan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="102"/>
         <source>CSD Script</source>
         <translation>CSD-script</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="105"/>
         <source>User Cert</source>
         <translation>Gebruikerscertificaat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="108"/>
         <source>Private Key</source>
         <translation>Privésleutel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="111"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>FSID gebruiken voor wachtwoordsleutel</translation>
     </message>
@@ -3223,13 +3228,13 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
         <source>Certificates with Password (TLS)</source>
-        <translation>Certificaten met Wachtwoord (TLS)</translation>
+        <translation>Certificaten met wachtwoord (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="273"/>
         <source>Static Key</source>
-        <translation>Statische sleutel</translation>
+        <translation>Vaste sleutel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
@@ -3244,7 +3249,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
         <source>Not Required</source>
-        <translation>Niet Vereist</translation>
+        <translation>Niet vereist</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
@@ -3264,7 +3269,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
         <source>Auth Type</source>
-        <translation>Authenticatietype</translation>
+        <translation>Soort authenticatie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="148"/>
@@ -3285,7 +3290,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="188"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="234"/>
         <source>Pwd Options</source>
-        <translation>Pwd Opties</translation>
+        <translation>Pwd-opties</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="201"/>
@@ -3310,12 +3315,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
         <source>Remote IP</source>
-        <translation>Extern IP-adres</translation>
+        <translation>Extern ip-adres</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
         <source>Local IP</source>
-        <translation>Lokaal IP-adres</translation>
+        <translation>Lokaal ip-adres</translation>
     </message>
 </context>
 <context>
@@ -3368,32 +3373,32 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
-        <translation>Geen BSD-datacompressie</translation>
+        <translation>Geen BSD-gegevenscompressie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
-        <translation>Geen Deflate Datacompressie</translation>
+        <translation>Geen deflate-gegevenscompressie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
-        <translation>Geen TCP Header Compressie</translation>
+        <translation>Geen tcp-kopcompressie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
-        <translation>Geen Protocol Veldcompressie</translation>
+        <translation>Geen protocolveldcompressie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
-        <translation>Geen Adres/Controle Compressie</translation>
+        <translation>Geen adres-/controlecompressie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
-        <translation>PPP Echopakketen Verzenden</translation>
+        <translation>PPP-echopakketten versturen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
@@ -3416,14 +3421,14 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="92"/>
         <source>VPN Status</source>
-        <translation>VPN Status</translation>
+        <translation>VPN-status</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="119"/>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="122"/>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="123"/>
         <source>Create VPN</source>
-        <translation>VPN Creëren</translation>
+        <translation>VPN toevoegen</translation>
         <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
@@ -3437,12 +3442,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="355"/>
         <source>Import Error</source>
-        <translation>Fout importeren</translation>
+        <translation>Importfout</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
         <source>File error</source>
-        <translation type="unfinished"/>
+        <translation>Bestandsfout</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="357"/>
@@ -3455,12 +3460,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="38"/>
         <source>VPN Proxy</source>
-        <translation>VPN Proxy</translation>
+        <translation>VPN-proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="142"/>
         <source>Not Required</source>
-        <translation>Niet Vereist</translation>
+        <translation>Niet vereist</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -3475,12 +3480,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="150"/>
         <source>Proxy Type</source>
-        <translation>Proxytype</translation>
+        <translation>Soort proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <source>Server IP</source>
-        <translation>Server IP</translation>
+        <translation>Server-ip</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="163"/>
@@ -3497,7 +3502,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="171"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Blijven proberen na mislukking</translation>
+        <translation>Blijven proberen na mislukken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="174"/>
@@ -3520,12 +3525,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation>Certificatie Waarschuwingen Negeren</translation>
+        <translation>Certificaatwaarschuwingen negeren</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation>Gebruik TLS Hostnaam Extensies</translation>
+        <translation>TLS-hostnaamextensies gebruiken</translation>
     </message>
 </context>
 <context>
@@ -3550,7 +3555,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="113"/>
         <source>Cipher</source>
-        <translation>Cipher</translation>
+        <translation>Vercijfering</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="125"/>
@@ -3578,7 +3583,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Not Required</source>
-        <translation>Niet Vereist</translation>
+        <translation>Niet vereist</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="113"/>
@@ -3600,7 +3605,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="121"/>
         <source>Pwd Options</source>
-        <translation>Pwd Opties</translation>
+        <translation>Pwd-opties</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="134"/>
@@ -3618,12 +3623,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation>VPN Proxy</translation>
+        <translation>VPN-proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
         <source>Server IP</source>
-        <translation>Server IP</translation>
+        <translation>Server-ip</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
@@ -3657,12 +3662,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>SSH Agent</source>
-        <translation>SSH Agent</translation>
+        <translation>SSH-agent</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smart Card</source>
-        <translation type="unfinished"/>
+        <translation>Smartcard</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
@@ -3692,7 +3697,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
         <source>Auth Type</source>
-        <translation>Authenticatietype</translation>
+        <translation>Soort authenticatie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
@@ -3712,22 +3717,22 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="183"/>
         <source>Request an Inner IP Address</source>
-        <translation>Een intern IP-adres opvragen</translation>
+        <translation>Intern ip-adres opvragen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="186"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation>UDP-inkapseling forceren</translation>
+        <translation>UDP-inkapseling afdwingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="189"/>
         <source>Use IP Compression</source>
-        <translation>IP-comprimering gebruiken</translation>
+        <translation>IP-compressie gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="192"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation>Gebruik Gewone Cijfer Voorstellen</translation>
+        <translation>Aangepaste vercijferingsvoorstellen gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="195"/>
@@ -3745,7 +3750,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
         <source>VPN TLS Authentication</source>
-        <translation>VPN TLS-Authenticatie</translation>
+        <translation>VPN TLS-authenticatie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
@@ -3765,12 +3770,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="89"/>
         <source>Subject Match</source>
-        <translation>Onderwerp Overeenkomst</translation>
+        <translation>Onderwerpovereenkomst</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="92"/>
         <source>Remote Cert Type</source>
-        <translation>Cert type op afstand</translation>
+        <translation>Extern cert.type</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="104"/>
@@ -3808,7 +3813,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
         <source>Not Required</source>
-        <translation>Niet Vereist</translation>
+        <translation>Niet vereist</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="169"/>
@@ -3833,7 +3838,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="177"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
         <source>Pwd Options</source>
-        <translation>Pwd Opties</translation>
+        <translation>Pwd-opties</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="187"/>
@@ -3866,12 +3871,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
         <source>Plug in the network cable first</source>
-        <translation>Sluit eerst de netwerkkabel aan</translation>
+        <translation>Sluit de netwerkkabel aan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
         <source>Wired Network Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Bekabelde netwerkadapter</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
@@ -3884,34 +3889,34 @@
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="103"/>
         <source>Select Settings</source>
-        <translation>Selecteer Instellingen</translation>
+        <translation>Instellingen selecteren</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="269"/>
         <source>Connect to hidden network</source>
         <translation>Verbinden met verborgen netwerk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="277"/>
         <source>Wireless Network Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Draadloze netwerkadapter</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="290"/>
         <source>Close Hotspot</source>
-        <translation>Hotspot Sluiten</translation>
+        <translation>Hotspot uitschakelen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="293"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation type="unfinished"/>
+        <translation>Schakel de hotspot uit om verbinding te kunnen maken met een draadloos netwerk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="316"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3959,27 +3964,27 @@
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="75"/>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Toon meldingen van %1 op het bureaublad en in het meldingencentrum.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="89"/>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Geluid afspelen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="92"/>
         <source>Show messages on lockscreen</source>
-        <translation type="unfinished"/>
+        <translation>Meldingen tonen op vergrendelscherm</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="95"/>
         <source>Show only in notification center</source>
-        <translation type="unfinished"/>
+        <translation>Alleen tonen in meldingencentrum</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="98"/>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Voorbeeld tonen</translation>
     </message>
 </context>
 <context>
@@ -3987,7 +3992,7 @@
     <message>
         <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="70"/>
         <source>Notification</source>
-        <translation>Melding</translation>
+        <translation>Meldingen</translation>
     </message>
 </context>
 <context>
@@ -3995,12 +4000,12 @@
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="62"/>
         <source>System Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Systeemmeldingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="74"/>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Programmameldingen</translation>
     </message>
 </context>
 <context>
@@ -4008,22 +4013,22 @@
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="51"/>
         <source>Show icon on Dock</source>
-        <translation type="unfinished"/>
+        <translation>Pictogram tonen op dock</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="79"/>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Niet storen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="85"/>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Er worden geen programmameldingen op het bureaublad getoond en geen geluiden afgespeeld, maar alle meldingen zijn terug te vinden in het meldingencentrum.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="110"/>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Als het scherm vergrendeld is</translation>
     </message>
 </context>
 <context>
@@ -4031,12 +4036,12 @@
     <message>
         <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="47"/>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>Van</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="49"/>
         <source>To</source>
-        <translation type="unfinished"/>
+        <translation>Tot</translation>
     </message>
 </context>
 <context>
@@ -4049,61 +4054,61 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="81"/>
         <source>Standard Font</source>
-        <translation>Standaard Lettertype</translation>
+        <translation>Standaardlettertype</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="99"/>
         <source>Monospaced Font</source>
-        <translation>Monospaced Lettertype</translation>
+        <translation>Monospacelettertype</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="229"/>
         <source> (Unsupported font)</source>
-        <translation>(Niet-ondersteund lettertype)</translation>
+        <translation> (niet-ondersteund lettertype)</translation>
     </message>
 </context>
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="111"/>
         <source>Theme</source>
         <translation>Thema</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="123"/>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Accentuering</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="181"/>
         <source>Window Effect</source>
-        <translation>Venster Effect</translation>
+        <translation>Vensteranimaties</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
         <source>Transparency</source>
         <translation>Doorzichtigheid</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="214"/>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"/>
+        <translation>Minimaliseeranimatie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
         <source>Scale</source>
-        <translation type="unfinished"/>
+        <translation>Schalen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>Magische lamp</translation>
     </message>
 </context>
 <context>
@@ -4117,13 +4122,13 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="51"/>
         <source>Icon Theme</source>
-        <translation>Pictogram thema</translation>
+        <translation>Pictogramthema</translation>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="53"/>
         <source>Cursor Theme</source>
-        <translation>Cursor thema</translation>
+        <translation>Cursorthema</translation>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
@@ -4138,7 +4143,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="63"/>
         <source>Personalization</source>
-        <translation>Personalisatie</translation>
+        <translation>Vormgeving</translation>
     </message>
 </context>
 <context>
@@ -4196,12 +4201,12 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>Energiebesparing inschakelen bij laag accuniveau</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="59"/>
         <source>Show battery capacity</source>
-        <translation type="unfinished"/>
+        <translation>Accucapaciteit tonen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="61"/>
@@ -4214,53 +4219,53 @@
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="62"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="77"/>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Energiebesparing inschakelen bij werken op accu</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="63"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="79"/>
         <source>Password is required to wake up the computer</source>
-        <translation>Wachtwoord is nodig om de computer te ontwaken</translation>
+        <translation>Wachtwoord vereisen om computer te ontwaken</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="81"/>
         <source>Password is required to wake up the monitor</source>
-        <translation>Wachtwoord is nodig om het beeldscherm te ontwaken</translation>
+        <translation>Wachtwoord vereisen om beeldscherm te ontwaken</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
         <source>Battery</source>
-        <translation type="unfinished"/>
+        <translation>Accu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="120"/>
         <source>Display capacity and remaining charging time</source>
-        <translation type="unfinished"/>
+        <translation>Capaciteit en resterende oplaadtijd tonen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="90"/>
         <source>Decrease brightness</source>
-        <translation type="unfinished"/>
+        <translation>Helderheid verlagen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="111"/>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Energiebesparingsinstellingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="121"/>
         <source>Maximum capacity</source>
-        <translation type="unfinished"/>
+        <translation>Maximale capaciteit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="147"/>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ontwaakinstellingen</translation>
     </message>
 </context>
 <context>
@@ -4268,7 +4273,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="59"/>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Op accu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="74"/>
@@ -4278,12 +4283,12 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="215"/>
         <source>Battery low, please plug in</source>
-        <translation>Batterij is bijna leeg, sluit aan op netstroom</translation>
+        <translation>De accu is bijna leeg - sluit de netstroomadapter aan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="217"/>
         <source>Battery critically low</source>
-        <translation>Batterij kritiek laag</translation>
+        <translation>Accuniveau is zeer laag</translation>
     </message>
 </context>
 <context>
@@ -4298,14 +4303,14 @@
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="60"/>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="67"/>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Op netstroom</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="62"/>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="69"/>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Op accu</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
@@ -4315,7 +4320,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="47"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="61"/>
         <source>Monitor will suspend after</source>
-        <translation>Het beeldscherm zal onderbroken worden na</translation>
+        <translation>Het beeldscherm wordt uitgeschakeld na</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -4323,7 +4328,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="48"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="64"/>
         <source>Computer will suspend after</source>
-        <translation>De computer zal onderbroken worden na</translation>
+        <translation>De computer wordt onderbroken na</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -4331,34 +4336,34 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="49"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="67"/>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Het scherm wordt vergrendeld na</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <source>Low battery level</source>
-        <translation type="unfinished"/>
+        <translation>Laag accuniveau</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
         <source>Auto suspend battery level</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch onderbreken bij accuniveau van</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="53"/>
         <source>Low Battery Notification</source>
-        <translation type="unfinished"/>
+        <translation>Melding tonen als accuniveau laag is</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <source>When pressing the power button</source>
-        <translation type="unfinished"/>
+        <translation>Als de aan-/uitknop wordt ingedrukt</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="55"/>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Als het deksel wordt gesloten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="73"/>
@@ -4378,12 +4383,12 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="74"/>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Beeldscherm uitschakelen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="74"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Niets doen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="133"/>
@@ -4394,7 +4399,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="315"/>
         <source>1 Minute</source>
-        <translation>1 Minuut</translation>
+        <translation>1 minuut</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="318"/>
@@ -4403,12 +4408,12 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="327"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="336"/>
         <source>%1 Minutes</source>
-        <translation>%1 Minuten</translation>
+        <translation>%1 minuten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="330"/>
         <source>1 Hour</source>
-        <translation>1 Uur</translation>
+        <translation>1 uur</translation>
     </message>
 </context>
 <context>
@@ -4417,7 +4422,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="46"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="56"/>
         <source>Monitor will suspend after</source>
-        <translation>Het beeldscherm zal onderbroken worden na</translation>
+        <translation>Het beeldscherm wordt uitgeschakeld na</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -4425,25 +4430,25 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="47"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="60"/>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Het scherm wordt vergrendeld na</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="49"/>
         <source>When pressing the power button</source>
-        <translation type="unfinished"/>
+        <translation>Als de aan-/uitknop wordt ingedrukt</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="50"/>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Als het deksel wordt gesloten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="69"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="72"/>
         <source>Computer will suspend after</source>
-        <translation>De computer zal onderbroken worden na</translation>
+        <translation>De computer wordt onderbroken na</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -4465,12 +4470,12 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="84"/>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Beeldscherm uitschakelen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="84"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Niets doen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="104"/>
@@ -4481,7 +4486,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="248"/>
         <source>1 Minute</source>
-        <translation>1 Minuut</translation>
+        <translation>1 minuut</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="251"/>
@@ -4490,12 +4495,12 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="260"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="269"/>
         <source>%1 Minutes</source>
-        <translation>%1 Minuten</translation>
+        <translation>%1 minuten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="263"/>
         <source>1 Hour</source>
-        <translation>1 Uur</translation>
+        <translation>1 uur</translation>
     </message>
 </context>
 <context>
@@ -4508,7 +4513,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="120"/>
         <source>Window Effect</source>
-        <translation>Venster Effect</translation>
+        <translation>Vensteranimaties</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="121"/>
@@ -4519,22 +4524,22 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
         <source>User Experience Program</source>
-        <translation>Programma voor Gebruikerservaringen</translation>
+        <translation>Programma omtrent gebruikerservaringen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
         <source>Join User Experience Program</source>
-        <translation>Sluit je aan bij het Programma voor Gebruikerservaringen</translation>
+        <translation>Neem deel aan het programma omtrent gebruikerservaringen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="124"/>
         <source>Display Scaling</source>
-        <translation>Schaling Weergeven</translation>
+        <translation>Beeldgrootte</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
         <source>Night Shift</source>
-        <translation>Nachtdienst</translation>
+        <translation>Nachtmodus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
@@ -4544,7 +4549,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
         <source>Login Without Password</source>
-        <translation>Login Zonder Wachtwoord</translation>
+        <translation>Aanmelden zonder wachtwoord</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
@@ -4559,12 +4564,12 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
         <source>Password is required to wake up the monitor</source>
-        <translation>Wachtwoord is nodig om het beeldscherm te ontwaken</translation>
+        <translation>Wachtwoord vereisen om beeldscherm te ontwaken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
         <source>Password is required to wake up the computer</source>
-        <translation>Wachtwoord is nodig om de computer te ontwaken</translation>
+        <translation>Wachtwoord vereisen om computer te ontwaken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
@@ -4584,17 +4589,17 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
         <source>Create PPPoE Connection</source>
-        <translation>PPPoE-verbinding creëren</translation>
+        <translation>PPPoE-verbinding opzetten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Schakel de touchpad uit tijdens het typen</translation>
+        <translation>Touchpad uitschakelen tijdens typen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Touchpad uitschakelen wanneer muis aangekoppeld wordt</translation>
+        <translation>Touchpad uitschakelen als er een muis verbonden is</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
@@ -4604,22 +4609,22 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>TrackPoint</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Persoonlijke hotspot</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="148"/>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Op accu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="149"/>
         <source>Wired Network</source>
-        <translation>Bekabeld Netwerk</translation>
+        <translation>Bekabeld netwerk</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="150"/>
@@ -4629,7 +4634,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="151"/>
         <source>Multiple Displays</source>
-        <translation>Meerdere schermen</translation>
+        <translation>Meerdere beeldschermen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="152"/>
@@ -4639,12 +4644,12 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="481"/>
         <source>End User License Agreement</source>
-        <translation>Eindgebruikers licentie overeenkomst</translation>
+        <translation>Licentie-overeenkomst</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="488"/>
         <source>Cloud Account</source>
-        <translation>Cloud Account</translation>
+        <translation>Cloudaccount</translation>
     </message>
 </context>
 <context>
@@ -4664,7 +4669,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="163"/>
         <source>Sound Card:</source>
-        <translation type="unfinished"/>
+        <translation>Geluidskaart:</translation>
     </message>
 </context>
 <context>
@@ -4677,13 +4682,13 @@
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="103"/>
         <source>Input Volume</source>
-        <translation>Ingangsvolume</translation>
+        <translation>Invoervolume</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="141"/>
         <source>Input Level</source>
-        <translation type="unfinished"/>
+        <translation>Invoerniveau</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
@@ -4740,18 +4745,18 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="78"/>
         <source>Output Volume</source>
-        <translation>Uitgangsvolume</translation>
+        <translation>Uitvoervolume</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="161"/>
         <source>Volume Boost</source>
-        <translation type="unfinished"/>
+        <translation>Volumeverhoging</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="171"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
-        <translation type="unfinished"/>
+        <translation>Als het volume hoger dan 100% wordt ingesteld, is er kans op vervormd geluid en luidsprekerschade</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="185"/>
@@ -4780,12 +4785,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="50"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Deze optie is momenteel niet beschikbaar. Activeer je systeem.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
         <source>Syncing...</source>
-        <translation type="unfinished"/>
+        <translation>Bezig met synchroniseren...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="108"/>
@@ -4795,7 +4800,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="136"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
-        <translation type="unfinished"/>
+        <translation>Als je de netwerkinstellingen inschakelt, wordt je draadloze netwerkwachtwoord gesynchroniseerd</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="177"/>
@@ -4810,7 +4815,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="179"/>
         <source>Mouse Settings</source>
-        <translation>Muis instellingen</translation>
+        <translation>Muisinstellingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="180"/>
@@ -4825,7 +4830,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="182"/>
         <source>Launcher</source>
-        <translation>Starter</translation>
+        <translation>Programmastarter</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="183"/>
@@ -4845,7 +4850,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="319"/>
         <source>Last Sync: %1</source>
-        <translation>Laatst gesynchroniseerd: %1</translation>
+        <translation>Recentste synchronisatie: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="321"/>
@@ -4864,17 +4869,17 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="35"/>
         <source>After signing in, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation type="unfinished"/>
+        <translation>Na het inloggen kun je gebruikmaken van cloudsynchronisatie, de appwinkel, e-mailclient, webbrowser en andere clouddiensten.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="45"/>
         <source>Union ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Union ID - inloggen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="57"/>
         <source>Only supported in Mainland China at present</source>
-        <translation>Voorlopig alleen ondersteund in China</translation>
+        <translation>Dit wordt voorlopig alleen ondersteund op het vasteland van China</translation>
     </message>
 </context>
 <context>
@@ -4882,7 +4887,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="43"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Sorrie, dit is op dit moment nog niet ondersteund in jouw regio</translation>
+        <translation>Dit wordt momenteel nog niet ondersteund in jouw regio, maar volgt binnenkort</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="54"/>
@@ -4895,7 +4900,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="32"/>
         <source>Union ID</source>
-        <translation type="unfinished"/>
+        <translation>Union ID</translation>
     </message>
 </context>
 <context>
@@ -4903,52 +4908,52 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="28"/>
         <source>Backup</source>
-        <translation type="unfinished"/>
+        <translation>Back-uppen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="35"/>
         <source>Backup Type</source>
-        <translation type="unfinished"/>
+        <translation>Soort back-up</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="36"/>
         <source>Save to</source>
-        <translation type="unfinished"/>
+        <translation>Opslaan in</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="55"/>
         <source>Full Backup</source>
-        <translation type="unfinished"/>
+        <translation>Volledige back-up</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="56"/>
         <source>System Backup</source>
-        <translation type="unfinished"/>
+        <translation>Systeemback-up</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="125"/>
         <source>Applying changes to your system...</source>
-        <translation type="unfinished"/>
+        <translation>Bezig met toepassen van wijzigingen...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="172"/>
         <source>The storage location cannot be in source disk, please reselect</source>
-        <translation type="unfinished"/>
+        <translation>De opslaglocatie mag niet op de bronschijf zijn - kies een andere locatie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="176"/>
         <source>Invalid path</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig pad</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="180"/>
         <source>Grub authentication failed</source>
-        <translation type="unfinished"/>
+        <translation>Grub-verificatie mislukt</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="184"/>
         <source>Insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Onvoldoende vrij ruimte</translation>
     </message>
 </context>
 <context>
@@ -4961,17 +4966,17 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="122"/>
         <source>Save User Data</source>
-        <translation type="unfinished"/>
+        <translation>Gebruikersgegevens opslaan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="124"/>
         <source>Reset All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Standaardwaarden terugzetten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="142"/>
         <source>Select restore directory</source>
-        <translation type="unfinished"/>
+        <translation>Herstelmap kiezen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="150"/>
@@ -4981,32 +4986,32 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="212"/>
         <source>Applying changes to your system...</source>
-        <translation type="unfinished"/>
+        <translation>Bezig met toepassen van wijzigingen...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="259"/>
         <source>Backup file is invalid</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig back-upbestand</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="263"/>
         <source>Invalid path</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig pad</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="267"/>
         <source>Grub authentication failed</source>
-        <translation type="unfinished"/>
+        <translation>Grub-verificatie mislukt</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="285"/>
         <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
-        <translation type="unfinished"/>
+        <translation>Hierdoor worden de systeeminstellingen teruggezet op de standaardwaarden zonder dat je bestanden en programma&apos;s worden aangetast. Je gebruikersnaam en wachtwoord worden echter gewist. Bevestig dat je wilt doorgaan.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="289"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
-        <translation type="unfinished"/>
+        <translation>Hiermee herinstalleer je het systeem en wis je alle gebruikersgegevens. Bevestig dat je wilt doorgaan.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="293"/>
@@ -5016,7 +5021,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="296"/>
         <source>Confirm</source>
-        <translation>Bevestigen</translation>
+        <translation>Oké</translation>
     </message>
 </context>
 <context>
@@ -5042,7 +5047,7 @@
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="86"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="170"/>
         <source>To be activated</source>
-        <translation type="unfinished"/>
+        <translation>Activatie benodigd</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="88"/>
@@ -5055,7 +5060,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="92"/>
         <source>Kernel:</source>
-        <translation type="unfinished"/>
+        <translation>Kernel:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -5073,7 +5078,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="150"/>
         <source>%1-bit</source>
-        <translation type="unfinished"/>
+        <translation>%1-bit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="166"/>
@@ -5089,17 +5094,17 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="174"/>
         <source>Expired</source>
-        <translation type="unfinished"/>
+        <translation>Verlopen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="178"/>
         <source>In trial period</source>
-        <translation type="unfinished"/>
+        <translation>Proefperiode</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="182"/>
         <source>Trial expired</source>
-        <translation type="unfinished"/>
+        <translation>Proefperiode verlopen</translation>
     </message>
 </context>
 <context>
@@ -5115,7 +5120,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Over deze computer</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -5127,13 +5132,13 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="74"/>
         <source>End User License Agreement</source>
-        <translation>Eindgebruikers licentie overeenkomst</translation>
+        <translation>Licentie-overeenkomst</translation>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="89"/>
         <source>Backup and Restore</source>
-        <translation type="unfinished"/>
+        <translation>Back-up en herstel</translation>
     </message>
 </context>
 <context>
@@ -5141,7 +5146,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="29"/>
         <source>Backup</source>
-        <translation type="unfinished"/>
+        <translation>Back-uppen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="30"/>
@@ -5159,7 +5164,7 @@
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="87"/>
         <source>Change Avatar</source>
-        <translation type="unfinished"/>
+        <translation>Profielafbeelding wijzigen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="91"/>
@@ -5184,12 +5189,13 @@
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="59"/>
         <source>After signing in, all system features related with Union ID will be available.
 Visit User Center and manage your account there.</source>
-        <translation type="unfinished"/>
+        <translation>Na het inloggen zijn alle systeeminstellingen omtrent je Union ID beschikbaar.
+In het gebruikerscentrum kun je je account beheren.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="69"/>
         <source>Union ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Union ID - inloggen</translation>
     </message>
 </context>
 <context>
@@ -5197,7 +5203,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/logout.cpp" line="44"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Sorrie, dit is op dit moment nog niet ondersteund in jouw regio</translation>
+        <translation>Dit wordt momenteel nog niet ondersteund in jouw regio, maar volgt binnenkort</translation>
     </message>
 </context>
 <context>
@@ -5205,7 +5211,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidmodule.cpp" line="52"/>
         <source>Union ID</source>
-        <translation type="unfinished"/>
+        <translation>Union ID</translation>
     </message>
 </context>
 <context>
@@ -5213,17 +5219,17 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="62"/>
         <source>Learn about %1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>Meer informatie over %1 en %2</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="63"/>
         <source>Union ID Service Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Union ID-dienstovereenkomst</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="64"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Privacybeleid</translation>
     </message>
 </context>
 <context>
@@ -5260,12 +5266,12 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="49"/>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="62"/>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>Spiegelserverlijst</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="51"/>
         <source>Test Speed</source>
-        <translation>Test Snelheid</translation>
+        <translation>Snelheid testen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="141"/>
@@ -5275,7 +5281,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="170"/>
         <source>Retest</source>
-        <translation>Hertest</translation>
+        <translation>Opnieuw testen</translation>
     </message>
 </context>
 <context>
@@ -5283,22 +5289,22 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="73"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Start de computer opnieuw op om het systeem en de toepassingen correct te gebruiken</translation>
+        <translation>Start de computer opnieuw op om het systeem en de programma&apos;s te gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="74"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation>Netwerk losgekoppeld, probeer opnieuw nadat u weer bent verbonden</translation>
+        <translation>Geen netwerkverbinding - maak verbinding en probeer het opnieuw</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="83"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
+        <translation>Je systeem is niet geactiveerd</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="104"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Het bijwerken kan lang duren, gelieve het systeem niet af te sluiten of te herstarten tijdens dit proces.</translation>
+        <translation>Het bijwerken kan lang duren. Sluit het systeem niet af en start niet opnieuw op.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="187"/>
@@ -5307,99 +5313,99 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
         <source>Check Again</source>
-        <translation type="unfinished"/>
+        <translation>Opnieuw controleren</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="207"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="267"/>
         <source>Last checking time: </source>
-        <translation type="unfinished"/>
+        <translation>Recenste controle:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="274"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="326"/>
         <source>Your system is up to date</source>
-        <translation>Uw systeem is bijgewerkt</translation>
+        <translation>Je systeem is actueel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
         <source>Check for Updates</source>
-        <translation type="unfinished"/>
+        <translation>Controleren op updates</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="288"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Controleren op beschikbare updates, even geduld alstublieft...</translation>
+        <translation>Bezig met controleren op updates...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="296"/>
         <source>Download and install updates</source>
-        <translation>Download en installeer updates</translation>
+        <translation>Updates downloaden en installeren</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="305"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% gedownload (Klik om te pauzeren)</translation>
+        <translation>%1% gedownload (klik om te pauzeren)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="312"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% gedownload (Klik om verder te gaan)</translation>
+        <translation>%1% gedownload (klik om verder te gaan)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="319"/>
         <source>Install updates</source>
-        <translation>Installeer updates</translation>
+        <translation>Updates installeren</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
         <source>Updating, please wait...</source>
-        <translation>Aan het updaten, even geduld a.u.b...</translation>
+        <translation>Bezig met bijwerken...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="349"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>Het nieuwste systeem is geïnstalleerd, en wordt in gebruik genomen na heropstarten</translation>
+        <translation>Het nieuwste systeem is geïnstalleerd - herstart om de wijzigingen toe te passen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="360"/>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Bijwerken mislukt: onvoldoende vrije schijfruimte</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="366"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Afhankelijkheidsfout, bijwerken mislukt</translation>
+        <translation>Bijwerken mislukt: afhankelijkheidsfout</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
         <source>Backing up, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Bezig met back-uppen...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>System backup failed</source>
-        <translation type="unfinished"/>
+        <translation>Back-uppen mislukt</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="402"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n programma-update beschikbaar</numerusform><numerusform>%n programma-updates beschikbaar</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="407"/>
         <source>New system edition available</source>
-        <translation type="unfinished"/>
+        <translation>Nieuwe besturingssysteemversie beschikbaar</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nieuwe besturingssysteemversie en %n programma-update beschikbaar</numerusform><numerusform>Nieuwe besturingssysteemversie en %n programma-updates beschikbaar</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="416"/>
@@ -5414,12 +5420,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Uw batterij is lager dan 50%, sluit aan op het stroomnet om door te gaan</translation>
+        <translation>Je accuniveau is lager dan 50% - sluit de netstroomadapter aan om door te gaan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="444"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Zorg ervoor dat er voldoende vermogen is om opnieuw op te starten. Daarnaast moet u uw systeem ook niet uitschakelen of loskoppelen.</translation>
+        <translation>Zorg er voor dat je voldoende vermogen hebt om opnieuw op te starten. Schakel je computer niet uit en koppel de netstroomadapter niet af.</translation>
     </message>
 </context>
 <context>
@@ -5427,7 +5433,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="48"/>
         <source>Update History</source>
-        <translation type="unfinished"/>
+        <translation>Updategeschiedenis</translation>
     </message>
 </context>
 <context>
@@ -5448,24 +5454,24 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
         <source>Automatic Updating Settings</source>
-        <translation type="unfinished"/>
+        <translation>Automatische update-instellingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="64"/>
         <source>Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation>Pakketcache legen</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="68"/>
         <source>Check for Updates</source>
-        <translation type="unfinished"/>
+        <translation>Controleren op updates</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
         <source>Updates Notification</source>
-        <translation>Updates aankondigen</translation>
+        <translation>Updatemeldingen tonen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="74"/>
@@ -5475,49 +5481,49 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="75"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Schakel in om automatisch updates te downloaden via bekabelde of draadloze verbinding</translation>
+        <translation>Schakel in om automatisch updates te downloaden via bekabelde of draadloze verbindingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
         <source>定时下载可用更新</source>
-        <translation type="unfinished"/>
+        <translation>Geplande download van beschikbare updates</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
         <source>当前设置时间为：</source>
-        <translation type="unfinished"/>
+        <translation>De huidige ingeplande tijd is:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
         <source>更改</source>
-        <translation type="unfinished"/>
+        <translation>Wijzigen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
         <source>闲时下载更新</source>
-        <translation type="unfinished"/>
+        <translation>Download updates met gemak</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
         <source>当前使用时间段：</source>
-        <translation type="unfinished"/>
+        <translation>Huidige gebruiksperiode:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
-        <translation type="unfinished"/>
+        <translation>Systeempakketbrondetectie</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="107"/>
         <source>Show a notification if system update repository has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Melding tonen als een systeempakketbron is aangepast</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="156"/>
         <source>Smart Mirror Switch</source>
-        <translation>Slimme spiegelserver schakelaar</translation>
+        <translation>Slimme spiegelserverschakelaar</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
@@ -5529,7 +5535,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="177"/>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>Spiegelserverlijst</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
@@ -5550,23 +5556,23 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="75"/>
         <source>Last Update</source>
-        <translation type="unfinished"/>
+        <translation>Recentste update</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="124"/>
         <source>Return</source>
-        <translation type="unfinished"/>
+        <translation>Terug</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="175"/>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="181"/>
         <source>Current Edition</source>
-        <translation type="unfinished"/>
+        <translation>Huidige editie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="189"/>
         <source>Update History</source>
-        <translation type="unfinished"/>
+        <translation>Updategeschiedenis</translation>
     </message>
 </context>
 <context>
@@ -5632,37 +5638,37 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
-        <translation>Wordt alleen weergegeven op %1</translation>
+        <translation>Wordt alleen getoond op %1</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation>Nieuwe Aangepaste Instellingen</translation>
+        <translation>Nieuwe aangepaste instellingen</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation>Scherminhoud dupliceren op één of meerdere schermen</translation>
+        <translation>Kloon de scherminhoud op één of meerdere schermen</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>Scherm uitbreiden om verschillende inhoud op verschillende schermen te tonen</translation>
+        <translation>Breidt het scherm uit om verschillende inhoud op verschillende schermen te tonen</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation>Scherminhoud wordt enkel getoond op %1</translation>
+        <translation>De scherminhoud wordt enkel getoond op %1</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>Gebruik de weergave-instellingen om de standaard instellingen te wijzigen</translation>
+        <translation>Ga naar de beeldscherminstellingen om de standaardinstellingen aan te passen</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation>Klik om Weergave Module in te voeren</translation>
+        <translation>Klik om de beeldscherminstellingen te openen</translation>
     </message>
 </context>
 <context>
@@ -5697,7 +5703,7 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n dag geleden</numerusform><numerusform>%n dagen geleden</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5710,7 +5716,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
-        <translation>Wis alles</translation>
+        <translation>Alles wissen</translation>
     </message>
 </context>
 <context>
@@ -5723,12 +5729,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="295"/>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Op accu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="296"/>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Op netstroom</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="297"/>
@@ -5748,12 +5754,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="300"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>TrackPoint</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="301"/>
         <source>Application Proxy</source>
-        <translation>Toepassingsproxy</translation>
+        <translation>Programmaproxy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="302"/>
@@ -5769,7 +5775,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="304"/>
         <source>Change System Timezone</source>
-        <translation>Tijdzone Systeem wijzigen</translation>
+        <translation>Systeemtijdzone wijzigen</translation>
     </message>
 </context>
 <context>
@@ -5777,12 +5783,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Start de computer opnieuw op om het systeem en de toepassingen correct te gebruiken</translation>
+        <translation>Start de computer opnieuw op om het systeem en de programma&apos;s te gebruiken</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation>Zorg ervoor dat alle gegevens eerst zijn opgeslagen</translation>
+        <translation>Zorg er voor dat alle gegevens zijn opgeslagen</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="41"/>
@@ -5818,7 +5824,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="142"/>
         <source>Current City: %1</source>
-        <translation>Huidige stad: %1</translation>
+        <translation>Huidige locatie: %1</translation>
     </message>
 </context>
 <context>
@@ -5827,7 +5833,7 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/frame/widgets/settingshead.cpp" line="102"/>
         <source>Edit</source>
-        <translation>Bewerken</translation>
+        <translation>Aanpassen</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/settingshead.cpp" line="104"/>
@@ -5840,12 +5846,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/settingswidget.cpp" line="80"/>
         <source>Reset all settings</source>
-        <translation>Alle instellingen herstellen</translation>
+        <translation>Standaardwaarden terugzetten</translation>
     </message>
     <message>
         <location filename="../src/frame/settingswidget.cpp" line="90"/>
         <source>All Settings</source>
-        <translation>Alle Instellingen</translation>
+        <translation>Alle instellingen</translation>
     </message>
 </context>
 <context>
@@ -5853,12 +5859,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
         <source>Do you want to save the display settings?</source>
-        <translation>Wil u de scherminstellingen bewaren?</translation>
+        <translation>Wil je de beeldscherminstellingen opslaan?</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
         <source>If no operation, the display will be restored after %1s.</source>
-        <translation>Zonder bewerking wordt het scherm hersteld na %1s.</translation>
+        <translation>Als je niks doet, wordt het scherm over %1s hersteld.</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
@@ -5868,7 +5874,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
         <source>Save</source>
-        <translation>Bewaren</translation>
+        <translation>Opslaan</translation>
     </message>
 </context>
 <context>
@@ -5881,7 +5887,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Afhankelijkheidsfout, bijwerken mislukt</translation>
+        <translation>Bijwerken mislukt: afhankelijkheidsfout</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="165"/>
@@ -5891,7 +5897,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
-        <translation>Er zijn updates beschikbaar, klik om ze te bekijken</translation>
+        <translation>Er zijn updates beschikbaar - klik om te bekijken</translation>
     </message>
 </context>
 <context>
@@ -5899,7 +5905,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation>Klik op het pictogram om VPN in te schakelen</translation>
+        <translation>Klik op het pictogram om vpn in te schakelen</translation>
     </message>
 </context>
 <context>
@@ -5907,7 +5913,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Sorry, niet in staat om weerinfo te krijgen!</translation>
+        <translation>De weerinformatie kan niet worden opgehaald!</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
@@ -5925,7 +5931,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WLAN</source>
-        <translation type="unfinished"/>
+        <translation>Klik op het pictogram om draadloos internet in te schakelen</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
@@ -5935,7 +5941,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
         <source>Wireless Card %1</source>
-        <translation>Draadloze Kaart %1</translation>
+        <translation>Draadloze kaart %1</translation>
     </message>
 </context>
 <context>
@@ -5949,34 +5955,34 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="399"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="401"/>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Uw toegang tot de domeinserver werd succesvol verwijderd</translation>
+        <translation>De toegang tot de domeinserver is verwijderd</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="400"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="402"/>
         <source>Your host joins the domain server successfully</source>
-        <translation>Uw toegang tot de domeinserver is geslaagd</translation>
+        <translation>De toegang tot de domeinserver is geslaagd</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="422"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="424"/>
         <source>Your host failed to leave the domain server</source>
-        <translation>Uw toegang tot de domeinserverwerd niet verbroken</translation>
+        <translation>De toegang tot de domeinserver is niet verbroken</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="423"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="425"/>
         <source>Your host failed to join the domain server</source>
-        <translation>Uw toegang tot de domeinserver is mislukt</translation>
+        <translation>De toegang tot de domeinserver is mislukt</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="426"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
         <source>AD domain settings</source>
-        <translation>AD domein instellingen</translation>
+        <translation>AD-domeininstellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="495"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
         <source>Password not match</source>
-        <translation>Wachtwoord is niet juist</translation>
+        <translation>De wachtwoorden komen niet overeen</translation>
     </message>
 </context>
 <context>
@@ -5984,129 +5990,129 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint1</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk 1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint2</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk 2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint3</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk 3</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint4</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk 4</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint5</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk 5</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint6</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk 6</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint7</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk 7</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint8</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk 8</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint9</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk 9</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
         <source>Fingerprint10</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk 10</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="108"/>
         <source>Scan failed</source>
-        <translation type="unfinished"/>
+        <translation>Scannen mislukt</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="118"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="175"/>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"/>
+        <translation>Deze vingerafdruk is al toegevoegd</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="119"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="176"/>
         <source>Please scan other fingers</source>
-        <translation type="unfinished"/>
+        <translation>Scan andere vingers</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="122"/>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Onbekende fout</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="123"/>
         <source>Scan suspended</source>
-        <translation type="unfinished"/>
+        <translation>Scannen onderbroken</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="153"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="154"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="189"/>
         <source>Cannot recognize</source>
-        <translation type="unfinished"/>
+        <translation>Niet herkend</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="179"/>
         <source>Moved too fast</source>
-        <translation type="unfinished"/>
+        <translation>Te snel bewogen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="164"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation type="unfinished"/>
+        <translation>De vinger is te snel bewogen - til niet op totdat dit wordt aangegeven</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
         <source>Unclear fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Onduidelijke vingerafdruk</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="168"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="186"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation type="unfinished"/>
+        <translation>Maak je vinger schoon of pas je vingerpositie aan en probeer het opnieuw</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="171"/>
         <source>Already scanned</source>
-        <translation type="unfinished"/>
+        <translation>Reeds gescand</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="172"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="183"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation type="unfinished"/>
+        <translation>Pas je vingerpositie aan om je gehele vinger te scannen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="180"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation type="unfinished"/>
+        <translation>De vinger is te snel bewogen - til niet op totdat dit wordt aangegeven</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="190"/>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Til je vinger op en plaats hem nogmaals op de lezer</translation>
     </message>
 </context>
 <context>
@@ -6115,45 +6121,45 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="136"/>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Plaats je vinger</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="65"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="137"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Plaats je vinger goed op de lezer totdat wordt aangegeven dat je hem moet optillen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="150"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="153"/>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Scan de randen van je vingerafdruk</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Plaats de randen van je vinger op de lezer</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="144"/>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Til je vinger op</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Til je vinger op en plaats hem nogmaals op de lezer</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="151"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Pas je vingerpositie aan om de randen te scannen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="154"/>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Til je vinger op en probeer het opnieuw</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="158"/>
@@ -6166,7 +6172,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>All data under this account will be permanently deleted</source>
-        <translation type="unfinished"/>
+        <translation>Alle op dit account opgeslagen gegevens worden permanent verwijderd</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
@@ -6210,7 +6216,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>De PIN-code voor het aansluiten van het Bluetoothapparaat is:</translation>
+        <translation>De pincode voor het koppelen van het Bluetooth-apparaat is:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -6220,7 +6226,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>Confirm</source>
-        <translation>Bevestigen</translation>
+        <translation>Oké</translation>
     </message>
 </context>
 <context>
@@ -6236,7 +6242,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
         <source>Time and Date</source>
-        <translation>Tijd en Datum</translation>
+        <translation>Datum en tijd</translation>
     </message>
 </context>
 <context>
@@ -6250,7 +6256,7 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="206"/>
         <source>Confirm</source>
-        <translation>Bevestigen</translation>
+        <translation>Oké</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="202"/>
@@ -6294,7 +6300,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="133"/>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 uur later dan lokaal</translation>
     </message>
 </context>
 <context>
@@ -6302,7 +6308,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="152"/>
         <source>Default Applications</source>
-        <translation>Standaardtoepassingen</translation>
+        <translation>Standaardprogramma&apos;s</translation>
     </message>
 </context>
 <context>
@@ -6346,7 +6352,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="172"/>
         <source>Save</source>
-        <translation>Bewaren</translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="179"/>
@@ -6356,7 +6362,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="346"/>
         <source> (Recommended)</source>
-        <translation>(Aanbevolen)</translation>
+        <translation> (aanbevolen)</translation>
     </message>
 </context>
 <context>
@@ -6379,7 +6385,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="73"/>
         <source>Save</source>
-        <translation>Bewaren</translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="101"/>
@@ -6394,12 +6400,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="105"/>
         <source>Command</source>
-        <translation>Commando</translation>
+        <translation>Opdracht</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="122"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Deze sneltoets conflicteert met 1%, klik op &apos;Toevoegen&apos; om deze snelkoppeling onmiddellijk actief te maken</translation>
+        <translation>Deze sneltoets wordt al gebruikt door &apos;%1&apos;. Klik op &apos;Toevoegen&apos; om de nieuwe sneltoets toe te wijzen.</translation>
     </message>
 </context>
 <context>
@@ -6412,7 +6418,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="114"/>
         <source>Please enter a shortcut</source>
-        <translation>Voer een sneltoets in</translation>
+        <translation>Druk op een sneltoets</translation>
     </message>
 </context>
 <context>
@@ -6420,7 +6426,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="49"/>
         <source>Add Keyboard Layout</source>
-        <translation>Toetsenbord Lay-out toevoegen</translation>
+        <translation>Toetsenbordindeling toevoegen</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
@@ -6447,7 +6453,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="49"/>
         <source>Please Reset Shortcut</source>
-        <translation>Stel sneltoets opnieuw in</translation>
+        <translation>Stel de sneltoets opnieuw in</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="56"/>
@@ -6467,7 +6473,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="92"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Deze sneltoets conflicteert met 1%, klik op &apos;Vervangen&apos; om deze snelkoppeling onmiddellijk actief te maken</translation>
+        <translation>Deze sneltoets wordt al gebruikt door &apos;%1&apos;. Klik op &apos;Vervangen&apos; om de nieuwe sneltoets toe te wijzen.</translation>
     </message>
 </context>
 <context>
@@ -6475,7 +6481,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="84"/>
         <source>Enter a new shortcut</source>
-        <translation>Voer een nieuwe sneltoets in</translation>
+        <translation>Druk op een sneltoets</translation>
     </message>
 </context>
 <context>
@@ -6483,7 +6489,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
         <source>Double-click Test</source>
-        <translation>Dubbelklik test</translation>
+        <translation>Dubbelkliktest</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
@@ -6501,7 +6507,7 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
         <source>Palm Detection</source>
-        <translation type="unfinished"/>
+        <translation>Handpalmdetectie</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -6509,7 +6515,7 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="42"/>
         <source>Minimum Contact Surface</source>
-        <translation type="unfinished"/>
+        <translation>Minimaal aanraakgebied</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -6517,14 +6523,14 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="45"/>
         <source>Minimum Pressure Value</source>
-        <translation type="unfinished"/>
+        <translation>Minimale drukwaarde</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="82"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Schakel deze optie uit als het touchpad niet blijkt te werken</translation>
     </message>
 </context>
 <context>
@@ -6540,7 +6546,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
         <source>Personalization</source>
-        <translation>Personalisatie</translation>
+        <translation>Vormgeving</translation>
     </message>
 </context>
 <context>
@@ -6594,13 +6600,13 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="73"/>
         <source>Low battery</source>
-        <translation>Batterijniveau is laag</translation>
+        <translation>Laag accuniveau</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="74"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="90"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Stuur icoon van de starter naar het bureaublad</translation>
+        <translation>Bureaubladsnelkoppeling maken</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="75"/>
@@ -6611,7 +6617,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="76"/>
         <source>Plug in</source>
-        <translation>Verbinden</translation>
+        <translation>Aankoppelen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="77"/>
@@ -6622,7 +6628,7 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="78"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="92"/>
         <source>Removable device connected</source>
-        <translation>Verwijderbaar apparaat verbonden</translation>
+        <translation>Verwijderbaar apparaat aangekoppeld</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="79"/>
@@ -6662,13 +6668,13 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
-        <source>www.deepin.org</source>
-        <translation>www.deepin.org</translation>
+        <source>Copyright© 2011-2020 Deepin Community</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -6709,17 +6715,17 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="70"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
+        <translation>Je systeem is niet geactiveerd</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="75"/>
         <source>Update successful</source>
-        <translation type="unfinished"/>
+        <translation>Je systeem is bijgewerkt</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="80"/>
         <source>Failed to update</source>
-        <translation>Update mislukt</translation>
+        <translation>Het bijwerken is mislukt</translation>
     </message>
 </context>
 <context>
@@ -6741,23 +6747,23 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="160"/>
         <source>Collapse</source>
-        <translation type="unfinished"/>
+        <translation>Inklappen</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="392"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
         <source>Patches</source>
-        <translation>Patches</translation>
+        <translation>Oplossingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="393"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
         <source>System patches</source>
-        <translation>Systeemaanpassingen</translation>
+        <translation>Systeemoplossingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1139"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
         <source>System</source>
         <translation>Systeem</translation>
     </message>
@@ -6775,7 +6781,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/main.cpp" line="83"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>In het instellingencentrum vind je de systeeminstellingen.</translation>
     </message>
 </context>
 </TS>

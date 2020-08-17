@@ -46,9 +46,11 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     m_joinUeProgram->setTitle(tr("Join User Experience Program"));
 
     DTipLabel *tipLabel = nullptr;
-    QString tipLabelDeepinTxt(tr("Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
-                                 "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
-                                 "For details, please refer to Deepin Privacy Policy (https://www.uniontech.com/agreement/deepin-privacy-cn)."));
+    QString tipLabelDeepinTxt(tr("By collecting and analyzing the information of your device, system and applications, "
+                                 "as well as the exceptions, this program helps improving the quality of products and services. "
+                                 "Joining User Experience Program means that you grant and authorize us to collect and use the information. "
+                                 "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, "
+                                 "please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en."));
     if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
         tipLabel = new DTipLabel(tipLabelDeepinTxt);
     } else {
