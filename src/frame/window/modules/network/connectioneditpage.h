@@ -64,6 +64,7 @@ public:
     void onDeviceRemoved();
 
     static void setFrameProxy(dccV20::FrameProxyInterface *_frame);
+    void setButtonTupleEnable(bool enable);
 
 Q_SIGNALS:
     void requestNextPage(ContentWidget *const page);

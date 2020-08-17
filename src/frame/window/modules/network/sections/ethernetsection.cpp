@@ -63,6 +63,8 @@ EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting,
 
     initUI();
     initConnection();
+
+    m_clonedMac->textEdit()->installEventFilter(this);
 }
 
 EthernetSection::~EthernetSection()
@@ -146,9 +148,23 @@ void EthernetSection::initConnection()
 {
     connect(m_clonedMac->textEdit(), &QLineEdit::editingFinished, this, &EthernetSection::allInputValid);
     connect(m_customMtuSwitch, &SwitchWidget::checkedChanged, this, &EthernetSection::onCostomMtuChanged);
+    connect(m_deviceMacComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &EthernetSection::editClicked);
+    connect(m_deviceMacLine, &ComboxWidget::onIndexChanged, this, &EthernetSection::editClicked);
+    connect(m_customMtuSwitch, &SwitchWidget::checkedChanged, this, &EthernetSection::editClicked);
 }
 
 void EthernetSection::onCostomMtuChanged(const bool enable)
 {
     m_customMtu->setVisible(enable);
+}
+
+bool EthernetSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

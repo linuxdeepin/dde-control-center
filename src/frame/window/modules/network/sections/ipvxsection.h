@@ -76,6 +76,7 @@ private:
     bool isIpv4SubnetMask(const QString &ip);
 
     QList<QHostAddress> dnsList();
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QMap<QString, NetworkManager::Ipv4Setting::ConfigMethod> Ipv4ConfigMethodStrMap;

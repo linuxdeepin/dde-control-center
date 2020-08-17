@@ -145,6 +145,8 @@ void WirelessSection::initUI()
     appendItem(m_deviceMacLine);
     appendItem(m_customMtuSwitch);
     appendItem(m_customMtu);
+
+    m_apSsid->installEventFilter(this);
 }
 
 void WirelessSection::initConnection()
@@ -152,9 +154,24 @@ void WirelessSection::initConnection()
     //connect(m_clonedMac->textEdit(), &QLineEdit::editingFinished, this, &WirelessSection::allInputValid);
     connect(m_customMtuSwitch, &SwitchWidget::checkedChanged, this, &WirelessSection::onCostomMtuChanged);
     connect(m_apSsid->textEdit(), &QLineEdit::textChanged, this, &WirelessSection::ssidChanged);
+    connect(m_deviceMacComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &WirelessSection::editClicked);
+    connect(m_customMtuSwitch, &SwitchWidget::checkedChanged, this, &WirelessSection::editClicked);
+    connect(m_customMtu->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &WirelessSection::editClicked);
 }
 
 void WirelessSection::onCostomMtuChanged(const bool enable)
 {
     m_customMtu->setVisible(enable);
+}
+
+
+bool WirelessSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

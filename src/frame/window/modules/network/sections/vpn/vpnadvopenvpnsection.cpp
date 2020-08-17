@@ -197,4 +197,18 @@ void VpnAdvOpenVPNSection::initConnection()
     connect(m_renegIntervalSwitch, &SwitchWidget::checkedChanged, m_renegInterval, &SpinBoxWidget::setVisible);
     connect(m_tunnelMTUSwitch, &SwitchWidget::checkedChanged, m_tunnelMTU, &SpinBoxWidget::setVisible);
     connect(m_udpFragSizeSwitch, &SwitchWidget::checkedChanged, m_udpFragSize, &SpinBoxWidget::setVisible);
+
+    connect(m_portSwitch, &SwitchWidget::checkedChanged, this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_renegIntervalSwitch, &SwitchWidget::checkedChanged, this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_compLZOSwitch, &SwitchWidget::checkedChanged, this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_tcpProtoSwitch, &SwitchWidget::checkedChanged, this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_useTapSwitch, &SwitchWidget::checkedChanged, this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_tunnelMTUSwitch, &SwitchWidget::checkedChanged, this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_udpFragSizeSwitch, &SwitchWidget::checkedChanged, this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_restrictMSSSwitch, &SwitchWidget::checkedChanged, this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_randomRemoteSwitch, &SwitchWidget::checkedChanged, this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_port->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_renegInterval->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_tunnelMTU->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &VpnAdvOpenVPNSection::editClicked);
+    connect(m_udpFragSize->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &VpnAdvOpenVPNSection::editClicked);
 }

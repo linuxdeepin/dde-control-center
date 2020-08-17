@@ -35,6 +35,10 @@ PPPOESection::PPPOESection(NetworkManager::PppoeSetting::Ptr pppoeSetting, QFram
     , m_password(new LineEditWidget(true, this))
 {
     initUI();
+
+    m_userName->textEdit()->installEventFilter(this);
+    m_service->textEdit()->installEventFilter(this);
+    m_password->textEdit()->installEventFilter(this);
 }
 
 PPPOESection::~PPPOESection()
@@ -92,3 +96,13 @@ void PPPOESection::initUI()
     appendItem(m_password);
 }
 
+bool PPPOESection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
+}

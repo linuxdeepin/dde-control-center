@@ -63,6 +63,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
     m_buttonTuple->rightButton()->setText(tr("Save"));
     m_buttonTuple->setVisible(false);
+    m_buttonTuple->setEnabled(false);
 
     // 初始化代理开关、代理类型下拉框
     SettingsGroup *proxyTypeGroup = new SettingsGroup;
@@ -173,7 +174,6 @@ ProxyPage::ProxyPage(QWidget *parent)
     setLayout(vLayout);
 
     // 响应系统代理开关
-    connect(m_proxySwitch, &SwitchWidget::checkedChanged, m_buttonTuple, &QPushButton::setEnabled);
     connect(m_proxySwitch, &SwitchWidget::checkedChanged, m_proxyTypeBox, [=](const bool checked){
         if (checked) {
             // 打开代理默认手动
@@ -194,12 +194,12 @@ ProxyPage::ProxyPage(QWidget *parent)
         m_manualWidget->setVisible(index == manualId);
         m_autoWidget->setVisible(index == autoId);
         m_buttonTuple->setVisible(index == manualId || index == autoId);
-        m_buttonTuple->setEnabled(true);
     });
 
     // 取消、确定按钮响应
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, [this] {
+        m_buttonTuple->setEnabled(false);
         if (m_proxyTypeBox->comboBox()->currentIndex() == ProxyMethodList.indexOf(MANUAL)) {
             onProxyChanged("http", m_model->proxy("http"));
             onProxyChanged("https", m_model->proxy("https"));

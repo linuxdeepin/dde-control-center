@@ -48,6 +48,7 @@ private:
     void initUI();
     void initConnection();
     void onIpsecCheckedChanged(const bool enabled);
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;

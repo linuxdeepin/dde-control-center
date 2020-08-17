@@ -49,6 +49,7 @@ private:
     void initStrMaps();
     void initUI();
     void initConnection();
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QList<QPair<QString, QString>> RemoteCertTypeStrMap;

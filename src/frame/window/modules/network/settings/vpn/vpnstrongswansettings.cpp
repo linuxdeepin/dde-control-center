@@ -57,6 +57,10 @@ void VpnStrongSwanSettings::initSections()
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
 
+    connect(genericSection, &GenericSection::editClicked, this, &VpnStrongSwanSettings::anyEditClicked);
+    connect(vpnStrongSwanSection, &VpnStrongSwanSection::editClicked, this, &VpnStrongSwanSettings::anyEditClicked);
+    connect(ipv4Section, &IpvxSection::editClicked, this, &VpnStrongSwanSettings::anyEditClicked);
+
     connect(vpnStrongSwanSection, &VpnStrongSwanSection::requestNextPage,
             this, &VpnStrongSwanSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnStrongSwanSettings::requestNextPage);

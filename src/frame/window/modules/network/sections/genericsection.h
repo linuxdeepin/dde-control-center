@@ -52,6 +52,7 @@ public:
 
 private:
     void initUI();
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     dcc::widgets::LineEditWidget *m_connIdItem;

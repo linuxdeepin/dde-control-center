@@ -53,6 +53,7 @@ private:
     void initConnection();
     void onKeyMgmtChanged(NetworkManager::WirelessSecuritySetting::KeyMgmt);
     void saveUserInputPassword();
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QMap<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtStrMap;

@@ -152,6 +152,9 @@ void VpnOpenVPNSection::initUI()
     appendItem(m_gateway);
     appendItem(m_authTypeChooser);
     appendItem(m_caFile);
+
+    m_gateway->textEdit()->installEventFilter(this);
+    m_caFile->edit()->lineEdit()->installEventFilter(this);
 }
 
 void VpnOpenVPNSection::initItems(const QString &type)
@@ -179,10 +182,12 @@ void VpnOpenVPNSection::initTLSItems()
     FileChooseWidget *userCertFile = new FileChooseWidget(this);
     userCertFile->setTitle(tr("User Cert"));
     userCertFile->edit()->setText(m_dataMap.value("cert"));
+    userCertFile->edit()->lineEdit()->installEventFilter(this);
 
     FileChooseWidget *priKeyFile = new FileChooseWidget(this);
     priKeyFile->setTitle(tr("Private Key"));
     priKeyFile->edit()->setText(m_dataMap.value("key"));
+    priKeyFile->edit()->lineEdit()->installEventFilter(this);
 
     ComboxWidget *certPasswordFlagsChooser = new ComboxWidget(this);
     certPasswordFlagsChooser->setTitle(tr("Pwd Options"));
@@ -201,6 +206,7 @@ void VpnOpenVPNSection::initTLSItems()
     priKeyPassword->setTitle(tr("Private Pwd"));
     priKeyPassword->setText(m_secretMap.value("cert-pass"));
     priKeyPassword->setPlaceholderText(tr("Required"));
+    priKeyPassword->textEdit()->installEventFilter(this);
 
     connect(certPasswordFlagsChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentCertPasswordType = data.value<NetworkManager::Setting::SecretFlagType>();
@@ -208,6 +214,7 @@ void VpnOpenVPNSection::initTLSItems()
     });
     connect(userCertFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
     connect(priKeyFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
+    connect(certPasswordFlagsChooser, &ComboxWidget::onIndexChanged, this, &VpnOpenVPNSection::editClicked);
 
     QList<SettingsItem *> itemList;
     itemList << userCertFile << priKeyFile << certPasswordFlagsChooser << priKeyPassword;
@@ -229,6 +236,7 @@ void VpnOpenVPNSection::initPasswordItems()
     userName->setTitle(tr("Username"));
     userName->setText(m_dataMap.value("username"));
     userName->setPlaceholderText(tr("Required"));
+    userName->textEdit()->installEventFilter(this);
 
     ComboxWidget *passwordFlagsChooser = new ComboxWidget(this);
     passwordFlagsChooser->setTitle(tr("Pwd Options"));
@@ -247,11 +255,13 @@ void VpnOpenVPNSection::initPasswordItems()
     password->setTitle(tr("Password"));
     password->setText(m_secretMap.value("password"));
     password->setPlaceholderText(tr("Required"));
+    password->textEdit()->installEventFilter(this);
 
     connect(passwordFlagsChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentPasswordType = data.value<NetworkManager::Setting::SecretFlagType>();
         password->setVisible(m_currentPasswordType == NetworkManager::Setting::SecretFlagType::None);
     });
+    connect(passwordFlagsChooser, &ComboxWidget::onIndexChanged, this, &VpnOpenVPNSection::editClicked);
 
     QList<SettingsItem *> itemList;
     itemList << userName << passwordFlagsChooser << password;
@@ -272,6 +282,7 @@ void VpnOpenVPNSection::initStaticKeyItems()
     FileChooseWidget *staticKey = new FileChooseWidget(this);
     staticKey->setTitle(tr("Static Key"));
     staticKey->edit()->setText(m_dataMap.value("static-key"));
+    staticKey->edit()->lineEdit()->installEventFilter(this);
 
     SwitchWidget *customizeKeyDirection = new SwitchWidget(this);
     customizeKeyDirection->setTitle(tr("Customize Key Direction"));
@@ -288,11 +299,13 @@ void VpnOpenVPNSection::initStaticKeyItems()
     remoteIp->setTitle(tr("Remote IP"));
     remoteIp->setPlaceholderText(tr("Required"));
     remoteIp->setText(m_dataMap.value("remote-ip"));
+    remoteIp->textEdit()->installEventFilter(this);
 
     LineEditWidget *localIp = new LineEditWidget(this);
     localIp->setTitle(tr("Local IP"));
     localIp->setPlaceholderText(tr("Required"));
     localIp->setText(m_dataMap.value("local-ip"));
+    localIp->textEdit()->installEventFilter(this);
 
     connect(customizeKeyDirection, &SwitchWidget::checkedChanged,
             keyDirectionChooser, &ComboxWidget::setVisible);
@@ -300,6 +313,8 @@ void VpnOpenVPNSection::initStaticKeyItems()
         m_currentKeyDirection = data.toString();
     });
     connect(staticKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
+    connect(customizeKeyDirection, &SwitchWidget::checkedChanged, this, &VpnOpenVPNSection::editClicked);
+    connect(keyDirectionChooser, &ComboxWidget::onIndexChanged, this, &VpnOpenVPNSection::editClicked);
 
     QList<SettingsItem *> itemList;
     itemList << staticKey << customizeKeyDirection << keyDirectionChooser << remoteIp << localIp;
@@ -318,6 +333,8 @@ void VpnOpenVPNSection::initConnection()
         onAuthTypeChanged(data.toString());
     });
     connect(m_caFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
+
+    connect(m_authTypeChooser, &ComboxWidget::onIndexChanged, this, &VpnOpenVPNSection::editClicked);
 }
 
 void VpnOpenVPNSection::onAuthTypeChanged(const QString &type)
@@ -511,4 +528,15 @@ void VpnOpenVPNSection::saveStaticKeyItems()
     }
     m_dataMap.insert("remote-ip", remoteIp->text());
     m_dataMap.insert("local-ip", localIp->text());
+}
+
+bool VpnOpenVPNSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

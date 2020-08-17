@@ -173,6 +173,9 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
             break;
     }
 
+    connect(m_settingsWidget, &AbstractSettings::anyEditClicked, this, [this]{
+        setButtonTupleEnable(true);
+    });
     connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionVpnEditPage::onRequestNextPage);
     connect(m_settingsWidget, &AbstractSettings::requestFrameAutoHide, this, &ConnectionEditPage::requestFrameAutoHide);
 

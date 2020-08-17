@@ -51,6 +51,7 @@ private:
     void initConnection();
     void onPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type);
     void onGroupPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type);
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QList<QPair<QString, NetworkManager::Setting::SecretFlagType>> PasswordFlagsStrMap;

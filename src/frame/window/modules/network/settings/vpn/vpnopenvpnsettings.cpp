@@ -77,6 +77,15 @@ void VpnOpenVPNSettings::initSections()
         vpnTLSSection->setVisible(false);
     }
 
+    connect(genericSection, &GenericSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
+    connect(vpnOpenVPNSection, &VpnOpenVPNSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
+    connect(vpnAdvOpenVPNSection, &VpnAdvOpenVPNSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
+    connect(vpnSecOpenVPNSection, &VpnSecOpenVPNSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
+    connect(vpnProxySection, &VpnProxySection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
+    connect(ipv4Section, &IpvxSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
+    connect(ipv6Section, &IpvxSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
+    connect(vpnTLSSection, &VpnTLSSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
+
     connect(vpnOpenVPNSection, &VpnOpenVPNSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(vpnOpenVPNSection, &VpnOpenVPNSection::authTypeChanged, this, [=](const QString &type) {
         vpnTLSSection->setVisible(type != "static-key");

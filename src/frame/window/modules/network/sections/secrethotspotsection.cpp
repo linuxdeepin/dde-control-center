@@ -129,6 +129,8 @@ void SecretHotspotSection::initUI()
 
     appendItem(m_keyMgmtChooser);
     appendItem(m_passwdEdit);
+
+    m_passwdEdit->textEdit()->installEventFilter(this);
 }
 
 void SecretHotspotSection::initConnection()
@@ -138,6 +140,7 @@ void SecretHotspotSection::initConnection()
     });
 
     connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretHotspotSection::saveUserInputPassword);
+    connect(m_keyMgmtChooser, &ComboxWidget::onIndexChanged, this, &SecretHotspotSection::editClicked);
 }
 
 void SecretHotspotSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt)
@@ -175,4 +178,15 @@ void SecretHotspotSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySett
 void SecretHotspotSection::saveUserInputPassword()
 {
     m_userInputPasswordMap.insert(m_currentKeyMgmt, m_passwdEdit->text());
+}
+
+bool SecretHotspotSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

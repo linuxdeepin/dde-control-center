@@ -62,6 +62,7 @@ private:
     void initConnection();
 
     void onCostomMtuChanged(const bool enable);
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     dcc::widgets::LineEditWidget *m_apSsid;

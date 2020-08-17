@@ -51,6 +51,12 @@ void DslPppoeSettings::initSections()
     PPPSection *pppSection = new PPPSection(
         m_connSettings->setting(Setting::Ppp).staticCast<NetworkManager::PppSetting>());
 
+    connect(genericSection, &GenericSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
+    connect(pppoeSection, &EthernetSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
+    connect(ipv4Section, &IpvxSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
+    connect(etherNetSection, &EthernetSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
+    connect(pppSection, &IpvxSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
+
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
     connect(etherNetSection, &EthernetSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
 

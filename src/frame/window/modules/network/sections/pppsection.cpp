@@ -159,6 +159,19 @@ void PPPSection::initUI()
 void PPPSection::initConnection()
 {
     connect(m_mppeEnable, &SwitchWidget::checkedChanged, this, &PPPSection::onMppeEnableChanged);
+
+    connect(m_mppeEnable, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_mppe128, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_mppeStateful, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_refuseEAP, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_refusePAP, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_refuseCHAP, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_refuseMSCHAP, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_refuseMSCHAP2, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_noBSDComp, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_noDeflate, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_noVJComp, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
+    connect(m_lcpEchoInterval, &SwitchWidget::checkedChanged, this, &PPPSection::editClicked);
 }
 
 void PPPSection::onMppeEnableChanged(const bool checked)

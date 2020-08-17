@@ -155,4 +155,7 @@ void VpnSecOpenVPNSection::initConnection()
             }
         }
     });
+
+    connect(m_cipherChooser, &ComboxWidget::onIndexChanged, this, &VpnSecOpenVPNSection::editClicked);
+    connect(m_hmacChooser, &ComboxWidget::onIndexChanged, this, &VpnSecOpenVPNSection::editClicked);
 }

@@ -120,6 +120,9 @@ void VpnTLSSection::initUI()
     appendItem(m_caCert);
     appendItem(m_customKeyDirection);
     appendItem(m_keyDirectionChooser);
+
+    m_remote->textEdit()->installEventFilter(this);
+    m_caCert->edit()->lineEdit()->installEventFilter(this);
 }
 
 void VpnTLSSection::initConnection()
@@ -140,4 +143,19 @@ void VpnTLSSection::initConnection()
     });
 
     connect(m_caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnTLSSection::requestFrameAutoHide);
+
+    connect(m_remoteCertTypeChooser, &ComboxWidget::onIndexChanged, this, &VpnTLSSection::editClicked);
+    connect(m_customKeyDirection, &SwitchWidget::checkedChanged, this, &VpnTLSSection::editClicked);
+    connect(m_keyDirectionChooser, &ComboxWidget::onIndexChanged, this, &VpnTLSSection::editClicked);
+}
+
+bool VpnTLSSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

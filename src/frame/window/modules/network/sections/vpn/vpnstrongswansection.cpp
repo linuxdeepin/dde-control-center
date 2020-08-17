@@ -212,6 +212,15 @@ void VpnStrongSwanSection::initUI()
     appendItem(m_enableCustomCipher);
     appendItem(m_ike);
     appendItem(m_esp);
+
+    m_gateway->textEdit()->installEventFilter(this);
+    m_userName->textEdit()->installEventFilter(this);
+    m_password->textEdit()->installEventFilter(this);
+    m_ike->textEdit()->installEventFilter(this);
+    m_esp->textEdit()->installEventFilter(this);
+    m_caCert->edit()->lineEdit()->installEventFilter(this);
+    m_userCert->edit()->lineEdit()->installEventFilter(this);
+    m_userKey->edit()->lineEdit()->installEventFilter(this);
 }
 
 void VpnStrongSwanSection::initConnection()
@@ -230,6 +239,12 @@ void VpnStrongSwanSection::initConnection()
     connect(m_caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnStrongSwanSection::requestFrameAutoHide);
     connect(m_userCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnStrongSwanSection::requestFrameAutoHide);
     connect(m_userKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnStrongSwanSection::requestFrameAutoHide);
+
+    connect(m_authTypeChooser, &ComboxWidget::onIndexChanged, this, &VpnStrongSwanSection::editClicked);
+    connect(m_requestInnerIp, &SwitchWidget::checkedChanged, this, &VpnStrongSwanSection::editClicked);
+    connect(m_enforceUDP, &SwitchWidget::checkedChanged, this, &VpnStrongSwanSection::editClicked);
+    connect(m_useIPComp, &SwitchWidget::checkedChanged, this, &VpnStrongSwanSection::editClicked);
+    connect(m_enableCustomCipher, &SwitchWidget::checkedChanged, this, &VpnStrongSwanSection::editClicked);
 }
 
 void VpnStrongSwanSection::onAuthTypeChanged(const QString &type)
@@ -246,4 +261,15 @@ void VpnStrongSwanSection::onCustomCipherEnableChanged(const bool enabled)
 {
     m_ike->setVisible(enabled);
     m_esp->setVisible(enabled);
+}
+
+bool VpnStrongSwanSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

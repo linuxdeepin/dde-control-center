@@ -49,6 +49,7 @@ public:
 Q_SIGNALS:
     void requestNextPage(dcc::ContentWidget * const page);
     void requestFrameAutoHide(const bool autoHide) const;
+    void anyEditClicked();
 
 protected:
     virtual void initSections() = 0;

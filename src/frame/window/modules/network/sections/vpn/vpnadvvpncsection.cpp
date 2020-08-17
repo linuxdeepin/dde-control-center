@@ -241,6 +241,9 @@ void VpnAdvVPNCSection::initUI()
     appendItem(m_forwordSecrecyChooser);
     appendItem(m_localPort);
     appendItem(m_disableDPD);
+
+    m_domain->textEdit()->installEventFilter(this);
+    m_version->textEdit()->installEventFilter(this);
 }
 
 void VpnAdvVPNCSection::initConnection()
@@ -264,4 +267,22 @@ void VpnAdvVPNCSection::initConnection()
     connect(m_forwordSecrecyChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentForwordSecrecy = data.value<QString>();
     });
+
+    connect(m_vendorChooser, &ComboxWidget::onIndexChanged, this, &VpnAdvVPNCSection::editClicked);
+    connect(m_encryptionChooser, &ComboxWidget::onIndexChanged, this, &VpnAdvVPNCSection::editClicked);
+    connect(m_natTravModeChooser, &ComboxWidget::onIndexChanged, this, &VpnAdvVPNCSection::editClicked);
+    connect(m_ikeDHGroupChooser, &ComboxWidget::onIndexChanged, this, &VpnAdvVPNCSection::editClicked);
+    connect(m_forwordSecrecyChooser, &ComboxWidget::onIndexChanged, this, &VpnAdvVPNCSection::editClicked);
+    connect(m_disableDPD, &SwitchWidget::checkedChanged, this, &VpnAdvVPNCSection::editClicked);
+}
+
+bool VpnAdvVPNCSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

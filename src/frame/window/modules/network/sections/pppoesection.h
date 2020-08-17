@@ -44,6 +44,7 @@ public:
 
 private:
     void initUI();
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     NetworkManager::PppoeSetting::Ptr m_pppoeSetting;

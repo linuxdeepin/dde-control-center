@@ -126,6 +126,7 @@ void VpnPPPSection::setSupportOptions(const QStringList &supportOptions)
             }
             m_optionsWidgets.append(optionWidget);
             appendItem(optionWidget);
+            connect(optionWidget, &SwitchWidget::checkedChanged, this, &VpnPPPSection::editClicked);
         } else {
             qDebug() << "Unsupport mppe option:" << option;
         }
@@ -183,6 +184,9 @@ void VpnPPPSection::initConnection()
 {
     connect(m_mppeEnable, &SwitchWidget::checkedChanged, this, &VpnPPPSection::onMppeEnableChanged);
     connect(m_mppeChooser, &ComboxWidget::onSelectChanged, this, &VpnPPPSection::onMppeMethodChanged);
+    connect(m_mppeEnable, &SwitchWidget::checkedChanged, this, &VpnPPPSection::editClicked);
+    connect(m_mppeChooser, &ComboxWidget::onIndexChanged, this, &VpnPPPSection::editClicked);
+    connect(m_mppeStateful, &SwitchWidget::checkedChanged, this, &VpnPPPSection::editClicked);
 }
 
 void VpnPPPSection::onMppeEnableChanged(const bool checked)

@@ -223,6 +223,13 @@ void VpnVPNCSection::initUI()
     appendItem(m_groupPassword);
     appendItem(m_userHybrid);
     appendItem(m_caFile);
+
+    m_gateway->textEdit()->installEventFilter(this);
+    m_userName->textEdit()->installEventFilter(this);
+    m_password->textEdit()->installEventFilter(this);
+    m_groupName->textEdit()->installEventFilter(this);
+    m_groupPassword->textEdit()->installEventFilter(this);
+    m_caFile->edit()->lineEdit()->installEventFilter(this);
 }
 
 void VpnVPNCSection::initConnection()
@@ -249,6 +256,10 @@ void VpnVPNCSection::initConnection()
     });
 
     connect(m_caFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnVPNCSection::requestFrameAutoHide);
+
+    connect(m_passwordFlagsChooser, &ComboxWidget::onIndexChanged, this, &VpnVPNCSection::editClicked);
+    connect(m_groupPasswordFlagsChooser, &ComboxWidget::onIndexChanged, this, &VpnVPNCSection::editClicked);
+    connect(m_userHybrid, &SwitchWidget::checkedChanged, this, &VpnVPNCSection::editClicked);
 }
 
 void VpnVPNCSection::onPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type)
@@ -261,4 +272,15 @@ void VpnVPNCSection::onGroupPasswordFlagsChanged(NetworkManager::Setting::Secret
 {
     m_currentGroupPasswordType = type;
     m_groupPassword->setVisible(m_currentGroupPasswordType == NetworkManager::Setting::SecretFlagType::None);
+}
+
+bool VpnVPNCSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

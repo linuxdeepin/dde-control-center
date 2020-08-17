@@ -64,6 +64,11 @@ void VpnPPTPSettings::initSections()
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
 
+    connect(genericSection, &GenericSection::editClicked, this, &VpnPPTPSettings::anyEditClicked);
+    connect(vpnSection, &VpnSection::editClicked, this, &VpnPPTPSettings::anyEditClicked);
+    connect(vpnPPPSection, &VpnPPPSection::editClicked, this, &VpnPPTPSettings::anyEditClicked);
+    connect(ipv4Section, &IpvxSection::editClicked, this, &VpnPPTPSettings::anyEditClicked);
+
     connect(vpnSection, &VpnSection::requestNextPage, this, &VpnPPTPSettings::requestNextPage);
     connect(vpnPPPSection, &VpnPPPSection::requestNextPage, this, &VpnPPTPSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnPPTPSettings::requestNextPage);

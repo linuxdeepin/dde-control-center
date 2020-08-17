@@ -143,6 +143,11 @@ void VpnSection::initUI()
     appendItem(m_passwordFlagsChooser);
     appendItem(m_password);
     appendItem(m_domain);
+
+    m_gateway->textEdit()->installEventFilter(this);
+    m_userName->textEdit()->installEventFilter(this);
+    m_password->textEdit()->installEventFilter(this);
+    m_domain->textEdit()->installEventFilter(this);
 }
 
 void VpnSection::initConnection()
@@ -155,10 +160,23 @@ void VpnSection::initConnection()
             }
         }
     });
+
+    connect(m_passwordFlagsChooser, &ComboxWidget::onIndexChanged, this, &VpnSection::editClicked);
 }
 
 void VpnSection::onPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type)
 {
     m_currentPasswordType = type;
     m_password->setVisible(m_currentPasswordType == NetworkManager::Setting::SecretFlagType::None);
+}
+
+bool VpnSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

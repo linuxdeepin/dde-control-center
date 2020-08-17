@@ -51,6 +51,7 @@ private:
     void initConnection();
     void onAuthTypeChanged(const QString &type);
     void onCustomCipherEnableChanged(const bool enabled);
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QList<QPair<QString, QString>> AuthTypeStrMap;

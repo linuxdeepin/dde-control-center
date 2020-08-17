@@ -68,6 +68,12 @@ void VpnL2tpSettings::initSections()
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
 
+    connect(genericSection, &GenericSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
+    connect(vpnSection, &VpnSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
+    connect(vpnPPPSection, &VpnPPPSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
+    connect(vpnIpsecSection, &VpnIpsecSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
+    connect(ipv4Section, &IpvxSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
+
     connect(vpnSection, &VpnSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
     connect(vpnPPPSection, &VpnPPPSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
     connect(vpnIpsecSection, &VpnIpsecSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);

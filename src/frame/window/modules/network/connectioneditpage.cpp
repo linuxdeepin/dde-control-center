@@ -107,6 +107,8 @@ void ConnectionEditPage::initUI()
     m_buttonTuple->setAutoFillBackground(true);
     cancelBtn->setText(tr("Cancel"));
     acceptBtn->setText(tr("Save"));
+    m_buttonTuple->leftButton()->setEnabled(false);
+    m_buttonTuple->rightButton()->setEnabled(false);
 
     m_mainLayout->setContentsMargins(10, 10, 10, 10);
     m_mainLayout->addSpacing(10);
@@ -170,6 +172,10 @@ void ConnectionEditPage::initSettingsWidget()
         break;
     }
 
+    connect(m_settingsWidget, &AbstractSettings::anyEditClicked, this, [this]{
+        m_buttonTuple->leftButton()->setEnabled(true);
+        m_buttonTuple->rightButton()->setEnabled(true);
+    });
     connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPage::onRequestNextPage);
     connect(m_settingsWidget, &AbstractSettings::requestFrameAutoHide, this, &ConnectionEditPage::requestFrameAutoHide);
 
@@ -444,4 +450,10 @@ void ConnectionEditPage::addHeaderButton(QPushButton *button)
 void ConnectionEditPage::setFrameProxy(dccV20::FrameProxyInterface *_frame)
 {
     m_frame = _frame;
+}
+
+void ConnectionEditPage::setButtonTupleEnable(bool enable)
+{
+    m_buttonTuple->leftButton()->setEnabled(enable);
+    m_buttonTuple->rightButton()->setEnabled(enable);
 }

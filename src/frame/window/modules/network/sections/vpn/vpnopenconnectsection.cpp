@@ -43,6 +43,8 @@ VpnOpenConnectSection::VpnOpenConnectSection(NetworkManager::VpnSetting::Ptr vpn
     connect(m_caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenConnectSection::requestFrameAutoHide);
     connect(m_userCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenConnectSection::requestFrameAutoHide);
     connect(m_userKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenConnectSection::requestFrameAutoHide);
+    connect(m_enableCSDTrojan, &SwitchWidget::checkedChanged, this, &VpnOpenConnectSection::editClicked);
+    connect(m_useFSID, &SwitchWidget::checkedChanged, this, &VpnOpenConnectSection::editClicked);
 }
 
 VpnOpenConnectSection::~VpnOpenConnectSection()
@@ -118,4 +120,22 @@ void VpnOpenConnectSection::initUI()
     appendItem(m_userCert);
     appendItem(m_userKey);
     appendItem(m_useFSID);
+
+    m_gateway->textEdit()->installEventFilter(this);
+    m_proxy->textEdit()->installEventFilter(this);
+    m_csdScript->textEdit()->installEventFilter(this);
+    m_caCert->edit()->lineEdit()->installEventFilter(this);
+    m_userCert->edit()->lineEdit()->installEventFilter(this);
+    m_userKey->edit()->lineEdit()->installEventFilter(this);
+}
+
+bool VpnOpenConnectSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

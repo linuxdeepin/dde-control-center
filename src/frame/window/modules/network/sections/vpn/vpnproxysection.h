@@ -54,6 +54,7 @@ private:
     void initUI();
     void initConnection();
     void onProxyTypeChanged(const QString &type);
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QList<QPair<QString, QString>> ProxyTypeStrMap;

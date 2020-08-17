@@ -51,6 +51,12 @@ void WiredSettings::initSections()
     EthernetSection *etherNetSection = new EthernetSection(
         m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
 
+    connect(genericSection, &GenericSection::editClicked, this, &WiredSettings::anyEditClicked);
+    connect(secretSection, &Secret8021xSection::editClicked, this, &WiredSettings::anyEditClicked);
+    connect(ipv4Section, &IpvxSection::editClicked, this, &WiredSettings::anyEditClicked);
+    connect(ipv6Section, &IpvxSection::editClicked, this, &WiredSettings::anyEditClicked);
+    connect(etherNetSection, &EthernetSection::editClicked, this, &WiredSettings::anyEditClicked);
+
     connect(secretSection, &Secret8021xSection::requestNextPage, this, &WiredSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);
     connect(ipv6Section, &IpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);

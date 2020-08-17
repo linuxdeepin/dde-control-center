@@ -263,6 +263,14 @@ void IpvxSection::initUI()
     appendItem(m_dnsPrimary);
     appendItem(m_dnsSecond);
     appendItem(m_neverDefault);
+
+    m_ipAddress->textEdit()->installEventFilter(this);
+    m_gateway->textEdit()->installEventFilter(this);
+    m_dnsPrimary->textEdit()->installEventFilter(this);
+    m_dnsSecond->textEdit()->installEventFilter(this);
+    if (m_netmaskIpv4) {
+        m_netmaskIpv4->textEdit()->installEventFilter(this);
+    }
 }
 
 void IpvxSection::initForIpv4()
@@ -385,6 +393,10 @@ void IpvxSection::initConnection()
         });
         break;
     }
+
+    connect(m_neverDefault, &SwitchWidget::checkedChanged, this, &IpvxSection::editClicked);
+    connect(m_methodChooser, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &IpvxSection::editClicked);
+    connect(m_methodLine, &ComboxWidget::onIndexChanged, this, &IpvxSection::editClicked);
 }
 
 void IpvxSection::onIpv4MethodChanged(NetworkManager::Ipv4Setting::ConfigMethod method)
@@ -616,4 +628,15 @@ QList<QHostAddress> IpvxSection::dnsList()
     }
 
     return dnsList;
+}
+
+bool IpvxSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

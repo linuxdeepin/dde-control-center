@@ -65,6 +65,7 @@ private:
     void saveTlsItems();
     void savePasswordItems();
     void saveStaticKeyItems();
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QList<QPair<QString, QString>> AuthTypeStrMap;

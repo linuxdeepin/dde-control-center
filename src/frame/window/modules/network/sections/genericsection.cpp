@@ -37,6 +37,8 @@ GenericSection::GenericSection(NetworkManager::ConnectionSettings::Ptr connSetti
     , m_connType(NetworkManager::ConnectionSettings::Unknown)
 {
     initUI();
+    m_connIdItem->textEdit()->installEventFilter(this);
+    connect(m_autoConnItem, &SwitchWidget::checkedChanged, this, &GenericSection::editClicked);
 }
 
 GenericSection::~GenericSection()
@@ -104,4 +106,13 @@ void GenericSection::initUI()
 
     appendItem(m_connIdItem);
     appendItem(m_autoConnItem);
+}
+
+bool GenericSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn && dynamic_cast<QLineEdit*>(watched)) {
+        Q_EMIT editClicked();
+    }
+    return QWidget::eventFilter(watched, event);
 }

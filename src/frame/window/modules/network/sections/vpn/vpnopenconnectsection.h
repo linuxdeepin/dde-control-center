@@ -46,6 +46,7 @@ public:
 
 private:
     void initUI();
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;

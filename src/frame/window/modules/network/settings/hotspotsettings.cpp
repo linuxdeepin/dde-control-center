@@ -51,6 +51,10 @@ void HotspotSettings::initSections()
 
     WirelessSection *wirelessSection = new WirelessSection(wirelessSetting, true);
 
+    connect(genericSection, &GenericHotspotSection::editClicked, this, &HotspotSettings::anyEditClicked);
+    connect(secretHotspotSection, &GenericHotspotSection::editClicked, this, &HotspotSettings::anyEditClicked);
+    connect(wirelessSection, &GenericHotspotSection::editClicked, this, &HotspotSettings::anyEditClicked);
+
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(secretHotspotSection);
     m_sectionsLayout->addWidget(wirelessSection);

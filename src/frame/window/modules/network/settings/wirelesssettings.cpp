@@ -60,6 +60,12 @@ void WirelessSettings::initSections()
         wirelessSection->setSsidEditable(false);
     }
 
+    connect(genericSection, &GenericSection::editClicked, this, &WirelessSettings::anyEditClicked);
+    connect(secretSection, &Secret8021xSection::editClicked, this, &WirelessSettings::anyEditClicked);
+    connect(ipv4Section, &IpvxSection::editClicked, this, &WirelessSettings::anyEditClicked);
+    connect(ipv6Section, &IpvxSection::editClicked, this, &WirelessSettings::anyEditClicked);
+    connect(wirelessSection, &WirelessSection::editClicked, this, &WirelessSettings::anyEditClicked);
+
     connect(wirelessSection, &WirelessSection::requestNextPage, this, &WirelessSettings::requestNextPage);
     connect(secretSection, &Secret8021xSection::requestNextPage, this, &WirelessSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &WirelessSettings::requestNextPage);

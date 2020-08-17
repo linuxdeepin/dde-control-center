@@ -43,9 +43,12 @@ public:
 
     void appendItem(dcc::widgets::SettingsItem *item);
     void insertItem(int idx, dcc::widgets::SettingsItem *item);
+
 Q_SIGNALS:
     void requestNextPage(dcc::ContentWidget * const page) const;
     void requestFrameAutoHide(const bool autoHide) const;
+    void editClicked();
+
 private:
     dcc::widgets::SettingsGroup *m_group{nullptr};
     QVBoxLayout *m_layout{nullptr};

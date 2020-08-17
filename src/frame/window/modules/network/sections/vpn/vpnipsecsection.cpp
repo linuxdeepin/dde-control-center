@@ -102,11 +102,18 @@ void VpnIpsecSection::initUI()
     appendItem(m_psk);
     appendItem(m_ike);
     appendItem(m_esp);
+
+    m_groupName->textEdit()->installEventFilter(this);
+    m_gatewayId->textEdit()->installEventFilter(this);
+    m_psk->textEdit()->installEventFilter(this);
+    m_ike->textEdit()->installEventFilter(this);
+    m_esp->textEdit()->installEventFilter(this);
 }
 
 void VpnIpsecSection::initConnection()
 {
     connect(m_ipsecEnable, &SwitchWidget::checkedChanged, this, &VpnIpsecSection::onIpsecCheckedChanged);
+    connect(m_ipsecEnable, &SwitchWidget::checkedChanged, this, &VpnIpsecSection::editClicked);
 }
 
 void VpnIpsecSection::onIpsecCheckedChanged(const bool enabled)
@@ -116,4 +123,15 @@ void VpnIpsecSection::onIpsecCheckedChanged(const bool enabled)
     m_psk->setVisible(enabled);
     m_ike->setVisible(enabled);
     m_esp->setVisible(enabled);
+}
+
+bool VpnIpsecSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if ((dynamic_cast<QLineEdit*>(watched))) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

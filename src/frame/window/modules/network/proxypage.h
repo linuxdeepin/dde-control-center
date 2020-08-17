@@ -77,6 +77,7 @@ private Q_SLOTS:
 
 private:
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
+
 private:
     dde::network::NetworkModel *m_model;
 
