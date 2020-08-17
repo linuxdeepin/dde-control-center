@@ -715,3 +715,20 @@ void DisplayWorker::setTouchScreenAssociation(const QString &touchscreenSerial, 
 {
     m_displayInter.AssociateTouch(monitor, touchscreenSerial);
 }
+
+void DisplayWorker::setMonitorResolutionBySize(Monitor *mon, const int width, const int height)
+{
+    MonitorInter *inter = m_monitors.value(mon);
+    Q_ASSERT(inter);
+
+    QDBusPendingCall call = inter->SetModeBySize(static_cast<ushort>(width), static_cast<ushort>(height));
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError()) {
+            qDebug() << call.error().message();
+        }
+        watcher->deleteLater();
+    });
+    watcher->waitForFinished();
+    m_displayInter.ApplyChanges().waitForFinished();
+}

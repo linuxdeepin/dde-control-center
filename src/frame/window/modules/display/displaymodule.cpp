@@ -348,6 +348,9 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                         if (res.width() == w && res.height() == h && abs(res.rate() - r) < 1e-5) {
                             m_displayWorker->setMonitorResolution(m, res.id());
                             break;
+                        } else {
+                            m_displayWorker->setMonitorResolutionBySize(m, w, h);
+                            break;
                         }
                     }
                 }

@@ -91,6 +91,7 @@ public Q_SLOTS:
     void record(); // save mutilScreenConfig
     void restore(); // restore mutilScreenConfig
     void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial);
+    void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
 
 public Q_SLOTS:
     void setAmbientLightAdjustBrightness(bool);
