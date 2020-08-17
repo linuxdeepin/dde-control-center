@@ -3,6 +3,9 @@
 
 #include <QProcess>
 #include <QDBusConnection>
+#include <DSysInfo>
+
+DCORE_USE_NAMESPACE
 
 using namespace dcc;
 using namespace dcc::cloudsync;
@@ -186,6 +189,11 @@ void SyncWorker::licenseStateChangeSlot()
 
 void SyncWorker::getLicenseState()
 {
+    if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
+        m_model->setActivation(true);
+        return;
+    }
+    
     QDBusInterface licenseInfo("com.deepin.license",
                                "/com/deepin/license/Info",
                                "com.deepin.license.Info",
