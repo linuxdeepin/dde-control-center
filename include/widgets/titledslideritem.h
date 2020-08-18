@@ -30,6 +30,7 @@
 
 class QLabel;
 class QSlider;
+class QHBoxLayout;
 
 namespace dcc {
 namespace widgets {
@@ -52,12 +53,14 @@ public:
     void setLeftIcon(const QIcon &leftIcon);
     void setRightIcon(const QIcon &rightIcon);
     void setIconSize(const QSize &size);
+    QHBoxLayout *getbottomlayout() { return m_bottomLayout; }
 
 private:
     NormalLabel *m_titleLabel;
     NormalLabel *m_valueLabel;
     DCCSlider *m_slider;
     QString m_valueLiteral;
+    QHBoxLayout *m_bottomLayout;
 };
 
 } // namespace widgets

@@ -27,6 +27,9 @@
 
 #include <QStandardItemModel>
 #include <QWidget>
+#include <QLabel>
+
+#define ICON_SIZE   20
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -50,6 +53,21 @@ namespace DCC_NAMESPACE {
 
 namespace sound {
 
+class SoundLabel : public QLabel
+{
+    Q_OBJECT
+public:
+    explicit SoundLabel(QWidget *parent = nullptr);
+    void mouseReleaseEvent(QMouseEvent *e) override;
+    virtual ~SoundLabel() {}
+
+private:
+    bool m_mute;
+
+Q_SIGNALS:
+    void clicked(bool checked);
+};
+
 class MicrophonePage : public QWidget
 {
     Q_OBJECT
@@ -59,6 +77,7 @@ public:
     ~MicrophonePage();
 public:
     void setModel(dcc::sound::SoundModel *model);
+    bool isShow(const dcc::sound::Port *port);
 
 Q_SIGNALS:
     void requestSwitchMicrophone(bool on);
@@ -66,13 +85,18 @@ Q_SIGNALS:
     void requestSetPort(const dcc::sound::Port *);
     //请求降噪
    void requestReduceNoise(bool value);
+   //请求静音切换
+   void requestMute();
 
 private Q_SLOTS:
     void removePort(const QString &portId, const uint &cardId);
     void addPort(const dcc::sound::Port *port);
+    void toggleMute();
 
 private:
     void initSlider();
+    void refreshIcon();
+    const QPixmap loadSvg(const QString &iconName, const QString &localPath, const int size, const qreal ratio);
 
 private:
     dcc::sound::SoundModel *m_model{nullptr};
@@ -88,6 +112,9 @@ private:
 
     QStandardItemModel *m_inputModel{nullptr};
     const dcc::sound::Port  *m_currentPort{nullptr};
+
+    SoundLabel *m_volumeBtn;
+    bool m_mute;
 };
 
 }

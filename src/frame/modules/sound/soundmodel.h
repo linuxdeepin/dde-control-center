@@ -159,6 +159,8 @@ public:
 
     bool isIncreaseVolume() const;
     void setIncreaseVolume(bool value);
+    void initMicroPhone() { Q_EMIT microphoneOnChanged(m_microphoneOn); }
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;

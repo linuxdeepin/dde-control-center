@@ -108,9 +108,11 @@ void SoundModule::showMicrophonePage()
     MicrophonePage *w = new MicrophonePage;
     m_model->setPortEnable(false);
     w->setModel(m_model);
+    m_model->initMicroPhone();
     connect(w, &MicrophonePage::requestSetMicrophoneVolume, m_worker, &SoundWorker::setSourceVolume);
     connect(w, &MicrophonePage::requestSetPort, m_worker, &SoundWorker::setPort);
     connect(w, &MicrophonePage::requestReduceNoise, m_worker, &SoundWorker::setReduceNoise);
+    connect(w, &MicrophonePage::requestMute, m_worker, &SoundWorker::setMute);
     m_frameProxy->pushWidget(this, w);
 }
 

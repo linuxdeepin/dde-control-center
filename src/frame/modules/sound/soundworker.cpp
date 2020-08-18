@@ -176,6 +176,14 @@ void SoundWorker::setSinkVolume(double volume)
     }
 }
 
+//通知后端切换静音状态
+void SoundWorker::setMute()
+{
+    if (m_defaultSource) {
+        m_defaultSource->SetMute(!m_defaultSource->mute());
+    }
+}
+
 void SoundWorker::setIncreaseVolume(bool value)
 {
     m_audioInter->setIncreaseVolume(value);
@@ -232,12 +240,12 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
     if (m_defaultSource) m_defaultSource->deleteLater();
     m_defaultSource = new Source("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
 
-    connect(m_defaultSource, &Source::MuteChanged, [this](bool mute) { m_model->setMicrophoneOn(!mute); });
+    connect(m_defaultSource, &Source::MuteChanged, [this](bool mute) { m_model->setMicrophoneOn(mute); });
     connect(m_defaultSource, &Source::VolumeChanged, m_model, &SoundModel::setMicrophoneVolume);
     connect(m_defaultSource, &Source::ActivePortChanged, this, &SoundWorker::activeSourcePortChanged);
     connect(m_defaultSource, &Source::CardChanged, this, &SoundWorker::onSourceCardChanged);
 
-    m_model->setMicrophoneOn(!m_defaultSource->mute());
+    m_model->setMicrophoneOn(m_defaultSource->mute());
     m_model->setMicrophoneVolume(m_defaultSource->volume());
     activeSourcePortChanged(m_defaultSource->activePort());
     onSourceCardChanged(m_defaultSource->card());

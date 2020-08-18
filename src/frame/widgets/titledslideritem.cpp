@@ -66,7 +66,7 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     bottomLayout->addWidget(m_slider, 0);
     bottomLayout->setMargin(0);
     bottomLayout->setSpacing(0);
-
+    m_bottomLayout = bottomLayout;
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setMargin(0);

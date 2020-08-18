@@ -32,6 +32,8 @@
 #include <DStandardItem>
 #include <DStyle>
 #include <DFontSizeManager>
+#include <DGuiApplicationHelper>
+#include <DApplication>
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -41,6 +43,9 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QDBusInterface>
+#include <QDBusReply>
+#include <QSvgRenderer>
 
 using namespace dcc::sound;
 using namespace dcc::widgets;
@@ -48,10 +53,25 @@ using namespace DCC_NAMESPACE::sound;
 
 Q_DECLARE_METATYPE(const dcc::sound::Port *)
 
+SoundLabel::SoundLabel(QWidget *parent)
+    : QLabel(parent)
+    , m_mute(false)
+{
+
+}
+
+void SoundLabel::mouseReleaseEvent(QMouseEvent *e)
+{
+    Q_UNUSED(e)
+    m_mute = !m_mute;
+    Q_EMIT clicked(m_mute);
+}
+
 MicrophonePage::MicrophonePage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_sw(new SwitchWidget)
+    , m_mute(false)
 {
     const int titleLeftMargin = 17;
     //~ contents_path /sound/Advanced
@@ -105,7 +125,9 @@ void MicrophonePage::setModel(SoundModel *model)
     //发送查询请求消息看是否可用
     connect(m_model, &SoundModel::setPortChanged, this, [ = ](const dcc::sound::Port  * port) {
         m_currentPort = port;
-        Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->cardName());
+        if (!m_currentPort) return;
+        m_sw->setHidden(!isShow(m_currentPort));
+        Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
     });
 
     auto ports = m_model->ports();
@@ -121,7 +143,7 @@ void MicrophonePage::setModel(SoundModel *model)
     //连接switch点击信号，发送切换开/关扬声器的请求信号
     connect(m_sw, &SwitchWidget::checkedChanged, this, [ = ] {
         if(m_currentPort != nullptr)
-            Q_EMIT m_model->requestSwitchSetEnable(m_currentPort->cardId(), m_currentPort->cardName(), m_sw->checked());
+            Q_EMIT m_model->requestSwitchSetEnable(m_currentPort->cardId(), m_currentPort->id(), m_sw->checked());
         else
             m_sw->setChecked(false);
     });
@@ -132,13 +154,23 @@ void MicrophonePage::setModel(SoundModel *model)
 
     connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
     this, [this](const int  idx) {
+        if (idx < 0) return;
         auto temp = m_inputModel->index(idx, 0);
         this->requestSetPort(m_inputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
     });
 
     connect(m_noiseReductionsw, &SwitchWidget::checkedChanged, this, &MicrophonePage::requestReduceNoise);
 
+    connect(m_model, &SoundModel::microphoneOnChanged, this, [ = ](bool flag) {
+        m_mute = flag; refreshIcon();
+    });
+
     initSlider();
+
+    if (m_currentPort) m_sw->setHidden(!isShow(m_currentPort));
+
+    if (m_inputModel->rowCount() < 2) m_sw->setHidden(true);
+
 }
 
 void MicrophonePage::removePort(const QString &portId, const uint &cardId)
@@ -156,6 +188,8 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
     };
 
     rmFunc(m_inputModel);
+    if (m_currentPort)
+        m_sw->setHidden(!isShow(m_currentPort));
 }
 
 void MicrophonePage::addPort(const dcc::sound::Port *port)
@@ -177,9 +211,16 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
         if (port->isActive()) {
             m_inputSoundCbx->comboBox()->setCurrentText(port->name());
             m_currentPort = port;
-            Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->cardName());
+            Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
+        if (m_currentPort)
+            m_sw->setHidden(!isShow(m_currentPort));
     }
+}
+
+void MicrophonePage::toggleMute()
+{
+    Q_EMIT requestMute();
 }
 
 void MicrophonePage::initSlider()
@@ -190,13 +231,16 @@ void MicrophonePage::initSlider()
     m_inputSlider->setVisible(m_model->isPortEnable());
     m_layout->insertWidget(3, m_inputSlider);
 
+    m_volumeBtn = new SoundLabel(this);
+    m_volumeBtn->setScaledContents(true);
+    m_inputSlider->getbottomlayout()->insertWidget(0,m_volumeBtn);
+    m_volumeBtn->setAccessibleName("volume-button");
+    m_volumeBtn->setFixedSize(ICON_SIZE, ICON_SIZE);
 
     DCCSlider *slider = m_inputSlider->slider();
     slider->setRange(0, 100);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::NoTicks);
-    auto icon_low = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement);
-    slider->setLeftIcon(icon_low);
     auto icon_high = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeHighElement);
     slider->setRightIcon(icon_high);
     slider->setIconSize(QSize(24, 24));
@@ -221,6 +265,8 @@ void MicrophonePage::initSlider()
         slider->blockSignals(false);
         m_inputSlider->setValueLiteral(QString::number(v * 100) + "%");
     });
+    connect(m_volumeBtn, &SoundLabel::clicked, this, &MicrophonePage::toggleMute);
+
 #ifndef DCC_DISABLE_FEEDBACK
     //~ contents_path /sound/Microphone
     m_feedbackSlider = (new TitledSliderItem(tr("Input Level")));
@@ -243,8 +289,80 @@ void MicrophonePage::initSlider()
     m_conn = connect(m_model, &SoundModel::microphoneFeedbackChanged, [ = ](double vol2) {
         slider2->setSliderPosition(int(vol2 * 100));
     });
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &MicrophonePage::refreshIcon);
+    connect(qApp, &DApplication::iconThemeChanged, this, &MicrophonePage::refreshIcon);
     m_layout->setSpacing(10);
     m_layout->insertWidget(4, m_feedbackSlider);
     m_layout->addStretch(10);
 #endif
+
+    refreshIcon();
 }
+
+bool MicrophonePage::isShow(const dcc::sound::Port *port)
+{
+    //输入和输出设备数小于2,直接返回
+    if (m_model->ports().size() < 2)  return false;
+
+    //输入设备数小于2,直接返回
+    if (m_inputModel->rowCount() < 2) return false;
+
+    //输入设备大于1,且有端口启用时,直接返回true
+    QDBusInterface inter("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", "com.deepin.daemon.Audio", QDBusConnection::sessionBus(), this);
+    for (int i = 0; i < m_inputModel->rowCount(); i++) {
+        auto temp = m_inputModel->index(i, 0);
+        const auto * it = m_inputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
+        if (!it) return false;
+        if (it->cardId() != port->cardId() || it->name() != port->name()) {
+            QDBusReply<bool> reply = inter.call("IsPortEnabled", it->cardId(), it->id());
+            if (reply.value())
+                return true;
+        }
+    }
+    return false;
+}
+
+void MicrophonePage::refreshIcon()
+{
+    QString volumeString;
+    if (m_mute) {
+        volumeString = "muted";
+    } else {
+        volumeString = "low";
+    }
+
+    QString iconLeft = QString("audio-volume-%1-symbolic").arg(volumeString);
+
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        iconLeft.append("-dark");
+    }
+    const auto ratio = devicePixelRatioF();
+    QPixmap  ret = loadSvg(iconLeft, ":/", ICON_SIZE, ratio);
+    m_volumeBtn->setPixmap(ret);
+}
+
+const QPixmap MicrophonePage::loadSvg(const QString &iconName, const QString &localPath, const int size, const qreal ratio)
+{
+    QIcon icon = QIcon::fromTheme(iconName);
+    if (!icon.isNull()) {
+        QPixmap pixmap = icon.pixmap(int(size * ratio), int(size * ratio));
+        pixmap.setDevicePixelRatio(ratio);
+        return pixmap;
+    }
+
+    QPixmap pixmap(int(size * ratio), int(size * ratio));
+    QString localIcon = QString("%1%2%3").arg(localPath).arg(iconName).arg(iconName.contains(".svg") ? "" : ".svg");
+    QSvgRenderer renderer(localIcon);
+    pixmap.fill(Qt::transparent);
+
+    QPainter painter;
+    painter.begin(&pixmap);
+    renderer.render(&painter);
+    painter.end();
+    pixmap.setDevicePixelRatio(ratio);
+
+    return pixmap;
+}
+
+
+
