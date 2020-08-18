@@ -61,6 +61,7 @@ TouchscreenPage::TouchscreenPage(QWidget *parent)
 
     m_titleString = tr("Select your touch screen when connected or set it here.");
     m_dTipLabel = new DTipLabel(m_titleString);
+    m_dTipLabel->setWordWrap(true);
     m_dTipLabel->setContentsMargins(10, 0, 0, 0);
     m_dTipLabel->setAlignment(Qt::AlignLeft);
 
@@ -131,7 +132,6 @@ void TouchscreenPage::onMonitorChanged()
 
         auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new QLabel(title);
-        label->setMinimumSize(5, 5);
         label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         label->setContentsMargins(10, 0, 0, 0);
         label->setAlignment(Qt::AlignLeft);
@@ -198,13 +198,6 @@ bool TouchscreenPage::eventFilter(QObject *obj, QEvent *event)
             }
         }
 
-        QFontMetrics fontMetric(m_titleString);
-        int fontSizes = fontMetric.width(m_titleString);
-        if (fontSizes > m_dTipLabel->width()) {
-            m_dTipLabel->setText(fontMetric.elidedText(m_titleString, Qt::ElideRight, m_dTipLabel->width()));
-        } else {
-            m_dTipLabel->setText(m_titleString);
-        }
         return true;
     }
     return dcc::ContentWidget::eventFilter(obj, event);
