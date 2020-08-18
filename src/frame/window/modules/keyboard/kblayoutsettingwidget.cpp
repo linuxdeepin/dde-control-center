@@ -227,16 +227,25 @@ void KBLayoutSettingWidget::onDefault(const QString &value)
 {
     int row_count = m_kbLayoutModel->rowCount();
     for (int i = 0; i < row_count; ++i) {
-        QStandardItem *item = m_kbLayoutModel->item(i, 0);
+        DStandardItem *item = dynamic_cast<DStandardItem *>(m_kbLayoutModel->item(i, 0));
         if (item && (item->text() == value)) {
             item->setCheckState(Qt::Checked);
+            if (m_bEdit) {
+                item->setActionList(Qt::RightEdge, {});
+            }
             // 滚动到当前选中项
             onKBCurrentChanged(m_kbLayoutModel->index(i, 0));
         } else {
             item->setCheckState(Qt::Unchecked);
+            if (m_bEdit) {
+                DViewItemAction *iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
+                iconAction->setIcon(DStyle::standardIcon(style(), DStyle::SP_DeleteButton));
+                item->setActionList(Qt::RightEdge, {iconAction});
+            }
         }
     }
 }
+
 
 void KBLayoutSettingWidget::onKBLayoutChanged(const QModelIndex &index)
 {
