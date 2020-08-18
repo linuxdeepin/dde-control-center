@@ -160,25 +160,21 @@ void NetworkModule::onDeviceListChanged(const QList<dde::network::NetworkDevice 
     m_frameProxy->setRemoveableDeviceStatus(tr("Personal Hotspot"), m_hasAp);
 }
 
-void NetworkModule::preInitialize(bool sync)
+void NetworkModule::initialize()
 {
     m_networkModel = new NetworkModel;
-    m_networkWorker = new NetworkWorker(m_networkModel, nullptr, sync);
+    m_networkWorker = new NetworkWorker(m_networkModel, nullptr, true);
 
     m_networkModel->moveToThread(qApp->thread());
     m_networkWorker->moveToThread(qApp->thread());
 
     connect(m_networkModel, &NetworkModel::deviceListChanged, this, &NetworkModule::onDeviceListChanged);
-    onDeviceListChanged(m_networkModel->devices());
-}
-
-void NetworkModule::initialize()
-{
-
 }
 
 void NetworkModule::active()
 {
+    m_networkWorker->active(true);
+
     m_networkWidget = new NetworkModuleWidget;
     m_networkWidget->setModel(m_networkModel);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowDeviceDetail, this, &NetworkModule::showDeviceDetailPage);
