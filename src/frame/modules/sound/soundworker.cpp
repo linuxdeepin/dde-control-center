@@ -204,7 +204,9 @@ void SoundWorker::setPort(const Port *port)
 
 void SoundWorker::setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable)
 {
-    m_soundEffectInter->EnableSound(m_model->getNameByEffectType(effect), enable);
+    QDBusPendingCall async = m_soundEffectInter->EnableSound(m_model->getNameByEffectType(effect), enable);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
+    watcher->waitForFinished();
 }
 
 void SoundWorker::enableAllSoundEffect(bool enable)
@@ -359,7 +361,6 @@ void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher)
     if (!watcher->isError()) {
         QDBusReply<QMap<QString, bool>> value = watcher->reply();
         auto map = value.value();
-
         for (auto it = map.constBegin(); it != map.constEnd(); ++it) {
             if (!m_model->checkSEExist(it.key())) continue;
 
