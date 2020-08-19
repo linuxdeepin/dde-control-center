@@ -404,6 +404,7 @@ void AdapterWidget::addDevice(const Device *device)
             BtStandardItem *item = deviceItem->getStandardItem();
             QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
             m_otherDeviceModel->removeRow(otherDeviceIndex.row());
+            deviceItem->resetDeviceItem();
             BtStandardItem *dListItem = deviceItem->createStandardItem(m_myDeviceListView);
             m_myDevices << deviceItem;
             connect(deviceItem, &DeviceSettingsItem::requestSort, this, [ = ] {

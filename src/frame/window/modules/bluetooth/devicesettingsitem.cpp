@@ -161,11 +161,13 @@ void DeviceSettingsItem::setDevice(const Device *device)
         Q_EMIT requestShowDetail(m_device);
     });
     connect(device, &Device::aliasChanged, this, [this](const QString &alias) {
-        m_deviceItem->setText(alias);
+        if (m_deviceItem) {
+            m_deviceItem->setText(alias);
 
-        BtSortInfo info = m_deviceItem->sortInfo();
-        info.name = alias;
-        m_deviceItem->setSortInfo(info);
+            BtSortInfo info = m_deviceItem->sortInfo();
+            info.name = alias;
+            m_deviceItem->setSortInfo(info);
+        }
 
         Q_EMIT requestSort();
     });
@@ -210,8 +212,11 @@ BtStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
 
     BtSortInfo info;
     info.connected = m_device->connectState();
-    info.name = m_deviceItem->text();
-    m_deviceItem->setSortInfo(info);
+    if (m_deviceItem) {
+        info.name = m_deviceItem->text();
+        m_deviceItem->setSortInfo(info);
+    }
+
     return m_deviceItem;
 }
 
@@ -231,9 +236,11 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool c
     }
     m_textAction->setText(tip);
 
-    BtSortInfo info = m_deviceItem->sortInfo();
-    info.connected = (state == Device::StateConnected && connectState);
-    m_deviceItem->setSortInfo(info);
+    if (m_deviceItem) {
+        BtSortInfo info = m_deviceItem->sortInfo();
+        info.connected = (state == Device::StateConnected && connectState);
+        m_deviceItem->setSortInfo(info);
+    }
 
     Q_EMIT requestSort();
 }

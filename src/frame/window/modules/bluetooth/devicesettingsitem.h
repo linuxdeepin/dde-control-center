@@ -93,6 +93,7 @@ public:
     BtStandardItem *createStandardItem(DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
     const dcc::bluetooth::Device *device() const;
     void setLoading(const bool loading);
+    void resetDeviceItem() { m_deviceItem = nullptr; }
 
 private:
     void setDevice(const dcc::bluetooth::Device *device);
