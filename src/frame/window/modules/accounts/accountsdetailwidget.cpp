@@ -264,13 +264,6 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     QPushButton *modifyPassword = new QPushButton;
     DWarningButton *deleteAccount = new DWarningButton;
 
-#if 0
-    auto pwTip = new DTipLabel("");
-    pwTip->setContentsMargins(0, 10, 0, 10);
-    pwTip->setVisible(m_curUser->isPasswordExpired());
-    connect(m_curUser, &User::isPasswordExpiredChanged, pwTip, &DTipLabel::setVisible);
-#endif
-
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->setContentsMargins(10, 0, 10, 0);
     modifydelLayout->addWidget(modifyPassword);
@@ -370,6 +363,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         layout->addSpacing(20);
     }
     layout->addWidget(loginGrp);
+    //服务器版本不显示自动登录，无密码登录
+    loginGrp->setVisible(!IsServerSystem);
 
     m_fingerWidget = new FingerWidget(m_curUser, this);
     m_fingerWidget->setContentsMargins(0, 0, 0, 0);
@@ -384,19 +379,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setEnabled(isCurUser);
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
 
-    //服务器版本不显示自动登录，无密码登录
-    loginGrp->setVisible(!IsServerSystem);
-
-    //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
-    //~ contents_path /accounts/Accounts Detail
     deleteAccount->setText(tr("Delete Account"));
 
-    //~ contents_path /accounts/Accounts Detail
     m_autoLogin->setTitle(tr("Auto Login"));
     m_autoLogin->setChecked(m_curUser->autoLogin());
 
-    //~ contents_path /accounts/Accounts Detail
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
@@ -526,13 +514,13 @@ void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
 {
     auto inputFullName = m_inputLineEdit->lineEdit()->text();
     m_inputLineEdit->lineEdit()->selectAll();
-        if (inputFullName.size() > 100) {
-            m_inputLineEdit->setVisible(!edit);
-            m_inputLineEdit->setAlert(!edit);
-            m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
-        } else {
-            m_fullName->setVisible(!edit);
-            m_fullNameBtn->setVisible(!edit);
-            m_inputLineEdit->setVisible(edit);
-        }
+    if (inputFullName.size() > 100) {
+        m_inputLineEdit->setVisible(!edit);
+        m_inputLineEdit->setAlert(!edit);
+        m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
+    } else {
+        m_fullName->setVisible(!edit);
+        m_fullNameBtn->setVisible(!edit);
+        m_inputLineEdit->setVisible(edit);
+    }
 }

@@ -277,7 +277,7 @@ void AvatarListWidget::setAvatarSize(const QSize &size)
 
     auto count = m_avatarItemModel->rowCount();
     for(auto i = 0; i < count; ++i) {
-     auto idx = m_avatarItemModel->index(i, 0);
-     m_avatarItemModel->setData(idx, m_avatarSize, Qt::SizeHintRole);
+        auto idx = m_avatarItemModel->index(i, 0);
+        m_avatarItemModel->setData(idx, m_avatarSize, Qt::SizeHintRole);
     }
 }
