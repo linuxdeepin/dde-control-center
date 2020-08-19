@@ -58,6 +58,13 @@ namespace accounts {
 class CreateAccountPage : public QWidget
 {
     Q_OBJECT
+
+public:
+    enum PassWordType {
+        NormalPassWord,
+        IncludeBlankSymbol
+    };
+
 public:
     explicit CreateAccountPage(QWidget *parent = nullptr);
     ~CreateAccountPage();

@@ -23,6 +23,7 @@
 #include "widgets/titlelabel.h"
 #include "pwqualitymanager.h"
 #include "../../utils.h"
+#include "createaccountpage.h"
 
 #include <DFontSizeManager>
 
@@ -202,7 +203,11 @@ void ModifyPasswdPage::showEvent(QShowEvent *event)
 
 bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
 {
+    CreateAccountPage::PassWordType passwordtype = CreateAccountPage::NormalPassWord;
     const QString &password = edit->lineEdit()->text();
+    QGSettings setting("com.deepin.dde.control-center", QByteArray());
+    if (setting.get("account-password-type").toString() == "IncludeBlankSymbol")
+        passwordtype = CreateAccountPage::IncludeBlankSymbol;
 
     if (password.isEmpty()) {
         edit->setAlert(true);
@@ -219,6 +224,9 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         }
     }
 
+    QString blanksymbolstr =  tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols")
+            .arg(PwqualityManager::instance()->getPasswordMinLength())
+            .arg(PwqualityManager::instance()->getValidateRequiredString());
     int passResult = PwqualityManager::instance()->verifyPassword(password);
     switch (passResult)
     {
@@ -228,7 +236,10 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         return false;
     case ENUM_PASSWORD_TOOSHORT:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The password must have at least %1 characters").arg(PwqualityManager::instance()->getPasswordMinLength()), -1);
+        if (passwordtype == CreateAccountPage::NormalPassWord)
+            edit->showAlertMessage(tr("The password must have at least %1 characters").arg(PwqualityManager::instance()->getPasswordMinLength()), -1);
+        if (passwordtype == CreateAccountPage::IncludeBlankSymbol)
+            edit->showAlertMessage(blanksymbolstr, -1);
         return false;
     case ENUM_PASSWORD_TOOLONG:
         edit->setAlert(true);
@@ -236,28 +247,37 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         return false;
     case ENUM_PASSWORD_TYPE:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(PwqualityManager::instance()->getValidateRequiredString()), -1);
+        if (passwordtype == CreateAccountPage::NormalPassWord)
+            edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(PwqualityManager::instance()->getValidateRequiredString()), -1);
+        if (passwordtype == CreateAccountPage::IncludeBlankSymbol)
+            edit->showAlertMessage(blanksymbolstr, -1);
         return false;
     case ENUM_PASSWORD_CHARACTER:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+        if (passwordtype == CreateAccountPage::NormalPassWord)
+            edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+        if (passwordtype == CreateAccountPage::IncludeBlankSymbol)
+            edit->showAlertMessage(blanksymbolstr, -1);
         return false;
     case ENUM_PASSWORD_SEVERAL:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols")
-        .arg(PwqualityManager::instance()->getPasswordMinLength())
-        .arg(PwqualityManager::instance()->getValidateRequiredString()), -1);
+        edit->showAlertMessage(blanksymbolstr, -1);
         return false;
     case ENUM_PASSWORD_PALINDROME:
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must not contain more than 4 palindrome characters"));
-        return false;
+        if (passwordtype == CreateAccountPage::NormalPassWord) {
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Password must not contain more than 4 palindrome characters"));
+            return false;
+        }
+        break;
     case ENUM_PASSWORD_DICT_FORBIDDEN:
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must not contain common words and combinations"));
-        return false;
+        if (passwordtype == CreateAccountPage::NormalPassWord) {
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Password must not contain common words and combinations"));
+            return false;
+        }
+        break;
     }
-
 
     if (m_oldPasswordEdit->lineEdit()->text() == password) {
         edit->setAlert(true);
@@ -270,6 +290,23 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         edit->setAlert(true);
         edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
         return false;
+    }
+
+    if (passwordtype == CreateAccountPage::IncludeBlankSymbol) {
+        QString reversusername;
+        QStringList reversenamelist;
+
+        for (int i = m_curUser->name().count() - 1; i > -1; i--) {
+            reversenamelist << m_curUser->name().at(i);
+        }
+        reversusername = reversenamelist.join("");
+
+        //密码不可为用户名重复或倒置
+        if (password == m_curUser->name() || password == reversusername) {
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Password should not be the repeated or reversed username"));
+            return false;
+        }
     }
 
     return true;
