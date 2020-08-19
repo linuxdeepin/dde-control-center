@@ -46,6 +46,7 @@ public:
 
 private:
     void initUI();
+    void initConnect();
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:

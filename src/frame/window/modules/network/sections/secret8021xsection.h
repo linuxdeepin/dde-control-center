@@ -105,6 +105,8 @@ private:
     void saveTtlsItems();
     void savePeapItems();
 
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
+
 private:
     QList<QPair<QString, NetworkManager::Security8021xSetting::EapMethod>> EapMethodStrMap;
     QList<QPair<QString, NetworkManager::Security8021xSetting::FastProvisioning>> FastrProvisioningStrMap;

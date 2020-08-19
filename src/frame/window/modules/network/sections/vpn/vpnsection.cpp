@@ -174,7 +174,7 @@ bool VpnSection::eventFilter(QObject *watched, QEvent *event)
 {
     // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
     if (event->type() == QEvent::FocusIn) {
-        if ((dynamic_cast<QLineEdit*>(watched))) {
+        if (dynamic_cast<QLineEdit *>(watched)) {
             Q_EMIT editClicked();
         }
     }

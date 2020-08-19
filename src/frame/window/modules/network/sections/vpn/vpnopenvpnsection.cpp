@@ -215,6 +215,8 @@ void VpnOpenVPNSection::initTLSItems()
     connect(userCertFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
     connect(priKeyFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
     connect(certPasswordFlagsChooser, &ComboxWidget::onIndexChanged, this, &VpnOpenVPNSection::editClicked);
+    connect(userCertFile->edit()->lineEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::editClicked);
+    connect(priKeyFile->edit()->lineEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::editClicked);
 
     QList<SettingsItem *> itemList;
     itemList << userCertFile << priKeyFile << certPasswordFlagsChooser << priKeyPassword;
@@ -315,6 +317,7 @@ void VpnOpenVPNSection::initStaticKeyItems()
     connect(staticKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
     connect(customizeKeyDirection, &SwitchWidget::checkedChanged, this, &VpnOpenVPNSection::editClicked);
     connect(keyDirectionChooser, &ComboxWidget::onIndexChanged, this, &VpnOpenVPNSection::editClicked);
+    connect(staticKey->edit()->lineEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::editClicked);
 
     QList<SettingsItem *> itemList;
     itemList << staticKey << customizeKeyDirection << keyDirectionChooser << remoteIp << localIp;
@@ -335,6 +338,7 @@ void VpnOpenVPNSection::initConnection()
     connect(m_caFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
 
     connect(m_authTypeChooser, &ComboxWidget::onIndexChanged, this, &VpnOpenVPNSection::editClicked);
+    connect(m_caFile->edit()->lineEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::editClicked);
 }
 
 void VpnOpenVPNSection::onAuthTypeChanged(const QString &type)
@@ -534,7 +538,7 @@ bool VpnOpenVPNSection::eventFilter(QObject *watched, QEvent *event)
 {
     // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
     if (event->type() == QEvent::FocusIn) {
-        if ((dynamic_cast<QLineEdit*>(watched))) {
+        if (dynamic_cast<QLineEdit *>(watched)) {
             Q_EMIT editClicked();
         }
     }

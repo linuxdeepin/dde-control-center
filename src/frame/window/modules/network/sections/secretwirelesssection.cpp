@@ -206,6 +206,8 @@ void SecretWirelessSection::initUI()
     insertItem(2, m_passwordFlagsChooser);
     insertItem(3, m_passwdEdit);
     insertItem(4, m_authAlgChooser);
+
+    m_passwdEdit->textEdit()->installEventFilter(this);
 }
 
 void SecretWirelessSection::initConnection()
@@ -252,6 +254,9 @@ void SecretWirelessSection::initConnection()
             break;
         }
     });
+
+    connect(m_keyMgmtChooser, &ComboxWidget::onIndexChanged, this, &SecretWirelessSection::editClicked);
+    connect(m_authAlgChooser, &ComboxWidget::onIndexChanged, this, &SecretWirelessSection::editClicked);
 }
 
 void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt)

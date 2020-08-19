@@ -258,6 +258,9 @@ void Secret8021xSection::initUI()
     appendItem(m_identity);
     appendItem(m_passwordFlagsChooser);
     appendItem(m_password);
+
+    m_identity->textEdit()->installEventFilter(this);
+    m_password->textEdit()->installEventFilter(this);
 }
 
 void Secret8021xSection::initConnection()
@@ -296,6 +299,9 @@ void Secret8021xSection::initConnection()
             }
         }
     });
+
+    connect(m_eapMethmodChooser, &ComboxWidget::onIndexChanged, this, &Secret8021xSection::editClicked);
+    connect(m_passwordFlagsChooser, &ComboxWidget::onIndexChanged, this, &Secret8021xSection::editClicked);
 }
 
 void Secret8021xSection::initEapItems(NetworkManager::Security8021xSetting::EapMethod method)
@@ -344,14 +350,17 @@ void Secret8021xSection::initEapMethodTlsItems(QList<SettingsItem *> *itemList)
     FileChooseWidget *privateKey = new FileChooseWidget(this);
     privateKey->setTitle(tr("Private Key"));
     privateKey->edit()->setText(m_secretSetting->privateKey());
+    privateKey->edit()->lineEdit()->installEventFilter(this);
 
     FileChooseWidget *caCert = new FileChooseWidget(this);
     caCert->setTitle(tr("CA Cert"));
     caCert->edit()->setText(m_secretSetting->caCertificate());
+    caCert->edit()->lineEdit()->installEventFilter(this);
 
     FileChooseWidget *userCert = new FileChooseWidget(this);
     userCert->setTitle(tr("User Cert"));
     userCert->edit()->setText(m_secretSetting->clientCertificate());
+    userCert->edit()->lineEdit()->installEventFilter(this);
 
     connect(privateKey->edit()->lineEdit(), &QLineEdit::textChanged, this, &Secret8021xSection::allInputValid);
     connect(userCert->edit()->lineEdit(), &QLineEdit::textChanged, this, &Secret8021xSection::allInputValid);
@@ -359,6 +368,10 @@ void Secret8021xSection::initEapMethodTlsItems(QList<SettingsItem *> *itemList)
     connect(privateKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
     connect(caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
     connect(userCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
+
+    connect(privateKey->edit()->lineEdit(), &QLineEdit::textChanged, this, &Secret8021xSection::editClicked);
+    connect(caCert->edit()->lineEdit(), &QLineEdit::textChanged, this, &Secret8021xSection::editClicked);
+    connect(userCert->edit()->lineEdit(), &QLineEdit::textChanged, this, &Secret8021xSection::editClicked);
 
     appendItem(privateKey);
     appendItem(caCert);
@@ -374,6 +387,7 @@ void Secret8021xSection::initEapMethodFastItems(QList<SettingsItem *> *itemList)
     LineEditWidget *anonymousID = new LineEditWidget(this);
     anonymousID->setTitle(tr("Anonymous ID"));
     anonymousID->setText(m_secretSetting->anonymousIdentity());
+    anonymousID->textEdit()->installEventFilter(this);
 
     ComboxWidget *provisioning = new ComboxWidget(this);
     provisioning->setTitle(tr("Provisioning"));
@@ -390,6 +404,7 @@ void Secret8021xSection::initEapMethodFastItems(QList<SettingsItem *> *itemList)
     FileChooseWidget *pacFile = new FileChooseWidget(this);
     pacFile->setTitle(tr("PAC file"));
     pacFile->edit()->setText(m_secretSetting->pacFile());
+    pacFile->edit()->lineEdit()->installEventFilter(this);
 
     ComboxWidget *authMethod = new ComboxWidget(this);
     authMethod->setTitle(tr("Inner Auth"));
@@ -403,6 +418,9 @@ void Secret8021xSection::initEapMethodFastItems(QList<SettingsItem *> *itemList)
     authMethod->setCurrentText(authMethodOption);
 
     connect(pacFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
+    connect(provisioning, &ComboxWidget::onIndexChanged, this, &Secret8021xSection::editClicked);
+    connect(pacFile->edit()->lineEdit(), &QLineEdit::textChanged, this, &Secret8021xSection::editClicked);
+    connect(authMethod, &ComboxWidget::onIndexChanged, this, &Secret8021xSection::editClicked);
 
     appendItem(anonymousID);
     appendItem(provisioning);
@@ -420,10 +438,12 @@ void Secret8021xSection::initEapMethodTtlsItems(QList<SettingsItem *> *itemList)
     LineEditWidget *anonymousID = new LineEditWidget(this);
     anonymousID->setTitle(tr("Anonymous ID"));
     anonymousID->setText(m_secretSetting->anonymousIdentity());
+    anonymousID->textEdit()->installEventFilter(this);
 
     FileChooseWidget *caCert = new FileChooseWidget(this);
     caCert->setTitle(tr("CA Cert"));
     caCert->edit()->setText(m_secretSetting->caCertificate());
+    caCert->edit()->lineEdit()->installEventFilter(this);
 
     ComboxWidget *authMethod = new ComboxWidget(this);
     authMethod->setTitle(tr("Inner Auth"));
@@ -437,6 +457,8 @@ void Secret8021xSection::initEapMethodTtlsItems(QList<SettingsItem *> *itemList)
     authMethod->setCurrentText(curAuthMethodTlsOption);
 
     connect(caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
+    connect(authMethod, &ComboxWidget::onIndexChanged, this, &Secret8021xSection::editClicked);
+    connect(caCert->edit()->lineEdit(), &QLineEdit::textChanged, this, &Secret8021xSection::editClicked);
 
     appendItem(anonymousID);
     appendItem(caCert);
@@ -452,10 +474,12 @@ void Secret8021xSection::initEapMethodPeapItems(QList<SettingsItem *> *itemList)
     LineEditWidget *anonymousID = new LineEditWidget(this);
     anonymousID->setTitle(tr("Anonymous ID"));
     anonymousID->setText(m_secretSetting->anonymousIdentity());
+    anonymousID->textEdit()->installEventFilter(this);
 
     FileChooseWidget *caCert = new FileChooseWidget(this);
     caCert->setTitle(tr("CA Cert"));
     caCert->edit()->setText(m_secretSetting->caCertificate());
+    caCert->edit()->lineEdit()->installEventFilter(this);
 
     ComboxWidget *peapVersion = new ComboxWidget(this);
     peapVersion->setTitle(tr("PEAP Version"));
@@ -480,6 +504,9 @@ void Secret8021xSection::initEapMethodPeapItems(QList<SettingsItem *> *itemList)
     authMethod->setCurrentText(curAuthMethodPeapOption);
 
     connect(caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
+    connect(peapVersion, &ComboxWidget::onIndexChanged, this, &Secret8021xSection::editClicked);
+    connect(authMethod, &ComboxWidget::onIndexChanged, this, &Secret8021xSection::editClicked);
+    connect(caCert->edit()->lineEdit(), &QLineEdit::textChanged, this, &Secret8021xSection::editClicked);
 
     appendItem(anonymousID);
     appendItem(caCert);
@@ -740,4 +767,15 @@ void Secret8021xSection::savePeapItems()
     m_secretSetting->setPhase1PeapVersion(curPeapVer);
     NetworkManager::Security8021xSetting::AuthMethod curAuthMethod = authMethod->comboBox()->currentData().value<NetworkManager::Security8021xSetting::AuthMethod>();
     m_secretSetting->setPhase2AuthMethod(curAuthMethod);
+}
+
+bool Secret8021xSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if (dynamic_cast<QLineEdit *>(watched)) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

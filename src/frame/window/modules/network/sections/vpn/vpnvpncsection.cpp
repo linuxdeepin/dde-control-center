@@ -260,6 +260,7 @@ void VpnVPNCSection::initConnection()
     connect(m_passwordFlagsChooser, &ComboxWidget::onIndexChanged, this, &VpnVPNCSection::editClicked);
     connect(m_groupPasswordFlagsChooser, &ComboxWidget::onIndexChanged, this, &VpnVPNCSection::editClicked);
     connect(m_userHybrid, &SwitchWidget::checkedChanged, this, &VpnVPNCSection::editClicked);
+    connect(m_caFile->edit()->lineEdit(), &QLineEdit::textChanged, this, &VpnVPNCSection::editClicked);
 }
 
 void VpnVPNCSection::onPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type)
@@ -278,7 +279,7 @@ bool VpnVPNCSection::eventFilter(QObject *watched, QEvent *event)
 {
     // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
     if (event->type() == QEvent::FocusIn) {
-        if ((dynamic_cast<QLineEdit*>(watched))) {
+        if (dynamic_cast<QLineEdit *>(watched)) {
             Q_EMIT editClicked();
         }
     }

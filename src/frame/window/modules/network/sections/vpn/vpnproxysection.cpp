@@ -188,6 +188,7 @@ void VpnProxySection::initUI()
     m_server->textEdit()->installEventFilter(this);
     m_userName->textEdit()->installEventFilter(this);
     m_password->textEdit()->installEventFilter(this);
+    m_port->spinBox()->installEventFilter(this);
 }
 
 void VpnProxySection::initConnection()
@@ -222,7 +223,7 @@ bool VpnProxySection::eventFilter(QObject *watched, QEvent *event)
 {
     // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
     if (event->type() == QEvent::FocusIn) {
-        if ((dynamic_cast<QLineEdit*>(watched))) {
+        if (dynamic_cast<QLineEdit *>(watched) || dynamic_cast<QSpinBox *>(watched)) {
             Q_EMIT editClicked();
         }
     }

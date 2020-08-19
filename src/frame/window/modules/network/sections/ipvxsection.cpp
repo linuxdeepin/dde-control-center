@@ -271,6 +271,9 @@ void IpvxSection::initUI()
     if (m_netmaskIpv4) {
         m_netmaskIpv4->textEdit()->installEventFilter(this);
     }
+    if (m_prefixIpv6) {
+        m_prefixIpv6->spinBox()->installEventFilter(this);
+    }
 }
 
 void IpvxSection::initForIpv4()
@@ -397,6 +400,9 @@ void IpvxSection::initConnection()
     connect(m_neverDefault, &SwitchWidget::checkedChanged, this, &IpvxSection::editClicked);
     connect(m_methodChooser, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &IpvxSection::editClicked);
     connect(m_methodLine, &ComboxWidget::onIndexChanged, this, &IpvxSection::editClicked);
+    if (m_prefixIpv6) {
+        connect(m_prefixIpv6->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &IpvxSection::editClicked);
+    }
 }
 
 void IpvxSection::onIpv4MethodChanged(NetworkManager::Ipv4Setting::ConfigMethod method)
@@ -634,7 +640,7 @@ bool IpvxSection::eventFilter(QObject *watched, QEvent *event)
 {
     // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
     if (event->type() == QEvent::FocusIn) {
-        if ((dynamic_cast<QLineEdit*>(watched))) {
+        if (dynamic_cast<QLineEdit *>(watched) || dynamic_cast<QSpinBox *>(watched)) {
             Q_EMIT editClicked();
         }
     }

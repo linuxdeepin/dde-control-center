@@ -245,6 +245,9 @@ void VpnStrongSwanSection::initConnection()
     connect(m_enforceUDP, &SwitchWidget::checkedChanged, this, &VpnStrongSwanSection::editClicked);
     connect(m_useIPComp, &SwitchWidget::checkedChanged, this, &VpnStrongSwanSection::editClicked);
     connect(m_enableCustomCipher, &SwitchWidget::checkedChanged, this, &VpnStrongSwanSection::editClicked);
+    connect(m_caCert->edit()->lineEdit(), &QLineEdit::textChanged, this, &VpnStrongSwanSection::editClicked);
+    connect(m_userCert->edit()->lineEdit(), &QLineEdit::textChanged, this, &VpnStrongSwanSection::editClicked);
+    connect(m_userKey->edit()->lineEdit(), &QLineEdit::textChanged, this, &VpnStrongSwanSection::editClicked);
 }
 
 void VpnStrongSwanSection::onAuthTypeChanged(const QString &type)
@@ -267,7 +270,7 @@ bool VpnStrongSwanSection::eventFilter(QObject *watched, QEvent *event)
 {
     // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
     if (event->type() == QEvent::FocusIn) {
-        if ((dynamic_cast<QLineEdit*>(watched))) {
+        if (dynamic_cast<QLineEdit *>(watched)) {
             Q_EMIT editClicked();
         }
     }

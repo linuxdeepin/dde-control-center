@@ -244,6 +244,7 @@ void VpnAdvVPNCSection::initUI()
 
     m_domain->textEdit()->installEventFilter(this);
     m_version->textEdit()->installEventFilter(this);
+    m_localPort->spinBox()->installEventFilter(this);
 }
 
 void VpnAdvVPNCSection::initConnection()
@@ -274,13 +275,14 @@ void VpnAdvVPNCSection::initConnection()
     connect(m_ikeDHGroupChooser, &ComboxWidget::onIndexChanged, this, &VpnAdvVPNCSection::editClicked);
     connect(m_forwordSecrecyChooser, &ComboxWidget::onIndexChanged, this, &VpnAdvVPNCSection::editClicked);
     connect(m_disableDPD, &SwitchWidget::checkedChanged, this, &VpnAdvVPNCSection::editClicked);
+    connect(m_localPort->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &VpnAdvVPNCSection::editClicked);
 }
 
 bool VpnAdvVPNCSection::eventFilter(QObject *watched, QEvent *event)
 {
     // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
     if (event->type() == QEvent::FocusIn) {
-        if ((dynamic_cast<QLineEdit*>(watched))) {
+        if (dynamic_cast<QLineEdit *>(watched) || dynamic_cast<QSpinBox *>(watched)) {
             Q_EMIT editClicked();
         }
     }

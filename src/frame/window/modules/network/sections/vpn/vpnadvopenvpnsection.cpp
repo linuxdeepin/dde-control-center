@@ -21,6 +21,8 @@
 
 #include "vpnadvopenvpnsection.h"
 
+#include <QEvent>
+
 #include <dspinbox.h>
 
 using namespace DCC_NAMESPACE::network;
@@ -189,6 +191,11 @@ void VpnAdvOpenVPNSection::initUI()
     appendItem(m_udpFragSize);
     appendItem(m_restrictMSSSwitch);
     appendItem(m_randomRemoteSwitch);
+
+    m_port->spinBox()->installEventFilter(this);
+    m_renegInterval->spinBox()->installEventFilter(this);
+    m_tunnelMTU->spinBox()->installEventFilter(this);
+    m_udpFragSize->spinBox()->installEventFilter(this);
 }
 
 void VpnAdvOpenVPNSection::initConnection()
@@ -211,4 +218,15 @@ void VpnAdvOpenVPNSection::initConnection()
     connect(m_renegInterval->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &VpnAdvOpenVPNSection::editClicked);
     connect(m_tunnelMTU->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &VpnAdvOpenVPNSection::editClicked);
     connect(m_udpFragSize->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &VpnAdvOpenVPNSection::editClicked);
+}
+
+bool VpnAdvOpenVPNSection::eventFilter(QObject *watched, QEvent *event)
+{
+    // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
+    if (event->type() == QEvent::FocusIn) {
+        if (dynamic_cast<QSpinBox *>(watched)) {
+            Q_EMIT editClicked();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }

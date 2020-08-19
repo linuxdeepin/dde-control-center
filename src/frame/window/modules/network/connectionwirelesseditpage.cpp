@@ -72,6 +72,10 @@ void ConnectionWirelessEditPage::initSettingsWidgetFromAp(const QString &apPath)
 
     connect(m_settingsWidget, &WirelessSettings::requestNextPage, this, &ConnectionWirelessEditPage::onRequestNextPage);
     connect(m_settingsWidget, &AbstractSettings::requestFrameAutoHide, this, &ConnectionEditPage::requestFrameAutoHide);
+    connect(m_settingsWidget, &WirelessSettings::anyEditClicked, this, [this]{
+        setButtonTupleEnable(true);
+    });
+
     m_settingsLayout->addWidget(m_settingsWidget);
 }
 

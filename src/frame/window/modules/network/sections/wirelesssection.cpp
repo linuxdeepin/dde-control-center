@@ -146,7 +146,8 @@ void WirelessSection::initUI()
     appendItem(m_customMtuSwitch);
     appendItem(m_customMtu);
 
-    m_apSsid->installEventFilter(this);
+    m_apSsid->textEdit()->installEventFilter(this);
+    m_customMtu->spinBox()->installEventFilter(this);
 }
 
 void WirelessSection::initConnection()
@@ -169,7 +170,7 @@ bool WirelessSection::eventFilter(QObject *watched, QEvent *event)
 {
     // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
     if (event->type() == QEvent::FocusIn) {
-        if ((dynamic_cast<QLineEdit*>(watched))) {
+        if (dynamic_cast<QLineEdit *>(watched) || dynamic_cast<QSpinBox *>(watched)) {
             Q_EMIT editClicked();
         }
     }
