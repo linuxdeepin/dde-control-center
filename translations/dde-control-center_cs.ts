@@ -396,73 +396,78 @@
         <translation>Přejít do nastavení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="398"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="415"/>
         <source>Password cannot be empty</source>
         <translation>Heslo nemůže být prázdné</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="411"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Je třeba, aby heslo mělo délku alespoň %1 znaků</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="415"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Heslo může mít délku nejvýše %1 znaků</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="419"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Heslo by mělo obsahovat alespoň %1 z následujících druhů znaků: malá a velká písmena, číslice a symboly</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="423"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Heslo může obsahovat pouze písmena z anglické abecedy (rozlišují se malá a VELKÁ písmena), číslice a dále ještě speciální symboly (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Je třeba, aby heslo mělo alespoň %1 znaků a obsahovalo alespoň dva %2 z následujících typů znaků: malá a velká písmena, číslice a symboly</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="433"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="420"/>
+        <source>The password must have at least %1 characters</source>
+        <translation>Je třeba, aby heslo mělo délku alespoň %1 znaků</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="426"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Heslo může mít délku nejvýše %1 znaků</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>Heslo by mělo obsahovat alespoň %1 z následujících druhů znaků: malá a velká písmena, číslice a symboly</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="438"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>Heslo může obsahovat pouze písmena z anglické abecedy (rozlišují se malá a VELKÁ písmena), číslice a dále ještě speciální symboly (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="449"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Heslo nemůže obsahovat posloupnost více než 4 znaků, která se čte stejně oběma směry (palindrom)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="456"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Heslo nemůže obsahovat běžná slova a jejich kombinace</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="474"/>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation>Jako heslo by nemělo být použito uživatelské jméno – ani napsané několikrát za sebou nebo pozpátku</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="482"/>
         <source>Passwords do not match</source>
         <translation>Zadání hesla se neshodují</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="506"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Je třeba, aby uživatelské jméno mělo délku 3 až 32 znaků</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="513"/>
         <source>The first character must be a letter or number</source>
         <translation>Je třeba, aby první znak bylo písmeno nebo číslice</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="519"/>
         <source>Your username should not only have numbers</source>
         <translation>Uživatelské jméno by nemělo být tvořeno pouze číslicemi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="537"/>
         <source>The full name already exists</source>
         <translation>Toto celé jméno už je v systému používáno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
         <source>The full name is too long</source>
         <translation>Celé jméno je příliš dlouhé</translation>
     </message>
@@ -499,110 +504,115 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="61"/>
         <source>Change Password</source>
         <translation>Změnit heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="65"/>
         <source>Current Password</source>
         <translation>Stávající heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
         <source>New Password</source>
         <translation>Nové heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
         <source>Repeat Password</source>
         <translation>Zadejte heslo znovu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
         <source>Cancel</source>
         <translation>Storno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
         <source>Save</source>
         <translation>Uložit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
         <source>Required</source>
         <translation>Vyžadováno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="235"/>
         <source>Password cannot be empty</source>
         <translation>Heslo nemůže být prázdné</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="160"/>
         <source>Go to Settings</source>
         <translation>Přejít do nastavení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="186"/>
         <source>Wrong password</source>
         <translation>Chybné heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="190"/>
         <source>Failed to change the password</source>
         <translation>Heslo se nepodařilo změnit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="222"/>
         <source>Passwords do not match</source>
         <translation>Zadání hesla se neshodují</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="231"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Je třeba, aby heslo mělo délku alespoň %1 znaků</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="235"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="271"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Heslo může mít délku nejvýše %1 znaků</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="239"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Heslo by mělo obsahovat alespoň %1 z následujících druhů znaků: malá a velká písmena, číslice a symboly</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Heslo může obsahovat pouze písmena z anglické abecedy (rozlišují se malá a VELKÁ písmena), číslice a dále ještě speciální symboly (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="227"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Je třeba, aby heslo mělo alespoň %1 znaků a obsahovalo alespoň dva %2 z následujících typů znaků: malá a velká písmena, číslice a symboly</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="240"/>
+        <source>The password must have at least %1 characters</source>
+        <translation>Je třeba, aby heslo mělo délku alespoň %1 znaků</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="291"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Heslo může mít délku nejvýše %1 znaků</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="251"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>Heslo by mělo obsahovat alespoň %1 z následujících druhů znaků: malá a velká písmena, číslice a symboly</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="258"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>Heslo může obsahovat pouze písmena z anglické abecedy (rozlišují se malá a VELKÁ písmena), číslice a dále ještě speciální symboly (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="269"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Heslo nemůže obsahovat posloupnost více než 4 znaků, která se čte stejně oběma směry (palindrom)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Heslo nemůže obsahovat běžná slova a jejich kombinace</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="284"/>
         <source>New password should differ from the current one</source>
         <translation>Nové heslo by nemělo být stejné jako to původní</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="307"/>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation>Jako heslo by nemělo být použito uživatelské jméno – ani napsané několikrát za sebou nebo pozpátku</translation>
     </message>
 </context>
 <context>
@@ -5993,7 +6003,7 @@ Přejděte do Centra uživatelů a spravujte odsud svůj účet.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="161"/>
+        <location filename="../src/frame/main.cpp" line="165"/>
         <source>Control Center</source>
         <translation>Ovládací panely</translation>
     </message>
@@ -7050,7 +7060,7 @@ Přejděte do Centra uživatelů a spravujte odsud svůj účet.</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="162"/>
+        <location filename="../src/frame/main.cpp" line="166"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>Ovládací panely poskytují volby pro nastavení systému.</translation>
     </message>

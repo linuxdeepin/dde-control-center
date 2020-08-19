@@ -396,73 +396,78 @@
         <translation>Иди у подешавања</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="398"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="415"/>
         <source>Password cannot be empty</source>
         <translation>Лозинка не може бити празна</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="411"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Лозинка мора садржати најмање %1 карактера</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="415"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Лозинка не може бити дужа од %1 карактера</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="419"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Лозинка мора садржати најмање %1 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="423"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Лозинка може садржати само енглеска слова (осетљива на величину), бројеве и специјалне карактере  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Лозинка мора садржати најмање %1 карактера и мора имати најмање %2 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="433"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="420"/>
+        <source>The password must have at least %1 characters</source>
+        <translation>Лозинка мора садржати најмање %1 карактера</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="426"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Лозинка не може бити дужа од %1 карактера</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>Лозинка мора садржати најмање %1 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="438"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>Лозинка може садржати само енглеска слова (осетљива на величину), бројеве и специјалне карактере  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="449"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Лозинка не сме садржати више од 4 палиндромна карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="456"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Лозинка се не сме састојати од уобичајених речи и комбинација </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="474"/>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation>Лозинка не сме бити поновљено или написано уназад корисничко име</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="482"/>
         <source>Passwords do not match</source>
         <translation>Лозинке се не подударају</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="506"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Корисничко име мора садржати између 3-32 карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="513"/>
         <source>The first character must be a letter or number</source>
         <translation>Први карактер мора бити слово или број</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="519"/>
         <source>Your username should not only have numbers</source>
         <translation>Корисничко име не може садржати само бројеве</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="537"/>
         <source>The full name already exists</source>
         <translation>Пуно име већ постоји</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
         <source>The full name is too long</source>
         <translation>Пуно име је предугачко</translation>
     </message>
@@ -499,110 +504,115 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="61"/>
         <source>Change Password</source>
         <translation>Промени лозинку</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="65"/>
         <source>Current Password</source>
         <translation>Тренутна лозинка</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
         <source>New Password</source>
         <translation>Нова лозинка</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
         <source>Repeat Password</source>
         <translation>Поново унеси</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
         <source>Save</source>
         <translation>Сачувај</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
         <source>Required</source>
         <translation>Неопходно</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="235"/>
         <source>Password cannot be empty</source>
         <translation>Лозинка не може бити празна</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="160"/>
         <source>Go to Settings</source>
         <translation>Иди у подешавања</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="186"/>
         <source>Wrong password</source>
         <translation>Погрешна лозинка</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="190"/>
         <source>Failed to change the password</source>
         <translation>Неуспешна промена лозинке</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="222"/>
         <source>Passwords do not match</source>
         <translation>Лозинке се не подударају</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="231"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Лозинка мора садржати најмање %1 карактера</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="235"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="271"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Лозинка не може бити дужа од %1 карактера</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="239"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Лозинка мора садржати најмање %1 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Лозинка може садржати само енглеска слова (осетљива на величину), бројеве и специјалне карактере  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="227"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Лозинка мора садржати најмање %1 карактера и мора имати најмање %2 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="240"/>
+        <source>The password must have at least %1 characters</source>
+        <translation>Лозинка мора садржати најмање %1 карактера</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="291"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Лозинка не може бити дужа од %1 карактера</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="251"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>Лозинка мора садржати најмање %1 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="258"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>Лозинка може садржати само енглеска слова (осетљива на величину), бројеве и специјалне карактере  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="269"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Лозинка не сме садржати више од 4 палиндромна карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Лозинка се не сме састојати од уобичајених речи и комбинација </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="284"/>
         <source>New password should differ from the current one</source>
         <translation>Нова лозинка треба да се разликује од тренутне</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="307"/>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation>Лозинка не сме бити поновљено или написано уназад корисничко име</translation>
     </message>
 </context>
 <context>
@@ -5993,7 +6003,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="161"/>
+        <location filename="../src/frame/main.cpp" line="165"/>
         <source>Control Center</source>
         <translation>Контролни Центар</translation>
     </message>
@@ -7050,7 +7060,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="162"/>
+        <location filename="../src/frame/main.cpp" line="166"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>Контролни Центар пружа опције за подешавање система.</translation>
     </message>

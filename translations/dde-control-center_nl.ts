@@ -396,73 +396,78 @@
         <translation>Ga naar de instellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="398"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="415"/>
         <source>Password cannot be empty</source>
         <translation>Voer een wachtwoord in</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="411"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Het wachtwoord moet minimaal %1 tekens bevatten</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="415"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Het wachtwoord mag maximaal %1 bevatten</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="419"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Het wachtwoord moet minstens %1 van de volgende tekens bevatten: kleine letters, hoofdletters, cijfers en speciale tekens</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="423"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Wachtwoorden mogen enkel Nederlandstalige letters (hoofdlettergevoelig), cijfers of speciale tekens (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bevatten</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Het wachtwoord moet minstens %1 tekens bevatten én minstens %2 van de volgende tekens: kleine letters, hoofdletters, cijfers en symbolen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="433"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="420"/>
+        <source>The password must have at least %1 characters</source>
+        <translation>Het wachtwoord moet minimaal %1 tekens bevatten</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="426"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Het wachtwoord mag maximaal %1 bevatten</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>Het wachtwoord moet minstens %1 van de volgende tekens bevatten: kleine letters, hoofdletters, cijfers en speciale tekens</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="438"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>Wachtwoorden mogen enkel Nederlandstalige letters (hoofdlettergevoelig), cijfers of speciale tekens (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bevatten</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="449"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Het wachtwoord mag niet meer dan 4 palindroomtekens bevatten</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="456"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Het wachtwoord mag geen algemene woorden of samenstellingen bevatten</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="474"/>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation>Het wachtwoord mag niet je gebruikersnaam zijn, ook niet achterstevoren</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="482"/>
         <source>Passwords do not match</source>
         <translation>De wachtwoorden komen niet overeen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="506"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>De gebruikersnaam moet tussen de 3 en 32 tekens lang zijn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="513"/>
         <source>The first character must be a letter or number</source>
         <translation>Het eerste teken moet een letter of cijfer zijn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="519"/>
         <source>Your username should not only have numbers</source>
         <translation>Je gebruikersnaam mag niet alleen uit cijfers bestaan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="537"/>
         <source>The full name already exists</source>
         <translation>Deze volledige naam is al in gebruik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
         <source>The full name is too long</source>
         <translation>De volledige naam is te lang</translation>
     </message>
@@ -499,110 +504,115 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="61"/>
         <source>Change Password</source>
         <translation>Wachtwoord wijzigen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="65"/>
         <source>Current Password</source>
         <translation>Huidig wachtwoord</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
         <source>New Password</source>
         <translation>Nieuw wachtwoord</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
         <source>Repeat Password</source>
         <translation>Wachtwoord herhalen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
         <source>Save</source>
         <translation>Opslaan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
         <source>Required</source>
         <translation>Vereist</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="235"/>
         <source>Password cannot be empty</source>
         <translation>Voer een wachtwoord in</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="160"/>
         <source>Go to Settings</source>
         <translation>Ga naar de instellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="186"/>
         <source>Wrong password</source>
         <translation>Onjuist wachtwoord</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="190"/>
         <source>Failed to change the password</source>
         <translation>Het wachtwoord kan niet worden gewijzigd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="222"/>
         <source>Passwords do not match</source>
         <translation>De wachtwoorden komen niet overeen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="231"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Het wachtwoord moet minimaal %1 tekens bevatten</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="235"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="271"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Het wachtwoord mag max. %1 tekens bevatten</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="239"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Het wachtwoord moet minstens %1 van de volgende tekens bevatten: kleine letters, hoofdletters, cijfers en speciale tekens</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Wachtwoorden kunnen enkel Nederlandstalige letters (hoofdlettergevoelig), cijfers of speciale tekens (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bevatten</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="227"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Het wachtwoord moet minstens %1 tekens bevatten én minstens %2 van de volgende tekens: kleine letters, hoofdletters, cijfers en symbolen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="240"/>
+        <source>The password must have at least %1 characters</source>
+        <translation>Het wachtwoord moet minimaal %1 tekens bevatten</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="291"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Het wachtwoord mag max. %1 tekens bevatten</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="251"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>Het wachtwoord moet minstens %1 van de volgende tekens bevatten: kleine letters, hoofdletters, cijfers en speciale tekens</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="258"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>Wachtwoorden kunnen enkel Nederlandstalige letters (hoofdlettergevoelig), cijfers of speciale tekens (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bevatten</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="269"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Het wachtwoord mag niet meer dan 4 palindroomtekens bevatten</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Het wachtwoord mag geen algemene woorden of samenstellingen bevatten</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="284"/>
         <source>New password should differ from the current one</source>
         <translation>Het nieuwe wachtwoord moet afwijken van het huidige</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="307"/>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation>Het wachtwoord mag niet je gebruikersnaam zijn, ook niet achterstevoren</translation>
     </message>
 </context>
 <context>
@@ -5993,7 +6003,7 @@ In het gebruikerscentrum kun je je account beheren.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="161"/>
+        <location filename="../src/frame/main.cpp" line="165"/>
         <source>Control Center</source>
         <translation>Instellingencentrum</translation>
     </message>
@@ -7050,7 +7060,7 @@ In het gebruikerscentrum kun je je account beheren.</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="162"/>
+        <location filename="../src/frame/main.cpp" line="166"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>In het instellingencentrum vind je de systeeminstellingen.</translation>
     </message>
