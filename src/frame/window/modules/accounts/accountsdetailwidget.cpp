@@ -532,13 +532,14 @@ void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
 {
     auto inputFullName = m_inputLineEdit->lineEdit()->text();
     m_inputLineEdit->lineEdit()->selectAll();
-        if (inputFullName.size() > 100) {
-            m_inputLineEdit->setVisible(!edit);
-            m_inputLineEdit->setAlert(!edit);
-            m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
-        } else {
-            m_fullName->setVisible(!edit);
-            m_fullNameBtn->setVisible(!edit);
-            m_inputLineEdit->setVisible(edit);
-        }
+    // sp3要求全名最长32位
+    if (inputFullName.size() > 32) {
+        m_inputLineEdit->setVisible(!edit);
+        m_inputLineEdit->setAlert(!edit);
+        m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
+    } else {
+        m_fullName->setVisible(!edit);
+        m_fullNameBtn->setVisible(!edit);
+        m_inputLineEdit->setVisible(edit);
+    }
 }
