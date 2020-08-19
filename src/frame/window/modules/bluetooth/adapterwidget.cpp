@@ -37,6 +37,7 @@
 #include <QDebug>
 #include <QThread>
 #include <QLabel>
+#include <QWidget>
 #include <QApplication>
 
 using namespace dcc;
@@ -99,6 +100,7 @@ void AdapterWidget::initUI()
     QHBoxLayout *pshlayout = new QHBoxLayout;
     m_spinnerBtn = new DSpinner(m_titleEdit);
 
+    m_titleEdit->setMinimumWidth(10);
     pshlayout->addWidget(m_switch);
     pshlayout->addWidget(m_spinnerBtn);
     m_spinnerBtn->setFixedSize(24, 24);
@@ -113,6 +115,7 @@ void AdapterWidget::initUI()
     m_showAnonymousCheckBox->setChecked(true);
 
     m_hideAnonymousLabel->setFixedHeight(36);
+    m_hideAnonymousLabel->setMinimumWidth(10);
     m_showAnonymousCheckBox->setFixedHeight(36);
     QHBoxLayout *phlayoutShowAnonymous = new QHBoxLayout;
     phlayoutShowAnonymous->addWidget(m_showAnonymousCheckBox);
@@ -124,6 +127,7 @@ void AdapterWidget::initUI()
     m_switch->addBackground();
     m_switch->setFixedHeight(39);
     m_switch->setContentsMargins(0, 0, 10, 0);
+    m_discoverySwitch->leftWidget()->setMinimumWidth(10);
     m_discoverySwitch->addBackground();
     m_discoverySwitch->setContentsMargins(0, 0, 10, 0);
     m_discoverySwitch->setFixedHeight(39);
