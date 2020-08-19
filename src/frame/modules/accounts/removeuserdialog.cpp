@@ -51,9 +51,9 @@ static QPixmap RoundPixmap(const QPixmap &pix) {
     return ret;
 }
 
-RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent) :
-    DDialog(parent),
-    m_deleteHome(true)
+RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent)
+    : DDialog(parent)
+    , m_deleteHome(true)
 {
     setTitle(tr("All data under this account will be permanently deleted"));
 

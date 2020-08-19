@@ -40,8 +40,7 @@ const QString User::name() const
 
 void User::setName(const QString &name)
 {
-    if (name != m_name)
-    {
+    if (name != m_name) {
         m_name = name;
 
         Q_EMIT nameChanged(m_name);
@@ -50,8 +49,7 @@ void User::setName(const QString &name)
 
 void User::setFullname(const QString &fullname)
 {
-    if (fullname != m_fullname)
-    {
+    if (fullname != m_fullname) {
         m_fullname = fullname;
 
         Q_EMIT fullnameChanged(m_fullname);
@@ -82,8 +80,7 @@ void User::setGroups(const QStringList &groups)
 
 void User::setCurrentAvatar(const QString &avatar)
 {
-    if (m_currentAvatar != avatar)
-    {
+    if (m_currentAvatar != avatar) {
         m_currentAvatar = avatar;
 
         Q_EMIT currentAvatarChanged(m_currentAvatar);

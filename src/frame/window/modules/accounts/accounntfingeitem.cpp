@@ -80,7 +80,6 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
     connect(m_editTitle->lineEdit(), &QLineEdit::editingFinished, this, [this] {
         if (onNameEditFinished(m_editTitle)) {
             Q_EMIT editTextFinished(m_editTitle->text());
-            setEditTitle(false);
         }
         m_editTitle->lineEdit()->clearFocus();
         setEditTitle(false);

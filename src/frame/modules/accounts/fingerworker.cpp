@@ -35,8 +35,6 @@ using namespace dcc::accounts;
 
 const QString FingerPrintService("com.deepin.daemon.Authenticate");
 
-#define TEST false
-
 FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
