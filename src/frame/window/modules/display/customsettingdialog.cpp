@@ -245,12 +245,12 @@ void CustomSettingDialog::initOtherDialog()
         }
 
         dlg->initWithModel();
+        dlg->resetDialog();
+
         if (!m_model->isMerge()) {
             if(mon->enable())
                 dlg->show();
         }
-
-        dlg->resetDialog();
     }
 }
 
