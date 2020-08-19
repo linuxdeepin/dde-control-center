@@ -36,7 +36,7 @@ using namespace DCC_NAMESPACE::systeminfo;
 
 static QString loadLicenses()
 {
-    if (DSysInfo::UosType() == DSysInfo::UosType::UosServer) {
+    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer) {
 
         const QString serverPath = getLicensePath("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Server/End-User-License-Agreement-Server-CN-%1.txt", "");
         if ( QFile::exists(serverPath)) {
@@ -46,7 +46,7 @@ static QString loadLicenses()
             const QString oldPody = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.txt", "");
             return oldPody;
         }
-    } else if (DSysInfo::UosEdition() == DSysInfo::UosEdition::UosProfessional) {
+    } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosHome) {
         const QString bodypath = getLicensePath("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/End-User-License-Agreement-Home-CN-%1.txt", "");
         if (QFile::exists(bodypath)) {
             const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/End-User-License-Agreement-Home-CN-%1.txt", "");
