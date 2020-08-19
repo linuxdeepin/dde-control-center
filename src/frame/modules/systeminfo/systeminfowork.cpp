@@ -150,8 +150,8 @@ void SystemInfoWork::activate()
             version = QString("%1 %2").arg(DSysInfo::deepinVersion())
                     .arg("Home");
         } else {
-            version = QString("%1 %2").arg(DSysInfo::deepinVersion())
-                    .arg(DSysInfo::deepinTypeDisplayName());
+            version = QString("%1 %2").arg(DSysInfo::majorVersion())
+                    .arg(DSysInfo::uosEditionName());
         }
     } else {
         version = QString("%1 %2").arg(DSysInfo::productVersion())

@@ -120,9 +120,11 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
 
     QString sVersion;
     if ("zh_CN.UTF-8" != m_currLangSelector->currentLocale() && DSysInfo::DeepinPersonal == DSysInfo::deepinType()) {
-         sVersion= QString("%1 %2 %3").arg(DSysInfo::productTypeString().toUpper(),
+        sVersion = QString("%1 %2 %3").arg(DSysInfo::productTypeString().toUpper(),
                                                      DSysInfo::deepinVersion(),
                                                      "Home");
+    } else if (DSysInfo::uosEditionType() == DSysInfo::UosCommunity) {
+        sVersion = QString("%1 %2 %3").arg(DSysInfo::uosSystemName(), DSysInfo::majorVersion(), DSysInfo::uosEditionName());
     } else {
         sVersion = QString("%1 %2 %3").arg(DSysInfo::productTypeString().toUpper(),
                                                      DSysInfo::deepinVersion(),
