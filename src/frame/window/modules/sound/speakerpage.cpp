@@ -155,7 +155,7 @@ void SpeakerPage::initSlider()
         m_speakSlider->blockSignals(true);
         m_speakSlider->setValue(v * 100 + 0.000001);
         m_speakSlider->blockSignals(false);
-        m_outputSlider->setValueLiteral(QString::number(v * 100 + 0.000001) + "%");
+        m_outputSlider->setValueLiteral(QString::number(static_cast<int>(v * 100 + 0.000001)) + "%");
     });
 
     connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
@@ -174,7 +174,7 @@ void SpeakerPage::initSlider()
         m_speakSlider->blockSignals(true);
         m_speakSlider->setValue(static_cast<int>(m_model->speakerVolume() * PercentageNum + 0.000001));
         m_speakSlider->blockSignals(false);
-        m_outputSlider->setValueLiteral(QString::number(m_model->speakerVolume() * PercentageNum + 0.000001) + "%");
+        m_outputSlider->setValueLiteral(QString::number(static_cast<int>(m_model->speakerVolume() * PercentageNum + 0.000001)) + "%");
     });
 
     m_layout->insertWidget(1, m_outputSlider);
