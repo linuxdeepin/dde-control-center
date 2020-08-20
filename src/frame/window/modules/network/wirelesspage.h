@@ -162,14 +162,14 @@ private Q_SLOTS:
     void showConnectHidePage();
     void onDeviceRemoved();
     void onActivateApFailed(const QString &apPath, const QString &uuid);
-    void refreshLoadingIndicator();
     void onNetworkAdapterChanged(bool checked);
 
 private:
-    void updateActiveAp();
+    void updateActiveAp(const QJsonObject &activeApInfo);
     QString connectionUuid(const QString &ssid);
     QString connectionSsid(const QString &uuid);
     void updateLayout(bool enabled);
+    int canUpdateApList(); //是否可更新ap列表
 
 private:
     dde::network::WirelessDevice *m_device;
@@ -188,10 +188,11 @@ private:
 
     QString m_editingUuid;
     QTimer *m_sortDelayTimer;
-    QTimer *m_indicatorDelayTimer;
     QMap<QString, APItem *> m_apItems;
 
     AirplanInter  *m_airplaninter;
+
+    QString m_preActiveSsid;
 };
 }   // namespace dcc
 }   // namespace network
