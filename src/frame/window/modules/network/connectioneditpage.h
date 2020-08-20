@@ -78,6 +78,7 @@ Q_SIGNALS:
     void prepareConnectionDone();
     void requestRefreshVPNStatus();
     void disconnect(const QString &uuid);
+    void requestUpdateLoader(QString &uuid);
 
 protected:
     int connectionSuffixNum(const QString &matchConnName);

@@ -304,6 +304,8 @@ void ConnectionEditPage::saveConnSettings()
         return;
     }
 
+    Q_EMIT requestUpdateLoader(m_connectionUuid);
+
     if (m_settingsWidget->isAutoConnect()) {
         if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WiredConnection)) {
             Q_EMIT requestWiredDeviceEnabled(DevicePath, true);

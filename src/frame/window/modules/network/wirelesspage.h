@@ -165,10 +165,11 @@ private Q_SLOTS:
     void onNetworkAdapterChanged(bool checked);
 
 private:
-    void updateActiveAp();
+    void updateActiveAp(const QJsonObject &activeApInfo);
     QString connectionUuid(const QString &ssid);
     QString connectionSsid(const QString &uuid);
     void updateLayout(bool enabled);
+    int canUpdateApList(); //是否可更新ap列表
 
 private:
     dde::network::WirelessDevice *m_device;
@@ -191,6 +192,7 @@ private:
     QMap<QString, APItem *> m_apItems;
     AirplanInter  *m_airplaninter;
     QString m_disconnectUuid;
+    QString m_preActiveSsid;
 };
 }   // namespace dcc
 }   // namespace network
