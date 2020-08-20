@@ -68,6 +68,7 @@ TouchscreenPage::TouchscreenPage(QWidget *parent)
     m_buttonTuple->setAutoFillBackground(true);
     cancelBtn->setText(tr("Cancel"));
     acceptBtn->setText(tr("Confirm"));
+    acceptBtn->setEnabled(false);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
@@ -134,6 +135,9 @@ void TouchscreenPage::onMonitorChanged()
 
         if (touchMap.find(touchscreenSerial) != touchMap.end()) {
             listCombo->setCurrentText(touchMap.value(touchscreenSerial));
+            connect(listCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [this] {
+                m_buttonTuple->rightButton()->setEnabled(true);
+            });
         }
     }
 }
