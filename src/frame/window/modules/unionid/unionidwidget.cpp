@@ -59,10 +59,9 @@ UnionidWidget::UnionidWidget(QWidget *parent)
     connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
 
     QLabel *label = new QLabel();
-    label->setText(tr("Learn about") + QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"servicelabel\">《%1》</a>")
-                          .arg(tr("Union ID Service Agreement"))
-                   + tr("and") + QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"privacyLabel\">《%1》</a>")
-                          .arg(tr("Privacy Policy")));
+    label->setText(tr("Learn about %1 and %2").arg(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"servicelabel\"> %1 </a>")
+                                              .arg(tr("Union ID Service Agreement"))).arg(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"privacyLabel\"> %1 </a>")
+                                              .arg(tr("Privacy Policy"))));
     DFontSizeManager::instance()->bind(label, DFontSizeManager::T8);
     connect(label, &QLabel::linkActivated, this, &UnionidWidget::requestPopupDialog);
 
