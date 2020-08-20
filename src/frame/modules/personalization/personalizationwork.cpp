@@ -57,10 +57,10 @@ const QList<int> FontSizeList {11, 12, 13, 14, 15, 16, 18, 20};
 PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *parent)
     : QObject(parent),
       m_model(model),
-      m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this)),
-      m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this)),
-      m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this)),
-      m_effects(new Effects("org.kde.KWin", "/Effects", QDBusConnection::sessionBus(), this))
+      m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus())),
+      m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus())),
+      m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus())),
+      m_effects(new Effects("org.kde.KWin", "/Effects", QDBusConnection::sessionBus()))
 {
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();

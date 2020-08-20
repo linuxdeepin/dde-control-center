@@ -53,9 +53,6 @@ void DatetimeModule::initialize()
     m_work = &DatetimeWork::getInstance();
     m_model = m_work->model();
 
-    m_work->moveToThread(qApp->thread());
-    m_model->moveToThread(qApp->thread());
-
 #ifndef DCC_DISABLE_TIMEZONE
     connect(this, &DatetimeModule::requestSetTimeZone, m_work, &DatetimeWork::setTimezone);
     connect(this, &DatetimeModule::requestRemoveUserTimeZone, m_work, &DatetimeWork::removeUserTimeZone);

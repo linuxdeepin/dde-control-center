@@ -59,9 +59,6 @@ void DefaultAppsModule::initialize()
     }
     m_defAppModel  = new dcc::defapp::DefAppModel;
     m_defAppWorker = new dcc::defapp::DefAppWorker(m_defAppModel);
-    m_defAppModel->moveToThread(qApp->thread());
-    m_defAppWorker->moveToThread(qApp->thread());
-    m_defAppWorker->onGetListApps();
 }
 
 void DefaultAppsModule::active()
@@ -73,6 +70,7 @@ void DefaultAppsModule::active()
     m_frameProxy->pushWidget(this, defaultappsWidget);
     //显示默认页
     showDetailWidget(dcc::defapp::DefAppWorker::Browser);
+    m_defAppWorker->onGetListApps();
 }
 
 const QString DefaultAppsModule::name() const

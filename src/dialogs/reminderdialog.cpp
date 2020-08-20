@@ -66,7 +66,7 @@ Manager::Manager() :
     m_timer(new QTimer(this)),
     m_sessionManager(new com::deepin::SessionManager("com.deepin.SessionManager",
                                                      "/com/deepin/SessionManager",
-                                                     QDBusConnection::sessionBus(), this)),
+                                                     QDBusConnection::sessionBus())),
     m_dialog(nullptr)
 {
     m_timer->setSingleShot(true);

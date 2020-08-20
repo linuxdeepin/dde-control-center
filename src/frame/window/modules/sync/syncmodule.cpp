@@ -5,6 +5,7 @@
 #include "../../../modules/sync/syncmodel.h"
 
 #include "syncwidget.h"
+#include "widgets/utils.h"
 #include "window/utils.h"
 #include "window/mainwindow.h"
 
@@ -21,6 +22,7 @@ SyncModule::SyncModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 void SyncModule::initialize()
 {
+    m_worker = new dcc::cloudsync::SyncWorker(m_model);
 }
 
 const QString SyncModule::name() const
@@ -53,11 +55,12 @@ void SyncModule::active()
     m_worker->activate(); //refresh data
 }
 
-void SyncModule::preInitialize(bool sync)
+void SyncModule::preInitialize()
 {
-    Q_UNUSED(sync);
     m_model = new dcc::cloudsync::SyncModel;
-    m_worker = new dcc::cloudsync::SyncWorker(m_model);
+    auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
+
+    m_model->setSyncIsValid(req.value() && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
 
     m_frameProxy->setModuleVisible(this, m_model->syncIsValid() && !IsServerSystem);
 }

@@ -53,9 +53,6 @@ void PersonalizationModule::initialize()
     }
     m_model  = new dcc::personalization::PersonalizationModel;
     m_work = new dcc::personalization::PersonalizationWork(m_model);
-
-    m_model->moveToThread(qApp->thread());
-    m_work->moveToThread(qApp->thread());
 }
 
 const QString PersonalizationModule::name() const

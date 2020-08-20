@@ -42,13 +42,13 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 {
     m_systemInfoInter = new SystemInfoInter("com.deepin.daemon.SystemInfo",
                                             "/com/deepin/daemon/SystemInfo",
-                                            QDBusConnection::sessionBus(), this);
+                                            QDBusConnection::sessionBus());
     m_systemInfoInter->setSync(false);
 
     m_systemInfo = new QDBusInterface("com.deepin.system.SystemInfo",
                                       "/com/deepin/system/SystemInfo",
                                       "com.deepin.system.SystemInfo",
-                                      QDBusConnection::systemBus(), this);
+                                      QDBusConnection::systemBus());
 
     m_dbusGrub = new GrubDbus("com.deepin.daemon.Grub2",
                               "/com/deepin/daemon/Grub2",
@@ -57,7 +57,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
     m_dbusGrubTheme = new GrubThemeDbus("com.deepin.daemon.Grub2",
                                         "/com/deepin/daemon/Grub2/Theme",
-                                        QDBusConnection::systemBus(), this);
+                                        QDBusConnection::systemBus());
 
     m_activeInfo = new QDBusInterface("com.deepin.license",
                                       "/com/deepin/license/Info",

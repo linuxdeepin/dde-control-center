@@ -81,7 +81,7 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
     QDBusInterface interLangSelector("com.deepin.daemon.LangSelector",
                                 "/com/deepin/daemon/LangSelector",
                                 "com.deepin.daemon.LangSelector",
-                                QDBusConnection::sessionBus(), this);
+                                QDBusConnection::sessionBus());
     //如果不是中文就不显示星期的选项
     m_weekCbx->setVisible(interLangSelector.property("CurrentLocale").toString().startsWith("zh_CN"));
     vbox->addWidget(weekGrp);

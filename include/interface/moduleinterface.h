@@ -46,7 +46,7 @@ public:
 
     // preInitialize会在模块初始化时被调用，用于模块在准备阶段进行资源的初始化；
     // preInitialize不允许进行高资源的操作；
-    virtual void preInitialize(bool sync = false) {Q_UNUSED(sync)}
+    virtual void preInitialize() {}
 
     // initialize初始化相应的模块，参数proxy用于Moudle向Frame信息查询和主动调用；
     // 返回Module的id；

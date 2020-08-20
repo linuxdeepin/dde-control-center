@@ -44,17 +44,10 @@ MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
 {
 }
 
-void MouseModule::preInitialize(bool sync)
+void MouseModule::initialize()
 {
-    //添加此判断是因为公共功能可能泄露。在分配指针“m_model”之前未释放它
-    if (m_model) {
-        delete m_model;
-    }
     m_model  = new dcc::mouse::MouseModel(this);
     m_worker = new dcc::mouse::MouseWorker(m_model, this);
-    m_model->moveToThread(qApp->thread());
-    m_worker->moveToThread(qApp->thread());
-    m_worker->active(sync);
 
     connect(m_model, &MouseModel::tpadExistChanged, this, [this](bool state) {
         qDebug() << "[Mouse] Touchpad , exist state : " << state;
@@ -66,11 +59,6 @@ void MouseModule::preInitialize(bool sync)
     });//指点杆
 }
 
-void MouseModule::initialize()
-{
-
-}
-
 void MouseModule::reset()
 {
     m_worker->onDefaultReset();
@@ -78,6 +66,8 @@ void MouseModule::reset()
 
 void MouseModule::active()
 {
+    m_worker->active();
+
     m_mouseWidget = new MouseWidget;
     m_mouseWidget->init(m_model->tpadExist(), m_model->redPointExist());
     connect(m_model, &MouseModel::tpadExistChanged, m_mouseWidget, &MouseWidget::tpadExistChanged);

@@ -150,7 +150,7 @@ void ModifyPasswdPage::clickSaveBtn()
 
     DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",
                                                      "/com/deepin/defender/daemonservice",
-                                                     QDBusConnection::sessionBus(), this);
+                                                     QDBusConnection::sessionBus());
     QString strPwd = m_newPasswordEdit->lineEdit()->text();
     if (strPwd.length() >= daemonservice->GetPwdLen() && m_curUser->charactertypes(strPwd) >= daemonservice->GetPwdTypeLen()) {
         Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
@@ -163,7 +163,7 @@ void ModifyPasswdPage::clickSaveBtn()
             if (idx == 0) {
                 Defender *defender = new Defender("com.deepin.defender.hmiscreen",
                                                   "/com/deepin/defender/hmiscreen",
-                                                  QDBusConnection::sessionBus(), this);
+                                                  QDBusConnection::sessionBus());
                 defender->ShowModule("systemsafety");
             }
         });
@@ -176,7 +176,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
     if (exitCode == ModifyPasswdPage::ModifyNewPwdSuccess) {
         DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",
                                                          "/com/deepin/defender/daemonservice",
-                                                         QDBusConnection::sessionBus(), this);
+                                                         QDBusConnection::sessionBus());
         daemonservice->PasswordUpdate();
 
         Q_EMIT requestBack(AccountsWidget::ModifyPwdSuccess);

@@ -64,6 +64,7 @@
 #include <QScreen>
 #include <QMouseEvent>
 #include <QResizeEvent>
+#include <mutex>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -350,7 +351,7 @@ void MainWindow::initAllModule(const QString &m)
         { new CommonInfoModule(this), tr("General Settings")},
     };
 
-    loadModules();
+    QTimer::singleShot(0, this, &MainWindow::loadModules);
 
     //通过gsetting设置某模块是否显示,默认都显示
     m_moduleSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
@@ -414,7 +415,7 @@ void MainWindow::initAllModule(const QString &m)
 
     resetNavList(isIcon);
 
-    modulePreInitialize(m);
+    modulePreInitialize();
     QTimer::singleShot(0, this, [ = ]() {
         //设置 触控板，指点杆 是否存在
         m_searchWidget->setRemoveableDeviceStatus(tr("Touchpad"), getRemoveableDeviceStatus(tr("Touchpad")));
@@ -488,17 +489,19 @@ void MainWindow::updateModuleVisible()
     }
 }
 
-void MainWindow::modulePreInitialize(const QString &m)
+void MainWindow::modulePreInitialize()
 {
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
-        QElapsedTimer et;
-        et.start();
-        it->first->preInitialize(m == it->first->name());
-        qDebug() << QString("initalize %1 module using time: %2ms")
-                 .arg(it->first->name())
-                 .arg(et.elapsed());
-
-        setModuleVisible(it->first, it->first->isAvailable());
+        // NOTE(lxz): There will be a memory leak, but the preinitialize function is only allowed to run once.
+        QThread::create([=] {
+            QElapsedTimer et;
+            et.start();
+            it->first->preInitialize();
+            setModuleVisible(it->first, it->first->isAvailable());
+            qDebug() << QString("initalize %1 module using time: %2ms")
+                        .arg(it->first->name())
+                        .arg(et.elapsed());
+        })->start(QThread::Priority::LowPriority);
     }
 }
 
@@ -918,6 +921,8 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)
 {
+    std::lock_guard<QMutex> lock(m_mutex);
+
     inter->setAvailable(visible);
 
     auto find_it = std::find_if(m_modules.cbegin(),

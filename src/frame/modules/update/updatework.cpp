@@ -90,16 +90,16 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_checkUpdateJob(nullptr)
     , m_distUpgradeJob(nullptr)
     , m_otherUpdateJob(nullptr)
-    , m_lastoresessionHelper(new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus(), this))
-    , m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this))
-    , m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this))
-    , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
-    , m_powerSystemInter(new PowerSystemInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::sessionBus(), this))
-    , m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this))
-    , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus(), this))
-    , m_abRecoveryInter(new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus(), this))
-    , m_systemInfoInter(new SystemInfoInter("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this))
-    , m_iconTheme(new Appearance("com.deepin.daemon.Appearance","/com/deepin/daemon/Appearance",QDBusConnection::sessionBus(), this))
+    , m_lastoresessionHelper(new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus()))
+    , m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus()))
+    , m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus()))
+    , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus()))
+    , m_powerSystemInter(new PowerSystemInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::sessionBus()))
+    , m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus()))
+    , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus()))
+    , m_abRecoveryInter(new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus()))
+    , m_systemInfoInter(new SystemInfoInter("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus()))
+    , m_iconTheme(new Appearance("com.deepin.daemon.Appearance","/com/deepin/daemon/Appearance",QDBusConnection::sessionBus()))
     , m_onBattery(true)
     , m_batteryPercentage(0.0)
     , m_batterySystemPercentage(0.0)
@@ -561,7 +561,7 @@ CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
     CheckUpdateJobRet ret;
     ret.status = "failed";
 
-    QPointer<JobInter> checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
+    QPointer<JobInter> checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus());
 
     ret.jobID = checkUpdateJob->id();
     ret.jobDescription = checkUpdateJob->description();
@@ -734,7 +734,7 @@ void UpdateWorker::setSmartMirror(bool enable)
 {
     m_smartMirrorInter->SetEnable(enable);
 
-    QTimer::singleShot(100, this, [ = ] {
+    QTimer::singleShot(0, this, [ = ] {
         Q_EMIT m_smartMirrorInter->serviceValidChanged(m_smartMirrorInter->isValid());
     });
 }
@@ -848,7 +848,7 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
 
     m_downloadJob = new JobInter("com.deepin.lastore",
                                  jobPath,
-                                 QDBusConnection::systemBus(), this);
+                                 QDBusConnection::systemBus());
 
     connect(m_downloadJob, &__Job::ProgressChanged, [this](double value) {
         qDebug() << "[wubw download] m_downloadJob, value : " << value << m_bIsFirstGetDownloadProcess;
@@ -901,7 +901,7 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
 
     m_distUpgradeJob = new JobInter("com.deepin.lastore",
                                     jobPath,
-                                    QDBusConnection::systemBus(), this);
+                                    QDBusConnection::systemBus());
 
     connect(m_distUpgradeJob, &__Job::ProgressChanged, [this](double value) {
         qDebug() << "[wubw distUpgrade] Update, value : " << value << m_model->status();

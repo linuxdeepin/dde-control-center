@@ -46,9 +46,6 @@ void SoundModule::initialize()
     }
     m_model = new SoundModel;
     m_worker = new SoundWorker(m_model);
-
-    m_model->moveToThread(qApp->thread());
-    m_worker->moveToThread(qApp->thread());
 }
 
 const QString SoundModule::name() const

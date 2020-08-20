@@ -45,13 +45,13 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     : QObject(parent),
 
       m_model(model),
-      m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this),
+      m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus()),
       m_dccSettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this)),
       m_appearanceInter(new AppearanceInter("com.deepin.daemon.Appearance",
                                             "/com/deepin/daemon/Appearance",
-                                            QDBusConnection::sessionBus(), this)),
-      m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
-      m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
+                                            QDBusConnection::sessionBus())),
+      m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus())),
+      m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus()))
 
 {
     m_displayInter.setSync(true);
@@ -612,7 +612,7 @@ void DisplayWorker::setNightMode(const bool nightmode)
 
 void DisplayWorker::monitorAdded(const QString &path)
 {
-    MonitorInter *inter = new MonitorInter(DisplayInterface, path, QDBusConnection::sessionBus(), this);
+    MonitorInter *inter = new MonitorInter(DisplayInterface, path, QDBusConnection::sessionBus());
     Monitor *mon = new Monitor(this);
 
     connect(inter, &MonitorInter::XChanged, mon, &Monitor::setX);

@@ -30,8 +30,8 @@ using namespace dcc::notification;
 NotificationWorker::NotificationWorker(NotificationModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
-    , m_dbus(new Notification(Notification::staticInterfaceName(), Path, QDBusConnection::sessionBus(), this))
-    , m_theme(new Appearance(Appearance::staticInterfaceName(), "/com/deepin/daemon/Appearance", QDBusConnection::sessionBus(), this))
+    , m_dbus(new Notification(Notification::staticInterfaceName(), Path, QDBusConnection::sessionBus()))
+    , m_theme(new Appearance(Appearance::staticInterfaceName(), "/com/deepin/daemon/Appearance", QDBusConnection::sessionBus()))
 {
     connect(m_dbus, &Notification::appSettingChanged, this, &NotificationWorker::getDbusAppsetting);
     connect(m_dbus, &Notification::systemSettingChanged, this, &NotificationWorker::getDbusSyssetting);

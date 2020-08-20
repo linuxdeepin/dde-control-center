@@ -47,17 +47,13 @@ WacomModule::~WacomModule()
     }
 }
 
-void WacomModule::preInitialize(bool sync)
+void WacomModule::preInitialize()
 {
-    Q_UNUSED(sync);
     if (m_model) {
         delete m_model;
     }
-    m_model  = new WacomModel(this);
+    m_model  = new WacomModel;
     m_worker = new WacomWorker(m_model);
-
-    m_model->moveToThread(qApp->thread());
-    m_worker->moveToThread(qApp->thread());
 
     m_frameProxy->setModuleVisible(this, m_model->exist());
 

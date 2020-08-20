@@ -12,8 +12,8 @@ static QString SYNC_INTERFACE = "com.deepin.sync.Daemon";
 SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
-    , m_syncInter(new SyncInter(SYNC_INTERFACE, "/com/deepin/sync/Daemon", QDBusConnection::sessionBus(), this))
-    , m_deepinId_inter(new DeepinId(SYNC_INTERFACE, "/com/deepin/deepinid", QDBusConnection::sessionBus(), this))
+    , m_syncInter(new SyncInter(SYNC_INTERFACE, "/com/deepin/sync/Daemon", QDBusConnection::sessionBus()))
+    , m_deepinId_inter(new DeepinId(SYNC_INTERFACE, "/com/deepin/deepinid", QDBusConnection::sessionBus()))
 {
     //采用的是DBus直接获取属性值的方式
     QDBusInterface Interface("com.deepin.sync.Daemon",
@@ -47,17 +47,14 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
-
-    auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
-
-    m_model->setSyncIsValid(req.value() && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
-    getLicenseState();
 }
 
 void SyncWorker::activate()
 {
     m_syncInter->blockSignals(false);
     m_deepinId_inter->blockSignals(false);
+
+    getLicenseState();
 
     onStateChanged(m_syncInter->state());
     onLastSyncTimeChanged(m_syncInter->lastSyncTime());

@@ -63,17 +63,12 @@ void SystemInfoModule::initialize()
     m_model = new SystemInfoModel(this);
     m_work = new SystemInfoWork(m_model, this);
 
-    m_work->moveToThread(qApp->thread());
-    m_model->moveToThread(qApp->thread());
-
 #ifndef DISABLE_RECOVERY
     m_backupAndRestoreModel = new BackupAndRestoreModel(this);
     m_backupAndRestoreWorker = new BackupAndRestoreWorker(m_backupAndRestoreModel, this);
     m_backupAndRestoreModel->moveToThread(qApp->thread());
     m_backupAndRestoreWorker->moveToThread(qApp->thread());
 #endif
-
-    m_work->activate();
 }
 
 void SystemInfoModule::reset()
@@ -96,6 +91,7 @@ void SystemInfoModule::active()
 #endif
     m_frameProxy->pushWidget(this, m_sysinfoWidget);
     m_sysinfoWidget->setCurrentIndex(0);
+    m_work->activate();
 }
 
 const QString SystemInfoModule::name() const

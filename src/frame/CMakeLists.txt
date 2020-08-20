@@ -11,6 +11,11 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_FLAGS "-g -Wall")
 
+if (${CMAKE_SYSTEM_PROCESSOR} MATCHES "mips64")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -ftree-vectorize -march=loongson3a -mhard-float -mno-micromips -mno-mips16 -flax-vector-conversions -mloongson-ext2 -mloongson-mmi -fPIE")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie")
+endif()
+
 # disable qt keywords, cause gio have signals member;
 ADD_DEFINITIONS(-DQT_NO_KEYWORDS)
 
@@ -746,6 +751,9 @@ target_link_libraries(dccwidgets PRIVATE
 )
 
 add_executable(${BIN_NAME} ${SRCS} ${QRC})
+
+set_target_properties(${BIN_NAME} PROPERTIES COMPILE_FLAGS "-Wl,--as-needed")
+
 target_include_directories(${BIN_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/include
     ${DtkWidget_INCLUDE_DIRS}
@@ -781,6 +789,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     crypt
     ${LIBS}
     pwquality
+    pthread
 )
 
 # bin

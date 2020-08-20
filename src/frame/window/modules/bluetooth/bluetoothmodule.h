@@ -46,7 +46,7 @@ class BluetoothModule : public QObject, public ModuleInterface
     Q_OBJECT
 public:
     explicit BluetoothModule(FrameProxyInterface *frame, QObject *parent = nullptr);
-    void preInitialize(bool sync = false) override;
+    void preInitialize() override;
     void initialize() override;
     void reset() override;
     void active() override;

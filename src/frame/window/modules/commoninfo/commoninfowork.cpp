@@ -50,11 +50,11 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
 
     m_dBusGrubTheme = new GrubThemeDbus("com.deepin.daemon.Grub2",
                                        "/com/deepin/daemon/Grub2/Theme",
-                                       QDBusConnection::systemBus(), this);
+                                       QDBusConnection::systemBus());
 
     m_dBusdeepinIdInter = new GrubDevelopMode("com.deepin.deepinid",
                                                 "/com/deepin/deepinid",
-                                                QDBusConnection::sessionBus(), this);
+                                                QDBusConnection::sessionBus());
 
     m_activeInfo = new QDBusInterface("com.deepin.license",
                                       "/com/deepin/license/Info",
@@ -63,7 +63,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
 
     getLicenseState();
 
-    m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus(), this);
+    m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus());
 
     m_commomModel->setIsLogin(m_dBusdeepinIdInter->isLogin());
     m_commomModel->setDeveloperModeState(m_dBusdeepinIdInter->deviceUnlocked());

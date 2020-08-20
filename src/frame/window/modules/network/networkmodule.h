@@ -54,7 +54,7 @@ public:
     void showPage(const QString &jsonData) override;
 
 private:
-    void preInitialize(bool sync = false) override;
+    void preInitialize() override;
     void initialize() override;
     const QString name() const override;
     const QString displayName() const override;

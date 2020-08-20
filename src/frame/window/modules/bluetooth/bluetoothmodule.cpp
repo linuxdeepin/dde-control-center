@@ -42,12 +42,10 @@ BluetoothModule::BluetoothModule(FrameProxyInterface *frame, QObject *parent)
 
 }
 
-void BluetoothModule::preInitialize(bool sync)
+void BluetoothModule::preInitialize()
 {
-    m_bluetoothWorker = &BluetoothWorker::Instance(sync);
+    m_bluetoothWorker = &BluetoothWorker::Instance();
     m_bluetoothModel = m_bluetoothWorker->model();
-    m_bluetoothModel->moveToThread(qApp->thread());
-    m_bluetoothWorker->moveToThread(qApp->thread());
 
     auto updateModuleVisible = [ = ] {
         qDebug() << QString("adapters size(%1) : %2")

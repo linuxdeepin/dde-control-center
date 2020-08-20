@@ -61,7 +61,7 @@ CommonInfoModule::~CommonInfoModule()
     m_commonModel = nullptr;
 }
 
-void CommonInfoModule::preInitialize(bool sync)
+void CommonInfoModule::preInitialize()
 {
 #ifdef DCC_DISABLE_GRUB
     m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), false);
@@ -74,9 +74,6 @@ void CommonInfoModule::initialize()
 {
     m_commonModel = new CommonInfoModel();
     m_commonWork = new CommonInfoWork(m_commonModel);
-
-    m_commonWork->moveToThread(qApp->thread());
-    m_commonModel->moveToThread(qApp->thread());
 }
 
 const QString CommonInfoModule::name() const
@@ -91,7 +88,7 @@ const QString CommonInfoModule::displayName() const
 
 void CommonInfoModule::active()
 {
-    //    mCommonWork->activate();
+    m_commonWork->activate();
     m_commonWidget = new CommonInfoWidget();
     connect(m_commonWidget, &CommonInfoWidget::requestShowBootWidget, this, &CommonInfoModule::onShowBootWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowDeveloperModeWidget, this, &CommonInfoModule::onShowDeveloperWidget);
