@@ -119,6 +119,7 @@ void TouchscreenPage::onMonitorChanged()
 
         auto text = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new QLabel(text);
+        label->setToolTip(title);
         layout->addWidget(label);
         layout->addSpacing(5);
 
