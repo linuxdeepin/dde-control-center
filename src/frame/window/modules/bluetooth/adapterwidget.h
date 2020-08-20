@@ -34,6 +34,10 @@
 #include <QTime>
 #include <QTimer>
 
+#include <com_deepin_daemon_bluetooth.h>
+
+using BluetoothInter = com::deepin::daemon::Bluetooth;
+
 const int interval = 30;
 const int minHeight = 150;
 const int maxHeight = 10000;
@@ -124,6 +128,8 @@ private:
     QTimer m_tickTimer;         // 用于300ms内反复操作不需要响应
     bool m_lastCheck;           // 开关按钮的上一次的有效状态
     QTimer *m_delaySortTimer;
+    bool m_showUnnamedDevices;
+    BluetoothInter m_bluetoothInter;
 };
 }
 }

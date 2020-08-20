@@ -40,6 +40,8 @@
 #include <QWidget>
 #include <QApplication>
 
+using BluetoothInter = com::deepin::daemon::Bluetooth;
+
 using namespace dcc;
 using namespace dcc::bluetooth;
 using namespace dcc::widgets;
@@ -58,6 +60,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     , m_discoverySwitch(new SwitchWidget(tr("Allow other Bluetooth devices to find this device")))
     , m_lastCheck(false)
     , m_delaySortTimer(new QTimer(this))
+    , m_bluetoothInter("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this)
 {
     initMember();
     initUI();
@@ -87,6 +90,8 @@ void AdapterWidget::initMember()
 
     m_delaySortTimer->setSingleShot(true);
     m_delaySortTimer->setInterval(10);
+
+    m_showUnnamedDevices = m_bluetoothInter.displaySwitch();
 }
 
 void AdapterWidget::initUI()
@@ -112,7 +117,7 @@ void AdapterWidget::initUI()
     m_refreshBtn = new DIconButton (this);
     m_refreshBtn->setFixedSize(36, 36);
     m_refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
-    m_showAnonymousCheckBox->setChecked(true);
+    m_showAnonymousCheckBox->setChecked(m_showUnnamedDevices);
 
     m_hideAnonymousLabel->setFixedHeight(36);
     m_hideAnonymousLabel->setMinimumWidth(10);
@@ -252,27 +257,34 @@ void AdapterWidget::initConnect()
 
     connect(m_discoverySwitch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleDiscoverableSwitch);
 
+    connect(&m_bluetoothInter, &BluetoothInter::DisplaySwitchChanged, m_showAnonymousCheckBox, &DCheckBox::setChecked);
     connect(m_showAnonymousCheckBox, &DCheckBox::stateChanged, this, [=](int state) {
         if (state == Qt::CheckState::Unchecked) {
+            if (m_bluetoothInter.displaySwitch()) {
+                m_bluetoothInter.setDisplaySwitch(false);
+            }
             // 将蓝牙名称为空的设备过滤掉
             for (int i = 0; i < m_deviceLists.size(); i++) {
                 DeviceSettingsItem *pDeviceItem = m_deviceLists[i];
 
                 if (pDeviceItem->device()->paired())
                     continue;
-                
+
                 BtStandardItem *dListItem = pDeviceItem->getStandardItem();
                 QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
                 if (index.isValid() && pDeviceItem->device()->name().isEmpty())
                     m_otherDeviceModel->takeRow(index.row());
             }
         } else {
+            if (!m_bluetoothInter.displaySwitch()) {
+                m_bluetoothInter.setDisplaySwitch(true);
+            }
             // 显示所有蓝牙设备
             for (int i = 0; i < m_deviceLists.size(); i++) {
                 DeviceSettingsItem *pDeviceItem = m_deviceLists[i];
                 if (pDeviceItem->device()->paired())
                     continue;
-                
+
                 BtStandardItem *dListItem = pDeviceItem->getStandardItem();
                 QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
                 if ((false == index.isValid()) && pDeviceItem->device()->name().isEmpty()) {
