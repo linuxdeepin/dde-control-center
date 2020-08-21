@@ -132,7 +132,6 @@ void TouchscreenPage::onMonitorChanged()
 
         auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new QLabel(title);
-        label->setToolTip(title);
         label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         label->setContentsMargins(10, 0, 0, 0);
         label->setAlignment(Qt::AlignLeft);
@@ -194,8 +193,10 @@ bool TouchscreenPage::eventFilter(QObject *obj, QEvent *event)
             int fontSize = fontMetrics.width(m_titleName[i]);
             if (fontSize > m_labels[i]->width()) {
                 m_labels[i]->setText(fontMetrics.elidedText(m_titleName[i], Qt::ElideMiddle, m_labels[i]->width()));
+                m_labels[i]->setToolTip(m_titleName[i]);
             } else {
                 m_labels[i]->setText(m_titleName[i]);
+                m_labels[i]->setToolTip("");
             }
         }
 
