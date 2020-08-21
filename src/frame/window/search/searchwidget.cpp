@@ -111,7 +111,6 @@ SearchWidget::SearchWidget(QWidget *parent)
 
     //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
     m_bIsServerType = IsServerSystem;
-    m_bIsIsDesktopType = IsDesktopSystem;
 
     //是否是contens服务器
     if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
@@ -495,14 +494,6 @@ void SearchWidget::loadxml()
                         if (isLoadContensText(m_searchBoxStruct.translateContent)) {
                             clearSearchData();
                             continue;
-                        }
-
-                        if (m_bIsIsDesktopType) {
-                            if ((tr("Developer Mode") == m_searchBoxStruct.translateContent) ||
-                                (tr("End User License Agreement") == m_searchBoxStruct.translateContent)) {
-                                clearSearchData();
-                                continue;
-                            }
                         }
 
                         //判断是否为服务器，如果是服务器状态下搜索不到网络账户相关（所有界面）
