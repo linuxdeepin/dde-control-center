@@ -71,6 +71,12 @@ CustomSettingDialog::~CustomSettingDialog()
 
 void CustomSettingDialog::initUI()
 {
+    connect(this, &CustomSettingDialog::sizeChanged, this, [=]() {
+        m_dialogWidth = this->width();
+        m_dialogHeight = this->height();
+        qDebug() << "...........8-21-1............" << " m_dialogWidth " << m_dialogWidth << " m_dialogHeight " << m_dialogHeight;
+    });
+
     setMinimumWidth(480);
     setMinimumHeight(600);
     setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint );
@@ -488,6 +494,34 @@ void CustomSettingDialog::initPrimaryDialog()
 
 void CustomSettingDialog::initConnect()
 {
+    if (m_moniList) {
+        connect(m_moniList, &DListView::clicked, this, [this](QModelIndex index) {
+            if (m_displayListModel->item(index.row())->isEnabled() == false) {
+                return;
+            }
+            dcc::display::Monitor *mon = m_model->monitorList()[m_moniList->currentIndex().row()];
+            auto monis = m_model->monitorList();
+            int enableCount = 0;
+            for (auto *tm : monis) {
+                enableCount += tm->enable() ? 1 : 0;
+            }
+            auto listModel = qobject_cast<QStandardItemModel *>(m_moniList->model());
+            for (int idx = 0 ; idx < listModel->rowCount(); ++idx) {
+                if (monis[idx]->name() != mon->name()) {
+                    continue;
+                }
+                DStandardItem *item = dynamic_cast<DStandardItem *>(listModel->item(idx));
+                bool flag = item->checkState() != Qt::Checked;
+                if (enableCount <= 1 && flag == false) {
+                    break;
+                }
+                this->requestEnalbeMonitor(monis[idx], flag);
+                item->setCheckState(item->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
+                break;
+            }
+        });
+    }
+
     connect(m_resolutionList, &QListView::clicked, this, [this](QModelIndex idx) {
         auto check = m_resolutionListModel->data(idx, Qt::CheckStateRole);
         if (check == Qt::Checked)
@@ -633,35 +667,6 @@ void CustomSettingDialog::initConnect()
                     m_displayComboxWidget->comboBox()->blockSignals(false);
                     break;
                 }
-            }
-        });
-    }
-
-    if (m_moniList) {
-        connect(m_moniList, &DListView::clicked, this, [this](QModelIndex index) {
-            if (m_displayListModel->item(index.row())->isEnabled() == false) {
-                return;
-            }
-            dcc::display::Monitor *mon = m_model->monitorList()[m_moniList->currentIndex().row()];
-            auto monis = m_model->monitorList();
-            int enableCount = 0;
-            for (auto *tm : monis) {
-                enableCount += tm->enable() ? 1 : 0;
-            }
-            auto listModel = qobject_cast<QStandardItemModel *>(m_moniList->model());
-            for (int idx = 0 ; idx < listModel->rowCount(); ++idx) {
-                if (monis[idx]->name() != mon->name()) {
-                    continue;
-                }
-                DStandardItem *item = dynamic_cast<DStandardItem *>(listModel->item(idx));
-                bool flag = item->checkState() != Qt::Checked;
-                if (enableCount <= 1 && flag == false) {
-                    break;
-                }
-                this->requestEnalbeMonitor(monis[idx], flag);
-                item->setCheckState(item->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
-                //initOtherDialog();
-                break;
             }
         });
     }
@@ -871,31 +876,15 @@ void CustomSettingDialog::resetDialog()
     //当收到屏幕变化的消息后，屏幕数据还是旧的
     //需要用QTimer把对窗口的改变放在屏幕数据应用后
     QTimer::singleShot(sender() ? 1000 : 0, this, [=] {
-        m_monitroControlWidget->adjustSize();
-        m_monitroControlWidget->updateGeometry();
-        adjustSize();
-
         auto rt = rect();
-        if (rt.width() > m_monitor->w())
-            rt.setWidth(m_monitor->w());
+        qDebug() << " rt.width() " << rt.width() << " rt.height() " << rt.height();
+        rt.moveTo(m_monitor->x() + m_dialogWidth, m_monitor->y() + m_dialogHeight);
 
-        if (rt.height() > m_monitor->h())
-            rt.setHeight(m_monitor->h());
 
-        auto mrt = m_monitor->rect();
-        auto tsize = (mrt.size() / m_model->monitorScale(m_monitor) - rt.size()) / 2;
-
-        qDebug() << Q_FUNC_INFO << "-----------------------";
-
-        qDebug() << "monitor name:" << m_monitor->name();
-        qDebug() << "rt :" << rt;
-        qDebug() << "tsize :" << tsize;
-        qDebug() << "scale :" << m_model->monitorScale(m_monitor);
-        rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
-
-        qDebug() << "mrt :" << mrt;
-        qDebug() << "final rt :" << rt;
-        setGeometry(rt);
+        //+ 防止出现切换后窗口拉伸的情况
+        qDebug() << "...........8-21-1............" << " m_dialogWidth " << m_dialogWidth << " m_dialogHeight " << m_dialogHeight
+                 << " m_monitor->x() " << m_monitor->x() << " m_monitor->y() " << m_monitor->y();
+        this->resize(m_dialogWidth, m_dialogHeight);
     });
 }
 

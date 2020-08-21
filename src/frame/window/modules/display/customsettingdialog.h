@@ -136,6 +136,8 @@ private:
     QStandardItemModel *m_resolutionListModel{nullptr};
     QStandardItemModel *m_displayListModel{nullptr};
     QList<CustomSettingDialog *> m_otherDialog;
+    int m_dialogWidth;
+    int m_dialogHeight;
 };
 }
 
