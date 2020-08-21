@@ -129,8 +129,7 @@ void NativeInfoWidget::initWidget()
     }
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
-    if (!DCC_NAMESPACE::IsDesktopSystem)
-        infoGroup->appendItem(m_authorized);
+    infoGroup->appendItem(m_authorized);
     infoGroup->appendItem(m_kernel);
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);

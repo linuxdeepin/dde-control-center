@@ -57,8 +57,8 @@ const QMargins ArrowEnterClickMargin(8, 8, 8, 8);
 
 const QString SystemTypeName = DSysInfo::uosEditionName(QLocale::c());
 
-const DSysInfo::UosType UosType = DSysInfo::UosType();
-const DSysInfo::UosEdition UosEdition = DSysInfo::UosEdition();
+const DSysInfo::UosType UosType = DSysInfo::uosType();
+const DSysInfo::UosEdition UosEdition = DSysInfo::uosEditionType();
 const bool IsServerSystem = (DSysInfo::UosServer == UosType);
 const bool IsDesktopSystem = (DSysInfo::UosProfessional == UosEdition);
 const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);
