@@ -93,7 +93,7 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
         dockRect.moveTop(dockRect.top() + radius);
 
         painter.setPen(Qt::transparent);
-        painter.setBrush(Qt::darkGray);
+        painter.setBrush(Qt::white);
         painter.drawRoundedRect(dockRect, radius, radius);
     }
 

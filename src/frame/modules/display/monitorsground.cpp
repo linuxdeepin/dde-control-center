@@ -26,7 +26,6 @@
 #include "monitorsground.h"
 #include "monitorproxywidget.h"
 #include "displaymodel.h"
-#include "monitorproxywidget.h"
 #include "monitor.h"
 
 #include <QPainter>
@@ -40,9 +39,8 @@ const int VIEW_WIDTH = 400;
 const int VIEW_HEIGHT = 200;
 
 MonitorsGround::MonitorsGround(QWidget *parent)
-    : QFrame(parent),
-
-      m_refershTimer(new QTimer(this))
+    : QFrame(parent)
+    , m_refershTimer(new QTimer(this))
 {
     m_refershTimer->setInterval(100);
     m_refershTimer->setSingleShot(true);
@@ -50,9 +48,6 @@ MonitorsGround::MonitorsGround(QWidget *parent)
     connect(m_refershTimer, &QTimer::timeout, this, &MonitorsGround::resetMonitorsView);
 
     setFixedSize(VIEW_WIDTH + MARGIN_W * 2, VIEW_HEIGHT + MARGIN_H * 2);
-#ifdef QT_DEBUG
-//    setStyleSheet("background-color: cyan;");
-#endif
 }
 
 MonitorsGround::~MonitorsGround()
@@ -67,22 +62,28 @@ void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
     m_viewPortHeight = model->screenHeight();
 
     auto initMW = [ this ](Monitor * mon) {
+
         MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model, this);
         m_monitors[pw] = mon;
 
         connect(pw, &MonitorProxyWidget::requestApplyMove, this, &MonitorsGround::monitorMoved);
         connect(pw, &MonitorProxyWidget::requestMonitorPress, this, &MonitorsGround::requestMonitorPress);
         connect(pw, &MonitorProxyWidget::requestMonitorRelease, this, &MonitorsGround::requestMonitorRelease);
-        connect(pw, &MonitorProxyWidget::requestUpdateWidget, this, [=] {
-            this->update();
-        });
         connect(mon, &Monitor::geometryChanged, m_refershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
         connect(m_model, &DisplayModel::primaryScreenChanged, pw, static_cast<void (MonitorProxyWidget::*)()>(&MonitorProxyWidget::update), Qt::QueuedConnection);
     };
 
     if (!moni) {
+        Monitor *primary = nullptr;
         for (auto mon : model->monitorList()) {
+            if (mon->isPrimary()) {
+                primary = mon;
+                continue;
+            }
             initMW(mon);
+        }
+        if (primary) {
+            initMW(primary);
         }
     } else {
         initMW(moni);
@@ -96,21 +97,12 @@ void MonitorsGround::resetMonitorsView()
     qDebug() << Q_FUNC_INFO;
 
     reloadViewPortSize();
-    for (auto pw : m_monitors.keys())
-        adjust(pw);
-
-//    Monitor *firstMonitor = m_monitors.values().first();
-//    for (auto it = m_monitors.cbegin(); it != m_monitors.cend(); ++it) {
-//        if (firstMonitor->rect() == it.value()->rect()) {
-//            m_model->setIsMerge(true);
-//            continue;
-//        }
-
-//        m_model->setIsMerge(false);
-//    }
-
     if (m_model->isMerge()) {
+        adjustAll();
         return;
+    } else {
+        for (auto pw : m_monitors.keys())
+            adjust(pw);
     }
 
     // recheck settings
@@ -153,7 +145,15 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 void MonitorsGround::adjust(MonitorProxyWidget *pw)
 {
     bool bSingle = false;
-    if(1 == m_monitors.count())
+    int enabledCount = 0;
+    for (auto* value : m_monitors)
+    {
+        if (value->enable()) {
+            enabledCount++;
+            m_monitors.key(value)->setVisible(true);
+        }
+    }
+    if (1 == enabledCount)
         bSingle = true;
 
     qDebug() << "adjust" << pw->name();
@@ -168,16 +168,46 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     const double x = scale * pw->x();
     const double y = scale * pw->y();
 
-    if(bSingle)
-    {
-        pw->setGeometry(static_cast<int>((width()-w)/2), static_cast<int>((height()-h)/2), static_cast<int>(scale * pw->w()), static_cast<int>(scale * pw->h()));
+    if (bSingle) {
+        const double wSingle = 0.15 * pw->w();
+        const double hSingle = 0.15 * pw->h();
+        pw->setGeometry(static_cast<int>((width() - wSingle)/2), static_cast<int>((height() - hSingle)/2), static_cast<int>(wSingle), static_cast<int>(hSingle));
         this->setEnabled(false);//单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发方大
+    } else {
+        this->setEnabled(true);
+        pw->setGeometry(static_cast<int>(x + offsetX), static_cast<int>(y + offsetY), static_cast<int>(w), static_cast<int>(h));
     }
-    else
-        pw->setGeometry(x + offsetX, y + offsetY, w, h);
     pw->update();
-    //解决设置1.25缩放，自定义拖动dp和edp缩略图有残影问题
-    Q_EMIT requestUpdateWidget();
+}
+
+void MonitorsGround::adjustAll()
+{
+    const double scale = screenScale();
+    int offset = 0;
+    const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
+    const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
+    MonitorProxyWidget *primarywdt = nullptr;
+    for (auto pw : m_monitors.keys()) {
+        if (pw->name() == m_model->primary()) {
+            primarywdt = pw;
+            continue;
+        }
+        const double w = scale * pw->w() * 0.5;
+        const double h = scale * pw->h() * 0.5;
+        const double x = scale * pw->x();
+        const double y = scale * pw->y();
+
+        pw->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h));
+        offset += 10;
+    }
+    if (primarywdt) {
+        const double w = scale * primarywdt->w() * 0.5;
+        const double h = scale * primarywdt->h() * 0.5;
+        const double x = scale * primarywdt->x();
+        const double y = scale * primarywdt->y();
+
+        primarywdt->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h));
+    }
 }
 
 void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
