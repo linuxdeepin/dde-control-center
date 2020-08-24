@@ -88,6 +88,7 @@ public:
     static bool isSameRatefresh(const Resolution &r1,const Resolution &r2);
     bool hasResolution(const Resolution &r);
     bool hasResolutionAndRate(const Resolution &r);
+    bool hasRatefresh(const double r);
 
 private Q_SLOTS:
     void setX(const int x);

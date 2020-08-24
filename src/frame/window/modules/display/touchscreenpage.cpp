@@ -32,7 +32,6 @@
 
 #include <QVBoxLayout>
 #include <QGridLayout>
-#include <QComboBox>
 #include <QScrollArea>
 #include <QScroller>
 #include <QList>
@@ -41,6 +40,13 @@ using namespace DCC_NAMESPACE::display;
 using namespace dcc::display;
 using namespace dcc::widgets;
 DWIDGET_USE_NAMESPACE
+
+void MCombobox::showPopup()
+{
+    QComboBox::showPopup();
+    QWidget *popup = this->findChild<QFrame*>();
+    popup->move(this->mapToGlobal(this->pos()).x() - this->x(), popup->y());
+}
 
 TouchscreenPage::TouchscreenPage(QWidget *parent)
     : ContentWidget(parent)
@@ -53,7 +59,11 @@ TouchscreenPage::TouchscreenPage(QWidget *parent)
 {
     setTitle(tr("Select your touch screen"));
 
-    auto dtip = new DTipLabel(tr("Select your touch screen when connected or set it here."));
+    m_titleString = tr("Select your touch screen when connected or set it here.");
+    m_dTipLabel = new DTipLabel(m_titleString);
+    m_dTipLabel->setWordWrap(true);
+    m_dTipLabel->setContentsMargins(10, 0, 0, 0);
+    m_dTipLabel->setAlignment(Qt::AlignLeft);
 
     m_contentArea->setWidgetResizable(true);
     m_contentArea->setFrameStyle(QFrame::NoFrame);
@@ -72,7 +82,7 @@ TouchscreenPage::TouchscreenPage(QWidget *parent)
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
-    mainLayout->addWidget(dtip);
+    mainLayout->addWidget(m_dTipLabel);
     mainLayout->addWidget(m_contentArea);
     layout()->addWidget(m_buttonTuple);
 
@@ -103,13 +113,17 @@ void TouchscreenPage::onMonitorChanged()
         oldWidget->deleteLater();
     }
     m_list.clear();
+    m_titleName.clear();
+    m_labels.clear();
 
     auto *mainWidget = new QWidget();
+    mainWidget->installEventFilter(this);
     m_contentArea->setWidget(mainWidget);
 
     auto *layout = new QVBoxLayout();
     mainWidget->setLayout(layout);
     layout->setAlignment(Qt::AlignTop);
+    layout->setContentsMargins(0,0,0,0);
 
     TouchscreenMap touchMap = m_model->touchMap();
     TouchscreenInfoList touchscreenList = m_model->touchscreenList();
@@ -117,18 +131,24 @@ void TouchscreenPage::onMonitorChanged()
     for (const auto &i : touchscreenList) {
         QString touchscreenSerial = i.serialNumber;
 
-        auto text = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
-        auto *label = new QLabel(text);
-        label->setToolTip(text);
+        auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
+        auto *label = new QLabel(title);
+        label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        label->setContentsMargins(10, 0, 0, 0);
+        label->setAlignment(Qt::AlignLeft);
         layout->addWidget(label);
         layout->addSpacing(5);
 
-        auto *listCombo = new QComboBox();
+        auto *listCombo = new MCombobox();
+        listCombo->setContentsMargins(0, 0, 0, 10);
         listCombo->setProperty("touchscreenName", i.name);
         listCombo->setProperty("touchscreenSerial", touchscreenSerial);
+        listCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         layout->addWidget(listCombo);
         layout->addSpacing(10);
         m_list.push_back(listCombo);
+        m_labels.push_back(label);
+        m_titleName << title;
 
         for (Monitor *m : monitorList) {
             listCombo->addItem(m->name());
@@ -169,4 +189,26 @@ void TouchscreenPage::save()
                               QVariantMap(),
                               3000);
     }
+}
+
+bool TouchscreenPage::eventFilter(QObject *obj, QEvent *event)
+{
+    Q_UNUSED(obj);
+    if (event->type() == QEvent::Resize) {
+        for (int i = 0; i < m_labels.count(); i++)
+        {
+            QFontMetrics fontMetrics(m_titleName[i]);
+            int fontSize = fontMetrics.width(m_titleName[i]);
+            if (fontSize > m_labels[i]->width()) {
+                m_labels[i]->setText(fontMetrics.elidedText(m_titleName[i], Qt::ElideMiddle, m_labels[i]->width()));
+                m_labels[i]->setToolTip(m_titleName[i]);
+            } else {
+                m_labels[i]->setText(m_titleName[i]);
+                m_labels[i]->setToolTip("");
+            }
+        }
+
+        return true;
+    }
+    return dcc::ContentWidget::eventFilter(obj, event);
 }

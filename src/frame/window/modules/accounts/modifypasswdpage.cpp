@@ -197,8 +197,8 @@ void ModifyPasswdPage::showEvent(QShowEvent *event)
 {
     Q_UNUSED(event);
     if (m_oldPasswordEdit && !m_oldPasswordEdit->hasFocus()) {
-           m_oldPasswordEdit->lineEdit()->setFocus();
-       }
+        m_oldPasswordEdit->lineEdit()->setFocus();
+    }
 }
 
 bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)

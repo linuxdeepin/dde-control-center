@@ -143,8 +143,7 @@ void AccountsWorker::setGroups(User *user, const QStringList &usrGroups)
 
 void AccountsWorker::active()
 {
-    for (auto it(m_userInters.cbegin()); it != m_userInters.cend(); ++it)
-    {
+    for (auto it(m_userInters.cbegin()); it != m_userInters.cend(); ++it) {
         it.key()->setName(it.value()->userName());
         it.key()->setAutoLogin(it.value()->automaticLogin());
         it.key()->setAvatars(it.value()->iconList());
@@ -334,10 +333,8 @@ void AccountsWorker::addUser(const QString &userPath)
 
 void AccountsWorker::removeUser(const QString &userPath)
 {
-    for (AccountsUser *userInter : m_userInters.values())
-    {
-        if (userInter->path() == userPath)
-        {
+    for (AccountsUser *userInter : m_userInters.values()) {
+        if (userInter->path() == userPath) {
             User *user = m_userInters.key(userInter);
             user->deleteLater();
 
@@ -572,10 +569,6 @@ QString AccountsWorker::cryptUserPassword(const QString &password)
     for (int i = 0; i != 16; i++) {
         salt[3 + i] = seedchars.at(uniform_dist(e1)).toLatin1();
     }
-
-#ifdef QT_DEBUG
-    // qDebug() << crypt(password.toUtf8().data(), salt);
-#endif
 
     return crypt(password.toUtf8().data(), salt);
 }

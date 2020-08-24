@@ -30,14 +30,15 @@
 #include <org_freedesktop_notifications.h>
 
 #include <DListView>
+#include <DTipLabel>
 
 #include <QWidget>
+#include <QComboBox>
 
 using Notifications = org::freedesktop::Notifications;
 
 class QVBoxLayout;
 class QGridLayout;
-class QComboBox;
 
 namespace dcc {
 
@@ -55,6 +56,13 @@ namespace DCC_NAMESPACE {
 
 namespace display {
 
+class MCombobox : public QComboBox
+{
+    Q_OBJECT
+protected:
+    void showPopup() override;
+};
+
 class TouchscreenPage : public dcc::ContentWidget
 {
     Q_OBJECT
@@ -67,6 +75,9 @@ private Q_SLOTS:
     void onMonitorChanged();
     void save();
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
+
 Q_SIGNALS:
     void requestAssociateTouch(const QString &monitor, const QString &touchscreenSerial);
 
@@ -74,8 +85,12 @@ private:
     dcc::display::DisplayModel *m_model{nullptr};
     dcc::widgets::ButtonTuple *m_buttonTuple;
     QScrollArea *m_contentArea;
-    QList<QComboBox *> m_list;
+    QList<MCombobox *> m_list;
     Notifications *m_notifyInter;
+    QStringList m_titleName;
+    QList<QLabel *> m_labels;
+    DTipLabel *m_dTipLabel;
+    QString m_titleString;
 };
 
 } // namespace display

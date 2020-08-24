@@ -200,6 +200,26 @@ bool APItem::setLoading(bool isLoading)
         m_preLoading = isLoading;
     }
     if (isLoading) {
+        if (m_parentView) {
+            QModelIndex index;
+            const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(m_parentView->model());
+            if (!deviceModel) {
+                return isReconnect;
+            }
+            for (int i = 0; i < m_parentView->count(); ++i) {
+                DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(i));
+                if (!item) {
+                    return isReconnect;
+                }
+                if (this == item) {
+                    index = m_parentView->model()->index(i, 0);
+                    break;
+                }
+            }
+            QRect itemrect = m_parentView->visualRect(index);
+            QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
+            m_loadingIndicator->move(point);
+        }
         if (!m_arrowAction.isNull()) {
             m_arrowAction->setVisible(false);
         }
@@ -218,7 +238,7 @@ bool APItem::setLoading(bool isLoading)
         m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
         QStyleOption opt;
         m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-        m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin); // ArrowEnterClickMargin
+        m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);
         m_arrowAction->setVisible(true);
         setActionList(Qt::Edge::RightEdge, {m_arrowAction});
         isReconnect = true;
@@ -296,7 +316,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_mainLayout->addWidget(m_tipsGroup);
     m_mainLayout->addWidget(m_closeHotspotBtn);
     m_layoutCount = m_mainLayout->layout()->count();
-    updateLayout(!m_lvAP->isHidden());    
+    updateLayout(!m_lvAP->isHidden());
     m_mainLayout->setSpacing(10);//三级菜单控件间的间隙
     m_mainLayout->setMargin(0);
 
@@ -304,11 +324,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     mainWidget->setLayout(m_mainLayout);
 
     setContent(mainWidget);
-#ifdef QT_DEBUG
-    setTitle(m_device->path());
-#else
-    setTitle(tr("WLAN"));
-#endif
 
     connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex & idx) {
         if (idx.data(APItem::PathRole).toString().length() == 0) {
@@ -390,7 +405,7 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
         m_preWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
     }
     WifiStatus curWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
-    if (curWifiStatus != m_preWifiStatus) {
+    if (curWifiStatus != m_preWifiStatus && stat > NetworkDevice::Disconnected) {
         m_switch->setChecked(!unavailable);
         onNetworkAdapterChanged(!unavailable);
         m_preWifiStatus = curWifiStatus;
@@ -468,9 +483,8 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
             this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(),
                                           apItem->data(Qt::ItemDataRole::DisplayRole).toString());
         });
+        m_sortDelayTimer->start();
     }
-
-    onAPChanged(apInfo);
 }
 
 void WirelessPage::onAPChanged(const QJsonObject &apInfo)

@@ -102,6 +102,7 @@ private:
     QStandardItemModel *m_outputModel{nullptr};
     //当前选中的音频
     const dcc::sound::Port *m_currentPort{nullptr};
+    int m_lastsetvalue;
 };
 
 }

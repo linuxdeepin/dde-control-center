@@ -38,11 +38,11 @@
 using namespace dcc::accounts;
 
 AvatarWidget::AvatarWidget(QWidget *parent)
-    : QLabel(parent),
-      m_hover(false),
-      m_deleable(false),
-      m_selected(false),
-      m_arrowed(false)
+    : QLabel(parent)
+    , m_hover(false)
+    , m_deleable(false)
+    , m_selected(false)
+    , m_arrowed(false)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);

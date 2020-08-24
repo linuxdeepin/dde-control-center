@@ -50,6 +50,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_layout(new QVBoxLayout)
     , m_outputSlider(nullptr)
     , m_speakSlider(nullptr)
+    , m_lastsetvalue(0)
 {
     const int titleLeftMargin = 17;
     //~ contents_path /sound/Advanced
@@ -192,7 +193,7 @@ void SpeakerPage::initSlider()
 
     //初始化音量设置滚动条
     qDebug() << "max volume:" << m_model->MaxUIVolume();
-    int maxRange = static_cast<int>(m_model->MaxUIVolume() * static_cast<int>(100.0f));
+    int maxRange = static_cast<int>(m_model->MaxUIVolume() * 100.0f + 0.000001);
     m_speakSlider->setRange(0, maxRange);
     m_speakSlider->setType(DCCSlider::Vernier);
     m_speakSlider->setTickPosition(QSlider::NoTicks);
@@ -206,7 +207,7 @@ void SpeakerPage::initSlider()
 
     m_speakSlider->setTickInterval(1);
     qDebug() << "speaker volume:" << m_model->speakerVolume();
-    int val = static_cast<int>(m_model->speakerVolume() * static_cast<int>(100.0f));
+    int val = static_cast<int>(m_model->speakerVolume() * 100.0f + 0.000001);
     if (val > maxRange) {
         val = maxRange;
     }
@@ -216,6 +217,25 @@ void SpeakerPage::initSlider()
 
     //处理滑块位置变化的槽
     auto slotfunc1 = [ = ](int pos) {
+        //当前设置音量大于上一次设置的音量时，说明音量是在增加
+        if (pos > m_lastsetvalue) {
+            //因为增加5%幅度的区间是110～120,所以要包含110,不包含120,从120开始就是1%的幅度增加
+             if (pos >= 110 && pos < 120) {
+                  m_outputSlider->slider()->qtSlider()->setSingleStep(5);
+               } else {
+                  m_outputSlider->slider()->qtSlider()->setSingleStep(1);
+               }
+                  m_lastsetvalue = pos;
+                  //当前设置音量小于上一次设置的音量时，说明音量是在降低
+        } else if (pos < m_lastsetvalue) {
+            //因为增加5%幅度的区间是110～120,所以要不包含121和110,从120～110开始就是5%的幅度降低
+            if (pos > 110 && pos < 121) {
+                  m_outputSlider->slider()->qtSlider()->setSingleStep(5);
+             } else {
+                  m_outputSlider->slider()->qtSlider()->setSingleStep(1);
+             }
+             m_lastsetvalue = pos;
+        }
         double vals = pos / 100.0;
         //滑块位置改变时，发送设置音量的信号
         Q_EMIT requestSetSpeakerVolume(vals);
@@ -229,13 +249,13 @@ void SpeakerPage::initSlider()
     //当底层数据改变后，更新滑动条显示的数据
     connect(m_model, &SoundModel::speakerVolumeChanged, this, [ = ](double v) {
         m_speakSlider->blockSignals(true);
-        m_speakSlider->setValue(v * 100);
+        m_speakSlider->setValue(v * 100 + 0.000001);
         m_speakSlider->blockSignals(false);
-        m_outputSlider->setValueLiteral(QString::number(v * 100) + "%");
+        m_outputSlider->setValueLiteral(QString::number(v * 100 + 0.000001) + "%");
     });
 
     connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
-        m_speakSlider->setRange(0, static_cast<int>(maxvalue * 100));
+        m_speakSlider->setRange(0, static_cast<int>(maxvalue * 100 + 0.000001));
         QStringList annotion;
         if (maxvalue > 1.0) {
             annotion << "0 " << "" << "100" << "150 ";
@@ -248,9 +268,9 @@ void SpeakerPage::initSlider()
         m_outputSlider->update();
 
         m_speakSlider->blockSignals(true);
-        m_speakSlider->setValue(static_cast<int>(m_model->speakerVolume() * 100));
+        m_speakSlider->setValue(static_cast<int>(m_model->speakerVolume() * 100 + 0.000001));
         m_speakSlider->blockSignals(false);
-        m_outputSlider->setValueLiteral(QString::number(m_model->speakerVolume() * 100) + "%");
+        m_outputSlider->setValueLiteral(QString::number(m_model->speakerVolume() * 100 + 0.000001) + "%");
     });
 
     m_layout->insertWidget(3, m_outputSlider);

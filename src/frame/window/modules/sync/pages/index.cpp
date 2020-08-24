@@ -160,7 +160,9 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_autoSyncSwitch, &SwitchWidget::setChecked);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_listView, &QListView::setVisible);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_networkTip, &QLabel::setVisible);
-    connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_lastSyncTimeLbl, &QLabel::setVisible);
+    connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, this, [=](const bool &value) {
+        m_lastSyncTimeLbl->setVisible(value && m_model->lastSyncTime());
+    });
     connect(model, &dcc::cloudsync::SyncModel::syncStateChanged, this, &IndexPage::onStateChanged);
     connect(model, &dcc::cloudsync::SyncModel::lastSyncTimeChanged, this, &IndexPage::onLastSyncTimeChanged);
     connect(model, &dcc::cloudsync::SyncModel::moduleSyncStateChanged, this, &IndexPage::onModuleStateChanged);
@@ -212,7 +214,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     m_autoSyncSwitch->setEnabled(model->getActivation());
     m_networkTip->setVisible(model->enableSync());
     m_listView->setVisible(model->enableSync());
-    m_lastSyncTimeLbl->setVisible(model->enableSync());
+    m_lastSyncTimeLbl->setVisible(model->enableSync() && model->lastSyncTime());
     onStateChanged(model->syncState());
     onLastSyncTimeChanged(model->lastSyncTime());
 }
@@ -270,9 +272,9 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
     qDebug() << "syncState: " << syncState << "m_lastSyncTime:" << m_lastSyncTime;
     switch (syncState) {
     case SyncState::Succeed:
-        m_lastSyncTimeLbl->show();
+        m_lastSyncTimeLbl->setVisible(m_model->lastSyncTime() > 0);
         m_stateLbl->hide();
-        if (m_lastSyncTime > 0) {
+        if (m_model->lastSyncTime() > 0) {
             m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(16, 16)));
         } else {
             m_stateIcon->setRotatePixmap(QPixmap());
@@ -286,7 +288,7 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
         m_stateIcon->play();
         break;
     case SyncState::Failed:
-        m_lastSyncTimeLbl->show();
+        m_lastSyncTimeLbl->setVisible(m_model->lastSyncTime() > 0);
         m_stateLbl->hide();
         m_stateIcon->setRotatePixmap(QPixmap());
         m_stateIcon->stop();

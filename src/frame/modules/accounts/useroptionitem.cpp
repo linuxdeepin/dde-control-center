@@ -36,9 +36,8 @@ using namespace dcc::widgets;
 using namespace dcc::accounts;
 
 UserOptionItem::UserOptionItem(QFrame *parent)
-    : widgets::NextPageWidget(parent),
-
-      m_avatarLabel(new QLabel)
+    : widgets::NextPageWidget(parent)
+    , m_avatarLabel(new QLabel)
 {
     m_avatarLabel->setFixedSize(24, 24);
 

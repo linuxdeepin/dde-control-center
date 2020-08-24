@@ -959,8 +959,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
-        <translation>Kullanıcı Deneyimi Programına katılmak, cihazınızın, sisteminizin ve uygulamalarınızın bilgilerini toplamamıza ve kullanmamıza izin verdiğiniz anlamına gelir. Yukarıda belirtilen bilgilerin toplanmasını ve kullanılmasını reddederseniz, Kullanıcı Deneyimi Programına katılmayın. Ayrıntılar için (https://www.uniontech.com/agreement/privacy-en).</translation>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy ( https://www.uniontech.com/agreement/privacy-en).</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

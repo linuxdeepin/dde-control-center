@@ -64,11 +64,9 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->addLayout(titleLayout);
 
     m_nightShift = new SwitchWidget;
-    //~ contents_path /display/Brightness
     m_nightShift->setTitle(tr("Night Shift"));
     m_nightShift->addBackground();
     m_centralLayout->addWidget(m_nightShift);
-///    //~ contents_path /display/Brightness
     m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"));
     m_nightTips->setWordWrap(true);
     m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
@@ -76,16 +74,12 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_nightTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     m_nightTips->setContentsMargins(10, 0, 0, 0);
     m_centralLayout->addWidget(m_nightTips);
-    //~ contents_path /display/Brightness
-
 
     m_nightManual = new SwitchWidget;
-    //~ contents_path /display/Brightness
     m_nightManual->setTitle(tr("Change Color Temperature"));
     m_nightManual->addBackground();
     m_centralLayout->addWidget(m_nightManual);
     m_autoLightMode = new SwitchWidget;
-    //~ contents_path /display/Brightness
 
     m_autoLightMode->setTitle(tr("Auto Brightness"));
     m_centralLayout->addWidget(m_autoLightMode);
@@ -141,7 +135,7 @@ void BrightnessPage::setAdjustCCTmode(int mode)
     m_nightManual->blockSignals(true);
     m_nightShift->switchButton()->setChecked(mode == 1);
     m_nightManual->switchButton()->setChecked(mode == 2);
-    if(m_cctItem){
+    if (m_cctItem) {
         m_cctItem->blockSignals(true);
         m_cctItem->setVisible(m_displayModel->adjustCCTMode() ==2);
         m_cctItem->blockSignals(false);
@@ -187,7 +181,6 @@ void BrightnessPage::addSlider()
             slider->setTickInterval(int((BrightnessMaxScale - miniScale) / 5.0));
             slider->setValue(int(brightness * BrightnessMaxScale));
             slider->setPageStep(1);
-
 
             auto onValueChanged = [ = ](int pos) {
                 this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);

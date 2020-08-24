@@ -24,7 +24,6 @@
 #include "window/modules/commoninfo/commoninfomodel.h"
 
 #include "window/utils.h"
-
 #include "widgets/switchwidget.h"
 #include "widgets/labels/tipslabel.h"
 #include "widgets/settingsgroup.h"
@@ -36,8 +35,6 @@
 #include <QScrollBar>
 #include <QListView>
 #include <QDebug>
-
-#define GSETTING_BOOT_DELAY "boot-delay"
 
 using namespace dcc;
 using namespace widgets;
@@ -56,7 +53,7 @@ BootWidget::BootWidget(QWidget *parent)
     m_background = new CommonBackgroundItem();
 
     m_listLayout = new QVBoxLayout;
-    m_listLayout->setSpacing(0);
+    m_listLayout->addSpacing(List_Interval);
     m_listLayout->setMargin(0);
 
     m_bootList = new DListView();
@@ -86,9 +83,7 @@ BootWidget::BootWidget(QWidget *parent)
     DPalette dpLabel = DApplicationHelper::instance()->palette(m_updatingLabel);
     dpLabel.setColor(DPalette::Text, QColor(255, 255, 255));
     DApplicationHelper::instance()->setPalette(m_updatingLabel, dpLabel);
-
     m_listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter | Qt::AlignBottom);
-    m_listLayout->addSpacing(List_Interval);
     m_background->setLayout(m_listLayout);
 
     m_bootDelay = new SwitchWidget();
@@ -115,7 +110,6 @@ BootWidget::BootWidget(QWidget *parent)
     groupOther->appendItem(m_theme);
 #endif
     layout->setMargin(0);
-    layout->setSpacing(0);
     layout->addSpacing(List_Interval);
     layout->addWidget(m_background);
     layout->addSpacing(List_Interval);
@@ -194,25 +188,6 @@ void BootWidget::setEntryList(const QStringList &list)
 {
     m_bootItemModel = new QStandardItemModel(this);
     m_bootList->setModel(m_bootItemModel);
-    m_gSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-
-       if (m_gSetting->keys().contains("bootDelay", Qt::CaseInsensitive) &&
-               !m_gSetting->get(GSETTING_BOOT_DELAY).toBool()) {
-           if (list.count() <= 0) {
-               return;
-           } else if (list.count() < 2) {
-               m_bootDelay->setChecked(false);
-               Q_EMIT bootdelay(false);
-               m_gSetting->set(GSETTING_BOOT_DELAY, true);
-           } else {
-               m_bootDelay->setChecked(true);
-               Q_EMIT bootdelay(true);
-               m_gSetting->set(GSETTING_BOOT_DELAY, true);
-           }
-       } else {
-           m_bootDelay->setChecked(m_commonInfoModel->bootDelay());
-       }
-
 
     for (int i = 0; i < list.count(); i++) {
         const QString entry = list.at(i);
@@ -243,7 +218,6 @@ void BootWidget::setBootList()
     m_listLayout->addSpacing(10);
     m_listLayout->addWidget(m_bootList);
     m_background->setFixedHeight(height + 35 > 350 ? 350 : height + 35);
-
 }
 
 void BootWidget::onCurrentItem(const QModelIndex &curIndex)

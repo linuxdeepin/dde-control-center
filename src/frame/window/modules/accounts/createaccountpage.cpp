@@ -330,15 +330,22 @@ void CreateAccountPage::createUser()
     m_newUser->setRepeatPassword(m_repeatpasswdEdit->lineEdit()->text());
 
     if (m_isServerSystem) {
-        QStringList usrGroups;
-        int row_count = m_groupItemModel->rowCount();
-        for (int i = 0; i < row_count; ++i) {
-            QStandardItem *item = m_groupItemModel->item(i, 0);
-            if (item->checkState() == Qt::Checked) {
-                usrGroups << item->text();
+        if (m_accountChooser->currentIndex() == 1) {
+            QDBusInterface inter("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts",
+                                 "com.deepin.daemon.Accounts", QDBusConnection::systemBus());
+            QDBusPendingReply<QStringList> reply = inter.call("GetPresetGroups", 1);
+            m_newUser->setGroups(reply.value());
+        } else {
+            QStringList usrGroups;
+            int row_count = m_groupItemModel->rowCount();
+            for (int i = 0; i < row_count; ++i) {
+                QStandardItem *item = m_groupItemModel->item(i, 0);
+                if (item->checkState() == Qt::Checked) {
+                    usrGroups << item->text();
+                }
             }
+            m_newUser->setGroups(usrGroups);
         }
-        m_newUser->setGroups(usrGroups);
     }
 
     DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",

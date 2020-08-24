@@ -344,6 +344,7 @@ void ConnectionEditPage::prepareConnection()
         m_connection = findConnection(connPath);
         if (!m_connection) {
             qDebug() << "create connection failed..." << reply.error();
+            Q_EMIT back();
             return;
         }
     }
@@ -360,6 +361,7 @@ void ConnectionEditPage::updateConnection()
     reply.waitForFinished();
     if (reply.isError()) {
         qDebug() << "error occurred while updating the connection" << reply.error();
+        Q_EMIT back();
         return;
     }
 

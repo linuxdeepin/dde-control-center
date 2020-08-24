@@ -26,7 +26,6 @@
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
-#include <QGSettings>
 
 namespace dcc {
 namespace widgets {
@@ -65,7 +64,6 @@ public Q_SLOTS:
 private:
     QString m_defaultEntry;                      // 默认启动项
     dcc::widgets::SwitchWidget *m_bootDelay;       // 延时启动功能
-    QGSettings *m_gSetting;
 #ifndef DCC_DISABLE_GRUB_THEME
     dcc::widgets::SwitchWidget *m_theme;           // 主题功能
 #endif
