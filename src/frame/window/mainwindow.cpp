@@ -292,7 +292,8 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
                 continue;
             }
 
-            cw->setFocusPolicy(Qt::StrongFocus);
+            if (!qobject_cast<QAbstractSlider *>(cw))
+                cw->setFocusPolicy(Qt::StrongFocus);
             setTabOrder(pre, cw);
             pre = cw;
         } else if (cl) {
