@@ -108,6 +108,8 @@ void TouchscreenPage::setModel(DisplayModel *model)
 
 void TouchscreenPage::onMonitorChanged()
 {
+    m_buttonTuple->rightButton()->setEnabled(false);
+
     auto *oldWidget = m_contentArea->widget();
     if (oldWidget) {
         oldWidget->deleteLater();
@@ -156,15 +158,16 @@ void TouchscreenPage::onMonitorChanged()
 
         if (touchMap.find(touchscreenSerial) != touchMap.end()) {
             listCombo->setCurrentText(touchMap.value(touchscreenSerial));
-            connect(listCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [this] {
-                m_buttonTuple->rightButton()->setEnabled(true);
-            });
         }
+        connect(listCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [this] {
+            m_buttonTuple->rightButton()->setEnabled(true);
+        });
     }
 }
 
 void TouchscreenPage::save()
 {
+    m_buttonTuple->rightButton()->setEnabled(false);
     bool changed = false;
     for (auto i : m_list) {
         QString touchscreenName = i->property("touchscreenName").toString();
