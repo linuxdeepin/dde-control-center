@@ -252,10 +252,8 @@ void DisplayModule::showCustomSettingDialog()
     connect(dlg, &CustomSettingDialog::requestEnalbeMonitor, [=](Monitor *mon, bool enable) {
         m_displayWorker->onMonitorEnable(mon, enable);
     });
-    connect(dlg, &CustomSettingDialog::requestSplit, this, [&](){
-        m_displayWorker->splitScreens();
-        dlg->setModel(m_displayModel);
-     });
+    connect(dlg, &CustomSettingDialog::requestSplit,
+            m_displayWorker, &DisplayWorker::splitScreens);
     connect(dlg, &CustomSettingDialog::requestSetMonitorPosition,
             m_displayWorker, &DisplayWorker::setMonitorPosition);
     connect(dlg, &CustomSettingDialog::requestRecognize, this,

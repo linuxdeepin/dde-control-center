@@ -61,6 +61,11 @@ public:
     inline const QList<quint16> rotateList() const { return m_rotateList; }
     inline const QList<Resolution> modeList() const { return m_modeList; }
     inline bool enable() const { return m_enable; }
+    inline QPoint getLastPoint() {return m_lastPoint; }
+    void setLastPoint(int x, int y) {
+        m_lastPoint.setX(x);
+        m_lastPoint.setY(y);
+    }
 
 Q_SIGNALS:
     void geometryChanged() const;
@@ -102,6 +107,7 @@ private:
     int m_y;
     int m_w;
     int m_h;
+    QPoint m_lastPoint;
     double m_scale;
     quint16 m_rotate;
     double m_brightness;

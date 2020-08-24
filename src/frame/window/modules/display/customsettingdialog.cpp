@@ -657,6 +657,8 @@ void CustomSettingDialog::initConnect()
     connect(m_model, &DisplayModel::isMergeChange, m_monitroControlWidget, &MonitorControlWidget::setScreensMerged);
 
     if (m_displayComboxWidget) {
+        connect(m_displayComboxWidget->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                this, &CustomSettingDialog::currentIndexChanged);
         connect(m_model, &DisplayModel::primaryScreenChanged, this, [ = ](const QString & name) {
             auto monis = m_model->monitorList();
             for (int idx = 0 ; idx < m_displayComboxWidget->comboBox()->count(); ++idx) {
@@ -716,12 +718,26 @@ void CustomSettingDialog::resetMonitorObject(Monitor *moni)
         disconnect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
         disconnect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
         disconnect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::resetDialog);
+        disconnect(m_monitor, &Monitor::enableChanged, this, &CustomSettingDialog::setVisible);
     }
 
     m_monitor = moni;
     connect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
     connect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
     connect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_monitor, &Monitor::enableChanged, this, [ = ](bool enable) {
+        if (m_model->isMerge() == false) {
+            if(m_monitor->isPrimary()) {   //对后端可能传递的错误信号规避
+                return;
+            }
+
+            setVisible(enable);
+            resetDialog();
+        }
+        if (m_monitor->isPrimary()) {
+            initMoniList();
+        }
+    });
 }
 
 void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
@@ -930,4 +946,9 @@ void CustomSettingDialog::onMonitorRelease(Monitor *mon)
 {
     Q_UNUSED(mon)
     m_fullIndication->setVisible(false);
+}
+
+void CustomSettingDialog::currentIndexChanged(int index)
+{
+    this->requestSetPrimaryMonitor(index);
 }

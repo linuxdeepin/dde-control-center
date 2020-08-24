@@ -156,6 +156,9 @@ void DisplayWorker::mergeScreens()
 
     m_model->setIsMerge(true);
 
+    m_model->monitorList()[0]->setLastPoint(m_model->monitorList()[0]->x(), m_model->monitorList()[0]->y());
+    m_model->monitorList()[1]->setLastPoint(m_model->monitorList()[1]->x(), m_model->monitorList()[1]->y());
+
     // TODO: make asynchronous
     auto monis = m_monitors.keys();
     auto firstMoni = monis.first();
@@ -165,7 +168,7 @@ void DisplayWorker::mergeScreens()
     Resolution bestMode = modes.first();
     for (auto m : modes) {
         bool isCommon = true;
-        for (int i = 1; i< monis.size(); ++i) {
+        for (int i = 1; i < monis.size(); ++i) {
             if (!monis[i]->hasResolution(m)) {
                 isCommon = false;
                 break;
@@ -178,7 +181,7 @@ void DisplayWorker::mergeScreens()
 
         qDebug() << "get same resolution:" << m.width() << " x " << m.height();
         auto ts = m.width() * m.height();
-        if ( ts <= maxSize)
+        if (ts <= maxSize)
             continue;
 
         bestMode = m;
@@ -187,9 +190,13 @@ void DisplayWorker::mergeScreens()
 
     qDebug() << "get best Resolution :" << bestMode.width() << " x " << bestMode.height();
     const auto mode = bestMode;
-    const auto rotate = m_model->primaryMonitor()->rotate();
+    auto rotate = m_model->primaryMonitor()->rotate();
     const auto brightness = m_model->primaryMonitor()->brightness();
-
+    for (auto *mon : m_model->monitorList()) {
+        if (mon->rotate() != rotate) {
+            rotate = 1;
+        }
+    }
     QList<QDBusPendingReply<>> replys;
 
     for (auto *mon : m_model->monitorList()) {
@@ -219,19 +226,25 @@ void DisplayWorker::splitScreens()
 
     auto *primary = m_model->primaryMonitor();
     Q_ASSERT(m_monitors.contains(primary));
-    m_monitors[primary]->SetPosition(0, 0).waitForFinished();
+    m_monitors[primary]->SetPosition(static_cast<short>(m_model->primaryMonitor()->getLastPoint().x()), static_cast<short>(m_model->primaryMonitor()->getLastPoint().y())).waitForFinished();
+    int xOffset = primary->modeList().first().width();
 
-    double xOffset = static_cast<double>(primary->w()) * m_appearanceInter->GetScaleFactor();
     for (auto *mon : mList) {
         // pass primary
+        Q_ASSERT(m_monitors.contains(mon));
+        auto *mInter = m_monitors[mon];
+        mInter->SetMode(static_cast<uint>(mon->modeList().first().id())).waitForFinished();
+        mInter->SetRotation(1).waitForFinished();
+
         if (mon == primary)
             continue;
 
-        Q_ASSERT(m_monitors.contains(mon));
-        auto *mInter = m_monitors[mon];
-
-        mInter->SetPosition(static_cast<int>(xOffset), 0).waitForFinished();
-        xOffset += mon->w();
+        if (mon->getLastPoint() == m_model->primaryMonitor()->getLastPoint()) {
+            mInter->SetPosition(static_cast<short>(xOffset), 0).waitForFinished();
+        } else {
+            mInter->SetPosition(static_cast<short>(mon->getLastPoint().x()), static_cast<short>(mon->getLastPoint().y())).waitForFinished();
+        }
+        xOffset += mon->modeList().first().width();
     }
 
     m_displayInter.ApplyChanges();

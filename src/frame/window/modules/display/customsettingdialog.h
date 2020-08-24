@@ -101,6 +101,7 @@ private Q_SLOTS:
     void onPrimaryMonitorChanged();
     void onChangList(QAbstractButton *btn, bool beChecked);
     void onMonitorModeChange(const Resolution &r);
+    void currentIndexChanged(int index);
 
 private:
     void initUI();
