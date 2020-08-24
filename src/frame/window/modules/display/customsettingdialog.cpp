@@ -74,7 +74,6 @@ void CustomSettingDialog::initUI()
     connect(this, &CustomSettingDialog::sizeChanged, this, [=]() {
         m_dialogWidth = this->width();
         m_dialogHeight = this->height();
-        qDebug() << "...........8-21-1............" << " m_dialogWidth " << m_dialogWidth << " m_dialogHeight " << m_dialogHeight;
     });
 
     setMinimumWidth(480);
@@ -875,16 +874,32 @@ void CustomSettingDialog::resetDialog()
 {
     //当收到屏幕变化的消息后，屏幕数据还是旧的
     //需要用QTimer把对窗口的改变放在屏幕数据应用后
-    QTimer::singleShot(sender() ? 1000 : 0, this, [=] {
+    QTimer::singleShot(sender() ? 1000 : 0, this, [ = ] {
+        m_monitroControlWidget->adjustSize();
+        m_monitroControlWidget->updateGeometry();
+        adjustSize();
+
         auto rt = rect();
-        qDebug() << " rt.width() " << rt.width() << " rt.height() " << rt.height();
-        rt.moveTo(m_monitor->x() + m_dialogWidth, m_monitor->y() + m_dialogHeight);
+        if (rt.width() > m_monitor->w())
+            rt.setWidth(m_monitor->w());
 
+        if (rt.height() > m_monitor->h())
+            rt.setHeight(m_monitor->h());
 
-        //+ 防止出现切换后窗口拉伸的情况
-        qDebug() << "...........8-21-1............" << " m_dialogWidth " << m_dialogWidth << " m_dialogHeight " << m_dialogHeight
-                 << " m_monitor->x() " << m_monitor->x() << " m_monitor->y() " << m_monitor->y();
-        this->resize(m_dialogWidth, m_dialogHeight);
+        auto mrt = m_monitor->rect();
+        auto tsize = (mrt.size() / m_model->monitorScale(m_monitor) - rt.size()) / 2;
+
+        qDebug() << Q_FUNC_INFO << "-----------------------";
+
+        qDebug() << "monitor name:" << m_monitor->name();
+        qDebug() << "rt :" << rt;
+        qDebug() << "tsize :" << tsize;
+        qDebug() << "scale :" << m_model->monitorScale(m_monitor);
+        rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
+
+        qDebug() << "mrt :" << mrt;
+        qDebug() << "final rt :" << rt;
+        setGeometry(rt);
     });
 }
 
