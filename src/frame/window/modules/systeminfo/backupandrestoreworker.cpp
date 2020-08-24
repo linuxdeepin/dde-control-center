@@ -221,8 +221,8 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
 ErrorType BackupAndRestoreWorker::setGrubAndRestart()
 {
     QScopedPointer<GrubInter> grub(new GrubInter(GrubInter::staticInterfaceName(), "/com/deepin/daemon/Grub2", QDBusConnection::systemBus()));
-    if (grub->defaultEntry() != "UOS Backup & Restore") {
-        QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(grub->SetDefaultEntry("UOS Backup & Restore")));
+    if (grub->defaultEntry() != "Uniontech OS Backup & Restore") {
+        QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(grub->SetDefaultEntry("Uniontech OS Backup & Restore")));
         watcher->waitForFinished();
         if (watcher->isError()) {
             qWarning() << Q_FUNC_INFO << watcher->error();
