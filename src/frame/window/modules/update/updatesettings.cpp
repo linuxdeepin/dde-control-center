@@ -78,19 +78,19 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
     //自动下载更新控件初始化
     m_timerDownload = new SwitchWidget;
-    m_timerDownload->setTitle(tr("定时下载可用更新"));
-    m_timerDownloadLbl = new DTipLabel(tr("当前设置时间为："));
+    m_timerDownload->setTitle("定时下载可用更新");
+    m_timerDownloadLbl = new DTipLabel("当前设置时间为：");
     m_timerDownloadLbl->setWordWrap(true);
     m_timerDownloadLbl->setAlignment(Qt::AlignLeft);
-    m_setTimerLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg(tr("更改")));
+    m_setTimerLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg("更改"));
 
     //闲时下载更新控件初始化
     m_freeTimeDownload = new SwitchWidget;
-    m_freeTimeDownload->setTitle(tr("闲时下载更新"));
-    m_freeTimeDownloadLbl = new DTipLabel(tr("当前使用时间段："));
+    m_freeTimeDownload->setTitle("闲时下载更新");
+    m_freeTimeDownloadLbl = new DTipLabel("当前使用时间段：");
     m_freeTimeDownloadLbl->setWordWrap(true);
     m_freeTimeDownloadLbl->setAlignment(Qt::AlignLeft);
-    m_setFreeTimeLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg(tr("更改")));
+    m_setFreeTimeLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg("更改"));
 
     layout->addWidget(autoLbl);
     layout->addSpacing(8);
