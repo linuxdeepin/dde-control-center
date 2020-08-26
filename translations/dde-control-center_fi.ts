@@ -738,11 +738,6 @@
         <translation>Varmenteen varmennus epäonnistui, pääkäyttäjän käyttöoikeutta ei voitu saada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
-        <source> </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Hyväksy ja liity käyttökokemus ohjelmaan</translation>
@@ -893,7 +888,8 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
         <source>By collecting and analyzing the information of your device, system and applications, as well as the exceptions, this program helps improving the quality of products and services. Joining User Experience Program means that you grant and authorize us to collect and use the information. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en.</source>
-        <translation type="unfinished"/>
+        <translation>Kerää ja analysoi laitteen, järjestelmän ja sovellusten tietoja, sekä poikkeuksia. Tämä auttaa meitä parantamaan tuotteiden ja palveluiden laatua. Käyttäjäkokemusohjelmaan liittyminen tarkoittaa, että myönnät ja valtuutat meidät keräämään ja käyttämään tietoja. Jos kieltäydyt keräämisestä ja käyttämästä edellä mainittuja tietoja, älä liity käyttökokemusohjelmaan. Lisätietoja tietojesi hallinnasta on tietosuojakäytännössä:
+https://www.uniontech.com/agreement/deepin-privacy-en.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="57"/>
@@ -5484,32 +5480,6 @@ ovat käytettävissä. Käyttäjäkeskuksessa ja hallinnoit tiliäsi.</translati
         <translation>Kytke automaattisesti lataamaan päivitykset langattomassa tai langallisessa verkossa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>定时下载可用更新</source>
-        <translation>Lataa saatavilla olevat päivitykset säännöllisesti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
-        <source>当前设置时间为：</source>
-        <translation>Nykyinen asetusaika on:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
-        <source>更改</source>
-        <translation>Muokkaa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
-        <source>闲时下载更新</source>
-        <translation>Lataa päivitykset vapaa-aikana</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>当前使用时间段：</source>
-        <translation>Nykyinen ajanjakso:</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
         <translation>Järjestelmän lähteiden tunnistus</translation>
@@ -6669,7 +6639,7 @@ ovat käytettävissä. Käyttäjäkeskuksessa ja hallinnoit tiliäsi.</translati
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Copyright© 2011-2020 Deepin Community</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
@@ -6753,17 +6723,17 @@ ovat käytettävissä. Käyttäjäkeskuksessa ja hallinnoit tiliäsi.</translati
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="409"/>
         <source>Patches</source>
         <translation>Korjaukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System patches</source>
         <translation>Järjestelmän korjaukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1148"/>
         <source>System</source>
         <translation>Järjestelmä</translation>
     </message>

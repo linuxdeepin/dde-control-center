@@ -738,11 +738,6 @@
         <translation>Ha fallat la verificació de la signatura. No es pot aconseguir accés d&apos;arrel.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
-        <source> </source>
-        <translation> </translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Hi estic d&apos;acord i m&apos;uneixo al programa d&apos;experiència de l&apos;usuari.</translation>
@@ -5484,32 +5479,6 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
         <translation>Activeu-ho per baixar automàticament les actualitzacions amb una xarxa amb fil o sense.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>定时下载可用更新</source>
-        <translation>Baixa les actualitzacions disponibles regularment.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
-        <source>当前设置时间为：</source>
-        <translation>L’hora de la configuració actual és:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
-        <source>更改</source>
-        <translation>Canvia-ho</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
-        <source>闲时下载更新</source>
-        <translation>Baixa les actualitzacions a les estones lliures.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>当前使用时间段：</source>
-        <translation>Període de temps actual:</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
         <translation>Detecció de repositoris del sistema</translation>
@@ -6753,17 +6722,17 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="409"/>
         <source>Patches</source>
         <translation>Pedaços</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System patches</source>
         <translation>Pedaços de sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1148"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>

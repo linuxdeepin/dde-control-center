@@ -738,11 +738,6 @@
         <translation>Неуспешна верификација потписа, није добијен root пркступ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
-        <source> </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Пристани и придружи се програму корисничког искуства</translation>
@@ -893,7 +888,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
         <source>By collecting and analyzing the information of your device, system and applications, as well as the exceptions, this program helps improving the quality of products and services. Joining User Experience Program means that you grant and authorize us to collect and use the information. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en.</source>
-        <translation type="unfinished"/>
+        <translation>Прикупљањем и обрадом података о вашем уређају, систему, програмима и изузецима, овај програм помаже унапређењу квалитета производа и услуга. Придруживањем програму корисничког искуства овлашћујете нас да прикупљамо и користимо ове податке. Уколико не желите да прикупљамо изнад поменуте податке, немојте се придружити програму корисничког искуства. Да сазнате више о управљању вашим подацима, прочитајте политику приватности: https://www.uniontech.com/agreement/deepin-privacy-en.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="57"/>
@@ -5484,32 +5479,6 @@ Visit User Center and manage your account there.</source>
         <translation>Укључите за аутоматско преузимање ажурирања на бежичној или жичаној мрежи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>定时下载可用更新</source>
-        <translation>Редовно преузимајте доступна ажурирања</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
-        <source>当前设置时间为：</source>
-        <translation>Тренутно подешено време:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
-        <source>更改</source>
-        <translation>Измени</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
-        <source>闲时下载更新</source>
-        <translation>Преузимајте ажурирања у слободно време</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>当前使用时间段：</source>
-        <translation>Протекло време:</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
         <translation>Откривање ризнице система</translation>
@@ -6669,7 +6638,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Ауторска права© 2011-2020 Дипин заједница</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
@@ -6753,17 +6722,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="409"/>
         <source>Patches</source>
         <translation>Закрпе</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System patches</source>
         <translation>Системске закрпе</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1148"/>
         <source>System</source>
         <translation>Систем</translation>
     </message>

@@ -410,7 +410,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>මුරපදයේ අවම වශයෙන් අක්ෂර %1 ක් තිබිය යුතු අතර, පවතින අක්ෂර වර්ග හතරෙන් අවම වශයෙන් %2 ක් වත් අඩංගු විය යුතුය: කුඩා අකුරු, ලොකු අකුරු, අංක සහ සංකේත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
@@ -556,7 +556,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>මුරපදයේ අවම වශයෙන් අක්ෂර %1 ක් තිබිය යුතු අතර, පවතින අක්ෂර වර්ග හතරෙන් අවම වශයෙන් %2 ක් වත් අඩංගු විය යුතුය: කුඩා අකුරු, ලොකු අකුරු, අංක සහ සංකේත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
@@ -736,11 +736,6 @@
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="102"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>අත්සන සත්‍යාපනය අසාර්ථක විය, මූල ප්‍රවේශය ලබා ගත නොහැක</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
-        <source> </source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
@@ -5483,32 +5478,6 @@ Visit User Center and manage your account there.</source>
         <translation>රැහැන් රහිත හෝ රැහැන්ගත ජාලයන්හීදී යාවත්කාලීන කිරීම් ස්වයංක්‍රීයව බාගත කිරීම ක්‍රියාත්මක කරන්න</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>定时下载可用更新</source>
-        <translation>පවතින යාවත්කාලීන කිරීම් නිතිපතා බාගන්න</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
-        <source>当前设置时间为：</source>
-        <translation>වත්මන් සැකසුම් කාලය:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
-        <source>更改</source>
-        <translation>වෙනස් කරන්න</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
-        <source>闲时下载更新</source>
-        <translation>නිදහස් කාලය තුළ යාවත්කාලීන කිරීම් බාගන්න</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>当前使用时间段：</source>
-        <translation>වත්මන් කාල සීමාව:</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
         <translation>පද්ධති මූලාශ්‍ර හඳුනා ගැනීම</translation>
@@ -6752,17 +6721,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="409"/>
         <source>Patches</source>
         <translation>නිවැරදි කිරීම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System patches</source>
         <translation>පද්ධති නිවැරදි කිරීම්</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1148"/>
         <source>System</source>
         <translation>පද්ධතිය</translation>
     </message>

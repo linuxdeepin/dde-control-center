@@ -738,11 +738,6 @@
         <translation>Ověřování podpisu se nezdařilo, proto nezískán přístup na úrovni správce systému</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
-        <source> </source>
-        <translation> </translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Odsouhlasit a připojit se do programu pro hodnocení uživatelského zážitku</translation>
@@ -893,7 +888,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
         <source>By collecting and analyzing the information of your device, system and applications, as well as the exceptions, this program helps improving the quality of products and services. Joining User Experience Program means that you grant and authorize us to collect and use the information. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en.</source>
-        <translation type="unfinished"/>
+        <translation>Shromažďováním a analyzováním informací o vašem zařízení, systému a aplikacích, stejně jako výjimkách, tento program pomáhá zlepšovat kvalitu produktů a služeb. Zapojení se do programu pro hodnocení zkušeností uživatelů znamená, že udělíte a pověříte nás ke shromažďování a využívání informací. Pokud odmítáte shromažďování zmíněných informací, do tohoto programu nevstupujte. Podrobnosti o správě vašich dat naleznete v zásadách ochrany soukromí: https://www.uniontech.com/agreement/deepin-privacy-en.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="57"/>
@@ -5484,32 +5479,6 @@ Přejděte do Centra uživatelů a spravujte odsud svůj účet.</translation>
         <translation>Zapněte, pokud chcete, aby aktualizace byly na drátových a Wi-Fi sítích stahovány automaticky</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>定时下载可用更新</source>
-        <translation>Stahovat dostupné aktualizace pravidelně</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
-        <source>当前设置时间为：</source>
-        <translation>Nyní nastavený čas je:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
-        <source>更改</source>
-        <translation>Změnit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
-        <source>闲时下载更新</source>
-        <translation>Stahovat aktualizace mimo pracovní dobu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>当前使用时间段：</source>
-        <translation>Stávající období:</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
         <translation>Rozpoznání systémového repozitáře</translation>
@@ -6753,17 +6722,17 @@ Přejděte do Centra uživatelů a spravujte odsud svůj účet.</translation>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="409"/>
         <source>Patches</source>
         <translation>Opravy</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System patches</source>
         <translation>Opravy pro systém</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1148"/>
         <source>System</source>
         <translation>Systémové</translation>
     </message>

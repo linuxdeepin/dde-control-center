@@ -738,11 +738,6 @@
         <translation>Falha na verificação da assinatura, incapaz de obter acesso root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
-        <source> </source>
-        <translation> </translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Concordar e aderir ao programa de experiência do utilizador</translation>
@@ -893,12 +888,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
         <source>By collecting and analyzing the information of your device, system and applications, as well as the exceptions, this program helps improving the quality of products and services. Joining User Experience Program means that you grant and authorize us to collect and use the information. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en.</source>
-        <translation type="unfinished"/>
+        <translation>Ao recolher e analisar as informações do seu dispositivo, sistema e aplicações, bem como as excepções, este programa ajuda a melhorar a qualidade dos produtos e serviços. Aderir ao Programa de Experiência do Utilizador significa que nos concede e autoriza a recolher e utilizar a informação. Se recusar a nossa recolha e utilização das informações acima mencionadas, não se junte ao Programa de Experiência do Utilizador. Para saber mais sobre a gestão dos seus dados, por favor consulte a Política de Privacidade: https://www.uniontech.com/agreement/deepin-privacy-en.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="57"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UOS Privacy Policy (https://www.chinauos.com/agreement/experience).</source>
-        <translation>Ao aderir ao programa de experiência do utilizador significa que nos concede e autoriza a recolher e utilizar as informações do seu dispositivo, sistema e aplicações. Se recusar a nossa recolha e uso das informações acima mencionadas, não participe do programa de experiência do utilizador. Para mais informações, consulte a política de privacidade da UOS (https://www.chinauos.com/agreement/experience).</translation>
+        <translation>Ao aderir ao Programa de Experiência do Utilizador significa que nos concede e autoriza a recolher e utilizar as informações do seu dispositivo, sistema e aplicações. Se recusar a nossa recolha e uso das informações acima mencionadas, não participe do programa de experiência do utilizador. Para mais informações, consulte a política de privacidade da UOS (https://www.chinauos.com/agreement/experience).</translation>
     </message>
 </context>
 <context>
@@ -5484,32 +5479,6 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
         <translation>Ativar para transferir automaticamente as atualizações na rede por cabo ou sem fios</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>定时下载可用更新</source>
-        <translation>Transferir as atualizações disponíveis regularmente</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
-        <source>当前设置时间为：</source>
-        <translation>O tempo de definição atual é:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
-        <source>更改</source>
-        <translation>Alteração</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
-        <source>闲时下载更新</source>
-        <translation>Transferir atualizações em segundo plano</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>当前使用时间段：</source>
-        <translation>Período atual:</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
         <translation>Deteção do repositório do sistema</translation>
@@ -6669,7 +6638,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Direitos de autor© 2011-2020 Comunidade Deepin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
@@ -6753,17 +6722,17 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="409"/>
         <source>Patches</source>
         <translation>Correções</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System patches</source>
         <translation>Correções do sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1148"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>

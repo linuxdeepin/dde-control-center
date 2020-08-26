@@ -738,11 +738,6 @@
         <translation>Weryfikacja podpisu nie powiodła się, nie można uzyskać dostępu do konta root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
-        <source> </source>
-        <translation> </translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Zgadzam się i dołącz do programu doświadczenia użytkownika</translation>
@@ -893,7 +888,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
         <source>By collecting and analyzing the information of your device, system and applications, as well as the exceptions, this program helps improving the quality of products and services. Joining User Experience Program means that you grant and authorize us to collect and use the information. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en.</source>
-        <translation type="unfinished"/>
+        <translation>Gromadząc i analizując informacje o urządzeniu, systemie i aplikacjach, a także o wyjątkach, program ten pomaga podnosić jakość produktów i usług. Dołączenie do Programu doświadczeń użytkowników oznacza, że udzielasz nam i upoważniasz nas do gromadzenia i wykorzystywania informacji. Jeśli odmówisz naszego gromadzenia i wykorzystywania wyżej wymienionych informacji, nie dołączaj do Programu doświadczeń użytkowników. Aby dowiedzieć się więcej o zarządzaniu swoimi danymi, zapoznaj się z Polityką prywatności: https://www.uniontech.com/agreement/deepin-privacy-en.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="57"/>
@@ -5485,32 +5480,6 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
         <translation>Włącz go, aby automatycznie pobierać aktualizacje w sieci bezprzewodowej lub przewodowej</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>定时下载可用更新</source>
-        <translation>Regularnie pobieraj dostępne aktualizacje</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
-        <source>当前设置时间为：</source>
-        <translation>Aktualny czas ustawienia to:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
-        <source>更改</source>
-        <translation>zmiana</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
-        <source>闲时下载更新</source>
-        <translation>Pobierz aktualizacje w czasie wolnym</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>当前使用时间段：</source>
-        <translation>Aktualny okres:</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
         <translation>Wykrywanie repozytorium systemu</translation>
@@ -6670,7 +6639,7 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Prawa autorskie© 2011-2020 Deepin Community</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
@@ -6754,17 +6723,17 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="409"/>
         <source>Patches</source>
         <translation>Łatki</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System patches</source>
         <translation>Poprawki systemowe</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1148"/>
         <source>System</source>
         <translation>Systemowe</translation>
     </message>

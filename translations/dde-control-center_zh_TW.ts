@@ -140,7 +140,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="410"/>
         <source>TrackPoint</source>
-        <translation>小紅點 (TrackPoint)</translation>
+        <translation>指點杆 (TrackPoint)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
@@ -195,7 +195,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="349"/>
         <source>Please input a number between 1-99999</source>
-        <translation>請輸入1到99999之間的數字</translation>
+        <translation>請輸入介於1到99999之間的數字</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="390"/>
@@ -736,11 +736,6 @@
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="102"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>簽名驗證失敗，無法進入開發者模式</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
-        <source> </source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
@@ -5483,32 +5478,6 @@ Visit User Center and manage your account there.</source>
         <translation>開啟此選項以在無線或有線網路自動下載更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>定时下载可用更新</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
-        <source>当前设置时间为：</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
-        <source>更改</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
-        <source>闲时下载更新</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>当前使用时间段：</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
         <translation>偵測系統軟體庫</translation>
@@ -6752,17 +6721,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="409"/>
         <source>Patches</source>
         <translation>修補程式</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System patches</source>
         <translation>系統修補程式</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1148"/>
         <source>System</source>
         <translation>系統</translation>
     </message>

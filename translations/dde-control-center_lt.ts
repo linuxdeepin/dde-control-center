@@ -569,13 +569,13 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="55"/>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Mano įrenginiai</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="59"/>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Kiti įrenginiai</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
@@ -736,11 +736,6 @@
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="102"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
-        <source> </source>
-        <translation> </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
@@ -2221,13 +2216,13 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="461"/>
         <source>Invalid netmask</source>
-        <translation type="unfinished"/>
+        <translation>Neteisinga tinklo kaukė</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="470"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="533"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Neteisingas tinklų sietuvas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="480"/>
@@ -2235,7 +2230,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="543"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="552"/>
         <source>Invalid DNS address</source>
-        <translation type="unfinished"/>
+        <translation>Neteisingas DNS adresas</translation>
     </message>
 </context>
 <context>
@@ -2258,13 +2253,13 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="158"/>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>Protokolas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="162"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="178"/>
         <source>Security Type</source>
-        <translation type="unfinished"/>
+        <translation>Saugumo tipas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="167"/>
@@ -4028,7 +4023,7 @@
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="110"/>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Kai ekranas užrakintas</translation>
     </message>
 </context>
 <context>
@@ -4036,12 +4031,12 @@
     <message>
         <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="47"/>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>Nuo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="49"/>
         <source>To</source>
-        <translation type="unfinished"/>
+        <translation>Iki</translation>
     </message>
 </context>
 <context>
@@ -4098,7 +4093,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="214"/>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"/>
+        <translation>Langų suskleidimo efektas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
@@ -4388,7 +4383,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="74"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Nieko nedaryti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="133"/>
@@ -4475,7 +4470,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="84"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Nieko nedaryti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="104"/>
@@ -5481,32 +5476,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="75"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
         <translation>Įjunkite, norėdami automatiškai atsisiųsti atnaujinimus, kai naudojamas laidinis ar belaidis tinklas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>定时下载可用更新</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
-        <source>当前设置时间为：</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
-        <source>更改</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
-        <source>闲时下载更新</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>当前使用时间段：</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
@@ -6752,17 +6721,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="409"/>
         <source>Patches</source>
         <translation>Pataisos</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System patches</source>
         <translation>Sistemos pataisos</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1148"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>

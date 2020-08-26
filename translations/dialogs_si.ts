@@ -4,17 +4,17 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"/>
+        <translation>පද්ධතිය සහ යෙදුම් නිසි ලෙස භාවිතා කිරීමට පරිගණකය නැවත ආරම්භ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation type="unfinished"/>
+        <translation>සියලු දත්ත සුරැකී ඇති බව පළමුව තහවුරු කරගන්න</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>පද්ධතිය නැවත අරඹන්න</translation>
     </message>
 </context>
 </TS>

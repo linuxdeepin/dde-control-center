@@ -738,11 +738,6 @@
         <translation>İmza doğrulaması başarısız oldu, kök erişimine erişilemedi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="242"/>
-        <source> </source>
-        <translation> </translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="243"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
@@ -893,7 +888,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
         <source>By collecting and analyzing the information of your device, system and applications, as well as the exceptions, this program helps improving the quality of products and services. Joining User Experience Program means that you grant and authorize us to collect and use the information. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to the Privacy Policy: https://www.uniontech.com/agreement/deepin-privacy-en.</source>
-        <translation type="unfinished"/>
+        <translation>Bu program, cihazınız, sisteminiz ve uygulamalarınızın bilgilerini ve istisnaları toplayarak ve analiz ederek, ürün ve hizmetlerin kalitesinin iyileştirilmesine yardımcı olur. Kullanıcı Deneyimi Programına katılmanız, bilgileri toplamamız ve kullanmamız için bize verdiğiniz ve yetki verdiğiniz anlamına gelir. Yukarıda belirtilen bilgileri toplamamızı ve kullanmamızı reddederseniz, Kullanıcı Deneyimi Programına katılmayın. Verilerinizin yönetimi hakkında daha fazla bilgi edinmek için lütfen Gizlilik Politikasına bakın: https://www.uniontech.com/agreement/deepin-privacy-en.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="57"/>
@@ -5484,32 +5479,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
         <translation>Bu seçenek etkinleştirildiğinde, güncellemeler kablosuz ya da kablolu ağdan otomatik olarak indirilir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>定时下载可用更新</source>
-        <translation>Güncellemeleri düzenli olarak indir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
-        <source>当前设置时间为：</source>
-        <translation>Mevcut ayar süresi:</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="93"/>
-        <source>更改</source>
-        <translation>Değişiklikler</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
-        <source>闲时下载更新</source>
-        <translation>Boştayken güncellemeleri indir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>当前使用时间段：</source>
-        <translation>Mevcut zaman aralığı:</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
         <translation>Sistem Depo Tespiti</translation>
@@ -6669,7 +6638,7 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Telif Hakkı© 2011-2020 Deepin Topluluğu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
@@ -6753,17 +6722,17 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="409"/>
         <source>Patches</source>
         <translation>Yamalar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="408"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System patches</source>
         <translation>Sistem yamaları</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1146"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1148"/>
         <source>System</source>
         <translation>Sistem</translation>
     </message>

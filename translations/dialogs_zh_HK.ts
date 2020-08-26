@@ -4,12 +4,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"/>
+        <translation>為了您能夠正常的使用系統和應用，更新後請重新啟動</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation type="unfinished"/>
+        <translation>請您先確認已保存所有數據</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -19,12 +19,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
-        <translation>關機</translation>
+        <translation>关机</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>重新啟動</translation>
     </message>
 </context>
 </TS>
