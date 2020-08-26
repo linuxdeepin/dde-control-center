@@ -76,7 +76,7 @@ void Device::setPaired(bool paired)
 
 void Device::setState(const State &state, bool connectState)
 {
-    if (state != m_state) {
+    if ((state != m_state) || (connectState != m_connectState)) {
         m_state = state;
         m_connectState = connectState;
         Q_EMIT stateChanged(state, connectState);
