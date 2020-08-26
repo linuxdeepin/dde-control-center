@@ -196,7 +196,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
 {
     if (port->In == port->direction()) {
         DStandardItem *pi = new DStandardItem;
-        pi->setText(port->name());
+        pi->setText(port->name() + "(" + port->cardName() + ")");
 
         pi->setData(QVariant::fromValue<const dcc::sound::Port *>(port), Qt::WhatsThisPropertyRole);
 
@@ -209,7 +209,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
 
         m_inputModel->appendRow(pi);
         if (port->isActive()) {
-            m_inputSoundCbx->comboBox()->setCurrentText(port->name());
+            m_inputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
