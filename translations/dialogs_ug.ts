@@ -4,12 +4,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"/>
+        <translation>سىستېما ۋە ئەپلەرنى نورمال ئىشلىتىشىڭىز ئۈچۈن، يېڭىلانغاندىن كېيىن قايتا قوزغىتىڭ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation type="unfinished"/>
+        <translation>بارلىق سانلىق مەلۇماتلىرىڭىزنى ساقلىغانلىقىڭىزنى جەزملەشتۈرۈڭ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
-        <translation>ئۈسكۈنىنى تاقاش</translation>
+        <translation>تاقاش</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
