@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation>Systeem wordt teruggerold, even geduld a.u.b. ...</translation>
+        <translation>Het systeem wordt teruggerold - even geduld...</translation>
     </message>
 </context>
 <context>
@@ -23,17 +23,17 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>Weet je zeker dat je wil terugrollen naar backup %1 van %2?</translation>
+        <translation>Weet je zeker dat je wilt terugrollen naar back-up %1 van %2?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>
         <source>Cancel and Reboot</source>
-        <translation>Annuleren en Heropstarten</translation>
+        <translation>Annuleren en herstarten</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="275"/>
         <source>Confirm</source>
-        <translation>Bevestigen</translation>
+        <translation>Oké</translation>
     </message>
 </context>
 </TS>
