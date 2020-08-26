@@ -215,8 +215,8 @@ void BootWidget::setBootList()
     int cout = m_bootList->count();
     int height = (cout + 2) * 35;
 
-    m_listLayout->addSpacing(10);
     m_listLayout->addWidget(m_bootList);
+    m_listLayout->addSpacing(15);
     m_background->setFixedHeight(height + 35 > 350 ? 350 : height + 35);
 }
 
