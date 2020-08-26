@@ -99,7 +99,7 @@ void AccounntFingeItem::setTitle(const QString &title)
 void AccounntFingeItem::alertTitleRepeat()
 {
     m_editTitle->setAlert(true);
-    m_editTitle->showAlertMessage(tr("The name already exists"), parentWidget());
+    m_editTitle->showAlertMessage(tr("The name already exists"), parentWidget()->parentWidget());
     m_editTitle->lineEdit()->selectAll();
 }
 
