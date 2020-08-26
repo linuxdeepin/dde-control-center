@@ -269,6 +269,9 @@ void DatetimeModule::showTimeSetting()
         }
     });
 
+    connect(m_model, &DatetimeModel::hourTypeChanged, m_setting, &DateSettings::updateSettingformatTime);
+    //set dbus data to 24 hour format
+    m_setting->updateSettingformatTime(m_model->get24HourFormat());
 
     m_setting->updateRealAutoSyncCheckState(m_model->nTP());
     m_setting->updateNTPServerList(m_model->ntpServerList());

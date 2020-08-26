@@ -66,6 +66,7 @@ DateSettings::DateSettings(QWidget *parent)
     , m_bSystemIsServer(false)
     , m_syncSettingTimer(new QTimer)
     , m_timeSec(0)
+    , m_Is24HourType(false)
 {
     m_bSystemIsServer = IsServerSystem;
 
@@ -103,7 +104,12 @@ DateSettings::DateSettings(QWidget *parent)
     centerLabel->setContextMenuPolicy(Qt::NoContextMenu);
 
     QTime time(QTime::currentTime());
-    m_timeHourWidget = createDSpinBox(this, 0, 23);
+    if (m_Is24HourType) {
+        m_timeHourWidget = createDSpinBox(this, 0, 23);
+    } else {
+        m_timeHourWidget = createDSpinBox(this, 1, 12);
+    }
+
     m_timeMinWidget = createDSpinBox(this, 0, 59);
     m_timeHourWidget->setValue(time.hour());
     m_timeMinWidget->setValue(time.minute());
@@ -360,19 +366,58 @@ void DateSettings::updateSettingTime()
 {
     QDateTime datetime = QDateTime::currentDateTime();
     qint64 second = datetime.toSecsSinceEpoch();
+    int nHours = datetime.time().hour();
 
     //不论设置的时间比当前时间大或者小，都需要重新设置该页面的时间
     if (qAbs(second - m_timeSec) > 60) {
         m_yearWidget->setValue(datetime.date().year());
         m_monthWidget->setValue(datetime.date().month());
         m_dayWidget->setValue(datetime.date().day());
-        m_timeHourWidget->setValue(datetime.time().hour());
+        if (m_Is24HourType) {
+           m_timeHourWidget->setValue(datetime.time().hour());
+        } else {
+            if (datetime.time().hour() == 0) {
+                nHours = 12;
+            } else if (datetime.time().hour() > 12) {
+                nHours -= 12;
+        }
+           m_timeHourWidget->setValue(nHours);
+        }
         m_timeMinWidget->setValue(datetime.time().minute());
         m_timeSec = 0;
         m_syncSettingTimer->stop();
     }
 
     m_timeSec = second;
+}
+
+void DateSettings::updateTime()
+{
+    QDateTime datetime = QDateTime::currentDateTime();
+    int nHour = datetime.time().hour();
+    m_timeHourWidget->setMaximum(m_Is24HourType ? 23 : 12);
+    m_timeHourWidget->setMinimum(m_Is24HourType ? 0 : 1);
+
+    if (m_Is24HourType) {
+       m_timeHourWidget->setValue(nHour);
+    } else {
+        if (datetime.time().hour() == 0) {
+                nHour = 12;
+            } else if (datetime.time().hour() > 12) {
+                nHour -= 12;
+        }
+       m_timeHourWidget->setValue(nHour);
+    }
+    m_timeMinWidget->setValue(datetime.time().minute());
+}
+
+void DateSettings::updateSettingformatTime(const bool &value)
+{
+    if (m_Is24HourType == value)
+        return;
+
+    m_Is24HourType = value;
+    updateTime();
 }
 
 void DateSettings::updateRealAutoSyncCheckState(const bool &state)

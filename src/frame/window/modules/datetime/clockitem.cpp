@@ -158,7 +158,9 @@ void ClockItem::translateHourType()
     int nHour = currentTime.hour();
 
     //[0,23]
-    if (currentTime.hour() > 12) {
+    if (currentTime.hour() == 0) {
+        nHour = 12;
+    } else if (currentTime.hour() > 12) {
         nHour -= 12;
     }
 
