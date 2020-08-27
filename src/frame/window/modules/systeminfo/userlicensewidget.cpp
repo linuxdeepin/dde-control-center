@@ -36,8 +36,13 @@ using namespace DCC_NAMESPACE::systeminfo;
 
 static QString loadLicenses()
 {
-    const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.txt", "");
-    return body;
+    if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinPersonal) {
+        const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/End-User-License-Agreement-Home-CN-%1.txt", "");
+        return body;
+    } else {
+        const QString path = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Professional/End-User-License-Agreement-Professional-CN-%1.txt", "");
+        return path;
+    }
 }
 
 UserLicenseWidget::UserLicenseWidget(QWidget *parent)

@@ -236,11 +236,11 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
     if (enabled && (m_dBusUeProgram->IsEnabled() != enabled)) {
         qInfo("suser opened experience project switch.");
         // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
-        QString title(tr("Join User Experience Program"));
+        QString title(tr(" "));
         QString allowContent(tr("Agree and Join User Experience Program"));
 
         // license内容   /usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement-zh_CN.md
-        QString content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/deepinid-CN-%1.md", "");
+        QString content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
         QString contentPath("/tmp/tempLic.txt"); // 临时存储路径
         m_licenseFile = new QFile(contentPath);
         // 如果文件不存在，则创建文件
