@@ -30,6 +30,7 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/settingsitem.h"
+#include "window/utils.h"
 #include <networkmodel.h>
 
 #include <DPalette>
@@ -138,6 +139,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     manualLayout->setSpacing(10);
 
     QVBoxLayout *autoLayout = new QVBoxLayout;
+    autoLayout->setContentsMargins(ThirdPageContentsMargins);
     autoLayout->addWidget(autoGroup);
     autoLayout->setSpacing(10);
     autoLayout->setMargin(0);
@@ -159,6 +161,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     conentwidget->setContent(w);
     QVBoxLayout *vLayout = new QVBoxLayout;
     vLayout->setMargin(0);
+    vLayout->setContentsMargins(ThirdPageContentsMargins);
     vLayout->addWidget(m_proxyTabs);
     QVBoxLayout *btnLayout = new QVBoxLayout;
     btnLayout->setMargin(0);

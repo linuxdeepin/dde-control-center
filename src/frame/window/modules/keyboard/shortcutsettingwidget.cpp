@@ -83,7 +83,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
     m_searchInput = new SearchInput();
-    m_searchInput->setContentsMargins(0, 0, 0, 0);
+    m_searchInput->setContentsMargins(0, 0, 10, 0);
     m_searchInput->setAccessibleName("KEYBOARD_LINEEDIT");
 
     m_head = new SettingsHead();
@@ -104,7 +104,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     //vlayout->addSpacing(10);
 
     m_layout = new QVBoxLayout;
-    m_layout->setContentsMargins(ScrollAreaMargins);
+    m_layout->setContentsMargins(0,0,10,0);
     m_layout->addLayout(systemLayout);
     m_layout->addSpacing(3);
     m_layout->addWidget(m_systemGroup);

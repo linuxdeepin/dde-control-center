@@ -24,6 +24,7 @@
 
 #include "widgets/switchwidget.h"
 #include "widgets/labels/tipslabel.h"
+#include "window/utils.h"
 
 #include <DTipLabel>
 #include <DTipLabel>
@@ -126,7 +127,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
 
     vBoxLayout->setMargin(0);
     vBoxLayout->setSpacing(10);
-    vBoxLayout->setContentsMargins(6, 0, 6, 0);
+    vBoxLayout->setContentsMargins(ThirdPageContentsMargins);
     vBoxLayout->addWidget(m_devBtn);
     vBoxLayout->addWidget(m_lab);
     vBoxLayout->addWidget(m_dtip);

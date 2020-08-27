@@ -2,6 +2,7 @@
 
 #include "manualbackup.h"
 #include "manualrestore.h"
+#include "window/utils.h"
 
 #include <QLabel>
 #include <QPushButton>
@@ -33,6 +34,7 @@ SystemRestore::SystemRestore(BackupAndRestoreModel* model, QWidget *parent)
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(ThirdPageContentsMargins);
     mainLayout->setSpacing(0);
 
     mainLayout->addWidget(m_buttonBox);

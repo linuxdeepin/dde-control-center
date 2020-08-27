@@ -81,6 +81,7 @@ TouchscreenPage::TouchscreenPage(QWidget *parent)
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(ThirdPageContentsMargins);
     mainLayout->addWidget(m_dTipLabel);
     mainLayout->addWidget(m_contentArea);
     layout()->addWidget(m_buttonTuple);

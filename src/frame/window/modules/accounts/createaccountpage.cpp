@@ -151,7 +151,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     //~ contents_path /accounts/New Account
     TitleLabel *titleLabel = new TitleLabel(tr("New Account"));
     titleLabel->setAlignment(Qt::AlignCenter);
-    layout->setContentsMargins(0, 0, 10, 0);
+    layout->setContentsMargins(10, 10, 10, 10);
     layout->addWidget(titleLabel);
 
     m_avatarListWidget = new AvatarListWidget(m_newUser, this);

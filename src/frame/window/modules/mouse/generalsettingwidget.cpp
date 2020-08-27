@@ -84,6 +84,7 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->setMargin(0);
+    m_contentLayout->setContentsMargins(ThirdPageContentsMargins);
     m_contentLayout->addWidget(m_generalSettingsGrp);
     m_contentLayout->addStretch();
 

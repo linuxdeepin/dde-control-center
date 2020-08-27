@@ -101,7 +101,7 @@ void CustomSettingDialog::initUI()
     initlistfunc(m_resolutionList);
     m_resolutionList->setVisible(!m_isPrimary);
     m_vSegBtn << new DButtonBoxButton(tr("Resolution"));
-    m_listLayout->setContentsMargins(0, 0, 0, 0);
+    m_listLayout->setContentsMargins(10, 0, 10, 10);
     m_listLayout->addWidget(m_resolutionList);
     m_resolutionList->setViewportMargins(QMargins(12, 0, 12, 0));
 

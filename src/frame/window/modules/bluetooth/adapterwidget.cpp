@@ -118,7 +118,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     layout->addWidget(m_otherDeviceListView);
     layout->addSpacing(interval);
     layout->addStretch();
-    layout->setContentsMargins(0,0,15,0);
+    layout->setContentsMargins(ThirdPageContentsMargins);
 
     connect(m_switch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleSwitch);
 

@@ -60,7 +60,6 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
         QVBoxLayout *tlayout = new QVBoxLayout;
         tlayout->setMargin(0);
         QHBoxLayout *topLayout = new QHBoxLayout;
-        topLayout->setMargin(0);
         topLayout->addWidget(m_labelTime, 0, Qt::AlignHCenter);
         topLayout->addWidget(m_timeType, 0, Qt::AlignRight | Qt::AlignBottom);
 
@@ -168,7 +167,7 @@ void ClockItem::translateHourType()
         QStringList strList(QFontDatabase::applicationFontFamilies(nIndex));
         if (strList.count() > 0) {
             QFont fontThis(strList.at(0));
-            fontThis.setPointSize(33);
+            fontThis.setPointSize(28);
             m_labelTime->setFont(fontThis);
         }
     }

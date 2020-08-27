@@ -76,7 +76,7 @@ UserLicenseWidget::UserLicenseWidget(QWidget *parent)
     m_body = new TipsLabel;
     m_body->setWordWrap(true);
 
-    layout->setContentsMargins(ScrollAreaMargins);
+    layout->setContentsMargins(10,10,11,10);
     layout->addWidget(m_body);
     layout->addStretch();
 

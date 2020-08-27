@@ -115,11 +115,11 @@ MainWindow::MainWindow(QWidget *parent)
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
     m_contentLayout->setSpacing(0);
     m_rightContentLayout = new QHBoxLayout();
+    m_rightContentLayout->setContentsMargins(0,0,0,0);
 
     m_rightView = new DBackgroundGroup(m_rightContentLayout);
     m_rightView->setObjectName("modulepage");
     m_rightView->setItemSpacing(2);
-    m_rightView->setItemMargins(QMargins(10, 10, 10, 10));
     m_rightView->setContentsMargins(10, 10, 10, 10);
 
     m_navView = new dcc::widgets::MultiSelectListView(this);

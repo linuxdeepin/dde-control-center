@@ -104,6 +104,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     powerSettingsGrp->appendItem(m_cmbPowerBtn);
 
     m_layout->setMargin(0);
+    m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(powerSettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);
