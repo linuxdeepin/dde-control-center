@@ -163,12 +163,12 @@ void AccountsWidget::addUser(User *user, bool t1)
     DViewItemAction *onlineFlag = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
     OnlineIcon *onlineIcon = new OnlineIcon(m_userlistView);
     onlineIcon->setFixedSize(12, 12);
-    onlineIcon->setVisible(user->online());
-    connect(user, &User::onlineChanged, this, [=](const bool &online) {
-        onlineIcon->setVisible(online);
-    });
     onlineFlag->setWidget(onlineIcon);
     item->setActionList(Qt::Edge::RightEdge, {onlineFlag});
+    onlineFlag->setVisible(user->online());
+    connect(user, &User::onlineChanged, this, [=](const bool &online) {
+        onlineFlag->setVisible(online);
+    });
 
     m_userItemModel->appendRow(item);
     connectUserWithItem(user);
