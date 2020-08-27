@@ -83,7 +83,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     m_inputSoundCbx = new ComboxWidget(tr("Input Device"));
 
     QHBoxLayout *hlayout = new QHBoxLayout;
-    TitleLabel *lblTitle = new TitleLabel(tr("Microphone"));
+    TitleLabel *lblTitle = new TitleLabel(tr("On"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_sw = new SwitchWidget(nullptr, lblTitle);
 

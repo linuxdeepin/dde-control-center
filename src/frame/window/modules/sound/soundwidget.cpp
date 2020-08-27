@@ -73,9 +73,9 @@ void SoundWidget::initMenuUI()
 {
     m_menuMethod = {
         //~ contents_path /sound/Speaker
-        { tr("Speaker"), "dcc_speaker", QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)},
+        { tr("Output"), "dcc_speaker", QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)},
         //~ contents_path /sound/Microphone
-        { tr("Microphone"), "dcc_noun", QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)},
+        { tr("Input"), "dcc_noun", QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)},
         //~ contents_path /sound/Sound Effects
         { tr("Sound Effects"), "dcc_sound_effect", QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)}
     };

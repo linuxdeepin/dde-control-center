@@ -65,7 +65,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     m_outputModel  = new QStandardItemModel(m_outputSoundCbx->comboBox());
     m_outputSoundCbx->comboBox()->setModel(m_outputModel);
 
-    TitleLabel *lblTitle = new TitleLabel(tr("Speaker"));
+    TitleLabel *lblTitle = new TitleLabel(tr("On"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->setAccessibleName(tr("Speaker"));
