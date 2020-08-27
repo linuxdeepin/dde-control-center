@@ -9,7 +9,7 @@
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="48"/>
         <source>Other devices</source>
-        <translation>其它设备</translation>
+        <translation>其他设备</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
@@ -632,7 +632,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="104"/>
         <source>Other Devices</source>
-        <translation>其它设备</translation>
+        <translation>其他设备</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
@@ -4905,8 +4905,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="86"/>
-        <source>Microphone</source>
-        <translation>麦克风</translation>
+        <source>On</source>
+        <translation>启用</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="90"/>
@@ -4946,14 +4946,14 @@
     <name>dccV20::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
-        <source>Speaker</source>
-        <translation>扬声器</translation>
+        <source>Output</source>
+        <translation>输出</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
-        <source>Microphone</source>
-        <translation>麦克风</translation>
+        <source>Input</source>
+        <translation>输入</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
@@ -4978,6 +4978,10 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="68"/>
+        <source>On</source>
+        <translation>启用</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>
         <source>Speaker</source>
         <translation>扬声器</translation>

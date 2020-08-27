@@ -956,7 +956,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy ( https://www.uniontech.com/agreement/privacy-en).</source>
-        <translation type="unfinished"/>
+        <translation>Unir-se al Programa d’experiència d’usuari significa que ens autoritzeu a recopilar i usar la informació del vostre dispositiu, sistema i aplicacions. Si rebutgeu la recopilació i l&apos;ús de la informació esmentada, no us uniu al Programa d’experiència de l’usuari. Per obtenir més informació sobre la gestió de les vostres dades, consulteu la política de privadesa de UnionTech OS (https://www.uniontech.com/agreement/privacy-en).</translation>
     </message>
 </context>
 <context>
@@ -4905,8 +4905,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="86"/>
-        <source>Microphone</source>
-        <translation>Micròfon</translation>
+        <source>On</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="90"/>
@@ -4946,14 +4946,14 @@
     <name>dccV20::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
-        <source>Speaker</source>
-        <translation>Altaveu</translation>
+        <source>Output</source>
+        <translation type="unfinished"/>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
-        <source>Microphone</source>
-        <translation>Micròfon</translation>
+        <source>Input</source>
+        <translation type="unfinished"/>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
@@ -4978,6 +4978,10 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="68"/>
+        <source>On</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>
         <source>Speaker</source>
         <translation>Altaveu</translation>

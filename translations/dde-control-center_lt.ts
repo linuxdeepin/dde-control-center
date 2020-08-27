@@ -4905,8 +4905,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="86"/>
-        <source>Microphone</source>
-        <translation>Mikrofonas</translation>
+        <source>On</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="90"/>
@@ -4946,14 +4946,14 @@
     <name>dccV20::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
-        <source>Speaker</source>
-        <translation>Garsiakalbis</translation>
+        <source>Output</source>
+        <translation type="unfinished"/>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
-        <source>Microphone</source>
-        <translation>Mikrofonas</translation>
+        <source>Input</source>
+        <translation type="unfinished"/>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
@@ -4978,6 +4978,10 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="68"/>
+        <source>On</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>
         <source>Speaker</source>
         <translation>Garsiakalbis</translation>
