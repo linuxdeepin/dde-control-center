@@ -121,7 +121,8 @@ ErrorType BackupAndRestoreWorker::doWorkTool(const QStringList &args)
 {
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", args);
-    process->waitForFinished();
+    //pkexec提权操作不能自动超时，应等待用户输入密码完成，或放弃输入密码
+    process->waitForFinished(-1);
 
     const int &exitCode = process->exitCode();
     qDebug() << "exit code:" << exitCode;
