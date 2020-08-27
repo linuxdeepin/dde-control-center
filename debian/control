@@ -49,6 +49,7 @@ Depends: ${shlibs:Depends},
  passwd,
  netselect,
  libpwquality1,
+ uos-license-content,
  wamerican,
  libpam-cracklib,
  deepin-recovery-tool

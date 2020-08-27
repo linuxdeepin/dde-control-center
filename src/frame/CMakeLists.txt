@@ -84,6 +84,7 @@ set(WINDOW_FILES
     window/utils.h
     window/accessibleinterface.h
     window/accessible.h
+    window/protocolfile.cpp
     window/modules/display/displaywidget.cpp
     window/modules/datetime/datetimemodule.cpp
     window/modules/datetime/datetimewidget.cpp

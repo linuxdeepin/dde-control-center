@@ -1,6 +1,7 @@
 #include "login.h"
 #include "widgets/utils.h"
 #include "../../../mainwindow.h"
+#include "../../../protocolfile.h"
 
 #include <DSuggestButton>
 #include <DFontSizeManager>
@@ -78,8 +79,11 @@ void LoginPage::licenceDialog()
     QString title(tr("Privacy Policy"));
     QString allowContent(tr("I have read and agree to the Privacy Policy"));
     // license路径
-    const QString zhCN_Content = "/usr/share/deepin-deepinid-client/privacy/deepinid-CN-zh_CN.md";
-    const QString enUS_Content = "/usr/share/deepin-deepinid-client/privacy/deepinid-CN-en_US.md";
+    QString zhCN_Content = "";
+    QString enUS_Content = "";
+
+    ProtocolFile::getPrivacyFile(zhCN_Content, enUS_Content);
+
     m_licenceProcess = new QProcess(this);
     m_licenceProcess->start("dde-license-dialog",
                                   QStringList() << "-t" << title << "-c" << zhCN_Content << "-e" << enUS_Content << "-a" << allowContent);

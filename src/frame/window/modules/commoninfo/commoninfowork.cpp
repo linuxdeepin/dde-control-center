@@ -23,6 +23,7 @@
 #include "window/mainwindow.h"
 #include "window/modules/commoninfo/commoninfomodel.h"
 #include "window/utils.h"
+#include "../../protocolfile.h"
 
 #include "widgets/basiclistdelegate.h"
 #include "widgets/utils.h"
@@ -242,11 +243,8 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         QString allowContent(tr("Agree and Join User Experience Program"));
 
         // license路径
-        m_content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
-        QFile file(m_content);
-        if (false == file.exists()) {
-            m_content = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement-%1.md", "");
-        }
+        m_content = ProtocolFile::getUserExpContent();
+
         m_process = new QProcess(this);
 
         auto pathType = "-c";
