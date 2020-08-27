@@ -55,6 +55,7 @@ SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
     lableLayout->addWidget(m_leftWidget);
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(8,0,8,0);
 
     mainLayout->addLayout(lableLayout, 0);
     mainLayout->addWidget(m_switchBtn, 0, Qt::AlignVCenter);
