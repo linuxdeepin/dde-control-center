@@ -175,6 +175,7 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     // 响应系统代理开关
     connect(m_proxySwitch, &SwitchWidget::checkedChanged, m_proxyTypeBox, [=](const bool checked){
+        m_buttonTuple->setEnabled(checked);
         if (checked) {
             // 打开代理默认手动
             onProxyMethodChanged(MANUAL);
@@ -189,6 +190,7 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     // 处理协议类型下拉框切换
     connect(m_proxyTypeBox->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int index){
+        m_buttonTuple->setEnabled(true);
         int manualId = ProxyMethodList.indexOf(MANUAL);
         int autoId = ProxyMethodList.indexOf(AUTO);
         m_manualWidget->setVisible(index == manualId);
@@ -236,6 +238,7 @@ void ProxyPage::setModel(NetworkModel *model)
 
 void ProxyPage::onProxyMethodChanged(const QString &proxyMethod)
 {
+    m_proxyTypeBox->comboBox()->blockSignals(true);
     if (proxyMethod == "none") {
         m_proxySwitch->setChecked(false);
         m_manualWidget->setVisible(false);
@@ -259,6 +262,7 @@ void ProxyPage::onProxyMethodChanged(const QString &proxyMethod)
     } else {
         qDebug() << "error proxyMethod:" << proxyMethod;
     }
+    m_proxyTypeBox->comboBox()->blockSignals(false);
 }
 
 void ProxyPage::applySettings()

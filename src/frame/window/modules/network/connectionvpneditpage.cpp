@@ -122,6 +122,7 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
             VpnType vpnType = VpnType(cb->currentData().toInt());
             resetConnectionIdByType(vpnType);
             initSettingsWidgetByType(vpnType);
+            setButtonTupleEnable(true);
         });
 
         m_settingsLayout->addLayout(titleLayout);
