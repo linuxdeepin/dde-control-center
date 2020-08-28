@@ -28,6 +28,8 @@
 #include <QHBoxLayout>
 #include <QMouseEvent>
 #include <QTimer>
+#include <QDateTime>
+
 #include <DApplicationHelper>
 
 using namespace dcc::widgets;

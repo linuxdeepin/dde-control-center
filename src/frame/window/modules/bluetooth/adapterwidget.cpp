@@ -56,6 +56,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     , m_isFirstSetPower(true)
     , m_model(model)
     , m_isNotFirst(false)
+    , m_delaySortTimer(new QTimer(this))
 {
     //~ contents_path /bluetooth/My Devices
     m_myDevicesGroup = new TitleLabel(tr("My Devices"));
@@ -137,6 +138,12 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     layout->addStretch();
     layout->setContentsMargins(0,0,15,0);
 
+    m_delaySortTimer->setSingleShot(true);
+    connect(m_delaySortTimer, &QTimer::timeout, this, [ = ] {
+       m_myDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
+       m_otherDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
+    });
+
     connect(m_switch, &SwitchWidget::checkedChanged, this, [ = ] (const bool &value) {
         if (!m_isNotFirst) {
             m_dtime.start();
@@ -170,10 +177,10 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
             return;
         }
         for (auto it : m_myDevices) {
-            if (it != NULL && it->getStandardItem() == item) {
-                if (it->device()->state() != Device::StateConnected)
-                    it->requestConnectDevice(it->device());
-
+            if (it && it->device() && it->getStandardItem() == item) {
+                if (it->device()->state() != Device::StateConnected) {
+                    it->requestConnectDevice(it->device(), m_adapter);
+                }
                 Q_EMIT requestShowDetail(m_adapter, it->device());
                 break;
             }
@@ -192,8 +199,11 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
             return;
         }
         for (auto it : m_deviceLists) {
-            if (it != NULL && it->getStandardItem() == item)
-                it->requestConnectDevice(it->device());
+            if (it && it->device() && it->getStandardItem() == item) {
+                it->requestConnectDevice(it->device(), m_adapter);
+                m_delaySortTimer->start();
+                break;
+            }
         }
     });
     connect(m_otherDeviceListView, &DListView::activated, m_otherDeviceListView, &DListView::clicked);
@@ -340,6 +350,7 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
     } else {
         DStandardItem *dListItem = deviceItem->getStandardItem(m_otherDeviceListView);
         m_otherDeviceModel->appendRow(dListItem);
+        m_delaySortTimer->start();
     }
     bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
     m_myDevicesGroup->setVisible(isVisible);
@@ -375,6 +386,7 @@ void AdapterWidget::addDevice(const Device *device)
             m_myDeviceModel->removeRow(myDeviceIndex.row());
             DStandardItem *dListItem = deviceItem->createStandardItem(m_otherDeviceListView);
             m_otherDeviceModel->appendRow(dListItem);
+            m_delaySortTimer->start();
         }
         bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
         m_myDevicesGroup->setVisible(isVisible);
