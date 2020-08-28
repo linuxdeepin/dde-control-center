@@ -58,19 +58,19 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
 
     SettingsGroup *powerSettingsGrp = new SettingsGroup;
     powerSettingsGrp->setSpacing(List_Interval);
-    if (!IsServerSystem) {
-        m_monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
-        //~ contents_path /power/Plugged In
-        //~ child_page Plugged In
-        m_monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
-        m_monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
-        m_monitorSleepOnPower->slider()->setRange(1, 7);
-        m_monitorSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
-        m_monitorSleepOnPower->slider()->setTickInterval(1);
-        m_monitorSleepOnPower->slider()->setPageStep(1);
-        connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetScreenBlackDelayOnPower);
-        powerSettingsGrp->appendItem(m_monitorSleepOnPower);
-    }
+
+    m_monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
+    //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
+    m_monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
+    m_monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
+    m_monitorSleepOnPower->slider()->setRange(1, 7);
+    m_monitorSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
+    m_monitorSleepOnPower->slider()->setTickInterval(1);
+    m_monitorSleepOnPower->slider()->setPageStep(1);
+    connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetScreenBlackDelayOnPower);
+    powerSettingsGrp->appendItem(m_monitorSleepOnPower);
+
     if (!IsServerSystem) {
         m_computerSleepOnPower = new TitledSliderItem(tr("Computer will suspend after"));
         //~ contents_path /power/Plugged In
@@ -115,10 +115,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     if (!IsServerSystem) {
         m_computerSleepOnPower->setAnnotations(annos);
     }
-
-    if (!IsServerSystem) {
-            m_monitorSleepOnPower->setAnnotations(annos);
-        }
+    m_monitorSleepOnPower->setAnnotations(annos);
 
     m_autoLockScreen->slider()->setType(DCCSlider::Vernier);
     m_autoLockScreen->slider()->setRange(1, 7);

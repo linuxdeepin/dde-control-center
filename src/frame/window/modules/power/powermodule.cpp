@@ -106,25 +106,39 @@ int PowerModule::load(const QString &path)
 
     QListView *list = m_widget->getListViewPointer();
     powerType type = DEFAULT;
+    powerServerType serverType = SERVER_DEFAULT;
 
     if (!list) {
         return 0;
     }
 
-    if (path == "General") {
-        type = GENERAL;
-    } else if (path == "Plugged In") {
-        type = USE_ELECTRIC;
-    } else if (path == "On Battery") {
-        type = USE_BATTERY;
-    }
+    if (IsServerSystem) {
+        if (path == "Plugged In") {
+            serverType = SERVER_USE_ELECTRIC;
+        } else if (path == "On Battery") {
+            serverType = SERVER_USE_BATTERY;
+        }
 
-    if (type > DEFAULT && type < COUNT) {
-        QModelIndex index = list->model()->index(type, 0);
-        list->setCurrentIndex(index);
-        list->clicked(index);
-    }
+        if (serverType > SERVER_DEFAULT && serverType < SERVER_COUNT) {
+            QModelIndex index = list->model()->index(serverType, 0);
+            list->setCurrentIndex(index);
+            list->clicked(index);
+        }
+    } else {
+        if (path == "General") {
+            type = GENERAL;
+        } else if (path == "Plugged In") {
+            type = USE_ELECTRIC;
+        } else if (path == "On Battery") {
+            type = USE_BATTERY;
+        }
 
+        if (type > DEFAULT && type < COUNT) {
+            QModelIndex index = list->model()->index(type, 0);
+            list->setCurrentIndex(index);
+            list->clicked(index);
+        }
+    }
     return 0;
 }
 
