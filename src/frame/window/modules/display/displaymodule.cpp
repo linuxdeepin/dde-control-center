@@ -98,6 +98,8 @@ void DisplayModule::active()
             this, &DisplayModule::showCustomSettingDialog);
     connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
             this, &DisplayModule::showTouchScreenPage);
+    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
+            this, &DisplayModule::showTouchRecognize);
     connect(m_displayWidget, &DisplayWidget::requestShowMultiResolutionPage,
             this, &DisplayModule::showMultiResolutionPage);
     connect(m_displayWidget, &DisplayWidget::requestShowMultiRefreshRatePage,
@@ -257,7 +259,7 @@ void DisplayModule::showCustomSettingDialog()
     connect(dlg, &CustomSettingDialog::requestSetMonitorPosition,
             m_displayWorker, &DisplayWorker::setMonitorPosition);
     connect(dlg, &CustomSettingDialog::requestRecognize, this,
-            &DisplayModule::showRecognize);
+            &DisplayModule::showDisplayRecognize);
     connect(dlg, &CustomSettingDialog::requestSetPrimaryMonitor,
             m_displayWorker, &DisplayWorker::setPrimary);
     connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
@@ -396,6 +398,18 @@ int DisplayModule::showTimeoutDialog(Monitor *mon)
     return timeoutDialog->exec();
 }
 
+void DisplayModule::showDisplayRecognize()
+{
+    RecognizeDialog dialog(m_displayModel, RecognizeDialog::DisplayRecognizeDialog);
+    dialog.exec();
+}
+
+void DisplayModule::showTouchRecognize()
+{
+    RecognizeDialog dialog(m_displayModel, RecognizeDialog::TouchRecognizeDialog);
+    dialog.exec();
+}
+
 void DisplayModule::showRotate(Monitor *mon)
 {
     RotateDialog *dialog = new RotateDialog(mon);
@@ -432,10 +446,4 @@ void DisplayModule::showRotate(Monitor *mon)
     qApp->restoreOverrideCursor();
     QCursor::setPos(m_displayWidget->getRotateBtnPos());
     dialog->deleteLater();
-}
-
-void DisplayModule::showRecognize()
-{
-    RecognizeDialog dialog(m_displayModel);
-    dialog.exec();
 }

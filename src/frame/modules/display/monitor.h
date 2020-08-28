@@ -58,6 +58,8 @@ public:
     inline double brightness() const { return m_brightness; }
     inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
     inline const QString name() const { Q_ASSERT(!m_name.isEmpty()); return m_name; }
+    inline const QString manufacturer() const { Q_ASSERT(!m_manufacturer.isEmpty()); return m_manufacturer; }
+    inline const QString model() const { Q_ASSERT(!m_model.isEmpty()); return m_model; }
     inline const bool canBrightness() const { return m_canBrightness; }
     inline const QString path() const { return m_path; }
     inline const Resolution currentMode() const { return m_currentMode; }
@@ -102,6 +104,8 @@ private Q_SLOTS:
     void setRotate(const quint16 rotate);
     void setBrightness(const double brightness);
     void setName(const QString &name);
+    void setManufacturer(const QString &manufacturer);
+    void setModel(const QString &model);
     void setCanBrightness(bool canBrightness);
     void setPath(const QString &path);
     void setRotateList(const QList<quint16> &rotateList);
@@ -121,6 +125,8 @@ private:
     quint16 m_rotate;
     double m_brightness;
     QString m_name;
+    QString m_manufacturer;
+    QString m_model;
     QString m_path;
     QString m_primary;
     Resolution m_currentMode;

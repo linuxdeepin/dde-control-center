@@ -39,7 +39,8 @@ class RecognizeDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit RecognizeDialog(DisplayModel *model, QWidget *parent = 0);
+    enum DialogModel { TouchRecognizeDialog , DisplayRecognizeDialog };
+    explicit RecognizeDialog(DisplayModel *model, DialogModel dialogModel, QWidget *parent = nullptr);
 
 protected:
     void paintEvent(QPaintEvent *);
@@ -49,10 +50,12 @@ private Q_SLOTS:
 
 private:
     void paintMonitorMark(QPainter &painter, const QRect &rect, const QString &name);
+    void paintMonitorMark(QPainter &painter, const QRect &rect, const QString &name, const QString &manufacturer);
     const QScreen *screenForGeometry(const QRect &rect) const;
 
 private:
     DisplayModel *m_model;
+    DialogModel m_dialogModel;
 };
 
 } // namespace display

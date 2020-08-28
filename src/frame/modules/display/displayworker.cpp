@@ -648,6 +648,8 @@ void DisplayWorker::monitorAdded(const QString &path)
     // NOTE: DO NOT using async dbus call. because we need to have a unique name to distinguish each monitor
     Q_ASSERT(inter->isValid());
     mon->setName(inter->name());
+    mon->setManufacturer(inter->manufacturer());
+    mon->setModel(inter->model());
     QDBusReply<bool> reply = m_displayDBusInter->call("CanSetBrightness", inter->name());
     mon->setCanBrightness(reply.value());
     mon->setMonitorEnable(inter->enabled());

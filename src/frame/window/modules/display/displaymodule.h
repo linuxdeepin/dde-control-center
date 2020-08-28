@@ -75,7 +75,8 @@ private Q_SLOTS:
     void showRefreshRotePage();
     void showTouchScreenPage();
     int showTimeoutDialog(dcc::display::Monitor *mon);
-    void showRecognize();
+    void showDisplayRecognize();
+    void showTouchRecognize();
     void showMultiResolutionPage();
     void showMultiRefreshRatePage();
 

@@ -132,6 +132,16 @@ void Monitor::setName(const QString &name)
     m_name = name;
 }
 
+void Monitor::setManufacturer(const QString &manufacturer)
+{
+    m_manufacturer = manufacturer;
+}
+
+void Monitor::setModel(const QString &model)
+{
+    m_model = model;
+}
+
 void Monitor::setCanBrightness(bool canBrightness)
 {
     m_canBrightness = canBrightness;
