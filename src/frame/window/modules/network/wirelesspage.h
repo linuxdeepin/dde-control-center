@@ -188,7 +188,6 @@ private:
 
     QString m_editingUuid;
     QTimer *m_sortDelayTimer;
-    QTimer *m_requestWirelessScanTimer;
     QMap<QString, APItem *> m_apItems;
     AirplanInter  *m_airplaninter;
     QString m_disconnectUuid;

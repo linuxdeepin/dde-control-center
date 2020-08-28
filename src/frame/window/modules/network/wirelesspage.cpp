@@ -262,7 +262,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
     , m_airplaninter(new AirplanInter("com.deepin.daemon.AirplaneMode","/com/deepin/daemon/AirplaneMode",QDBusConnection::systemBus(),this))
-    , m_requestWirelessScanTimer(new QTimer(this))
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -285,9 +284,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_modelAP->setSortRole(APItem::SortRole);
     m_sortDelayTimer->setInterval(100);
     m_sortDelayTimer->setSingleShot(true);
-
-    m_requestWirelessScanTimer->setInterval(60000);
-    m_requestWirelessScanTimer->setSingleShot(false);
 
     APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
     nonbc->setSignalStrength(-1);
@@ -313,11 +309,14 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
-            m_switch->setChecked(enabled);
-            if (m_lvAP) {
-                m_lvAP->setVisible(enabled);
-                updateLayout(!m_lvAP->isHidden());
-            }
+        m_switch->blockSignals(true);
+        m_switch->setChecked(enabled);
+        m_switch->blockSignals(false);
+
+        if (m_lvAP) {
+            m_lvAP->setVisible(enabled);
+            updateLayout(!m_lvAP->isHidden());
+        }
     });
 
     m_closeHotspotBtn->setText(tr("Close Hotspot"));
@@ -388,10 +387,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     });
 
 
-    connect(m_requestWirelessScanTimer, &QTimer::timeout, this, [ = ] {
-        Q_EMIT requestDeviceAPList(m_device->path());
-        Q_EMIT requestWirelessScan();
-    });
     // init data
     const QJsonArray mApList = m_device->apList();
     if (!mApList.isEmpty()) {
@@ -400,13 +395,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         }
     }
 
-    m_requestWirelessScanTimer->start();
     m_preActiveSsid = m_device->activeApSsid();
-
-    QTimer::singleShot(100, this, [=] {
-        Q_EMIT requestDeviceAPList(m_device->path());
-        Q_EMIT requestWirelessScan();
-    });
+    Q_EMIT requestDeviceAPList(m_device->path());
+    Q_EMIT requestWirelessScan();
 }
 
 WirelessPage::~WirelessPage()
@@ -415,7 +406,6 @@ WirelessPage::~WirelessPage()
     if (scroller) {
         scroller->stop();
     }
-    m_requestWirelessScanTimer->stop();
 }
 
 void WirelessPage::updateLayout(bool enabled)
@@ -514,6 +504,12 @@ void WirelessPage::jumpByUuid(const QString &uuid)
 void WirelessPage::onNetworkAdapterChanged(bool checked)
 {
     Q_EMIT requestDeviceEnabled(m_device->path(), checked);
+
+    if (checked) {
+        Q_EMIT requestDeviceAPList(m_device->path());
+        Q_EMIT requestWirelessScan();
+    }
+
     m_clickedItem = nullptr;
     m_lvAP->setVisible(checked);
     updateLayout(!m_lvAP->isHidden());
