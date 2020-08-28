@@ -36,6 +36,7 @@ using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 #define GSETTINGS_SHOW_MUTILSCREEN "show-multiscreen"
+#define GSETTINGS_BRIGHTNESS_ENABLE "brightness-enable"
 
 DisplayWidget::DisplayWidget(dcc::display::DisplayModel *model, QWidget *parent)
     : QWidget(parent)
@@ -148,9 +149,11 @@ void DisplayWidget::initMenuUI()
        }
     }
 
-    if (mons.count() == 0) {
-       m_multMenuList.removeAt(1);
-       m_singleMenuList.removeAt(1);
+    bool brightnessEnable = m_displaySetting->get(GSETTINGS_BRIGHTNESS_ENABLE).toBool();
+
+    if (mons.count() == 0 || !brightnessEnable) {
+        m_multMenuList.removeAt(1);
+        m_singleMenuList.removeAt(1);
     }
 
     if (!IsServerSystem) {
