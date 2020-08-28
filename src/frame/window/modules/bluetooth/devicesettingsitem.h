@@ -23,6 +23,7 @@
 
 #include "interface/namespace.h"
 #include "modules/bluetooth/device.h"
+#include "modules/bluetooth/adapter.h"
 
 #include <DListView>
 #include <DSpinner>
@@ -39,6 +40,7 @@ QT_END_NAMESPACE
 namespace dcc {
 namespace bluetooth {
 class Device;
+class Adapter;
 }
 }
 
@@ -47,13 +49,13 @@ namespace bluetooth {
 
 struct BtSortInfo {
     bool connected = false;
-    QString name;
+    int time;
     bool operator < (const BtSortInfo &other)
     {
         if (connected ^ other.connected) {
             return !connected;
         } else {
-            return name > other.name;
+            return time < other.time;
         }
     }
 };
@@ -78,8 +80,9 @@ public:
     bool operator < (const QStandardItem &other) const {
         BtSortInfo thisApInfo = data(SortRole).value<BtSortInfo>();
         BtSortInfo otherApInfo = other.data(SortRole).value<BtSortInfo>();
-        bool bRet = thisApInfo < otherApInfo;
-        return bRet;
+
+        return thisApInfo < otherApInfo;
+
     }
 };
 
@@ -100,7 +103,7 @@ private:
     void initItemActionList();
 
 Q_SIGNALS:
-    void requestConnectDevice(const dcc::bluetooth::Device *device) const;
+    void requestConnectDevice(const dcc::bluetooth::Device *device, const dcc::bluetooth::Adapter *adapter) const;
     void requestShowDetail(const dcc::bluetooth::Device *device) const;
     void requestSort();
 

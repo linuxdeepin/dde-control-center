@@ -213,7 +213,7 @@ void AdapterWidget::initConnect()
         for (auto it : m_myDevices) {
             if (it && it->device() && it->getStandardItem() == item) {
                 if (it->device()->state() != Device::StateConnected) {
-                    it->requestConnectDevice(it->device());
+                    it->requestConnectDevice(it->device(), m_adapter);
                 }
                 Q_EMIT requestShowDetail(m_adapter, it->device());
                 break;
@@ -235,7 +235,11 @@ void AdapterWidget::initConnect()
         }
         for (auto it : m_deviceLists) {
             if (it && it->device() && it->getStandardItem() == item) {
-                it->requestConnectDevice(it->device());
+                it->requestConnectDevice(it->device(), m_adapter);
+                BtSortInfo info = it->getStandardItem()->sortInfo();
+                info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
+                it->getStandardItem()->setSortInfo(info);
+                m_delaySortTimer->start();
                 break;
             }
         }
@@ -274,8 +278,10 @@ void AdapterWidget::initConnect()
 
                 BtStandardItem *dListItem = pDeviceItem->getStandardItem();
                 QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
-                if (index.isValid() && pDeviceItem->device()->name().isEmpty())
+                if (index.isValid() && pDeviceItem->device()->name().isEmpty()) {
                     m_otherDeviceModel->takeRow(index.row());
+                    m_delaySortTimer->start();
+                }
             }
         } else {
             if (!m_bluetoothInter.displaySwitch()) {
@@ -291,6 +297,7 @@ void AdapterWidget::initConnect()
                 QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
                 if ((false == index.isValid()) && pDeviceItem->device()->name().isEmpty()) {
                     m_otherDeviceModel->insertRow(0, dListItem);
+                    m_delaySortTimer->start();
                 }
             }
         }
@@ -301,6 +308,7 @@ void AdapterWidget::initConnect()
 
     connect(m_delaySortTimer, &QTimer::timeout, this, [ = ] {
        m_myDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
+       m_otherDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
     });
 }
 
@@ -391,6 +399,7 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
         if (m_showAnonymousCheckBox->checkState() == Qt::CheckState::Unchecked) {
             if (false == deviceItem->device()->name().isEmpty()) { // 只关注有名称的蓝牙设备,没有名称的忽略
                 m_otherDeviceModel->insertRow(0, dListItem);
+                m_delaySortTimer->start();
             }
         } else {
             m_otherDeviceModel->insertRow(0,dListItem);
@@ -439,6 +448,7 @@ void AdapterWidget::addDevice(const Device *device)
             m_myDeviceModel->removeRow(myDeviceIndex.row());
             BtStandardItem *dListItem = deviceItem->createStandardItem(m_otherDeviceListView);
             m_otherDeviceModel->appendRow(dListItem);
+            m_delaySortTimer->start();
         }
         bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
         m_myDevicesGroup->setVisible(isVisible);

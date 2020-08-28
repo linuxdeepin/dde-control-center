@@ -60,7 +60,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setAdapterPowered(const Adapter *adapter, const bool &powered);
-    void connectDevice(const Device *device);
+    void connectDevice(const Device *device, const Adapter *adapter);
     void disconnectDevice(const Device *device);
     void ignoreDevice(const Adapter *adapter, const Device *device);
     void setAlias(const Adapter *adapter, const QString &alias);

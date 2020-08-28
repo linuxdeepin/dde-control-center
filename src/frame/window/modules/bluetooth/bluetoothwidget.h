@@ -58,7 +58,7 @@ Q_SIGNALS:
     void requestModuleVisible(const bool visible) const;
 
     void requestSetToggleAdapter(const dcc::bluetooth::Adapter *adapter, const bool &toggled);
-    void requestConnectDevice(const dcc::bluetooth::Device *device);
+    void requestConnectDevice(const dcc::bluetooth::Device *device, const dcc::bluetooth::Adapter *adapter);
     void requestDisconnectDevice(const dcc::bluetooth::Device *device);
     void requestShowDetail(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
     void requestSetAlias(const dcc::bluetooth::Adapter *adapter, const QString &alias);

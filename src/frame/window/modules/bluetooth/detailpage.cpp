@@ -83,7 +83,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
         QApplication::focusWidget()->clearFocus();
     });
     connect(m_connectButton, &QPushButton::clicked, this, [this] {
-        Q_EMIT requestConnectDevice(m_device);
+        Q_EMIT requestConnectDevice(m_device, m_adapter);
         QApplication::focusWidget()->clearFocus();
     });
     connect(m_transfileButton, &QPushButton::clicked, this, [this] {

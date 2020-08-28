@@ -206,7 +206,7 @@ void BluetoothWorker::ignoreDevice(const Adapter *adapter, const Device *device)
     qDebug() << "ignore device: " << device->name();
 }
 
-void BluetoothWorker::connectDevice(const Device *device)
+void BluetoothWorker::connectDevice(const Device *device, const Adapter *adapter)
 {
     for (const Adapter *a : m_model->adapters()) {
         for (const Device *d : a->devices()) {
@@ -216,7 +216,7 @@ void BluetoothWorker::connectDevice(const Device *device)
     }
 
     QDBusObjectPath path(device->id());
-    m_bluetoothInter->ConnectDevice(path);
+    m_bluetoothInter->ConnectDevice(path, QDBusObjectPath(adapter->id()));
     qDebug() << "connect to device: " << device->name();
 }
 

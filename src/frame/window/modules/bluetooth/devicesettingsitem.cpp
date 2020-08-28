@@ -26,6 +26,8 @@
 #include <QHBoxLayout>
 #include <QMouseEvent>
 #include <QTimer>
+#include <QDateTime>
+
 #include <DApplicationHelper>
 
 using namespace dcc::widgets;
@@ -59,7 +61,7 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
 
     BtSortInfo info;
     info.connected = m_device->connectState();
-    info.name = m_deviceItem->text();
+    info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
     m_deviceItem->setSortInfo(info);
 }
 
@@ -165,7 +167,7 @@ void DeviceSettingsItem::setDevice(const Device *device)
             m_deviceItem->setText(alias);
 
             BtSortInfo info = m_deviceItem->sortInfo();
-            info.name = alias;
+            info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
             m_deviceItem->setSortInfo(info);
         }
 
@@ -213,7 +215,7 @@ BtStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     BtSortInfo info;
     info.connected = m_device->connectState();
     if (m_deviceItem) {
-        info.name = m_deviceItem->text();
+        info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
         m_deviceItem->setSortInfo(info);
     }
 
