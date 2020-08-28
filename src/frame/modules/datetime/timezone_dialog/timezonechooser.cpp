@@ -69,7 +69,8 @@ TimeZoneChooser::TimeZoneChooser()
     setupSize();
 
     //设置成设计给出的宽高
-    setFixedSize(1000, 760);
+    const QSize Sizes = getFitSize();
+    setFixedSize(Sizes.width(), Sizes.height());
 
     m_searchInput->setMinimumSize(350, 36);
 
