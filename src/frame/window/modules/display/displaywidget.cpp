@@ -44,7 +44,9 @@ DisplayWidget::DisplayWidget(dcc::display::DisplayModel *model, QWidget *parent)
     , m_menuList(new dcc::widgets::MultiSelectListView(this))
     , m_multiModel(new QStandardItemModel(this))
     , m_singleModel(new QStandardItemModel(this))
+    , m_displaySetting(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
 {
+    m_isShowMultiscreen = m_displaySetting->get(GSETTINGS_SHOW_MUTILSCREEN).toBool();
     m_model = model;
     setObjectName("Display");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -111,7 +113,8 @@ void DisplayWidget::onMonitorListChanged()
     const auto mons = m_model->monitorList();
 
     m_rotate->setVisible(mons.size() <= 1);
-    if (m_isMultiScreen && mons.size() <= 1) {
+    // 配置文件关闭多屏显示模式按显示菜单显示单屏配置
+    if ((m_isMultiScreen && mons.size() <= 1) || !m_isShowMultiscreen) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
         m_rotate->show();
@@ -174,8 +177,6 @@ void DisplayWidget::initMenuUI()
         m_singleMenuList << touchscreenMenu;
     }
 
-    m_displaySetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    m_isShowMultiscreen = m_displaySetting->get(GSETTINGS_SHOW_MUTILSCREEN).toBool();
     if (!m_isShowMultiscreen) {
         m_multMenuList.removeAt(0);
         MenuMethod multiRefreshMenu = {tr("Refresh Rate"), "dcc_refresh_rate",
