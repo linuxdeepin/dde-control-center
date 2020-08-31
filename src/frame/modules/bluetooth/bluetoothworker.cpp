@@ -182,6 +182,8 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
                 adapter->poweredChanged(adapter->powered(), adapter->discovering());
             } else {
                 qDebug() << adapterPoweredOnCall.error().message();
+                //低概率会出现蓝牙打开失败的情况
+                adapter->poweredChanged(false,false);
             }
             m_model->adpaterPowerd(adapter->powered());
             delete timer;

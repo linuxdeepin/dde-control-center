@@ -67,7 +67,7 @@ void Adapter::removeDevice(const QString &deviceId)
 
 void Adapter::setPowered(bool powered, bool discovering)
 {
-    if (powered != m_powered || (powered && m_powered && discovering != m_discovering)) {
+    if (powered != m_powered || discovering != m_discovering) {
         m_powered = powered;
         m_discovering = discovering;
         Q_EMIT poweredChanged(powered, discovering);

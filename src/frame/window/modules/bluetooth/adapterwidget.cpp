@@ -143,6 +143,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
             m_isNotFirst = true;
             toggleSwitch(value);
         } else {
+            //300ms防止高频操作开关蓝牙
             if (m_dtime.elapsed() < 300) {
                 m_switch->blockSignals(true);
                 m_switch->setChecked(!value);
@@ -269,6 +270,12 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
     //bDiscovering说明设备正在搜索设备，蓝牙状态发生了改变
     //如果蓝牙在打开状态则如果bDiscoersing为true时候证明蓝牙打开手开始工作
     if (m_switchFlag == OnPower && bPower && bDiscovering) {
+        m_switch->setEnabled(true);
+        m_switchFlag = Finished;
+    }
+
+    //修复:低概率会出现蓝牙打开失败的情况,返回状态不对应m_switchFlag值,造成前端不允许被点击的问题
+    if (m_switchFlag == OnPower && !bPower && !bDiscovering) {
         m_switch->setEnabled(true);
         m_switchFlag = Finished;
     }
