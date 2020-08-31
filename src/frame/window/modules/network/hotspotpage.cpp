@@ -56,6 +56,7 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     , m_modelprofiles(new QStandardItemModel(this))
     , m_createBtn(new QPushButton)
     , m_refreshActiveTimer(new QTimer)
+    , m_isClicked(false)
 {
     Q_ASSERT(m_wdev->supportHotspot());
 
@@ -82,7 +83,10 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
 
     setLayout(centralLayout);
 
-    connect(m_lvprofiles, &QListView::clicked, this, &HotspotDeviceWidget::onConnWidgetSelected);
+    connect(m_lvprofiles, &QListView::clicked, [ = ](const QModelIndex &idx) {
+        m_isClicked = true;
+        onConnWidgetSelected(idx);
+    });
     connect(m_createBtn, &QPushButton::clicked, this, [ = ] {
         openEditPage();
     });
@@ -188,8 +192,11 @@ void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
 
 void HotspotDeviceWidget::onHotsportEnabledChanged()
 {
-    m_hotspotSwitch->setChecked(m_wdev->hotspotEnabled());
-    m_hotspotSwitch->setEnabled(true);
+   //手动点击选中热点，以及添加热点时不应该触发打开关闭热点操作
+    if (!m_isClicked) {
+        m_hotspotSwitch->setChecked(m_wdev->hotspotEnabled());
+        m_hotspotSwitch->setEnabled(true);
+    }
     m_refreshActiveTimer->start();
 }
 
@@ -218,6 +225,7 @@ void HotspotDeviceWidget::refreshHotspotConnectionList()
         it->setActionList(Qt::Edge::RightEdge, {editaction});
         connect(editaction, &QAction::triggered, std::bind(&HotspotDeviceWidget::onConnEditRequested, this, uuid));
         m_modelprofiles->appendRow(it);
+        m_isClicked = true;
     }
 
     m_refreshActiveTimer->start();
@@ -239,6 +247,7 @@ void HotspotDeviceWidget::refreshActiveConnection()
         QStandardItem *it = m_modelprofiles->item(i);
         it->setCheckState(it->data(UuidRole).toString() == activeHotspotUuid ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
     }
+    m_isClicked = false;
 }
 
 HotspotPage::HotspotPage(QWidget *parent)

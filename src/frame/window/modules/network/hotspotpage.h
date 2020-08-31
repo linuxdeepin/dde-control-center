@@ -98,6 +98,7 @@ private:
     static const int UuidRole = Dtk::UserRole + 1;
 
     friend class HotspotPage;
+    bool m_isClicked;
 };
 
 class HotspotPage : public QWidget
