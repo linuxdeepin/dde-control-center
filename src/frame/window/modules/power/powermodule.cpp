@@ -36,6 +36,7 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 #define GSETTING_SHOW_SUSPEND "show-suspend"
+#define GSETTING_SHOW_HIBERNATE "show-hibernate"
 
 PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
@@ -87,6 +88,9 @@ void PowerModule::active()
     m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
     m_isSuspend = m_powerSetting->get(GSETTING_SHOW_SUSPEND).toBool();
     m_model->setSuspend(m_isSuspend && m_model->canSleep());
+
+    bool hibernate = m_powerSetting->get(GSETTING_SHOW_HIBERNATE).toBool();
+    m_model->setHibernate(hibernate && m_model->canHibernate() && !IsServerSystem);
 
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::requestRemoveBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);

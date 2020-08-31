@@ -128,6 +128,9 @@ public:
     inline bool canHibernate() const { return m_canHibernate; }
     void setCanHibernate(bool value);
 
+    inline bool getHibernate() const { return m_isHibernate; }
+    void setHibernate(bool hibernate);
+
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void canSleepChanged(const bool canSleep);
@@ -197,6 +200,7 @@ private:
     int m_dLowPowerAutoSleepThreshold;
     //--------------------------------------
     bool m_isSuspend;
+    bool m_isHibernate;
 };
 
 }

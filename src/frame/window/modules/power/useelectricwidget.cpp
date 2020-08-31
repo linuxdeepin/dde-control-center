@@ -90,7 +90,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     if (model->getSuspend()) {
         options << tr("Suspend");
     }
-    if (!IsServerSystem && model->canHibernate()) {
+    if (model->getHibernate()) {
         options << tr("Hibernate");
     }
     options << tr("Turn off the monitor") << tr("Do nothing");
@@ -129,13 +129,13 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetAutoLockScreenOnPower);
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
-            if (IsServerSystem || !model->canHibernate()) {
+            if (!model->getHibernate()) {
                 Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 0 ? nIndex + 2 : nIndex);
             } else {
                 Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
             }
         } else {
-            if (IsServerSystem || !model->canHibernate()) {
+            if (!model->getHibernate()) {
                 Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 1 ? nIndex + 1 : nIndex);
             } else {
                 Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex);
@@ -144,13 +144,13 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
         if (!model->getSuspend()) {
-            if (IsServerSystem || !model->canHibernate()) {
+            if (!model->getHibernate()) {
                 Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 3);
             } else {
                 Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 2);
             }
         } else {
-            if (IsServerSystem || !model->canHibernate()) {
+            if (!model->getHibernate()) {
                 Q_EMIT requestSetLinePowerLidClosedAction(nIndex > 0 ? nIndex + 2 : nIndex + 1);
             } else {
                 Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 1);
@@ -189,13 +189,13 @@ void UseElectricWidget::setModel(const PowerModel *model)
     m_cmbCloseLid->setVisible(model->lidPresent());
     int nLidAction = model->linePowerLidClosedAction();
     if (!model->getSuspend()) {
-        if (IsServerSystem || !model->canHibernate()) {
+        if (!model->getHibernate()) {
             m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 3);
         } else {
             m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 2);
         }
     } else {
-        if (IsServerSystem || !model->canHibernate()) {
+        if (!model->getHibernate()) {
             m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction > 2 ? nLidAction - 2 : nLidAction - 1);
         } else {
             m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 1);
@@ -204,13 +204,13 @@ void UseElectricWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::linePowerLidClosedActionChanged, this, [=](const int reply){
         if (reply - 1 < m_cmbCloseLid->comboBox()->count()) {
             if (!model->getSuspend()) {
-                if (IsServerSystem || !model->canHibernate()) {
+                if (!model->getHibernate()) {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 3);
                 } else {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 2);
                 }
             } else {
-                if (IsServerSystem || !model->canHibernate()) {
+                if (!model->getHibernate()) {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply > 2 ? reply - 2 : reply - 1);
                 } else {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
@@ -220,13 +220,13 @@ void UseElectricWidget::setModel(const PowerModel *model)
     });
     int powIndex = model->linePowerPressPowerBtnAction();
     if (!model->getSuspend()) {
-        if (IsServerSystem || !model->canHibernate()) {
+        if (!model->getHibernate()) {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
         } else {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
         }
     } else {
-        if (IsServerSystem || !model->canHibernate()) {
+        if (!model->getHibernate()) {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
         } else {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex);
@@ -235,13 +235,13 @@ void UseElectricWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::linePowerPressPowerBtnActionChanged, this, [=](const int reply){
         if (reply < m_cmbPowerBtn->comboBox()->count()) {
             if (!model->getSuspend()) {
-                if (IsServerSystem || !model->canHibernate()) {
+                if (!model->getHibernate()) {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0 ? reply - 2 : reply);
                 } else {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0 ? reply - 1 : reply);
                 }
             } else {
-                if (IsServerSystem || !model->canHibernate()) {
+                if (!model->getHibernate()) {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 2 ? reply - 1 : reply);
                 } else {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);

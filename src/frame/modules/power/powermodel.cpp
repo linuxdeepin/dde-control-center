@@ -322,3 +322,10 @@ void PowerModel::setSuspend(bool suspend)
     m_isSuspend = suspend;
     Q_EMIT suspendChanged(suspend);
 }
+
+void PowerModel::setHibernate(bool hibernate)
+{
+    if (m_isHibernate != hibernate) {
+        m_isHibernate = hibernate;
+    }
+}
