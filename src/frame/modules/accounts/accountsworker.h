@@ -93,7 +93,7 @@ public Q_SLOTS:
     void removeUser(const QString &userPath);
     void setGroups(User *user, const QStringList &usrGroups);
 private Q_SLOTS:
-    void updateUserOnlineStatus(const QList<QDBusObjectPath> paths);
+    void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);
     void getAllGroups();
     void getAllGroupsResult(QDBusPendingCallWatcher *watch);
     void getPresetGroups();

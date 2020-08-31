@@ -34,7 +34,7 @@ CreationResult::CreationResult(QObject *parent)
 
 }
 
-CreationResult::CreationResult(CreationResult::ResultType type, QString message, QObject *parent)
+CreationResult::CreationResult(CreationResult::ResultType type, const QString &message, QObject *parent)
     : QObject(parent)
     , m_type(type)
     , m_message(message)

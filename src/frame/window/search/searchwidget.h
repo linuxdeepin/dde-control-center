@@ -109,7 +109,7 @@ private:
     void appendChineseData(SearchBoxStruct data);
     void clearSearchData();
     bool isLoadText(const QString &txt);
-    bool isLoadContensText(QString text);
+    bool isLoadContensText(const QString &text);
 
 private:
     QStandardItemModel *m_model;

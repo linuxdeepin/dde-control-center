@@ -32,6 +32,7 @@ using namespace dcc::accounts;
 FingerItem::FingerItem(QWidget *parent)
     : SettingsItem(parent)
     , m_layout(new QHBoxLayout)
+    , m_editMode(false)
     , m_editBtn(new DIconButton(this))
     , m_removeBtn(new DIconButton(this))
     , m_title(new QLabel)

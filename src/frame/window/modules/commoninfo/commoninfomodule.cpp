@@ -62,7 +62,8 @@ CommonInfoModule::~CommonInfoModule()
 }
 
 void CommonInfoModule::preInitialize(bool sync)
-{
+{   
+    Q_UNUSED(sync);
 #ifdef DCC_DISABLE_GRUB
     m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), false);
     if (IsServerSystem) {
@@ -75,6 +76,9 @@ void CommonInfoModule::preInitialize(bool sync)
 
 void CommonInfoModule::initialize()
 {
+    if (m_commonModel) {
+        delete m_commonModel;
+    }
     m_commonModel = new CommonInfoModel();
     m_commonWork = new CommonInfoWork(m_commonModel);
 
@@ -95,6 +99,9 @@ const QString CommonInfoModule::displayName() const
 void CommonInfoModule::active()
 {
     //    mCommonWork->activate();
+    if (m_commonWidget) {
+        delete m_commonWidget;
+    }
     m_commonWidget = new CommonInfoWidget();
     connect(m_commonWidget, &CommonInfoWidget::requestShowBootWidget, this, &CommonInfoModule::onShowBootWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowDeveloperModeWidget, this, &CommonInfoModule::onShowDeveloperWidget);

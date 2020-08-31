@@ -44,7 +44,7 @@ public:
     };
 
     explicit CreationResult(QObject *parent = 0);
-    explicit CreationResult(ResultType type, QString message, QObject *parent = 0);
+    explicit CreationResult(ResultType type, const QString &message, QObject *parent = 0);
 
     inline ResultType type() const { return m_type; }
     void setType(const ResultType &type);

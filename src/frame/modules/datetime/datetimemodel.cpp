@@ -127,7 +127,7 @@ void DatetimeModel::setNtpServerAddress(const QString &ntpServer)
     }
 }
 
-void DatetimeModel::setNTPServerList(QStringList list)
+void DatetimeModel::setNTPServerList(const QStringList &list)
 {
     if (m_bSystemIsServer && m_NtpServerList != list) {
         m_NtpServerList = list;

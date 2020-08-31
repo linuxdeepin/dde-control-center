@@ -31,6 +31,9 @@ using namespace dcc::accounts;
 
 UserModel::UserModel(QObject *parent)
     : QObject(parent)
+    , m_bAutoLoginValid(false)
+    , m_bNoPassWordLoginValid(false)
+    , m_bCreateUserValid(false)
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_isJoinADDomain(false)
     , m_isADUserLogind(false)

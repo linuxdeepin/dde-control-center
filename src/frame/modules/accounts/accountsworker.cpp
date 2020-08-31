@@ -430,7 +430,7 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
 }
 #endif
 
-void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> paths)
+void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> &paths)
 {
     m_onlineUsers.clear();
 
