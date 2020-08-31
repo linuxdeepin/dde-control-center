@@ -73,7 +73,7 @@ public:
     explicit AccountsDetailWidget(dcc::accounts::User *user, QWidget *parent = nullptr);
     void initHeadPart(QVBoxLayout *headLayout);
     void initBodyPart(QVBoxLayout *bodyLayout);
-    void updateLineEditDisplayStyle(bool edit = false);
+    void updateLineEditDisplayStyle(bool valid = false);
     void setAccountModel(dcc::accounts::UserModel *model);
     void setFingerModel(dcc::accounts::FingerModel *model);
 
