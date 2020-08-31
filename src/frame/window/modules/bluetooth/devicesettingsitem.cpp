@@ -113,9 +113,7 @@ void DeviceSettingsItem::setLoading(const bool loading)
             QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
             m_loadingIndicator->move(point);
         }
-        QPalette pa = m_loadingIndicator->palette();
-        pa.setBrush(QPalette::Highlight,Qt::white);
-        m_loadingIndicator->setPalette(pa);
+
         m_loadingIndicator->start();
 
         if (m_parentDListView) {
