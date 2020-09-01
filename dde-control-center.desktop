@@ -6,7 +6,6 @@ Exec=dde-control-center --show
 Icon=preferences-system
 Name=Deepin Control Center
 GenericName=Control Center
-OnlyShowIn=X-Deepin
 StartupNotify=false
 Terminal=false
 Type=Application
