@@ -24,6 +24,7 @@
 #include "widgets/switchwidget.h"
 #include "window/utils.h"
 #include "widgets/titlelabel.h"
+#include "widgets/settingsgroup.h"
 
 #include <DStyle>
 #include <DTipLabel>
@@ -60,10 +61,12 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     labelOutput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     m_outputSoundCbx = new ComboxWidget(tr("Output Device"));
-    m_outputSoundCbx->setMaximumHeight(100);
+    m_outputSoundCbx->setMaximumHeight(50);
 
     m_outputModel  = new QStandardItemModel(m_outputSoundCbx->comboBox());
     m_outputSoundCbx->comboBox()->setModel(m_outputModel);
+    SettingsGroup *outputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    outputSoundsGrp->appendItem(m_outputSoundCbx);
 
     TitleLabel *lblTitle = new TitleLabel(tr("On"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
@@ -71,7 +74,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     m_sw->setAccessibleName(tr("Speaker"));
 
     m_layout->addWidget(labelOutput);
-    m_layout->addWidget(m_outputSoundCbx, Qt::AlignLeft);
+    m_layout->addWidget(outputSoundsGrp, Qt::AlignLeft);
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(m_sw);

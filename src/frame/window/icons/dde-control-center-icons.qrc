@@ -171,6 +171,7 @@
         <file>texts/dcc_refresh_12px.svg</file>
         <file>actions/dcc_backup_32px.svg</file>
         <file>icons/dcc_deepin_uos_logos.svg</file>
+        <file>actions/dcc_time_format_32px.svg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

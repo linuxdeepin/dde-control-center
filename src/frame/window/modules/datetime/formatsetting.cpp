@@ -47,26 +47,36 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
     m_layout->addWidget(headTitle, 0, Qt::AlignLeft);
     m_layout->setSpacing(2);
 
+    SettingsGroup *weekGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     QVBoxLayout *vbox = new QVBoxLayout;
     m_weekCbx = new ComboxWidget();
-
     m_weekCbx->setTitle(tr("Weeks"));   //星期
+    weekGrp->appendItem(m_weekCbx);
 
+    SettingsGroup *shortDateGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_shortDateCbx = new ComboxWidget();
     m_shortDateCbx->setTitle(tr("Short Date"));  //短日期
+    shortDateGrp->appendItem(m_shortDateCbx);
 
+    SettingsGroup *longdateGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_longdateCbx = new ComboxWidget();
     m_longdateCbx->setTitle(tr("Long Date"));  //长日期
+   longdateGrp->appendItem(m_longdateCbx);
 
-
+    SettingsGroup *shortimeGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_shortimeCbx = new ComboxWidget();
     m_shortimeCbx->setTitle(tr("Short Time"));  //短时间
+    shortimeGrp->appendItem(m_shortimeCbx);
 
+    SettingsGroup *longtimeGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_longtimeCbx = new ComboxWidget();
     m_longtimeCbx->setTitle(tr("Long Time"));  //长时间
+    longtimeGrp->appendItem(m_longtimeCbx);
 
+    SettingsGroup *weekStartDayGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_weekStartDayCbx = new ComboxWidget();
     m_weekStartDayCbx->setTitle(tr("First Day of Week"));  //长时间
+    weekStartDayGrp->appendItem(m_weekStartDayCbx);
 
     QDBusInterface interLangSelector("com.deepin.daemon.LangSelector",
                                 "/com/deepin/daemon/LangSelector",
@@ -74,12 +84,12 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
                                 QDBusConnection::sessionBus(), this);
     //如果不是中文就不显示星期的选项
     m_weekCbx->setVisible(interLangSelector.property("CurrentLocale").toString().startsWith("zh_CN"));
-    vbox->addWidget(m_weekCbx);
-    vbox->addWidget(m_weekStartDayCbx);
-    vbox->addWidget(m_longdateCbx);
-    vbox->addWidget(m_shortDateCbx);
-    vbox->addWidget(m_longtimeCbx);
-    vbox->addWidget(m_shortimeCbx);
+    vbox->addWidget(weekGrp);
+    vbox->addWidget(weekStartDayGrp);
+    vbox->addWidget(longdateGrp);
+    vbox->addWidget(shortDateGrp);
+    vbox->addWidget(longtimeGrp);
+    vbox->addWidget(shortimeGrp);
     SettingsItem *timeItem = new SettingsItem;
     timeItem->setLayout(vbox);
     m_layout->addWidget(timeItem);

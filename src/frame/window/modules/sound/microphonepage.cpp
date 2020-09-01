@@ -30,6 +30,7 @@
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
 #include "widgets/comboxwidget.h"
+#include "widgets/settingsgroup.h"
 #include "types/audioport.h"
 
 #include <DStandardItem>
@@ -101,10 +102,12 @@ MicrophonePage::MicrophonePage(QWidget *parent)
 
     m_inputModel  = new QStandardItemModel(m_inputSoundCbx->comboBox());
     m_inputSoundCbx->comboBox()->setModel(m_inputModel);
+    SettingsGroup *inputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    inputSoundsGrp->appendItem(m_inputSoundCbx);
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(labelInput);
-    m_layout->addWidget(m_inputSoundCbx);
+    m_layout->addWidget(inputSoundsGrp);
     m_layout->addLayout(hlayout);
     m_layout->addWidget(m_noiseReductionsw);
     setLayout(m_layout);
