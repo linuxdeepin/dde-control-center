@@ -152,8 +152,10 @@ void DisplayWidget::initMenuUI()
     bool brightnessEnable = m_displaySetting->get(GSETTINGS_BRIGHTNESS_ENABLE).toBool();
 
     if (mons.count() == 0 || !brightnessEnable) {
-        m_multMenuList.removeAt(1);
-        m_singleMenuList.removeAt(1);
+        if (getMenuIndex(tr("Brightness"), false) >= 0)
+            m_multMenuList.removeAt(getMenuIndex(tr("Brightness"), false));
+        if (getMenuIndex(tr("Brightness")) >= 0)
+            m_singleMenuList.removeAt(getMenuIndex(tr("Brightness")));
     }
 
     if (!IsServerSystem) {
@@ -189,8 +191,10 @@ void DisplayWidget::initMenuUI()
                                   QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)
                                  };
         m_multMenuList << multiResoMenu << multiRefreshMenu;
-        m_singleMenuList[0] = {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)};
-        m_singleMenuList[3] = {tr("Refresh Rate"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiRefreshRatePage)};
+        if (getMenuIndex(tr("Resolution")) >= 0)
+            m_singleMenuList[getMenuIndex(tr("Resolution"))] = {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)};
+        if (getMenuIndex(tr("Refresh Rate")) >= 0)
+            m_singleMenuList[getMenuIndex(tr("Refresh Rate"))] = {tr("Refresh Rate"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiRefreshRatePage)};
     }
 
     DStandardItem *btn{nullptr};
@@ -239,4 +243,23 @@ void DisplayWidget::onMenuClicked(const QModelIndex &idx)
         m_singleMenuList[idx.row()].method.invoke(this);
     }
     m_menuList->resetStatus(idx);
+}
+
+int DisplayWidget::getMenuIndex(QString str, bool isSingle)
+{
+    if (isSingle) {
+        for (int i = 0; i < m_singleMenuList.count(); i++) {
+            if (m_singleMenuList[i].menuText == str) {
+                return i;
+            }
+        }
+    } else {
+        for (int i = 0; i < m_multMenuList.count(); i++) {
+            if (m_multMenuList[i].menuText == str) {
+                return i;
+            }
+        }
+    }
+    qDebug() << "no menu named " << str << " in " << (isSingle ? "single" : "multi") << " menu list or it has been already removed";
+    return -1;
 }
