@@ -46,7 +46,6 @@ ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     , m_mainLayout(new QVBoxLayout)
 {
     m_mainLayout->setMargin(0);
-    m_mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
     QWidget *centralWidget = new TranslucentFrame;
     centralWidget->setLayout(m_mainLayout);
