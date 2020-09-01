@@ -24,10 +24,13 @@
 #include <QDBusMetaType>
 #include <QDBusMessage>
 #include <QDBusArgument>
+#include <cstdlib>
 
 #include <com_deepin_daemon_display.h>
 
 #include "controlcenterunittest.h"
+
+using DBusDisplay = com::deepin::daemon::Display;
 
 ControlCenterUnitTest::ControlCenterUnitTest()
 {
@@ -140,6 +143,34 @@ void ControlCenterUnitTest::testBluetoothIsVisible()
     auto bluetoothState = bluetoothInter.property("State").toInt();
 
     QCOMPARE(reply,bluetoothState);
+}
+
+/**
+ * @brief ControlCenterUnitTest::displayMode_check  检查显示模式
+ */
+void ControlCenterUnitTest::displayMode_check()
+{
+    QDBusInterface displayInter("com.deepin.daemon.Display", "/com/deepin/daemon/Display", "com.deepin.daemon.Display", QDBusConnection::sessionBus());
+    srand((unsigned)time(NULL));
+    int displayMode = rand() % 3;
+    QString primaryScreen = displayInter.property("Primary").toString();
+    auto ret = displayInter.call("SwitchMode", displayMode, primaryScreen);
+    this->displayMode = displayInter.property("DisplayMode").toInt();
+    switch (displayMode) {
+    case 0:
+        qDebug() << "Customised, please check.";
+        break;
+    case 1:
+        qDebug() << "CopyMode, please check.";
+        break;
+    case 2:
+        qDebug() << "ExpandMode, please check.";
+        break;
+    default:
+        qDebug() << "Error!";
+        break;
+    }
+    QCOMPARE(this->displayMode, displayMode);
 }
 
 QTEST_APPLESS_MAIN(ControlCenterUnitTest)

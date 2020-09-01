@@ -27,6 +27,12 @@ class ControlCenterUnitTest : public QObject
     Q_OBJECT
 
 public:
+    enum DisplayMode {
+        Customised = 0,
+        CopyMode = 1,
+        ExpandMode = 2
+    };
+
     ControlCenterUnitTest();
     ~ControlCenterUnitTest();
 
@@ -36,6 +42,10 @@ private slots:
     void testModules();
     void inputDevieNum(int num = 1);                        //测试显示的输出设备数量
     void testBluetoothIsVisible();                        //测试蓝牙是否正常显示
+    void displayMode_check();                               // 显示模式检查
+
+private:
+    int displayMode;
 };
 
 #endif // CONTROLCENTER_UNIT_TEST_H
