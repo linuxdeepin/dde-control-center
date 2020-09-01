@@ -114,6 +114,8 @@ void SoundModule::showMicrophonePage()
     connect(w, &MicrophonePage::requestReduceNoise, m_worker, &SoundWorker::setReduceNoise);
     connect(w, &MicrophonePage::requestMute, m_worker, &SoundWorker::setMute);
     m_frameProxy->pushWidget(this, w);
+    //输出端口重置后可能会出现，默认输入为空，重置界面
+    w->resetUi();
 }
 
 void SoundModule::showSoundEffectsPage()

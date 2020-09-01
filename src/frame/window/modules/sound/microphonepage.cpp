@@ -23,11 +23,14 @@
 #include "modules/sound/soundmodel.h"
 #include "window/utils.h"
 
+#include <com_deepin_daemon_audio_source.h>
+
 #include "widgets/switchwidget.h"
 #include "widgets/titlelabel.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
 #include "widgets/comboxwidget.h"
+#include "types/audioport.h"
 
 #include <DStandardItem>
 #include <DStyle>
@@ -46,10 +49,13 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QSvgRenderer>
+#include <QDBusInterface>
+
 
 using namespace dcc::sound;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::sound;
+using com::deepin::daemon::audio::Source;
 
 Q_DECLARE_METATYPE(const dcc::sound::Port *)
 
@@ -104,7 +110,6 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     setLayout(m_layout);
 }
 
-
 MicrophonePage::~MicrophonePage()
 {
 #ifndef DCC_DISABLE_FEEDBACK
@@ -112,6 +117,24 @@ MicrophonePage::~MicrophonePage()
         m_feedbackSlider->disconnect(m_conn);
     m_feedbackSlider->deleteLater();
 #endif
+}
+
+/**当用户进入扬声器端口手动切换蓝牙输出端口后，再进入麦克风页面时
+ * 会有默认输入端口路径为空或者指定路径下激活端口为空的情况，
+ */
+void MicrophonePage::resetUi()
+{
+    QDBusInterface interface("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", "com.deepin.daemon.Audio", QDBusConnection::sessionBus(), this);
+    QDBusObjectPath defaultPath = interface.property("DefaultSource").value<QDBusObjectPath>();
+    if (defaultPath.path() == "/") //路径为空
+        m_inputSoundCbx->comboBox()->setCurrentIndex(-1);
+    else {
+        Source defaultSourcer("com.deepin.daemon.Audio", defaultPath.path(), QDBusConnection::sessionBus(), this);
+        AudioPort port = defaultSourcer.activePort();
+        if (port.name.isEmpty() || port.description.isEmpty()) {
+            m_inputSoundCbx->comboBox()->setCurrentIndex(-1);
+        }
+    }
 }
 
 void MicrophonePage::setModel(SoundModel *model)

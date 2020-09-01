@@ -75,6 +75,8 @@ public:
     MicrophonePage(QWidget *parent = nullptr);
 
     ~MicrophonePage();
+    void resetUi();
+
 public:
     void setModel(dcc::sound::SoundModel *model);
     bool isShow(const dcc::sound::Port *port);
