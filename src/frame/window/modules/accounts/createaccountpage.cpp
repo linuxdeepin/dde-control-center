@@ -614,7 +614,7 @@ bool CreateAccountPage::onFullNameEidtFinished(DLineEdit *edit)
         }
     }
 
-    if (userFullName.size() > 100) {
+    if (userFullName.size() > 32) {
         edit->setAlert(true);
         edit->showAlertMessage(tr("The full name is too long"), -1);
         return false;
