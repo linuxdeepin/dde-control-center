@@ -35,6 +35,11 @@
 #define MIN_NM_ACTIVE 50
 #define UPDATE_PACKAGE_SIZE 0
 
+const QString ChangeLogFile = "/usr/share/deepin/release-note/UpdateInfo.json";
+
+// 系统补丁标识
+const QString DDEId = "dde";
+
 namespace dcc {
 namespace update {
 static int TestMirrorSpeedInternal(const QString &url, QPointer<QObject> baseObject)
@@ -369,7 +374,6 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
         const QString currentVer = val.m_currentVersion;
         const QString lastVer = val.m_avilableVersion;
         AppUpdateInfo info = getInfo(val, currentVer, lastVer);
-
         infos << info;
     }
 
@@ -378,8 +382,8 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
         // If there's no actual package dde update, but there're system patches available,
         // then fake one dde update item.
 
-        auto it = std::find_if(infos.constBegin(), infos.constEnd(), [ = ](const AppUpdateInfo & info) {
-            return info.m_packageId == "dde";
+        auto it = std::find_if(infos.constBegin(), infos.constEnd(), [ = ](const AppUpdateInfo &info) {
+            return info.m_packageId == DDEId;
         });
 
         AppUpdateInfo dde;
@@ -1085,44 +1089,32 @@ DownloadInfo *UpdateWorker::calculateDownloadInfo(const AppUpdateInfoList &list)
 
 AppUpdateInfo UpdateWorker::getInfo(const AppUpdateInfo &packageInfo, const QString &currentVersion, const QString &lastVersion) const
 {
-    auto fetchVersionedChangelog = [](QJsonObject changelog, QString & destVersion) {
-
-        for (QString version : changelog.keys()) {
-            if (version == destVersion || destVersion != "") {
-                qDebug() << Q_FUNC_INFO << QString("The destVersion(%1) is not empty or version(%2) to the destVersion(%1) to be updated").arg(destVersion).arg(version);
-                return changelog.value(version).toString();
-            }
-        }
-
-        return QStringLiteral("");
-    };
-
-    QString metadataDir = "/lastore/metadata/" + packageInfo.m_packageId;
-    QString icondataDir = "/usr/share/icons";
-
     AppUpdateInfo info;
     info.m_packageId = packageInfo.m_packageId;
     info.m_name = packageInfo.m_name;
     info.m_currentVersion = currentVersion;
     info.m_avilableVersion = lastVersion;
     info.m_icon = m_iconThemeState;
-    QFile manifest(metadataDir + "/meta/manifest.json");
-    if (manifest.open(QFile::ReadOnly)) {
-        QByteArray data = manifest.readAll();
-        QJsonDocument doc = QJsonDocument::fromJson(data);
-        QJsonObject object = doc.object();
 
-        info.m_changelog = fetchVersionedChangelog(object["changelog"].toObject(), info.m_avilableVersion);
+    const QString &language = QLocale::system().name();
+    QFile logFile(ChangeLogFile);
+    if (!logFile.open(QFile::ReadOnly)) {
+        qDebug() << "can not find update file:" << ChangeLogFile;
+        return info;
+    }
 
-        QJsonObject locales = object["locales"].toObject();
-        QJsonObject locale = locales[QLocale::system().name()].toObject();
-        if (locale.isEmpty())
-            locale = locales["en_US"].toObject();
-        QJsonObject changelog = locale["changelog"].toObject();
-        QString versionedChangelog = fetchVersionedChangelog(changelog, info.m_avilableVersion);
+    const QJsonObject &object = QJsonDocument::fromJson(logFile.readAll()).object();
 
-        if (!versionedChangelog.isEmpty())
-            info.m_changelog = versionedChangelog;
+    if (info.m_packageId == DDEId) {
+        info.m_changelog = object.value("systemInfo").toObject().value(language).toString();
+        info.m_avilableVersion = object.value("systemInfo").toObject().value("update_time").toString();
+    } else {
+        const QJsonArray &apps = object.value("appInfo").toArray();
+        for (auto itApp = apps.begin(); itApp != apps.end(); ++itApp) {
+            if (itApp->toObject().value("package_id").toString() == info.m_packageId) {
+                info.m_changelog = itApp->toObject().value(language).toString();
+            }
+        }
     }
 
     return info;
@@ -1131,15 +1123,15 @@ AppUpdateInfo UpdateWorker::getInfo(const AppUpdateInfo &packageInfo, const QStr
 AppUpdateInfo UpdateWorker::getDDEInfo()
 {
     AppUpdateInfo dde;
-    dde.m_name = tr("System");
-    dde.m_packageId = "dde";
+    dde.m_name = tr("System Updates");
+    dde.m_packageId = DDEId;
 
     QFile file("/var/lib/lastore/update_infos.json");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         const QJsonArray array = QJsonDocument::fromJson(file.readAll()).array();
         for (const QJsonValue &json : array) {
             const QJsonObject &obj = json.toObject();
-            if (obj["Package"].toString() == "dde") {
+            if (obj["Package"].toString() == DDEId) {
 
                 dde.m_currentVersion = obj["CurrentVersion"].toString();
                 dde.m_avilableVersion = obj["LastVersion"].toString();
