@@ -64,6 +64,7 @@ class SpeakerPage : public QWidget
 public:
     SpeakerPage(QWidget *parent = nullptr);
     ~SpeakerPage();
+    void showDevice();
 
 public:
     void setModel(dcc::sound::SoundModel *model);
@@ -98,7 +99,8 @@ private:
     QVBoxLayout *m_layout{nullptr};
     dcc::widgets::TitledSliderItem *m_outputSlider;
     dcc::widgets::DCCSlider *m_speakSlider;
-
+    QWidget* m_vbWidget;
+    dcc::widgets::TitledSliderItem *m_balanceSlider;
     QStandardItemModel *m_outputModel{nullptr};
     //当前选中的音频
     const dcc::sound::Port *m_currentPort{nullptr};

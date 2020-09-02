@@ -76,7 +76,7 @@ public:
 
     ~MicrophonePage();
     void resetUi();
-
+    void showDevice();
 public:
     void setModel(dcc::sound::SoundModel *model);
 

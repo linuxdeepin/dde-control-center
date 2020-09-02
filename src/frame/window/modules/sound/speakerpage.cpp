@@ -51,6 +51,8 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_layout(new QVBoxLayout)
     , m_outputSlider(nullptr)
     , m_speakSlider(nullptr)
+    , m_vbWidget(nullptr)
+    , m_balanceSlider(nullptr)
     , m_lastsetvalue(0)
 {
     const int titleLeftMargin = 17;
@@ -124,7 +126,8 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     connect(m_model, &SoundModel::portRemoved, this, &SpeakerPage::removePort);
 
     connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-    this, [this](const int  idx) {
+            this, [this](const int  idx) {
+        showDevice();
         if (idx < 0)
             return;
         auto temp = m_outputModel->index(idx, 0);
@@ -195,7 +198,6 @@ void SpeakerPage::initSlider()
     //~ contents_path /sound/Speaker
     m_outputSlider = new TitledSliderItem(tr("Output Volume"), this);
     m_outputSlider->addBackground();
-    m_outputSlider->setVisible(m_model->isPortEnable());
     m_speakSlider = m_outputSlider->slider();
 
     QStringList annotions;
@@ -236,21 +238,21 @@ void SpeakerPage::initSlider()
         //当前设置音量大于上一次设置的音量时，说明音量是在增加
         if (pos > m_lastsetvalue) {
             //因为增加5%幅度的区间是110～120,所以要包含110,不包含120,从120开始就是1%的幅度增加
-             if (pos >= 110 && pos < 120) {
-                  m_outputSlider->slider()->qtSlider()->setSingleStep(5);
-               } else {
-                  m_outputSlider->slider()->qtSlider()->setSingleStep(1);
-               }
-                  m_lastsetvalue = pos;
-                  //当前设置音量小于上一次设置的音量时，说明音量是在降低
+            if (pos >= 110 && pos < 120) {
+                m_outputSlider->slider()->qtSlider()->setSingleStep(5);
+            } else {
+                m_outputSlider->slider()->qtSlider()->setSingleStep(1);
+            }
+            m_lastsetvalue = pos;
+            //当前设置音量小于上一次设置的音量时，说明音量是在降低
         } else if (pos < m_lastsetvalue) {
             //因为增加5%幅度的区间是110～120,所以要不包含121和110,从120～110开始就是5%的幅度降低
             if (pos > 110 && pos < 121) {
-                  m_outputSlider->slider()->qtSlider()->setSingleStep(5);
-             } else {
-                  m_outputSlider->slider()->qtSlider()->setSingleStep(1);
-             }
-             m_lastsetvalue = pos;
+                m_outputSlider->slider()->qtSlider()->setSingleStep(5);
+            } else {
+                m_outputSlider->slider()->qtSlider()->setSingleStep(1);
+            }
+            m_lastsetvalue = pos;
         }
         double vals = pos / 100.0;
         //滑块位置改变时，发送设置音量的信号
@@ -261,7 +263,6 @@ void SpeakerPage::initSlider()
     //滑块移动消息处理
     connect(m_speakSlider, &DCCSlider::sliderMoved, slotfunc1);
     //当扬声器开/关时，显示/隐藏控件
-    connect(m_model, &SoundModel::isPortEnableChanged, m_outputSlider, &TitledSliderItem::setVisible);
     //当底层数据改变后，更新滑动条显示的数据
     connect(m_model, &SoundModel::speakerVolumeChanged, this, [ = ](double v) {
         m_speakSlider->blockSignals(true);
@@ -310,31 +311,28 @@ void SpeakerPage::initSlider()
     volumeBoostTip->setMargin(0);
     volumeBoostTip->setVisible(m_model->isIncreaseVolume());
     hlayout->addWidget(volumeBoostTip);
-    auto vbWidget = new QWidget(this);
-    vbWidget->setLayout(hlayout);
-    vbWidget->setVisible(m_model->isPortEnable());
-    m_layout->insertWidget(4, vbWidget);
+    m_vbWidget = new QWidget(this);
+    m_vbWidget->setLayout(hlayout);
+    m_vbWidget->setVisible(m_model->isPortEnable());
+    m_layout->insertWidget(4, m_vbWidget);
     connect(volumeBoost, &SwitchWidget::checkedChanged, volumeBoostTip, &DTipLabel::setVisible);
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoostTip, &DTipLabel::setVisible);
-    connect(m_model, &SoundModel::isPortEnableChanged, vbWidget, &QWidget::setVisible);
-
     //~ contents_path /sound/Speaker
-    auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
-    balanceSlider->addBackground();
-    balanceSlider->setVisible(m_model->isPortEnable());
+    m_balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
+    m_balanceSlider->addBackground();
 
     //信号处理与上面一致
     QStringList balanceList;
     balanceList << tr("Left") << " ";
     balanceList << tr("Right");
-    DCCSlider *slider2 = balanceSlider->slider();
+    DCCSlider *slider2 = m_balanceSlider->slider();
     slider2->setRange(-100, 100);
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::TicksBelow);
     slider2->setTickInterval(1);
     slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100 + 0.000001));
     slider2->setPageStep(1);
-    balanceSlider->setAnnotations(balanceList);
+    m_balanceSlider->setAnnotations(balanceList);
 
     auto slotfunc2 = [ = ](int pos) {
         double value = pos / 100.0;
@@ -342,12 +340,32 @@ void SpeakerPage::initSlider()
     };
     connect(slider2, &DCCSlider::valueChanged, slotfunc2);
     connect(slider2, &DCCSlider::sliderMoved, slotfunc2);
-    connect(m_model, &SoundModel::isPortEnableChanged, balanceSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::speakerBalanceChanged, this, [ = ](double v) {
         slider2->blockSignals(true);
         slider2->setSliderPosition(static_cast<int>(v * 100 + 0.000001));
         slider2->blockSignals(false);
     });
 
-    m_layout->insertWidget(5, balanceSlider);
+    m_layout->insertWidget(5, m_balanceSlider);
+    showDevice();
+}
+
+/**
+ * @brief SpeakerPage::showDevice 当无设备时，不显示信息页
+ */
+void SpeakerPage::showDevice()
+{
+    if (!m_speakSlider || !m_vbWidget || !m_balanceSlider || !m_outputSlider)
+        return;
+    if (m_outputModel->rowCount() > 0) {
+        m_speakSlider->show();
+        m_vbWidget->show();
+        m_balanceSlider->show();
+        m_outputSlider->show();
+    } else {
+        m_speakSlider->hide();
+        m_vbWidget->hide();
+        m_balanceSlider->hide();
+        m_outputSlider->hide();
+    }
 }

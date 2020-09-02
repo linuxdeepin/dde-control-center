@@ -176,7 +176,8 @@ void MicrophonePage::setModel(SoundModel *model)
     connect(m_model, &SoundModel::portRemoved, this, &MicrophonePage::removePort);
 
     connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-    this, [this](const int  idx) {
+            this, [this](const int  idx) {
+        showDevice();
         if (idx < 0) return;
         auto temp = m_inputModel->index(idx, 0);
         this->requestSetPort(m_inputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
@@ -251,7 +252,6 @@ void MicrophonePage::initSlider()
     //~ contents_path /sound/Microphone
     m_inputSlider = new TitledSliderItem(tr("Input Volume"));
     m_inputSlider->addBackground();
-    m_inputSlider->setVisible(m_model->isPortEnable());
     m_layout->insertWidget(3, m_inputSlider);
 
     m_volumeBtn = new SoundLabel(this);
@@ -280,7 +280,6 @@ void MicrophonePage::initSlider()
     m_inputSlider->setValueLiteral(QString::number(m_model->microphoneVolume() * 100) + "%");
     connect(slider, &DCCSlider::valueChanged, this, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, this, slotfunc1);
-    connect(m_model, &SoundModel::isPortEnableChanged, m_inputSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::microphoneVolumeChanged, this, [ = ](double v) {
         slider->blockSignals(true);
         slider->setValue(static_cast<int>(v * 100));
@@ -294,8 +293,6 @@ void MicrophonePage::initSlider()
     //~ contents_path /sound/Microphone
     m_feedbackSlider = (new TitledSliderItem(tr("Input Level")));
     m_feedbackSlider->addBackground();
-    m_feedbackSlider->setVisible(m_model->isPortEnable());
-    m_noiseReductionsw->setVisible(m_model->isPortEnable());
     DCCSlider *slider2 = m_feedbackSlider->slider();
     slider2->setRange(0, 100);
     slider2->setEnabled(false);
@@ -307,7 +304,6 @@ void MicrophonePage::initSlider()
     slider2->setTickInterval(1);
     slider2->setPageStep(1);
 
-    connect(m_model, &SoundModel::isPortEnableChanged, m_feedbackSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::isPortEnableChanged, m_noiseReductionsw, &ComboxWidget::setVisible);
     m_conn = connect(m_model, &SoundModel::microphoneFeedbackChanged, [ = ](double vol2) {
         slider2->setSliderPosition(int(vol2 * 100));
@@ -320,6 +316,7 @@ void MicrophonePage::initSlider()
 #endif
 
     refreshIcon();
+    showDevice();
 }
 
 void MicrophonePage::refreshIcon()
@@ -364,5 +361,17 @@ const QPixmap MicrophonePage::loadSvg(const QString &iconName, const QString &lo
     return pixmap;
 }
 
-
-
+void MicrophonePage::showDevice()
+{
+    if (!m_feedbackSlider || !m_inputSlider || !m_noiseReductionsw)
+        return;
+    if (m_inputModel->rowCount() > 0) {
+        m_feedbackSlider->show();
+        m_inputSlider->show();
+        m_noiseReductionsw->show();
+    } else {
+        m_feedbackSlider->hide();
+        m_inputSlider->hide();
+        m_noiseReductionsw->hide();
+    }
+}
