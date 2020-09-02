@@ -21,12 +21,14 @@
 #include "systemtimezone.h"
 
 #include "modules/datetime/timezoneitem.h"
+#include "window/utils.h"
 
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QFont>
 #include <DFontSizeManager>
 
+using namespace DCC_NAMESPACE;
 using namespace dcc::datetime;
 using namespace DCC_NAMESPACE::datetime;
 
@@ -52,6 +54,7 @@ SystemTimezone::SystemTimezone(QWidget *parent)
     m_layout->addSpacing(3);
     m_layout->addWidget(m_setSystemTimezone);
     m_layout->setMargin(0);
+    m_layout->setContentsMargins(0, 0, ScrollAreaOffsetMargins.right(), 0);
 
     setLayout(m_layout);
 

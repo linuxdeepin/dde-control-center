@@ -26,6 +26,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
 #include "widgets/settingsheaderitem.h"
+#include "window/utils.h"
 
 #include <DBackgroundGroup>
 
@@ -34,6 +35,8 @@
 #include <QDebug>
 
 DWIDGET_USE_NAMESPACE
+
+using namespace DCC_NAMESPACE;
 
 namespace dcc {
 namespace widgets {
@@ -45,6 +48,7 @@ SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
 {
     m_layout->setMargin(0);
     m_layout->setSpacing(10);
+    m_layout->setContentsMargins(0, 0, ScrollAreaOffsetMargins.right(), 0);
 
     QVBoxLayout *vLayout = m_layout;
     if (GroupBackground == bgStyle) {
