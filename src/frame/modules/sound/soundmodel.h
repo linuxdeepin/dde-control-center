@@ -34,6 +34,10 @@
 
 DWIDGET_USE_NAMESPACE
 
+QT_BEGIN_NAMESPACE
+class QStandardItemModel;
+QT_END_NAMESPACE
+
 namespace dcc {
 namespace sound {
 using SoundEffectList = QList<std::pair<QString, DDesktopServices::SystemSoundEffect>>;
@@ -160,6 +164,7 @@ public:
     bool isIncreaseVolume() const;
     void setIncreaseVolume(bool value);
     void initMicroPhone() { Q_EMIT microphoneOnChanged(m_microphoneOn); }
+    bool isShow(QStandardItemModel *model, const Port *port);
 
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;

@@ -47,10 +47,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
-#include <QDBusInterface>
-#include <QDBusReply>
 #include <QSvgRenderer>
-#include <QDBusInterface>
 
 
 using namespace dcc::sound;
@@ -152,7 +149,7 @@ void MicrophonePage::setModel(SoundModel *model)
     connect(m_model, &SoundModel::setPortChanged, this, [ = ](const dcc::sound::Port  * port) {
         m_currentPort = port;
         if (!m_currentPort) return;
-        m_sw->setHidden(!isShow(m_currentPort));
+        m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
         Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
     });
 
@@ -193,7 +190,7 @@ void MicrophonePage::setModel(SoundModel *model)
 
     initSlider();
 
-    if (m_currentPort) m_sw->setHidden(!isShow(m_currentPort));
+    if (m_currentPort) m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
 
     if (m_inputModel->rowCount() < 2) m_sw->setHidden(true);
 
@@ -215,7 +212,7 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
 
     rmFunc(m_inputModel);
     if (m_currentPort)
-        m_sw->setHidden(!isShow(m_currentPort));
+        m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
 }
 
 void MicrophonePage::addPort(const dcc::sound::Port *port)
@@ -240,7 +237,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
         if (m_currentPort)
-            m_sw->setHidden(!isShow(m_currentPort));
+            m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
     }
 }
 
@@ -323,29 +320,6 @@ void MicrophonePage::initSlider()
 #endif
 
     refreshIcon();
-}
-
-bool MicrophonePage::isShow(const dcc::sound::Port *port)
-{
-    //输入和输出设备数小于2,直接返回
-    if (m_model->ports().size() < 2)  return false;
-
-    //输入设备数小于2,直接返回
-    if (m_inputModel->rowCount() < 2) return false;
-
-    //输入设备大于1,且有端口启用时,直接返回true
-    QDBusInterface inter("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", "com.deepin.daemon.Audio", QDBusConnection::sessionBus(), this);
-    for (int i = 0; i < m_inputModel->rowCount(); i++) {
-        auto temp = m_inputModel->index(i, 0);
-        const auto * it = m_inputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
-        if (!it) return false;
-        if (it->cardId() != port->cardId() || it->name() != port->name()) {
-            QDBusReply<bool> reply = inter.call("IsPortEnabled", it->cardId(), it->id());
-            if (reply.value())
-                return true;
-        }
-    }
-    return false;
 }
 
 void MicrophonePage::refreshIcon()

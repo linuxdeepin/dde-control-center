@@ -79,7 +79,6 @@ public:
 
 public:
     void setModel(dcc::sound::SoundModel *model);
-    bool isShow(const dcc::sound::Port *port);
 
 Q_SIGNALS:
     void requestSwitchMicrophone(bool on);

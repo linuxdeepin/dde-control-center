@@ -28,8 +28,13 @@
 #include "window/utils.h"
 
 #include <QDebug>
+#include <QDBusInterface>
+#include <QDBusReply>
+#include <QStandardItemModel>
 
 using namespace DCC_NAMESPACE;
+
+Q_DECLARE_METATYPE(const dcc::sound::Port *)
 
 static const QMap<DDesktopServices::SystemSoundEffect, QString> SOUND_EFFECT_MAP{
     { DDesktopServices::SystemSoundEffect::SSE_Notifications, "message" },
@@ -353,6 +358,33 @@ void SoundModel::setIncreaseVolume(bool value)
         m_increaseVolume = value;
         Q_EMIT increaseVolumeChanged(value);
     }
+}
+
+bool SoundModel::isShow(QStandardItemModel *model, const Port *port)
+{
+    if (!model)
+        return false;
+
+    //输入和输出设备数小于2,直接返回
+    if (this->ports().size() < 2)  return false;
+
+    //输入或输出设备数小于2,直接返回
+    if (model->rowCount() < 2) return false;
+
+    //有端口启用时,直接返回true
+    QDBusInterface inter("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", "com.deepin.daemon.Audio", QDBusConnection::sessionBus(), this);
+    for (int i = 0; i < model->rowCount(); i++) {
+        auto temp = model->index(i, 0);
+        const auto * it = model->data(temp, Qt::WhatsThisPropertyRole).value<const Port *>();
+        if (!it)
+            return false;
+        if (it->cardId() != port->cardId() || it->name() != port->name()) {
+            QDBusReply<bool> reply = inter.call("IsPortEnabled", it->cardId(), it->id());
+            if (reply.value())
+                return true;
+        }
+    }
+    return false;
 }
 
 void Port::setId(const QString &id)

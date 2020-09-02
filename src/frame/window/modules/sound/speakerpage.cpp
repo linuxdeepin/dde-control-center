@@ -100,7 +100,10 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 
     connect(m_model, &SoundModel::setPortChanged, this, [ = ](const dcc::sound::Port  * port) {
         m_currentPort = port;
-        Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->cardName());
+        if (!m_currentPort)
+            return;
+        m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
+        Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
     });
 
     auto ports = m_model->ports();
@@ -111,12 +114,10 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     //连接switch点击信号，发送切换开/关扬声器的请求信号
     connect(m_sw, &SwitchWidget::checkedChanged, this, [ = ] {
         if(m_currentPort != nullptr)
-            Q_EMIT m_model->requestSwitchSetEnable(m_currentPort->cardId(), m_currentPort->cardName(), m_sw->checked());
+            Q_EMIT m_model->requestSwitchSetEnable(m_currentPort->cardId(), m_currentPort->id(), m_sw->checked());
         else
             m_sw->setChecked(false);
     });
-
-
 
     connect(m_model, &SoundModel::portAdded, this, &SpeakerPage::addPort);
 
@@ -124,11 +125,19 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 
     connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
     this, [this](const int  idx) {
+        if (idx < 0)
+            return;
         auto temp = m_outputModel->index(idx, 0);
         this->requestSetPort(m_outputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
     });
 
     initSlider();
+
+    if (m_currentPort)
+        m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
+
+    if (m_outputModel->rowCount() < 2)
+        m_sw->setHidden(true);
 }
 
 void SpeakerPage::removePort(const QString &portId, const uint &cardId)
@@ -146,6 +155,8 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
     };
 
     rmFunc(m_outputModel);
+    if (m_currentPort)
+        m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
 }
 
 void SpeakerPage::addPort(const dcc::sound::Port *port)
@@ -172,8 +183,10 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
         if (port->isActive()) {
             m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
             m_currentPort = port;
-            Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->cardName());
+            Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
+        if (m_currentPort)
+            m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
     }
 }
 
