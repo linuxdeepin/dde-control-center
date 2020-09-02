@@ -96,6 +96,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     , m_searchValue("")
     , m_bIstextEdited(false)
     , m_speechState(false)
+    , m_deepinwm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
 {
     m_model = new QStandardItemModel(this);
     m_completer = new ddeCompleter(m_model, this);
@@ -501,6 +502,15 @@ void SearchWidget::loadxml()
                             clearSearchData();
                             continue;
                         }
+
+                        qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
+                        if (!m_bIsServerType && !m_deepinwm->compositingAllowSwitch()) {
+                            qDebug()<<"search not Window!";
+                            if (tr("Window Effect") == m_searchBoxStruct.translateContent) {
+                               clearSearchData();
+                               continue;
+                             }
+                         }
 
                         m_EnterNewPagelist.append(m_searchBoxStruct);
 
