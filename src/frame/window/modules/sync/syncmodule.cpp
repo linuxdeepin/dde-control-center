@@ -30,6 +30,9 @@ const QString SyncModule::name() const
 
 const QString SyncModule::displayName() const
 {
+    if (DSysInfo::isCommunityEdition())
+        return tr("Deepin ID");
+
     return tr("Union ID");
 }
 

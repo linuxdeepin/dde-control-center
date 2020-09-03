@@ -327,12 +327,16 @@ void MainWindow::initAllModule(const QString &m)
     using namespace commoninfo;
     using namespace notification;
 
+    QString idType = "Union ID";
+    if (DSysInfo::isCommunityEdition())
+        idType = "Deepin ID";
+
     m_modules = {
         { new AccountsModule(this), tr("Accounts")},
         // 原union ID 暂时隐藏
         // { new UnionidModule(this), "Union ID"},
         //~ contents_path /cloudsync/Cloud Sync
-        { new SyncModule(this), "Union ID"},
+        { new SyncModule(this), idType},
         { new DisplayModule(this), tr("Display")},
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new PersonalizationModule(this), tr("Personalization")},

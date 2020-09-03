@@ -47,7 +47,11 @@ LoginPage::LoginPage(QWidget *parent)
     pLogo->setPixmap(QIcon::fromTheme("dcc_cloud").pixmap(128, 100));
     m_mainLayout->addWidget(pLogo, 0, Qt::AlignHCenter);
     m_mainLayout->addSpacing(10);
-    QLabel *signintip = new QLabel(tr("Union ID Sign In"));
+    QLabel *signintip = nullptr;
+    if (DSysInfo::isCommunityEdition())
+        signintip = new QLabel(tr("Deepin ID Sign In"));
+    else
+        signintip = new QLabel(tr("Union ID Sign In"));
     QFont font = signintip->font();
     font.setBold(true);
     signintip->setFont(font);
