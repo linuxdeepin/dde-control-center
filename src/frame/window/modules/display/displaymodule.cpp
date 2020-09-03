@@ -235,7 +235,7 @@ void DisplayModule::showCustomSettingDialog()
     Q_ASSERT(displayMode == CUSTOM_MODE);
 
     for (auto mon : m_displayModel->monitorList())
-        m_displayWorker->setMonitorEnable(mon, true);
+        m_displayWorker->setMonitorEnable(mon, mon->enable());
 
     CustomSettingDialog *dlg = new CustomSettingDialog();
     keybindInter keybindInter("com.deepin.daemon.Keybinding",

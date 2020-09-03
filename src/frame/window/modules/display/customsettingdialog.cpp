@@ -244,7 +244,6 @@ void CustomSettingDialog::initOtherDialog()
         } else {
             dlg = new CustomSettingDialog(mon, m_model, this);
             m_otherDialog.append(dlg);
-
             dlg->initConnect();
 
             connect(dlg, &CustomSettingDialog::requestSetResolution, this,
@@ -264,7 +263,11 @@ void CustomSettingDialog::initOtherDialog()
         dlg->resetDialog();
 
         if (!m_model->isMerge()) {
-            dlg->show();
+            if (mon->enable()) {
+                dlg->show();
+            } else {
+                dlg->hide();
+            }
         }
     }
 }
