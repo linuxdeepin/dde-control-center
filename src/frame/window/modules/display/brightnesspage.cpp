@@ -64,6 +64,7 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->addLayout(titleLayout);
 
     m_nightShift = new SwitchWidget;
+    //~ contents_path /display/Brightness
     m_nightShift->setTitle(tr("Night Shift"));
     m_nightShift->addBackground();
     m_centralLayout->addWidget(m_nightShift);
@@ -76,11 +77,12 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->addWidget(m_nightTips);
 
     m_nightManual = new SwitchWidget;
+    //~ contents_path /display/Brightness
     m_nightManual->setTitle(tr("Change Color Temperature"));
     m_nightManual->addBackground();
     m_centralLayout->addWidget(m_nightManual);
     m_autoLightMode = new SwitchWidget;
-
+    //~ contents_path /display/Brightness
     m_autoLightMode->setTitle(tr("Auto Brightness"));
     m_centralLayout->addWidget(m_autoLightMode);
 
@@ -92,27 +94,23 @@ void BrightnessPage::setMode(DisplayModel *model)
     m_displayModel = model;
 
     connect(m_autoLightMode, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestAmbientLightAdjustBrightness);
-    connect(m_displayModel, &DisplayModel::adjustCCTmodeChanged, this, [ = ](int  mode) {
-        setAdjustCCTmode(mode);
-    });
+    connect(m_displayModel, &DisplayModel::adjustCCTmodeChanged, this, &BrightnessPage::setAdjustCCTmode);
     connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_nightShift, &SwitchWidget::setVisible);
     connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_tempratureColorTitle, &TitleLabel::setVisible);
-
     connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_nightTips, &QLabel::setVisible);
-
-    connect(m_nightManual, &SwitchWidget::checkedChanged, this, [ = ](const bool   enable) {
-        if(enable == true) {
+    connect(m_nightManual, &SwitchWidget::checkedChanged, this, [ = ](const bool enable) {
+        if (enable) {
             Q_EMIT requestSetMethodAdjustCCT(2);
-        }
-        else
-             Q_EMIT requestSetMethodAdjustCCT(0);
-    });
-    connect(m_nightShift, &SwitchWidget::checkedChanged, this, [ = ](const bool   enable) {
-        if(enable == true) {
-            Q_EMIT requestSetMethodAdjustCCT(1);
-        }
-        else
+        } else {
             Q_EMIT requestSetMethodAdjustCCT(0);
+        }
+    });
+    connect(m_nightShift, &SwitchWidget::checkedChanged, this, [ = ](const bool enable) {
+        if (enable) {
+            Q_EMIT requestSetMethodAdjustCCT(1);
+        } else {
+            Q_EMIT requestSetMethodAdjustCCT(0);
+        }
     });
     connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, m_autoLightMode, &SwitchWidget::setVisible);
     connect(m_displayModel, &DisplayModel::autoLightAdjustSettingChanged, m_autoLightMode, &SwitchWidget::setChecked);

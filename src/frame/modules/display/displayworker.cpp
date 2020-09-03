@@ -537,7 +537,6 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
     Q_ASSERT(inter);
 
     inter->SetMode(static_cast<uint>(mode)).waitForFinished();
-    m_displayInter.ApplyChanges().waitForFinished();
 }
 
 void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
@@ -792,5 +791,4 @@ void DisplayWorker::setMonitorResolutionBySize(Monitor *mon, const int width, co
         watcher->deleteLater();
     });
     watcher->waitForFinished();
-    m_displayInter.ApplyChanges().waitForFinished();
 }
