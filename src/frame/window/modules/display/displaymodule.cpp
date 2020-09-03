@@ -333,11 +333,13 @@ void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mod
 {
     auto lastMode = mon->currentMode().id();
     m_displayWorker->setMonitorResolution(mon, mode);
+    m_displayWorker->applyChanges();
 
     if (showTimeoutDialog(mon) == QDialog::Accepted) {
         m_displayWorker->saveChanges();
     } else {
         m_displayWorker->setMonitorResolution(mon, lastMode);
+        m_displayWorker->applyChanges();
     }
 }
 
@@ -388,6 +390,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                      << "\t id: " << tmode.id;
             m_displayWorker->setMonitorResolution(tmon, tmode.id);
         }
+        m_displayWorker->applyChanges();
     };
 
     tfunc(mon, mode);
@@ -402,8 +405,7 @@ int DisplayModule::showTimeoutDialog(Monitor *mon)
     TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
     qreal radio = qApp->devicePixelRatio();
     connect(mon, &Monitor::geometryChanged, timeoutDialog, [ = ] {
-        if (timeoutDialog)
-        {
+        if (timeoutDialog) {
             QRectF rt(mon->x(), mon->y(), mon->w() / radio, mon->h() / radio);
             timeoutDialog->moveToCenterByRect(rt.toRect());
         }
