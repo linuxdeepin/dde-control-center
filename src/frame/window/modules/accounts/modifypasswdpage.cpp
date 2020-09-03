@@ -224,10 +224,11 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         }
     }
 
+    int passResult = PwqualityManager::instance()->verifyPassword(password);
     QString blanksymbolstr =  tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols")
             .arg(PwqualityManager::instance()->getPasswordMinLength())
             .arg(PwqualityManager::instance()->getValidateRequiredString());
-    int passResult = PwqualityManager::instance()->verifyPassword(password);
+
     switch (passResult)
     {
     case ENUM_PASSWORD_NOTEMPTY:
