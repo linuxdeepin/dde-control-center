@@ -262,6 +262,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
     , m_airplaninter(new AirplanInter("com.deepin.daemon.AirplaneMode","/com/deepin/daemon/AirplaneMode",QDBusConnection::systemBus(),this))
+    , m_isConnecting(false)
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -343,6 +344,14 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     setContent(mainWidget);
 
     connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex & idx) {
+        if (m_isConnecting) {
+            // 200ms 保证onApWidgetConnectRequested能够执行完毕
+            QTimer::singleShot(200, this, [&]() {
+                m_isConnecting = false;
+            });
+            return ;
+        }
+        m_isConnecting = true;
         if (idx.data(APItem::PathRole).toString().length() == 0) {
             this->showConnectHidePage();
             return;
@@ -362,6 +371,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         qDebug() << "clicked item " << m_clickedItem->text();
         this->onApWidgetConnectRequested(idx.data(APItem::PathRole).toString(),
                                          idx.data(Qt::ItemDataRole::DisplayRole).toString());
+        // 若onApWidgetConnectRequested执行完毕，可立即响应下一次鼠标响应事件
+        m_isConnecting = false;
     });
 
     connect(m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
@@ -392,6 +403,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     if (!mApList.isEmpty()) {
         for (auto ap : mApList) {
             onAPAdded(ap.toObject());
+            onAPChanged(ap.toObject());
         }
     }
 

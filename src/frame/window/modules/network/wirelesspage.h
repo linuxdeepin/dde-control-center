@@ -192,6 +192,8 @@ private:
     AirplanInter  *m_airplaninter;
     QString m_disconnectUuid;
     QString m_preActiveSsid;
+
+    bool m_isConnecting;
 };
 }   // namespace dcc
 }   // namespace network
