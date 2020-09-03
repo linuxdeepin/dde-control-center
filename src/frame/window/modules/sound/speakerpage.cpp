@@ -122,17 +122,8 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     });
 
     connect(m_model, &SoundModel::portAdded, this, &SpeakerPage::addPort);
-
     connect(m_model, &SoundModel::portRemoved, this, &SpeakerPage::removePort);
-
-    connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, [this](const int  idx) {
-        showDevice();
-        if (idx < 0)
-            return;
-        auto temp = m_outputModel->index(idx, 0);
-        this->requestSetPort(m_outputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
-    });
+    connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
 
     initSlider();
 
@@ -160,6 +151,16 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
     rmFunc(m_outputModel);
     if (m_currentPort)
         m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
+    showDevice();
+}
+
+void SpeakerPage::changeComboxIndex(const int idx)
+{
+    showDevice();
+    if (idx < 0)
+        return;
+    auto temp = m_outputModel->index(idx, 0);
+    this->requestSetPort(m_outputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
 }
 
 void SpeakerPage::addPort(const dcc::sound::Port *port)
@@ -179,10 +180,9 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
                 m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
             }
         });
-
-        m_outputModel->blockSignals(true);
+        disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
         m_outputModel->appendRow(pi);
-        m_outputModel->blockSignals(false);
+        connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
         if (port->isActive()) {
             m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
             m_currentPort = port;
@@ -190,6 +190,7 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
         }
         if (m_currentPort)
             m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
+        showDevice();
     }
 }
 

@@ -214,6 +214,7 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
     rmFunc(m_inputModel);
     if (m_currentPort)
         m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
+    showDevice();
 }
 
 void MicrophonePage::addPort(const dcc::sound::Port *port)
@@ -239,6 +240,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
         }
         if (m_currentPort)
             m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
+        showDevice();
     }
 }
 

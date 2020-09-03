@@ -75,6 +75,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void removePort(const QString &portId, const uint &cardId);
     void addPort(const dcc::sound::Port *port);
+    void changeComboxIndex(const int idx);
 
 Q_SIGNALS:
     //请求改变输出音量 0-1.5
