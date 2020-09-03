@@ -292,7 +292,7 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
                 continue;
             }
 
-            cw->setFocusPolicy(Qt::StrongFocus);
+            cw->setFocusPolicy(Qt::TabFocus);
             setTabOrder(pre, cw);
             pre = cw;
         } else if (cl) {
