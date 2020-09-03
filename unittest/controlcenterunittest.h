@@ -32,6 +32,8 @@ public:
 
 private slots:
     void SetPrimary(QString strDisplay = "HDMI-0");         //设置主屏
+    // 测试控制中心每个模块的跳转是否正常
+    void testModules();
 };
 
 #endif // CONTROLCENTER_UNIT_TEST_H

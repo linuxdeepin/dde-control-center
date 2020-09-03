@@ -66,6 +66,35 @@ void ControlCenterUnitTest::SetPrimary(QString strDisplay)
     QCOMPARE(strPrimary, strDisplay);
 }
 
+void ControlCenterUnitTest::testModules()
+{
+    QProcess *controlcenterProc = new QProcess();
+    controlcenterProc->start("dde-control-center --show");
+    connect(controlcenterProc, &QProcess::started, this, [=] {
+        QDBusInterface inter("com.deepin.dde.ControlCenter",
+                             "/com/deepin/dde/ControlCenter",
+                             "com.deepin.dde.ControlCenter",
+                             QDBusConnection::sessionBus());
+        QVERIFY(inter.isValid());
+
+        QStringList moduleList;
+        moduleList << "accounts" << "bluetooth" << "commoninfo" << "datetime" << "defapp" << "display"
+                   << "keyboard" << "mouse" << "network" << "notification" << "personalization" << "power"
+                   << "sound" << "cloudsync" << "systeminfo" << "update";
+
+        foreach(QString module, moduleList) {
+            inter.call("ShowModule", module);
+            QThread::sleep(1);
+        }
+        inter.call("exitProc");
+    });
+    connect(controlcenterProc, &QProcess::errorOccurred, this, [=](QProcess::ProcessError error) {
+        qDebug() << "control center error occurred: " << error;
+        QFAIL("control center error occurred");
+    });
+    controlcenterProc->waitForFinished();
+}
+
 QTEST_APPLESS_MAIN(ControlCenterUnitTest)
 
 #include "controlcenterunittest.moc"
