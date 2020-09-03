@@ -400,6 +400,9 @@ void WirelessPage::updateLayout(bool enabled)
 
 void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::DeviceStatus stat)
 {
+    //当wifi状态切换的时候，刷新一下列表，防止出现wifi已经连接，三级页面没有刷新出来的情况，和wifi已经断开，但是页面上还是显示该wifi
+    Q_EMIT requestWirelessScan();
+
     const bool unavailable = stat <= NetworkDevice::Unavailable;
     if (m_preWifiStatus == Wifi_Unknown) {
         m_preWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
