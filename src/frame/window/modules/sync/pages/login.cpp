@@ -43,6 +43,8 @@ LoginPage::LoginPage(QWidget *parent)
     m_mainLayout->addWidget(pLogo, 0, Qt::AlignHCenter);
     m_mainLayout->addSpacing(10);
     QLabel *signintip = new QLabel(tr("Union ID Sign In"));
+    if (DSysInfo::isCommunityEdition())
+        signintip->setText(tr("Deepin ID Sign In"));
     QFont font = signintip->font();
     font.setBold(true);
     signintip->setFont(font);
