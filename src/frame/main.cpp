@@ -135,7 +135,7 @@ void sig_crash(int sig)
 
 int main(int argc, char *argv[])
 {
-    qputenv("QT_QPA_PLATFORM", "xcb");
+    qputenv("QT_QPA_PLATFORM", "wayland");
     qputenv("QT_WAYLAND_SHELL_INTEGRATION", "kwayland-shell");
     DApplication app(argc, argv);
     if (!app.setSingleInstance(QString("dde-control-center_%1").arg(getuid()))) {
