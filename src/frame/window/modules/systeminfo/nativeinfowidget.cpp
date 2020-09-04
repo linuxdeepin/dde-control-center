@@ -128,7 +128,9 @@ void NativeInfoWidget::initWidget()
     }
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
+#ifndef DISABLE_ACTIVATOR
     infoGroup->appendItem(m_authorized);
+#endif
     infoGroup->appendItem(m_kernel);
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);
