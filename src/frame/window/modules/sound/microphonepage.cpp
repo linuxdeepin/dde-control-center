@@ -85,6 +85,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     labelInput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     m_inputSoundCbx = new ComboxWidget(tr("Input Device"));
+    m_inputSoundCbx->setMaximumHeight(50);
 
     QHBoxLayout *hlayout = new QHBoxLayout;
     TitleLabel *lblTitle = new TitleLabel(tr("On"));

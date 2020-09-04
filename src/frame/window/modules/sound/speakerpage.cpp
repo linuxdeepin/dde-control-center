@@ -55,7 +55,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_balanceSlider(nullptr)
     , m_lastsetvalue(0)
 {
-    const int titleLeftMargin = 17;
+    const int titleLeftMargin = 8;
     //~ contents_path /sound/Advanced
     TitleLabel *labelOutput = new TitleLabel(tr("Output"));
     DFontSizeManager::instance()->bind(labelOutput, DFontSizeManager::T5, QFont::DemiBold);
@@ -69,17 +69,21 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     m_outputSoundCbx->comboBox()->setModel(m_outputModel);
     SettingsGroup *outputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     outputSoundsGrp->appendItem(m_outputSoundCbx);
+    if (outputSoundsGrp->layout())
+        outputSoundsGrp->layout()->setContentsMargins(ThirdPageContentsMargins);
 
+    QHBoxLayout *hlayout = new QHBoxLayout;
     TitleLabel *lblTitle = new TitleLabel(tr("On"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->setAccessibleName(tr("Speaker"));
+    hlayout->addWidget(m_sw);
 
     m_layout->addWidget(labelOutput);
-    m_layout->addWidget(outputSoundsGrp, Qt::AlignLeft);
+    m_layout->addWidget(outputSoundsGrp);
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);
-    m_layout->addWidget(m_sw);
+    m_layout->addLayout(hlayout);
     m_layout->addStretch(1);
     setLayout(m_layout);
 }
@@ -348,6 +352,8 @@ void SpeakerPage::initSlider()
     });
 
     m_layout->insertWidget(5, m_balanceSlider);
+    m_layout->setSpacing(10);
+    m_layout->addStretch(10);
     showDevice();
 }
 
