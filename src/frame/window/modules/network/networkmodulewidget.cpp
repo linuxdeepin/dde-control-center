@@ -383,7 +383,7 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
     ret->setActionList(Qt::Edge::RightEdge, {dummystatus});
 
     if (!dummystatus.isNull()) {
-        if (dev->enabled() && dev->status() != NetworkDevice::Unavailable) {
+        if(dev->enabled() && (dev->status() == NetworkDevice::Activated || dev->status() == NetworkDevice::Unavailable)){
             dummystatus->setText(dev->statusString());
         } else {
             dummystatus->setText(tr("Disabled"));
@@ -400,7 +400,7 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
     });
     connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), this, [this, dev, dummystatus] {
         if (!dummystatus.isNull()) {
-            if (dev->enabled() && dev->status() != NetworkDevice::Unavailable) {
+            if(dev->enabled() && (dev->status() == NetworkDevice::Activated || dev->status() == NetworkDevice::Unavailable)){
                 dummystatus->setText(dev->statusString());
             } else {
                 dummystatus->setText(tr("Disabled"));
