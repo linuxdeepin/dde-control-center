@@ -168,6 +168,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     m_inputLineEdit->setVisible(false);
     m_inputLineEdit->lineEdit()->setFrame(false);
     m_inputLineEdit->lineEdit()->setAlignment(Qt::AlignCenter);
+    m_inputLineEdit->lineEdit()->installEventFilter(this);
 
     DFontSizeManager::instance()->bind(m_fullName, DFontSizeManager::T5);
     DFontSizeManager::instance()->bind(m_inputLineEdit, DFontSizeManager::T5);
@@ -262,6 +263,8 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
             updateLineEditDisplayStyle(valid);
             if (valid)
                 Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
+        } else {
+            updateLineEditDisplayStyle(true);
         }
     });
 }
@@ -485,6 +488,16 @@ void AccountsDetailWidget::initGroups(QVBoxLayout *layout)
     layout->addWidget(groupTip);
     layout->addSpacing(List_Interval);
     layout->addWidget(m_groupListView);
+}
+
+bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == m_inputLineEdit->lineEdit() && event->type() == QEvent::MouseButtonPress) {
+        m_inputLineEdit->setAlert(false);
+        m_inputLineEdit->hideAlertMessage();
+        m_inputLineEdit->lineEdit()->setFocus();
+    }
+    return false;
 }
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)

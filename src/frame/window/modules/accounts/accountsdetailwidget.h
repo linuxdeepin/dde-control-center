@@ -98,6 +98,7 @@ protected:
     void initUserInfo(QVBoxLayout *layout);
     void initSetting(QVBoxLayout *layout);
     void initGroups(QVBoxLayout *layout);
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private Q_SLOTS:
     void deleteUserClicked();
