@@ -116,6 +116,8 @@ NetworkModuleWidget::NetworkModuleWidget()
 #endif
 #endif
 
+    m_lastIndex = m_lvnmpages->rootIndex();
+
     //~ contents_path /network/Network Details
     DStandardItem *infoit = new DStandardItem(tr("Network Details"));
     infoit->setData(QVariant::fromValue(NetworkInfoPage), SectionRole);
@@ -132,7 +134,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
 {
     PageType type = idx.data(SectionRole).value<PageType>();
-    if (m_lastIndex == idx) return;
+    if (m_lastIndex == idx && idx.row() != 0) return;
 
     m_lastIndex = idx;
     m_lvnmpages->setCurrentIndex(idx);
@@ -213,8 +215,9 @@ void NetworkModuleWidget::initSetting(const int settingIndex, const QString &sea
 
 void NetworkModuleWidget::setCurrentIndex(const int settingIndex)
 {
-    m_lastIndex = m_modelpages->index(settingIndex, 0);
-    m_lvnmpages->setCurrentIndex(m_lastIndex);
+    m_lastIndex = m_lvnmpages->rootIndex();
+    m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
+    m_lvnmpages->clicked(m_lvnmpages->currentIndex());
 }
 
 void NetworkModuleWidget::setIndexFromPath(const QString &path)
@@ -264,6 +267,7 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
 
 void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
+    int tempRowCounts = m_modelpages->rowCount();
     bool bRemoveCurrentDevice = false;
     QModelIndex currentIndex = m_lvnmpages->currentIndex();
     PageType currentType = currentIndex.data(SectionRole).value<PageType>();
@@ -340,7 +344,11 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     }
 
     if (bRemoveCurrentDevice) {
-        setCurrentIndex(0);
+        if (tempRowCounts > m_modelpages->rowCount()) {
+            setCurrentIndex(m_lastIndex.row() == -1 ? 0 : (m_lastIndex.row() >= 1 ? (m_lastIndex.row() - 1) : m_lastIndex.row()));
+        } else {
+            setCurrentIndex(m_lastIndex.row() == -1 ? 0 : (m_lastIndex.row() >= 1 ? (m_lastIndex.row() + 1) : m_lastIndex.row()));
+        }
     }
 }
 
