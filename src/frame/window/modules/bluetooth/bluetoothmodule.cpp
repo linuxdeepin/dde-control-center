@@ -130,6 +130,7 @@ void BluetoothModule::showDeviceDetail(const Adapter *adapter, const Device *dev
 
 void BluetoothModule::popPage()
 {
+    m_bluetoothWidget->setFocus();
     m_frameProxy->popWidget(this);
 }
 
