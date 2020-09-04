@@ -77,7 +77,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_sw(new SwitchWidget)
     , m_mute(false)
 {
-    const int titleLeftMargin = 17;
+    const int titleLeftMargin = 8;
     //~ contents_path /sound/Advanced
     TitleLabel *labelInput = new TitleLabel(tr("Input"));
     DFontSizeManager::instance()->bind(labelInput, DFontSizeManager::T5, QFont::DemiBold);
@@ -101,6 +101,9 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     m_inputSoundCbx->comboBox()->setModel(m_inputModel);
     SettingsGroup *inputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     inputSoundsGrp->appendItem(m_inputSoundCbx);
+    if (inputSoundsGrp->layout()) {
+        inputSoundsGrp->layout()->setContentsMargins(ThirdPageContentsMargins);
+    }
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(labelInput);
