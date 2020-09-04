@@ -164,6 +164,10 @@ void ResolutionDetailPage::initResoList()
                 requestSetResolution(moni, m.id());
                 return;
             }
+            if (moni->bestMode().width() == w && moni->bestMode().height() == h) {
+                requestSetResolution(moni, moni->bestMode().id());
+                return;
+            }
         }
         requestSetResolution(moni, itemModel->itemData(idx)[IdRole].toInt());
     });
