@@ -95,6 +95,36 @@ void ControlCenterUnitTest::testModules()
     controlcenterProc->waitForFinished();
 }
 
+/**
+ * @brief ControlCenterUnitTest::inputDevieNum 判断显示的输出设备个数
+ * @param num 预计显示的输出设备数
+ */
+void ControlCenterUnitTest::inputDevieNum(int num)
+{
+    int actualNum = 0;
+    QDBusInterface inter("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", "com.deepin.daemon.Audio", QDBusConnection::sessionBus(), this);
+    QString info = inter.property("CardsWithoutUnavailable").toString();
+
+    QJsonDocument doc = QJsonDocument::fromJson(info.toUtf8());
+    QJsonArray jCards = doc.array();
+    for (QJsonValue cV : jCards) {
+        QJsonObject jCard = cV.toObject();
+        QJsonArray jPorts = jCard["Ports"].toArray();
+
+        for (QJsonValue pV : jPorts) {
+            QJsonObject jPort = pV.toObject();
+            const int portAvai = jPort["Available"].toInt();
+            if (jPort["Direction"].toInt() != 1) //1输出, 2输入
+                continue;
+            if (portAvai == 2 || portAvai == 0 ) { // 0 Unknow 1 Not available 2 Available
+                actualNum++;
+            }
+        }
+    }
+
+    QCOMPARE(actualNum, num);
+}
+
 QTEST_APPLESS_MAIN(ControlCenterUnitTest)
 
 #include "controlcenterunittest.moc"
