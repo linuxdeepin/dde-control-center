@@ -170,7 +170,6 @@ void AdvancedPage::addPort(const Port *port)
     connect(port, &Port::cardNameChanged, cardAction, &DViewItemAction::setText);
     connect(port, &Port::isActiveChanged, this, [ = ](bool isActive) {
         pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
-        initList();
     });
 
     if (port->isActive()) {
