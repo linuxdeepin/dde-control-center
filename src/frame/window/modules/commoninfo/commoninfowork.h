@@ -73,7 +73,6 @@ private:
 private:
     CommonInfoModel *m_commomModel;
     GrubDbus *m_dBusGrub;
-    QFile *m_licenseFile = nullptr;
     GrubThemeDbus *m_dBusGrubTheme;
     UeProgramDbus *m_dBusUeProgram; // for user experience program
     QProcess *m_process = nullptr;

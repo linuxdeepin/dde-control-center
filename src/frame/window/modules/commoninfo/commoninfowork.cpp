@@ -275,9 +275,6 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
                 m_commomModel->setUeProgram(m_dBusUeProgram->IsEnabled());
                 qInfo() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
             }
-            m_licenseFile->remove();
-            m_licenseFile->deleteLater();
-            m_licenseFile = nullptr;
             m_process->deleteLater();
             m_process = nullptr;
         });
