@@ -47,6 +47,16 @@ public:
         In = 2
     };
 
+    /**
+     * @brief The Availability enum
+     * @chinese 用于判断设备是否可用，只显示可用设备
+     */
+    enum Availability {
+        UnKnown = 0,            //未知设备
+        UnAvailable = 1,        //不可用设备
+        Available = 2           //可用设备
+    };
+
     explicit Port(QObject * parent) : QObject(parent) {}
     virtual ~Port() {}
 

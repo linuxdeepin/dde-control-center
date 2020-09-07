@@ -253,11 +253,12 @@ void SoundWorker::cardsChanged(const QString &cards)
 
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
-            const double portAvai = jPort["Available"].toDouble();
-            if (portAvai == 2.0 || portAvai == 0.0 ) { // 0 Unknow 1 Not available 2 Available
-                const QString portId = jPort["Name"].toString();
-                const QString portName = jPort["Description"].toString();
+            const QString portId = jPort["Name"].toString();
+            const QString portName = jPort["Description"].toString();
+            const Port::Availability portAvai = static_cast<Port::Availability>(jPort["Available"].toInt());
 
+            //后端在json里面启用了"Available"属性，只显示portAvai==2的设备，移除其它设备
+            if (portAvai == Port::Available) {
                 Port *port = m_model->findPort(portId, cardId);
                 const bool include = port != nullptr;
                 if (!include) { port = new Port(m_model); }
@@ -272,6 +273,12 @@ void SoundWorker::cardsChanged(const QString &cards)
                 if (!include) { m_model->addPort(port); }
 
                 tmpPorts << portId;
+            } else {
+                for (Port *port : m_model->ports()) {
+                    if(port->id().compare(portId) == 0) {
+                        m_model->removePort(portId, port->cardId());
+                    }
+                }
             }
         }
         tmpCardIds.insert(cardId, tmpPorts);
