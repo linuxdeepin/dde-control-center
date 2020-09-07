@@ -144,6 +144,7 @@ SearchWidget::SearchWidget(QWidget *parent)
         {tr("Computer will suspend after"), false},
         {tr("Sign In"), false},
         {tr("Auto power saving on battery"), false},
+        {tr("Touch Screen"), false},
     };
 
     m_contensServerTxtList = {

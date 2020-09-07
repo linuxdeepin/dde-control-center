@@ -4623,6 +4623,11 @@
         <translation>使用电池时自动开启</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
+        <source>Touch Screen</source>
+        <translation>触控屏</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="157"/>
         <source>Touchpad</source>
         <translation>触控板</translation>
@@ -6674,7 +6679,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
+        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>
