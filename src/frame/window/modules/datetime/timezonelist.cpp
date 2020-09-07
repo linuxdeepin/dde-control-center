@@ -54,6 +54,7 @@ TimezoneList::TimezoneList(QWidget *parent)
     m_centralLayout->addWidget(m_headGroup);
     m_centralLayout->addSpacing(15);
     m_centralLayout->addWidget(m_contentList);
+    m_centralLayout->setContentsMargins(10,0,10,0);
 
     m_contentList->setSpace(List_Interval);
 
