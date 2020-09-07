@@ -726,6 +726,13 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
     return  DMainWindow::eventFilter(watched,event);
 }
 
+//wayland环境下，点击关闭按钮可能会导致程序不能正常退出
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    QWidget::closeEvent(event);
+    qApp->exit();
+}
+
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     DMainWindow::resizeEvent(event);

@@ -118,6 +118,7 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
+    void closeEvent(QCloseEvent *event) override;
 private:
     void resetNavList(bool isIconMode);
     void modulePreInitialize(const QString &m = nullptr);
