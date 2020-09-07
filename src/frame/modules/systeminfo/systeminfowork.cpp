@@ -81,7 +81,8 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
         m_model->setProcessor(DSysInfo::cpuModelName());
     } else {
         if(DSysInfo::cpuModelName().isEmpty()){
-            m_model->setProcessor(QString("%1GHz").arg(cpuMaxMhz / 1000));
+            m_model->setProcessor(QString("%1 @ %2GHz").arg(getHardwareName())
+                                  .arg(cpuMaxMhz / 1000));
         } else {
             m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
                                   .arg(cpuMaxMhz / 1000));
@@ -175,7 +176,8 @@ void SystemInfoWork::processChanged(QDBusMessage msg)
         m_model->setProcessor(DSysInfo::cpuModelName());
     } else {
         if(DSysInfo::cpuModelName().isEmpty()){
-            m_model->setProcessor(QString("%1GHz").arg(cpuMaxMhz / 1000));
+            m_model->setProcessor(QString("%1 @ %2GHz").arg(getHardwareName())
+                                  .arg(cpuMaxMhz / 1000));
         } else {
             m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
                                   .arg(cpuMaxMhz / 1000));
@@ -348,6 +350,27 @@ void SystemInfoWork::getLicenseState()
     QDBusReply<quint32> reply = licenseInfo.call(QDBus::AutoDetect,
                                    "GetIndicatorData");
     m_model->setLicenseState(reply);
+}
+
+//klu上面没有model name字段 现在读取HardwareName字段
+QString SystemInfoWork::getHardwareName()
+{
+    QFile file("/proc/cpuinfo");
+    qint64 lineLength = 0;
+    if (file.open(QFile::ReadOnly)) {
+        do {
+            char buf[1024] = {0};
+            lineLength = file.readLine(buf, sizeof(buf));
+            QString str(buf);
+            if(str.contains(':')) {
+                QStringList list = str.split(':');
+                if(list.size() == 2 && list.first().contains("Hardware")){
+                    return list.back().trimmed();
+                }
+            }
+        } while(lineLength >= 0);
+    }
+    return QString();
 }
 
 }

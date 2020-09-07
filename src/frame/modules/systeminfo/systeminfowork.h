@@ -70,6 +70,7 @@ private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
     void getLicenseState();
+    QString getHardwareName();
 
 private:
     SystemInfoModel* m_model;
