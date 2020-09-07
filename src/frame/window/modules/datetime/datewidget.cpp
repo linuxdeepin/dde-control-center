@@ -188,8 +188,24 @@ void DateWidget::setRange(int minimum, int maximum)
     } else if (m_type == Month) {
         rx.setPattern("^(\\d|0[1-9]|1[0-2])$"); //01-12
     } else {
-        rx.setPattern("^(\\d|0[1-9]|[1-2]\\d|3[0-1])$"); //01-31
+        QString regStr;
+        switch (maximum) {
+        case 31:
+            regStr = "^(\\d|0[1-9]|[1-2]\\d|3[0-1])$";  //01-31
+            break;
+        case 30:
+            regStr = "^(\\d|0[1-9]|[1-2]\\d|30)$";      //01-30
+            break;
+        case 29:
+            regStr = "^(\\d|0[1-9]|[1-2]\\d)$";         //01-29
+            break;
+        case 28:
+            regStr = "^(\\d|0[1-9]|1\\d|2[0-8])$";      //01-28
+            break;
+        }
+        rx.setPattern(regStr);
     }
+
     m_lineEdit->setValidator(new QRegExpValidator(rx));
 
     fixup();
