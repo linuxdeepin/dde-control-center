@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "interface/namespace.h"
 #include "notificationwidget.h"
 #include "modules/notification/model/appitemmodel.h"
 #include "modules/notification/notificationmodel.h"

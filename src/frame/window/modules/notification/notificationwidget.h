@@ -21,6 +21,7 @@
 #pragma once
 
 #include "modules/notification/notificationmodel.h"
+#include "interface/namespace.h"
 
 #include <dtkwidget_global.h>
 
