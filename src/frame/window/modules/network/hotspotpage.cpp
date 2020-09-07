@@ -177,7 +177,9 @@ void HotspotDeviceWidget::onConnWidgetSelected(const QModelIndex &idx)
         return;
     }
 
-    m_page->requestActivateConnection(m_wdev->path(), uuid);
+    if (m_hotspotSwitch && m_hotspotSwitch->checked()) {
+        m_page->requestActivateConnection(m_wdev->path(), uuid);
+    }
 }
 
 void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
@@ -192,7 +194,7 @@ void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
 
 void HotspotDeviceWidget::onHotsportEnabledChanged()
 {
-   //手动点击选中热点，以及添加热点时不应该触发打开关闭热点操作
+    // 手动点击选中热点，以及添加热点时不应该触发打开关闭热点操作
     if (!m_isClicked) {
         m_hotspotSwitch->setChecked(m_wdev->hotspotEnabled());
         m_hotspotSwitch->setEnabled(true);
