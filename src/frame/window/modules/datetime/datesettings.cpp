@@ -115,6 +115,8 @@ DateSettings::DateSettings(QWidget *parent)
     m_timeMinWidget->setValue(time.minute());
     m_timeHourWidget->setButtonSymbols(QAbstractSpinBox::NoButtons);
     m_timeMinWidget->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    m_timeMinWidget->setAccessibleName("TIME_MIN_WIDGET");
+    m_timeHourWidget->setAccessibleName("TIME_HOUR_WIDGET");
 
     int nIndex = QFontDatabase::addApplicationFont(":/datetime/resource/deepindigitaltimes-Regular.ttf");
     if (nIndex != -1) {
@@ -336,6 +338,13 @@ QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
 
     DIconButton *btnUp = new DIconButton(spinBox);
     DIconButton *btnDown = new DIconButton(spinBox);
+    if (max == 59) {
+        btnUp->setAccessibleName("MINUP_BUTTON");
+        btnDown->setAccessibleName("MINDOWM_BUTTON");
+    } else {
+        btnUp->setAccessibleName("HOURUP_BUTTON");
+        btnDown->setAccessibleName("HOURDOWM_BUTTON");
+    }
     btnUp->setIcon(DStyle::SP_ArrowUp);
     btnDown->setIcon(DStyle::SP_ArrowDown);
     btnUp->setFixedSize(QSize(SpinBtnLength, SpinBtnLength));
