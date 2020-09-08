@@ -77,23 +77,20 @@ void RecognizeDialog::paintEvent(QPaintEvent *)
     if (m_model->monitorsIsIntersect()) {
         const QRect intersectRect = QRect(0, 0, m_model->monitorList()[0]->w(), m_model->monitorList()[0]->h());
         QString intersectName = m_model->monitorList().first()->name();
-        for (int i(1); i != m_model->monitorList().size(); ++i)
-        {
-            if (m_dialogModel == TouchRecognizeDialog) {
-                paintMonitorMark(painter, m_model->monitorList()[i]->rect(),
-                                 m_model->monitorList()[i]->name(), m_model->monitorList()[i]->manufacturer());
-            } else if (m_dialogModel == DisplayRecognizeDialog) {
-                intersectName += "=" + m_model->monitorList()[i]->name();
+        for (int i(1); i != m_model->monitorList().size(); ++i) {
+            intersectName += "=" + m_model->monitorList()[i]->name();
+            if (m_dialogModel == DisplayRecognizeDialog) {
                 paintMonitorMark(painter, intersectRect, intersectName);
+            } else {
+                paintMonitorMark1(painter, intersectRect, intersectName);
             }
         }
-
     } else {
         for (auto mon : m_model->monitorList()) {
-            if (m_dialogModel == TouchRecognizeDialog) {
-                paintMonitorMark(painter, mon->rect(), mon->name(), mon->manufacturer());
-            } else if (m_dialogModel == DisplayRecognizeDialog) {
+            if (m_dialogModel == DisplayRecognizeDialog) {
                 paintMonitorMark(painter, mon->rect(), mon->name());
+            } else {
+                paintMonitorMark1(painter, mon->rect(), mon->name());
             }
         }
     }
@@ -140,36 +137,35 @@ void RecognizeDialog::paintMonitorMark(QPainter &painter, const QRect &rect, con
     painter.drawPath(path);
 }
 
-void RecognizeDialog::paintMonitorMark(QPainter &painter, const QRect &rect, const QString &name, const QString &manufacturer)
+void RecognizeDialog::paintMonitorMark1(QPainter &painter, const QRect &rect, const QString &name)
 {
-    int line = 2;
     const qreal ratio = devicePixelRatioF();
     const QRect r(rect.topLeft() / ratio, rect.size() / ratio);
+
     QFont font;
-    font.setPixelSize(20);
+    font.setPixelSize(FONT_SIZE);
     const QFontMetrics fm(font);
 
-    int textWidth = fm.width(name) > fm.width(manufacturer) ? fm.width(name) : fm.width(manufacturer);
-
-    QPainterPath path;
-    path.addText(r.center().x() - fm.width(manufacturer) / 2, r.center().y() - fm.height() / 2, font, manufacturer);
-    path.addText(r.center().x() - fm.width(name) / 2, r.center().y() + fm.height() / 2, font, name);
-
-    QPen backgroundPen(QColor(255, 255, 255, 40));
-    painter.setPen(backgroundPen);
-    QBrush backgroundBrush(QColor(0, 0, 0, 200), Qt::SolidPattern);
-    painter.setBrush(backgroundBrush);
+    int textWidth = fm.width(name);
+    int testHeight = fm.height();
 
     const int rectX = r.center().x() - textWidth / 2 - HORIZENTAL_MARGIN;
-    const int rectY = r.center().y() - fm.height() * line / 2 - VERTICAL_MARGIN;
-    QRect rec(rectX, rectY, textWidth + HORIZENTAL_MARGIN * 2, fm.height() * line + VERTICAL_MARGIN * 2);
+    const int rectY = r.center().y() - testHeight / 2 - VERTICAL_MARGIN;
+    QRect rec(rectX, rectY, textWidth + HORIZENTAL_MARGIN * 2, testHeight + VERTICAL_MARGIN * 2);
+
+    QPainterPath path;
+    path.addText(rec.center().x() - textWidth / 2, rec.center().y() + testHeight / 4, font, name);
+
+    QPen backgroundPen(QColor(255, 255, 255, 40));
+    QBrush backgroundBrush(QColor(0, 0, 0, 200), Qt::SolidPattern);
+    painter.setPen(backgroundPen);
+    painter.setBrush(backgroundBrush);
     painter.drawRoundedRect(rec, RADIUS, RADIUS);
 
     QPen textPen(QColor(255, 255, 255));
-    painter.setPen(textPen);
     QBrush textBrush(QColor(255, 255, 255), Qt::SolidPattern);
+    painter.setPen(textPen);
     painter.setBrush(textBrush);
-
     painter.drawPath(path);
 }
 

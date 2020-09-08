@@ -406,6 +406,10 @@ void DisplayModule::showDisplayRecognize()
 
 void DisplayModule::showTouchRecognize()
 {
+    // 只有一块屏幕不显示触摸提示
+    if (m_displayModel->monitorList().size() < 2) {
+        return;
+    }
     RecognizeDialog dialog(m_displayModel, RecognizeDialog::TouchRecognizeDialog);
     dialog.exec();
 }

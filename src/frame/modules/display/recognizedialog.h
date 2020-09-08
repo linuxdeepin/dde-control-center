@@ -50,7 +50,7 @@ private Q_SLOTS:
 
 private:
     void paintMonitorMark(QPainter &painter, const QRect &rect, const QString &name);
-    void paintMonitorMark(QPainter &painter, const QRect &rect, const QString &name, const QString &manufacturer);
+    void paintMonitorMark1(QPainter &painter, const QRect &rect, const QString &name);
     const QScreen *screenForGeometry(const QRect &rect) const;
 
 private:
