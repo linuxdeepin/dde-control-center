@@ -142,7 +142,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
 
     auto fullname = m_curUser->fullname();
     m_fullName->setEnabled(true);
-    if (fullname.isEmpty()) {
+    if (fullname.simplified().isEmpty()) {
         fullname = tr("Full Name");
         m_fullName->setEnabled(false);
     } else if (fullname.toLocal8Bit().size() > 32) {
@@ -219,7 +219,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     connect(m_curUser, &User::fullnameChanged, this, [ = ](const QString & fullname) {
         auto tstr = fullname;
         m_fullName->setEnabled(true);
-        if (fullname.isEmpty()) {
+        if (fullname.simplified().isEmpty()) {
             tstr = tr("Full Name");
             m_fullName->setEnabled(false);
         } else if (fullname.toLocal8Bit().size() > 32) {
@@ -250,9 +250,9 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         auto uerList = m_userModel->userList();
         //判断账户全名是否被其他用户所用
         auto userList = m_userModel->userList();
-        if (m_inputLineEdit->text() != m_curUser->fullname()) {
+        if (m_inputLineEdit->text().simplified() != m_curUser->fullname()) {
             for (auto u : userList) {
-                if (u->fullname() == m_inputLineEdit->text() && u->fullname() != nullptr) {
+                if (u->fullname() == m_inputLineEdit->text().simplified() && u->fullname() != nullptr) {
                     m_inputLineEdit->setAlert(true);
                     m_inputLineEdit->showAlertMessage(tr("The full name already exists"), -1);
                     return;
@@ -262,7 +262,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
             bool valid = m_inputLineEdit->lineEdit()->text().size() <= 32;
             updateLineEditDisplayStyle(valid);
             if (valid)
-                Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
+                Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text().simplified());
         } else {
             updateLineEditDisplayStyle(true);
         }
