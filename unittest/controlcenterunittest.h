@@ -35,6 +35,7 @@ private slots:
     // 测试控制中心每个模块的跳转是否正常
     void testModules();
     void inputDevieNum(int num = 1);                        //测试显示的输出设备数量
+    void testBluetoothIsVisible();                        //测试蓝牙是否正常显示
 };
 
 #endif // CONTROLCENTER_UNIT_TEST_H

@@ -125,6 +125,23 @@ void ControlCenterUnitTest::inputDevieNum(int num)
     QCOMPARE(actualNum, num);
 }
 
+void ControlCenterUnitTest::testBluetoothIsVisible()
+{
+    QDBusInterface inter("com.deepin.dde.ControlCenter",
+                         "/com/deepin/dde/ControlCenter",
+                         "com.deepin.dde.ControlCenter",
+                         QDBusConnection::sessionBus());
+    QDBusReply<bool> reply = inter.call("isModuleAvailable","bluetooth");
+
+    QDBusInterface bluetoothInter("com.deepin.daemon.Bluetooth",
+                         "/com/deepin/daemon/Bluetooth",
+                         "com.deepin.daemon.Bluetooth",
+                         QDBusConnection::sessionBus());
+    auto bluetoothState = bluetoothInter.property("State").toInt();
+
+    QCOMPARE(reply,bluetoothState);
+}
+
 QTEST_APPLESS_MAIN(ControlCenterUnitTest)
 
 #include "controlcenterunittest.moc"
