@@ -110,7 +110,7 @@ private:
     TitleEdit *m_titleEdit;
     QLabel *m_hideAnonymousLabel;
     const dcc::bluetooth::Adapter *m_adapter;
-    dcc::widgets::SwitchWidget *m_switch;
+    dcc::widgets::SwitchWidget *m_powerSwitch;
     DCheckBox *m_showAnonymousCheckBox;
     QList<QPointer<DeviceSettingsItem>> m_deviceLists;
     QList<QPointer<DeviceSettingsItem>> m_myDevices;
@@ -125,8 +125,7 @@ private:
     DTK_WIDGET_NAMESPACE::DIconButton *m_refreshBtn;
     dcc::bluetooth::BluetoothModel *m_model;
     dcc::widgets::SwitchWidget *m_discoverySwitch;
-    QTimer m_tickTimer;         // 用于300ms内反复操作不需要响应
-    bool m_lastCheck;           // 开关按钮的上一次的有效状态
+    bool m_lastPowerCheck;     // 蓝牙适配器Power开关按钮的最后一次的状态
     QTimer *m_delaySortTimer;
     bool m_showUnnamedDevices;
     BluetoothInter m_bluetoothInter;

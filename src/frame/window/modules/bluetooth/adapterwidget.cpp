@@ -54,11 +54,11 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     : m_titleEdit(new TitleEdit)
     , m_hideAnonymousLabel(new QLabel(tr("Show Bluetooth devices without names")))
     , m_adapter(adapter)
-    , m_switch(new dcc::widgets::SwitchWidget(nullptr, m_titleEdit))
+    , m_powerSwitch(new SwitchWidget(nullptr, m_titleEdit))
     , m_showAnonymousCheckBox(new DCheckBox(this))
     , m_model(model)
     , m_discoverySwitch(new SwitchWidget(tr("Allow other Bluetooth devices to find this device")))
-    , m_lastCheck(false)
+    , m_lastPowerCheck(false)
     , m_delaySortTimer(new QTimer(this))
     , m_bluetoothInter("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this)
 {
@@ -80,14 +80,11 @@ AdapterWidget::~AdapterWidget()
 
 bool AdapterWidget::getSwitchState()
 {
-    return m_switch ? m_switch->checked() : false;
+    return m_powerSwitch ? m_powerSwitch->checked() : false;
 }
 
 void AdapterWidget::initMember()
 {
-    m_tickTimer.setSingleShot(true);
-    m_tickTimer.setInterval(300);
-
     m_delaySortTimer->setSingleShot(true);
     m_delaySortTimer->setInterval(10);
 
@@ -106,7 +103,7 @@ void AdapterWidget::initUI()
     m_spinnerBtn = new DSpinner(m_titleEdit);
 
     m_titleEdit->setMinimumWidth(10);
-    pshlayout->addWidget(m_switch);
+    pshlayout->addWidget(m_powerSwitch);
     pshlayout->addWidget(m_spinnerBtn);
     m_spinnerBtn->setFixedSize(24, 24);
     m_spinnerBtn->start();
@@ -129,9 +126,9 @@ void AdapterWidget::initUI()
     phlayoutShowAnonymous->addWidget(m_spinner);
     phlayoutShowAnonymous->addWidget(m_refreshBtn);
 
-    m_switch->addBackground();
-    m_switch->setFixedHeight(39);
-    m_switch->setContentsMargins(0, 0, 10, 0);
+    m_powerSwitch->addBackground();
+    m_powerSwitch->setFixedHeight(39);
+    m_powerSwitch->setContentsMargins(0, 0, 10, 0);
     m_discoverySwitch->leftWidget()->setMinimumWidth(10);
     m_discoverySwitch->addBackground();
     m_discoverySwitch->setContentsMargins(0, 0, 10, 0);
@@ -141,7 +138,7 @@ void AdapterWidget::initUI()
     vlayout->addWidget(m_discoverySwitch);
 
     m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
-    m_tip->setVisible(!m_switch->checked());
+    m_tip->setVisible(!m_powerSwitch->checked());
     m_tip->setWordWrap(true);
     m_tip->setContentsMargins(16, 0, 10, 0);
 
@@ -251,14 +248,11 @@ void AdapterWidget::initConnect()
         Q_EMIT requestRefresh(m_adapter);
     });
 
-    connect(m_switch, &SwitchWidget::checkedChanged, this, [ = ](const bool check){
-        if (check == m_lastCheck)
-        {
-            m_tickTimer.stop();
-            return;
-        }
-        m_tickTimer.start();
-        m_discoverySwitch->setVisible(check);
+    connect(m_powerSwitch, &SwitchWidget::checkedChanged, this, [ = ](const bool check) {
+        m_discoverySwitch->setEnabled(false);
+        m_lastPowerCheck = check;
+        m_powerSwitch->setEnabled(false);
+        Q_EMIT requestSetToggleAdapter(m_adapter, check);
     });
 
     connect(m_discoverySwitch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleDiscoverableSwitch);
@@ -302,9 +296,6 @@ void AdapterWidget::initConnect()
             }
         }
     });
-    connect(&m_tickTimer, &QTimer::timeout, this, [ = ](){
-        toggleSwitch(!m_lastCheck);
-    });
 
     connect(m_delaySortTimer, &QTimer::timeout, this, [ = ] {
        m_myDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
@@ -326,12 +317,14 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     connect(adapter, &Adapter::deviceAdded, this, &AdapterWidget::addDevice, Qt::QueuedConnection);
     connect(adapter, &Adapter::deviceRemoved, this, &AdapterWidget::removeDevice, Qt::QueuedConnection);
     connect(adapter, &Adapter::poweredChanged, this, &AdapterWidget::onPowerStatus, Qt::QueuedConnection);
-    connect(m_model, &BluetoothModel::adpaterPowerd, m_switch, [ = ] {
-        m_switch->switchButton()->show();
+    connect(m_model, &BluetoothModel::adpaterPowerChanged, m_powerSwitch, [ = ] {
+        m_powerSwitch->setEnabled(true);
+        m_discoverySwitch->setEnabled(true);
+        m_powerSwitch->switchButton()->show();
         m_spinnerBtn->hide();
     });
-    connect(adapter, &Adapter::loadStatus, m_switch, [ = ] {
-        m_switch->switchButton()->hide();
+    connect(adapter, &Adapter::loadStatus, m_powerSwitch, [ = ] {
+        m_powerSwitch->switchButton()->hide();
         m_spinnerBtn->show();
     });
 
@@ -345,14 +338,16 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     connect(adapter, &Adapter::discoverableChanged, m_discoverySwitch, [ = ] {
         m_discoverySwitch->setChecked(adapter->discoverabled());
     });
-    m_lastCheck = adapter->powered();
+    m_lastPowerCheck = adapter->powered();
     m_discoverySwitch->setChecked(m_adapter->discoverabled());
     onPowerStatus(adapter->powered(), adapter->discovering());
 }
 
 void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
 {
-    m_switch->setChecked(bPower);
+    m_powerSwitch->setEnabled(true);
+    m_powerSwitch->setChecked(bPower);
+    m_discoverySwitch->setEnabled(true);
     m_discoverySwitch->setVisible(bPower);
     m_tip->setVisible(!bPower);
     m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
@@ -378,7 +373,7 @@ void AdapterWidget::toggleSwitch(const bool checked)
             }
         }
     }
-    m_lastCheck = checked;
+    m_lastPowerCheck = checked;
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
 }
 
@@ -405,7 +400,7 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
             m_otherDeviceModel->insertRow(0,dListItem);
         }
     }
-    bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
+    bool isVisible = !m_myDevices.isEmpty() && m_powerSwitch->checked();
     m_myDevicesGroup->setVisible(isVisible);
     m_myDeviceListView->setVisible(isVisible);
 
@@ -416,7 +411,6 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
 
 void AdapterWidget::addDevice(const Device *device)
 {
-    qDebug() << "addDevice: " << device->name();
     QPointer<DeviceSettingsItem> deviceItem = new DeviceSettingsItem(device, style());
     categoryDevice(deviceItem, device->paired());
 
@@ -450,7 +444,7 @@ void AdapterWidget::addDevice(const Device *device)
             m_otherDeviceModel->appendRow(dListItem);
             m_delaySortTimer->start();
         }
-        bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
+        bool isVisible = !m_myDevices.isEmpty() && m_powerSwitch->checked();
         m_myDevicesGroup->setVisible(isVisible);
         m_myDeviceListView->setVisible(isVisible);
     });
@@ -466,7 +460,7 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     bool isFind = false;
     for (auto it : m_myDevices) {
         if (it && it->device() && it->device()->id() == deviceId) {
-            qDebug() << "removeDevice my: " << it->device()->name();
+            // qDebug() << "removeDevice my: " << it->device()->name();
             BtStandardItem *item = it->getStandardItem();
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
             m_myDeviceModel->removeRow(myDeviceIndex.row());
@@ -482,7 +476,7 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     if (!isFind) {
         for (auto it : m_deviceLists) {
             if (it && it->device() && it->device()->id() == deviceId) {
-                qDebug() << "removeDevice other: " << it->device()->name();
+                // qDebug() << "removeDevice other: " << it->device()->name();
                 BtStandardItem *item = it->getStandardItem();
                 QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
                 m_otherDeviceModel->removeRow(otherDeviceIndex.row());

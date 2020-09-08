@@ -163,7 +163,7 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
                     adapter->loadStatus();
                     connect(adapter, &Adapter::poweredChanged, [=](const bool &receivePowerd, const bool &) {
                         if (powered == receivePowerd) {
-                            m_model->adpaterPowerd(adapter->powered());
+                            m_model->adpaterPowerChanged(adapter->powered());
                         }
                     });
                     delete timer;
@@ -184,7 +184,7 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
             adapter->loadStatus();
             connect(adapter, &Adapter::poweredChanged, [=](const bool &receivePowerd, const bool &) {
                 if (powered == receivePowerd) {
-                    m_model->adpaterPowerd(adapter->powered());
+                    m_model->adpaterPowerChanged(adapter->powered());
                 }
             });
             delete timer;
