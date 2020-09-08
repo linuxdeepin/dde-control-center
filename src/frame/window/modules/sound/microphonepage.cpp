@@ -371,7 +371,7 @@ void MicrophonePage::showDevice()
 {
     if (!m_feedbackSlider || !m_inputSlider || !m_noiseReductionsw)
         return;
-    if (m_inputModel->rowCount() > 0) {
+    if (m_inputModel->rowCount() > 0 && m_inputSoundCbx->comboBox()->currentIndex() != -1) {
         m_feedbackSlider->show();
         m_inputSlider->show();
         m_noiseReductionsw->show();
