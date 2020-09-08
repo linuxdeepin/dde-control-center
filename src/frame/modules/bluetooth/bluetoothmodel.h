@@ -41,20 +41,23 @@ public:
 
     QMap<QString, const Adapter *> adapters() const;
     const Adapter *adapterById(const QString &id);
+    bool canTransportable() const;
 
 public Q_SLOTS:
     void addAdapter(Adapter *adapter);
     const Adapter *removeAdapater(const QString &adapterId);
+    void setTransportable(const bool transPortable);
 
 Q_SIGNALS:
     void adapterAdded(const Adapter *adapter) const;
     void adapterRemoved(const Adapter *adapter) const;
     void adpaterListChanged();
     void adpaterPowerChanged(const bool &power) const;
+    void transportableChanged(const bool transPortable) const;
 
 private:
     QMap<QString, const Adapter *> m_adapters;
-
+    bool m_transPortable;
     friend class BluetoothWorker;
 };
 

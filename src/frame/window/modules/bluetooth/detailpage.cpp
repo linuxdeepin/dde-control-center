@@ -22,6 +22,7 @@
 #include "detailpage.h"
 #include "modules/bluetooth/device.h"
 #include "modules/bluetooth/adapter.h"
+#include "modules/bluetooth/bluetoothmodel.h"
 #include "widgets/translucentframe.h"
 #include "widgets/titlelabel.h"
 
@@ -41,8 +42,9 @@ using namespace dcc::bluetooth;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::bluetooth;
 
-DetailPage::DetailPage(const Adapter *adapter, const Device *device)
+DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, const Device *device)
     : ContentWidget()
+    , m_bluetoothModel(model)
     , m_adapter(adapter)
     , m_device(device)
 {
@@ -50,6 +52,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     m_disconnectButton = new QPushButton(tr("Disconnect"));
     m_connectButton = new QPushButton(tr("Connect"));
     m_transfileButton = new QPushButton(tr("Send Files"));
+    m_transfileButton->setEnabled(m_bluetoothModel->canTransportable());
     setTitle(device->name());
     dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
@@ -116,6 +119,8 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
         }
     });
+    connect(m_bluetoothModel, &BluetoothModel::transportableChanged, m_transfileButton, &QPushButton::setEnabled);
+
     connect(m_device, &Device::nameChanged, m_devNameLabel, &QLabel::setText);
     connect(m_device, &Device::aliasChanged, m_editDevAlias, &QLineEdit::setText);
     connect(m_device, &Device::stateChanged, this, [this] {

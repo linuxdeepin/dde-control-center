@@ -90,6 +90,9 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync) :
         }
     });
 
+    connect(m_bluetoothInter, &DBusBluetooth::TransportableChanged, m_model, &BluetoothModel::setTransportable);
+    m_model->setTransportable(m_bluetoothInter->transportable());
+
     m_bluetoothInter->setSync(sync);
 
     //第一次调用时传true，refresh 函数会使用同步方式去获取蓝牙设备数据

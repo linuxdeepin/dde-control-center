@@ -116,7 +116,7 @@ void BluetoothModule::contentPopped(QWidget *const w)
 
 void BluetoothModule::showDeviceDetail(const Adapter *adapter, const Device *device)
 {
-    DCC_NAMESPACE::bluetooth::DetailPage *page = new DCC_NAMESPACE::bluetooth::DetailPage(adapter, device);
+    DCC_NAMESPACE::bluetooth::DetailPage *page = new DCC_NAMESPACE::bluetooth::DetailPage(m_bluetoothModel, adapter, device);
 
     connect(page, &DetailPage::requestIgnoreDevice, m_bluetoothWorker, &BluetoothWorker::ignoreDevice);
     connect(page, &DetailPage::requestDisconnectDevice, m_bluetoothWorker, &BluetoothWorker::disconnectDevice);

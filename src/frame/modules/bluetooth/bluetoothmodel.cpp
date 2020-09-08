@@ -28,7 +28,9 @@
 namespace dcc {
 namespace bluetooth {
 
-BluetoothModel::BluetoothModel(QObject *parent) : QObject(parent)
+BluetoothModel::BluetoothModel(QObject *parent)
+    : QObject(parent)
+    , m_transPortable(false)
 {
     m_adapters.clear();
 }
@@ -67,6 +69,29 @@ QMap<QString, const Adapter *> BluetoothModel::adapters() const
 const Adapter *BluetoothModel::adapterById(const QString &id)
 {
     return m_adapters.keys().contains(id) ? m_adapters[id] : nullptr;
+}
+
+/**
+ * @brief BluetoothModel::canTransportable
+ * @return
+ * 返回值表示是否能传输蓝牙文件
+ */
+bool BluetoothModel::canTransportable() const
+{
+    return m_transPortable;
+}
+
+/**
+ * @brief BluetoothModel::setTransportable
+ * @param transPortable
+ * 设置是否能传输蓝牙文件
+ */
+void BluetoothModel::setTransportable(const bool transPortable)
+{
+    if (m_transPortable != transPortable) {
+        m_transPortable = transPortable;
+        Q_EMIT transportableChanged(transPortable);
+    }
 }
 
 } // namespace bluetooth

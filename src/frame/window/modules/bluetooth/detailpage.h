@@ -38,6 +38,7 @@ namespace dcc {
 namespace bluetooth {
 class Device;
 class Adapter;
+class BluetoothModel;
 }
 }
 
@@ -47,7 +48,7 @@ class DetailPage : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit DetailPage(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
+    explicit DetailPage(const dcc::bluetooth::BluetoothModel *model, const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
 
 Q_SIGNALS:
     void requestIgnoreDevice(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
@@ -59,6 +60,7 @@ private Q_SLOTS:
     void onDeviceAliasChanged();
     void onDeviceStatusChanged();
 private:
+    const dcc::bluetooth::BluetoothModel *m_bluetoothModel;
     const dcc::bluetooth::Adapter *m_adapter;
     const dcc::bluetooth::Device *m_device;
     QPushButton *m_ignoreButton;
