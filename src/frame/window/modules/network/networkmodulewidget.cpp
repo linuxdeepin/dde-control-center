@@ -189,8 +189,8 @@ void NetworkModuleWidget::initSetting(const int settingIndex, const QString &sea
 
 void NetworkModuleWidget::setCurrentIndex(const int settingIndex)
 {
-    m_lastIndex = m_modelpages->index(settingIndex, 0);
-    m_lvnmpages->setCurrentIndex(m_lastIndex);
+    // 设置网络列表当前索引
+    m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
 }
 
 void NetworkModuleWidget::setIndexFromPath(const QString &path)
