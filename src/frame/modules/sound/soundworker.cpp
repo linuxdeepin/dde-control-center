@@ -73,7 +73,10 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     connect(m_audioInter, &Audio::IncreaseVolumeChanged, model, &SoundModel::setIncreaseVolume);
     connect(m_audioInter, &Audio::CardsWithoutUnavailableChanged, model, &SoundModel::setAudioCards);
     connect(m_audioInter, &Audio::ReduceNoiseChanged, model, &SoundModel::setReduceNoise);
-
+    //查询,端口是否可用 改为信号槽方式
+    connect(m_audioInter, &Audio::PortEnabledChanged, [this](uint cardId, QString portName){
+        isPortEnabled(cardId, portName);
+    });
     connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
@@ -146,11 +149,8 @@ void SoundWorker::isPortEnabled(unsigned int cardid, QString portName)
 
 void SoundWorker::setPortEnabled(unsigned int cardid, QString portName, bool enable)
 {
-    if (m_audioInter) {
+    if (m_audioInter)
         m_audioInter->SetPortEnabled(cardid, portName, enable);
-        //查询,通知界面显示是否可用
-        isPortEnabled(cardid, portName);
-    }
 }
 
 void SoundWorker::setSinkBalance(double balance)
