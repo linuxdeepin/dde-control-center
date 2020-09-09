@@ -90,6 +90,7 @@ const int four_widget_min_widget = widget_total_min_width + third_widget_min_wid
 
 const QMargins navItemMargin(5, 3, 5, 3);
 const QVariant NavItemMargin = QVariant::fromValue(navItemMargin);
+const QString DisplayInterface("com.deepin.daemon.Display");
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -105,7 +106,16 @@ MainWindow::MainWindow(QWidget *parent)
     , m_firstCount(-1)
     , m_widgetName("")
     , m_backwardBtn(nullptr)
+    , m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)
 {
+    m_displayInter.setSync(false);
+    connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, this, [this] {
+        this->setMaximumWidth(m_displayInter.screenWidth());
+    });
+    connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, this, [this] {
+        this->setMaximumHeight(m_displayInter.screenHeight());
+    });
+
     //Initialize view and layout structure
     DMainWindow::installEventFilter(this);
 

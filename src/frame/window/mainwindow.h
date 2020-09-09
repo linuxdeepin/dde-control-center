@@ -34,6 +34,7 @@
 #include <QPair>
 #include <QDBusContext>
 #include <QGSettings>
+#include <com_deepin_daemon_display.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -53,6 +54,8 @@ namespace widgets {
 class MultiSelectListView;
 }
 }
+
+using DisplayInter = com::deepin::daemon::Display;
 
 extern const QByteArray ControlCenterGSettings;
 extern const QString GSettinsWindowWidth;
@@ -161,6 +164,7 @@ private:
     QList<QString> m_removeableDeviceList;//用于记录可移除设备是否当前是否存在,存在加到list，不存在从list移除
     QGSettings *m_moduleSettings{nullptr};
     QGSettings *m_versionType{nullptr};
+    DisplayInter m_displayInter;
 };
 }
 
