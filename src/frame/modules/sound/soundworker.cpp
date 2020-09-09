@@ -257,8 +257,8 @@ void SoundWorker::cardsChanged(const QString &cards)
             const QString portName = jPort["Description"].toString();
             const Port::Availability portAvai = static_cast<Port::Availability>(jPort["Available"].toInt());
 
-            //后端在json里面启用了"Available"属性，只显示portAvai==2的设备，移除其它设备
-            if (portAvai == Port::Available) {
+            //后端在json里面启用了"Available"属性，只显示portAvai==2的设备，移除其它设备是可以使用的状态
+            if (portAvai == Port::Available || portAvai == Port::UnKnown) {
                 Port *port = m_model->findPort(portId, cardId);
                 const bool include = port != nullptr;
                 if (!include) { port = new Port(m_model); }
