@@ -130,25 +130,22 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         const bool isHotspot = type == "wireless-hotspot";
         const bool isWireless = type == "wireless";
         const QJsonObject &hotspotInfo = info.value("Hotspot").toObject();
-        QVBoxLayout *m_headTitleLayout = new QVBoxLayout;
+
+        // 设置活跃网络标题
+        SettingsHead *head = new SettingsHead;
+        head->setEditEnable(false);
+        head->setContentsMargins(20,0,0,0);
 
         if (isHotspot) {
-            SettingsHead *head = new SettingsHead();
             head->setTitle(tr("Hotspot"));
-            head->setEditEnable(false);
             grp->appendItem(head, SettingsGroup::NoneBackground);
 
             const QString ssid = hotspotInfo.value("Ssid").toString();
             appendInfo(grp, tr("SSID"), ssid);
         } else {
             const QString name = info.value("ConnectionName").toString();
-            SettingsHead *head = new SettingsHead();
             head->setTitle(name);
-            DFontSizeManager::instance()->bind(head, DFontSizeManager::T5, QFont::DemiBold);
-            head->setEditEnable(false);
             grp->appendItem(head, SettingsGroup::NoneBackground);
-            m_headTitleLayout->addWidget(head);
-            m_headTitleLayout->setContentsMargins(20,0,0,0);
         }
 
         if (isWireless) {
@@ -235,8 +232,6 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             if (!speed.isEmpty())
                 appendInfo(grp, tr("Speed"), speed);
         }
-        m_groupsLayout->addLayout(m_headTitleLayout);
-        m_groupsLayout->addSpacing(10);
         m_groupsLayout->addWidget(grp);
         if (--infoCount > 0) {
             m_groupsLayout->addSpacing(30);
