@@ -53,16 +53,16 @@ SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
 
     QHBoxLayout *lableLayout = new QHBoxLayout;
     lableLayout->addWidget(m_leftWidget);
-    QHBoxLayout *mainLayout = new QHBoxLayout(this);
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(8,0,8,0);
+    m_mainLayout = new QHBoxLayout(this);
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->setContentsMargins(8,0,8,0);
 
-    mainLayout->addLayout(lableLayout, 0);
-    mainLayout->addWidget(m_switchBtn, 0, Qt::AlignVCenter);
+    m_mainLayout->addLayout(lableLayout, 0);
+    m_mainLayout->addWidget(m_switchBtn, 0, Qt::AlignVCenter);
 
     m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
-    setLayout(mainLayout);
+    setLayout(m_mainLayout);
 
     connect(m_switchBtn, &DSwitchButton::toggled, this, &SwitchWidget::checkedChanged);
 }

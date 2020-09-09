@@ -134,8 +134,6 @@ void sig_crash(int sig)
 
 int main(int argc, char *argv[])
 {
-    DApplication::loadDXcbPlugin();
-
     DApplication app(argc, argv);
     if (!app.setSingleInstance(QString("dde-control-center_%1").arg(getuid()))) {
         qDebug() << "set single instance failed!";

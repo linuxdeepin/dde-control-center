@@ -99,19 +99,19 @@ void AdapterWidget::initUI()
 
     //~ contents_path /bluetooth/Other Devices
     m_otherDevicesGroup = new TitleLabel(tr("Other Devices"));
-    QHBoxLayout *pshlayout = new QHBoxLayout;
     m_spinnerBtn = new DSpinner(m_titleEdit);
 
     m_titleEdit->setMinimumWidth(10);
-    pshlayout->addWidget(m_powerSwitch);
-    pshlayout->addWidget(m_spinnerBtn);
+    //把动画按钮放在蓝牙开关前面
+    m_powerSwitch->getMainLayout()->insertWidget(1, m_spinnerBtn, Qt::AlignVCenter);
+
     m_spinnerBtn->setFixedSize(24, 24);
     m_spinnerBtn->start();
     m_spinnerBtn->hide();
     m_spinner = new DSpinner();
     m_spinner->setFixedSize(24, 24);
     m_spinner->start();
-    m_refreshBtn = new DIconButton (this);
+    m_refreshBtn = new DIconButton(this);
     m_refreshBtn->setFixedSize(36, 36);
     m_refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
     m_showAnonymousCheckBox->setChecked(m_showUnnamedDevices);
@@ -134,7 +134,7 @@ void AdapterWidget::initUI()
     m_discoverySwitch->setContentsMargins(0, 0, 10, 0);
     m_discoverySwitch->setFixedHeight(39);
     QVBoxLayout *vlayout = new QVBoxLayout;
-    vlayout->addLayout(pshlayout);
+    vlayout->addWidget(m_powerSwitch);
     vlayout->addWidget(m_discoverySwitch);
 
     m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
@@ -186,18 +186,18 @@ void AdapterWidget::initUI()
     layout->addWidget(m_otherDeviceListView);
     layout->addSpacing(interval);
     layout->addStretch();
-    layout->setContentsMargins(0,0,15,0);
+    layout->setContentsMargins(0, 0, 15, 0);
 
     setLayout(layout);
 }
 
 void AdapterWidget::initConnect()
 {
-    connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [ = ](const QString &alias) {
+    connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [ = ](const QString & alias) {
         Q_EMIT requestSetAlias(m_adapter, alias);
     });
 
-    connect(m_myDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
+    connect(m_myDeviceListView, &DListView::clicked, this, [this](const QModelIndex & idx) {
         m_otherDeviceListView->clearSelection();
         const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(idx.model());
         if (!deviceModel) {
@@ -244,21 +244,23 @@ void AdapterWidget::initConnect()
 
     connect(m_otherDeviceListView, &DListView::activated, m_otherDeviceListView, &DListView::clicked);
 
-    connect(m_refreshBtn, &DIconButton::clicked, this , [=]{
+    connect(m_refreshBtn, &DIconButton::clicked, this, [ = ] {
         Q_EMIT requestRefresh(m_adapter);
     });
 
     connect(m_powerSwitch, &SwitchWidget::checkedChanged, this, [ = ](const bool check) {
-        m_discoverySwitch->setEnabled(false);
-        m_lastPowerCheck = check;
-        m_powerSwitch->setEnabled(false);
+        //关闭蓝牙的时候,直接隐藏列表
+        if (!check) {
+            onPowerStatus(false, false);
+        }
+        m_powerSwitch->switchButton()->setEnabled(false);
         Q_EMIT requestSetToggleAdapter(m_adapter, check);
     });
 
     connect(m_discoverySwitch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleDiscoverableSwitch);
 
     connect(&m_bluetoothInter, &BluetoothInter::DisplaySwitchChanged, m_showAnonymousCheckBox, &DCheckBox::setChecked);
-    connect(m_showAnonymousCheckBox, &DCheckBox::stateChanged, this, [=](int state) {
+    connect(m_showAnonymousCheckBox, &DCheckBox::stateChanged, this, [ = ](int state) {
         if (state == Qt::CheckState::Unchecked) {
             if (m_bluetoothInter.displaySwitch()) {
                 m_bluetoothInter.setDisplaySwitch(false);
@@ -298,8 +300,8 @@ void AdapterWidget::initConnect()
     });
 
     connect(m_delaySortTimer, &QTimer::timeout, this, [ = ] {
-       m_myDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
-       m_otherDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
+        m_myDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
+        m_otherDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
     });
 }
 
@@ -318,13 +320,11 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     connect(adapter, &Adapter::deviceRemoved, this, &AdapterWidget::removeDevice, Qt::QueuedConnection);
     connect(adapter, &Adapter::poweredChanged, this, &AdapterWidget::onPowerStatus, Qt::QueuedConnection);
     connect(m_model, &BluetoothModel::adpaterPowerChanged, m_powerSwitch, [ = ] {
-        m_powerSwitch->setEnabled(true);
-        m_discoverySwitch->setEnabled(true);
-        m_powerSwitch->switchButton()->show();
+        m_powerSwitch->switchButton()->setEnabled(true);
         m_spinnerBtn->hide();
     });
     connect(adapter, &Adapter::loadStatus, m_powerSwitch, [ = ] {
-        m_powerSwitch->switchButton()->hide();
+        m_powerSwitch->switchButton()->setEnabled(false);
         m_spinnerBtn->show();
     });
 
@@ -350,6 +350,7 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
     m_discoverySwitch->setEnabled(true);
     m_discoverySwitch->setVisible(bPower);
     m_tip->setVisible(!bPower);
+    m_discoverySwitch->setVisible(bPower);
     m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(bPower);
     m_showAnonymousCheckBox->setVisible(bPower);
@@ -397,7 +398,7 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
                 m_delaySortTimer->start();
             }
         } else {
-            m_otherDeviceModel->insertRow(0,dListItem);
+            m_otherDeviceModel->insertRow(0, dListItem);
         }
     }
     bool isVisible = !m_myDevices.isEmpty() && m_powerSwitch->checked();
@@ -460,7 +461,6 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     bool isFind = false;
     for (auto it : m_myDevices) {
         if (it && it->device() && it->device()->id() == deviceId) {
-            // qDebug() << "removeDevice my: " << it->device()->name();
             BtStandardItem *item = it->getStandardItem();
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
             m_myDeviceModel->removeRow(myDeviceIndex.row());
@@ -476,7 +476,6 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     if (!isFind) {
         for (auto it : m_deviceLists) {
             if (it && it->device() && it->device()->id() == deviceId) {
-                // qDebug() << "removeDevice other: " << it->device()->name();
                 BtStandardItem *item = it->getStandardItem();
                 QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
                 m_otherDeviceModel->removeRow(otherDeviceIndex.row());

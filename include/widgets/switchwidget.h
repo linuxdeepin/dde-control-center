@@ -28,6 +28,8 @@
 
 #include "widgets/settingsitem.h"
 
+#include <QHBoxLayout>
+
 #include <dswitchbutton.h>
 
 QT_BEGIN_NAMESPACE
@@ -52,6 +54,7 @@ public:
     bool checked() const;
 
     QWidget *leftWidget() const { return m_leftWidget; }
+    QHBoxLayout* getMainLayout() { return m_mainLayout; }
 
 public:
     inline DTK_WIDGET_NAMESPACE::DSwitchButton *switchButton() const { return m_switchBtn; }
@@ -66,6 +69,7 @@ protected:
 private:
     QWidget *m_leftWidget;
     Dtk::Widget::DSwitchButton *m_switchBtn;
+    QHBoxLayout *m_mainLayout;
 };
 
 }
