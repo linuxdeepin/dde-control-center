@@ -358,6 +358,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_device, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     connect(m_device, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
     connect(m_device, &WirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
+    connect(m_device, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged)
+            , this, &WirelessPage::updateActiveAp);
 
     // init data
     const QJsonArray mApList = m_device->apList();
@@ -682,7 +684,7 @@ void WirelessPage::updateActiveAp()
         it.value()->setSortInfo(info);
 
         if (m_clickedItem == it.value()) {
-            qDebug() << "click item: " << isConnected;
+            qDebug() << "click item: " << isConnected << ", status: " << status;
             bool loading = true;
             if (status == NetworkDevice::Activated || status == NetworkDevice::Disconnected) {
                 loading = false;
