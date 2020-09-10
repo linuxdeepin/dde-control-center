@@ -65,6 +65,7 @@ public:
     SpeakerPage(QWidget *parent = nullptr);
     ~SpeakerPage();
     void showDevice();
+    void setDeviceVisible(bool visable);
 
 public:
     void setModel(dcc::sound::SoundModel *model);

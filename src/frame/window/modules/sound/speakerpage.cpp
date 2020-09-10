@@ -102,6 +102,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
             m_sw->setChecked(true);
         else
             m_sw->setChecked(false);
+        showDevice();
     });
 
     connect(m_model, &SoundModel::setPortChanged, this, [ = ](const dcc::sound::Port  * port) {
@@ -358,13 +359,30 @@ void SpeakerPage::initSlider()
 }
 
 /**
- * @brief SpeakerPage::showDevice 当无设备时，不显示信息页
+ * @brief SpeakerPage::showDevice
+ * 当无设备时，不显示设备信息
+ * 当只有一个设备时，一直显示设备信息
+ * 当有多个设备，且未禁用时，显示设备信息
  */
 void SpeakerPage::showDevice()
 {
     if (!m_speakSlider || !m_vbWidget || !m_balanceSlider || !m_outputSlider)
         return;
-    if (m_outputModel->rowCount() > 0) {
+    if (1 == m_outputModel->rowCount())
+        setDeviceVisible(true);
+    if (1 > m_outputModel->rowCount())
+        setDeviceVisible(false);
+    if (1 < m_outputModel->rowCount()) {
+        if (m_sw->checked())
+            setDeviceVisible(true);
+        else
+            setDeviceVisible(false);
+    }
+}
+
+void SpeakerPage::setDeviceVisible(bool visable)
+{
+    if (visable) {
         m_speakSlider->show();
         m_vbWidget->show();
         m_balanceSlider->show();

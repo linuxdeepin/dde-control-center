@@ -77,6 +77,7 @@ public:
     ~MicrophonePage();
     void resetUi();
     void showDevice();
+    void setDeviceVisible(bool visable);
 public:
     void setModel(dcc::sound::SoundModel *model);
 

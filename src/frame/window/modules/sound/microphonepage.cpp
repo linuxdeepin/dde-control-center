@@ -148,6 +148,7 @@ void MicrophonePage::setModel(SoundModel *model)
     //监听消息设置是否可用
     connect(m_model, &SoundModel::isPortEnableChanged, this, [ = ](bool enable) {
         m_sw->setChecked(enable);
+        showDevice();
     });
     //发送查询请求消息看是否可用
     connect(m_model, &SoundModel::setPortChanged, this, [ = ](const dcc::sound::Port  * port) {
@@ -367,11 +368,36 @@ const QPixmap MicrophonePage::loadSvg(const QString &iconName, const QString &lo
     return pixmap;
 }
 
+/**
+ * @brief MicrophonePage::showDevice
+ * 当默认设备为空时隐藏设备信息
+ * 当无设备时，不显示设备信息
+ * 当只有一个设备时，一直显示设备信息
+ * 当有多个设备，且未禁用时，显示设备信息
+ */
 void MicrophonePage::showDevice()
 {
     if (!m_feedbackSlider || !m_inputSlider || !m_noiseReductionsw)
         return;
-    if (m_inputModel->rowCount() > 0 && m_inputSoundCbx->comboBox()->currentIndex() != -1) {
+    if (-1 == m_inputSoundCbx->comboBox()->currentIndex()) {
+        setDeviceVisible(false);
+        return;
+    }
+    if (1 == m_inputModel->rowCount())
+        setDeviceVisible(true);
+    if (1 > m_inputModel->rowCount())
+        setDeviceVisible(false);
+    if (1 < m_inputModel->rowCount()) {
+        if (m_sw->checked())
+            setDeviceVisible(true);
+        else
+            setDeviceVisible(false);
+    }
+}
+
+void MicrophonePage::setDeviceVisible(bool visable)
+{
+    if (visable) {
         m_feedbackSlider->show();
         m_inputSlider->show();
         m_noiseReductionsw->show();
