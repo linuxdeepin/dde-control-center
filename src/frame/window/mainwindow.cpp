@@ -289,6 +289,16 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
                 }
             }
 
+            //对DSldier控件嵌套左右两个图片按钮(DIconButton类型)设置没有焦点策略
+            if (qobject_cast<DSlider *>(cw))
+            {
+                QList<DIconButton *> blist = cw->findChildren<DIconButton *>();
+                for (int i = 0; i < blist.count(); i++) {
+                    blist.at(i)->setFocusPolicy(Qt::NoFocus);
+                }
+                continue;
+            }
+
             if ((!qobject_cast<QAbstractButton *>(cw)
                     && !qobject_cast<QLineEdit *>(cw)
                     && !qobject_cast<QAbstractItemView *>(cw)
@@ -302,8 +312,8 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
                 continue;
             }
 
-            if (!qobject_cast<QAbstractSlider *>(cw))
-                cw->setFocusPolicy(Qt::StrongFocus);
+            //目前与主线对齐,dde-qt5integration统一样式，控件获取焦点存在焦点边框显示
+            cw->setFocusPolicy(Qt::StrongFocus);
             setTabOrder(pre, cw);
             pre = cw;
         } else if (cl) {
