@@ -89,11 +89,12 @@ MicrophonePage::MicrophonePage(QWidget *parent)
 
     QHBoxLayout *hlayout = new QHBoxLayout;
     TitleLabel *lblTitle = new TitleLabel(tr("On"));
-    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5);
     m_sw = new SwitchWidget(nullptr, lblTitle);
+    m_sw->addBackground();
 
     TitleLabel *ndTitle = new TitleLabel(tr("Automatic Noise Suppression"));
-    DFontSizeManager::instance()->bind(ndTitle, DFontSizeManager::T5, QFont::DemiBold);
+    DFontSizeManager::instance()->bind(ndTitle, DFontSizeManager::T5);
     m_noiseReductionsw = new SwitchWidget(nullptr, ndTitle);
 
     hlayout->addWidget(m_sw);
@@ -101,6 +102,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     m_inputModel  = new QStandardItemModel(m_inputSoundCbx->comboBox());
     m_inputSoundCbx->comboBox()->setModel(m_inputModel);
     SettingsGroup *inputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    inputSoundsGrp->getLayout()->setContentsMargins(ThirdPageContentsMargins);
     inputSoundsGrp->appendItem(m_inputSoundCbx);
     if (inputSoundsGrp->layout()) {
         inputSoundsGrp->layout()->setContentsMargins(ThirdPageContentsMargins);
