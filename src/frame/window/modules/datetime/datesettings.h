@@ -74,6 +74,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void updateRealAutoSyncCheckState(const bool &state);
     void updateNTPServerList(const QStringList &list);
+    void updateSettingformatTime(const bool &value);
 
 private Q_SLOTS:
     void onCancelButtonClicked();
@@ -86,6 +87,7 @@ private:
     QSpinBox *createDSpinBox(QWidget *parent, int min, int max);
     void setControlVisible(bool state);
     void updateSettingTime();
+    void updateTime();
 
 private:
     dcc::widgets::SettingsGroup *m_datetimeGroup;
@@ -105,6 +107,7 @@ private:
     bool m_bSystemIsServer;
     QTimer *m_syncSettingTimer;
     qint64 m_timeSec;
+    bool m_Is24HourType;
 };
 
 }// namespace datetime

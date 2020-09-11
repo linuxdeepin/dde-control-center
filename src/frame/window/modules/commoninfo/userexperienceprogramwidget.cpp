@@ -24,6 +24,7 @@
 
 #include "widgets/switchwidget.h"
 #include "widgets/labels/tipslabel.h"
+#include "window/utils.h"
 
 #include <DTipLabel>
 
@@ -53,6 +54,7 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     tipLabel->setAlignment(Qt::AlignJustify);
 
     vBoxLayout->setMargin(0);
+    vBoxLayout->setContentsMargins(ThirdPageContentsMargins);
     vBoxLayout->setSpacing(0);
     vBoxLayout->addWidget(m_joinUeProgram);
     vBoxLayout->addSpacing(8);

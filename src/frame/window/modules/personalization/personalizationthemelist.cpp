@@ -20,6 +20,7 @@
  */
 #include "personalizationthemelist.h"
 #include "modules/personalization/model/thememodel.h"
+#include "window/utils.h"
 
 #include <DListView>
 
@@ -44,6 +45,7 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     m_listview->setSelectionMode(QAbstractItemView::NoSelection);
     m_listview->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     layout->addWidget(m_listview);
+    layout->setContentsMargins(ThirdPageContentsMargins);
     this->setLayout(layout);
     connect(m_listview, &DListView::clicked, this, &PerssonalizationThemeList::onClicked);
 

@@ -23,6 +23,7 @@
 #include "interface/namespace.h"
 
 #include "dsearchedit.h"
+#include <com_deepin_wm.h>
 
 #include <QWidget>
 #include <QList>
@@ -46,6 +47,8 @@ const QString XML_Title = "translation";
 const QString XML_Numerusform = "numerusform";
 const QString XML_Explain_Path = "extra-contents_path";
 const QString XML_Child_Path = "extra-child_page";
+
+using WM = com::deepin::wm;
 
 namespace DCC_NAMESPACE {
 namespace search {
@@ -134,6 +137,7 @@ private:
     QList<QPair<QString, bool>> m_contensServerTxtList;
     bool m_bIsContensServerType;
     QGSettings *m_searchModuleDevelop{nullptr};
+    WM *m_deepinwm;
 
 };
 

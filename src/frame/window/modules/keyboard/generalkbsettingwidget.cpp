@@ -111,6 +111,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_contentLayout->setMargin(0);
     m_contentLayout->addWidget(m_generalSettingsGrp);
     m_contentLayout->addStretch();
+    m_contentLayout->setContentsMargins(ThirdPageContentsMargins);
 
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);

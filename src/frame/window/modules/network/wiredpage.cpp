@@ -94,6 +94,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     centralLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);
     centralLayout->setSpacing(10);//三级菜单控件间的间隙
     centralLayout->setMargin(0);
+    centralLayout->setContentsMargins(ThirdPageContentsMargins);
     //当点击下拉选框，设置半透明状态
     QWidget *centralWidget = new TranslucentFrame;
     centralWidget->setLayout(centralLayout);

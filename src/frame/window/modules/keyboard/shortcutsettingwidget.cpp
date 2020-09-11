@@ -83,7 +83,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
     m_searchInput = new SearchInput();
-    m_searchInput->setContentsMargins(0, 0, 0, 0);
+    m_searchInput->setContentsMargins(0, 0, 10, 0);
     m_searchInput->setAccessibleName("KEYBOARD_LINEEDIT");
 
     m_head = new SettingsHead();
@@ -104,7 +104,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     //vlayout->addSpacing(10);
 
     m_layout = new QVBoxLayout;
-    m_layout->setContentsMargins(ScrollAreaMargins);
+    m_layout->setContentsMargins(0,0,10,0);
     m_layout->addLayout(systemLayout);
     m_layout->addSpacing(3);
     m_layout->addWidget(m_systemGroup);
@@ -130,6 +130,9 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     ContentWidget *contentWidget = new ContentWidget(this);
     contentWidget->setContent(widget);
     vlayout->addWidget(contentWidget);
+
+    widget->hide();
+    m_searchInput->hide();
 
     m_addCustomShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, this);
 
@@ -160,6 +163,11 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     connect(m_model, &ShortcutModel::shortcutChanged, this, &ShortCutSettingWidget::onShortcutChanged);
     connect(m_model, &ShortcutModel::keyEvent, this, &ShortCutSettingWidget::onKeyEvent);
     connect(m_model, &ShortcutModel::searchFinished, this, &ShortCutSettingWidget::onSearchStringFinish);
+
+    QTimer::singleShot(10, this, [=] {
+        widget->show();
+        m_searchInput->show();
+    });
 }
 
 void ShortCutSettingWidget::showCustomShotcut()

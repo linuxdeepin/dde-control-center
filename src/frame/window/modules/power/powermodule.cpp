@@ -36,6 +36,7 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 #define GSETTING_SHOW_SUSPEND "show-suspend"
+#define GSETTING_SHOW_HIBERNATE "show-hibernate"
 
 PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
@@ -88,6 +89,9 @@ void PowerModule::active()
     m_isSuspend = m_powerSetting->get(GSETTING_SHOW_SUSPEND).toBool();
     m_model->setSuspend(m_isSuspend && m_model->canSleep());
 
+    bool hibernate = m_powerSetting->get(GSETTING_SHOW_HIBERNATE).toBool();
+    m_model->setHibernate(hibernate && m_model->canHibernate() && !IsServerSystem);
+
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::requestRemoveBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
     connect(m_widget, &PowerWidget::requestShowGeneral, this, &PowerModule::showGeneral);
@@ -106,25 +110,39 @@ int PowerModule::load(const QString &path)
 
     QListView *list = m_widget->getListViewPointer();
     powerType type = DEFAULT;
+    powerServerType serverType = SERVER_DEFAULT;
 
     if (!list) {
         return 0;
     }
 
-    if (path == "General") {
-        type = GENERAL;
-    } else if (path == "Plugged In") {
-        type = USE_ELECTRIC;
-    } else if (path == "On Battery") {
-        type = USE_BATTERY;
-    }
+    if (IsServerSystem) {
+        if (path == "Plugged In") {
+            serverType = SERVER_USE_ELECTRIC;
+        } else if (path == "On Battery") {
+            serverType = SERVER_USE_BATTERY;
+        }
 
-    if (type > DEFAULT && type < COUNT) {
-        QModelIndex index = list->model()->index(type, 0);
-        list->setCurrentIndex(index);
-        list->clicked(index);
-    }
+        if (serverType > SERVER_DEFAULT && serverType < SERVER_COUNT) {
+            QModelIndex index = list->model()->index(serverType, 0);
+            list->setCurrentIndex(index);
+            list->clicked(index);
+        }
+    } else {
+        if (path == "General") {
+            type = GENERAL;
+        } else if (path == "Plugged In") {
+            type = USE_ELECTRIC;
+        } else if (path == "On Battery") {
+            type = USE_BATTERY;
+        }
 
+        if (type > DEFAULT && type < COUNT) {
+            QModelIndex index = list->model()->index(type, 0);
+            list->setCurrentIndex(index);
+            list->clicked(index);
+        }
+    }
     return 0;
 }
 

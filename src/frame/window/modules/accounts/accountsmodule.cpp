@@ -102,6 +102,7 @@ void AccountsModule::active()
     connect(m_accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
     connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
     m_frameProxy->pushWidget(this, m_accountsWidget);
+    m_accountsWidget->selectUserList();
 }
 
 int AccountsModule::load(const QString &path)

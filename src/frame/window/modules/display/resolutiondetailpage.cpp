@@ -46,7 +46,6 @@ ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     , m_mainLayout(new QVBoxLayout)
 {
     m_mainLayout->setMargin(0);
-    m_mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
     QWidget *centralWidget = new TranslucentFrame(this);
     centralWidget->setLayout(m_mainLayout);
@@ -163,6 +162,10 @@ void ResolutionDetailPage::initResoList()
             auto r = moni->currentMode().rate();
             if (m.width() == w && m.height() == h && fabs(m.rate() - r) < 0.01) {
                 requestSetResolution(moni, m.id());
+                return;
+            }
+            if (moni->bestMode().width() == w && moni->bestMode().height() == h) {
+                requestSetResolution(moni, moni->bestMode().id());
                 return;
             }
         }

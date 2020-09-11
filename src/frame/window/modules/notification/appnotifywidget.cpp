@@ -23,6 +23,7 @@
 #include "widgets/settingsgroup.h"
 #include "modules/notification/notificationmodel.h"
 #include "modules/notification/model/appitemmodel.h"
+#include "window/utils.h"
 
 #include <DSwitchButton>
 #include <DLabel>
@@ -60,6 +61,7 @@ void AppNotifyWidget::initUI()
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
     setLayout(mainLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);

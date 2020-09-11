@@ -29,6 +29,7 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/translucentframe.h"
 #include "widgets/titlevalueitem.h"
+#include "window/utils.h"
 
 #include <networkmodel.h>
 
@@ -85,6 +86,7 @@ NetworkDetailPage::NetworkDetailPage(QWidget *parent)
     m_groupsLayout = new QVBoxLayout;
     m_groupsLayout->setSpacing(0);
     m_groupsLayout->setMargin(0);
+    m_groupsLayout->setContentsMargins(ThirdPageContentsMargins);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(m_groupsLayout);

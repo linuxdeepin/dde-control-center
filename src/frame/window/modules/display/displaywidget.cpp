@@ -36,6 +36,7 @@ using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 #define GSETTINGS_SHOW_MUTILSCREEN "show-multiscreen"
+#define GSETTINGS_BRIGHTNESS_ENABLE "brightness-enable"
 
 DisplayWidget::DisplayWidget(dcc::display::DisplayModel *model, QWidget *parent)
     : QWidget(parent)
@@ -44,7 +45,9 @@ DisplayWidget::DisplayWidget(dcc::display::DisplayModel *model, QWidget *parent)
     , m_menuList(new dcc::widgets::MultiSelectListView(this))
     , m_multiModel(new QStandardItemModel(this))
     , m_singleModel(new QStandardItemModel(this))
+    , m_displaySetting(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
 {
+    m_isShowMultiscreen = m_displaySetting->get(GSETTINGS_SHOW_MUTILSCREEN).toBool();
     m_model = model;
     setObjectName("Display");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -111,7 +114,8 @@ void DisplayWidget::onMonitorListChanged()
     const auto mons = m_model->monitorList();
 
     m_rotate->setVisible(mons.size() <= 1);
-    if (m_isMultiScreen && mons.size() <= 1) {
+    // 配置文件关闭多屏显示模式按显示菜单显示单屏配置
+    if ((m_isMultiScreen && mons.size() <= 1) || !m_isShowMultiscreen) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
         m_rotate->show();
@@ -145,9 +149,13 @@ void DisplayWidget::initMenuUI()
        }
     }
 
-    if (mons.count() == 0) {
-       m_multMenuList.removeAt(1);
-       m_singleMenuList.removeAt(1);
+    bool brightnessEnable = m_displaySetting->get(GSETTINGS_BRIGHTNESS_ENABLE).toBool();
+
+    if (mons.count() == 0 || !brightnessEnable) {
+        if (getMenuIndex(tr("Brightness"), false) >= 0)
+            m_multMenuList.removeAt(getMenuIndex(tr("Brightness"), false));
+        if (getMenuIndex(tr("Brightness")) >= 0)
+            m_singleMenuList.removeAt(getMenuIndex(tr("Brightness")));
     }
 
     if (!IsServerSystem) {
@@ -165,7 +173,7 @@ void DisplayWidget::initMenuUI()
                              };
     m_singleMenuList << refreshMenu;
 
-    if (m_model && !m_model->touchscreenList().isEmpty()) {
+    if ((m_model && !m_model->touchscreenList().isEmpty()) && !IsServerSystem) {
         //~ contents_path /display/Touch Screen
         MenuMethod touchscreenMenu = {tr("Touch Screen"),
                                       "dcc_touchscreen",
@@ -174,8 +182,6 @@ void DisplayWidget::initMenuUI()
         m_singleMenuList << touchscreenMenu;
     }
 
-    m_displaySetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    m_isShowMultiscreen = m_displaySetting->get(GSETTINGS_SHOW_MUTILSCREEN).toBool();
     if (!m_isShowMultiscreen) {
         m_multMenuList.removeAt(0);
         MenuMethod multiRefreshMenu = {tr("Refresh Rate"), "dcc_refresh_rate",
@@ -185,8 +191,10 @@ void DisplayWidget::initMenuUI()
                                   QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)
                                  };
         m_multMenuList << multiResoMenu << multiRefreshMenu;
-        m_singleMenuList[0] = {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)};
-        m_singleMenuList[3] = {tr("Refresh Rate"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiRefreshRatePage)};
+        if (getMenuIndex(tr("Resolution")) >= 0)
+            m_singleMenuList[getMenuIndex(tr("Resolution"))] = {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)};
+        if (getMenuIndex(tr("Refresh Rate")) >= 0)
+            m_singleMenuList[getMenuIndex(tr("Refresh Rate"))] = {tr("Refresh Rate"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiRefreshRatePage)};
     }
 
     DStandardItem *btn{nullptr};
@@ -235,4 +243,23 @@ void DisplayWidget::onMenuClicked(const QModelIndex &idx)
         m_singleMenuList[idx.row()].method.invoke(this);
     }
     m_menuList->resetStatus(idx);
+}
+
+int DisplayWidget::getMenuIndex(QString str, bool isSingle)
+{
+    if (isSingle) {
+        for (int i = 0; i < m_singleMenuList.count(); i++) {
+            if (m_singleMenuList[i].menuText == str) {
+                return i;
+            }
+        }
+    } else {
+        for (int i = 0; i < m_multMenuList.count(); i++) {
+            if (m_multMenuList[i].menuText == str) {
+                return i;
+            }
+        }
+    }
+    qDebug() << "no menu named " << str << " in " << (isSingle ? "single" : "multi") << " menu list or it has been already removed";
+    return -1;
 }

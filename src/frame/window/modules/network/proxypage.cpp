@@ -32,6 +32,7 @@
 #include "widgets/settingsitem.h"
 #include "widgets/switchwidget.h"
 #include "widgets/comboxwidget.h"
+#include "window/utils.h"
 #include <networkmodel.h>
 
 #include <DPalette>
@@ -143,6 +144,7 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     // 自动代理界面布局
     QVBoxLayout *autoLayout = new QVBoxLayout;
+    autoLayout->setContentsMargins(ThirdPageContentsMargins);
     autoLayout->addWidget(autoGroup);
     autoLayout->setSpacing(10);
     autoLayout->setMargin(0);
@@ -166,6 +168,7 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     QVBoxLayout *vLayout = new QVBoxLayout;
     vLayout->setMargin(0);
+    vLayout->setContentsMargins(ThirdPageContentsMargins);
     QVBoxLayout *btnLayout = new QVBoxLayout;
     btnLayout->setMargin(0);
     btnLayout->addWidget(m_buttonTuple);

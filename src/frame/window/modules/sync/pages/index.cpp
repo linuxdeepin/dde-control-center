@@ -96,7 +96,7 @@ IndexPage::IndexPage(QWidget *parent)
     scrollArea->setWidget(hwidget);
 
     QScroller::grabGesture(scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
-    QScroller *scroller = QScroller::scroller(scrollArea->viewport());
+    QScroller *scroller = QScroller::scroller(hwidget->window());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);

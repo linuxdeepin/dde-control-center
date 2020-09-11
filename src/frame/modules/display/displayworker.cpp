@@ -624,6 +624,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::RotationChanged, mon, &Monitor::setRotate);
     connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
+    connect(inter, &MonitorInter::BestModeChanged, mon, &Monitor::setBestMode);
 
     connect(inter, &MonitorInter::CurrentModeChanged, this,  [ = ] (Resolution  value) {
         if (value.id() == 0) {
@@ -660,6 +661,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setH(inter->height());
     mon->setRotate(inter->rotation());
     mon->setCurrentMode(inter->currentMode());
+    mon->setBestMode(inter->bestMode());
     mon->setModeList(inter->modes());
     if (m_model->isRefreshRateEnable() == false) {
         for (auto resolutionModel : mon->modeList()) {

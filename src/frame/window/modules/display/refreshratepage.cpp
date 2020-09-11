@@ -68,6 +68,7 @@ void RefreshRatePage::initRateList()
     qDebug() << "moni->modeList size:" << moni->modeList().size();
     qDebug() << "moni current mode :" << moni->currentMode().width()
              << "x" << moni->currentMode().height();
+    bool hasRecommend = false;
     for (auto m : moni->modeList()) {
         if (!Monitor::isSameResolution(m, moni->currentMode()))
             continue;
@@ -79,10 +80,17 @@ void RefreshRatePage::initRateList()
         listModel->appendRow(item);
 
         auto tstr = QString::number(trate, 'g', 4) + tr("Hz");
-        if (isFirst) {
+        if (Monitor::isSameResolution(m, moni->bestMode())) {
+            if (Monitor::isSameRatefresh(m, moni->bestMode())) {
+                tstr += QString(" (%1)").arg(tr("Recommended"));
+                hasRecommend = true;
+            }
+        } else if (isFirst) {
             tstr += QString(" (%1)").arg(tr("Recommended"));
             isFirst = false;
+            hasRecommend = true;
         }
+
         if (fabs(trate - moni->currentMode().rate()) < 0.000001) {
             item->setCheckState(Qt::CheckState::Checked);
         } else {
@@ -90,6 +98,10 @@ void RefreshRatePage::initRateList()
         }
         item->setData(QVariant(m.id()), Qt::WhatsThisPropertyRole);
         item->setText(tstr);
+    }
+
+    if (!hasRecommend) {
+        qDebug() << "BestMode provided by server is not in the ModeList";
     }
 
     connect(list, &DListView::clicked, this, [ = ](const QModelIndex & idx) {

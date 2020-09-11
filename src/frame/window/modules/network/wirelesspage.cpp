@@ -319,6 +319,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     updateLayout(!m_lvAP->isHidden());
     m_mainLayout->setSpacing(10);//三级菜单控件间的间隙
     m_mainLayout->setMargin(0);
+    m_mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(m_mainLayout);

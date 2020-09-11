@@ -58,19 +58,19 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
 
     SettingsGroup *powerSettingsGrp = new SettingsGroup;
     powerSettingsGrp->setSpacing(List_Interval);
-    if (!IsServerSystem) {
-        m_monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
-        //~ contents_path /power/Plugged In
-        //~ child_page Plugged In
-        m_monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
-        m_monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
-        m_monitorSleepOnPower->slider()->setRange(1, 7);
-        m_monitorSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
-        m_monitorSleepOnPower->slider()->setTickInterval(1);
-        m_monitorSleepOnPower->slider()->setPageStep(1);
-        connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetScreenBlackDelayOnPower);
-        powerSettingsGrp->appendItem(m_monitorSleepOnPower);
-    }
+
+    m_monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
+    //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
+    m_monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
+    m_monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
+    m_monitorSleepOnPower->slider()->setRange(1, 7);
+    m_monitorSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
+    m_monitorSleepOnPower->slider()->setTickInterval(1);
+    m_monitorSleepOnPower->slider()->setPageStep(1);
+    connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetScreenBlackDelayOnPower);
+    powerSettingsGrp->appendItem(m_monitorSleepOnPower);
+
     if (!IsServerSystem) {
         m_computerSleepOnPower = new TitledSliderItem(tr("Computer will suspend after"));
         //~ contents_path /power/Plugged In
@@ -90,7 +90,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     if (model->getSuspend()) {
         options << tr("Suspend");
     }
-    if (!IsServerSystem && model->canHibernate()) {
+    if (model->getHibernate()) {
         options << tr("Hibernate");
     }
     options << tr("Turn off the monitor") << tr("Do nothing");
@@ -104,6 +104,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     powerSettingsGrp->appendItem(m_cmbPowerBtn);
 
     m_layout->setMargin(0);
+    m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(powerSettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);
@@ -114,10 +115,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     if (!IsServerSystem) {
         m_computerSleepOnPower->setAnnotations(annos);
     }
-
-    if (!IsServerSystem) {
-            m_monitorSleepOnPower->setAnnotations(annos);
-        }
+    m_monitorSleepOnPower->setAnnotations(annos);
 
     m_autoLockScreen->slider()->setType(DCCSlider::Vernier);
     m_autoLockScreen->slider()->setRange(1, 7);
@@ -131,13 +129,13 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetAutoLockScreenOnPower);
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
-            if (IsServerSystem || !model->canHibernate()) {
+            if (!model->getHibernate()) {
                 Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 0 ? nIndex + 2 : nIndex);
             } else {
                 Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
             }
         } else {
-            if (IsServerSystem || !model->canHibernate()) {
+            if (!model->getHibernate()) {
                 Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 1 ? nIndex + 1 : nIndex);
             } else {
                 Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex);
@@ -146,13 +144,13 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
         if (!model->getSuspend()) {
-            if (IsServerSystem || !model->canHibernate()) {
+            if (!model->getHibernate()) {
                 Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 3);
             } else {
                 Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 2);
             }
         } else {
-            if (IsServerSystem || !model->canHibernate()) {
+            if (!model->getHibernate()) {
                 Q_EMIT requestSetLinePowerLidClosedAction(nIndex > 0 ? nIndex + 2 : nIndex + 1);
             } else {
                 Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 1);
@@ -191,13 +189,13 @@ void UseElectricWidget::setModel(const PowerModel *model)
     m_cmbCloseLid->setVisible(model->lidPresent());
     int nLidAction = model->linePowerLidClosedAction();
     if (!model->getSuspend()) {
-        if (IsServerSystem || !model->canHibernate()) {
+        if (!model->getHibernate()) {
             m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 3);
         } else {
             m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 2);
         }
     } else {
-        if (IsServerSystem || !model->canHibernate()) {
+        if (!model->getHibernate()) {
             m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction > 2 ? nLidAction - 2 : nLidAction - 1);
         } else {
             m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 1);
@@ -206,13 +204,13 @@ void UseElectricWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::linePowerLidClosedActionChanged, this, [=](const int reply){
         if (reply - 1 < m_cmbCloseLid->comboBox()->count()) {
             if (!model->getSuspend()) {
-                if (IsServerSystem || !model->canHibernate()) {
+                if (!model->getHibernate()) {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 3);
                 } else {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 2);
                 }
             } else {
-                if (IsServerSystem || !model->canHibernate()) {
+                if (!model->getHibernate()) {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply > 2 ? reply - 2 : reply - 1);
                 } else {
                     m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
@@ -222,13 +220,13 @@ void UseElectricWidget::setModel(const PowerModel *model)
     });
     int powIndex = model->linePowerPressPowerBtnAction();
     if (!model->getSuspend()) {
-        if (IsServerSystem || !model->canHibernate()) {
+        if (!model->getHibernate()) {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
         } else {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
         }
     } else {
-        if (IsServerSystem || !model->canHibernate()) {
+        if (!model->getHibernate()) {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
         } else {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex);
@@ -237,13 +235,13 @@ void UseElectricWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::linePowerPressPowerBtnActionChanged, this, [=](const int reply){
         if (reply < m_cmbPowerBtn->comboBox()->count()) {
             if (!model->getSuspend()) {
-                if (IsServerSystem || !model->canHibernate()) {
+                if (!model->getHibernate()) {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0 ? reply - 2 : reply);
                 } else {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0 ? reply - 1 : reply);
                 }
             } else {
-                if (IsServerSystem || !model->canHibernate()) {
+                if (!model->getHibernate()) {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 2 ? reply - 1 : reply);
                 } else {
                     m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);

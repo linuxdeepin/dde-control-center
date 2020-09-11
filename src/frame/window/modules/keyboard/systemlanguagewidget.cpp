@@ -97,6 +97,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(addSystemLanguage);
     vLayout->addLayout(btnLayout);
+    vLayout->setContentsMargins(ThirdPageContentsMargins);
     setLayout(vLayout);
 
     connect(m_langListview, &DListView::clicked, this, &SystemLanguageWidget::setCurLangChecked);

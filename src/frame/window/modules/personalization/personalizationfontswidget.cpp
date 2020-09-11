@@ -26,6 +26,7 @@
 #include "modules/personalization/personalizationmodel.h"
 #include "modules/personalization/model/fontsizemodel.h"
 #include "modules/personalization/model/fontmodel.h"
+#include "window/utils.h"
 
 #include <DSlider>
 #include <DFontSizeManager>
@@ -54,6 +55,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
+    m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
     //font size
     m_fontSizeSlider->addBackground();
     m_fontSizeSlider->setObjectName("fontsizeslider");
