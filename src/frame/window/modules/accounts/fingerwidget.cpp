@@ -111,11 +111,7 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 {
     m_vecItem.clear();
     m_listGrp->clear();
-    // 如果指纹数量大于等于10,则不显示添加指纹按钮
-    if (thumbs.size() > 10) {
-        qDebug() << "thumbs.size() error: " << thumbs.size();
-        return;
-    }
+
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
         QString finger = thumbs.at(n);
         auto item = new AccounntFingeItem(this);
@@ -169,8 +165,11 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
             }
         }
         if (!findNotUsedThumb) {
-            addFingerButton(newFingerName);
-            break;
+            // 如果指纹数量大于等于10,则不显示添加指纹按钮
+            if (thumbs.size() < 10) {
+                addFingerButton(newFingerName);
+                break;
+            }
         }
     }
 }
