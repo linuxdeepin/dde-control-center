@@ -33,6 +33,7 @@
 #include <QPainter>
 #include <QRect>
 #include <QApplication>
+#include <QKeyEvent>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;

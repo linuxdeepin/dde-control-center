@@ -38,6 +38,7 @@
 #include <QIcon>
 #include <QSize>
 #include <QPainter>
+#include <QPainterPath>
 #include <QPixmap>
 #include <QBitmap>
 

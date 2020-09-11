@@ -30,6 +30,7 @@
 #include <QUrl>
 #include <QHBoxLayout>
 #include <QPainter>
+#include <QPainterPath>
 
 using namespace dcc::widgets;
 using namespace dcc::accounts;

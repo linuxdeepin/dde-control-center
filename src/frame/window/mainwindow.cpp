@@ -62,6 +62,7 @@
 #include <QGSettings>
 #include <QScroller>
 #include <QScreen>
+#include <QResizeEvent>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;

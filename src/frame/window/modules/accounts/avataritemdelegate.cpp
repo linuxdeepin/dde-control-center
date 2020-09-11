@@ -29,6 +29,7 @@
 #include <QStyleOptionViewItem>
 #include <QModelIndex>
 #include <QPainter>
+#include <QPainterPath>
 #include <QPixmap>
 #include <QPen>
 #include <QSize>
