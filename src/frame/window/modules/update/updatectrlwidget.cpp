@@ -30,6 +30,7 @@
 #include "modules/update/downloadprogressbar.h"
 #include "modules/update/resultitem.h"
 #include "widgets/labels/tipslabel.h"
+#include "widgets/utils.h"
 
 #include <types/appupdateinfolist.h>
 #include <QVBoxLayout>
@@ -391,8 +392,9 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
         m_summary->setDetails(tr("Downloaded"));
     } else {
         m_summary->setDetails(QString(tr("Size: %1").arg(formatCap(downloadSize))));
-
-        if ((static_cast<int>(downloadSize) / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt())
+        int dSize = (static_cast<int>(downloadSize) / 1024) / 1024;
+        int maxSize = valueByQSettings<int>(DCC_CONFIG_FILES, "Upgrade", "UpgradeWarningSize", UpgradeWarningSize);
+        if (dSize >= maxSize)
             m_upgradeWarningGroup->setVisible(true);
     }
 

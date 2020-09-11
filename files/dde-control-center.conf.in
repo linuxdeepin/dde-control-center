@@ -6,3 +6,6 @@ AllowEnableMultiScaleRatio=@AllowEnableMultiScaleRatio@
 
 [CloudSync]
 AllowCloudSync=@AllowCloudSync@
+
+[Upgrade]
+UpgradeWarningSize=@UpgradeWarningSize@
