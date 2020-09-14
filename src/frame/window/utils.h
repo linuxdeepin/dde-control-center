@@ -41,6 +41,10 @@ const QMargins ScrollAreaMargins(10, 10, 10, 10);
 const QMargins ScrollAreaOffsetMargins(0, 0, 10, 0);
 const QMargins ListViweItemMargin(10, 8, 10, 8);
 const QVariant VListViewItemMargin = QVariant::fromValue(ListViweItemMargin);
+const QMargins ThirdPageCmbMargins(0, 0, 0, 0);
+
+const int ComboxWidgetHeight = 56;
+const int SwitchWidgetHeight = 36;
 
 const QSize ListViweItemIconSize(84,84);
 const QSize ListViweItemSize(170,168);

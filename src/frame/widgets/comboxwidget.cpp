@@ -21,6 +21,7 @@
 
 #include "widgets/comboxwidget.h"
 #include "widgets/labels/normallabel.h"
+#include "window/utils.h"
 
 #include <QHBoxLayout>
 #include <QComboBox>
@@ -28,6 +29,7 @@
 #include <QStringList>
 #include <QMouseEvent>
 
+using namespace DCC_NAMESPACE;
 namespace dcc {
 namespace widgets {
 
@@ -49,7 +51,7 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     , m_switchComboBox(new QComboBox)
 {
     QHBoxLayout *mainLayout = new QHBoxLayout;
-
+    setFixedHeight(ComboxWidgetHeight);
     QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
     if (label) {
         label->setFixedWidth(110);

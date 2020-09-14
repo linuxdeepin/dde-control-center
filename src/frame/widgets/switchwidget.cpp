@@ -24,6 +24,7 @@
  */
 
 #include "widgets/switchwidget.h"
+#include "window/utils.h"
 
 #include <QHBoxLayout>
 
@@ -33,7 +34,7 @@
 #include "widgets/labels/normallabel.h"
 
 DWIDGET_USE_NAMESPACE
-
+using namespace DCC_NAMESPACE;
 namespace dcc {
 namespace widgets {
 
@@ -51,6 +52,8 @@ SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
     if (!m_leftWidget)
         m_leftWidget = new QLabel();
 
+    addBackground();
+    setFixedHeight(SwitchWidgetHeight);
     QHBoxLayout *lableLayout = new QHBoxLayout;
     lableLayout->addWidget(m_leftWidget);
     m_mainLayout = new QHBoxLayout(this);

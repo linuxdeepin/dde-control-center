@@ -63,22 +63,20 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     labelOutput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     m_outputSoundCbx = new ComboxWidget(tr("Output Device"));
-    m_outputSoundCbx->setMaximumHeight(50);
 
     m_outputModel  = new QStandardItemModel(m_outputSoundCbx->comboBox());
     m_outputSoundCbx->comboBox()->setModel(m_outputModel);
-    SettingsGroup *outputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-    outputSoundsGrp->getLayout()->setContentsMargins(ThirdPageContentsMargins);
+    SettingsGroup *outputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground, true);
+    outputSoundsGrp->getLayout()->setContentsMargins(ThirdPageCmbMargins);
     outputSoundsGrp->appendItem(m_outputSoundCbx);
     if (outputSoundsGrp->layout())
-        outputSoundsGrp->layout()->setContentsMargins(ThirdPageContentsMargins);
+        outputSoundsGrp->layout()->setContentsMargins(ThirdPageCmbMargins);
 
     QHBoxLayout *hlayout = new QHBoxLayout;
     TitleLabel *lblTitle = new TitleLabel(tr("On"));
-    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5);
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->setAccessibleName(tr("Speaker"));
-    m_sw->addBackground();
     hlayout->addWidget(m_sw);
 
     m_layout->addWidget(labelOutput);
@@ -304,7 +302,6 @@ void SpeakerPage::initSlider()
     auto volumeBoost = new SwitchWidget(this);
     volumeBoost->setChecked(m_model->isIncreaseVolume());
     volumeBoost->setTitle(tr("Volume Boost"));
-    volumeBoost->addBackground();
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoost, &SwitchWidget::setChecked);
     connect(volumeBoost, &SwitchWidget::checkedChanged, this, &SpeakerPage::requestIncreaseVolume);
     hlayout->addWidget(volumeBoost);

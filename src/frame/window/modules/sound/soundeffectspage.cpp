@@ -53,17 +53,20 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_layout->setContentsMargins(ThirdPageContentsMargins);
 
     TitleLabel *lblTitle = new TitleLabel(tr("Sound Effects"));
-    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->switchButton()->setAccessibleName(lblTitle->text());
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
+    m_layout->setSpacing(10);
 
     m_effectList->setAccessibleName("List_effectlist");
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);
     m_effectList->setEditTriggers(DListView::NoEditTriggers);
     m_effectList->setFrameShape(DListView::NoFrame);
-    m_effectList->setViewportMargins(5, 0, 10, 0);
+    m_effectList->setViewportMargins(0, 0, 0, 0);
+    m_effectList->setItemSpacing(1);
+
     m_layout->addWidget(m_effectList, 1);
     m_layout->addStretch();
     m_effectList->setMinimumWidth(350);
@@ -157,12 +160,14 @@ void SoundEffectsPage::initList()
     DStandardItem *item = nullptr;
     for (auto se : m_model->soundEffectMap()) {
         item = new DStandardItem(se.first);
+        item->setFontSize(DFontSizeManager::T8);
+        QSize size(15,15);
         auto action = new DViewItemAction(Qt::AlignVCenter, QSize(), QSize(), true);
         auto checkstatus = m_model->queryEffectData(se.second) ?
                            DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
         auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
         action->setIcon(icon);
-        auto aniAction = new DViewItemAction(Qt::AlignVCenter);
+        auto aniAction = new DViewItemAction(Qt::AlignVCenter, size, size);
         aniAction->setVisible(false);
         item->setActionList(Qt::Edge::RightEdge, {aniAction, action});
         m_listModel->appendRow(item);
