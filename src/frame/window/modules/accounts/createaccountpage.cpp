@@ -350,7 +350,7 @@ void CreateAccountPage::createUser()
 
     DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",
                                                      "/com/deepin/defender/daemonservice",
-                                                     QDBusConnection::sessionBus());
+                                                     QDBusConnection::sessionBus(), this);
     QString strPwd = m_passwdEdit->lineEdit()->text();
     if (strPwd.length() >= daemonservice->GetPwdLen() && m_newUser->charactertypes(strPwd) >= daemonservice->GetPwdTypeLen()) {
         Q_EMIT requestCreateUser(m_newUser);
@@ -363,7 +363,7 @@ void CreateAccountPage::createUser()
             if (idx == 0) {
                 Defender *defender = new Defender("com.deepin.defender.hmiscreen",
                                                   "/com/deepin/defender/hmiscreen",
-                                                  QDBusConnection::sessionBus());
+                                                  QDBusConnection::sessionBus(), this);
                 defender->ShowModule("systemsafety");
             }
         });

@@ -39,8 +39,8 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_fingerPrintInter(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint",
-                                         QDBusConnection::systemBus()))
-    , m_SMInter(new SessionManagerInter("com.deepin.SessionManager", "/com/deepin/SessionManager", QDBusConnection::sessionBus()))
+                                         QDBusConnection::systemBus(), this))
+    , m_SMInter(new SessionManagerInter("com.deepin.SessionManager", "/com/deepin/SessionManager", QDBusConnection::sessionBus(), this))
 {
     //处理指纹后端的录入状态信号
     connect(m_fingerPrintInter, &Fingerprint::EnrollStatus, m_model, [this](const QString &, int code, const QString &msg) {

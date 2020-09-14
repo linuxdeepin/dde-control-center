@@ -62,7 +62,7 @@ TimeZoneChooser::TimeZoneChooser()
     , m_confirmBtn(new DSuggestButton(tr("Confirm")))
     , m_currLangSelector(new LangSelector("com.deepin.daemon.LangSelector",
                                           "/com/deepin/daemon/LangSelector",
-                                          QDBusConnection::sessionBus()))
+                                          QDBusConnection::sessionBus(), this))
 {
     setWindowFlags(Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);

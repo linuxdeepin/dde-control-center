@@ -57,6 +57,10 @@ void KeyboardModule::initialize()
     m_shortcutModel = new ShortcutModel();
     m_work = new KeyboardWorker(m_model);
     m_work->setShortcutModel(m_shortcutModel);
+
+    m_model->moveToThread(qApp->thread());
+    m_shortcutModel->moveToThread(qApp->thread());
+    m_work->moveToThread(qApp->thread());
 }
 
 void KeyboardModule::reset()

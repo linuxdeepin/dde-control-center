@@ -47,14 +47,19 @@ UpdateModule::UpdateModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 }
 
-void UpdateModule::preInitialize()
+void UpdateModule::preInitialize(bool sync)
 {
+    Q_UNUSED(sync);
     if (!m_model)
-        m_model = new UpdateModel;
+        m_model = new UpdateModel(this);
 
     if (!m_work) {
         m_work = new UpdateWorker(m_model);
+        m_work->moveToThread(qApp->thread());
+        m_model->moveToThread(qApp->thread());
     }
+
+    m_work->activate(); //refresh data
 
     // 之前自动更新与更新提醒后端为同一处理逻辑，新需求分开处理，前端相应提示角标处理逻辑同步调整
     connect(m_model, &UpdateModel::updateNotifyChanged, this, [this](const bool state) {

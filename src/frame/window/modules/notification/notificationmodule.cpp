@@ -46,15 +46,23 @@ NotificationModule::~NotificationModule()
     m_model->deleteLater();
 }
 
-void NotificationModule::preInitialize()
+// 控制中心启动时会被调用
+void NotificationModule::preInitialize(bool sync)
 {
     if (m_model) {
         delete m_model;
     }
+    m_model = new NotificationModel(this);
+    m_worker = new NotificationWorker(m_model, this);
+    m_worker->moveToThread(qApp->thread());
+    m_model->moveToThread(qApp->thread());
+    m_worker->active(sync); //refresh data
 }
-void NotificationModule::initialize() {
-    m_model = new NotificationModel;
-    m_worker = new NotificationWorker(m_model);
+
+// 仅在进入模块是会被调用
+void NotificationModule::initialize()
+{
+
 }
 
 const QString NotificationModule::name() const

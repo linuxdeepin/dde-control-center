@@ -43,7 +43,7 @@ public:
     NotificationModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
     ~NotificationModule() override;
 
-    virtual void preInitialize() override;
+    virtual void preInitialize(bool sync = false) override;
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual const QString displayName() const override;

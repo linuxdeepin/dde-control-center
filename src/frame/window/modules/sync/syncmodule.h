@@ -45,7 +45,7 @@ public:
     virtual const QString displayName() const override;
     virtual void contentPopped(QWidget *const w) override;
     virtual void active() override;
-    virtual void preInitialize() override;
+    virtual void preInitialize(bool sync = false) override;
     QStringList availPage() const override;
 
 private:

@@ -71,8 +71,9 @@ void UnionidModule::active()
     m_frameProxy->pushWidget(this, widget);
 }
 
-void UnionidModule::preInitialize()
+void UnionidModule::preInitialize(bool sync)
 {
+    Q_UNUSED(sync);
     m_model = new dcc::unionid::UnionidModel;
     m_worker = new dcc::unionid::UnionidWorker(m_model);
 

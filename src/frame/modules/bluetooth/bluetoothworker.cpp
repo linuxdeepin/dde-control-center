@@ -35,7 +35,7 @@ namespace bluetooth {
 
 BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync) :
     QObject(),
-    m_bluetoothInter(new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus())),
+    m_bluetoothInter(new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this)),
     m_model(model)
 {
     connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);

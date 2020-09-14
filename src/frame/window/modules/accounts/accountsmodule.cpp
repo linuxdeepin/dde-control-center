@@ -55,9 +55,16 @@ void AccountsModule::initialize()
     m_userModel = new UserModel(this);
     m_accountsWorker = new AccountsWorker(m_userModel);
 
+    m_accountsWorker->moveToThread(qApp->thread());
+    m_userModel->moveToThread(qApp->thread());
+
     m_fingerModel = new FingerModel(this);
     m_fingerWorker = new FingerWorker(m_fingerModel);
 
+    m_fingerModel->moveToThread(qApp->thread());
+    m_fingerWorker->moveToThread(qApp->thread());
+
+    m_accountsWorker->active();
     connect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
     connect(m_accountsWorker, &AccountsWorker::requesetMainWindowEnabled, this, &AccountsModule::onSetMainWindowEnabled);
 }
@@ -89,8 +96,6 @@ void AccountsModule::contentPopped(QWidget *const w)
 
 void AccountsModule::active()
 {
-    m_accountsWorker->active();
-
     m_accountsWidget = new AccountsWidget;
     m_accountsWidget->setModel(m_userModel);
     m_accountsWidget->setShowFirstUserInfo(true);

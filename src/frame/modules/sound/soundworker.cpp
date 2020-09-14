@@ -39,13 +39,13 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_model(model)
     , m_activeOutputCard(UINT_MAX)
     , m_activeInputCard(UINT_MAX)
-    , m_audioInter(new Audio("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", QDBusConnection::sessionBus()))
-    , m_soundEffectInter(new SoundEffect("com.deepin.daemon.SoundEffect", "/com/deepin/daemon/SoundEffect", QDBusConnection::sessionBus()))
+    , m_audioInter(new Audio("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", QDBusConnection::sessionBus(), this))
+    , m_soundEffectInter(new SoundEffect("com.deepin.daemon.SoundEffect", "/com/deepin/daemon/SoundEffect", QDBusConnection::sessionBus(), this))
     , m_defaultSink(nullptr)
     , m_defaultSource(nullptr)
     , m_sourceMeter(nullptr)
     , m_effectGsettings(new QGSettings("com.deepin.dde.sound-effect", "", this))
-    , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus()))
+    , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
     , m_pingTimer(new QTimer(this))
     , m_activeTimer(new QTimer(this))
 {
@@ -220,7 +220,7 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
     if (path.path().isEmpty()) return;
 
     if (m_defaultSink) m_defaultSink->deleteLater();
-    m_defaultSink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus());
+    m_defaultSink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
 
     connect(m_defaultSink, &Sink::MuteChanged, [this](bool mute) { m_model->setSpeakerOn(!mute); });
     connect(m_defaultSink, &Sink::BalanceChanged, m_model, &SoundModel::setSpeakerBalance);
@@ -241,7 +241,7 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
     if (path.path().isEmpty()) return;
 
     if (m_defaultSource) m_defaultSource->deleteLater();
-    m_defaultSource = new Source("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus());
+    m_defaultSource = new Source("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
 
     connect(m_defaultSource, &Source::MuteChanged, [this](bool mute) { m_model->setMicrophoneOn(mute); });
     connect(m_defaultSource, &Source::VolumeChanged, m_model, &SoundModel::setMicrophoneVolume);
@@ -265,7 +265,7 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
                 m_sourceMeter->deleteLater();
             }
 
-            m_sourceMeter = new Meter("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus());
+            m_sourceMeter = new Meter("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
             m_sourceMeter->setSync(false);
             connect(m_sourceMeter, &Meter::VolumeChanged, m_model, &SoundModel::setMicrophoneFeedback);
             m_model->setMicrophoneFeedback(m_sourceMeter->volume());

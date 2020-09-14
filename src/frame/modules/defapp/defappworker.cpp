@@ -36,7 +36,7 @@ using namespace dcc::defapp;
 DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     QObject(parent),
     m_defAppModel(model),
-    m_dbusManager(new Mime(ManagerService, "/com/deepin/daemon/Mime", QDBusConnection::sessionBus()))
+    m_dbusManager(new Mime(ManagerService, "/com/deepin/daemon/Mime", QDBusConnection::sessionBus(), this))
 {
     m_dbusManager->setSync(false);
 

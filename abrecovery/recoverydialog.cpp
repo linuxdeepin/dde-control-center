@@ -38,10 +38,10 @@ Manage::Manage(QObject *parent)
     : QObject(parent)
     , m_systemRecovery(new AbRecoveryInter("com.deepin.ABRecovery",
                                            "/com/deepin/ABRecovery",
-                                           QDBusConnection::systemBus()))
+                                           QDBusConnection::systemBus(), this))
     , m_sessionManager(new SessionManagerInter("com.deepin.SessionManager",
                                                "/com/deepin/SessionManager",
-                                               QDBusConnection::sessionBus()))
+                                               QDBusConnection::sessionBus(), this))
     , m_dialog(nullptr)
 {
     qDebug() << "abrecovery: Manage construct";

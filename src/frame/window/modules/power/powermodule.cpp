@@ -49,10 +49,17 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
 
 }
 
-void PowerModule::preInitialize()
+void PowerModule::preInitialize(bool sync)
 {
+    //添加此判断是因为公共功能可能泄露。在分配指针“m_model”之前未释放它
+    if (m_model) {
+        delete m_model;
+    }
     m_model = new PowerModel;
     m_work = new PowerWorker(m_model);
+    m_work->moveToThread(qApp->thread());
+    m_model->moveToThread(qApp->thread());
+    m_work->active(sync); //refresh data
 
     m_frameProxy->setRemoveableDeviceStatus(tr("On Battery"), m_model->haveBettary());
 }
@@ -74,7 +81,6 @@ const QString PowerModule::displayName() const
 
 void PowerModule::active()
 {
-    m_work->active();
     m_widget = new PowerWidget;
 
     m_widget->initialize(m_model->haveBettary());

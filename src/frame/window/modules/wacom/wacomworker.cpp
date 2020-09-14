@@ -30,7 +30,7 @@ const QString ServicePath("/com/deepin/daemon/InputDevice/Wacom");
 
 WacomWorker::WacomWorker(WacomModel *model, QObject *parent)
     : QObject(parent)
-    , m_dbusWacom(new Wacom(Service, ServicePath, QDBusConnection::sessionBus()))
+    , m_dbusWacom(new Wacom(Service, ServicePath, QDBusConnection::sessionBus(), this))
     , m_model(model)
 {
     connect(m_dbusWacom, &Wacom::StylusPressureSensitiveChanged, this, &WacomWorker::setPressureSensitive);

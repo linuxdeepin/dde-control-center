@@ -43,16 +43,16 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     , m_model(model)
     , m_keyboardInter(new KeyboardInter("com.deepin.daemon.InputDevices",
                                         "/com/deepin/daemon/InputDevice/Keyboard",
-                                        QDBusConnection::sessionBus()))
+                                        QDBusConnection::sessionBus(), this))
 #ifndef DCC_DISABLE_LANGUAGE
      , m_langSelector(new LangSelector("com.deepin.daemon.LangSelector",
                                       "/com/deepin/daemon/LangSelector",
-                                      QDBusConnection::sessionBus()))
+                                      QDBusConnection::sessionBus(), this))
 #endif
      , m_keybindInter(new KeybingdingInter("com.deepin.daemon.Keybinding",
                                           "/com/deepin/daemon/Keybinding",
-                                          QDBusConnection::sessionBus()))
-     , m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus()))
+                                          QDBusConnection::sessionBus(), this))
+     , m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
 {
     connect(m_wm, &WM::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
     connect(m_keybindInter, SIGNAL(Added(QString,int)), this,SLOT(onAdded(QString,int)));

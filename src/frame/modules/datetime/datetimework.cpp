@@ -40,7 +40,7 @@ static ZoneInfo callbackZoneInfo(const QString &zoneId)
 DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
-    , m_timedateInter(new Timedate("com.deepin.daemon.Timedate", "/com/deepin/daemon/Timedate", QDBusConnection::sessionBus()))
+    , m_timedateInter(new Timedate("com.deepin.daemon.Timedate", "/com/deepin/daemon/Timedate", QDBusConnection::sessionBus(), this))
 {
     m_timedateInter->setSync(false);
 

@@ -35,8 +35,8 @@ const QString UeProgramObjPath("/com/deepin/userexperience/Daemon");
 UnionidWorker::UnionidWorker(UnionidModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
-    , m_syncInter(new SyncInter(SYNC_INTERFACE, "/com/deepin/sync/Daemon", QDBusConnection::sessionBus()))
-    , m_deepinId_inter(new DeepinId(SYNC_INTERFACE, "/com/deepin/deepinid", QDBusConnection::sessionBus()))
+    , m_syncInter(new SyncInter(SYNC_INTERFACE, "/com/deepin/sync/Daemon", QDBusConnection::sessionBus(), this))
+    , m_deepinId_inter(new DeepinId(SYNC_INTERFACE, "/com/deepin/deepinid", QDBusConnection::sessionBus(), this))
 {
     m_syncInter->setSync(false, false);
     m_deepinId_inter->setSync(false, false);

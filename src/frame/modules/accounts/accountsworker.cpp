@@ -53,11 +53,11 @@ const QString NoPasswordVisable = "nopasswd-login-visable";
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
-    , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus()))
+    , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
 #ifdef DCC_ENABLE_ADDOMAIN
-    , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus()))
+    , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
 #endif
-    , m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus()))
+    , m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this))
     , m_userModel(userList)
 {
     struct passwd *pws;
@@ -289,10 +289,10 @@ void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
 
 void AccountsWorker::addUser(const QString &userPath)
 {
-    AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus());
+    AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus(), this);
     userInter->setSync(false);
 
-    User *user = new User;
+    User *user = new User(this);
 
     connect(userInter, &AccountsUser::UserNameChanged, user, [=](const QString &name) {
         user->setName(name);

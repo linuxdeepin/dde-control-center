@@ -40,7 +40,7 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
       m_settings(new QSettings("deepin", "dcc-update-notifier")),
       m_updaterInter(new com::deepin::lastore::Updater("com.deepin.lastore",
                                                        "/com/deepin/lastore",
-                                                       QDBusConnection::systemBus()))
+                                                       QDBusConnection::systemBus(), this))
 {
     setFixedHeight(80);
     setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
