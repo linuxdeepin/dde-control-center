@@ -154,7 +154,7 @@ void AdapterWidget::initUI()
     m_myDeviceListView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     m_myDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_myDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_myDeviceListView->setViewportMargins(ScrollAreaMargins);
+    m_myDeviceListView->setViewportMargins(0, 0, 0, 0);
 
     m_otherDeviceListView = new DListView(this);
     m_otherDeviceModel = new QStandardItemModel(m_otherDeviceListView);
@@ -167,7 +167,7 @@ void AdapterWidget::initUI()
     m_otherDeviceListView->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     m_otherDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_otherDeviceListView->setViewportMargins(ScrollAreaMargins);
+    m_otherDeviceListView->setViewportMargins(0, 0, 0, 0);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
