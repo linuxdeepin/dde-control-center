@@ -186,7 +186,7 @@ void AdapterWidget::initUI()
     layout->addWidget(m_otherDeviceListView);
     layout->addSpacing(interval);
     layout->addStretch();
-    layout->setContentsMargins(0, 0, 15, 0);
+    layout->setContentsMargins(ThirdPageContentsMargins);
 
     setLayout(layout);
 }

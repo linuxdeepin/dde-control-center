@@ -54,7 +54,7 @@ SystemTimezone::SystemTimezone(QWidget *parent)
     m_layout->addSpacing(3);
     m_layout->addWidget(m_setSystemTimezone);
     m_layout->setMargin(0);
-    m_layout->setContentsMargins(0, 0, ScrollAreaOffsetMargins.right(), 0);
+    m_layout->setContentsMargins(ThirdPageContentsMargins);
 
     setLayout(m_layout);
 

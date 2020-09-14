@@ -64,6 +64,7 @@ public:
     QPoint getRotateBtnPos();
     inline bool isMultiMode() const { return m_isMultiScreen; }
     inline bool isShowMultiscreen() const { return m_isShowMultiscreen; }
+    int getMenuIndex(QString str, bool isSingle = true);
 
 public Q_SLOTS:
     void onMonitorListChanged();
@@ -96,6 +97,7 @@ private:
         QString iconName;
         QMetaMethod method;
     };
+
 private:
     dcc::display::DisplayModel *m_model{nullptr};
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_rotate{nullptr};

@@ -158,7 +158,7 @@ void BrightnessPage::addSlider()
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);
     QVBoxLayout *m_headTitleLayout = new QVBoxLayout;
     m_headTitleLayout->addWidget(headTitle, Qt::AlignLeft);
-    m_headTitleLayout->setContentsMargins(8,0,0,0);
+    m_headTitleLayout->setContentsMargins(8,10,0,0);
     m_centralLayout->insertLayout(0, m_headTitleLayout, 0);
     for (int i = 0; i < monList.size(); ++i) {
         //单独显示每个亮度调节名

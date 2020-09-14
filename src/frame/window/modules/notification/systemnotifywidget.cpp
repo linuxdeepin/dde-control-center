@@ -69,6 +69,7 @@ void SystemNotifyWidget::initUI()
     mainLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     mainLayout->setMargin(0);
     mainLayout->setSpacing(10);
+    mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
     setLayout(mainLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);

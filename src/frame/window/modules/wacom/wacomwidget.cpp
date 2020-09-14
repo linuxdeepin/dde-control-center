@@ -23,6 +23,7 @@
 
 #include "window/modules/wacom/wacommodel.h"
 #include "window/modules/wacom/pressuresettings.h"
+#include "window/utils.h"
 
 #include "widgets/settingsitem.h"
 
@@ -79,6 +80,7 @@ void WacomWidget::initWidget()
     m_centralLayout->addWidget(m_modeSetting);
     m_centralLayout->addWidget(m_sensitivity);
     m_centralLayout->setMargin(0);
+    m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
 
     setLayout(m_centralLayout);
 }

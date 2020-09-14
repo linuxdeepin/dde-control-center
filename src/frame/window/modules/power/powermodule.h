@@ -50,6 +50,13 @@ public:
         COUNT
     };
 
+    enum powerServerType {
+        SERVER_DEFAULT = -1,
+        SERVER_USE_ELECTRIC,
+        SERVER_USE_BATTERY,
+        SERVER_COUNT
+    };
+
     PowerModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
 
     virtual void preInitialize(bool sync = false) override;

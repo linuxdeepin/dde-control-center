@@ -63,6 +63,7 @@ public:
     void showLastAccountInfo();
     void setShowFirstUserInfo(bool show);
     void connectUserWithItem(dcc::accounts::User *user);
+    void selectUserList();
 
     enum AccountRole {
         ItemDataRole = Dtk::UserRole + 1

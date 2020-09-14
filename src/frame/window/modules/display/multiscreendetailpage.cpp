@@ -52,15 +52,16 @@ void MultiScreenDetailPage::initUI()
 {
     auto monitors = m_model->monitorList();
     for(int i = 0; i < monitors.size(); ++i) {
+        if (!monitors[i]->enable())
+            return;
         TitleValueItem *title = new TitleValueItem;
         Monitor *moni = monitors[i];
         title->setTitle(moni->name());
         QString resolution = QString("%1x%2").arg(moni->currentMode().width()).arg(moni->currentMode().height());
         QString rate = QString::number(moni->currentMode().rate(), 10, 2);
         title->setValue(m_refreshOrResolution ? resolution : rate);
-        m_mainLayout->addWidget(title);
-        if (i == monitors.size() - 1)
-            m_mainLayout->addStretch();
+        m_mainLayout->addWidget(title, 0, Qt::AlignTop);
     }
+    m_mainLayout->addStretch();
 }
 

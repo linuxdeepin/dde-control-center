@@ -29,6 +29,7 @@
 #include "widgets/lineeditwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
+#include "window/utils.h"
 
 #include <DTipLabel>
 
@@ -84,6 +85,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
+    layout->setContentsMargins(ThirdPageContentsMargins);
     layout->setSpacing(10);
 
     QHBoxLayout *topLayout = new QHBoxLayout;

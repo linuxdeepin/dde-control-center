@@ -329,3 +329,10 @@ void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
         break;
     }
 }
+
+void AccountsWidget::selectUserList()
+{
+    if (m_userModel->userList().size() && !m_userlistView->selectionModel()->selectedIndexes().size()) {
+        showDefaultAccountInfo();
+    }
+}

@@ -177,6 +177,7 @@ void HotspotDeviceWidget::onConnWidgetSelected(const QModelIndex &idx)
         return;
     }
 
+    // 个人热点开启时才尝试激活连接
     if (m_hotspotSwitch && m_hotspotSwitch->checked()) {
         m_page->requestActivateConnection(m_wdev->path(), uuid);
     }

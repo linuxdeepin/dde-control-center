@@ -107,6 +107,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     , m_switchWidget(new QWidget)
 {
     m_centralLayout->setMargin(0);
+    m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
     //appearance
     //~ contents_path /personalization/General
     QLabel *themeL = new TitleLabel(tr("Theme"));

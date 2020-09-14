@@ -67,6 +67,7 @@ public:
     inline const QList<Resolution> modeList() const { return m_modeList; }
     inline bool enable() const { return m_enable; }
     inline QPoint getLastPoint() {return m_lastPoint; }
+    inline const Resolution bestMode() const { return m_bestMode; }
     void setLastPoint(int x, int y) {
         m_lastPoint.setX(x);
         m_lastPoint.setY(y);
@@ -112,6 +113,7 @@ private Q_SLOTS:
     void setCurrentMode(const Resolution &resolution);
     void setModeList(const ResolutionList &modeList);
     void setMonitorEnable(bool enable);
+    void setBestMode(const Resolution &mode);
 
 private:
     int m_x;
@@ -136,6 +138,7 @@ private:
     QList<Resolution> m_modeList;
     bool m_enable;
     bool m_canBrightness;
+    Resolution m_bestMode;
 };
 
 } // namespace display

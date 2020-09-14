@@ -72,6 +72,7 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->setMargin(0);
+    m_contentLayout->setContentsMargins(ThirdPageContentsMargins);
     m_contentLayout->addWidget(m_mouseSettingsGrp);
     m_contentLayout->addStretch();
     TranslucentFrame *tFrame = new TranslucentFrame;

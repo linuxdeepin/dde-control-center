@@ -51,7 +51,7 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
 
     TranslucentFrame *widget = new TranslucentFrame;
 
-    m_mainLayout->setContentsMargins(ScrollAreaMargins);
+    m_mainLayout->setContentsMargins(10,10,11,10);
     m_mainLayout->addSpacing(15);
     m_mainLayout->addWidget(m_title, 0, Qt::AlignCenter);
     m_mainLayout->addSpacing(20);

@@ -79,7 +79,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_switchTitle = new TitleLabel(tr("Switch Layouts (Multiple)"));
     mainLayout->addWidget(m_switchTitle);
     mainLayout->addWidget(m_switchLayoutListView);
-    mainLayout->setContentsMargins(0, 0, 15, 0);
+    mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
     QMap<int, QString> shortCutMap;
     shortCutMap.insert(1, QString("Ctrl+Shift"));
