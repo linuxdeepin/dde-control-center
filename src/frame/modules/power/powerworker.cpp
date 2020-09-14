@@ -75,6 +75,12 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::LowPowerAutoSleepThresholdChanged, m_powerModel, &PowerModel::setLowPowerAutoSleepThreshold);
     //-------------------------------------------------------
 
+    connect(m_powerInter, &PowerInter::ModeChanged, m_powerModel, &PowerModel::setPowerPlan);
+    m_powerModel->setPowerPlan(m_powerInter->mode());
+
+    connect(m_powerInter, &PowerInter::IsHighPerformanceSupportedChanged, m_powerModel, &PowerModel::setHighPerformanceSupported);
+    m_powerModel->setHighPerformanceSupported(m_powerInter->isHighPerformanceSupported());
+
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     bool envVal = QVariant(env.value(POWER_CAN_SLEEP)).toBool();
     bool confVal = valueByQSettings<bool>(DCC_CONFIG_FILES, "Power", "sleep", true);
@@ -243,6 +249,16 @@ void PowerWorker::setLowPowerNotifyThreshold(int dLowPowerNotifyThreshold)
 void PowerWorker::setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold)
 {
     m_powerInter->setLowPowerAutoSleepThreshold(dLowPowerAutoSleepThreshold);
+}
+
+/**
+ * @brief PowerWorker::setPowerPlan
+ * @param powerPlan
+ * 设置性能模式的dbus接口
+ */
+void PowerWorker::setPowerPlan(const QString &powerPlan)
+{
+    m_powerInter->SetMode(powerPlan);
 }
 
 void PowerWorker::setScreenBlackDelayToModelOnBattery(const int delay)

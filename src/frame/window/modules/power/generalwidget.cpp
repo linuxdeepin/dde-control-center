@@ -71,6 +71,10 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     SettingsGroup *generalSettingsGrp = new SettingsGroup;
     generalSettingsGrp->setSpacing(List_Interval);
 
+    TitleLabel *powerPlansLabel = new TitleLabel("");
+    //~ contents_path /power/General
+    powerPlansLabel->setText(tr("Power Plans"));
+    DFontSizeManager::instance()->bind(powerPlansLabel, DFontSizeManager::T5, QFont::DemiBold);
     //~ contents_path /power/General
     m_lowBatteryMode->setTitle(tr("Power Saving Mode"));
     //~ contents_path /power/General
@@ -80,11 +84,38 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     //~ contents_path /power/General
     m_wakeDisplayNeedPassword->setTitle(tr("Password is required to wake up the monitor"));
 
+    // add power plan
+    m_layPowerPlan = new QVBoxLayout;
+    m_powerplanListview = new DListView();
+
+    QMap<QString, QString> powerPlanMap;
+    powerPlanMap.insert("balance", tr("Balanced"));
+    powerPlanMap.insert("performance", tr("High Performance"));
+    powerPlanMap.insert("powersave", tr("Power Saver"));
+
+    m_powerPlanModel = new QStandardItemModel(m_powerplanListview);
+    QMap<QString, QString>::iterator iter;
+    for (iter = powerPlanMap.begin(); iter != powerPlanMap.end(); ++iter) {
+        DStandardItem *powerPlanItem = new DStandardItem(iter.value());
+        powerPlanItem->setData(iter.key(), PowerPlanRole);
+        m_powerPlanModel->appendRow(powerPlanItem);
+    }
+    m_powerplanListview->setModel(m_powerPlanModel);
+    m_powerplanListview->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_powerplanListview->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_powerplanListview->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    m_powerplanListview->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    m_powerplanListview->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_powerplanListview->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_powerplanListview->setSelectionMode(QAbstractItemView::NoSelection);
+
+    m_layPowerPlan->addWidget(powerPlansLabel);
+    m_layPowerPlan->addWidget(m_powerplanListview);
+    m_layout->addLayout(m_layPowerPlan);
 
     //add Energy Saving Mode
     m_saveEnergySettingsGrp = new SettingsGroup;
     generalSettingsGrp->setSpacing(List_Interval);
-
 
     m_layEnergySavingMode = new QVBoxLayout;
     m_sldLowerBrightness = new TitledSliderItem(tr("Decrease brightness"), this);
@@ -131,7 +162,6 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
 
     //-------------------------------------------------------
 
-
     generalSettingsGrp->appendItem(m_wakeComputerNeedPassword);
     generalSettingsGrp->appendItem(m_wakeDisplayNeedPassword);
     generalSettingsGrp->insertWidget(m_titleWidget);
@@ -174,6 +204,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     connect(m_powerShowTimeToFull, &SwitchWidget::checkedChanged, this, &GeneralWidget::setPowerDisplay);
     connect(GSettings(), &QGSettings::changed, this, &GeneralWidget::onGSettingsChanged);
     onGSettingsChanged("showtimetofull");
+    connect(m_powerplanListview, &DListView::clicked, this, &GeneralWidget::onPowerPlanChanged);
 }
 
 GeneralWidget::~GeneralWidget()
@@ -191,6 +222,12 @@ void GeneralWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::powerSaveModeChanged, m_lowBatteryMode, &SwitchWidget::setChecked);
 #endif
     connect(model, &PowerModel::suspendChanged, m_wakeComputerNeedPassword, &SwitchWidget::setVisible);
+
+    connect(model, &PowerModel::highPerformaceChanged, this, &GeneralWidget::onHighPerformanceSupportChanged);
+    onHighPerformanceSupportChanged(model->isHighPerformanceSupported());
+
+    connect(model, &PowerModel::powerPlanChanged, this, &GeneralWidget::onCurPowerPlanChanged);
+    onCurPowerPlanChanged(model->getPowerPlan());
 
     // init ui data
     blockSignals(true);
@@ -221,8 +258,14 @@ void GeneralWidget::setModel(const PowerModel *model)
     });
 
     bool bStatus = model->haveBettary();
-    m_saveEnergySettingsGrp->setVisible(bStatus);
-    m_saveEnergySettingsLabel->setVisible(bStatus);
+    m_saveEnergySettingsGrp->setVisible(true);
+    m_saveEnergySettingsLabel->setVisible(true);
+
+    m_lowBatteryMode->setVisible(bStatus);
+    m_swLowPowerAutoIntoSaveEnergyMode->setVisible(bStatus);
+    m_autoIntoSaveEnergyMode->setVisible(bStatus);
+    m_sldLowerBrightness->setVisible(true);
+
     connect(model, &PowerModel::haveBettaryChanged, this, &GeneralWidget::onBatteryChanged);
 
     //---------------------------------------------
@@ -256,8 +299,59 @@ void GeneralWidget::onGSettingsChanged(const QString &key)
 
 void GeneralWidget::onBatteryChanged(const bool &state)
 {
-    m_saveEnergySettingsGrp->setVisible(state);
-    m_saveEnergySettingsLabel->setVisible(state);
+    m_lowBatteryMode->setVisible(state);
+    m_swLowPowerAutoIntoSaveEnergyMode->setVisible(state);
+    m_autoIntoSaveEnergyMode->setVisible(state);
+}
+
+void GeneralWidget::onPowerPlanChanged(const QModelIndex &index)
+{
+    QStandardItem *item = m_powerPlanModel->item(index.row(), index.column());
+    QString selectedPowerplan = item->data(PowerPlanRole).toString();
+    Q_EMIT requestSetPowerPlan(selectedPowerplan);
+}
+
+void GeneralWidget::onCurPowerPlanChanged(const QString &curPowerPlan)
+{
+    int row_count = m_powerPlanModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        QStandardItem *items = m_powerPlanModel->item(i, 0);
+        if (items->data(PowerPlanRole).toString() == curPowerPlan) {
+            items->setCheckState(Qt::Checked);
+        } else {
+            items->setCheckState(Qt::Unchecked);
+        }
+    }
+}
+
+void GeneralWidget::onHighPerformanceSupportChanged(const bool isSupport)
+{
+    const QString highPerform = "performance";
+    int row_count = m_powerPlanModel->rowCount();
+    if (!isSupport) {
+        for (int i = 0; i < row_count; ++i) {
+            QStandardItem *items = m_powerPlanModel->item(i, 0);
+            if (items->data(PowerPlanRole).toString() == highPerform) {
+                m_powerPlanModel->removeRow(i);
+                break;
+            }
+        }
+    } else {
+        bool findHighPerform = false;
+        for (int i = 0; i < row_count; ++i) {
+            QStandardItem *items = m_powerPlanModel->item(i, 0);
+            if (items->data(PowerPlanRole).toString() == highPerform) {
+                findHighPerform = true;
+                break;
+            }
+        }
+        if (!findHighPerform) {
+            DStandardItem *powerPlanItem = new DStandardItem(highPerform);
+            powerPlanItem->setData(highPerform, PowerPlanRole);
+            m_powerPlanModel->appendRow(powerPlanItem);
+            m_powerPlanModel->insertRow(1, powerPlanItem);
+        }
+    }
 }
 
 void GeneralWidget::initSlider()

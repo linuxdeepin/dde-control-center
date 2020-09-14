@@ -28,6 +28,8 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
+#include <DListView>
+
 class TitleLabel;
 namespace dcc {
 namespace widgets {
@@ -87,7 +89,9 @@ private:
     dcc::widgets::TitledSliderItem *m_sldLowerBrightness = nullptr;
     dcc::widgets::SettingsGroup *m_saveEnergySettingsGrp = nullptr;
     TitleLabel *m_saveEnergySettingsLabel = nullptr;
-
+    QVBoxLayout *m_layPowerPlan = nullptr;
+    DTK_WIDGET_NAMESPACE::DListView *m_powerplanListview = nullptr;
+    QStandardItemModel *m_powerPlanModel = nullptr;
 
 Q_SIGNALS:
     void requestSetLowBatteryMode(const bool &state);//同节能模式
@@ -97,11 +101,19 @@ Q_SIGNALS:
     void requestSetWakeDisplay(const bool &state);//唤醒显示器输入密码
     void requestSetPowerSaveMode(const bool &state);//节能模式
     void requestSetPowerSavingModeLowerBrightnessThreshold(const int &level);//节能模式亮度降低
+    void requestSetPowerPlan(const QString &powerPlan); //性能模式的设置
 
 public Q_SLOTS:
     void setPowerDisplay(const bool &state);
     void onGSettingsChanged(const QString &key);
     void onBatteryChanged(const bool &state);
+    void onPowerPlanChanged(const QModelIndex &index);
+    void onCurPowerPlanChanged(const QString &curPowerPlan);
+    void onHighPerformanceSupportChanged(const bool isSupport);
+private:
+    enum {
+        PowerPlanRole = Dtk::UserRole + 1,
+    };
 };
 }// namespace datetime
 }// namespace DCC_NAMESPACE

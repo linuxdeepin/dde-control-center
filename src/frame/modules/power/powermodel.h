@@ -131,6 +131,12 @@ public:
     inline bool getHibernate() const { return m_isHibernate; }
     void setHibernate(bool hibernate);
 
+    inline QString getPowerPlan() const { return m_powerPlan; }
+    void setPowerPlan(const QString &powerPlan);
+
+    inline bool isHighPerformanceSupported() const { return m_isHighPerformanceSupported; }
+    void setHighPerformanceSupported(bool isHighSupport);
+
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void canSleepChanged(const bool canSleep);
@@ -165,7 +171,8 @@ Q_SIGNALS:
     void lowPowerAutoSleepThresholdChanged(const int value);
     //--------------------------------------------------------------
     void suspendChanged(bool suspendState);
-
+    void powerPlanChanged(const QString &value);
+    void highPerformaceChanged(bool value);
 
 private:
     bool m_lidPresent;//以此判断是否为笔记本
@@ -201,6 +208,9 @@ private:
     //--------------------------------------
     bool m_isSuspend;
     bool m_isHibernate;
+
+    QString m_powerPlan;
+    bool m_isHighPerformanceSupported;
 };
 
 }

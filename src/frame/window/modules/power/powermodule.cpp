@@ -177,6 +177,7 @@ void PowerModule::showGeneral()
     connect(general, &GeneralWidget::requestSetPowerSavingModeAuto, m_work, &PowerWorker::setPowerSavingModeAuto);
     connect(general, &GeneralWidget::requestSetPowerSavingModeLowerBrightnessThreshold, m_work, &PowerWorker::setPowerSavingModeLowerBrightnessThreshold);
     //-------------------------------------------
+    connect(general, &GeneralWidget::requestSetPowerPlan, m_work, &PowerWorker::setPowerPlan);
 }
 
 void PowerModule::showUseElectric()

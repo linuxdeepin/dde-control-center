@@ -59,6 +59,7 @@ PowerModel::PowerModel(QObject *parent)
     , m_dLowPowerNotifyThreshold(0)
     , m_dLowPowerAutoSleepThreshold(0)
     , m_isSuspend(false)
+    , m_powerPlan("")
 {
 }
 
@@ -312,6 +313,24 @@ void PowerModel::setCanHibernate(bool value)
 {
     if (m_canHibernate != value) {
         m_canHibernate = value;
+    }
+}
+
+void PowerModel::setPowerPlan(const QString &powerPlan)
+{
+    if (m_powerPlan != powerPlan) {
+        m_powerPlan = powerPlan;
+
+        Q_EMIT powerPlanChanged(m_powerPlan);
+    }
+}
+
+void PowerModel::setHighPerformanceSupported(bool isHighSupport)
+{
+    if (m_isHighPerformanceSupported != isHighSupport) {
+        m_isHighPerformanceSupported = isHighSupport;
+
+        Q_EMIT highPerformaceChanged(isHighSupport);
     }
 }
 

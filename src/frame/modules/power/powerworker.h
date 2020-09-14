@@ -76,6 +76,7 @@ public Q_SLOTS:
     void setLowPowerNotifyThreshold(int dLowPowerNotifyThreshold);
     void setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold);
     //------------------------------------------
+    void setPowerPlan(const QString &powerPlan);
 
 #ifndef DCC_DISABLE_POWERSAVE
     void setEnablePowerSave(const bool isEnable);
