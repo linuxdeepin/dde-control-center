@@ -112,7 +112,7 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
     m_vecItem.clear();
     m_listGrp->clear();
     // 如果指纹数量大于等于10,则不显示添加指纹按钮
-    if (thumbs.size() > 10) {
+    if (thumbs.size() >= 10) {
         qDebug() << "thumbs.size() error: " << thumbs.size();
         return;
     }
