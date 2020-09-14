@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+    <vendor>Deepin</vendor>
+    <action id="com.deepin.controlcenter.restore.mv">
+        <icon_name>dde</icon_name>
+        <defaults>
+            <allow_any>yes</allow_any>
+            <allow_inactive>yes</allow_inactive>
+            <allow_active>auth_admin_keep</allow_active>
+        </defaults>
+        <message>Authentication is required to Backup and Restore</message>
+        <message xml:lang="zh_CN">备份或还原所有设置需要认证</message>
+        <annotate key="org.freedesktop.policykit.exec.path">/bin/restore-tool</annotate>
+        <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+    </action>
+        <action id="com.deepin.controlcenter.restore.grub-reboot">
+        <icon_name>dde</icon_name>
+        <defaults>
+            <allow_any>yes</allow_any>
+            <allow_inactive>yes</allow_inactive>
+            <allow_active>yes</allow_active>
+        </defaults>
+        <message>Authentication is required to Backup and Restore</message>
+        <message xml:lang="zh_CN">备份或还原所有设置需要认证</message>
+        <annotate key="org.freedesktop.policykit.exec.path">/sbin/grub-reboot</annotate>
+        <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+    </action>
+
+        <action id="com.deepin.controlcenter.restore.recovery-wapper">
+        <icon_name>dde</icon_name>
+        <defaults>
+            <allow_any>yes</allow_any>
+            <allow_inactive>yes</allow_inactive>
+            <allow_active>yes</allow_active>
+        </defaults>
+        <message>Authentication is required to Backup and Restore</message>
+        <message xml:lang="zh_CN">备份或还原所有设置需要认证</message>
+        <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/deepin-recovery/prepare_recovery</annotate>
+        <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+    </action>
+
+</policyconfig>

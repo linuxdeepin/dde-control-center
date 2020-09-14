@@ -19,7 +19,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "partitionusage.h"
-#include "toolerrortype.h"
 
 #include <DDBusSender>
 
@@ -69,6 +68,16 @@ QStringList userList() {
 
     return userList;
 }
+
+/**
+ * @brief restore-tool工具返回的错误值
+ */
+enum ToolErrorType {
+    NoError = 0,
+    ToolError,
+    GrubError,
+    SpaceError
+};
 
 enum class ActionType {
     Null,
@@ -458,7 +467,7 @@ int main(int argc, char *argv[])
                                                                    rootUUID) } } } },
                 QJsonObject{ { "message", "regenerate /etc/fstab" },
                              { "progress", false },
-                             { "enable", false },
+							 { "enable", true },
                              { "command", "generate-fstab" },
                              { "env", fstabObj } },
             }
