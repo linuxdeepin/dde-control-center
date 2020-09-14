@@ -439,6 +439,13 @@ void CustomSettingDialog::initMoniList()
         }
         for (int idx = 0; idx < moniList.size(); ++idx) {
             m_displayComboxWidget->comboBox()->addItem(moniList[idx]->name());
+
+            if (!m_model->isMerge()) {
+                if (!moniList[idx]->enable()) {
+                    QVariant v(0);      //+ 禁用item
+                    m_displayComboxWidget->comboBox()->model()->setData(m_displayComboxWidget->comboBox()->model()->index(idx, 0), v, Qt::UserRole - 1);
+                }
+            }
             if (moniList[idx]->name() == m_model->primary()) {
                 m_displayComboxWidget->comboBox()->setCurrentIndex(idx);
             }
@@ -524,6 +531,22 @@ void CustomSettingDialog::initConnect()
                 }
                 this->requestEnalbeMonitor(monis[idx], flag);
                 item->setCheckState(item->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
+
+                if (!m_model->isMerge()) {
+                    auto moniList = m_model->monitorList();
+                    for (auto idx = 0; idx < moniList.size(); ++idx) {
+                        if (moniList[idx]->name() == item->text()) {
+                            if (item->checkState() == Qt::Checked) {
+                                QVariant v(-1);    //+ 解禁item
+                                m_displayComboxWidget->comboBox()->model()->setData(m_displayComboxWidget->comboBox()->model()->index(idx, 0), v, Qt::UserRole - 1);
+                            } else {
+                                QVariant v(0);      //+ 禁用item
+                                m_displayComboxWidget->comboBox()->model()->setData(m_displayComboxWidget->comboBox()->model()->index(idx, 0), v, Qt::UserRole - 1);
+                            }
+                        }
+                    }
+                }
+
                 break;
             }
         });
