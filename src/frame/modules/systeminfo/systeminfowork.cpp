@@ -28,6 +28,9 @@
 #include "widgets/basiclistdelegate.h"
 #include "dsysinfo.h"
 
+#include <QFutureWatcher>
+#include <QtConcurrent>
+
 DCORE_USE_NAMESPACE
 
 namespace dcc{
@@ -128,7 +131,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_model->setKernel(output);
 
 #ifndef DISABLE_ACTIVATOR
-    getLicenseState();
+    licenseStateChangeSlot();
 #endif
 }
 
@@ -291,7 +294,12 @@ void SystemInfoWork::showActivatorDialog()
 
 void SystemInfoWork::licenseStateChangeSlot()
 {
-    getLicenseState();
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
+    connect(watcher, &QFutureWatcher<void>::finished, watcher,
+            &QFutureWatcher<void>::deleteLater);
+
+    QFuture<void> future = QtConcurrent::run(this, &SystemInfoWork::getLicenseState);
+    watcher->setFuture(future);
 }
 #endif
 

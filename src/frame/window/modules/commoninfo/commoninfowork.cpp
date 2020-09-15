@@ -30,6 +30,8 @@
 
 #include <signal.h>
 #include <QStandardPaths>
+#include <QFutureWatcher>
+#include <QtConcurrent>
 
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
@@ -61,7 +63,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
                                       "com.deepin.license.Info",
                                       QDBusConnection::systemBus(),this);
 
-    getLicenseState();
+    licenseStateChangeSlot();
 
     m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus(), this);
 
@@ -411,7 +413,11 @@ void CommonInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
 
 void CommonInfoWork::licenseStateChangeSlot()
 {
-    getLicenseState();
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
+    connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
+
+    QFuture<void> future = QtConcurrent::run(this, &CommonInfoWork::getLicenseState);
+    watcher->setFuture(future);
 }
 
 void CommonInfoWork::getLicenseState()
@@ -430,4 +436,3 @@ void CommonInfoWork::getLicenseState()
     qDebug() << "authorize result:" << reply;
     m_commomModel->setActivation(reply == 1 || reply == 3);
 }
-

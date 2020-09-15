@@ -509,7 +509,7 @@ void SearchWidget::loadxml()
                             continue;
                         }
 
-                        qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
+                        //qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
                         if (!m_bIsServerType && !m_deepinwm->compositingAllowSwitch()) {
                             qDebug()<<"search not Window!";
                             if (tr("Window Effect") == m_searchBoxStruct.translateContent) {

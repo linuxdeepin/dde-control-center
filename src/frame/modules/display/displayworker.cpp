@@ -54,24 +54,13 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
       m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
 
 {
-    m_displayInter.setSync(true);
-    m_appearanceInter->setSync(isSync);
+    m_displayInter.setSync(false);
+    m_appearanceInter->setSync(false);
 
-    model->setPrimary(m_displayInter.primary());
     m_displayDBusInter = new QDBusInterface("com.deepin.daemon.Display",
                                "/com/deepin/daemon/Display",
                                "com.deepin.daemon.Display",
                                QDBusConnection::sessionBus());
-
-    auto reply = m_displayDBusInter->property("Monitors");
-    onMonitorListChanged(reply.value<QList<QDBusObjectPath>>());
-
-    model->setDisplayMode(m_displayInter.displayMode());
-    model->setTouchscreenList(m_displayInter.touchscreens());
-    model->setTouchMap(m_displayInter.touchMap());
-
-    m_displayInter.setSync(false);
-    m_appearanceInter->setSync(false);
 
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
     connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
@@ -92,27 +81,6 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     connect(m_powerInter, &PowerInter::HasAmbientLightSensorChanged,
             m_model, &DisplayModel::autoLightAdjustVaildChanged);
     connect(m_mouseInter, &MouseInter::LeftHandedChanged, m_model, &DisplayModel::setMouseLeftHand);
-
-    onMonitorsBrightnessChanged(m_displayInter.brightness());
-    model->setScreenHeight(m_displayInter.screenHeight());
-    model->setScreenWidth(m_displayInter.screenWidth());
-    model->setAdjustCCTmode(m_displayInter.colorTemperatureMode());
-    model->setColorTemperature(m_displayInter.colorTemperatureManual());
-    model->setmaxBacklightBrightness(m_displayInter.maxBacklightBrightness());
-    model->setConfigList(m_displayInter.customIdList());
-    model->setCurrentConfig(m_displayInter.currentCustomId());
-
-    m_model->setAutoLightAdjustIsValid(m_powerInter->hasAmbientLightSensor());
-
-    m_model->setMouseLeftHand(m_mouseInter->leftHanded());
-
-    //redshift 依赖X11，当前isXWindowPlatform返回不准确,所以先用环境变量判断
-//   DGuiApplicationHelper::isXWindowPlatform() const bool isRedshiftValid = DGuiApplicationHelper::isXWindowPlatform() && QProcess::execute("which", QStringList() << "redshift") == 0;
-    auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
-    const bool isRedshiftValid = !sessionType.contains("wayland") && QProcess::execute("which", QStringList() << "redshift") == 0;
-
-    m_model->setRedshiftIsValid(isRedshiftValid);
-    m_model->setMinimumBrightnessScale(m_dccSettings->get(GSETTINGS_MINIMUM_BRIGHTNESS).toDouble());
 }
 
 DisplayWorker::~DisplayWorker()
@@ -135,6 +103,36 @@ void DisplayWorker::active()
 
     QDBusPendingCallWatcher *screenscaleswatcher = new QDBusPendingCallWatcher(m_appearanceInter->GetScreenScaleFactors());
     connect(screenscaleswatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScreenScalesFinished);
+
+    onMonitorsBrightnessChanged(m_displayInter.brightness());
+    onMonitorListChanged(m_displayInter.monitors());
+
+    m_model->setDisplayMode(m_displayInter.displayMode());
+    m_model->setTouchscreenList(m_displayInter.touchscreens());
+    m_model->setTouchMap(m_displayInter.touchMap());
+    m_model->setPrimary(m_displayInter.primary());
+    m_model->setScreenHeight(m_displayInter.screenHeight());
+    m_model->setScreenWidth(m_displayInter.screenWidth());
+    m_model->setAdjustCCTmode(m_displayInter.colorTemperatureMode());
+    m_model->setColorTemperature(m_displayInter.colorTemperatureManual());
+    m_model->setmaxBacklightBrightness(m_displayInter.maxBacklightBrightness());
+    m_model->setConfigList(m_displayInter.customIdList());
+    m_model->setCurrentConfig(m_displayInter.currentCustomId());
+
+    m_model->setAutoLightAdjustIsValid(m_powerInter->hasAmbientLightSensor());
+
+    m_model->setMouseLeftHand(m_mouseInter->leftHanded());
+
+    //redshift 依赖X11，当前isXWindowPlatform返回不准确,所以先用环境变量判断
+    //   DGuiApplicationHelper::isXWindowPlatform() const bool isRedshiftValid = DGuiApplicationHelper::isXWindowPlatform() && QProcess::execute("which", QStringList() << "redshift") == 0;
+    auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
+    const bool isRedshiftValid =
+        !sessionType.contains("wayland") &&
+        QProcess::execute("which", QStringList() << "redshift") == 0;
+
+    m_model->setRedshiftIsValid(isRedshiftValid);
+    m_model->setMinimumBrightnessScale(
+        m_dccSettings->get(GSETTINGS_MINIMUM_BRIGHTNESS).toDouble());
 }
 
 void DisplayWorker::saveChanges()

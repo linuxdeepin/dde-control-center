@@ -48,7 +48,7 @@ class MouseWorker : public QObject
     Q_OBJECT
 public:
     explicit MouseWorker(MouseModel *model, QObject *parent = 0);
-    void active(bool sync = false);
+    void active();
     void deactive();
     void init();
 

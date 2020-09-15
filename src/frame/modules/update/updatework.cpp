@@ -179,50 +179,6 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     connect(m_abRecoveryInter, &RecoveryInter::RestoringChanged, m_model, &UpdateModel::setRecoverRestoring);
     //图片主题
     connect(m_iconTheme, &Appearance::IconThemeChanged, this, &UpdateWorker::onIconThemeChanged);
-    m_iconThemeState = m_iconTheme->iconTheme();
-
-    m_model->setRecoverConfigValid(m_abRecoveryInter->configValid());
-
-#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged, m_model, &UpdateModel::setSourceCheck);
-#endif
-    setOnBattery(m_powerInter->onBattery());
-    setBatteryPercentage(m_powerInter->batteryPercentage());
-    // setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
-    onJobListChanged(m_managerInter->jobList());
-
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
-    refreshMirrors();
-#endif
-
-#ifndef DISABLE_ACTIVATOR
-    getLicenseState();
-
-    QDBusConnection::systemBus().connect("com.deepin.license",
-                                         "/com/deepin/license/Info",
-                                         "com.deepin.license.Info",
-                                         "LicenseStateChange",
-                                         this,
-                                         SLOT(licenseStateChangeSlot()));
-#endif
-
-    QDBusInterface Interface("com.deepin.lastore",
-                                 "/com/deepin/lastore",
-                                 "com.deepin.lastore.Updater",
-                                 QDBusConnection::systemBus());
-    if (!Interface.isValid()) {
-        qDebug() << "com.deepin.license error ," << Interface.lastError().name();
-        return;
-    }
-
-    QList<QString> updatablePackages;
-    updatablePackages << Interface.property("UpdatablePackages").toStringList();
-    qDebug() << "UpdatablePackages = " << updatablePackages.count();
-    if (updatablePackages.count() > UPDATE_PACKAGE_SIZE) {
-        m_model->isUpdatablePackages(true);
-    } else {
-        m_model->isUpdatablePackages(false);
-    }
 }
 
 UpdateWorker::~UpdateWorker()
@@ -233,7 +189,11 @@ UpdateWorker::~UpdateWorker()
 #ifndef DISABLE_ACTIVATOR
 void UpdateWorker::licenseStateChangeSlot()
 {
-    getLicenseState();
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
+    connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
+
+    QFuture<void> future = QtConcurrent::run(this, &UpdateWorker::getLicenseState);
+    watcher->setFuture(future);
 }
 
 void UpdateWorker::getLicenseState()
@@ -271,6 +231,63 @@ void UpdateWorker::activate()
     m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
 #endif
     onSmartMirrorServiceIsValid(m_smartMirrorInter->isValid());
+
+    m_model->setRecoverConfigValid(m_abRecoveryInter->configValid());
+
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
+    connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged,
+            m_model, &UpdateModel::setSourceCheck);
+#endif
+    setOnBattery(m_powerInter->onBattery());
+    setBatteryPercentage(m_powerInter->batteryPercentage());
+    // setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
+    onJobListChanged(m_managerInter->jobList());
+
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
+    refreshMirrors();
+#endif
+
+#ifndef DISABLE_ACTIVATOR
+    licenseStateChangeSlot();
+
+    QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
+                                         "com.deepin.license.Info", "LicenseStateChange",
+                                         this, SLOT(licenseStateChangeSlot()));
+#endif
+
+    QFutureWatcher<QStringList> *packagesWatcher = new QFutureWatcher<QStringList>();
+    connect(packagesWatcher, &QFutureWatcher<QStringList>::finished, this, [=] {
+        QStringList updatablePackages = std::move(packagesWatcher->result());
+        qDebug() << "UpdatablePackages = " << updatablePackages.count();
+        m_model->isUpdatablePackages(updatablePackages.count() > UPDATE_PACKAGE_SIZE);
+        packagesWatcher->deleteLater();
+    });
+
+    packagesWatcher->setFuture(QtConcurrent::run([=]() -> QStringList {
+        QDBusInterface Interface("com.deepin.lastore", "/com/deepin/lastore",
+                                 "com.deepin.lastore.Updater",
+                                 QDBusConnection::systemBus());
+        if (!Interface.isValid()) {
+            qDebug() << "com.deepin.license error ," << Interface.lastError().name();
+            return {};
+        }
+
+        return Interface.property("UpdatablePackages").toStringList();
+    }));
+
+    QFutureWatcher<QString> *iconWatcher = new QFutureWatcher<QString>();
+    connect(iconWatcher, &QFutureWatcher<QString>::finished, this, [=] {
+        m_iconThemeState = iconWatcher->result();
+        iconWatcher->deleteLater();
+    });
+
+    iconWatcher->setFuture(QtConcurrent::run([=] {
+        bool isSync = m_iconTheme->sync();
+        m_iconTheme->setSync(true);
+        const QString &iconTheme = m_iconTheme->iconTheme();
+        m_iconTheme->setSync(isSync);
+        return iconTheme;
+    }));
 }
 
 void UpdateWorker::deactivate()

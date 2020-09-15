@@ -140,12 +140,12 @@ void DisplayModule::preInitialize(bool sync)
     m_displayModel->moveToThread(qApp->thread());
     m_displayWorker->moveToThread(qApp->thread());
 
-    m_displayWorker->active();
-
-    m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
-
     connect(m_displayModel, &DisplayModel::monitorListChanged, this, [this]() {
         m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
+    });
+
+    QTimer::singleShot(0, m_displayWorker, [=] {
+        m_displayWorker->active();
     });
 }
 

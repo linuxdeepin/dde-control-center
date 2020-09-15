@@ -28,6 +28,8 @@
 #include "widgets/utils.h"
 
 #include <QProcessEnvironment>
+#include <QFutureWatcher>
+#include <QtConcurrent>
 
 #define POWER_CAN_SLEEP "POWER_CAN_SLEEP"
 #define POWER_CAN_HIBERNATE "POWER_CAN_HIBERNATE"
@@ -42,6 +44,9 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     , m_sysPowerInter(new SysPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
     , m_login1ManagerInter(new Login1ManagerInter("org.freedesktop.login1", "/org/freedesktop/login1", QDBusConnection::systemBus(), this))
 {
+    m_powerInter->setSync(false);
+    m_sysPowerInter->setSync(false);
+    m_login1ManagerInter->setSync(false);
 
     connect(m_powerInter, &PowerInter::ScreenBlackLockChanged, m_powerModel, &PowerModel::setScreenBlackLock);
     connect(m_powerInter, &PowerInter::SleepLockChanged, m_powerModel, &PowerModel::setSleepLock);
@@ -74,32 +79,12 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::LowPowerNotifyThresholdChanged, m_powerModel, &PowerModel::setLowPowerNotifyThreshold);
     connect(m_powerInter, &PowerInter::LowPowerAutoSleepThresholdChanged, m_powerModel, &PowerModel::setLowPowerAutoSleepThreshold);
     //-------------------------------------------------------
-
-    connect(m_powerInter, &PowerInter::ModeChanged, m_powerModel, &PowerModel::setPowerPlan);
-    m_powerModel->setPowerPlan(m_powerInter->mode());
-
-    connect(m_powerInter, &PowerInter::IsHighPerformanceSupportedChanged, m_powerModel, &PowerModel::setHighPerformanceSupported);
-    m_powerModel->setHighPerformanceSupported(m_powerInter->isHighPerformanceSupported());
-
-    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    bool envVal = QVariant(env.value(POWER_CAN_SLEEP)).toBool();
-    bool confVal = valueByQSettings<bool>(DCC_CONFIG_FILES, "Power", "sleep", true);
-    bool dbusVal = m_login1ManagerInter->CanSuspend().value().contains("yes");
-    bool envVal_hibernate = QVariant(env.value(POWER_CAN_HIBERNATE)).toBool();
-    bool dbusVal_hibernate = m_login1ManagerInter->CanHibernate().value().contains("yes");
-
-    qDebug() << "envVal: " << envVal << " confVal: " << confVal << " dbusVal: " << dbusVal;
-    bool can_sleep = env.contains(POWER_CAN_SLEEP) ? envVal : confVal && dbusVal;
-    bool can_hibernate = env.contains(POWER_CAN_HIBERNATE) ? envVal_hibernate : dbusVal_hibernate;
-    m_powerModel->setCanSleep(can_sleep);
-    m_powerModel->setCanHibernate(can_hibernate);
 }
 
-void PowerWorker::active(bool isSync)
+void PowerWorker::active()
 {
     m_powerInter->blockSignals(false);
 
-    m_powerInter->setSync(isSync);
     // refersh data
     m_powerModel->setScreenBlackLock(m_powerInter->screenBlackLock());
     m_powerModel->setSleepLock(m_powerInter->sleepLock());
@@ -129,7 +114,41 @@ void PowerWorker::active(bool isSync)
     m_powerModel->setAutoPowerSaveMode(m_sysPowerInter->powerSavingModeAuto());
     m_powerModel->setPowerSaveMode(m_sysPowerInter->powerSavingModeEnabled());
 #endif
-    m_powerInter->setSync(false);
+
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    const bool confVal = valueByQSettings<bool>(DCC_CONFIG_FILES, "Power", "sleep", true);
+    const bool envVal = QVariant(env.value(POWER_CAN_SLEEP)).toBool();
+    const bool envVal_hibernate  = QVariant(env.value(POWER_CAN_HIBERNATE)).toBool();
+
+    QFutureWatcher<bool> *canSleepWatcher = new QFutureWatcher<bool>();
+    connect(canSleepWatcher, &QFutureWatcher<bool>::finished, this, [=] {
+        bool canSleep = canSleepWatcher->result();
+        bool can_sleep = env.contains(POWER_CAN_SLEEP) ? envVal : confVal && canSleep;
+        m_powerModel->setCanSleep(can_sleep);
+        canSleepWatcher->deleteLater();
+    });
+
+    QFutureWatcher<bool> *canHibernateWatcher = new QFutureWatcher<bool>();
+    connect(canHibernateWatcher, &QFutureWatcher<bool>::finished, this, [=] {
+        bool canHibernate = canHibernateWatcher->result();
+        bool can_hibernate = env.contains(POWER_CAN_HIBERNATE)
+                             ? envVal_hibernate
+                             : canHibernate;
+        m_powerModel->setCanHibernate(can_hibernate);
+        canHibernateWatcher->deleteLater();
+    });
+
+    canSleepWatcher->setFuture(QtConcurrent::run([=] {
+        QDBusPendingReply<QString> reply = m_login1ManagerInter->CanSuspend();
+        reply.waitForFinished();
+        return reply.value().contains("yes");
+    }));
+
+    canHibernateWatcher->setFuture(QtConcurrent::run([=] {
+        QDBusPendingReply<QString> reply = m_login1ManagerInter->CanHibernate();
+        reply.waitForFinished();
+        return reply.value().contains("yes");
+    }));
 }
 
 void PowerWorker::deactive()

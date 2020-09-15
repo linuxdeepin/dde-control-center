@@ -56,9 +56,6 @@ void WacomModule::preInitialize(bool sync)
     m_model  = new WacomModel(this);
     m_worker = new WacomWorker(m_model);
 
-    m_model->moveToThread(qApp->thread());
-    m_worker->moveToThread(qApp->thread());
-
     m_frameProxy->setModuleVisible(this, m_model->exist());
 
     connect(m_model, &WacomModel::existChanged, this, [this](const bool exist) {

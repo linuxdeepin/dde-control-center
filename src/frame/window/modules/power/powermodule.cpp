@@ -59,7 +59,7 @@ void PowerModule::preInitialize(bool sync)
     m_work = new PowerWorker(m_model);
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
-    m_work->active(sync); //refresh data
+    m_work->active(); //refresh data
 
     m_frameProxy->setRemoveableDeviceStatus(tr("On Battery"), m_model->haveBettary());
 }

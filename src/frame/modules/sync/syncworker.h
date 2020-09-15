@@ -35,7 +35,6 @@ public Q_SLOTS:
 private:
     void onSyncModuleStateChanged(const QString& module, bool enable);
     void onStateChanged(const IntString& state);
-    void onGetModuleSyncStateFinished(QDBusPendingCallWatcher* watcher);
     void onLastSyncTimeChanged(qlonglong lastSyncTime);
     void getLicenseState();
 

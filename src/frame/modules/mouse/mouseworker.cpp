@@ -36,6 +36,11 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     , m_dbusDevices(new InputDevices(Service, "/com/deepin/daemon/InputDevices", QDBusConnection::sessionBus(), this))
     , m_model(model)
 {
+    m_dbusMouse->setSync(false);
+    m_dbusTouchPad->setSync(false);
+    m_dbusTrackPoint->setSync(false);
+    m_dbusDevices->setSync(false);
+
     connect(m_dbusMouse, &Mouse::ExistChanged, m_model, &MouseModel::setMouseExist);
     connect(m_dbusMouse, &Mouse::LeftHandedChanged, this, &MouseWorker::setLeftHandState);
     connect(m_dbusMouse, &Mouse::NaturalScrollChanged, this, &MouseWorker::setMouseNaturalScrollState);
@@ -61,33 +66,7 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
 
 }
 
-void MouseWorker::active(bool sync)
-{
-    m_dbusMouse->setSync(sync);
-    m_dbusTouchPad->setSync(sync);
-    m_dbusTouchPad->setSync(sync);
-    m_dbusDevices->setSync(sync);
-
-    m_dbusMouse->blockSignals(false);
-    m_dbusTouchPad->blockSignals(false);
-    m_dbusTrackPoint->blockSignals(false);
-
-    init();
-
-    m_dbusMouse->setSync(false);
-    m_dbusTouchPad->setSync(false);
-    m_dbusTouchPad->setSync(false);
-    m_dbusDevices->setSync(false);
-}
-
-void MouseWorker::deactive()
-{
-    m_dbusMouse->blockSignals(true);
-    m_dbusTouchPad->blockSignals(true);
-    m_dbusTrackPoint->blockSignals(true);
-}
-
-void MouseWorker::init()
+void MouseWorker::active()
 {
     setLeftHandState(m_dbusMouse->leftHanded());
     setMouseNaturalScrollState(m_dbusMouse->naturalScroll());
@@ -110,6 +89,13 @@ void MouseWorker::init()
     m_model->setPalmMinz(m_dbusTouchPad->palmMinZ());
 
     m_model->setScrollSpeed(m_dbusDevices->wheelSpeed());
+}
+
+void MouseWorker::deactive()
+{
+    m_dbusMouse->blockSignals(true);
+    m_dbusTouchPad->blockSignals(true);
+    m_dbusTrackPoint->blockSignals(true);
 }
 
 void MouseWorker::setLeftHandState(const bool state)

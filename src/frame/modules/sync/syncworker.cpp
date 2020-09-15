@@ -3,6 +3,8 @@
 
 #include <QProcess>
 #include <QDBusConnection>
+#include <QFutureWatcher>
+#include <QtConcurrent>
 
 using namespace dcc;
 using namespace dcc::cloudsync;
@@ -15,19 +17,6 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     , m_syncInter(new SyncInter(SYNC_INTERFACE, "/com/deepin/sync/Daemon", QDBusConnection::sessionBus(), this))
     , m_deepinId_inter(new DeepinId(SYNC_INTERFACE, "/com/deepin/deepinid", QDBusConnection::sessionBus(), this))
 {
-    //采用的是DBus直接获取属性值的方式
-    QDBusInterface Interface("com.deepin.sync.Daemon",
-                        "/com/deepin/sync/Daemon",
-                        "org.freedesktop.DBus.Properties",
-                        QDBusConnection::sessionBus());
-    QDBusMessage reply = Interface.call("Get", "com.deepin.sync.Daemon", "UserInfo");
-    QVariant variant = reply.arguments().first();
-    QDBusArgument argument = variant.value<QDBusVariant>().variant().value<QDBusArgument>();
-    qDebug() << argument.currentSignature() << argument.currentType();
-    QVariantMap userInfo;
-    argument >> userInfo;
-    m_model->setUserinfo(userInfo);
-
     m_syncInter->setSync(false, false);
     m_deepinId_inter->setSync(false, false);
 
@@ -51,7 +40,7 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
 
     m_model->setSyncIsValid(req.value() && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
-    getLicenseState();
+    licenseStateChangeSlot();
 }
 
 void SyncWorker::activate()
@@ -73,9 +62,34 @@ void SyncWorker::deactivate()
 
 void SyncWorker::refreshSyncState()
 {
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_syncInter->SwitcherDump(), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &SyncWorker::onGetModuleSyncStateFinished);
-    watcher->waitForFinished();
+    QFutureWatcher<QJsonObject> *watcher = new QFutureWatcher<QJsonObject>(this);
+    connect(watcher, &QFutureWatcher<QJsonObject>::finished, this, [=] {
+        watcher->deleteLater();
+        QJsonObject obj = std::move(watcher->result());
+
+        if (obj.isEmpty()) {
+            qDebug() << "Sync Info is Wrong!";
+            return;
+        }
+
+        m_model->setEnableSync(obj["enabled"].toBool());
+
+        const std::list<std::pair<SyncType, QStringList>> moduleMap{
+            m_model->moduleMap()
+        };
+
+        for (auto it = moduleMap.cbegin(); it != moduleMap.cend(); ++it) {
+            m_model->setModuleSyncState(it->first, obj[it->second.first()].toBool());
+        }
+    });
+
+    QFuture<QJsonObject> future = QtConcurrent::run([=]() -> QJsonObject {
+        QDBusPendingReply<QString> reply = m_syncInter->SwitcherDump();
+        reply.waitForFinished();
+        return QJsonDocument::fromJson(reply.value().toUtf8()).object();
+    });
+
+    watcher->setFuture(future);
 }
 
 void SyncWorker::setSync(std::pair<SyncType, bool> state)
@@ -147,31 +161,6 @@ void SyncWorker::onStateChanged(const IntString &state)
     }
 }
 
-void SyncWorker::onGetModuleSyncStateFinished(QDBusPendingCallWatcher *watcher)
-{
-    watcher->deleteLater();
-
-    if (watcher->isError()) {
-        qDebug() << watcher->error();
-        return;
-    }
-
-    QDBusReply<QString> reply = watcher->reply();
-    QJsonObject obj = QJsonDocument::fromJson(reply.value().toUtf8()).object();
-
-    if (obj.isEmpty()) {
-        qDebug() << "Sync Info is Wrong!";
-        return;
-    }
-
-    m_model->setEnableSync(obj["enabled"].toBool());
-
-    const std::list<std::pair<SyncType, QStringList>> moduleMap = m_model->moduleMap();
-    for (auto it = moduleMap.cbegin(); it != moduleMap.cend(); ++it) {
-        m_model->setModuleSyncState(it->first, obj[it->second.first()].toBool());
-    }
-}
-
 void SyncWorker::onLastSyncTimeChanged(qlonglong lastSyncTime)
 {
     qDebug() << "lastSyncTime: " << lastSyncTime;
@@ -181,7 +170,12 @@ void SyncWorker::onLastSyncTimeChanged(qlonglong lastSyncTime)
 
 void SyncWorker::licenseStateChangeSlot()
 {
-    getLicenseState();
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
+    connect(watcher, &QFutureWatcher<void>::finished, watcher,
+            &QFutureWatcher<void>::deleteLater);
+
+    QFuture<void> future = QtConcurrent::run(this, &SyncWorker::getLicenseState);
+    watcher->setFuture(future);
 }
 
 void SyncWorker::getLicenseState()

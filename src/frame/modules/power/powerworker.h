@@ -45,7 +45,7 @@ class PowerWorker : public QObject
 public:
     explicit PowerWorker(PowerModel *model, QObject *parent = 0);
 
-    void active(bool isSync = false);
+    void active();
     void deactive();
 
 public Q_SLOTS:
