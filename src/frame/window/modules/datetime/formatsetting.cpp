@@ -27,6 +27,8 @@
 #include "widgets/settingsgroup.h"
 #include "window/utils.h"
 
+#include <DFontSizeManager>
+
 #include <QVBoxLayout>
 #include <QComboBox>
 #include <QDBusInterface>
@@ -44,42 +46,30 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
 
     TitleLabel *headTitle = new TitleLabel(tr("Date and Time Formats"));     //时间格式设置
     m_layout->setSpacing(10);
+    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(headTitle, 0, Qt::AlignLeft);
-    m_layout->setSpacing(2);
 
-    SettingsGroup *weekGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-    QVBoxLayout *vbox = new QVBoxLayout;
-    vbox->setContentsMargins(0, 0, 0, 0);
+    SettingsGroup *timeGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    timeGrp->layout()->setContentsMargins(0, 0, 0, 0);
+
     m_weekCbx = new ComboxWidget();
     m_weekCbx->setTitle(tr("Weeks"));   //星期
-    weekGrp->appendItem(m_weekCbx);
 
-    SettingsGroup *shortDateGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-    shortDateGrp->getLayout()->setContentsMargins(0, 0, 0 ,0);
     m_shortDateCbx = new ComboxWidget();
     m_shortDateCbx->setTitle(tr("Short Date"));  //短日期
-    shortDateGrp->appendItem(m_shortDateCbx);
 
-    SettingsGroup *longdateGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_longdateCbx = new ComboxWidget();
     m_longdateCbx->setTitle(tr("Long Date"));  //长日期
-   longdateGrp->appendItem(m_longdateCbx);
 
-    SettingsGroup *shortimeGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_shortimeCbx = new ComboxWidget();
     m_shortimeCbx->setTitle(tr("Short Time"));  //短时间
-    shortimeGrp->appendItem(m_shortimeCbx);
 
-    SettingsGroup *longtimeGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_longtimeCbx = new ComboxWidget();
     m_longtimeCbx->setTitle(tr("Long Time"));  //长时间
-    longtimeGrp->appendItem(m_longtimeCbx);
 
-    SettingsGroup *weekStartDayGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_weekStartDayCbx = new ComboxWidget();
     m_weekStartDayCbx->setTitle(tr("First Day of Week"));  //长时间
-    weekStartDayGrp->appendItem(m_weekStartDayCbx);
 
     QDBusInterface interLangSelector("com.deepin.daemon.LangSelector",
                                 "/com/deepin/daemon/LangSelector",
@@ -87,27 +77,15 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
                                 QDBusConnection::sessionBus(), this);
     //如果不是中文就不显示星期的选项
     m_weekCbx->setVisible(interLangSelector.property("CurrentLocale").toString().startsWith("zh_CN"));
-    weekGrp->setContentsMargins(0, 10, 0, 0);
-    weekGrp->layout()->setContentsMargins(0, 0, 0, 0);
-    weekStartDayGrp->setContentsMargins(0, 10, 0, 0);
-    weekStartDayGrp->layout()->setContentsMargins(0, 0, 0, 0);
-    longdateGrp->setContentsMargins(0, 10, 0, 0);
-    longdateGrp->layout()->setContentsMargins(0, 0, 0, 0);
-    shortDateGrp->setContentsMargins(0, 10, 0, 0);
-    shortDateGrp->layout()->setContentsMargins(0, 0, 0, 0);
-    longtimeGrp->setContentsMargins(0, 10, 0, 0);
-    longtimeGrp->layout()->setContentsMargins(0, 0, 0, 0);
-    shortimeGrp->setContentsMargins(0, 10, 0, 0);
-    shortimeGrp->layout()->setContentsMargins(0, 0, 0, 0);
-    vbox->addWidget(weekGrp);
-    vbox->addWidget(weekStartDayGrp);
-    vbox->addWidget(longdateGrp);
-    vbox->addWidget(shortDateGrp);
-    vbox->addWidget(longtimeGrp);
-    vbox->addWidget(shortimeGrp);
-    SettingsItem *timeItem = new SettingsItem;
-    timeItem->setLayout(vbox);
-    m_layout->addWidget(timeItem);
+
+    timeGrp->appendItem(m_weekCbx);
+    timeGrp->appendItem(m_weekStartDayCbx);
+    timeGrp->appendItem(m_longdateCbx);
+    timeGrp->appendItem(m_shortDateCbx);
+    timeGrp->appendItem(m_longtimeCbx);
+    timeGrp->appendItem(m_shortimeCbx);
+
+    m_layout->addWidget(timeGrp);
 
     m_layout->addStretch(0);
     initComboxWidgetList();
