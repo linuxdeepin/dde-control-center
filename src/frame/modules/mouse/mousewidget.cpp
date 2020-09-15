@@ -56,7 +56,7 @@ MouseWidget::MouseWidget()
     m_doubleTest = new DouTestWidget;
 
     m_mouseMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
-    m_adaptiveAccelProfile = new SwitchWidget(tr("Mouse Acceleration"));
+    //m_adaptiveAccelProfile = new SwitchWidget(tr("Mouse Acceleration"));
     m_scrollSpeedSlider = new TitledSliderItem(tr("Scroll Speed"));
     m_disTchStn = new SwitchWidget(tr("Disable the touchpad when inserting the mouse"));
     m_mouseNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
@@ -106,7 +106,7 @@ MouseWidget::MouseWidget()
     m_baseSettingsGrp->appendItem(m_doubleTest);
 
     m_mouseSettingsGrp->appendItem(m_mouseMoveSlider);
-    m_mouseSettingsGrp->appendItem(m_adaptiveAccelProfile);
+    //m_mouseSettingsGrp->appendItem(m_adaptiveAccelProfile);
     m_mouseSettingsGrp->appendItem(m_disTchStn);
     m_mouseSettingsGrp->appendItem(m_mouseNaturalScroll);
 
@@ -133,7 +133,7 @@ MouseWidget::MouseWidget()
 
     connect(m_doubleSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetDouClick);
     connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetMouseMotionAcceleration);
-    connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseWidget::requestSetAccelProfile);
+    //connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseWidget::requestSetAccelProfile);
     connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetTouchpadMotionAcceleration);
     connect(m_trackMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetTrackPointMotionAcceleration);
 
@@ -165,7 +165,7 @@ void MouseWidget::setModel(MouseModel *const model)
     connect(model, &MouseModel::mouseNaturalScrollChanged, m_mouseNaturalScroll, &SwitchWidget::setChecked);
     connect(model, &MouseModel::tpadNaturalScrollChanged, m_touchNaturalScroll, &SwitchWidget::setChecked);
 
-    connect(model, &MouseModel::accelProfileChanged, m_adaptiveAccelProfile, &SwitchWidget::setChecked);
+    //connect(model, &MouseModel::accelProfileChanged, m_adaptiveAccelProfile, &SwitchWidget::setChecked);
 
     connect(model, &MouseModel::disTpadChanged, m_disTchStn, &SwitchWidget::setChecked);
     connect(model, &MouseModel::disTpadChanged, this, &MouseWidget::onTouchpadHideChanged);
@@ -193,7 +193,7 @@ void MouseWidget::setModel(MouseModel *const model)
     m_disTchStn->setChecked(model->disTpad());
     m_touchClickStn->setChecked(model->tapclick());
     m_leftHand->setChecked(model->leftHandState());
-    m_adaptiveAccelProfile->setChecked(model->accelProfile());
+    //m_adaptiveAccelProfile->setChecked(model->accelProfile());
     m_disInTyping->setChecked(model->disIfTyping());
 }
 

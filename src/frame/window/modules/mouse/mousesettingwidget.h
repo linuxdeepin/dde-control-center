@@ -60,7 +60,7 @@ private:
     dcc::mouse::MouseModel *m_mouseModel;
     dcc::widgets::SettingsGroup *m_mouseSettingsGrp;
     dcc::widgets::TitledSliderItem *m_mouseMoveSlider;
-    dcc::widgets::SwitchWidget *m_adaptiveAccelProfile;
+    //dcc::widgets::SwitchWidget *m_adaptiveAccelProfile;
     dcc::widgets::SwitchWidget *m_disTchStn;
     dcc::widgets::SwitchWidget *m_mouseNaturalScroll;
     QVBoxLayout *m_contentLayout;

@@ -85,7 +85,7 @@ private:
     widgets::SettingsGroup *m_thinkapdSettingsGrp;
 
     widgets::SwitchWidget *m_leftHand;
-    widgets::SwitchWidget *m_adaptiveAccelProfile;
+    //widgets::SwitchWidget *m_adaptiveAccelProfile;
     widgets::SwitchWidget *m_disInTyping;
     widgets::TitledSliderItem *m_doubleSlider;
     DouTestWidget *m_doubleTest;

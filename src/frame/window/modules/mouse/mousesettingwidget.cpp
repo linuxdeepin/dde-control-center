@@ -46,8 +46,8 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
     //~ child_page Mouse
     m_mouseMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
     //~ contents_path /mouse/Mouse
-    m_adaptiveAccelProfile = new SwitchWidget(tr("Mouse Acceleration"));
-    m_adaptiveAccelProfile->setAccessibleName(tr("Mouse Acceleration"));
+    //m_adaptiveAccelProfile = new SwitchWidget(tr("Mouse Acceleration"));
+    //m_adaptiveAccelProfile->setAccessibleName(tr("Mouse Acceleration"));
     //~ contents_path /mouse/Mouse
     m_disTchStn = new SwitchWidget(tr("Disable touchpad when a mouse is connected"));
     m_disTchStn->setAccessibleName(tr("Disable touchpad when a mouse is connected"));
@@ -69,7 +69,7 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
 
     m_mouseSettingsGrp->setSpacing(List_Interval);
     m_mouseSettingsGrp->appendItem(m_mouseMoveSlider);
-    m_mouseSettingsGrp->appendItem(m_adaptiveAccelProfile);
+    //m_mouseSettingsGrp->appendItem(m_adaptiveAccelProfile);
     m_mouseSettingsGrp->appendItem(m_disTchStn);
     m_mouseSettingsGrp->appendItem(m_mouseNaturalScroll);
 
@@ -88,7 +88,7 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
         else
             requestSetMouseMotionAcceleration(abs(value - 6));
     });
-    connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetAccelProfile);
+    //connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetAccelProfile);
     connect(m_disTchStn, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetDisTouchPad);
     connect(m_mouseNaturalScroll, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetMouseNaturalScroll);
 }
@@ -99,12 +99,12 @@ void MouseSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 
     connect(model, &MouseModel::tpadExistChanged, m_disTchStn, &SwitchWidget::setVisible);
     connect(model, &MouseModel::mouseMoveSpeedChanged,this,&MouseSettingWidget::onMouseMoveSpeedChanged);
-    connect(model, &MouseModel::accelProfileChanged, m_adaptiveAccelProfile, &SwitchWidget::setChecked);
+    //connect(model, &MouseModel::accelProfileChanged, m_adaptiveAccelProfile, &SwitchWidget::setChecked);
     connect(model, &MouseModel::disTpadChanged, m_disTchStn, &SwitchWidget::setChecked);
     connect(model, &MouseModel::mouseNaturalScrollChanged, m_mouseNaturalScroll, &SwitchWidget::setChecked);
 
     onMouseMoveSpeedChanged(model->mouseMoveSpeed());
-    m_adaptiveAccelProfile->setChecked(model->accelProfile());
+    //m_adaptiveAccelProfile->setChecked(model->accelProfile());
     m_disTchStn->setChecked(model->disTpad());
     m_disTchStn->setVisible(model->tpadExist());
     m_mouseNaturalScroll->setChecked(model->mouseNaturalScroll());
