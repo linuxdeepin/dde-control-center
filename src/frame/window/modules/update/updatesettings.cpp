@@ -58,6 +58,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     autoLbl->setAlignment(Qt::AlignLeft);
 
     SettingsGroup *ug = new SettingsGroup;
+    ug->getLayout()->setContentsMargins(0, 0, 0, 0);
 
     m_autoCleanCache = new SwitchWidget;
     //~ contents_path /update/Update Settings

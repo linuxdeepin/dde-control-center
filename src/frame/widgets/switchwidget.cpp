@@ -52,7 +52,6 @@ SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
     if (!m_leftWidget)
         m_leftWidget = new QLabel();
 
-    addBackground();
     setFixedHeight(SwitchWidgetHeight);
     QHBoxLayout *lableLayout = new QHBoxLayout;
     lableLayout->addWidget(m_leftWidget);

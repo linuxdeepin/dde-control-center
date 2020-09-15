@@ -68,7 +68,7 @@ IndexPage::IndexPage(QWidget *parent)
 
     SettingsGroup *autoSyncGrp = new SettingsGroup;
     autoSyncGrp->appendItem(m_autoSyncSwitch);
-
+    m_autoSyncSwitch->layout()->setContentsMargins(10, 0, 10, 0);
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 

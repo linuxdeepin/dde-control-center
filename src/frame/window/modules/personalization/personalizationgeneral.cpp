@@ -177,6 +177,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         m_wmSwitch->setAccessibleName("switchbutton");
         QHBoxLayout *swswitchLayout = new QHBoxLayout();
         SettingsItem *switem = new dcc::widgets::SettingsItem;
+        switem->setFixedHeight(SwitchWidgetHeight);
         switem->addBackground();
         switem->setLayout(swswitchLayout);
 
@@ -184,6 +185,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
         swswitchLayout->addStretch();
         swswitchLayout->addWidget(m_wmSwitch);
+        swswitchLayout->setContentsMargins(10, 0, 10, 0);
         winEffectVLayout->addWidget(switem);
         winEffectVLayout->setContentsMargins(0, 0, 0, 0);
         winEffectVLayout->addSpacing(10);

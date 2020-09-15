@@ -64,6 +64,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     touchSlider->setPageStep(1);
     m_touchMoveSlider->setAnnotations(touchMoveList);
 
+    m_touchpadSettingsGrp->setContentsMargins(0, 0, 10, 0);
     m_touchpadSettingsGrp->setSpacing(List_Interval);
     m_touchpadSettingsGrp->appendItem(m_touchMoveSlider);
     m_touchpadSettingsGrp->appendItem(m_touchClickStn);
@@ -78,7 +79,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     m_contentLayout->addStretch();
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
-    layout()->setMargin(0);
+    layout()->setContentsMargins(ThirdPageContentsMargins);
     setContent(tFrame);
 
     connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, [this](int value) {

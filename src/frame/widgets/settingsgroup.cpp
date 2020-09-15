@@ -41,20 +41,18 @@ using namespace DCC_NAMESPACE;
 namespace dcc {
 namespace widgets {
 
-SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle, bool isComBox)
+SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     : TranslucentFrame(parent)
     , m_layout(new QVBoxLayout)
     , m_headerItem(nullptr)
 {
     m_layout->setMargin(0);
     m_layout->setSpacing(10);
-    if (isComBox)
-        m_layout->setContentsMargins(0, 0, 0, 0);
-    else
-        m_layout->setContentsMargins(0, 0, ScrollAreaOffsetMargins.right(), 0);
+    m_layout->setContentsMargins(0, 0, ScrollAreaOffsetMargins.right(), 0);
 
     QVBoxLayout *vLayout = m_layout;
     if (GroupBackground == bgStyle) {
+        m_layout->setContentsMargins(0, 0, 0, 0);
         m_bggroup = new DBackgroundGroup(m_layout);
         m_bggroup->setBackgroundRole(QPalette::Window);
         m_bggroup->setItemSpacing(1);

@@ -55,6 +55,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     TitleLabel *lblTitle = new TitleLabel(tr("Sound Effects"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
+    m_sw->addBackground();
     m_sw->switchButton()->setAccessibleName(lblTitle->text());
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
     m_layout->setSpacing(10);

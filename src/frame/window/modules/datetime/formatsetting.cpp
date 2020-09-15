@@ -25,6 +25,7 @@
 #include "widgets/titlelabel.h"
 #include "widgets/comboxwidget.h"
 #include "widgets/settingsgroup.h"
+#include "window/utils.h"
 
 #include <QVBoxLayout>
 #include <QComboBox>
@@ -43,17 +44,19 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
 
     TitleLabel *headTitle = new TitleLabel(tr("Date and Time Formats"));     //时间格式设置
     m_layout->setSpacing(10);
-    m_layout->setMargin(0);
+    m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(headTitle, 0, Qt::AlignLeft);
     m_layout->setSpacing(2);
 
     SettingsGroup *weekGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     QVBoxLayout *vbox = new QVBoxLayout;
+    vbox->setContentsMargins(0, 0, 0, 0);
     m_weekCbx = new ComboxWidget();
     m_weekCbx->setTitle(tr("Weeks"));   //星期
     weekGrp->appendItem(m_weekCbx);
 
     SettingsGroup *shortDateGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    shortDateGrp->getLayout()->setContentsMargins(0, 0, 0 ,0);
     m_shortDateCbx = new ComboxWidget();
     m_shortDateCbx->setTitle(tr("Short Date"));  //短日期
     shortDateGrp->appendItem(m_shortDateCbx);
@@ -84,6 +87,18 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
                                 QDBusConnection::sessionBus(), this);
     //如果不是中文就不显示星期的选项
     m_weekCbx->setVisible(interLangSelector.property("CurrentLocale").toString().startsWith("zh_CN"));
+    weekGrp->setContentsMargins(0, 10, 0, 0);
+    weekGrp->layout()->setContentsMargins(0, 0, 0, 0);
+    weekStartDayGrp->setContentsMargins(0, 10, 0, 0);
+    weekStartDayGrp->layout()->setContentsMargins(0, 0, 0, 0);
+    longdateGrp->setContentsMargins(0, 10, 0, 0);
+    longdateGrp->layout()->setContentsMargins(0, 0, 0, 0);
+    shortDateGrp->setContentsMargins(0, 10, 0, 0);
+    shortDateGrp->layout()->setContentsMargins(0, 0, 0, 0);
+    longtimeGrp->setContentsMargins(0, 10, 0, 0);
+    longtimeGrp->layout()->setContentsMargins(0, 0, 0, 0);
+    shortimeGrp->setContentsMargins(0, 10, 0, 0);
+    shortimeGrp->layout()->setContentsMargins(0, 0, 0, 0);
     vbox->addWidget(weekGrp);
     vbox->addWidget(weekStartDayGrp);
     vbox->addWidget(longdateGrp);

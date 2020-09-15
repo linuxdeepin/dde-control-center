@@ -66,7 +66,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
 
     m_outputModel  = new QStandardItemModel(m_outputSoundCbx->comboBox());
     m_outputSoundCbx->comboBox()->setModel(m_outputModel);
-    SettingsGroup *outputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground, true);
+    SettingsGroup *outputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     outputSoundsGrp->getLayout()->setContentsMargins(ThirdPageCmbMargins);
     outputSoundsGrp->appendItem(m_outputSoundCbx);
     if (outputSoundsGrp->layout())
@@ -76,6 +76,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     TitleLabel *lblTitle = new TitleLabel(tr("On"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
+    m_sw->addBackground();
     m_sw->setAccessibleName(tr("Speaker"));
     hlayout->addWidget(m_sw);
 
@@ -300,6 +301,7 @@ void SpeakerPage::initSlider()
     //音量增强
     auto hlayout = new QVBoxLayout();
     auto volumeBoost = new SwitchWidget(this);
+    volumeBoost->addBackground();
     volumeBoost->setChecked(m_model->isIncreaseVolume());
     volumeBoost->setTitle(tr("Volume Boost"));
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoost, &SwitchWidget::setChecked);

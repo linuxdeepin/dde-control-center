@@ -49,6 +49,7 @@ BootWidget::BootWidget(QWidget *parent)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     SettingsGroup *groupOther = new SettingsGroup;
+    groupOther->getLayout()->setContentsMargins(0, 0, 0, 0);
 
     m_background = new CommonBackgroundItem();
 

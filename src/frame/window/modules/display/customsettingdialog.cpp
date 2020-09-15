@@ -396,6 +396,7 @@ void CustomSettingDialog::initMoniList()
     if (vseg_size > 2 && m_vSegBtn[0]->isChecked()) {
         if (m_displaylist == nullptr) {
             m_displaylist = new SettingsGroup();
+            m_displaylist->setContentsMargins(10, 10, 0, 10);
             m_layout->insertWidget(1, m_displaylist);
         }
         if (m_displayComboxWidget == nullptr) {

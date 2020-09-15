@@ -76,7 +76,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     auto tw = new QWidget();
     tw->setLayout(contentLayout);
     contentLayout->setSpacing(0);
-    contentLayout->setContentsMargins(0, 0, 6, 0);
+    contentLayout->setContentsMargins(0, 0, 0, 0);
     scrollArea->setWidget(tw);
 
     initUserInfo(contentLayout);
@@ -365,7 +365,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin = new SwitchWidget;
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
 
-    loginGrp->setContentsMargins(10, 0, 0, 10);
+    loginGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
+    loginGrp->setContentsMargins(10, 10, 10, 10);
     loginGrp->layout()->setMargin(0);
     loginGrp->appendItem(m_autoLogin);
     loginGrp->appendItem(m_nopasswdLogin);

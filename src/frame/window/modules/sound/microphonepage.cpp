@@ -90,15 +90,17 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     TitleLabel *lblTitle = new TitleLabel(tr("On"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
+    m_sw->addBackground();
 
     TitleLabel *ndTitle = new TitleLabel(tr("Automatic Noise Suppression"));
     DFontSizeManager::instance()->bind(ndTitle, DFontSizeManager::T6);
     m_noiseReductionsw = new SwitchWidget(nullptr, ndTitle);
+    m_noiseReductionsw->addBackground();
     hlayout->addWidget(m_sw);
 
     m_inputModel  = new QStandardItemModel(m_inputSoundCbx->comboBox());
     m_inputSoundCbx->comboBox()->setModel(m_inputModel);
-    SettingsGroup *inputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground, true);
+    SettingsGroup *inputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     inputSoundsGrp->getLayout()->setContentsMargins(ThirdPageCmbMargins);
     inputSoundsGrp->appendItem(m_inputSoundCbx);
     if (inputSoundsGrp->layout()) {
