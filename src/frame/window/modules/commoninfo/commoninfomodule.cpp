@@ -65,6 +65,9 @@ void CommonInfoModule::preInitialize(bool sync)
 {
 #ifdef DCC_DISABLE_GRUB
     m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), false);
+    if (IsServerSystem) {
+        m_frameProxy->setModuleVisible(this, false);
+    }
 #else
     m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), true);
 #endif
