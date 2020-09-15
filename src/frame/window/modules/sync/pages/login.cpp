@@ -85,10 +85,15 @@ void LoginPage::licenceDialog()
     ProtocolFile::getPrivacyFile(zhCN_Content, enUS_Content);
 
     m_licenceProcess = new QProcess(this);
+    //添加-u和-b选项显示隐私政策页面表头和选项英文
     m_licenceProcess->start("dde-license-dialog",
-                                  QStringList() << "-t" << title << "-c" << zhCN_Content << "-e" << enUS_Content << "-a" << allowContent);
+                            QStringList() << "-t" << title << "-u" << "Privacy Policy"  << "-c" << zhCN_Content
+                            << "-b" << "I have read and agree to the Privacy Policy"
+                            << "-e" << enUS_Content << "-a" << allowContent);
     qDebug() << "Deliver content QStringList() = " << "dde-license-dialog"
-                                                 << "-t" << title << "-a" << allowContent;
+             << "-t" << title << "-u" << "Privacy Policy"  << "-c" << zhCN_Content
+             << "-b" << "I have read and agree to the Privacy Policy"
+             << "-e" << enUS_Content << "-a" << allowContent;
     connect(m_licenceProcess, &QProcess::stateChanged, this, [this](QProcess::ProcessState state) {
         if (m_pMainWindow) {
             m_pMainWindow->setEnabled(state != QProcess::Running);
