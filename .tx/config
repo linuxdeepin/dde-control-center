@@ -26,3 +26,4 @@ file_filter = translations/recovery_<lang>.ts
 source_file = translations/recovery_en_US.ts
 source_lang = en_US
 type = QT
+
