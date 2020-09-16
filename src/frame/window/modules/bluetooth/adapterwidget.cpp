@@ -83,7 +83,6 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     phlayout->addWidget(m_otherDevicesGroup);
     phlayout->addWidget(m_spinner);
     phlayout->addWidget(m_refreshBtn);
-
     m_switch->addBackground();
     m_switch->layout()->setContentsMargins(10, 10, 10, 10);
     m_switch->setContentsMargins(0, 0, 10, 0);
@@ -125,6 +124,10 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     m_otherDeviceListView->setViewportMargins(ScrollAreaMargins);
     m_otherDeviceListView->setSelectionMode(QListView::SelectionMode::NoSelection);
 
+    //设置最小宽度,防止偶现情况下，开关按钮被压缩
+    m_switch->setMinimumHeight(50);
+    m_switch->switchButton()->setMinimumHeight(32);
+
     layout->addSpacing(10);
     layout->addLayout(pshlayout);
     layout->addWidget(m_tip, 0, Qt::AlignTop);
@@ -144,19 +147,19 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
        m_otherDeviceModel->sort(0, Qt::SortOrder::DescendingOrder);
     });
 
-    connect(m_switch, &SwitchWidget::checkedChanged, this, [ = ] (const bool &value) {
+    connect(m_switch, &SwitchWidget::checkedChanged, this, [ = ] (const bool &enable) {
         if (!m_isNotFirst) {
             m_dtime.start();
             m_isNotFirst = true;
-            toggleSwitch(value);
+            toggleSwitch(enable);
         } else {
             //300ms防止高频操作开关蓝牙
             if (m_dtime.elapsed() < 300) {
                 m_switch->blockSignals(true);
-                m_switch->setChecked(!value);
+                m_switch->setChecked(!enable);
                 m_switch->blockSignals(false);
             } else {
-                toggleSwitch(value);
+                toggleSwitch(enable);
             }
         }
         m_dtime.restart();
@@ -359,7 +362,6 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
 
 void AdapterWidget::addDevice(const Device *device)
 {
-    qDebug() << "addDevice: " << device->name();
     QPointer<DeviceSettingsItem> deviceItem = new DeviceSettingsItem(device, style());
     categoryDevice(deviceItem, device->paired());
 
@@ -404,8 +406,6 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     bool isFind = false;
     for (auto it : m_myDevices) {
         if (it != NULL && it->device() != nullptr && it->device()->id() == deviceId) {
-
-            qDebug() << "removeDevice my: " << it->device()->name();
             DStandardItem *item = it->getStandardItem();
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
             m_myDeviceModel->removeRow(myDeviceIndex.row());
@@ -423,8 +423,6 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     if (!isFind) {
         for (auto it : m_deviceLists) {
             if (it != NULL && it->device() != nullptr && it->device()->id() == deviceId) {
-
-                qDebug() << "removeDevice other: " << it->device()->name();
                 DStandardItem *item = it->getStandardItem();
                 QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
                 m_otherDeviceModel->removeRow(otherDeviceIndex.row());
