@@ -395,18 +395,17 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
     }
 
     qDebug() << pkgCount << appCount;
-    if (pkgCount > 0) {
-        // If there's no actual package dde update, but there're system patches available,
-        // then fake one dde update item.
 
+    // 如果所有可更新包数量大于可更新应用包数量，则添加一条系统更新item
+    if (pkgCount > m_updatableApps.count()) {
         auto it = std::find_if(infos.constBegin(), infos.constEnd(), [ = ](const AppUpdateInfo &info) {
             return info.m_packageId == DDEId;
         });
 
         AppUpdateInfo dde;
-        if (it == infos.constEnd()) {
-            dde = getDDEInfo();
-        } else {
+        dde.m_name = tr("System Updates");
+        dde.m_packageId = DDEId;
+        if (it != infos.constEnd()) {
             dde = *it;
             infos.removeAt(it - infos.constBegin());
         }
@@ -416,11 +415,6 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
             ddeUpdateInfo.m_avilableVersion = tr("Patches");
             ddeUpdateInfo.m_changelog = tr("System patches");
         }
-
-//        if(!DCC_NAMESPACE::IsCommunitySystem) {
-//            //app updates are not displayed
-//            infos.clear();
-//        }
 
         infos.prepend(ddeUpdateInfo);
     }
@@ -1135,30 +1129,6 @@ AppUpdateInfo UpdateWorker::getInfo(const AppUpdateInfo &packageInfo, const QStr
     }
 
     return info;
-}
-
-AppUpdateInfo UpdateWorker::getDDEInfo()
-{
-    AppUpdateInfo dde;
-    dde.m_name = tr("System Updates");
-    dde.m_packageId = DDEId;
-
-    QFile file("/var/lib/lastore/update_infos.json");
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        const QJsonArray array = QJsonDocument::fromJson(file.readAll()).array();
-        for (const QJsonValue &json : array) {
-            const QJsonObject &obj = json.toObject();
-            if (obj["Package"].toString() == DDEId) {
-
-                dde.m_currentVersion = obj["CurrentVersion"].toString();
-                dde.m_avilableVersion = obj["LastVersion"].toString();
-
-                return dde;
-            }
-        }
-    }
-
-    return dde;
 }
 
 void UpdateWorker::setBatteryPercentage(const BatteryPercentageInfo &info)
