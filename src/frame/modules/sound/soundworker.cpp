@@ -217,7 +217,8 @@ void SoundWorker::enableAllSoundEffect(bool enable)
 
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 {
-    if (path.path().isEmpty()) return;
+    qDebug() << "sink default path:" << path.path();
+    if (path.path().isEmpty() || path.path() == "/" ) return; //路径为空
 
     if (m_defaultSink) m_defaultSink->deleteLater();
     m_defaultSink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
@@ -238,7 +239,8 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 
 void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 {
-    if (path.path().isEmpty()) return;
+    qDebug() << "source default path:" << path.path();
+    if (path.path().isEmpty() || path.path() == "/" ) return; //路径为空
 
     if (m_defaultSource) m_defaultSource->deleteLater();
     m_defaultSource = new Source("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
