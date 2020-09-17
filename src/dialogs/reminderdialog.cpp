@@ -101,16 +101,26 @@ void Manager::setupDialog()
 void Manager::showDialog()
 {
     int value = m_dialog->exec();
-
-    if (value == 0) {
+    switch (value) {
+    case -1:
+        qDebug() << "user closed the dialog.";
+        m_timer->start();
+        break;
+    case 0:
         qDebug() << "user dismissed the dialog.";
         m_timer->start();
-    } else if (value == 1) {
+        break;
+    case 1:
         qDebug() << "user clicked shutdown";
         m_sessionManager->RequestShutdown();
-    } else if (value == 2) {
+        break;
+    case 2:
         qDebug() << "user clicked reboot";
         m_sessionManager->RequestReboot();
+        break;
+    default:
+        qDebug() << "reminder dialog error!";
+        break;
     }
 }
 
