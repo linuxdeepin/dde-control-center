@@ -79,7 +79,6 @@ set(FRAME_FILES
                 framecontentwrapper.cpp
                 moduleinitthread.cpp
                 navigationview.cpp
-                pluginscontroller.cpp
                 updatenotifier.cpp
 )
 

@@ -71,8 +71,6 @@ private Q_SLOTS:
     void toggleNotify();
 
 private:
-    PluginsController *m_pluginsController;
-
     QTimer *m_timeRefersh;
 
     // ui widgets
