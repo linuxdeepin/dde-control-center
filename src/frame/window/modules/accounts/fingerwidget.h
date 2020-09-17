@@ -44,6 +44,7 @@ public:
     ~FingerWidget();
     void setFingerModel(dcc::accounts::FingerModel *model);
     void addFingerButton(const QString &newFingerName);
+    bool eventFilter(QObject *watched, QEvent *event)override;
 
 Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);

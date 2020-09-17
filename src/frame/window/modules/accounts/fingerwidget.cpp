@@ -40,6 +40,8 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     , m_clearBtn(nullptr)
 {
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+	//注册所有的事件
+    installEventFilter(this);
 
     m_clearBtn = new DCommandLinkButton(tr("Edit"));
     m_clearBtn->setCheckable(true);
@@ -109,6 +111,16 @@ void FingerWidget::setFingerModel(FingerModel *model)
     });
     connect(model, &FingerModel::thumbsListChanged, this, &FingerWidget::onThumbsListChanged);
     onThumbsListChanged(model->thumbsList());
+}
+
+bool FingerWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    Q_UNUSED(watched);
+    //删除指纹提权超时的时候,再次输入密码需要通知界面刷新
+    if(event->type() == QEvent::WindowActivate) {
+        Q_EMIT noticeEnrollCompleted(m_curUser->name());
+    }
+    return  true;
 }
 
 void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
