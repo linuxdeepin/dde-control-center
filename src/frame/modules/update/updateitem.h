@@ -53,10 +53,15 @@ public:
 
     void setAppInfo(const AppUpdateInfo& info);
 
-    static bool isAnchor(const QString &input);
-    static QPair<QString, QString> parseAnchor(const QString &input);
-
     QSize sizeHint() const override;
+
+protected:
+    virtual bool eventFilter(QObject *obj, QEvent *event) override;
+
+private:
+    QString elidedChangelog() const;
+    void updateChangelogDisplay();
+    const QString getExtendLog() const;
 
 private:
     AppUpdateInfo m_info;
@@ -65,14 +70,10 @@ private:
     dcc::widgets::SmallLabel *m_appName;
     dcc::widgets::SmallLabel *m_appVersion;
     dcc::widgets::SmallLabel *m_appChangelog;
-    int m_detail_state;
+    bool m_isLogExpand;
 
     QPushButton *m_details;
     QVBoxLayout *m_iconLayout;
-
-    QString elidedChangelog() const;
-    void expandChangelog();
-    void collaspChangelog();
 };
 
 }

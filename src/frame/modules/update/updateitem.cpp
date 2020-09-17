@@ -40,59 +40,20 @@ using namespace dcc::widgets;
 
 namespace dcc{
 namespace update{
-static QRegularExpression AnchorReg("<a href='(?<href>.*?)'>(?<content>.*?)</a>");
-
-bool UpdateItem::isAnchor(const QString &input)
-{
-    return AnchorReg.match(input).hasMatch();
-}
-
-QPair<QString, QString> UpdateItem::parseAnchor(const QString &input)
-{
-    QPair<QString, QString> ret;
-
-    QRegularExpressionMatch match = AnchorReg.match(input);
-    if (match.hasMatch()) {
-        ret.first = match.captured("href");
-        ret.second = match.captured("content");
-    }
-
-    return ret;
-}
 
 QSize UpdateItem::sizeHint() const
 {
     return QSize(width(), heightForWidth(width()));
 }
 
-const QString clearHTMLTags(const QString &text)
-{
-    const QRegularExpression regex("<(\\w+)[^>]*>([^<]*)</\\1>");
-
-    QString ret = text;
-    do
-    {
-        const auto match = regex.match(ret);
-        if (!match.isValid() || !match.hasMatch())
-            break;
-
-        const int start = match.capturedStart();
-        const int len = match.capturedLength();
-        const QString &cap = match.captured(2);
-
-        ret.replace(start, len, cap);
-    } while (true);
-
-    return ret;
-}
-
 UpdateItem::UpdateItem(QFrame *parent)
-    :SettingsItem(parent),
-      m_appIcon(new SmallLabel),
-      m_appName(new SmallLabel),
-      m_appVersion(new SmallLabel),
-      m_appChangelog(new SmallLabel),
-      m_details(new QPushButton)
+    : SettingsItem(parent)
+    , m_appIcon(new SmallLabel)
+    , m_appName(new SmallLabel)
+    , m_appVersion(new SmallLabel)
+    , m_appChangelog(new SmallLabel)
+    , m_isLogExpand(false)
+    , m_details(new QPushButton)
 {
     TranslucentFrame *iconContainer = new TranslucentFrame;
     iconContainer->setFixedWidth(36);
@@ -101,6 +62,7 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_iconLayout->setMargin(0);
     m_iconLayout->setSpacing(0);
     m_iconLayout->addWidget(m_appIcon);
+    m_iconLayout->setContentsMargins(0, 0, 0, 0);
 
     iconContainer->setLayout(m_iconLayout);
 
@@ -118,10 +80,10 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_appChangelog->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     m_appChangelog->setFocusPolicy(Qt::NoFocus);
     m_appChangelog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_appChangelog->installEventFilter(this);
 
     m_details->setFlat(true);
     m_details->setText(tr("Details"));
-    m_detail_state = 1;
 
     QHBoxLayout* logLayout = new QHBoxLayout;
     logLayout->setMargin(0);
@@ -156,20 +118,12 @@ UpdateItem::UpdateItem(QFrame *parent)
     setLayout(layout);
 
     connect(m_details, &QPushButton::clicked, [this] {
-            if (1 == m_detail_state) {
-                m_details->setText(tr("Collapse"));
-                // The point of this timer is that the calculation should be taken
-                // after the relayout of this item caused by the hide of details button.
-                QTimer::singleShot(0, this, &UpdateItem::expandChangelog);
-                m_detail_state = 2;
-            } else if (2 == m_detail_state) {
-                m_details->setText(tr("Details"));
-                m_detail_state = 1;
-                collaspChangelog();
-            }
-            update();
+        m_isLogExpand = !m_isLogExpand;
+        m_details->setText(m_isLogExpand ? tr("Collapse") : tr("Details"));
+        updateChangelogDisplay();
     });
     setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Expanding);
+    setMinimumHeight(60);
 }
 
 void UpdateItem::setAppInfo(const AppUpdateInfo &info)
@@ -195,27 +149,15 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
     m_appName->setText(info.m_name.trimmed());
     m_appVersion->setText(info.m_avilableVersion.trimmed());
 
-    const QString changelog = m_info.m_changelog;
-    const QString elidedText = elidedChangelog();
-
-    if (changelog != elidedText)
-    {
-        m_iconLayout->setContentsMargins(0, 10, 0, 0);
-        m_appChangelog->setText(elidedText);
-    } else {
-        setMinimumHeight(60);
-        m_iconLayout->setContentsMargins(0, 0, 0, 0);
-        m_appChangelog->setText(changelog);
-        m_details->setVisible(false);
-    }
+    updateChangelogDisplay();
 }
 
 QString UpdateItem::elidedChangelog() const
 {
-    const QString text = QString(clearHTMLTags(m_info.m_changelog)).replace("\n", "");
+    QString text = m_info.m_changelog;
 
     const QFontMetrics fm(m_appChangelog->fontMetrics());
-    const QRect rect(0, 0, 200, fontMetrics().height() * 1);
+    const QRect rect(0, 0, m_appChangelog->width(), fontMetrics().height());
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
 
     if (rect.contains(fm.boundingRect(rect, textFlag, text)))
@@ -223,8 +165,7 @@ QString UpdateItem::elidedChangelog() const
 
     QString str(text + "...");
 
-    while (true)
-    {
+    while (true) {
         if (str.size() < 4)
             break;
 
@@ -238,19 +179,96 @@ QString UpdateItem::elidedChangelog() const
     return str;
 }
 
-void UpdateItem::expandChangelog()
+/**
+ * @brief UpdateItem::getExtendLog
+ * 自定义更新日志字符串换行函数，英文在qlabel中没有空格字符时不会换行 + ‘\n’不会分行显示
+ * @return 一行字符宽度超过qlabel宽度时添加换行，‘\n’全部添加换行
+ */
+const QString UpdateItem::getExtendLog() const
 {
-    const QString stylesheet = "<style type=\"text/css\">"
-                               "a { color: #0082FA; }"
-                               "</style> ";
+    const QFontMetrics fm(m_appChangelog->fontMetrics());
+    QString retLog = m_info.m_changelog;
 
-    m_appChangelog->setText(stylesheet + m_info.m_changelog.replace('\n', "<br>"));
+    int fontWidth = fm.width(retLog);
+
+    retLog.prepend("<style type=\"text/css\"></style>");
+
+    const int labelWidth = m_appChangelog->width();
+    if (fontWidth <= labelWidth) {
+        return retLog.replace('\n', "<br/>");
+    }
+
+    // 当前行字符串
+    QString curLine = m_info.m_changelog;
+    // 返回字符中的一个记录序号
+    int pos = QString("<style type=\"text/css\"></style>").size();
+    // 文本宽度计数
+    int widthCount = 0;
+    while (true) {
+        if (curLine.isEmpty()) {
+            break;
+        }
+        int logSize = curLine.size();
+        for (int i = 0; i < logSize; ++i) {
+            const QChar word = curLine.at(i);
+
+            // '\n'转换行
+            if (word == '\n') {
+                curLine = curLine.right(curLine.size() - i -1);
+                if (curLine.isEmpty()) {
+                    return retLog;
+                }
+                retLog.replace(pos, 1, "<br/>");
+                pos += 5;
+                widthCount = 0;
+                break;
+            }
+
+            widthCount += fm.width(word);
+
+            // 字符行宽大于标签宽度添加换行
+            if (widthCount >= labelWidth) {
+                curLine = curLine.right(curLine.size() - i -1);
+                if (curLine.isEmpty()) {
+                    return retLog;
+                }
+                retLog.insert(pos, "<br/>");
+                pos += 6;
+                widthCount = 0;
+                break;
+            }
+
+            // 不足一行时返回
+            if (i == logSize - 1) {
+                return retLog;
+            }
+            ++pos;
+        }
+    }
+
+    return retLog;
 }
 
-void UpdateItem::collaspChangelog()
+void UpdateItem::updateChangelogDisplay()
 {
-    m_info.m_changelog.replace("<br>", "\n");
-    m_appChangelog->setText(elidedChangelog());
+    const QString elidedText = elidedChangelog();
+    bool needElide = m_info.m_changelog != elidedText;
+    m_details->setVisible(needElide);
+
+    if (m_isLogExpand) {
+        m_appChangelog->setText(getExtendLog());
+    } else {
+        m_appChangelog->setText(elidedText);
+    }
+}
+
+bool UpdateItem::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::Resize && obj == m_appChangelog) {
+        updateChangelogDisplay();
+    }
+
+    return SettingsItem::eventFilter(obj, event);
 }
 }
 }
