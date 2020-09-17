@@ -63,6 +63,7 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     backWidgetBtn->setFlat(true);
     backWidgetBtn->setFixedSize(30, 48);
     backWidgetBtn->setIcon(QStyle::SP_ArrowBack);
+    DStyle::setFocusRectVisible(backWidgetBtn, false);
     layout->addWidget(backWidgetBtn, Qt::AlignLeft);
     m_devNameLabel = new TitleLabel(device->name());
     layout->addWidget(m_devNameLabel, 0, Qt::AlignCenter);
