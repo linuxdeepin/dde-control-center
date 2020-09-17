@@ -76,13 +76,14 @@ void WacomModule::active()
 {
     m_worker->active();
     m_wacomWidget = new WacomWidget;
-
+    m_wacomWidget->setVisible(false);
     connect(m_wacomWidget, &WacomWidget::requestSetPressureValue, m_worker, &WacomWorker::onPressureSensitiveChanged);
     connect(m_wacomWidget, &WacomWidget::modeChanged, m_worker, &WacomWorker::setCursorMode);
 
     m_wacomWidget->setModel(m_model);
     m_frameProxy->setModuleVisible(this, m_model->exist());
     m_frameProxy->pushWidget(this, m_wacomWidget);
+    m_wacomWidget->setVisible(true);
 }
 
 void WacomModule::deactive()

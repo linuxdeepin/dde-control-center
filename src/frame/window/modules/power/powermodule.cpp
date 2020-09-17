@@ -82,6 +82,7 @@ const QString PowerModule::displayName() const
 void PowerModule::active()
 {
     m_widget = new PowerWidget;
+    m_widget->setVisible(false);
 
     m_widget->initialize(m_model->haveBettary());
 
@@ -99,6 +100,7 @@ void PowerModule::active()
     connect(m_widget, &PowerWidget::requestShowUseElectric, this, &PowerModule::showUseElectric);
 
     m_frameProxy->pushWidget(this, m_widget);
+    m_widget->setVisible(true);
     m_widget->setDefaultWidget();
 }
 
@@ -159,8 +161,10 @@ void PowerModule::showGeneral()
     qDebug() << Q_FUNC_INFO;
 
     GeneralWidget *general = new GeneralWidget(m_widget, m_widget->getIsUseBattety());
+    general->setVisible(false);
     general->setModel(m_model);
     m_frameProxy->pushWidget(this, general);
+    general->setVisible(true);
 
     connect(general, &GeneralWidget::requestSetWakeDisplay, m_work, &PowerWorker::setScreenBlackLock);
     connect(general, &GeneralWidget::requestSetWakeComputer, m_work, &PowerWorker::setSleepLock);
@@ -184,7 +188,7 @@ void PowerModule::showUseElectric()
     qDebug() << Q_FUNC_INFO;
 
     UseElectricWidget *electric = new UseElectricWidget(m_model, m_widget);
-
+    electric->setVisible(false);
     //When use power : false -> hide (default : show)
     if (!m_widget->getIsUseBattety()) {
         electric->setLidClose(m_widget->getIsUseBattety());
@@ -202,6 +206,7 @@ void PowerModule::showUseElectric()
     //-------------------------------------------
 
     m_frameProxy->pushWidget(this, electric);
+    electric->setVisible(true);
 }
 
 void PowerModule::showUseBattery()
@@ -209,7 +214,9 @@ void PowerModule::showUseBattery()
     qDebug() << Q_FUNC_INFO;
 
     UseBatteryWidget *battery = new UseBatteryWidget(m_model);
+    battery->setVisible(false);
     m_frameProxy->pushWidget(this, battery);
+    battery->setVisible(true);
 
     connect(battery, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery, m_work, &PowerWorker::setScreenBlackDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetSleepDelayOnBattery, m_work, &PowerWorker::setSleepDelayOnBattery);

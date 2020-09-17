@@ -66,13 +66,14 @@ void SoundModule::active()
 {
     m_worker->activate();
     m_soundWidget = new SoundWidget();
-
+    m_soundWidget->setVisible(false);
     connect(m_soundWidget, &SoundWidget::requsetSpeakerPage, this, &SoundModule::showSpeakerPage);
     connect(m_soundWidget, &SoundWidget::requestMicrophonePage, this, &SoundModule::showMicrophonePage);
     connect(m_soundWidget, &SoundWidget::requestAdvancedPage, this, &SoundModule::showAdvancedPage);
     connect(m_soundWidget, &SoundWidget::requsetSoundEffectsPage, this, &SoundModule::showSoundEffectsPage);
 
     m_frameProxy->pushWidget(this, m_soundWidget);
+    m_soundWidget->setVisible(true);
     showSpeakerPage();
 }
 
@@ -95,7 +96,7 @@ QStringList SoundModule::availPage() const
 void SoundModule::showSpeakerPage()
 {
     SpeakerPage *w = new SpeakerPage;
-
+    w->setVisible(false);
     w->setModel(m_model);
     connect(w, &SpeakerPage::requestSwitchSpeaker, m_worker, &SoundWorker::switchSpeaker);
     connect(w, &SpeakerPage::requestSetSpeakerBalance, m_worker, &SoundWorker::setSinkBalance);
@@ -103,35 +104,40 @@ void SoundModule::showSpeakerPage()
     connect(w, &SpeakerPage::requestIncreaseVolume, m_worker, &SoundWorker::setIncreaseVolume);
 
     m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
 }
 
 void SoundModule::showMicrophonePage()
 {
     MicrophonePage *w = new MicrophonePage;
+    w->setVisible(false);
     connect(w, &MicrophonePage::requestSwitchMicrophone, m_worker, &SoundWorker::switchMicrophone);
     connect(w, &MicrophonePage::requestSetMicrophoneVolume, m_worker, &SoundWorker::setSourceVolume);
 
     w->setModel(m_model);
     m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
 }
 
 void SoundModule::showAdvancedPage()
 {
     AdvancedPage *w = new AdvancedPage;
-
+    w->setVisible(false);
     w->setModel(m_model);
     connect(w, &AdvancedPage::requestSetPort, m_worker, &SoundWorker::setPort);
     m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
 }
 
 void SoundModule::showSoundEffectsPage()
 {
     m_worker->refreshSoundEffect();
     SoundEffectsPage *w = new SoundEffectsPage;
-
+    w->setVisible(false);
     connect(w, &SoundEffectsPage::requestRefreshList, m_worker, &SoundWorker::refreshSoundEffect);
     connect(w, &SoundEffectsPage::requestSwitchSoundEffects, m_worker, &SoundWorker::enableAllSoundEffect);
     connect(w, &SoundEffectsPage::requestSetEffectAble, m_worker, &SoundWorker::setEffectEnable);
     w->setModel(m_model);
     m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
 }

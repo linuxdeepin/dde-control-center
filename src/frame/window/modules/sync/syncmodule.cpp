@@ -40,6 +40,7 @@ void SyncModule::contentPopped(QWidget *const w)
 void SyncModule::active()
 {
     SyncWidget *widget = new SyncWidget;
+    widget->setVisible(false);
     connect(widget, &SyncWidget::requestLoginUser, m_worker, &dcc::cloudsync::SyncWorker::loginUser, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestSetAutoSync, m_worker, &dcc::cloudsync::SyncWorker::setAutoSync, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestLogoutUser, m_worker, &dcc::cloudsync::SyncWorker::logoutUser, Qt::QueuedConnection);
@@ -48,6 +49,7 @@ void SyncModule::active()
     widget->setModel(m_model);
 
     m_frameProxy->pushWidget(this, widget);
+    widget->setVisible(true);
 
     m_worker->activate(); //refresh data
 }

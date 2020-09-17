@@ -180,6 +180,7 @@ void NetworkModule::initialize()
 void NetworkModule::active()
 {
     m_networkWidget = new NetworkModuleWidget;
+    m_networkWidget->setVisible(false);
     m_networkWidget->setModel(m_networkModel);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowDeviceDetail, this, &NetworkModule::showDeviceDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowVpnPage, this, &NetworkModule::showVpnPage);
@@ -190,6 +191,7 @@ void NetworkModule::active()
     connect(m_networkWidget, &NetworkModuleWidget::requestShowInfomation, this, &NetworkModule::showDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestDeviceEnable, m_networkWorker, &NetworkWorker::setDeviceEnable);
     m_frameProxy->pushWidget(this, m_networkWidget);
+    m_networkWidget->setVisible(true);
     m_networkWidget->initSetting(0, "");
 }
 
@@ -276,6 +278,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &sear
 
     if (dev->type() == NetworkDevice::Wireless) {
         m_wirelessPage = new WirelessPage(static_cast<WirelessDevice *>(dev));
+        m_wirelessPage->setVisible(false);
         p = m_wirelessPage;
         m_networkWorker->queryDeviceStatus(dev->path());
         connect(m_wirelessPage, &WirelessPage::back, this, &NetworkModule::popPage);
@@ -287,6 +290,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &sear
         connect(m_wirelessPage, &WirelessPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
         connect(m_wirelessPage, &WirelessPage::requestNextPage, [ = ](ContentWidget * const w) {
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
+            m_wirelessPage->setVisible(true);
         });
         connect(m_wirelessPage, &WirelessPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
 
@@ -294,6 +298,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &sear
         m_wirelessPage->jumpByUuid(searchPath);
     } else if (dev->type() == NetworkDevice::Wired) {
         p = new WiredPage(static_cast<WiredDevice *>(dev));
+        p->setVisible(false);
 
         WiredPage *wiredPage = static_cast<WiredPage *>(p);
 
@@ -316,12 +321,13 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &sear
 
     p->layout()->setMargin(0);
     m_frameProxy->pushWidget(this, p);
+    p->setVisible(true);
 }
 
 void NetworkModule::showVpnPage(const QString &searchPath)
 {
     VpnPage *p = new VpnPage;
-
+    p->setVisible(false);
     connect(p, &VpnPage::requestVpnEnabled, m_networkWorker, &NetworkWorker::setVpnEnable);
     connect(p, &VpnPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(p, &VpnPage::requestNextPage, [ = ](ContentWidget * const w) {
@@ -332,13 +338,14 @@ void NetworkModule::showVpnPage(const QString &searchPath)
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
+    p->setVisible(true);
     p->jumpPath(searchPath);
 }
 
 void NetworkModule::showPppPage(const QString &searchPath)
 {
     PppoePage *p = new PppoePage;
-
+    p->setVisible(false);
     connect(p, &PppoePage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(p, &PppoePage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
@@ -347,6 +354,7 @@ void NetworkModule::showPppPage(const QString &searchPath)
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
+    p->setVisible(true);
     p->jumpPath(searchPath);
 }
 
@@ -355,17 +363,19 @@ void NetworkModule::showChainsProxyPage()
     m_networkWorker->queryChains();
 
     ChainsProxyPage *chains = new ChainsProxyPage;
+    chains->setVisible(false);
     chains->setModel(m_networkModel);
 
     connect(chains, &ChainsProxyPage::requestSet, m_networkWorker, &NetworkWorker::setChainsProxy);
 
     m_frameProxy->pushWidget(this, chains);
+    chains->setVisible(true);
 }
 
 void NetworkModule::showProxyPage()
 {
     ProxyPage *p = new ProxyPage;
-
+    p->setVisible(false);
     connect(p, &ProxyPage::requestQueryProxyData, m_networkWorker, &NetworkWorker::queryProxyData);
     connect(p, &ProxyPage::requestSetProxyMethod, m_networkWorker, &NetworkWorker::setProxyMethod);
     connect(p, &ProxyPage::requestSetIgnoreHosts, m_networkWorker, &NetworkWorker::setProxyIgnoreHosts);
@@ -375,21 +385,23 @@ void NetworkModule::showProxyPage()
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
+    p->setVisible(true);
 }
 
 void NetworkModule::showDetailPage()
 {
     NetworkDetailPage *p = new NetworkDetailPage;
-
+    p->setVisible(false);
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
+    p->setVisible(true);
 }
 
 void NetworkModule::showHotspotPage()
 {
     HotspotPage *p = new HotspotPage();
-
+    p->setVisible(false);
     p->setModel(m_networkModel);
     connect(p, &HotspotPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(p, &HotspotPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
@@ -399,6 +411,7 @@ void NetworkModule::showHotspotPage()
     });
 
     m_frameProxy->pushWidget(this, p);
+    p->setVisible(true);
 }
 
 void NetworkModule::onSetFrameAutoHide(const bool autoHide)
@@ -411,7 +424,7 @@ void NetworkModule::showWiredEditPage(NetworkDevice *dev, const QString &connUui
 {
     // it will be destroyed by Frame
     m_connEditPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::WiredConnection, dev->path(), connUuid);
-
+    m_connEditPage->setVisible(false);
     connect(m_connEditPage, &ConnectionEditPage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
@@ -424,13 +437,14 @@ void NetworkModule::showWiredEditPage(NetworkDevice *dev, const QString &connUui
     m_connEditPage->initSettingsWidget();
 
     m_frameProxy->pushWidget(this, m_connEditPage);
+    m_connEditPage->setVisible(true);
 }
 
 void NetworkModule::showWirelessEditPage(dde::network::NetworkDevice *dev, const QString &connUuid, const QString &apPath)
 {
     // it will be destroyed by Frame
     m_connEditPage = new ConnectionWirelessEditPage(dev->path(), connUuid);
-
+    m_connEditPage->setVisible(false);
     connect(m_connEditPage, &ConnectionEditPage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w);
     });
@@ -456,6 +470,7 @@ void NetworkModule::showWirelessEditPage(dde::network::NetworkDevice *dev, const
     }
 
     m_frameProxy->pushWidget(this, m_connEditPage);
+    m_connEditPage->setVisible(true);
 }
 
 void NetworkModule::removeConnEditPageByDevice(dde::network::NetworkDevice *dev)

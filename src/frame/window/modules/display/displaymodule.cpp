@@ -78,6 +78,7 @@ const QString DisplayModule::displayName() const
 void DisplayModule::active()
 {
     m_displayWidget = new DisplayWidget(m_displayModel);
+    m_displayWidget->setVisible(false);
     m_displayWidget->setModel();
 
     connect(m_displayWidget, &DisplayWidget::requestShowScalingPage,
@@ -104,6 +105,7 @@ void DisplayModule::active()
             this, &DisplayModule::showMultiRefreshRatePage);
 
     m_frameProxy->pushWidget(this, m_displayWidget);
+    m_displayWidget->setVisible(true);
     if (m_displayWidget->isMultiMode()) {
         if (m_displayWidget->isShowMultiscreen())
             showMultiScreenSettingPage();
@@ -172,6 +174,7 @@ QStringList DisplayModule::availPage() const
 void DisplayModule::showBrightnessPage()
 {
     BrightnessPage *page = new BrightnessPage;
+    page->setVisible(false);
     page->setMode(m_displayModel);
     connect(page, &BrightnessPage::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
     connect(page, &BrightnessPage::requestSetMonitorBrightness,
@@ -182,11 +185,13 @@ void DisplayModule::showBrightnessPage()
                 m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
 
     m_frameProxy->pushWidget(this, page);
+    page->setVisible(true);
 }
 
 void DisplayModule::showResolutionDetailPage()
 {
     ResolutionDetailPage *page = new ResolutionDetailPage;
+    page->setVisible(false);
     page->setModel(m_displayModel);
 
     connect(page, &ResolutionDetailPage::requestSetResolution, this,
@@ -197,11 +202,13 @@ void DisplayModule::showResolutionDetailPage()
             &DisplayWorker::saveChanges);
 
     m_frameProxy->pushWidget(this, page);
+    page->setVisible(true);
 }
 
 void DisplayModule::showScalingPage()
 {
     ScalingPage *page = new ScalingPage;
+    page->setVisible(false);
     page->setModel(m_displayModel);
 
     connect(page, &ScalingPage::requestUiScaleChange,
@@ -210,11 +217,13 @@ void DisplayModule::showScalingPage()
             m_displayWorker, &DisplayWorker::setIndividualScaling);
 
     m_frameProxy->pushWidget(this, page);
+    page->setVisible(true);
 }
 
 void DisplayModule::showMultiScreenSettingPage()
 {
     MultiScreenSettingPage *page = new MultiScreenSettingPage();
+    page->setVisible(false);
     page->setModel(m_displayModel);
 
     connect(page, &MultiScreenSettingPage::requestDuplicateMode, m_displayWorker,
@@ -234,6 +243,7 @@ void DisplayModule::showMultiScreenSettingPage()
             m_displayWorker, &DisplayWorker::record);
 
     m_frameProxy->pushWidget(this, page);
+    page->setVisible(true);
 }
 
 void DisplayModule::showCustomSettingDialog()
@@ -276,29 +286,35 @@ void DisplayModule::showCustomSettingDialog()
 void DisplayModule::showRefreshRotePage()
 {
     auto page = new RefreshRatePage();
+    page->setVisible(false);
     page->setModel(m_displayModel);
 
     connect(page, &RefreshRatePage::requestSetResolution,
             this, &DisplayModule::onDetailPageRequestSetResolution);
 
     m_frameProxy->pushWidget(this, page);
+    page->setVisible(true);
 
 }
 
 void DisplayModule::showTouchScreenPage()
 {
     auto page = new TouchscreenPage();
+    page->setVisible(false);
     page->setModel(m_displayModel);
 
     connect(page, &TouchscreenPage::requestAssociateTouch, m_displayWorker, &DisplayWorker::setTouchScreenAssociation);
 
     m_frameProxy->pushWidget(this, page);
+    page->setVisible(true);
 }
 
 void DisplayModule::showMultiResolutionPage()
 {
     auto page = new MultiScreenDetailPage(true);
+    page->setVisible(false);
     page->setModel(m_displayModel);
+    page->setVisible(true);
 
     m_frameProxy->pushWidget(this, page);
 }
@@ -306,9 +322,11 @@ void DisplayModule::showMultiResolutionPage()
 void DisplayModule::showMultiRefreshRatePage()
 {
     auto page = new MultiScreenDetailPage(false);
+    page->setVisible(false);
     page->setModel(m_displayModel);
 
     m_frameProxy->pushWidget(this, page);
+    page->setVisible(true);
 }
 
 void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mode)

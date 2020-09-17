@@ -78,11 +78,11 @@ void NotificationModule::active()
     m_worker->active(true);
 
     m_widget = new NotificationWidget(m_model);
-
+    m_widget->setVisible(false);
     connect(m_widget, &NotificationWidget::requestShowSystem, this, &NotificationModule::showSystemNotify);
     connect(m_widget, &NotificationWidget::requestShowApp, this, &NotificationModule::showAppNotify);
     m_frameProxy->pushWidget(this, m_widget);
-
+    m_widget->setVisible(true);
     showSystemNotify();
 }
 
@@ -108,14 +108,18 @@ QStringList NotificationModule::availPage() const
 void NotificationModule::showSystemNotify()
 {
     SystemNotifyWidget *widget = new SystemNotifyWidget(m_model, m_widget);
+    widget->setVisible(false);
     connect(widget, &SystemNotifyWidget::requestSetSysSetting, m_worker, &NotificationWorker::setBusSysnotify);
     m_frameProxy->pushWidget(this, widget);
+    widget->setVisible(true);
 }
 
 void NotificationModule::showAppNotify(int index)
 {
     AppNotifyWidget *widget = new AppNotifyWidget(index, m_model, m_widget);
+    widget->setVisible(false);
     connect(widget, &AppNotifyWidget::requestSetAppSetting, m_worker,
             static_cast<void (NotificationWorker::*)(const QString &, const QJsonObject &)>(&NotificationWorker::setBusAppnotify));
     m_frameProxy->pushWidget(this, widget);
+    widget->setVisible(true);
 }

@@ -75,6 +75,7 @@ const QString DatetimeModule::displayName() const
 void DatetimeModule::active()
 {
     m_widget = new DatetimeWidget;
+    m_widget->setVisible(false);
     connect(m_widget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
     connect(m_widget, &DatetimeWidget::requestSetHourType, m_work, &DatetimeWork::set24HourType);
     connect(m_model,  &DatetimeModel::hourTypeChanged, m_widget, &DatetimeWidget::onHourTypeChanged);
@@ -88,6 +89,7 @@ void DatetimeModule::active()
     m_widget->setTimeType(QLocale::system().name());
 
     m_frameProxy->pushWidget(this, m_widget);
+    m_widget->setVisible(true);
     m_widget->setDefaultWidget();
 }
 
@@ -226,12 +228,14 @@ void DatetimeModule::showTimezoneList()
     }
 
     QWidget *widget = new QWidget;
+    widget->setVisible(false);
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->addWidget(sysTimezoneWidget, Qt::AlignTop);
     layout->addWidget(m_timezonelist);
     widget->setLayout(layout);
     m_frameProxy->pushWidget(this, widget);
+    widget->setVisible(true);
 }
 
 void DatetimeModule::showSystemTimezone()
@@ -247,7 +251,7 @@ void DatetimeModule::showSystemTimezone()
 void DatetimeModule::showTimeSetting()
 {
     m_setting = new DateSettings;
-
+    m_setting->setVisible(false);
     connect(m_setting, &DateSettings::requestSetAutoSyncdate, m_work, &dcc::datetime::DatetimeWork::setNTP);
     connect(m_setting, &DateSettings::requestSetTime, m_work, &dcc::datetime::DatetimeWork::setDatetime);
     connect(m_setting, &DateSettings::requestBack, this, &DatetimeModule::onPopWidget);
@@ -282,6 +286,7 @@ void DatetimeModule::showTimeSetting()
     m_widget->setCurrentTimeZone(m_model->currentTimeZone());
 
     m_frameProxy->pushWidget(this, m_setting);
+    m_setting->setVisible(true);
 }
 
 void DatetimeModule::onPushWidget(const int &index)

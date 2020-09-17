@@ -125,6 +125,7 @@ void UpdateModule::active()
     connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work, &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
 
     UpdateWidget *mainWidget = new UpdateWidget;
+    mainWidget->setVisible(false);
     mainWidget->initialize();
     m_work->getLicenseState();
 
@@ -137,7 +138,7 @@ void UpdateModule::active()
 
     connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [=]() {
         m_mirrorsWidget = new MirrorsWidget(m_model);
-
+        m_mirrorsWidget->setVisible(false);
         int topWidgetWidth = mainWidget->parentWidget()->parentWidget()->width();
         m_work->checkNetselect();
         m_mirrorsWidget->setMinimumWidth(topWidgetWidth / 2);
@@ -158,9 +159,11 @@ void UpdateModule::active()
         } else {
             m_frameProxy->pushWidget(this, m_mirrorsWidget);
         }
+        m_mirrorsWidget->setVisible(true);
     });
 
     m_frameProxy->pushWidget(this, mainWidget);
+    mainWidget->setVisible(true);
     mainWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
 }
 

@@ -67,10 +67,11 @@ void DefaultAppsModule::initialize()
 void DefaultAppsModule::active()
 {
     DefaultAppsWidget* defaultappsWidget = new DefaultAppsWidget;
-
+    defaultappsWidget->setVisible(false);
     connect(this, &DefaultAppsModule::requestSetDefappCategory, defaultappsWidget, &DefaultAppsWidget::setCurrentIndex);
     connect(defaultappsWidget, &DefaultAppsWidget::requestCategoryClicked, this, &DefaultAppsModule::showDetailWidget);
     m_frameProxy->pushWidget(this, defaultappsWidget);
+    defaultappsWidget->setVisible(true);
     //显示默认页
     showDetailWidget(dcc::defapp::DefAppWorker::Browser);
 }
@@ -119,10 +120,11 @@ QStringList DefaultAppsModule::availPage() const
 
 void DefaultAppsModule::showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category) {
     DefappDetailWidget* detailWidget = new DefappDetailWidget(category);
-
+    detailWidget->setVisible(false);
     detailWidget->setModel(m_defAppModel);
     connect(detailWidget, &DefappDetailWidget::requestSetDefaultApp, m_defAppWorker, &dcc::defapp::DefAppWorker::onSetDefaultApp); //设置默认程序
     connect(detailWidget, &DefappDetailWidget::requestDelUserApp, m_defAppWorker, &dcc::defapp::DefAppWorker::onDelUserApp);
     connect(detailWidget, &DefappDetailWidget::requestCreateFile, m_defAppWorker, &dcc::defapp::DefAppWorker::onCreateFile);
     m_frameProxy->pushWidget(this, detailWidget);
+    detailWidget->setVisible(true);
 }

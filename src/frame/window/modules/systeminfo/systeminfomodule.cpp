@@ -80,11 +80,13 @@ void SystemInfoModule::contentPopped(QWidget *const w)
 void SystemInfoModule::active()
 {
     m_sysinfoWidget = new SystemInfoWidget;
+    m_sysinfoWidget->setVisible(false);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowAboutNative, this, &SystemInfoModule::onShowAboutNativePage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowEndUserLicenseAgreement, this, &SystemInfoModule::onShowEndUserLicenseAgreementPage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowRestore, this, &SystemInfoModule::onShowSystemRestore);
     m_frameProxy->pushWidget(this, m_sysinfoWidget);
+    m_sysinfoWidget->setVisible(true);
     m_sysinfoWidget->setCurrentIndex(0);
 }
 
@@ -125,7 +127,9 @@ QStringList SystemInfoModule::availPage() const
 void SystemInfoModule::onShowAboutNativePage()
 {
     NativeInfoWidget *w = new NativeInfoWidget(m_model);
+    w->setVisible(false);
     m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
     //showActivatorDialog
     connect(w, &NativeInfoWidget::clickedActivator, m_work, &SystemInfoWork::showActivatorDialog);
 }
@@ -133,13 +137,17 @@ void SystemInfoModule::onShowAboutNativePage()
 void SystemInfoModule::onVersionProtocolPage()
 {
     VersionProtocolWidget *w = new VersionProtocolWidget;
+    w->setVisible(false);
     m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
 }
 
 void SystemInfoModule::onShowEndUserLicenseAgreementPage()
 {
     UserLicenseWidget *w = new UserLicenseWidget;
+    w->setVisible(false);
     m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
 }
 
 void SystemInfoModule::onShowSystemRestore() {
@@ -148,10 +156,12 @@ void SystemInfoModule::onShowSystemRestore() {
         return;
     }
     SystemRestore* restore = new SystemRestore(m_backupAndRestoreModel);
+    restore->setVisible(false);
     connect(restore, &SystemRestore::requestSetManualBackupDirectory, m_backupAndRestoreWorker, &BackupAndRestoreWorker::manualBackup);
     connect(restore, &SystemRestore::requestSetSystemBackupDirectory, m_backupAndRestoreWorker, &BackupAndRestoreWorker::systemBackup);
     connect(restore, &SystemRestore::requestManualRestore, m_backupAndRestoreWorker, &BackupAndRestoreWorker::manualRestore);
     connect(restore, &SystemRestore::requestSystemRestore, m_backupAndRestoreWorker, &BackupAndRestoreWorker::systemRestore);
 
     m_frameProxy->pushWidget(this, restore);
+    restore->setVisible(true);
 }

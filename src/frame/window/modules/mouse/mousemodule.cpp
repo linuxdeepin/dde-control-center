@@ -79,6 +79,7 @@ void MouseModule::reset()
 void MouseModule::active()
 {
     m_mouseWidget = new MouseWidget;
+    m_mouseWidget->setVisible(false);
     m_mouseWidget->init(m_model->tpadExist(), m_model->redPointExist());
     connect(m_model, &MouseModel::tpadExistChanged, m_mouseWidget, &MouseWidget::tpadExistChanged);
     connect(m_model, &MouseModel::redPointExistChanged, m_mouseWidget, &MouseWidget::redPointExistChanged);
@@ -87,12 +88,14 @@ void MouseModule::active()
     connect(m_mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);
     connect(m_mouseWidget, &MouseWidget::showTrackPointSetting, this, &MouseModule::showTrackPointSetting);
     m_frameProxy->pushWidget(this, m_mouseWidget);
+    m_mouseWidget->setVisible(true);
     showGeneralSetting();
 }
 
 void MouseModule::showGeneralSetting()
 {
     m_generalSettingWidget = new GeneralSettingWidget;
+    m_generalSettingWidget->setVisible(false);
     m_generalSettingWidget->setModel(m_model);
 
     connect(m_generalSettingWidget, &GeneralSettingWidget::requestSetLeftHand, m_worker, &MouseWorker::onLeftHandStateChanged);
@@ -101,11 +104,13 @@ void MouseModule::showGeneralSetting()
     connect(m_generalSettingWidget, &GeneralSettingWidget::requestSetDouClick, m_worker, &MouseWorker::onDouClickChanged);
 
     m_frameProxy->pushWidget(this, m_generalSettingWidget);
+    m_generalSettingWidget->setVisible(true);
 }
 
 void MouseModule::showMouseSetting()
 {
     m_mouseSettingWidget = new MouseSettingWidget;
+    m_mouseSettingWidget->setVisible(false);
     m_mouseSettingWidget->setModel(m_model);
 
     connect(m_mouseSettingWidget, &MouseSettingWidget::requestSetMouseMotionAcceleration, m_worker, &MouseWorker::onMouseMotionAccelerationChanged);
@@ -114,11 +119,13 @@ void MouseModule::showMouseSetting()
     connect(m_mouseSettingWidget, &MouseSettingWidget::requestSetMouseNaturalScroll, m_worker, &MouseWorker::onMouseNaturalScrollStateChanged);
 
     m_frameProxy->pushWidget(this, m_mouseSettingWidget);
+    m_mouseSettingWidget->setVisible(true);
 }
 
 void MouseModule::showTouchpadSetting()
 {
     m_touchpadSettingWidget = new TouchPadSettingWidget;
+    m_touchpadSettingWidget->setVisible(false);
     m_touchpadSettingWidget->setModel(m_model);
 
     connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTouchpadMotionAcceleration, m_worker, &MouseWorker::onTouchpadMotionAccelerationChanged);
@@ -130,14 +137,17 @@ void MouseModule::showTouchpadSetting()
     connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestPressure, m_worker, &MouseWorker::setPalmMinz);
 
     m_frameProxy->pushWidget(this, m_touchpadSettingWidget);
+    m_touchpadSettingWidget->setVisible(true);
 }
 
 void MouseModule::showTrackPointSetting()
 {
     m_trackPointSettingWidget = new TrackPointSettingWidget;
+    m_trackPointSettingWidget->setVisible(false);
     m_trackPointSettingWidget->setModel(m_model);
     connect(m_trackPointSettingWidget, &TrackPointSettingWidget::requestSetTrackPointMotionAcceleration, m_worker, &MouseWorker::onTrackPointMotionAccelerationChanged);
     m_frameProxy->pushWidget(this, m_trackPointSettingWidget);
+    m_trackPointSettingWidget->setVisible(true);
 }
 
 const QString MouseModule::name() const
