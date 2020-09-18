@@ -34,7 +34,9 @@
 #include "modules/power/powermodel.h"
 #include "window/utils.h"
 #include "widgets/comboxwidget.h"
+#include "widgets/contentwidget.h"
 
+using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::power;
 using namespace DCC_NAMESPACE;
@@ -103,12 +105,19 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     powerSettingsGrp->appendItem(m_cmbCloseLid);
     powerSettingsGrp->appendItem(m_cmbPowerBtn);
 
-    m_layout->setMargin(0);
-    m_layout->setContentsMargins(ThirdPageContentsMargins);
+    m_layout->setContentsMargins(10, 10, 0, 0);
     m_layout->addWidget(powerSettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);
-    setLayout(m_layout);
+
+    ContentWidget *contentWgt = new ContentWidget;
+    QWidget *mainWgt = new TranslucentFrame;
+    mainWgt->setLayout(m_layout);
+    contentWgt->setContent(mainWgt);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setMargin(0);
+    mainLayout->addWidget(contentWgt);
+    setLayout(mainLayout);
 
     QStringList annos;
     annos << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
