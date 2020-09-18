@@ -142,8 +142,15 @@ void DisplayModule::preInitialize(bool sync)
 
     connect(m_displayModel, &DisplayModel::monitorListChanged, this, [this]() {
         m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
+        if (m_displayWidget) {
+            m_displayWidget->initMenuUI();
+        }
     });
-
+    connect(m_displayModel, &DisplayModel::touchscreenListChanged, this, [this]() {
+        if (m_displayWidget) {
+            m_displayWidget->initMenuUI();
+        }
+    });
     QTimer::singleShot(0, m_displayWorker, [=] {
         m_displayWorker->active();
     });
@@ -386,8 +393,7 @@ int DisplayModule::showTimeoutDialog(Monitor *mon)
     TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
     qreal radio = qApp->devicePixelRatio();
     connect(mon, &Monitor::geometryChanged, timeoutDialog, [ = ] {
-        if (timeoutDialog)
-        {
+        if (timeoutDialog) {
             QRectF rt(mon->x(), mon->y(), mon->w() / radio, mon->h() / radio);
             timeoutDialog->moveToCenterByRect(rt.toRect());
         }

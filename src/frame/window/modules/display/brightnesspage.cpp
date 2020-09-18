@@ -214,8 +214,7 @@ void BrightnessPage::addSlider()
                 slider->setValue(int(rb * BrightnessMaxScale));
                 slider->blockSignals(false);
             });
-        }
-        else {
+        } else {
             qDebug() << "MinimumBrightness:   " << m_displayModel->minimumBrightnessScale();
             m_miniScales = int(m_displayModel->minimumBrightnessScale() * maxBacklight);
             if (m_miniScales == 0) {

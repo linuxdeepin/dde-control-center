@@ -130,6 +130,9 @@ void DisplayWidget::onMonitorListChanged()
 
 void DisplayWidget::initMenuUI()
 {
+    m_multiModel->clear();
+    m_singleModel->clear();
+
     m_multMenuList = {
         //~ contents_path /display/Multiple Displays
         {tr("Multiple Displays"), "dcc_display", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},

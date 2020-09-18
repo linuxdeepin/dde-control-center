@@ -65,6 +65,7 @@ public:
     inline bool isMultiMode() const { return m_isMultiScreen; }
     inline bool isShowMultiscreen() const { return m_isShowMultiscreen; }
     int getMenuIndex(QString str, bool isSingle = true);
+    void initMenuUI();
 
 public Q_SLOTS:
     void onMonitorListChanged();
@@ -87,9 +88,6 @@ Q_SIGNALS:
     void requestShowRefreshRatePage() const;
     void requestShowMultiRefreshRatePage() const;
     void requestShowMultiResolutionPage() const;
-
-private:
-    void initMenuUI();
 
 private:
     struct MenuMethod {
