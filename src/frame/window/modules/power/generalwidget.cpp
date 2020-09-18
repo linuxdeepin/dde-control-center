@@ -58,7 +58,6 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     , m_swLowPowerAutoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on low battery")))
     , m_showBatteryCapacity(new SwitchWidget(tr("Show battery capacity")))
     , m_batteryCapacity(new TitleValueItem)
-    , m_lowBatteryMode(new SwitchWidget(tr("Power Saving Mode")))
     , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on battery")))
     , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer")))
     , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor")))
@@ -75,8 +74,6 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     //~ contents_path /power/General
     powerPlansLabel->setText(tr("Power Plans"));
     DFontSizeManager::instance()->bind(powerPlansLabel, DFontSizeManager::T5, QFont::DemiBold);
-    //~ contents_path /power/General
-    m_lowBatteryMode->setTitle(tr("Power Saving Mode"));
     //~ contents_path /power/General
     m_autoIntoSaveEnergyMode->setTitle(tr("Auto power saving on battery"));
     //~ contents_path /power/General
@@ -132,7 +129,6 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     reduceSlider->setType(DCCSlider::Vernier);
     reduceSlider->setTickPosition(QSlider::NoTicks);
 
-    m_saveEnergySettingsGrp->appendItem(m_lowBatteryMode);
     m_saveEnergySettingsGrp->appendItem(m_swLowPowerAutoIntoSaveEnergyMode);
     m_saveEnergySettingsGrp->appendItem(m_autoIntoSaveEnergyMode);
     m_saveEnergySettingsGrp->appendItem(m_sldLowerBrightness);
@@ -196,7 +192,6 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     mainLayout->addWidget(contentWgt);
     setLayout(mainLayout);
 
-    connect(m_lowBatteryMode, &SwitchWidget::checkedChanged, this, &GeneralWidget::requestSetPowerSaveMode);
     connect(m_swLowPowerAutoIntoSaveEnergyMode, &SwitchWidget::checkedChanged, this, &GeneralWidget::requestSetPowerSavingModeAutoWhenQuantifyLow);
     connect(m_autoIntoSaveEnergyMode, &SwitchWidget::checkedChanged, this, &GeneralWidget::requestSetPowerSavingModeAuto);
     connect(m_wakeComputerNeedPassword, &SwitchWidget::checkedChanged, this, &GeneralWidget::requestSetWakeComputer);
@@ -219,7 +214,6 @@ void GeneralWidget::setModel(const PowerModel *model)
 
 #ifndef DCC_DISABLE_POWERSAVE
     connect(model, &PowerModel::autoPowerSavingModeChanged, m_autoIntoSaveEnergyMode, &SwitchWidget::setChecked);
-    connect(model, &PowerModel::powerSaveModeChanged, m_lowBatteryMode, &SwitchWidget::setChecked);
 #endif
     connect(model, &PowerModel::suspendChanged, m_wakeComputerNeedPassword, &SwitchWidget::setVisible);
 
@@ -237,7 +231,6 @@ void GeneralWidget::setModel(const PowerModel *model)
 
 #ifndef DCC_DISABLE_POWERSAVE
     m_autoIntoSaveEnergyMode->setChecked(model->autoPowerSaveMode());
-    m_lowBatteryMode->setChecked(model->powerSaveMode());
 #endif
 
     m_wakeComputerNeedPassword->setVisible(model->canSleep() && model->getSuspend());
@@ -261,7 +254,6 @@ void GeneralWidget::setModel(const PowerModel *model)
     m_saveEnergySettingsGrp->setVisible(true);
     m_saveEnergySettingsLabel->setVisible(true);
 
-    m_lowBatteryMode->setVisible(bStatus);
     m_swLowPowerAutoIntoSaveEnergyMode->setVisible(bStatus);
     m_autoIntoSaveEnergyMode->setVisible(bStatus);
     m_sldLowerBrightness->setVisible(true);
@@ -299,7 +291,6 @@ void GeneralWidget::onGSettingsChanged(const QString &key)
 
 void GeneralWidget::onBatteryChanged(const bool &state)
 {
-    m_lowBatteryMode->setVisible(state);
     m_swLowPowerAutoIntoSaveEnergyMode->setVisible(state);
     m_autoIntoSaveEnergyMode->setVisible(state);
 }

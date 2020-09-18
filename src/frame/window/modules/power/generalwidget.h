@@ -77,7 +77,6 @@ private:
     dcc::widgets::TitleValueItem *m_batteryCapacity;
     //---------------------------------------------
 
-    dcc::widgets::SwitchWidget *m_lowBatteryMode;
     dcc::widgets::SwitchWidget *m_autoIntoSaveEnergyMode;
     dcc::widgets::SwitchWidget *m_wakeComputerNeedPassword;
     dcc::widgets::SwitchWidget *m_wakeDisplayNeedPassword;
