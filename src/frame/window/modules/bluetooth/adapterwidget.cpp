@@ -126,16 +126,19 @@ void AdapterWidget::initUI()
     phlayoutShowAnonymous->addWidget(m_spinner);
     phlayoutShowAnonymous->addWidget(m_refreshBtn);
 
-    m_powerSwitch->addBackground();
-    m_powerSwitch->setFixedHeight(39);
-    m_powerSwitch->setContentsMargins(0, 0, 10, 0);
+    m_powerSwitch->setFixedHeight(36);
+    m_powerSwitch->setContentsMargins(0, 0, 0, 0);
     m_discoverySwitch->leftWidget()->setMinimumWidth(10);
-    m_discoverySwitch->addBackground();
-    m_discoverySwitch->setContentsMargins(0, 0, 10, 0);
-    m_discoverySwitch->setFixedHeight(39);
-    QVBoxLayout *vlayout = new QVBoxLayout;
-    vlayout->addWidget(m_powerSwitch);
-    vlayout->addWidget(m_discoverySwitch);
+    m_discoverySwitch->setContentsMargins(0, 0, 0, 0);
+    m_discoverySwitch->setFixedHeight(36);
+
+    SettingsGroup *settingsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    settingsGrp->setContentsMargins(0, 0, 0, 0);
+    settingsGrp->layout()->setMargin(0);
+    settingsGrp->setSpacing(1);
+
+    settingsGrp->appendItem(m_powerSwitch);
+    settingsGrp->appendItem(m_discoverySwitch);
 
     m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
     m_tip->setVisible(!m_powerSwitch->checked());
@@ -174,7 +177,7 @@ void AdapterWidget::initUI()
     layout->setSpacing(10);
 
     layout->addSpacing(10);
-    layout->addLayout(vlayout);
+    layout->addWidget(settingsGrp);
     layout->addWidget(m_tip, 0, Qt::AlignTop);
     layout->addSpacing(10);
     layout->addWidget(m_myDevicesGroup);
