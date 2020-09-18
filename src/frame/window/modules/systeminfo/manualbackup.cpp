@@ -21,7 +21,7 @@ DWIDGET_USE_NAMESPACE
 
 ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     : QWidget(parent)
-    , m_actionType(ActionType::ManualBackup)
+//    , m_actionType(ActionType::ManualBackup)
     , m_model(model)
     , m_directoryChooseWidget(new DFileChooserEdit)
     , m_tipsLabel(new DTipLabel)
@@ -32,34 +32,34 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     mainLayout->setMargin(0);
     mainLayout->setSpacing(10);
 
-    QLabel *backupType = new QLabel(tr("Backup Type"));
+//    QLabel *backupType = new QLabel(tr("Backup Type"));
     QLabel *savePath = new QLabel(tr("Save to"));
-    DFontSizeManager::instance()->bind(backupType, DFontSizeManager::T5);
+//    DFontSizeManager::instance()->bind(backupType, DFontSizeManager::T5);
     DFontSizeManager::instance()->bind(savePath, DFontSizeManager::T5);
-    DListView *backupTypeView = new DListView;
-    backupTypeView->setMaximumHeight(85);
-    backupTypeView->setItemSpacing(5);
-    backupTypeView->setFrameShape(QFrame::NoFrame);
-    backupTypeView->setViewportMargins({});
-    backupTypeView->setMovement(QListView::Static);
-    backupTypeView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
-    backupTypeView->setAutoScroll(false);
-    backupTypeView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    backupTypeView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    backupTypeView->setSelectionMode(QAbstractItemView::NoSelection);
+//    DListView *backupTypeView = new DListView;
+//    backupTypeView->setMaximumHeight(85);
+//    backupTypeView->setItemSpacing(5);
+//    backupTypeView->setFrameShape(QFrame::NoFrame);
+//    backupTypeView->setViewportMargins({});
+//    backupTypeView->setMovement(QListView::Static);
+//    backupTypeView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
+//    backupTypeView->setAutoScroll(false);
+//    backupTypeView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    backupTypeView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    backupTypeView->setSelectionMode(QAbstractItemView::NoSelection);
 
-    QStandardItemModel *itemModel = new QStandardItemModel;
-    DStandardItem *manualBackupItem = new DStandardItem;
-    DStandardItem *systemBackupItem = new DStandardItem;
-    manualBackupItem->setCheckState(Qt::Checked);
-    manualBackupItem->setText(tr("Full Backup"));
-    systemBackupItem->setText(tr("System Backup"));
-    itemModel->appendRow(manualBackupItem);
-    itemModel->appendRow(systemBackupItem);
-    backupTypeView->setModel(itemModel);
+//    QStandardItemModel *itemModel = new QStandardItemModel;
+//    DStandardItem *manualBackupItem = new DStandardItem;
+//    DStandardItem *systemBackupItem = new DStandardItem;
+//    manualBackupItem->setCheckState(Qt::Checked);
+//    manualBackupItem->setText(tr("Full Backup"));
+//    systemBackupItem->setText(tr("System Backup"));
+//    itemModel->appendRow(manualBackupItem);
+//    itemModel->appendRow(systemBackupItem);
+//    backupTypeView->setModel(itemModel);
 
-    mainLayout->addWidget(backupType, 0);
-    mainLayout->addWidget(backupTypeView, 0, Qt::AlignVCenter);
+//    mainLayout->addWidget(backupType, 0);
+//    mainLayout->addWidget(backupTypeView, 0, Qt::AlignVCenter);
     mainLayout->addWidget(savePath, 0, Qt::AlignLeft);
     mainLayout->addWidget(m_directoryChooseWidget);
 
@@ -82,15 +82,15 @@ ManualBackup::ManualBackup(BackupAndRestoreModel* model, QWidget* parent)
     });
     connect(model, &BackupAndRestoreModel::manualBackupErrorTypeChanged, this, &ManualBackup::onManualBackupErrorTypeChanged);
 
-    connect(backupTypeView, &DListView::clicked, this, [ = ](const QModelIndex &index){
-        m_tipsLabel->hide();
+//    connect(backupTypeView, &DListView::clicked, this, [ = ](const QModelIndex &index){
+//        m_tipsLabel->hide();
 
-        for (int i = 0; i < itemModel->rowCount(); i++) {
-            itemModel->item(i, 0)->setCheckState(Qt::Unchecked);
-        }
-        itemModel->item(index.row(), 0)->setCheckState(Qt::Checked);
-        m_actionType = index.row() > 0 ? ActionType::SystemBackup : ActionType::ManualBackup;
-    });
+//        for (int i = 0; i < itemModel->rowCount(); i++) {
+//            itemModel->item(i, 0)->setCheckState(Qt::Unchecked);
+//        }
+//        itemModel->item(index.row(), 0)->setCheckState(Qt::Checked);
+//        m_actionType = index.row() > 0 ? ActionType::SystemBackup : ActionType::ManualBackup;
+//    });
 
     m_backupBtn->setEnabled(!model->backupDirectory().isEmpty());
     m_backupBtn->setVisible(model->backupButtonEnabled());
@@ -156,10 +156,10 @@ void ManualBackup::backup()
         setFocus();
         m_backupBtn->setVisible(false);
         m_loadingWidget->setVisible(true);
-        if (m_actionType == ActionType::ManualBackup)
+//        if (m_actionType == ActionType::ManualBackup)
             Q_EMIT requestSetManualBackupDirectory(choosePath);
-        else
-            Q_EMIT requestSetSystemBackupDirectory(choosePath);
+//        else
+//            Q_EMIT requestSetSystemBackupDirectory(choosePath);
     }
 }
 

@@ -43,7 +43,7 @@ private:
         ManualBackup,
         SystemBackup
     };
-    ActionType m_actionType;
+//    ActionType m_actionType;
     BackupAndRestoreModel* m_model;
     DFileChooserEdit* m_directoryChooseWidget;
     DTipLabel          * m_tipsLabel;

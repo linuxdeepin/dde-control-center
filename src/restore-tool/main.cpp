@@ -82,7 +82,7 @@ enum ToolErrorType {
 enum class ActionType {
     Null,
     ManualBackup,
-    SystemBackup,
+    //SystemBackup,
     ManualRestore,
     SystemRestore,
 };
@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
 
     const QMap<QString, ActionType> typeMap {
         {"manual_backup", ActionType::ManualBackup},
-        {"system_backup", ActionType::SystemBackup},
+        //{"system_backup", ActionType::SystemBackup},
         {"manual_restore", ActionType::ManualRestore},
         {"system_restore", ActionType::SystemRestore}
     };
@@ -233,7 +233,7 @@ int main(int argc, char *argv[])
         rootUUID = getUUID(QString("%1/backup/system.info").arg(mountPoint));
     }
 
-    if (actionType == ActionType::ManualBackup || actionType == ActionType::SystemBackup || actionType == ActionType::ManualRestore) {
+    if (actionType == ActionType::ManualBackup || actionType == ActionType::/*SystemBackup || actionType == ActionType::*/ManualRestore) {
         QProcess* findRealtive = new QProcess;
         findRealtive->setProgram("mount");
         findRealtive->setArguments({"-f"});
@@ -302,46 +302,46 @@ int main(int argc, char *argv[])
         }
     }
 
-    //get disk drive
-    for (const QString &path : devices) {
-        QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
-        if (device->idUUID() == dataUUID) {
-            diskDrive = device->drive();
-            break;
-        }
-    }
+    ////get disk drive
+    //for (const QString &path : devices) {
+    //    QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
+    //    if (device->idUUID() == dataUUID) {
+    //        diskDrive = device->drive();
+    //        break;
+    //    }
+    //}
 
-    qint64 usage = 0;
-    //check disk usage
-    if (actionType == ActionType::ManualBackup) {
-        qint64 freespace = 0;
-        qint64 total = 0;
-        for (const QString &path : devices) {
-            QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
-            if (device->drive() != diskDrive || device->idType().isEmpty()) continue;
-            ReadUsage(device->device().replace('\x00', ""), GetFsTypeByName(device->idType()), freespace, total);
-            usage += total - freespace;
-        }
-    }
+    //qint64 usage = 0;
+    ////check disk usage
+    //if (actionType == ActionType::ManualBackup) {
+    //    qint64 freespace = 0;
+    //    qint64 total = 0;
+    //    for (const QString &path : devices) {
+    //        QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
+    //        if (device->drive() != diskDrive || device->idType().isEmpty()) continue;
+    //        ReadUsage(device->device().replace('\x00', ""), GetFsTypeByName(device->idType()), freespace, total);
+    //        usage += total - freespace;
+    //    }
+    //}
 
-    //check boot and system usage
-    if (actionType == ActionType::SystemBackup) {
-        qint64 freespace = 0;
-        qint64 total = 0;
-        for (const QString &path : devices) {
-            QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
-            if (device->idUUID() == bootUUID || device->idUUID() == rootUUID) {
-                ReadUsage(device->device().replace('\x00', ""), GetFsTypeByName(device->idType()), freespace, total);
-                usage += total - freespace;
-            }
-        }
-    }
+    ////check boot and system usage
+    //if (actionType == ActionType::SystemBackup) {
+    //    qint64 freespace = 0;
+    //    qint64 total = 0;
+    //    for (const QString &path : devices) {
+    //        QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
+    //        if (device->idUUID() == bootUUID || device->idUUID() == rootUUID) {
+    //            ReadUsage(device->device().replace('\x00', ""), GetFsTypeByName(device->idType()), freespace, total);
+    //            usage += total - freespace;
+    //        }
+    //    }
+    //}
 
-    if ((actionType == ActionType::ManualBackup || actionType == ActionType::SystemBackup)
-            && getPathFreeSpace(absolutePath) < usage) {
-        qWarning() << "target path don't have enough space";
-        return ToolErrorType::SpaceError;
-    }
+    //if ((actionType == ActionType::ManualBackup || actionType == ActionType::SystemBackup)
+    //        && getPathFreeSpace(absolutePath) < usage) {
+    //    qWarning() << "target path don't have enough space";
+    //    return ToolErrorType::SpaceError;
+    //}
     QJsonObject fstabObj{ { "boot", QString("UUID:%1").arg(bootUUID) },
                           { "root", QString("UUID:%1").arg(rootUUID) },
                           { "data", "LABEL:_dde_data" } };
@@ -365,9 +365,9 @@ int main(int argc, char *argv[])
             return "ManualBackup";
         }
 
-        if (actionType == ActionType::SystemBackup) {
-            return "SystemBackup";
-        }
+        //if (actionType == ActionType::SystemBackup) {
+        //    return "SystemBackup";
+        //}
         Q_UNREACHABLE();
     }();
 
@@ -383,7 +383,7 @@ int main(int argc, char *argv[])
                 QJsonObject{
                     { "message", "fix bootloader order" },
                     { "progress", false },
-                    { "enable", actionType == ActionType::ManualBackup || actionType == ActionType::SystemBackup},
+                    { "enable", actionType == ActionType::ManualBackup /*|| actionType == ActionType::SystemBackup*/},
                     { "command", "fix-bootloader" },
                     { "args", QJsonArray{ QString("UUID:%1").arg(bootUUID),
                                           QString("UUID:%1").arg(rootUUID),
@@ -419,19 +419,19 @@ int main(int argc, char *argv[])
                              { "args", QJsonArray{ QString("UUID:%1").arg(recoveryUUID),
                                                    "backup/system.dim",
                                                    QString("UUID:%1").arg(rootUUID) } } },
-                QJsonObject{ { "message", "starting backup root & boot partition" },
-                             { "progress", true },
-                             { "enable", actionType == ActionType::SystemBackup },
-                             { "command", "create-backup-image" },
-                             { "args", QJsonArray{ QString("UUID:%1").arg(bootUUID),
-                                                   QString("UUID:%1").arg(realtiveUUID),
-                                                   QString("%1/%2").arg(realtivePath).arg(timeDirectory),
-                                                   "boot.dim",
-                                                   "boot.md5"
-                                                  } } },
+                //QJsonObject{ { "message", "starting backup root & boot partition" },
+                //             { "progress", true },
+                //             { "enable", actionType == ActionType::SystemBackup },
+                //             { "command", "create-backup-image" },
+                //             { "args", QJsonArray{ QString("UUID:%1").arg(bootUUID),
+                //                                   QString("UUID:%1").arg(realtiveUUID),
+                //                                   QString("%1/%2").arg(realtivePath).arg(timeDirectory),
+                //                                   "boot.dim",
+                //                                   "boot.md5"
+                //                                  } } },
                 QJsonObject{ { "message", "starting backup root partition" },
                              { "progress", true },
-                             { "enable", actionType == ActionType::ManualBackup || actionType == ActionType::SystemBackup},
+                             { "enable", actionType == ActionType::ManualBackup /*|| actionType == ActionType::SystemBackup*/},
                              { "command", "create-backup-image" },
                              { "args", QJsonArray{ QString("UUID:%1").arg(rootUUID),
                                                    QString("UUID:%1").arg(realtiveUUID),
@@ -444,7 +444,7 @@ int main(int argc, char *argv[])
                              { "enable", actionType == ActionType::ManualRestore },
                              { "command", "restore-partitions" },
                              { "args", QJsonArray{ QString("UUID:%1").arg(realtiveUUID),
-                                                   QString("%1").arg(realtivePath),
+                                                   QString("%1/system.dim").arg(realtivePath),
                                                    QString("UUID:%1").arg(rootUUID)
                                                   } } },
                 QJsonObject{ { "message", "restore user info" },
@@ -467,7 +467,7 @@ int main(int argc, char *argv[])
                                                                    rootUUID) } } } },
                 QJsonObject{ { "message", "regenerate /etc/fstab" },
                              { "progress", false },
-							 { "enable", true },
+                             { "enable", true },
                              { "command", "generate-fstab" },
                              { "env", fstabObj } },
             }
@@ -515,5 +515,6 @@ int main(int argc, char *argv[])
         }
     }
 
-    return setGrubAndRestart();
+    //return setGrubAndRestart();
+    return 0;
 }
