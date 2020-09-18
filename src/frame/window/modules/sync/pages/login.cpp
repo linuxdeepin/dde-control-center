@@ -76,8 +76,8 @@ void LoginPage::setMainWindow(MainWindow *pMainWindow)
 void LoginPage::licenceDialog()
 {
     // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
-    QString title(tr("Privacy Policy"));
-    QString allowContent(tr("I have read and agree to the Privacy Policy"));
+    QString title("《隐私政策》");
+    QString allowContent("我已阅读并同意《隐私政策》");
     // license路径
     QString zhCN_Content = "";
     QString enUS_Content = "";
