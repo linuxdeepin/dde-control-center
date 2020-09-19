@@ -95,11 +95,14 @@ void SoundModule::showSpeakerPage()
     SpeakerPage *w = new SpeakerPage;
 
     m_model->setPortEnable(false);
-    w->setModel(m_model);
+
     connect(w, &SpeakerPage::requestSetSpeakerBalance, m_worker, &SoundWorker::setSinkBalance);
     connect(w, &SpeakerPage::requestSetSpeakerVolume, m_worker, &SoundWorker::setSinkVolume);
     connect(w, &SpeakerPage::requestIncreaseVolume, m_worker, &SoundWorker::setIncreaseVolume);
     connect(w, &SpeakerPage::requestSetPort, m_worker, &SoundWorker::setPort);
+    connect(w, &SpeakerPage::requestBalanceVisible, m_worker, &SoundWorker::requestBlanceVisible);
+
+    w->setModel(m_model);
     m_frameProxy->pushWidget(this, w);
 }
 

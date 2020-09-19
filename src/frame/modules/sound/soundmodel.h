@@ -187,6 +187,8 @@ Q_SIGNALS:
     //查询是否可用
     void requestSwitchEnable(unsigned int cardId,QString cardName);
 
+    void setBlanceVisible(bool flag);
+
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
 #endif

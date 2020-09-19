@@ -221,7 +221,8 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
     if (path.path().isEmpty() || path.path() == "/" ) return; //路径为空
 
     if (m_defaultSink) m_defaultSink->deleteLater();
-    m_defaultSink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
+    m_defaultSink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this); 
+    requestBlanceVisible();
 
     connect(m_defaultSink, &Sink::MuteChanged, [this](bool mute) { m_model->setSpeakerOn(!mute); });
     connect(m_defaultSink, &Sink::BalanceChanged, m_model, &SoundModel::setSpeakerBalance);
@@ -404,6 +405,20 @@ void SoundWorker::updatePortActivity()
 
         port->setIsActive(isActiveInputPort || isActiveOuputPort);
     }
+}
+
+/**
+ * @brief SoundWorker::requestBlanceVisible
+ * 当默认输出为蓝牙的headset端口时需要隐藏声音平衡界面
+ */
+void SoundWorker::requestBlanceVisible()
+{
+    if (!m_defaultSink)
+        return;
+    if (m_defaultSink->activePort().name.contains("headset_head_unit"))
+        Q_EMIT m_model->setBlanceVisible(false);
+    else
+        Q_EMIT m_model->setBlanceVisible(true);
 }
 
 }

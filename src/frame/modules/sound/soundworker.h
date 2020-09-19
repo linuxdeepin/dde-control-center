@@ -64,6 +64,7 @@ public:
     void deactivate() Q_DECL_OVERRIDE;
 
     void refreshSoundEffect();
+    void requestBlanceVisible();
 
 public Q_SLOTS:
     void switchSpeaker(bool on);

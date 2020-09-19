@@ -71,20 +71,20 @@ public:
     void setModel(dcc::sound::SoundModel *model);
 
 Q_SIGNALS:
-    void requestSetPort(const dcc::sound::Port *);
-
-private Q_SLOTS:
-    void removePort(const QString &portId, const uint &cardId);
-    void addPort(const dcc::sound::Port *port);
-    void changeComboxIndex(const int idx);
-
-Q_SIGNALS:
     //请求改变输出音量 0-1.5
     void requestSetSpeakerVolume(double val);
     //请求改变左右平衡 0-1.5
     void requestSetSpeakerBalance(double val);
     //请求改变音量增强
     void requestIncreaseVolume(bool value);
+    void requestSetPort(const dcc::sound::Port *);
+    //请求是否隐藏声音平衡
+    void requestBalanceVisible();
+
+private Q_SLOTS:
+    void removePort(const QString &portId, const uint &cardId);
+    void addPort(const dcc::sound::Port *port);
+    void changeComboxIndex(const int idx);
 
 private:
     //初始化使用到的 slider 控件
@@ -107,6 +107,8 @@ private:
     //当前选中的音频
     const dcc::sound::Port *m_currentPort{nullptr};
     int m_lastsetvalue;
+    //左/右平衡音界面是否显示
+    bool m_isBalanceShow;
 };
 
 }
