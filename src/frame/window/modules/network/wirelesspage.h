@@ -185,6 +185,7 @@ private:
     QString m_lastConnectSsid;
     QTimer *m_sortDelayTimer;
     QMap<QString, APItem *> m_apItems;
+    QString m_autoConnectHideSsid;
 };
 }   // namespace dcc
 }   // namespace network

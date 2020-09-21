@@ -71,6 +71,7 @@ Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;
     void requestWiredDeviceEnabled(const QString &devPath, const bool enabled) const;
     void activateWiredConnection(const QString &connString, const QString &uuid);
+    void activateWirelessConnection(const QString &ssid, const QString &uuid);
     // private signals
     void saveSettingsDone();
     void prepareConnectionDone();

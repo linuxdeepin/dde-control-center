@@ -369,6 +369,9 @@ void ConnectionEditPage::updateConnection()
         if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WiredConnection)) {
             Q_EMIT activateWiredConnection(m_connection->path(), m_connectionUuid);
         } else {
+            if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WirelessConnection)) {
+                Q_EMIT activateWirelessConnection(m_connectionSettings->id(), m_connectionUuid);
+            }
             reply = activateConnection(m_connection->path(), DevicePath, "");
             reply.waitForFinished();
             if (reply.isError()) {
