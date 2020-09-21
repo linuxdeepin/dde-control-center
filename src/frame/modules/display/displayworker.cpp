@@ -226,13 +226,14 @@ void DisplayWorker::splitScreens()
     auto *primary = m_model->primaryMonitor();
     Q_ASSERT(m_monitors.contains(primary));
     m_monitors[primary]->SetPosition(static_cast<short>(m_model->primaryMonitor()->getLastPoint().x()), static_cast<short>(m_model->primaryMonitor()->getLastPoint().y())).waitForFinished();
-    int xOffset = primary->modeList().first().width();
+    int xOffset = primary->bestMode().width();
 
     for (auto *mon : mList) {
         // pass primary
         Q_ASSERT(m_monitors.contains(mon));
         auto *mInter = m_monitors[mon];
-        mInter->SetMode(static_cast<uint>(mon->modeList().first().id())).waitForFinished();
+        // 设置最好模式
+        mInter->SetMode(static_cast<uint>(mon->bestMode().id())).waitForFinished();
         mInter->SetRotation(1).waitForFinished();
 
         if (mon == primary)
@@ -243,7 +244,7 @@ void DisplayWorker::splitScreens()
         } else {
             mInter->SetPosition(static_cast<short>(mon->getLastPoint().x()), static_cast<short>(mon->getLastPoint().y())).waitForFinished();
         }
-        xOffset += mon->modeList().first().width();
+        xOffset += mon->bestMode().width();
     }
 
     m_displayInter.ApplyChanges();
