@@ -15,7 +15,7 @@ using namespace DCC_NAMESPACE::sync;
 
 SyncWidget::SyncWidget(QWidget *parent)
     : QWidget(parent)
-    , m_mainLayout(new QStackedLayout)
+    , m_mainLayout(new QStackedLayout(this))
     , m_model(nullptr)
     , m_loginPage(new LoginPage)
     , m_indexPage(new IndexPage)
