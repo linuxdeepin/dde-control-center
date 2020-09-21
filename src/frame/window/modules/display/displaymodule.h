@@ -26,6 +26,9 @@
 #include "interface/namespace.h"
 #include "customsettingdialog.h"
 #include "../../mainwindow.h"
+#include "modules/display/recognizedialog.h"
+
+using namespace dcc::display;
 
 class Resolution;
 
@@ -76,7 +79,6 @@ private Q_SLOTS:
     void showTouchScreenPage();
     int showTimeoutDialog(dcc::display::Monitor *mon);
     void showDisplayRecognize();
-    void showTouchRecognize();
     void showMultiResolutionPage();
     void showMultiRefreshRatePage();
 
@@ -85,6 +87,7 @@ private:
     dcc::display::DisplayWorker *m_displayWorker{nullptr};
     DisplayWidget *m_displayWidget{nullptr};
     MainWindow *m_pMainWindow = nullptr;
+    QMap<QString, RecognizeDialog*> m_recognizeDialg;
 };
 
 } // namespace display

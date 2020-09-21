@@ -28,159 +28,71 @@
 
 #include <QTimer>
 #include <QPainter>
-#include <QPainterPath>
-#include <QScreen>
-#include <QApplication>
 
 using namespace dcc::display;
 
-const int AUTOHIDE_DELAY = 1000 * 5;
-const int HORIZENTAL_MARGIN = 30;
-const int VERTICAL_MARGIN = 20;
-const int FONT_SIZE = 20;
-const int RADIUS = 5;
+const int FontSize = 20;
+const int Radius = 18;
+const int MiniWidth = 200;
+const int VerticalMargin = 12;
+const int HorizentalMargin = 22;
+const int yoffset = 220;
 
-RecognizeDialog::RecognizeDialog(DisplayModel *model, RecognizeDialog::DialogModel dialogModel, QWidget *parent)
-    : QDialog(parent)
-    , m_model(model)
-    , m_dialogModel(dialogModel)
+RecognizeDialog::RecognizeDialog(Monitor *monitor, QString text, QWidget *parent)
+    : DBlurEffectWidget(parent)
+    , m_monitor(monitor)
+    , m_text(text)
 {
-    connect(m_model, &DisplayModel::screenHeightChanged, this, &RecognizeDialog::onScreenRectChanged);
-    connect(m_model, &DisplayModel::screenWidthChanged, this, &RecognizeDialog::onScreenRectChanged);
+    connect(m_monitor, &Monitor::wChanged, this, &RecognizeDialog::onScreenRectChanged);
+    connect(m_monitor, &Monitor::hChanged, this, &RecognizeDialog::onScreenRectChanged);
 
     setAttribute(Qt::WA_TranslucentBackground);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
+    setRadius(Radius);
+    setMinimumWidth(MiniWidth);
     onScreenRectChanged();
-
-    // set auto hide timer
-    QTimer *autoHideTimer = new QTimer(this);
-    autoHideTimer->setInterval(AUTOHIDE_DELAY);
-    connect(autoHideTimer, &QTimer::timeout, this, &RecognizeDialog::accept);
-    autoHideTimer->start();
+    show();
 }
 
 void RecognizeDialog::paintEvent(QPaintEvent *)
 {
-    QPen p;
-    p.setWidth(1);
-    p.setColor(Qt::black);
-
-    QBrush b;
-    b.setColor(Qt::white);
-    b.setStyle(Qt::SolidPattern);
-
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.setPen(p);
-    painter.setBrush(b);
 
-    if (m_model->monitorsIsIntersect()) {
-        const QRect intersectRect = QRect(0, 0, m_model->monitorList()[0]->w(), m_model->monitorList()[0]->h());
-        QString intersectName = m_model->monitorList().first()->name();
-        for (int i(1); i != m_model->monitorList().size(); ++i) {
-            intersectName += "=" + m_model->monitorList()[i]->name();
-            if (m_dialogModel == DisplayRecognizeDialog) {
-                paintMonitorMark(painter, intersectRect, intersectName);
-            } else {
-                paintMonitorMark1(painter, intersectRect, intersectName);
-            }
-        }
-    } else {
-        for (auto mon : m_model->monitorList()) {
-            if (m_dialogModel == DisplayRecognizeDialog) {
-                paintMonitorMark(painter, mon->rect(), mon->name());
-            } else {
-                paintMonitorMark1(painter, mon->rect(), mon->name());
-            }
-        }
-    }
+    QFont font;
+    font.setStyle(QFont::StyleNormal);
+    font.setPixelSize(FontSize);
+    const QFontMetrics fm(font);
+
+    QPainterPath path;
+    path.addText((m_rect.width() - fm.width(m_text)) / 2, m_rect.height() - VerticalMargin - fm.height() / 4, font, m_text);
+
+    QPalette palette;
+    QColor brushCorlor;
+    brushCorlor = palette.color(QPalette::BrightText);
+
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(brushCorlor);
+    painter.drawPath(path);
 }
 
 void RecognizeDialog::onScreenRectChanged()
 {
     const auto ratio = devicePixelRatioF();
-
-    QRect r(0, 0, m_model->screenWidth(), m_model->screenHeight());
-
-    const QScreen *screen = screenForGeometry(r);
-
-    if (screen) {
-        const QRect screenGeo = screen->geometry();
-        r.moveTopLeft(screenGeo.topLeft() + (r.topLeft() - screenGeo.topLeft()) / ratio);
-    }
-
-    setGeometry(r);
-
-    update();
-}
-
-void RecognizeDialog::paintMonitorMark(QPainter &painter, const QRect &rect, const QString &name)
-{
-    const qreal ratio = devicePixelRatioF();
-    const QRect r(rect.topLeft() / ratio, rect.size() / ratio);
-    QFont font;
-    font.setPixelSize(20);
-    QFontMetrics standartFm(font);
-    //以宽度的百分之80计算像素大小
-    int fontXSize = int(r.width() / standartFm.width(name) * 16);
-
-    //字体太高的，将字体缩小
-    if(r.height() / 5  < fontXSize) {
-        fontXSize = r.height() / 5;
-    }
-    font.setPixelSize(fontXSize);
-    QFontMetrics fm(font);
-    const int x = r.center().x() - fm.width(name) / 2;
-    const int y = r.center().y() + fm.height() / 4;
-    QPainterPath path;
-    path.addText(x, y, font, name);
-    painter.drawPath(path);
-}
-
-void RecognizeDialog::paintMonitorMark1(QPainter &painter, const QRect &rect, const QString &name)
-{
-    const qreal ratio = devicePixelRatioF();
-    const QRect r(rect.topLeft() / ratio, rect.size() / ratio);
+    QRect displayRect(m_monitor->x(), m_monitor->y(), m_monitor->w(), m_monitor->h());
+    displayRect = QRect(displayRect.topLeft(), displayRect.size() / ratio);
 
     QFont font;
-    font.setPixelSize(FONT_SIZE);
+    font.setStyle(QFont::StyleNormal);
+    font.setPixelSize(FontSize);
     const QFontMetrics fm(font);
+    int width = fm.width(m_text) + 2 * HorizentalMargin > MiniWidth ? fm.width(m_text) + 2 * HorizentalMargin : MiniWidth;
+    int height = fm.height() +2 * VerticalMargin;
 
-    int textWidth = fm.width(name);
-    int testHeight = fm.height();
+    const int x = displayRect.center().x() - width / 2;
+    const int y = displayRect.height() - height - yoffset;
+    m_rect = QRect(x, y, width, height);
 
-    const int rectX = r.center().x() - textWidth / 2 - HORIZENTAL_MARGIN;
-    const int rectY = r.center().y() - testHeight / 2 - VERTICAL_MARGIN;
-    QRect rec(rectX, rectY, textWidth + HORIZENTAL_MARGIN * 2, testHeight + VERTICAL_MARGIN * 2);
-
-    QPainterPath path;
-    path.addText(rec.center().x() - textWidth / 2, rec.center().y() + testHeight / 4, font, name);
-
-    QPen backgroundPen(QColor(255, 255, 255, 40));
-    QBrush backgroundBrush(QColor(0, 0, 0, 200), Qt::SolidPattern);
-    painter.setPen(backgroundPen);
-    painter.setBrush(backgroundBrush);
-    painter.drawRoundedRect(rec, RADIUS, RADIUS);
-
-    QPen textPen(QColor(255, 255, 255));
-    QBrush textBrush(QColor(255, 255, 255), Qt::SolidPattern);
-    painter.setPen(textPen);
-    painter.setBrush(textBrush);
-    painter.drawPath(path);
-}
-
-const QScreen *RecognizeDialog::screenForGeometry(const QRect &rect) const
-{
-    const qreal ratio = qApp->devicePixelRatio();
-
-    for (const auto *s : qApp->screens())
-    {
-        const QRect &g(s->geometry());
-        const QRect realRect(g.topLeft() / ratio, g.size());
-
-        if (realRect.contains(rect.center()))
-            return s;
-    }
-
-    return nullptr;
+    setGeometry(m_rect);
+    update();
 }

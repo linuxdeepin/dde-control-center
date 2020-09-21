@@ -26,7 +26,9 @@
 #ifndef RECOGNIZEDIALOG_H
 #define RECOGNIZEDIALOG_H
 
-#include <QDialog>
+#include <DBlurEffectWidget>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 
@@ -34,13 +36,12 @@ namespace display {
 
 class Monitor;
 class DisplayModel;
-class RecognizeDialog : public QDialog
+class RecognizeDialog : public DBlurEffectWidget
 {
     Q_OBJECT
 
 public:
-    enum DialogModel { TouchRecognizeDialog , DisplayRecognizeDialog };
-    explicit RecognizeDialog(DisplayModel *model, DialogModel dialogModel, QWidget *parent = nullptr);
+    explicit RecognizeDialog(Monitor *monitor, QString name, QWidget *parent = nullptr);
 
 protected:
     void paintEvent(QPaintEvent *);
@@ -49,13 +50,9 @@ private Q_SLOTS:
     void onScreenRectChanged();
 
 private:
-    void paintMonitorMark(QPainter &painter, const QRect &rect, const QString &name);
-    void paintMonitorMark1(QPainter &painter, const QRect &rect, const QString &name);
-    const QScreen *screenForGeometry(const QRect &rect) const;
-
-private:
-    DisplayModel *m_model;
-    DialogModel m_dialogModel;
+    Monitor *m_monitor;
+    QRect m_rect;
+    QString m_text;
 };
 
 } // namespace display

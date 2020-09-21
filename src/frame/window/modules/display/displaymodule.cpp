@@ -98,8 +98,6 @@ void DisplayModule::active()
             this, &DisplayModule::showCustomSettingDialog);
     connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
             this, &DisplayModule::showTouchScreenPage);
-    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
-            this, &DisplayModule::showTouchRecognize);
     connect(m_displayWidget, &DisplayWidget::requestShowMultiResolutionPage,
             this, &DisplayModule::showMultiResolutionPage);
     connect(m_displayWidget, &DisplayWidget::requestShowMultiRefreshRatePage,
@@ -406,18 +404,36 @@ int DisplayModule::showTimeoutDialog(Monitor *mon)
 
 void DisplayModule::showDisplayRecognize()
 {
-    RecognizeDialog dialog(m_displayModel, RecognizeDialog::DisplayRecognizeDialog);
-    dialog.exec();
-}
+    // 复制模式
+    if (m_displayModel->monitorsIsIntersect()) {
+        QString text = m_displayModel->monitorList().first()->name();
+        for (int i = 1; i < m_displayModel->monitorList().size(); i++) {
+            text += QString(" = %1").arg(m_displayModel->monitorList()[i]->name());
+        }
 
-void DisplayModule::showTouchRecognize()
-{
-    // 只有一块屏幕不显示触摸提示
-    if (m_displayModel->monitorList().size() < 2) {
-        return;
+        // 所在显示器不存在显示框
+        if (m_recognizeDialg.value(text) == nullptr) {
+            RecognizeDialog *dialog = new RecognizeDialog(m_displayModel->monitorList()[0], text);
+            QTimer::singleShot(5000, this, [=]{
+                dialog->deleteLater();
+                m_recognizeDialg.remove(text);
+            });
+            m_recognizeDialg[text] = dialog;
+        }
+    } else { // 拓展模式 or 自定义模式
+        for (auto monitor : m_displayModel->monitorList()) {
+            // 所在显示器不存在显示框
+            if (m_recognizeDialg.value(monitor->name()) == nullptr) {
+                RecognizeDialog *dialog = new RecognizeDialog(monitor, monitor->name());
+                m_recognizeDialg[monitor->name()] = dialog;
+                QTimer::singleShot(5000, this, [=]{
+                    dialog->deleteLater();
+                    m_recognizeDialg.remove(monitor->name());
+                });
+                m_recognizeDialg[monitor->name()] = dialog;
+            }
+        }
     }
-    RecognizeDialog dialog(m_displayModel, RecognizeDialog::TouchRecognizeDialog);
-    dialog.exec();
 }
 
 void DisplayModule::showRotate(Monitor *mon)
