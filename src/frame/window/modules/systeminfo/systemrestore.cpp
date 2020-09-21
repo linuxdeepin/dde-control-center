@@ -31,14 +31,14 @@ SystemRestore::SystemRestore(BackupAndRestoreModel* model, QWidget *parent)
 
     m_buttonBox->setButtonList({backupBtn, restoreBtn}, true);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
     mainLayout->addWidget(m_buttonBox);
     mainLayout->addSpacing(5);
 
-    m_stackedLayout = new QStackedLayout;
+    m_stackedLayout = new QStackedLayout(mainLayout);
     m_stackedLayout->addWidget(m_backupPage);
     m_stackedLayout->addWidget(m_restorePage);
 
