@@ -219,7 +219,8 @@ const QString UpdateItem::getExtendLog() const
                     return retLog;
                 }
                 retLog.replace(pos, 1, "<br/>");
-                pos += 5;
+                // 5个字符替换一个字符加4
+                pos += 4;
                 widthCount = 0;
                 break;
             }
@@ -232,8 +233,10 @@ const QString UpdateItem::getExtendLog() const
                 if (curLine.isEmpty()) {
                     return retLog;
                 }
+
                 retLog.insert(pos, "<br/>");
-                pos += 6;
+                // 插入5个字符加5
+                pos += 5;
                 widthCount = 0;
                 break;
             }
