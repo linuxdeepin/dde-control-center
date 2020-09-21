@@ -26,7 +26,7 @@ Q_SIGNALS:
     void requestManualRestore(const QString& directory) const;
 
 private:
-//    DButtonBox* m_buttonBox;
+    DButtonBox* m_buttonBox;
     ManualBackup* m_backupPage;
     ManualRestore* m_restorePage;
     QStackedLayout* m_stackedLayout;
