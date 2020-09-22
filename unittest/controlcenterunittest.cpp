@@ -173,6 +173,41 @@ void ControlCenterUnitTest::displayMode_check()
     QCOMPARE(this->displayMode, displayMode);
 }
 
+void ControlCenterUnitTest::checkWindowCompositingEnable()
+{
+    QDBusInterface wmInter("com.deepin.wm",
+                                 "/com/deepin/wm",
+                                "org.freedesktop.DBus.Properties",
+                                QDBusConnection::sessionBus());
+
+    QDBusInterface wmPropertyInter("com.deepin.wm",
+                                 "/com/deepin/wm",
+                                "com.deepin.wm",
+                                QDBusConnection::sessionBus());
+
+    bool  compositingEnable = wmPropertyInter.property("compositingEnabled").toBool();
+    bool  lastCompositingEnable = compositingEnable;
+
+    QDBusMessage reply = wmInter.call("Set","com.deepin.wm","compositingEnabled", QVariant::fromValue(QDBusVariant(!compositingEnable)));
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        qDebug() << "reply.type() = " << reply.type();
+    }
+
+    QThread::sleep(4);
+    compositingEnable = wmPropertyInter.property("compositingEnabled").toBool();          
+    QCOMPARE(compositingEnable, !lastCompositingEnable);
+
+    lastCompositingEnable = compositingEnable;
+    reply = wmInter.call("Set","com.deepin.wm","compositingEnabled", QVariant::fromValue(QDBusVariant(!compositingEnable)));
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        qDebug() << "reply.type() = " << reply.type();
+    }
+    QThread::sleep(4);
+
+    compositingEnable = wmPropertyInter.property("compositingEnabled").toBool();
+    QCOMPARE(compositingEnable, !lastCompositingEnable);
+}
+
 QTEST_APPLESS_MAIN(ControlCenterUnitTest)
 
 #include "controlcenterunittest.moc"

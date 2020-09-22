@@ -43,6 +43,7 @@ private slots:
     void inputDevieNum(int num = 1);                        //测试显示的输出设备数量
     void testBluetoothIsVisible();                        //测试蓝牙是否正常显示
     void displayMode_check();                               // 显示模式检查
+    void checkWindowCompositingEnable();  // 开启 和 关闭窗口特效检测
 
 private:
     int displayMode;
