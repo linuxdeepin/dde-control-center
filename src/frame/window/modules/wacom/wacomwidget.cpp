@@ -91,7 +91,7 @@ void WacomWidget::onCursorModeChanged(const bool curMode)
     if (curMode) {
         index = 1;
     }
-    m_sensitivity->setVisible(curMode);
+    m_sensitivity->setVisible(!curMode);
     m_modeComboBox->blockSignals(true);
     m_modeComboBox->setCurrentIndex(index);
     m_modeComboBox->blockSignals(false);

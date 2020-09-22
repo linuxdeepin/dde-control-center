@@ -35,7 +35,12 @@ void MultiSelectListView::keyPressEvent(QKeyEvent *event)
         QModelIndex nextIndex = model()->index(m_currentIndex - 1, 0);
         if (nextIndex.isValid() ) {
             if (isRowHidden(m_currentIndex - 1)) {
-                nextIndex = model()->index(m_currentIndex - 2, 0);
+                if ( m_currentIndex -1 <= 0) {
+                    return;
+                }
+                m_currentIndex--;
+                keyPressEvent(event);
+                return;
             }
             setCurrentIndex(nextIndex);
             Q_EMIT clicked(nextIndex);
@@ -45,7 +50,12 @@ void MultiSelectListView::keyPressEvent(QKeyEvent *event)
         QModelIndex nextIndex = model()->index(m_currentIndex + 1, 0);
         if (nextIndex.isValid()) {
             if (isRowHidden(m_currentIndex + 1)) {
-                nextIndex = model()->index(m_currentIndex + 2, 0);
+                if (model()->rowCount()-1 <= m_currentIndex + 1) {
+                    return;
+                }
+                m_currentIndex++;
+                keyPressEvent(event);
+                return;
             }
             setCurrentIndex(nextIndex);
             Q_EMIT clicked(nextIndex);

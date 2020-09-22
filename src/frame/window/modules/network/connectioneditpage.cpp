@@ -311,9 +311,6 @@ void ConnectionEditPage::saveConnSettings()
     }
 
     if (m_settingsWidget->isAutoConnect()) {
-        if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WiredConnection)) {
-            Q_EMIT requestWiredDeviceEnabled(DevicePath, true);
-        }
         // deactivate this device's ActiveConnection
         QDBusPendingReply<> reply;
         for (auto aConn : activeConnections()) {

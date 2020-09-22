@@ -786,7 +786,7 @@ bool SearchWidget::isLoadText(const QString &txt)
     return false;
 }
 
-bool SearchWidget::isLoadContensText(QString text)
+bool SearchWidget::isLoadContensText(const QString &text)
 {
     for (auto data : m_contensServerTxtList) {
         //有first数据继续判断second

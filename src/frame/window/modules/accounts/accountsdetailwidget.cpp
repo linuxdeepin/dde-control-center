@@ -489,6 +489,7 @@ void AccountsDetailWidget::initGroups(QVBoxLayout *layout)
     layout->addWidget(groupTip);
     layout->addSpacing(List_Interval);
     layout->addWidget(m_groupListView);
+    layout->setContentsMargins(ScrollAreaMargins);
 }
 
 bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)

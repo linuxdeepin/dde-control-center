@@ -31,8 +31,16 @@ const double DoubleZero = 0.000001;
 
 Monitor::Monitor(QObject *parent)
     : QObject(parent)
+    , m_x(0)
+    , m_y(0)
+    , m_w(0)
+    , m_h(0)
+    , m_mmWidth(0)
+    , m_mmHeight(0)
     , m_scale(-1.0)
+    , m_rotate(0)
     , m_brightness(1.0)
+    , m_enable(false)
     , m_canBrightness(true)
 {
 

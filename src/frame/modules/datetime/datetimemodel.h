@@ -61,7 +61,7 @@ public:
     void setNtpServerAddress(const QString &ntpServer);
 
     inline QStringList ntpServerList() const { return  m_NtpServerList; }
-    void setNTPServerList(QStringList list);
+    void setNTPServerList(const QStringList &list);
 
     inline int weekdayFormatType() const { return  m_weekdayFormatType; }
     inline int shortDateFormat() const { return  m_shortDateFormat; }

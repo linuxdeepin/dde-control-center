@@ -60,6 +60,7 @@ void UnionidModule::contentPopped(QWidget *const w)
 void UnionidModule::active()
 {
     UnionidWidget *widget = new UnionidWidget;
+    widget->setVisible(false);
     connect(widget, &UnionidWidget::requestLoginUser, m_worker, &dcc::unionid::UnionidWorker::loginUser, Qt::UniqueConnection);
     connect(widget, &UnionidWidget::requestSetAutoSync, m_worker, &dcc::unionid::UnionidWorker::setAutoSync, Qt::UniqueConnection);
     connect(widget, &UnionidWidget::requestLogoutUser, m_worker, &dcc::unionid::UnionidWorker::logoutUser, Qt::QueuedConnection);
@@ -69,6 +70,7 @@ void UnionidModule::active()
     m_worker->activate(); //refresh data
 
     m_frameProxy->pushWidget(this, widget);
+    widget->setVisible(true);
 }
 
 void UnionidModule::preInitialize(bool sync)

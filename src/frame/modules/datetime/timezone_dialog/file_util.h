@@ -48,7 +48,7 @@ bool CopyFile(const QString& src_file, const QString& dest_file, bool overwrite)
 // This method only copy normal files, folders and symbolic link file.
 // Other type of files and character device, FIFO and device file are ignored.
 // For advanced copy function, see misc/unsquashfs.cpp
-bool CopyFolder(const QString src_dir, const QString& dest_dir,
+bool CopyFolder(const QString &src_dir, const QString& dest_dir,
                 bool recursive = true);
 
 // Copy file/folder mode from |src_file| to |dest_file|

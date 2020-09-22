@@ -62,9 +62,13 @@ CommonInfoModule::~CommonInfoModule()
 }
 
 void CommonInfoModule::preInitialize(bool sync)
-{
+{   
+    Q_UNUSED(sync);
 #ifdef DCC_DISABLE_GRUB
     m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), false);
+    if (IsServerSystem) {
+        m_frameProxy->setModuleVisible(this, false);
+    }
 #else
     m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), true);
 #endif
@@ -72,6 +76,9 @@ void CommonInfoModule::preInitialize(bool sync)
 
 void CommonInfoModule::initialize()
 {
+    if (m_commonModel) {
+        delete m_commonModel;
+    }
     m_commonModel = new CommonInfoModel();
     m_commonWork = new CommonInfoWork(m_commonModel);
 
@@ -92,12 +99,17 @@ const QString CommonInfoModule::displayName() const
 void CommonInfoModule::active()
 {
     //    mCommonWork->activate();
+    if (m_commonWidget) {
+        delete m_commonWidget;
+    }
     m_commonWidget = new CommonInfoWidget();
+    m_commonWidget->setVisible(false);
     connect(m_commonWidget, &CommonInfoWidget::requestShowBootWidget, this, &CommonInfoModule::onShowBootWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowDeveloperModeWidget, this, &CommonInfoModule::onShowDeveloperWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowUEPlanWidget, this, &CommonInfoModule::onShowUEPlanWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowTabletModeWidget, this, &CommonInfoModule::onShowTabletModeWidget);
     m_frameProxy->pushWidget(this, m_commonWidget);
+    m_commonWidget->setVisible(true);
 
 #ifndef DCC_DISABLE_GRUB
     onShowBootWidget();
@@ -171,21 +183,25 @@ void CommonInfoModule::onShowBootWidget()
     m_commonWork->loadGrubSettings();
     initBootWidget();
     m_frameProxy->pushWidget(this, m_bootWidget);
+    m_bootWidget->setVisible(true);
 }
 
 void CommonInfoModule::onShowDeveloperWidget()
 {
     DeveloperModeWidget *pWidget = new DeveloperModeWidget;
+    pWidget->setVisible(false);
     pWidget->setModel(m_commonModel);
     connect(pWidget, &DeveloperModeWidget::requestLogin, m_commonWork, &CommonInfoWork::login);
     connect(pWidget, &DeveloperModeWidget::enableDeveloperMode, m_commonWork, &CommonInfoWork::setEnableDeveloperMode);
     m_frameProxy->pushWidget(this, pWidget);
+    pWidget->setVisible(true);
 }
 
 void CommonInfoModule::onShowUEPlanWidget()
 {
     initUeProgramWidget();
     m_frameProxy->pushWidget(this, m_ueProgramWidget);
+    m_ueProgramWidget->setVisible(true);
 }
 
 // 以下内容为平板模式做预留
@@ -197,6 +213,7 @@ void CommonInfoModule::onShowTabletModeWidget()
 void CommonInfoModule::initBootWidget()
 {
     m_bootWidget = new BootWidget;
+    m_bootWidget->setVisible(false);
 
     connect(m_bootWidget, &BootWidget::bootdelay, m_commonWork, &CommonInfoWork::setBootDelay);
     connect(m_bootWidget, &BootWidget::enableTheme, m_commonWork, &CommonInfoWork::setEnableTheme);
@@ -209,6 +226,7 @@ void CommonInfoModule::initBootWidget()
 void CommonInfoModule::initUeProgramWidget()
 {
     m_ueProgramWidget = new UserExperienceProgramWidget();
+    m_ueProgramWidget->setVisible(false);
     m_ueProgramWidget->setModel(m_commonModel);
     m_ueProgramWidget->setDefaultUeProgram(m_commonWork->defaultUeProgram());
     connect(m_ueProgramWidget, &UserExperienceProgramWidget::enableUeProgram, this, [=](bool enabled) {

@@ -47,7 +47,10 @@ const int kTriangleHeight = 6;
 
 }  // namespace
 
-TooltipPin::TooltipPin(QWidget* parent) : QLabel(parent) {
+TooltipPin::TooltipPin(QWidget* parent)
+    : QLabel(parent)
+    , m_arrowDirection(ArrowDirection::ArrowDown)
+{
   this->setObjectName("tooltip_pin");
 
   this->setAlignment(Qt::AlignHCenter);

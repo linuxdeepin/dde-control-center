@@ -97,11 +97,13 @@ void AccountsModule::contentPopped(QWidget *const w)
 void AccountsModule::active()
 {
     m_accountsWidget = new AccountsWidget;
+    m_accountsWidget->setVisible(false);
     m_accountsWidget->setModel(m_userModel);
     m_accountsWidget->setShowFirstUserInfo(true);
     connect(m_accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
     connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
     m_frameProxy->pushWidget(this, m_accountsWidget);
+    m_accountsWidget->setVisible(true);
     m_accountsWidget->selectUserList();
 }
 
@@ -179,12 +181,14 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
 void AccountsModule::onShowCreateAccountPage()
 {
     CreateAccountPage *w = new CreateAccountPage();
+    w->setVisible(false);
     User *newUser = new User(this);
     w->setModel(m_userModel, newUser);
     connect(w, &CreateAccountPage::requestCreateUser, m_accountsWorker, &AccountsWorker::createAccount);
     connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
     connect(w, &CreateAccountPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
     m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
 }
 
 AccountsModule::~AccountsModule()
@@ -202,9 +206,11 @@ AccountsModule::~AccountsModule()
 void AccountsModule::onShowPasswordPage(User *account)
 {
     ModifyPasswdPage *w = new ModifyPasswdPage(account);
+    w->setVisible(false);
     connect(w, &ModifyPasswdPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
     connect(w, &ModifyPasswdPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
     m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
 }
 
 //添加指纹界面

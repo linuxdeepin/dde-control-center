@@ -66,7 +66,7 @@ bool CopyFile(const QString& src_file,
   return QFile::copy(src_file, dest_file);
 }
 
-bool CopyFolder(const QString src_dir, const QString& dest_dir,
+bool CopyFolder(const QString &src_dir, const QString& dest_dir,
                 bool recursive) {
   QDirIterator::IteratorFlag iter_flag;
   if (recursive) {

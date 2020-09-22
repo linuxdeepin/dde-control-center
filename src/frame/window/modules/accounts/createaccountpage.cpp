@@ -26,6 +26,7 @@
 #include "pwqualitymanager.h"
 
 #include <DFontSizeManager>
+#include <DDesktopServices>
 
 #include <QtGlobal>
 #include <QVBoxLayout>
@@ -219,6 +220,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
                 (strText[idx] == '-' || strText[idx] == '_')) {
                 strTemp.append(strText[idx]);
             } else {
+                DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
                 break;
             }
         }

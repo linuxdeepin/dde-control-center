@@ -72,11 +72,13 @@ void KeyboardModule::active()
 {
     m_work->active();
     m_keyboardWidget = new KeyboardWidget;
+    m_keyboardWidget->setVisible(false);
     connect(m_keyboardWidget, &KeyboardWidget::showGeneralSetting, this, &KeyboardModule::showGeneralSetting);
     connect(m_keyboardWidget, &KeyboardWidget::showKBLayoutSetting, this, &KeyboardModule::showKBLayoutSetting);
     connect(m_keyboardWidget, &KeyboardWidget::showSystemLanguageSetting, this, &KeyboardModule::showSystemLanguageSetting);
     connect(m_keyboardWidget, &KeyboardWidget::showShortCutSetting, this, &KeyboardModule::showShortCutSetting);
     m_frameProxy->pushWidget(this, m_keyboardWidget);
+    m_keyboardWidget->setVisible(true);
     showGeneralSetting();
 }
 
@@ -134,20 +136,21 @@ void KeyboardModule::contentPopped(QWidget *const w)
 void KeyboardModule::showGeneralSetting()
 {
     m_generalSettingWidget = new GeneralKBSettingWidget(m_model);
-
+    m_generalSettingWidget->setVisible(false);
     connect(m_generalSettingWidget, &GeneralKBSettingWidget::requestKBDelayChanged, m_work, &KeyboardWorker::setRepeatDelay);
     connect(m_generalSettingWidget, &GeneralKBSettingWidget::requestKBSpeedChanged, m_work, &KeyboardWorker::setRepeatInterval);
     connect(m_generalSettingWidget, &GeneralKBSettingWidget::requestNumLockChanged, m_work, &KeyboardWorker::setNumLock);
     connect(m_generalSettingWidget, &GeneralKBSettingWidget::requestCapsLockChanged, m_work, &KeyboardWorker::setCapsLock);
 
     m_frameProxy->pushWidget(this, m_generalSettingWidget);
+    m_generalSettingWidget->setVisible(true);
 }
 
 void KeyboardModule::onPushKeyboard(const QStringList &kblist)
 {
     m_work->onPinyin();
     m_kbLayoutWidget = new KeyboardLayoutWidget();
-
+    m_kbLayoutWidget->setVisible(false);
     auto dataControll = [ = ](QList<MetaData> datas) {
         for (auto it(datas.begin()); it != datas.end();) {
             const MetaData &data = *it;
@@ -170,6 +173,7 @@ void KeyboardModule::onPushKeyboard(const QStringList &kblist)
     connect(m_kbLayoutWidget, &KeyboardLayoutWidget::back, this, &KeyboardModule::showKBLayoutSetting);
 
     m_frameProxy->pushWidget(this, m_kbLayoutWidget);
+    m_kbLayoutWidget->setVisible(true);
 }
 
 void KeyboardModule::setCurrentLayout(const QString &value)
@@ -181,6 +185,7 @@ void KeyboardModule::showKBLayoutSetting()
 {
     m_work->onRefreshKBLayout();
     m_kbLayoutSettingWidget = new KBLayoutSettingWidget;
+    m_kbLayoutSettingWidget->setVisible(false);
     m_kbLayoutSettingWidget->setModel(m_model);
 
     connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::layoutAdded, this, &KeyboardModule::onPushKeyboard);
@@ -190,17 +195,20 @@ void KeyboardModule::showKBLayoutSetting()
     connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::onSwitchKBLayoutScope, m_work, &KeyboardWorker::setLayoutScope);
 
     m_frameProxy->pushWidget(this, m_kbLayoutSettingWidget);
+    m_kbLayoutSettingWidget->setVisible(true);
 }
 
 void KeyboardModule::showSystemLanguageSetting()
 {
     m_work->refreshLang();
     m_systemLanguageWidget = new SystemLanguageWidget(m_model);
+    m_systemLanguageWidget->setVisible(false);
     connect(m_systemLanguageWidget, &SystemLanguageWidget::onSystemLanguageAdded, this, &KeyboardModule::onPushSystemLanguageSetting);
     connect(m_systemLanguageWidget, &SystemLanguageWidget::delLocalLang, m_work, &KeyboardWorker::deleteLang);
     connect(m_systemLanguageWidget, &SystemLanguageWidget::setCurLang, m_work, &KeyboardWorker::setLang);
     connect(m_model, &KeyboardModel::onSetCurLangFinish, m_systemLanguageWidget,&SystemLanguageWidget::onSetCurLang);
     m_frameProxy->pushWidget(this, m_systemLanguageWidget);
+    m_systemLanguageWidget->setVisible(true);
 }
 
 void KeyboardModule::onAddLocale(const QModelIndex &index)
@@ -213,6 +221,7 @@ void KeyboardModule::showShortCutSetting()
 {
     m_work->refreshShortcut();
     m_shortcutSettingWidget = new ShortCutSettingWidget(m_shortcutModel);
+    m_shortcutSettingWidget->setVisible(false);
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::customShortcut, this, &KeyboardModule::onPushCustomShortcut);
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::delShortcutInfo, m_work, &KeyboardWorker::delShortcut);
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
@@ -227,19 +236,23 @@ void KeyboardModule::showShortCutSetting()
     connect(m_work, &KeyboardWorker::onResetFinished, m_shortcutSettingWidget, &ShortCutSettingWidget::onResetFinished);
 
     m_frameProxy->pushWidget(this, m_shortcutSettingWidget);
+    m_shortcutSettingWidget->setVisible(true);
 }
 
 void KeyboardModule::onPushSystemLanguageSetting()
 {
     m_systemLanguageSettingWidget = new SystemLanguageSettingWidget(m_model);
+    m_systemLanguageSettingWidget->setVisible(false);
     connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::click, this, &KeyboardModule::onAddLocale);
     connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::back, this, &KeyboardModule::showSystemLanguageSetting);
     m_frameProxy->pushWidget(this, m_systemLanguageSettingWidget);
+    m_systemLanguageSettingWidget->setVisible(true);
 }
 
 void KeyboardModule::onPushCustomShortcut()
 {
     m_customContent = new CustomContent(m_shortcutModel);
+    m_customContent->setVisible(false);
     m_customContent->setAccessibleName(tr("Custom Shortcut"));
     connect(m_customContent, &CustomContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
     connect(m_customContent, &CustomContent::requestAddKey, m_work, &KeyboardWorker::addCustomShortcut);
@@ -247,11 +260,13 @@ void KeyboardModule::onPushCustomShortcut()
     connect(m_customContent, &CustomContent::back, this, &KeyboardModule::showShortCutSetting);
 
     m_frameProxy->pushWidget(this, m_customContent);
+    m_customContent->setVisible(true);
 }
 
 void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
 {
     m_scContent = new ShortcutContent(m_shortcutModel);
+    m_scContent->setVisible(false);
 
     connect(m_scContent, &ShortcutContent::requestSaveShortcut, m_work, &KeyboardWorker::modifyShortcutEdit);
     connect(m_scContent, &ShortcutContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
@@ -263,11 +278,13 @@ void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
     m_scContent->setBottomTip(m_shortcutModel->getInfo(shortcut));
 
     m_frameProxy->pushWidget(this, m_scContent);
+    m_scContent->setVisible(true);
 }
 
 void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
 {
     m_customEdit = new CustomEdit(m_shortcutModel);
+    m_customEdit->setVisible(false);
     m_customEdit->setShortcut(info);
 
     ShortCutSettingWidget *shortcutWidget = qobject_cast<ShortCutSettingWidget *>(sender());
@@ -279,4 +296,5 @@ void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
     connect(m_customEdit, &CustomEdit::back, this, &KeyboardModule::showShortCutSetting);
 
     m_frameProxy->pushWidget(this, m_customEdit);
+    m_customEdit->setVisible(true);
 }

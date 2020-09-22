@@ -71,6 +71,7 @@ const QString PersonalizationModule::displayName() const
 void PersonalizationModule::active()
 {
     PersonalizationList *firstWidget = new PersonalizationList();
+    firstWidget->setVisible(false);
     firstWidget->setAccessibleName("personanization");
     connect(firstWidget, &PersonalizationList::requestShowGeneral, this, &PersonalizationModule::showGenaralWidget);
     connect(firstWidget, &PersonalizationList::requestShowIconTheme, this, &PersonalizationModule::showIconThemeWidget);
@@ -78,6 +79,7 @@ void PersonalizationModule::active()
     connect(firstWidget, &PersonalizationList::requestShowFonts, this, &PersonalizationModule::showFontThemeWidget);
     connect(this, &PersonalizationModule::requestSetCurrentIndex, firstWidget, &PersonalizationList::setCurrentIndex);
     m_frameProxy->pushWidget(this, firstWidget);
+    firstWidget->setVisible(true);
     //显示默认页
     showGenaralWidget();
 }
@@ -121,6 +123,7 @@ void PersonalizationModule::showGenaralWidget()
     m_work->refreshTheme();
 
     PersonalizationGeneral *widget = new PersonalizationGeneral;
+    widget->setVisible(false);
     widget->setAccessibleName("personalizationgeneral");
 
     widget->setModel(m_model);
@@ -132,6 +135,7 @@ void PersonalizationModule::showGenaralWidget()
     m_work->active();
 
     m_frameProxy->pushWidget(this, widget);
+    widget->setVisible(true);
 }
 
 void PersonalizationModule::showIconThemeWidget()
@@ -139,11 +143,13 @@ void PersonalizationModule::showIconThemeWidget()
     m_work->refreshTheme();
 
     PerssonalizationThemeList *widget = new PerssonalizationThemeList;
+    widget->setVisible(false);
     widget->setModel(m_model->getIconModel());
     connect(widget, &PerssonalizationThemeList::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
     m_work->active();
 
     m_frameProxy->pushWidget(this, widget);
+    widget->setVisible(true);
 }
 
 void PersonalizationModule::showCursorThemeWidget()
@@ -151,11 +157,13 @@ void PersonalizationModule::showCursorThemeWidget()
     m_work->refreshTheme();
 
     PerssonalizationThemeList *widget = new PerssonalizationThemeList;
+    widget->setVisible(false);
     widget->setModel(m_model->getMouseModel());
     connect(widget, &PerssonalizationThemeList::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
     m_work->active();
 
     m_frameProxy->pushWidget(this, widget);
+    widget->setVisible(true);
 }
 
 void PersonalizationModule::showFontThemeWidget()
@@ -163,6 +171,7 @@ void PersonalizationModule::showFontThemeWidget()
     m_work->refreshFont();
 
     PersonalizationFontsWidget *widget = new PersonalizationFontsWidget;
+    widget->setVisible(false);
     widget->setModel(m_model);
 
     connect(widget, &PersonalizationFontsWidget::requestSetFontSize, m_work, &dcc::personalization::PersonalizationWork::setFontSize);
@@ -170,4 +179,5 @@ void PersonalizationModule::showFontThemeWidget()
     m_work->active();
 
     m_frameProxy->pushWidget(this, widget);
+    widget->setVisible(true);
 }

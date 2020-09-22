@@ -35,6 +35,7 @@ Device::Device(QObject *parent) :
     m_paired(false),
     m_trusted(false),
     m_connecting(false),
+    m_connectState(false),
     m_state(StateUnavailable)
 {
 
@@ -99,7 +100,7 @@ void Device::setConnecting(bool connecting)
     }
 }
 
-void Device::setDeviceType(const QString deviceType)
+void Device::setDeviceType(const QString &deviceType)
 {
     m_deviceType = deviceType2Icon[deviceType];
 }

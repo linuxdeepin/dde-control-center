@@ -92,7 +92,7 @@ public:
     void setConnecting(bool connecting);
 
     inline QString deviceType() const { return m_deviceType; }
-    void setDeviceType(const QString deviceType);
+    void setDeviceType(const QString &deviceType);
     inline bool connectState() const { return m_connectState; }
 
     bool canSendFile() const;

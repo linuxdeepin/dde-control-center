@@ -199,7 +199,7 @@ TimezoneOffset GetTimezoneOffset(const QString& timezone) {
   const char* old_tz = getenv(kTzEnv);
   setenv(kTzEnv, timezone.toStdString().c_str(), 1);
   struct tm tm;
-  const time_t curr_time = time(NULL);
+  const time_t curr_time = time(nullptr);
 
   // Call tzset() before localtime_r(). Set tzset(3).
   tzset();
