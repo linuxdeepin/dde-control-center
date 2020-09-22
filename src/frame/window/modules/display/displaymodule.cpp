@@ -99,6 +99,8 @@ void DisplayModule::active()
             this, &DisplayModule::showCustomSettingDialog);
     connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
             this, &DisplayModule::showTouchScreenPage);
+    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
+            this, &DisplayModule::showDisplayRecognize);
     connect(m_displayWidget, &DisplayWidget::requestShowMultiResolutionPage,
             this, &DisplayModule::showMultiResolutionPage);
     connect(m_displayWidget, &DisplayWidget::requestShowMultiRefreshRatePage,
