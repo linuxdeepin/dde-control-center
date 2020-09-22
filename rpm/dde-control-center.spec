@@ -48,7 +48,6 @@ BuildArch:      noarch
 %prep
 %setup -q -n %{name}-%{version}
 sed -i 's|lrelease|lrelease-qt5|' translate_generation.sh
-sed -i '/%{name}/s|\.\./lib|%{_libdir}|' src/frame/pluginscontroller.cpp
 sed -i -E '/add_compile_definitions/d' CMakeLists.txt
 
 %build
