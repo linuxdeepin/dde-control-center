@@ -129,7 +129,8 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
 #ifndef DISABLE_ACTIVATOR
-    infoGroup->appendItem(m_authorized);
+    if (!DSysInfo::isCommunityEdition())
+        infoGroup->appendItem(m_authorized);
 #endif
     infoGroup->appendItem(m_kernel);
     infoGroup->appendItem(m_processor);

@@ -61,7 +61,7 @@ void ProtocolFile::getPrivacyFile(QString &zhCN_Content, QString &enUS_Content)
 QString ProtocolFile::getUserExpContent()
 {
     QString userExpContent = getLicensePath("/usr/share/protocol/userexperience-agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
-    if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
+    if (DSysInfo::isCommunityEdition()) {
         userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement-Community/User-Experience-Program-License-Agreement-CN-%1.md", "");
         return userExpContent;
     }
@@ -107,6 +107,9 @@ QString ProtocolFile::getEnduserAgreement()
             const QString oldPody = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.txt", "");
             return oldPody;
         }
+    } else if (DSysInfo::isCommunityEdition()) {
+        const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Community/End-User-License-Agreement-CN-%1.txt", "");
+        return body;
     } else {
         const QString bodypath_new = getLicensePath(professionalEnduserAgreement_new, "");
         if (QFile::exists(bodypath_new)) {
