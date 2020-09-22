@@ -18,7 +18,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::systeminfo;
 
 /**
- * @brief restore-tool工具返回的错误值
+ * @brief deepin-recovery-tool工具返回的错误值
  */
 enum ToolErrorType {
     NoError = 0,
@@ -27,15 +27,14 @@ enum ToolErrorType {
     SpaceError
 };
 
-//restore-tool超时时间设置为1分钟
+//deepin-recovery-tool超时时间设置为1分钟
 const int TimeOut = 60000;
 
 BackupAndRestoreWorker::BackupAndRestoreWorker(BackupAndRestoreModel* model, QObject *parent)
     : QObject(parent)
     , m_model(model)
-	, m_grubInter(new GrubInter("com.deepin.daemon.Grub2", "/com/deepin/daemon/Grub2", QDBusConnection::systemBus(), this))
 {
-    m_grubInter->setSync(false, false);
+
 }
 
 void BackupAndRestoreWorker::restart()
@@ -143,7 +142,7 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
     }
 
     QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_backup" << "--path" << choosePath);
+    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "manual_backup" << "--path" << choosePath);
     process->waitForFinished(TimeOut);
 
     const int &exitCode = process->exitCode();
@@ -159,15 +158,6 @@ ErrorType BackupAndRestoreWorker::doManualBackup()
         qDebug() << process->readAllStandardError();
         return ErrorType::ToolError;
     }
-	
-    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
-    watcher->waitForFinished();
-    if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
-        return ErrorType::GrubError;
-    }
-
-    QThread::sleep(5);
 
     restart();
     return ErrorType::NoError;
@@ -201,7 +191,7 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
     }
 
     QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_backup" << "--path" << choosePath);
+    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "system_backup" << "--path" << choosePath);
     process->waitForFinished(TimeOut);
 
     const int &exitCode = process->exitCode();
@@ -217,15 +207,6 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
         qDebug() << process->readAllStandardError();
         return ErrorType::ToolError;
     }
-
-    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
-    watcher->waitForFinished();
-    if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
-        return ErrorType::GrubError;
-    }
-
-    QThread::sleep(5);
 
     restart();
     return ErrorType::NoError;
@@ -254,7 +235,7 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
     }
 
     QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "manual_restore" << "--path" << selectPath);
+    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "manual_restore" << "--path" << selectPath);
     process->waitForFinished(TimeOut);
 
     const int &exitCode = process->exitCode();
@@ -267,15 +248,6 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
         return ErrorType::ToolError;
     }
 
-    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
-    watcher->waitForFinished();
-    if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
-        return ErrorType::GrubError;
-    }
-
-    QThread::sleep(5);
-	
     restart();
     return ErrorType::NoError;
 }
@@ -285,7 +257,7 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
     const bool formatData = m_model->formatData();
 
     QSharedPointer<QProcess> process(new QProcess);
-    process->start("pkexec", QStringList() << "/bin/restore-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
+    process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "system_restore" << (formatData ? "--formatData" : ""));
     process->waitForFinished(TimeOut);
 
     const int &exitCode = process->exitCode();
@@ -298,15 +270,6 @@ ErrorType BackupAndRestoreWorker::doSystemRestore()
         return ErrorType::ToolError;
     }
 
-    QScopedPointer<QDBusPendingCallWatcher> watcher(new QDBusPendingCallWatcher(m_grubInter->SetDefaultEntry("UOS Backup & Restore")));
-    watcher->waitForFinished();
-    if (watcher->isError()) {
-        qWarning() << Q_FUNC_INFO << watcher->error();
-        return ErrorType::GrubError;
-    }
-
-    QThread::sleep(5);
-	
     restart();
     return ErrorType::NoError;
 }

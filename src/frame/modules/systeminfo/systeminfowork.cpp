@@ -116,7 +116,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
     connect(m_systemInfoInter, &__SystemInfo::DistroIDChanged, m_model, &SystemInfoModel::setDistroID);
     connect(m_systemInfoInter, &__SystemInfo::DistroVerChanged, m_model, &SystemInfoModel::setDistroVer);
-    connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
     connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
 
     QProcess process;
@@ -135,7 +134,6 @@ void SystemInfoWork::activate()
 {
     m_model->setDistroID(m_systemInfoInter->distroID());
     m_model->setDistroVer(m_systemInfoInter->distroVer());
-    m_model->setProcessor(m_systemInfoInter->processor());
     m_model->setDisk(m_systemInfoInter->diskCap());
 
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
