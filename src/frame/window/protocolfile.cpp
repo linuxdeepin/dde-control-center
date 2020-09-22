@@ -56,6 +56,12 @@ void ProtocolFile::getPrivacyFile(QString &zhCN_Content, QString &enUS_Content)
     } else {
         enUS_Content = enUS_oldContent;
     }
+
+    //目前社区版的协议只放在这个路径下,后续如果修改了,再作适配
+    if (DSysInfo::isCommunityEdition()) {
+        zhCN_Content = "/usr/share/deepin-deepinid-client/privacy/Privacy-Policy-Community/Privacy-Policy-CN-zh_CN.md";
+        enUS_Content = "/usr/share/deepin-deepinid-client/privacy/Privacy-Policy-Community/Privacy-Policy-CN-en_US.md";
+    }
 }
 
 QString ProtocolFile::getUserExpContent()
