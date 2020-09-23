@@ -79,8 +79,8 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::LowPowerNotifyThresholdChanged, m_powerModel, &PowerModel::setLowPowerNotifyThreshold);
     connect(m_powerInter, &PowerInter::LowPowerAutoSleepThresholdChanged, m_powerModel, &PowerModel::setLowPowerAutoSleepThreshold);
     //-------------------------------------------------------
-    connect(m_powerInter, &PowerInter::ModeChanged, m_powerModel, &PowerModel::setPowerPlan);
-    connect(m_powerInter, &PowerInter::IsHighPerformanceSupportedChanged, m_powerModel, &PowerModel::setHighPerformanceSupported);
+    connect(m_sysPowerInter, &SysPowerInter::ModeChanged, m_powerModel, &PowerModel::setPowerPlan);
+    connect(m_sysPowerInter, &SysPowerInter::IsHighPerformanceSupportedChanged, m_powerModel, &PowerModel::setHighPerformanceSupported);
 }
 
 void PowerWorker::active()
@@ -102,8 +102,8 @@ void PowerWorker::active()
     m_powerModel->setLinePowerLidClosedAction(m_powerInter->linePowerLidClosedAction());
     m_powerModel->setBatteryPressPowerBtnAction(m_powerInter->batteryPressPowerBtnAction());
     m_powerModel->setBatteryLidClosedAction(m_powerInter->batteryLidClosedAction());
-    m_powerModel->setPowerPlan(m_powerInter->mode());
-    m_powerModel->setHighPerformanceSupported(m_powerInter->isHighPerformanceSupported());
+    m_powerModel->setPowerPlan(m_sysPowerInter->mode());
+    m_powerModel->setHighPerformanceSupported(m_sysPowerInter->isHighPerformanceSupported());
 
     setScreenBlackDelayToModelOnPower(m_powerInter->linePowerScreenBlackDelay());
     setSleepDelayToModelOnPower(m_powerInter->linePowerSleepDelay());
@@ -281,7 +281,7 @@ void PowerWorker::setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold)
  */
 void PowerWorker::setPowerPlan(const QString &powerPlan)
 {
-    m_powerInter->SetMode(powerPlan);
+    m_sysPowerInter->SetMode(powerPlan);
 }
 
 void PowerWorker::setScreenBlackDelayToModelOnBattery(const int delay)
