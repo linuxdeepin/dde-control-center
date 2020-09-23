@@ -208,6 +208,31 @@ void ControlCenterUnitTest::checkWindowCompositingEnable()
     QCOMPARE(compositingEnable, !lastCompositingEnable);
 }
 
+/**
+ * @brief ControlCenterUnitTest::testProcessNumber
+ * 启动10次，检测控制中心能否保持单例+控制中心能否正常退出
+ */
+void ControlCenterUnitTest::testProcessNumber()
+{
+    QProcess process;
+    for (int i = 0; i < 10; ++i) {
+        process.start("dde-control-center", QStringList() << "-s");
+        process.waitForFinished(2000);
+    }
+
+    process.start("pidof", QStringList() << "dde-control-center");
+    process.waitForFinished(2000);
+    const QStringList& pids = QString(process.readAll()).trimmed().split(" ", QString::SkipEmptyParts);
+    QCOMPARE(pids.size(), 1);
+
+    process.start("dbus-send", QStringList() << "--session" << "--type=method_call" << "--print-reply"
+                  << "--dest=com.deepin.dde.ControlCenter" << "/com/deepin/dde/ControlCenter"
+                  << "com.deepin.dde.ControlCenter.exitProc");
+    process.waitForFinished(2000);
+
+    QCOMPARE(pids.size(), 0);
+}
+
 QTEST_APPLESS_MAIN(ControlCenterUnitTest)
 
 #include "controlcenterunittest.moc"

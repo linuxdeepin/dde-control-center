@@ -44,6 +44,7 @@ private slots:
     void testBluetoothIsVisible();                        //测试蓝牙是否正常显示
     void displayMode_check();                               // 显示模式检查
     void checkWindowCompositingEnable();  // 开启 和 关闭窗口特效检测
+    void testProcessNumber();
 
 private:
     int displayMode;
