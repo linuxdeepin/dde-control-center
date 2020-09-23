@@ -36,7 +36,7 @@
 using namespace dcc::widgets;
 DWIDGET_USE_NAMESPACE
 
-SettingsHead::SettingsHead(QFrame *parent)
+SettingsHead::SettingsHead(QWidget *parent)
     : SettingsItem(parent)
     , m_title(new TitleLabel)
     , m_edit(new DCommandLinkButton(""))

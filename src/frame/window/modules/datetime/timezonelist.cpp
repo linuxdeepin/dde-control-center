@@ -37,7 +37,7 @@ TimezoneList::TimezoneList(QWidget *parent)
     , m_centralLayout(new QVBoxLayout)
     , m_addTimezoneButton(new DFloatingButton(DStyle::SP_IncreaseElement, this))
     , m_headGroup(new SettingsGroup)
-    , m_headItem(new SettingsHead)
+    , m_headItem(new SettingsHead(this))
     , m_contentList(new TimezoneContentList(this))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

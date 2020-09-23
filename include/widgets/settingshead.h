@@ -49,7 +49,7 @@ public:
     };
 
 public:
-    explicit SettingsHead(QFrame *parent = nullptr);
+    explicit SettingsHead(QWidget *parent = nullptr);
 
     void setTitle(const QString &title);
     void setEditEnable(bool state = true);
