@@ -107,6 +107,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_upgradeWarningGroup->setVisible(false);
     m_upgradeWarningGroup->appendItem(m_upgradeWarning);
 
+    m_checkUpdateBtn->setEnabled(false);    //+ 仓库有问题，暂时屏蔽更新功能；
     m_checkUpdateBtn->setFixedSize(QSize(300,36));
     m_checkUpdateBtn->setVisible(false);
     m_lastCheckTimeTip->setAlignment(Qt::AlignCenter);
@@ -241,7 +242,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkUpdateBtn->setText(caption);
         m_checkUpdateBtn->setVisible(true);
         m_lastCheckTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
-        m_lastCheckTimeTip->setVisible(true);
+        m_lastCheckTimeTip->setVisible(false);   //+ 仓库有问题，暂时屏蔽更新功能，此项先隐藏；
     };
 
     switch (m_status) {
