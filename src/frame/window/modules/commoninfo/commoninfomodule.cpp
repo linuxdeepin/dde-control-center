@@ -99,9 +99,6 @@ const QString CommonInfoModule::displayName() const
 void CommonInfoModule::active()
 {
     //    mCommonWork->activate();
-    if (m_commonWidget) {
-        delete m_commonWidget;
-    }
     m_commonWidget = new CommonInfoWidget();
     m_commonWidget->setVisible(false);
     connect(m_commonWidget, &CommonInfoWidget::requestShowBootWidget, this, &CommonInfoModule::onShowBootWidget);
