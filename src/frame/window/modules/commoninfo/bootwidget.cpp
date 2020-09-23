@@ -85,11 +85,7 @@ BootWidget::BootWidget(QWidget *parent)
     dpLabel.setColor(DPalette::Text, QColor(255, 255, 255));
     DApplicationHelper::instance()->setPalette(m_updatingLabel, dpLabel);
     m_listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter | Qt::AlignBottom);
-    QHBoxLayout *hLayout = new QHBoxLayout;
-    hLayout->addStretch(1);
-    hLayout->addLayout(m_listLayout, 16);
-    hLayout->addStretch(1);
-    m_background->setLayout(hLayout);
+    m_background->setLayout(m_listLayout);
 
     m_bootDelay = new SwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
@@ -238,4 +234,10 @@ void BootWidget::onCurrentItem(const QModelIndex &curIndex)
     if (curText != selectedText) {
         Q_EMIT defaultEntry(curText);
     }
+}
+
+void BootWidget::resizeEvent(QResizeEvent *event)
+{
+    auto w = event->size().width();
+    m_listLayout->setContentsMargins(static_cast<int>(w * 0.2), 0, static_cast<int>(w * 0.2), 0);
 }
