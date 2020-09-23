@@ -52,7 +52,7 @@ public:
     // 返回模块名
     virtual const QString name() const override;
     virtual const QString displayName() const override;
-    // 当模块第一次被点击时会被调用
+    // 模块每次被点击时会被调用
     virtual void active() override;
     virtual void deactive() override;
     // 当搜索到相关字段后，load会被调用
