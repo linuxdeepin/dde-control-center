@@ -231,11 +231,19 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         m_nameEdit->lineEdit()->blockSignals(false);
     });
 
-    connect(m_fullnameEdit, &DLineEdit::textEdited, this, [ = ] {
+    connect(m_fullnameEdit, &DLineEdit::textEdited, this, [=](const QString &strText) {
         if (m_fullnameEdit->isAlert()){
             m_fullnameEdit->hideAlertMessage();
             m_fullnameEdit->setAlert(false);
         }
+        QString strTemp = strText;
+        if (strTemp.size() >= 1 && strTemp[0] == " ") {
+            strTemp = strTemp.simplified();
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        }
+        m_fullnameEdit->lineEdit()->blockSignals(true);
+        m_fullnameEdit->lineEdit()->setText(strTemp);
+        m_fullnameEdit->lineEdit()->blockSignals(false);
     });
 
     connect(m_passwdEdit, &DPasswordEdit::textEdited, this, [ = ] {
@@ -326,8 +334,8 @@ void CreateAccountPage::createUser()
     //如果用户没有选图像
     auto avatarPaht = m_avatarListWidget->getAvatarPath();
     m_newUser->setCurrentAvatar(avatarPaht);
-    m_newUser->setName(m_nameEdit->lineEdit()->text());
-    m_newUser->setFullname(m_fullnameEdit->lineEdit()->text());
+    m_newUser->setName(m_nameEdit->lineEdit()->text().simplified());
+    m_newUser->setFullname(m_fullnameEdit->lineEdit()->text().simplified());
     m_newUser->setPassword(m_passwdEdit->lineEdit()->text());
     m_newUser->setRepeatPassword(m_repeatpasswdEdit->lineEdit()->text());
 
@@ -540,20 +548,24 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
 bool CreateAccountPage::onFullNameEidtFinished(DLineEdit *edit)
 {
     auto userFullName = edit->lineEdit()->text();
-    auto userList = m_userModel->userList();
-    for (auto u : userList) {
-        if (u->fullname() == userFullName && u->fullname() != nullptr) {
+    if (userFullName.isEmpty()) {
+        return true;
+    } else {
+        auto userList = m_userModel->userList();
+        for (auto u : userList) {
+            if (userFullName == u->name() || userFullName == u->fullname()) {
+                edit->setAlert(true);
+                edit->showAlertMessage(tr("The full name already exists"), this);
+                return false;
+            }
+        }
+
+        // sp3要求全名最长32位
+        if (userFullName.size() > 32) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("The full name already exists"), -1);
+            edit->showAlertMessage(tr("The full name is too long"), this);
             return false;
         }
+        return true;
     }
-
-    // sp3要求全名最长32位
-    if (userFullName.size() > 32) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("The full name is too long"), -1);
-        return false;
-    }
-    return true;
 }
