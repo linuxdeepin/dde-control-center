@@ -53,7 +53,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void resetMonitorsView();
-    void monitorMoved(MonitorProxyWidget *pw);
+    void monitorMoved(MonitorProxyWidget *pw, bool isApply);
     void adjust(MonitorProxyWidget *pw);
     void adjustAll();
 private:
