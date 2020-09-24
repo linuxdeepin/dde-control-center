@@ -121,7 +121,10 @@ void TouchscreenPage::onMonitorChanged()
 
     auto *mainWidget = new QWidget();
     mainWidget->installEventFilter(this);
-    m_contentArea->setWidget(mainWidget);
+
+    QHBoxLayout *areamainlayout = new QHBoxLayout(m_contentArea);
+    areamainlayout->addWidget(mainWidget);
+    m_contentArea->setLayout(areamainlayout);
 
     auto *layout = new QVBoxLayout();
     mainWidget->setLayout(layout);
