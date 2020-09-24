@@ -231,7 +231,7 @@ void UseElectricWidget::setModel(const PowerModel *model)
         if (IsServerSystem || !model->canHibernate()) {
             m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
         } else {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction());
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(model->linePowerPressPowerBtnAction());
         }
     }
 
