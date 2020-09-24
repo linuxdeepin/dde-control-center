@@ -94,6 +94,7 @@ private Q_SLOTS:
     void removePort(const QString &portId, const uint &cardId);
     void addPort(const dcc::sound::Port *port);
     void toggleMute();
+    void changeComboxIndex(const int idx);
 
 private:
     void initSlider();
