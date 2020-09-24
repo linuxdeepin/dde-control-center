@@ -152,7 +152,9 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
             auto item = model->item(i);
             auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
             if (port->id() == portId && cardId == port->cardId()) {
+                disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
                 model->removeRow(i);
+                connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             } else {
                 ++i;
             }
@@ -172,6 +174,7 @@ void SpeakerPage::changeComboxIndex(const int idx)
         return;
     auto temp = m_outputModel->index(idx, 0);
     this->requestSetPort(m_outputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
+    qDebug() << "default sink index change, currentTerxt:" << m_outputSoundCbx->comboBox()->itemText(idx);
 }
 
 void SpeakerPage::addPort(const dcc::sound::Port *port)
@@ -188,14 +191,18 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
         connect(port, &dcc::sound::Port::isActiveChanged, this, [ = ](bool isActive) {
             pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
             if (isActive) {
+                disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
                 m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
+                connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             }
         });
         disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
         m_outputModel->appendRow(pi);
         connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
         if (port->isActive()) {
+            disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
+            connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
