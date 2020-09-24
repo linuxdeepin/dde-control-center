@@ -237,7 +237,7 @@
         <translation>Grup</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="552"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="553"/>
         <source>The full name is too long</source>
         <translation>El nom complet és massa llarg.</translation>
     </message>
@@ -313,157 +313,157 @@
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="57"/>
         <source>Group</source>
         <translation>Grup</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="90"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
         <source>Create</source>
         <translation>Crea</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="151"/>
         <source>New Account</source>
         <translation>Compte nou</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="166"/>
         <source>Account Type</source>
         <translation>Tipus de compte</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
         <source>Username</source>
         <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="178"/>
         <source>Full Name</source>
         <translation>Nom complet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="184"/>
         <source>Password</source>
         <translation>Contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="190"/>
         <source>Repeat Password</source>
         <translation>Repetiu la contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="257"/>
         <source>Standard</source>
         <translation>Estàndard</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="258"/>
         <source>Administrator</source>
         <translation>Administrador/a</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="259"/>
         <source>Customized</source>
         <translation>Personalitzat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="259"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="264"/>
         <source>Required</source>
         <translation>Cal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="262"/>
         <source>optional</source>
         <translation>opcional</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="360"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="362"/>
         <source>Go to Settings</source>
         <translation>Ves a la configuració</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="410"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="423"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="425"/>
         <source>Password cannot be empty</source>
         <translation>La contrasenya no es pot deixar en blanc</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="415"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="417"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>La contrasenya ha de tenir un mínim de %1 caràcters i ha de contenir almenys %2 dels quatre tipus de caràcters disponibles: lletres minúscules, majúscules, números i símbols.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="430"/>
         <source>The password must have at least %1 characters</source>
         <translation>La contrasenya ha de tenir com a mínim %1 caràcters.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="436"/>
         <source>Password must be no more than %1 characters</source>
         <translation>La contrasenya no ha de tenir més de %1 caràcters.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="441"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>La contrasenya hauria de tenir un mínim de %1 caràcters dels quatre tipus de caràcters disponibles: lletres minúscules, majúscules, números i símbols.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="448"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>La contrasenya només pot contenir caràcters en anglès (majúscules o minúscules), números o símbols especials (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;).</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="459"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>La contrasenya no ha de contenir més de 4 caràcters palíndroms.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="466"/>
         <source>Password must not contain common words and combinations</source>
         <translation>La contrasenya no ha de contenir paraules i combinacions comunes.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="482"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="484"/>
         <source>Password should not be the repeated or reversed username</source>
         <translation>La contrasenya no hauria de ser el nom d’usuari repetit o escrit a la inversa.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="490"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="492"/>
         <source>Passwords do not match</source>
         <translation>Les contrasenyes no coincideixen.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="514"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="516"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>El nom d&apos;usuari ha de tenir de 3 a 32 caràcters de llargada.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="521"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="523"/>
         <source>The first character must be a letter or number</source>
         <translation>El primer caràcter ha de ser una lletra o un número.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="527"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="529"/>
         <source>Your username should not only have numbers</source>
         <translation>El nom d’usuari no només hauria de tenir números.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
         <source>The full name already exists</source>
         <translation>El nom complet ja existeix.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="553"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="555"/>
         <source>The full name is too long</source>
         <translation>El nom complet és massa llarg.</translation>
     </message>
@@ -644,7 +644,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="98"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -705,29 +705,29 @@
         <translation>S&apos;actualitza...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
         <source>Startup Delay</source>
         <translation>Retard de l&apos;inici</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Theme</source>
         <translation>Tema</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>Cliqueu a l&apos;opció al menú d&apos;arrencada per establir-la com a primera arrencada i arrossegueu-hi una imatge per canviar-ne el fons.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>Activeu el tema per veure&apos;l al menú d&apos;arrencada.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="130"/>
         <source>Boot Menu</source>
         <translation>Menú d&apos;arrencada</translation>
     </message>
@@ -735,13 +735,13 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="67"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="73"/>
         <source>Boot Menu</source>
         <translation>Menú d&apos;arrencada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="96"/>
         <source>General Settings</source>
         <translation>Configuració general</translation>
     </message>
@@ -960,8 +960,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="55"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
-        <translation>Unir-se al Programa d&apos;experiència d&apos;usuari vol dir que ens atorgueu i autoritzeu a recopilar i usar la informació del vostre dispositiu, sistema i aplicacions. Si rebutgeu la nostra recopilació i ús de la informació abans esmentada, no us uniu al Programa d&apos;experiència d&apos;usuari. Per a més informació, consulteu la Política de privadesa del SO d&apos;UnionTech (https://www.uniontech.com/agreement/privacy-en).</translation>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1269,8 +1269,8 @@
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="68"/>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="70"/>
         <source>Add Timezone</source>
         <translation>Afegiu una zona horària</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
@@ -1299,7 +1299,7 @@
 <context>
     <name>dccV20::defapp::DefaultAppsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="86"/>
         <source>Default Applications</source>
         <translation>Aplicacions predeterminades</translation>
     </message>
@@ -1456,7 +1456,7 @@
         <translation>Pantalla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="146"/>
         <source>Multiple Displays</source>
         <translation>Pantalles múltiples</translation>
     </message>
@@ -1786,12 +1786,12 @@
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="128"/>
         <source>Keyboard and Language</source>
         <translation>Llengua i teclat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="256"/>
         <source>Custom Shortcut</source>
         <translation>Drecera personalitzada</translation>
     </message>
@@ -1948,7 +1948,7 @@
         <translation>Punt de rastreig</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="160"/>
         <source>Mouse</source>
         <translation>Ratolí</translation>
     </message>
@@ -2581,7 +2581,7 @@
         <translation>Punt d&apos;accés personal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="266"/>
         <source>Network</source>
         <translation>Xarxa</translation>
     </message>
@@ -4122,14 +4122,13 @@
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="89"/>
         <source>Add Network Connection</source>
         <translation>Afegiu una connexió de xarxa</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="104"/>
         <source>Select Settings</source>
         <translation>Seleccioneu els paràmetres</translation>
     </message>
@@ -4137,23 +4136,23 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
         <source>Connect to hidden network</source>
         <translation>Connecta amb una xarxa oculta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
         <source>Wireless Network Adapter</source>
         <translation>Adaptador de la xarxa sense fil</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="306"/>
         <source>Close Hotspot</source>
         <translation>Tanca el punt d&apos;accés.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="309"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Inhabiliteu primer el punt d&apos;accés si voleu connectar-vos a una xarxa sense fil.</translation>
     </message>
@@ -4528,12 +4527,12 @@
         <translation>Energia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="244"/>
         <source>Battery low, please plug in</source>
         <translation>Bateria baixa, endolleu-lo, si us plau.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="246"/>
         <source>Battery critically low</source>
         <translation>Bateria molt baixa</translation>
     </message>
@@ -5332,15 +5331,15 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="214"/>
         <source>To be activated</source>
         <translation>Per ser activat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="100"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="215"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="223"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="228"/>
         <source>Activate</source>
         <translation>Activa</translation>
     </message>
@@ -5363,33 +5362,33 @@
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="193"/>
         <source>%1-bit</source>
         <translation>%1 bits</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="210"/>
         <source>Activated</source>
         <translation>Activat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="220"/>
         <source>View</source>
         <translation>Visualització</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="218"/>
         <source>Expired</source>
         <translation>Caducat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="222"/>
         <source>In trial period</source>
         <translation>En un període de prova</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="226"/>
         <source>Trial expired</source>
         <translation>S&apos;ha esgotat el període de prova.</translation>
     </message>
@@ -5397,7 +5396,7 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="110"/>
         <source>System Info</source>
         <translation>Informació del sistema</translation>
     </message>
@@ -5858,7 +5857,7 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
 <context>
     <name>dccV20::wacom::WacomModule</name>
     <message>
-        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="98"/>
         <source>Drawing Tablet</source>
         <translation>Tauleta de dibuix</translation>
     </message>
@@ -6512,23 +6511,23 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="221"/>
         <source>Confirm</source>
         <translation>Confirmeu-ho</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add Timezone</source>
         <translation>Afegiu una zona horària</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
         <source>Add</source>
         <translation>Afegeix</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Change Timezone</source>
         <translation>Canvia la zona horària</translation>
     </message>
@@ -6925,12 +6924,12 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
         <translation>Informació del sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="240"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
         <translation>Copyright© 2011-2020 Comunitat del Deepin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>

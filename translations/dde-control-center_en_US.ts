@@ -707,29 +707,29 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
         <source>Startup Delay</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="130"/>
         <source>Boot Menu</source>
         <translation type="unfinished"></translation>
     </message>
@@ -962,7 +962,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="55"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1458,7 +1458,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="146"/>
         <source>Multiple Displays</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5333,15 +5333,15 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="214"/>
         <source>To be activated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="100"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="215"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="223"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="228"/>
         <source>Activate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5364,33 +5364,33 @@
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="193"/>
         <source>%1-bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="210"/>
         <source>Activated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="220"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="218"/>
         <source>Expired</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="222"/>
         <source>In trial period</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="226"/>
         <source>Trial expired</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6521,23 +6521,23 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="221"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add Timezone</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Change Timezone</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6934,12 +6934,12 @@ Visit User Center and manage your account there.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="240"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
         <translation type="unfinished"></translation>
     </message>

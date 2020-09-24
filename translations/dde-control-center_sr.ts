@@ -237,7 +237,7 @@
         <translation>Група</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="552"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="553"/>
         <source>The full name is too long</source>
         <translation>Пуно име је предугачко</translation>
     </message>
@@ -313,157 +313,157 @@
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="57"/>
         <source>Group</source>
         <translation>Група</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="90"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
         <source>Create</source>
         <translation>Направи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="151"/>
         <source>New Account</source>
         <translation>Нови налог</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="166"/>
         <source>Account Type</source>
         <translation>Врста Налога</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
         <source>Username</source>
         <translation>Корисничко име</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="178"/>
         <source>Full Name</source>
         <translation>Пуно име</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="184"/>
         <source>Password</source>
         <translation>Лозинка</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="190"/>
         <source>Repeat Password</source>
         <translation>Поново унеси</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="257"/>
         <source>Standard</source>
         <translation>Стандарни</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="258"/>
         <source>Administrator</source>
         <translation>Администратор</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="259"/>
         <source>Customized</source>
         <translation>Прилагођен</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="259"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="264"/>
         <source>Required</source>
         <translation>Неопходно</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="262"/>
         <source>optional</source>
         <translation>опционо</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="360"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="362"/>
         <source>Go to Settings</source>
         <translation>Иди у подешавања</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="410"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="423"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="425"/>
         <source>Password cannot be empty</source>
         <translation>Лозинка не може бити празна</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="415"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="417"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Лозинка мора садржати најмање %1 карактера и мора имати најмање %2 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="430"/>
         <source>The password must have at least %1 characters</source>
         <translation>Лозинка мора садржати најмање %1 карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="436"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Лозинка не може бити дужа од %1 карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="441"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Лозинка мора садржати најмање %1 од 4 понуђене врсте карактера: мала слова, велика слова, бројеви и симболи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="448"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Лозинка може садржати само енглеска слова (осетљива на величину), бројеве и специјалне карактере  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="459"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Лозинка не сме садржати више од 4 палиндромна карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="466"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Лозинка се не сме састојати од уобичајених речи и комбинација </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="482"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="484"/>
         <source>Password should not be the repeated or reversed username</source>
         <translation>Лозинка не сме бити поновљено или написано уназад корисничко име</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="490"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="492"/>
         <source>Passwords do not match</source>
         <translation>Лозинке се не подударају</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="514"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="516"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Корисничко име мора садржати између 3-32 карактера</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="521"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="523"/>
         <source>The first character must be a letter or number</source>
         <translation>Први карактер мора бити слово или број</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="527"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="529"/>
         <source>Your username should not only have numbers</source>
         <translation>Корисничко име не може садржати само бројеве</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
         <source>The full name already exists</source>
         <translation>Пуно име већ постоји</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="553"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="555"/>
         <source>The full name is too long</source>
         <translation>Пуно име је предугачко</translation>
     </message>
@@ -644,7 +644,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="98"/>
         <source>Bluetooth</source>
         <translation>Блутут</translation>
     </message>
@@ -705,29 +705,29 @@
         <translation>Ажурирање...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
         <source>Startup Delay</source>
         <translation>Одлагање покретања</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Theme</source>
         <translation>Тема</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>Кликните на ставку у изборнику покретача да буде прва која се покреће. Превуците и убаците слику да промените позадину.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>Укључите тему да се приказује при покретању.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="130"/>
         <source>Boot Menu</source>
         <translation>Покретач система</translation>
     </message>
@@ -735,13 +735,13 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="67"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="73"/>
         <source>Boot Menu</source>
         <translation>Покретач система</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="96"/>
         <source>General Settings</source>
         <translation>Општа подешавања</translation>
     </message>
@@ -960,7 +960,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="55"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1269,8 +1269,8 @@
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="68"/>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="70"/>
         <source>Add Timezone</source>
         <translation>Додај временску зону</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
@@ -1299,7 +1299,7 @@
 <context>
     <name>dccV20::defapp::DefaultAppsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="86"/>
         <source>Default Applications</source>
         <translation>Основни програми</translation>
     </message>
@@ -1456,7 +1456,7 @@
         <translation>Екран</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="146"/>
         <source>Multiple Displays</source>
         <translation>Вишеструки прикази</translation>
     </message>
@@ -1786,12 +1786,12 @@
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="128"/>
         <source>Keyboard and Language</source>
         <translation>Тастатура и језик</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="256"/>
         <source>Custom Shortcut</source>
         <translation>Ваша пречица</translation>
     </message>
@@ -1948,7 +1948,7 @@
         <translation>Управљачки тастер</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="160"/>
         <source>Mouse</source>
         <translation>Миш</translation>
     </message>
@@ -2581,7 +2581,7 @@
         <translation>Лична врућа тачка</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="266"/>
         <source>Network</source>
         <translation>Мрежа</translation>
     </message>
@@ -4122,14 +4122,13 @@
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="89"/>
         <source>Add Network Connection</source>
         <translation>Додај мрежу</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="104"/>
         <source>Select Settings</source>
         <translation>Изабери подешавања</translation>
     </message>
@@ -4137,23 +4136,23 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
         <source>Connect to hidden network</source>
         <translation>Повежи се на скривену мрежу</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
         <source>Wireless Network Adapter</source>
         <translation>Бежична мрежна картица</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="306"/>
         <source>Close Hotspot</source>
         <translation>Затвори врућу тачку</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="309"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Прво онемогућите врућу тачку ако желите да се повежете на бежичну мрежу</translation>
     </message>
@@ -4528,12 +4527,12 @@
         <translation>Напајање</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="244"/>
         <source>Battery low, please plug in</source>
         <translation>Батерија при крају, прикључите пуњач</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="246"/>
         <source>Battery critically low</source>
         <translation>Батерија критично испражњена</translation>
     </message>
@@ -5332,15 +5331,15 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="214"/>
         <source>To be activated</source>
         <translation>Потребно активирати</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="100"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="215"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="223"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="228"/>
         <source>Activate</source>
         <translation>Активирај</translation>
     </message>
@@ -5363,33 +5362,33 @@
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="193"/>
         <source>%1-bit</source>
         <translation>%1-битни</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="210"/>
         <source>Activated</source>
         <translation>Активиран</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="220"/>
         <source>View</source>
         <translation>Прикажи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="218"/>
         <source>Expired</source>
         <translation>Истекло</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="222"/>
         <source>In trial period</source>
         <translation>Пробни период</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="226"/>
         <source>Trial expired</source>
         <translation>Пробни период је истекао</translation>
     </message>
@@ -5397,7 +5396,7 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="110"/>
         <source>System Info</source>
         <translation>Подаци система</translation>
     </message>
@@ -5858,7 +5857,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dccV20::wacom::WacomModule</name>
     <message>
-        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="98"/>
         <source>Drawing Tablet</source>
         <translation>Табла за цртање</translation>
     </message>
@@ -6512,23 +6511,23 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="221"/>
         <source>Confirm</source>
         <translation>Потврди</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add Timezone</source>
         <translation>Додај временску зону</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
         <source>Add</source>
         <translation>Додај</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Change Timezone</source>
         <translation>Промени временску зону</translation>
     </message>
@@ -6925,12 +6924,12 @@ Visit User Center and manage your account there.</source>
         <translation>Подаци система</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="240"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
         <translation>Ауторска права© 2011-2020 Дипин заједница</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
         <translation>Ауторска права © 2019-2020 UnionTech Software Technology Co., LTD</translation>
     </message>
