@@ -101,6 +101,8 @@ void ControlCenterUnitTest::testModules()
 /**
  * @brief ControlCenterUnitTest::inputDevieNum 判断显示的输出设备个数
  * @param num 预计显示的输出设备数
+ * 未接入耳机时默认显示１个输出设备，测试通过
+ * 当接入多个耳机时，会导致测试用例失败
  */
 void ControlCenterUnitTest::inputDevieNum(int num)
 {
