@@ -239,6 +239,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         m_fullNameBtn->setVisible(false);
         m_inputLineEdit->setVisible(true);
         m_inputLineEdit->setAlert(false);
+        m_inputLineEdit->setText(m_curUser->fullname());
         m_inputLineEdit->hideAlertMessage();
         m_inputLineEdit->lineEdit()->setFocus();
     });
