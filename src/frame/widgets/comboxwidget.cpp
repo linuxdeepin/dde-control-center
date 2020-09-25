@@ -28,6 +28,7 @@
 #include <QDebug>
 #include <QStringList>
 #include <QMouseEvent>
+#include <QLabel>
 
 using namespace DCC_NAMESPACE;
 namespace dcc {
@@ -49,20 +50,21 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     : SettingsItem(parent)
     , m_leftWidget(widget)
     , m_switchComboBox(new QComboBox)
+    , m_str("")
 {
     QHBoxLayout *mainLayout = new QHBoxLayout;
     setFixedHeight(ComboxWidgetHeight);
-    QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
-    if (label) {
-        label->setFixedWidth(110);
-        label->setWordWrap(true);
+    m_titleLabel = qobject_cast<QLabel *>(m_leftWidget);
+    if (m_titleLabel) {
+        m_str = m_titleLabel->text();
     }
 
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
+    mainLayout->setStretchFactor(m_leftWidget,3);
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
+    mainLayout->setStretchFactor(m_switchComboBox,7);
 
-    m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-
+    m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     setLayout(mainLayout);
 
     connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &ComboxWidget::onIndexChanged);
@@ -111,6 +113,26 @@ void ComboxWidget::mouseReleaseEvent(QMouseEvent *event)
     }
 
     return SettingsItem::mouseReleaseEvent(event);
+}
+
+void ComboxWidget::resizeEvent(QResizeEvent *event)
+{
+    Q_UNUSED(event);
+    if (event->type() == QEvent::Resize) {
+        if (m_titleLabel) {
+            QFontMetrics fontMetrics(m_titleLabel->font());
+            int fontSize = fontMetrics.width(m_str);
+            if (fontSize > m_titleLabel->width()) {
+                m_titleLabel->setText(fontMetrics.elidedText(m_str, Qt::ElideRight, m_titleLabel->width()));
+
+                m_titleLabel->setToolTip(m_str);
+            } else {
+                m_titleLabel->setText(m_str);
+                m_titleLabel->setToolTip("");
+            }
+        }
+    }
+    SettingsItem::resizeEvent(event);
 }
 
 }

@@ -27,6 +27,7 @@
 QT_BEGIN_NAMESPACE
 class QComboBox;
 class QStringList;
+class QLabel;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -55,10 +56,13 @@ Q_SIGNALS:
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
 
 private:
     QWidget *m_leftWidget;
     QComboBox *m_switchComboBox;
+    QLabel *m_titleLabel;
+    QString m_str;
 };
 
 }
