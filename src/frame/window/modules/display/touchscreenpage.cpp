@@ -41,6 +41,8 @@ using namespace dcc::display;
 using namespace dcc::widgets;
 DWIDGET_USE_NAMESPACE
 
+const int FontSpaceLenght = 10;
+
 void MCombobox::showPopup()
 {
     QComboBox::showPopup();
@@ -204,10 +206,13 @@ bool TouchscreenPage::eventFilter(QObject *obj, QEvent *event)
     if (event->type() == QEvent::Resize) {
         for (int i = 0; i < m_labels.count(); i++)
         {
-            QFontMetrics fontMetrics(m_titleName[i]);
-            int fontSize = fontMetrics.width(m_titleName[i]);
-            if (fontSize > m_labels[i]->width()) {
-                m_labels[i]->setText(fontMetrics.elidedText(m_titleName[i], Qt::ElideMiddle, m_labels[i]->width()));
+            QFontMetrics fontMetrics(m_labels[i]->font());
+            int fontSize = fontMetrics.boundingRect(m_titleName[i]).width();
+
+            // QFontMetrics计算不精准，为保证视觉效果，设置右边空10（FontSpaceLenght）个像素作为余量
+            if ((fontSize + FontSpaceLenght) > m_labels[i]->width()) {
+                // 字体过长做省略显示处理时，以控件宽度减去空白处为标准截取
+                m_labels[i]->setText(fontMetrics.elidedText(m_titleName[i], Qt::ElideMiddle, m_labels[i]->width() - FontSpaceLenght));
                 m_labels[i]->setToolTip(m_titleName[i]);
             } else {
                 m_labels[i]->setText(m_titleName[i]);
