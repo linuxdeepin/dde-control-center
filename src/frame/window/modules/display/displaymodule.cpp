@@ -98,8 +98,8 @@ void DisplayModule::active()
             this, &DisplayModule::showMultiScreenSettingPage);
     connect(m_displayWidget, &DisplayWidget::requestShowCustomConfigPage,
             this, &DisplayModule::showCustomSettingDialog);
-    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
-            this, &DisplayModule::showTouchScreenPage);
+    //connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
+    //        this, &DisplayModule::showTouchScreenPage);
 
     m_frameProxy->pushWidget(this, m_displayWidget);
     if (m_displayWidget->isMultiMode()) {

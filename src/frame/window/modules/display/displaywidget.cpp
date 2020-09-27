@@ -153,14 +153,15 @@ void DisplayWidget::initMenuUI()
     m_singleMenuList << refreshMenu;
 
     //if (m_model && !m_model->touchscreenList().isEmpty()) {
-    if (true) {
-        //~ contents_path /display/Touch Screen
-        MenuMethod touchscreenMenu = {tr("Touch Screen"),
-                                      "dcc_touchscreen",
-                                      QMetaMethod::fromSignal(&DisplayWidget::requestShowTouchscreenPage)};
-        m_multMenuList << touchscreenMenu;
-        m_singleMenuList << touchscreenMenu;
-    }
+    // 由于目前KLU不支持触控屏，暂时屏蔽触摸屏功能, 详见Task:38723
+    //if (true) {
+    //    //~ contents_path /display/Touch Screen
+    //    MenuMethod touchscreenMenu = {tr("Touch Screen"),
+    //                                  "dcc_touchscreen",
+    //                                  QMetaMethod::fromSignal(&DisplayWidget::requestShowTouchscreenPage)};
+    //    m_multMenuList << touchscreenMenu;
+    //    m_singleMenuList << touchscreenMenu;
+    //}
 
     DStandardItem *btn{nullptr};
     for (auto menu : m_multMenuList) {
