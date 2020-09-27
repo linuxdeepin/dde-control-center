@@ -118,6 +118,7 @@ private:
 
     SoundLabel *m_volumeBtn;
     bool m_mute;
+    bool m_isNoiseReduceShow;
 };
 
 }

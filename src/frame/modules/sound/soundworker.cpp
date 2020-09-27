@@ -245,6 +245,7 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 
     if (m_defaultSource) m_defaultSource->deleteLater();
     m_defaultSource = new Source("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
+    requestNoiseReduceVisible();
 
     connect(m_defaultSource, &Source::MuteChanged, [this](bool mute) { m_model->setMicrophoneOn(mute); });
     connect(m_defaultSource, &Source::VolumeChanged, m_model, &SoundModel::setMicrophoneVolume);
@@ -419,6 +420,16 @@ void SoundWorker::requestBlanceVisible()
         Q_EMIT m_model->setBlanceVisible(false);
     else
         Q_EMIT m_model->setBlanceVisible(true);
+}
+
+void SoundWorker::requestNoiseReduceVisible()
+{
+    if (!m_defaultSource)
+        return;
+    if (m_defaultSource->activePort().name.contains("headset_head_unit"))
+        Q_EMIT m_model->setNoiseReduceVisible(false);
+    else
+        Q_EMIT m_model->setNoiseReduceVisible(true);
 }
 
 }

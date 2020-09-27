@@ -76,6 +76,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_layout(new QVBoxLayout)
     , m_sw(new SwitchWidget)
     , m_mute(false)
+    , m_isNoiseReduceShow(true)
 {
     const int titleLeftMargin = 8;
     //~ contents_path /sound/Advanced
@@ -139,6 +140,12 @@ void MicrophonePage::resetUi()
         if (port.name.isEmpty() || port.description.isEmpty()) {
             m_inputSoundCbx->comboBox()->setCurrentIndex(-1);
         }
+        if (port.name.contains("headset_head_unit")) {
+            m_isNoiseReduceShow = false;
+        } else {
+            m_isNoiseReduceShow = true;
+        }
+        m_noiseReductionsw->setVisible(m_isNoiseReduceShow);
     }
 }
 
@@ -187,6 +194,10 @@ void MicrophonePage::setModel(SoundModel *model)
 
     connect(m_model, &SoundModel::microphoneOnChanged, this, [ = ](bool flag) {
         m_mute = flag; refreshIcon();
+    });
+    connect(m_model, &SoundModel::setNoiseReduceVisible, this, [ = ](bool flag) {
+            m_noiseReductionsw->setVisible(flag);
+            m_isNoiseReduceShow = flag;
     });
 
     initSlider();
@@ -415,7 +426,7 @@ void MicrophonePage::setDeviceVisible(bool visable)
     if (visable) {
         m_feedbackSlider->show();
         m_inputSlider->show();
-        m_noiseReductionsw->show();
+        m_noiseReductionsw->setVisible(m_isNoiseReduceShow);
     } else {
         m_feedbackSlider->hide();
         m_inputSlider->hide();
