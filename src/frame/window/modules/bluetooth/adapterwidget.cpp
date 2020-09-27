@@ -115,6 +115,7 @@ void AdapterWidget::initUI()
     m_refreshBtn->setFixedSize(36, 36);
     m_refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
     m_showAnonymousCheckBox->setChecked(m_showUnnamedDevices);
+    m_showAnonymousCheckBox->setAccessibleName("Btn_anonymouscheckbox");
 
     m_hideAnonymousLabel->setFixedHeight(36);
     m_hideAnonymousLabel->setMinimumWidth(10);
