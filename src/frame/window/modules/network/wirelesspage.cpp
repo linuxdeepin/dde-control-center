@@ -302,6 +302,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             m_switch->setChecked(dev->enabled() && enabled);
     });
 
+
     TitleLabel *lblTitle = new TitleLabel(tr("Wireless Network Adapter"));//无线网卡
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(nullptr, lblTitle);
@@ -404,8 +405,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     }
 
     m_preActiveSsid = m_device->activeApSsid();
-    Q_EMIT requestDeviceAPList(m_device->path());
-    Q_EMIT requestWirelessScan();
 }
 
 WirelessPage::~WirelessPage()
@@ -414,6 +413,9 @@ WirelessPage::~WirelessPage()
     if (scroller) {
         scroller->stop();
     }
+    qDebug() << Q_FUNC_INFO;
+    //这里做个清理操作，由于networkmodle和networkwrok是一个复用状态，不会被释放，所以这里加一个清理wifi列表的操作
+    m_model->WirelessListClear();
 }
 
 void WirelessPage::updateLayout(bool enabled)
@@ -494,6 +496,9 @@ void WirelessPage::setModel(NetworkModel *model)
             static_cast<void (WirelessDevice::*)(WirelessDevice::DeviceStatus) const>(&WirelessDevice::statusChanged),
             this,
             &WirelessPage::onDeviceStatusChanged);
+    //当信号和槽函数连接后，发送一个刷新wifi列表的信号，可以防止第一次打开无线网页面出现没有wifi的情况，如果这个写在构造函数中，实际上是没有响应的
+    Q_EMIT requestWirelessScan();
+
     onHotspotEnableChanged(m_device->hotspotEnabled());
     updateLayout(!m_lvAP->isHidden());
     m_switch->setChecked(m_device->enabled());
@@ -532,11 +537,13 @@ void WirelessPage::onNetworkAdapterChanged(bool checked)
 
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 {
-    if (!canUpdateApList())
-        return;
+    /* 当前情况下是一分钟刷新一次
+        if (!canUpdateApList()) {
+            return;
+        }
+        注释中的内容无需添加，如果后期修改逻辑，请根据情况是否要添加 */
 
     const QString &ssid = apInfo.value("Ssid").toString();
-
     if (!m_apItems.contains(ssid)) {
         APItem *apItem = new APItem(ssid, style(), m_lvAP);
         m_apItems[ssid] = apItem;

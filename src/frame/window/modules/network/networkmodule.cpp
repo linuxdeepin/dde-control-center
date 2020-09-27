@@ -74,6 +74,7 @@ NetworkModule::~NetworkModule()
 {
     m_networkModel->deleteLater();
     m_networkWorker->deleteLater();
+    qDebug() << Q_FUNC_INFO;
 }
 
 void NetworkModule::showPage(const QString &jsonData)
