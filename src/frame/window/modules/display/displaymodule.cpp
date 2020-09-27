@@ -373,7 +373,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
 
 int DisplayModule::showTimeoutDialog(Monitor *mon)
 {
-    TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
+    TimeoutDialog *timeoutDialog = new TimeoutDialog(15,"",m_displayWidget);
     qDebug() << "new TimeoutDialog";
     qreal radio = qApp->devicePixelRatio();
     connect(mon, &Monitor::geometryChanged, timeoutDialog, [ = ] {
