@@ -74,6 +74,7 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
 
     m_parentView = parent;
     if (parent != nullptr) {
+        //连接动图---那个三个小球转转转的图标
         m_loadingIndicator = new DSpinner();
         m_loadingIndicator->setFixedSize(20, 20);
         m_loadingIndicator->hide();
@@ -376,20 +377,19 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_device, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
     connect(m_device, &WirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
     connect(m_device, &WirelessDevice::activeConnectionsChanged, this, [ = ] {
-        //主动或被动连接ap成功后，扫描一次wifi，刷新列表
-        //接收信号时获取的activeApSsid()还是上一个ssid，延迟500ms待数据同步当前连接的ssid，再判断
-        QTimer::singleShot(500, this, [ = ] {
-            if (!m_device->activeApSsid().isEmpty() && m_device->status() == NetworkDevice::Activated) {
+        /*由于这里数据不好处理，需要将QList<QJsonObject> > 转成 APItem，并不是很好处理
+            所以放弃了更新m_clickItem,而直接将全部的连接状态都关闭，则可以正常显示一个wifi的连接状态，
+            正确的操作应该是在这里更新一下m_clickItem的值，然后再进行遍历关闭其他连接中状态的操作，伪代码如下:
 
-                Q_EMIT requestDeviceAPList(m_device->path());
-                Q_EMIT requestWirelessScan();
+            m_clickItem = 后端发过来的数据转化成ApItem *;
+            for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+                it.value()->setLoading(it->value() == m_clickItem);
             }
-        });
-    });
-    // task 34726 频繁切换连接后依据最后更改的热点连接状态，刷新列表显示状态
-    connect(m_device, &WirelessDevice::activeConnectionsChanged, this, [ = ] {
+
+         Author: xiehui <xiehui@uniontech.com>   */
+
         for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-            it.value()->setLoading(it.value() == m_clickedItem);
+            it.value()->setLoading(false);
         }
     });
 
